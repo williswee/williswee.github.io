@@ -1,117 +1,74 @@
-
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Open+Sans:wght@600;700&display=swap');
-
-/* --- Global & Color Palette --- */
-:root {
-    --bg-color: #1f2023;       /* Deep charcoal, not pure black */
-    --text-color: #e8e6e3;     /* Soft, warm off-white */
-    --heading-color: #ffffff;  /* Pure white for sharp headings */
-    --accent-color: #7bb0ff;   /* A pleasant, readable blue for links */
-    --border-color: #3a3b3f;   /* Subtle border for separation */
-}
-
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'EB Garamond', 'Iowan Old Style', 'Apple Garamond', 'URW Garamond L', 'Palatino', serif;
-    font-size: 1.125rem;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
+    /* A dark charcoal background, not pure black */
+    background-color: #1c1c1e;
+    /* A slightly off-white for comfortable reading */
+    color: #e2e2e7;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 800px;
 }
 
-.container {
-    max-width: 720px;
-    width: 100%;
-}
-
-/* --- Navigation --- */
 header {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #3a3a3c; /* A subtle separator line */
     padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
 }
 
+/* --- The Navigation Bar Fix --- */
 nav {
-    font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
-    font-weight: 600;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    display: flex; /* Use Flexbox for powerful layout control */
+    flex-wrap: nowrap; /* This is the key: prevents items from wrapping to a new line */
+    justify-content: space-between; /* Spreads the links out across the available space */
+    align-items: center; /* Vertically aligns items, useful if they have different heights */
+    overflow-x: auto; /* If screen is super narrow, allows user to scroll nav horizontally */
 }
 
 nav a {
-    color: var(--text-color);
     text-decoration: none;
-    margin-right: 25px;
-    transition: color 0.2s ease-in-out;
+    /* A muted gray for non-active links, like your screenshot */
+    color: #9a9aa0;
+    /* Uppercase with letter spacing for a clean, modern look */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    font-size: 13px; /* Slightly smaller font to help it fit on one line */
+    white-space: nowrap; /* Ensures each link itself doesn't break into two lines */
+    margin-right: 15px; /* Reduced margin to save space */
 }
 
-nav a:hover {
-    color: var(--accent-color);
+nav a:last-child {
+    margin-right: 0;
 }
 
 nav a.active {
-    color: var(--heading-color);
-    font-weight: 700;
+    color: #ffffff; /* Bright white for the active link */
+    font-weight: 600;
 }
 
-/* --- Typography --- */
+/* --- General Typography --- */
 h1, h2, h3 {
-    font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
-    font-weight: 700;
-    color: var(--heading-color);
-    line-height: 1.3;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
+    color: #ffffff;
 }
 
-h1 { font-size: 2.5rem; letter-spacing: -0.02em; }
-h2 { font-size: 1.75rem; }
-h3 { font-size: 1.25rem; }
+ul {
+    list-style-type: none;
+    padding: 0;
+}
 
-p {
-    margin-bottom: 1.5rem;
+li {
+    margin-bottom: 20px;
+}
+
+a {
+    color: #0099ff; /* A nice bright blue for links in the text */
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 strong {
     font-weight: bold;
-    color: var(--heading-color);
-}
-
-/* --- Links & Lists --- */
-a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
-}
-
-a:hover {
-    color: var(--heading-color);
-    text-decoration: underline;
-}
-
-ul {
-    padding-left: 25px;
-    list-style-type: disc;
-}
-
-li {
-    margin-bottom: 1rem;
-    padding-left: 5px;
-}
-
-li::marker {
-    color: var(--accent-color);
-}
-
-/* --- Miscellaneous --- */
-hr {
-    border: 0;
-    border-top: 1px solid var(--border-color);
-    margin: 3rem auto;
 }
