@@ -1,0 +1,9 @@
+# williswee.com
+
+> A personal website and portfolio showcasing projects, readings, and guides.
+
+## Main
+- [Home](https://williswee.com/index.html): Introduction and overview of the site.
+- [Projects](https://williswee.com/projects.html): A showcase of my software and creative projects.
+- [Books](https://williswee.com/books.html): A curated list of books I have read and recommend.
+- [Guide](https://williswee.com/guide.html): A collection of guides and tutorials on various topics.
