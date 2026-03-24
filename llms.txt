@@ -7,3 +7,4 @@
 - [Projects](https://williswee.com/projects.html): A showcase of my software and creative projects.
 - [Books](https://williswee.com/books.html): A curated list of books I have read and recommend.
 - [Guide](https://williswee.com/guide.html): A collection of guides and tutorials on various topics.
+
