@@ -8,6 +8,7 @@
     --heading-color: #ffffff;  /* Pure white for sharp headings */
     --accent-color: #7bb0ff;   /* A pleasant, readable blue for links */
     --border-color: #3a3b3f;   /* Subtle border for separation */
+    --text-muted: rgba(232, 230, 227, 0.5);  /* Muted text for dates, captions */
 }
 
 body {
@@ -114,4 +115,63 @@ hr {
     border: 0;
     border-top: 1px solid var(--border-color);
     margin: 3rem auto;
+}
+
+/* --- Article Listing (thoughts/index.html) --- */
+.article-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.article-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 0;
+}
+
+.article-list li:first-child {
+    border-top: 1px solid var(--border-color);
+}
+
+.article-list li a {
+    font-size: 1.125rem;
+    flex: 1;
+    margin-right: 1.5rem;
+}
+
+.article-list .article-date {
+    font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* --- Article Page (individual thought) --- */
+article .article-date {
+    font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: -0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.back-link {
+    font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive: Article Listing --- */
+@media (max-width: 600px) {
+    .article-list li {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .article-list li a {
+        margin-right: 0;
+    }
 }

@@ -4,7 +4,10 @@
 
 ## Main
 - [Home](https://williswee.com/index.html): Introduction and overview of the site.
-- [Projects](https://williswee.com/projects.html): A showcase of my software and creative projects.
+- [Work](https://williswee.com/work.html): A showcase of Willis's professional milestones and projects.
 - [Books](https://williswee.com/books.html): A curated list of books I have read and recommend.
 - [Guide](https://williswee.com/guide.html): A collection of guides and tutorials on various topics.
 
+## Thoughts
+Articles and reflections by Willis Wee.
+- [Thank you and goodbye, Tech in Asia](https://williswee.com/thoughts/goodbye): After 16 years of building Tech in Asia, Willis reflects on his journey and steps down as CEO.
