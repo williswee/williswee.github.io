@@ -10,4 +10,5 @@
 
 ## Thoughts
 Articles and reflections by Willis Wee.
+- [One month into the break](https://williswee.com/thoughts/onemonth): Reflections on life, learning, and building side projects one month after leaving Tech in Asia.
 - [Thank you and goodbye, Tech in Asia](https://williswee.com/thoughts/goodbye): After 16 years of building Tech in Asia, Willis reflects on his journey and steps down as CEO.
