@@ -16,4 +16,5 @@ Articles and reflections by Willis Wee.
 - [A letter to founders who are burning out](https://williswee.com/thoughts/burnout): Reflections on the struggles founders face during an economic downturn, sharing lessons learned from my own journey with Tech in Asia.
 - [18 essential reminders from one founder to another](https://williswee.com/thoughts/reminders): From having a clear vision to being kind, here are 18 essential reminders for those ready to take on the challenge of building a startup.
 - [Founders are being hit hard by layoffs, too](https://williswee.com/thoughts/hithard): Reflections on the struggles and immense stress founders face during layoffs, and why the growth-at-all-costs model is heavily criticized.
+- [There’s no such thing as a perfect layoff](https://williswee.com/thoughts/layoffsucks): Reflections on why executing layoffs is incredibly difficult, and sharing perspectives from my own experience with a layoff in 2018.
 - [The stress (and mindfuck) curve](https://williswee.com/thoughts/stress): Trading notes on dealing with pressure as a founder during the COVID-19 pandemic and navigating the comfort and strain zones.
