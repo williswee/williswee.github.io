@@ -19,6 +19,7 @@ Articles and reflections by Willis Wee.
 - [Founders are being hit hard by layoffs, too](https://williswee.com/thoughts/hithard): Reflections on the struggles and immense stress founders face during layoffs, and why the growth-at-all-costs model is heavily criticized.
 - [There’s no such thing as a perfect layoff](https://williswee.com/thoughts/layoffsucks): Reflections on why executing layoffs is incredibly difficult, and sharing perspectives from my own experience with a layoff in 2018.
 - [The stress (and mindfuck) curve](https://williswee.com/thoughts/stress): Trading notes on dealing with pressure as a founder during the COVID-19 pandemic and navigating the comfort and strain zones.
+- [It's been a rough year. Here's how we're bouncing back](https://williswee.com/thoughts/bounce): Reflecting on a challenging 2018 for Tech in Asia, sharing lessons learned and our path to recovery and bouncing back stronger.
 - [Don’t delay building your startup culture](https://williswee.com/thoughts/buildculture): Reflecting on how culture has turned out to be one of the key competitive advantages for Tech in Asia.
 - [Joining Y Combinator](https://williswee.com/thoughts/yc): Reflections on joining the Y Combinator Winter 2015 batch with Tech in Asia and avoiding complacency.
 - [Take some risk](https://williswee.com/thoughts/risk): A reflection on the startup ecosystem in Singapore, encouraging entrepreneurs to take more risks and expand abroad.
