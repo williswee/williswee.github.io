@@ -27,3 +27,4 @@ Articles and reflections by Willis Wee.
 - [Take some risk](https://williswee.com/thoughts/risk): A reflection on the startup ecosystem in Singapore, encouraging entrepreneurs to take more risks and expand abroad.
 - [Expanding abroad: Risky, scary, and exciting](https://williswee.com/thoughts/abroad): Reflections on the challenges and excitement of expanding a startup beyond Singapore and across Asia.
 - [Fight hard with no regrets](https://williswee.com/thoughts/dontdie): A reminder to myself, my team members, and fellow entrepreneurs to fight hard so you have no regrets.
+- [My journey as an entrepreneur (so far)](https://williswee.com/thoughts/journey): Reflecting on my early entrepreneurial journey from childhood grasshopper trading to founding Tech in Asia.
