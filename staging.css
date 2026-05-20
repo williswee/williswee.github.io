@@ -391,12 +391,20 @@ article .article-date {
 
     nav {
         gap: 2px;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
     }
 
     nav a {
         padding: 6px 8px;
         font-size: 0.78rem;
+        white-space: nowrap;
     }
 
     .article-list li {
