@@ -405,6 +405,7 @@ article .article-date {
         padding: 6px 8px;
         font-size: 0.78rem;
         white-space: nowrap;
+        flex-shrink: 0;
     }
 
     .article-list li {
