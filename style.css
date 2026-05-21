@@ -546,6 +546,115 @@ article .article-date {
 }
 
 /* ================================================================
+   HOME PAGE (index.html)
+   ================================================================ */
+/* Waving hand animation */
+@keyframes wave-animation {
+    0% { transform: rotate(0.0deg) }
+    10% { transform: rotate(14.0deg) }
+    20% { transform: rotate(-8.0deg) }
+    30% { transform: rotate(14.0deg) }
+    40% { transform: rotate(-4.0deg) }
+    50% { transform: rotate(10.0deg) }
+    60% { transform: rotate(0.0deg) }
+    100% { transform: rotate(0.0deg) }
+}
+
+.wave {
+    display: inline-block;
+    transform-origin: 70% 70%;
+    animation: wave-animation 2.5s infinite;
+}
+
+h1:hover .wave {
+    animation-play-state: paused;
+}
+
+/* Status badge */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.02);
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-strong);
+    letter-spacing: 0.02em;
+    margin-bottom: 48px;
+    margin-top: -24px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #4ade80;
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+    animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.9); }
+}
+
+/* Divider replacing hrs */
+.divider {
+    text-align: center;
+    color: var(--rule);
+    font-size: 1.2rem;
+    margin: 8px 0 32px 0;
+    user-select: none;
+    letter-spacing: 0.2em;
+}
+
+/* Emoji pop */
+.emoji-pop {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.emoji-pop:hover {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.button-group .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--rule);
+    border-radius: 30px;
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-strong);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background-image: none !important;
+}
+
+.button-group .btn:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: var(--text-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* ================================================================
    RESPONSIVE
    ================================================================ */
 @media (max-width: 600px) {
