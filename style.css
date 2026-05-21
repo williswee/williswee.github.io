@@ -1,123 +1,320 @@
 
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Open+Sans:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Sans:wght@400;500;600&display=swap');
 
-/* --- Global & Color Palette --- */
+/* ================================================================
+   DESIGN SYSTEM — "Demo 5" staging theme
+   Original production CSS preserved as style.css for rollback.
+   ================================================================ */
 :root {
-    --bg-color: #1f2023;       /* Deep charcoal, not pure black */
-    --text-color: #e8e6e3;     /* Soft, warm off-white */
-    --heading-color: #ffffff;  /* Pure white for sharp headings */
-    --accent-color: #7bb0ff;   /* A pleasant, readable blue for links */
-    --border-color: #3a3b3f;   /* Subtle border for separation */
-    --text-muted: rgba(232, 230, 227, 0.5);  /* Muted text for dates, captions */
+    --bg: #111110;
+    --surface: #1a1a18;
+    --text: #c8c5bc;
+    --text-strong: #efede8;
+    --accent: #c9a96e;
+    --muted: #6b6862;
+    --rule: rgba(255, 255, 255, 0.06);
+
+    --font-display: 'Newsreader', Georgia, serif;
+    --font-body: 'Source Serif 4', Georgia, serif;
+    --font-ui: 'DM Sans', system-ui, sans-serif;
+
+    /* Legacy aliases so existing class names keep working */
+    --bg-color: var(--bg);
+    --text-color: var(--text);
+    --heading-color: var(--text-strong);
+    --accent-color: var(--accent);
+    --border-color: var(--rule);
+    --text-muted: var(--muted);
+}
+
+/* ================================================================
+   RESET & BASE
+   ================================================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: rgba(201, 169, 110, 0.25);
+    color: var(--text-strong);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--rule);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--muted);
+}
+
+*:focus-visible {
+    outline: 2px solid rgba(201, 169, 110, 0.5);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+@keyframes fade-slide-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+main {
+    animation: fade-slide-up 0.6s ease-out forwards;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'EB Garamond', 'Iowan Old Style', 'Apple Garamond', 'URW Garamond L', 'Palatino', serif;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
     font-size: 1.125rem;
-    line-height: 1.7;
+    font-optical-sizing: auto;
+    line-height: 1.72;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
     display: flex;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 0 24px;
+    min-height: 100vh;
 }
 
-.container {
-    max-width: 720px;
+/* Subtle film-grain texture overlay */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px;
+}
+
+/* Supports both old .container and new .wrapper class names */
+.container, .wrapper {
+    max-width: 640px;
     width: 100%;
+    padding: 80px 0 120px;
 }
 
-/* --- Navigation --- */
+/* ================================================================
+   HEADER & NAVIGATION
+   ================================================================ */
 header {
-    margin-bottom: 60px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 72px;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* Brand row: avatar + name */
+.site-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.site-brand .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid var(--rule);
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+@keyframes playful-wiggle {
+    0% { transform: scale(1) rotate(0deg); }
+    20% { transform: scale(1.08) rotate(-5deg); }
+    40% { transform: scale(1.08) rotate(4deg); }
+    60% { transform: scale(1.08) rotate(-2deg); }
+    80% { transform: scale(1.08) rotate(2deg); }
+    100% { transform: scale(1.06) rotate(3deg); }
+}
+
+.site-brand:hover .avatar,
+.site-brand:active .avatar {
+    animation: playful-wiggle 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.site-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--text-strong);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-brand:hover .site-name,
+.site-brand:active .site-name {
+    color: var(--accent);
 }
 
 nav {
-    font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
-    font-weight: 600;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
+    display: flex;
+    gap: 6px;
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    font-family: var(--font-ui);
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
 }
 
 nav a {
-    color: var(--text-color);
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
     text-decoration: none;
-    margin-right: 25px;
-    transition: color 0.2s ease-in-out;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    margin-right: 0;
+    background-image: none;
 }
 
 nav a:hover {
-    color: var(--accent-color);
+    color: var(--text-strong);
+    background-color: rgba(255, 255, 255, 0.03);
+    text-decoration: none;
+    background-size: 0;
 }
 
 nav a.active {
-    color: var(--heading-color);
-    font-weight: 700;
+    color: var(--text-strong);
+    background-color: rgba(255, 255, 255, 0.05);
+    font-weight: 600;
 }
 
-/* --- Typography --- */
+/* ================================================================
+   TYPOGRAPHY
+   ================================================================ */
 h1, h2, h3 {
-    font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
-    font-weight: 700;
-    color: var(--heading-color);
+    font-weight: 600;
+    color: var(--text-strong);
     line-height: 1.3;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
 }
 
-h1 { font-size: 2.5rem; letter-spacing: -0.02em; }
-h2 { font-size: 1.75rem; }
-h3 { font-size: 1.25rem; }
+h1 {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-strong);
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 48px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-strong);
+    margin-top: 24px;
+    margin-bottom: 6px;
+}
 
 p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 24px;
 }
 
 strong {
-    font-weight: bold;
-    color: var(--heading-color);
+    font-weight: 600;
+    color: var(--text-strong);
 }
 
-/* --- Links & Lists --- */
+em {
+    font-style: italic;
+}
+
+/* ================================================================
+   LINKS — Animated underline
+   ================================================================ */
 a {
-    color: var(--accent-color);
+    color: var(--text-strong);
     text-decoration: none;
-    transition: all 0.2s ease-in-out;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease, color 0.2s ease;
 }
 
 a:hover {
-    color: var(--heading-color);
-    text-decoration: underline;
+    background-size: 100% 1px;
+    text-decoration: none;
+    color: var(--accent);
 }
 
+/* ================================================================
+   HORIZONTAL RULES
+   ================================================================ */
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid var(--rule);
+    margin: 40px 0;
+}
+
+/* ================================================================
+   LISTS
+   ================================================================ */
 ul {
-    padding-left: 25px;
+    padding-left: 22px;
+    margin-bottom: 24px;
     list-style-type: disc;
 }
 
 li {
-    margin-bottom: 1rem;
-    padding-left: 5px;
+    margin-bottom: 10px;
+    padding-left: 0;
 }
 
 li::marker {
-    color: var(--accent-color);
+    color: var(--muted);
 }
 
-/* --- Miscellaneous --- */
-hr {
-    border: 0;
-    border-top: 1px solid var(--border-color);
-    margin: 3rem auto;
+ol {
+    padding-left: 22px;
+    margin-bottom: 24px;
 }
 
-/* --- Article Listing (thoughts/index.html) --- */
+/* ================================================================
+   ARTICLE LISTING (thoughts/index.html)
+   ================================================================ */
 .article-list {
     list-style: none;
     padding-left: 0;
@@ -127,51 +324,159 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--rule);
     margin-bottom: 0;
+    transition: padding-left 0.2s ease;
 }
 
 .article-list li:first-child {
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--rule);
+}
+
+.article-list li:hover {
+    padding-left: 6px;
 }
 
 .article-list li a {
-    font-size: 1.125rem;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--text);
     flex: 1;
-    margin-right: 1.5rem;
+    margin-right: 24px;
+    background-image: none;
+}
+
+.article-list li:hover a {
+    color: var(--text-strong);
 }
 
 .article-list .article-date {
-    font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    color: var(--muted);
     white-space: nowrap;
     flex-shrink: 0;
+    letter-spacing: 0.02em;
 }
 
-/* --- Article Page (individual thought) --- */
+/* ================================================================
+   INDIVIDUAL ARTICLE PAGE
+   ================================================================ */
 article .article-date {
-    font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
-    font-size: 0.9rem;
-    color: var(--text-muted);
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    color: var(--muted);
     margin-top: -0.5rem;
     margin-bottom: 2.5rem;
 }
 
 .back-link {
-    font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
-    font-size: 0.9rem;
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
 }
 
-/* --- Responsive: Article Listing --- */
+.back-link a {
+    background-image: none;
+}
+
+/* ================================================================
+   BOOK LIST
+   ================================================================ */
+.book-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.book-list li {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+}
+
+.book-list li:first-child {
+    border-top: 1px solid var(--rule);
+}
+
+.book-list li:last-child {
+    border-bottom: none;
+}
+
+.book-list h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
+/* Supports both <p class="book-author"> and <div class="book-author"> */
+.book-author {
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 10px;
+    letter-spacing: 0.04em;
+}
+
+.book-list p {
+    margin-bottom: 0;
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
 @media (max-width: 600px) {
+    .container, .wrapper {
+        padding: 50px 0 80px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    header {
+        margin-bottom: 52px;
+    }
+
+    nav {
+        gap: 2px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav a {
+        padding: 6px 8px;
+        font-size: 0.78rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
     .article-list li {
         flex-direction: column;
-        gap: 0.25rem;
+        gap: 4px;
     }
 
     .article-list li a {
         margin-right: 0;
+    }
+
+    .article-list li:hover {
+        padding-left: 0;
+    }
+
+    .site-brand .avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .site-name {
+        font-size: 1.3rem;
     }
 }
