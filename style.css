@@ -484,6 +484,68 @@ article .article-date {
 }
 
 /* ================================================================
+   GUIDE PAGE
+   ================================================================ */
+.guide-intro {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-strong);
+    line-height: 1.6;
+    margin-bottom: 48px;
+    padding-left: 20px;
+    border-left: 2px solid var(--accent);
+}
+
+.guide-section {
+    background-color: rgba(255, 255, 255, 0.015);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 40px;
+    transition: background-color 0.3s ease;
+}
+
+.guide-section:hover {
+    background-color: rgba(255, 255, 255, 0.025);
+}
+
+.guide-section h2 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--text-strong);
+    text-transform: none;
+    letter-spacing: -0.01em;
+    margin-top: 0;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.guide-section ul {
+    margin-bottom: 0;
+}
+
+.guide-section li {
+    margin-bottom: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.guide-section li:hover {
+    color: var(--text-strong);
+}
+
+.guide-section li:last-child {
+    margin-bottom: 0;
+}
+
+/* ================================================================
    RESPONSIVE
    ================================================================ */
 @media (max-width: 600px) {
