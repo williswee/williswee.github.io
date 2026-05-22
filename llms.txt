@@ -30,6 +30,7 @@ Articles and reflections by Willis Wee.
 - [A startup experiment that could snowball into something bigger](https://williswee.com/thoughts/tiaexperiment): Reflections on building the startup ecosystem in Asia and Tech in Asia's role as a pan-Asian startup experiment.
 - [The biggest problem facing Southeast Asian startups isn’t the ecosystem](https://williswee.com/thoughts/youaretheproblem): A reflection on the real issue in the Southeast Asian startup ecosystem: the need for better entrepreneurs who focus on building awesome products.
 - [Raising a small round forces you to bootstrap](https://williswee.com/thoughts/smallround): A reflection on the benefits of raising a small round of funding and the advantages of bootstrapping for early-stage startups.
+- [Learning the hard way](https://williswee.com/thoughts/thehardway): Reflections on how entrepreneurs often learn their most valuable lessons through failure and adversity.
 - [Take some risk](https://williswee.com/thoughts/risk): A reflection on the startup ecosystem in Singapore, encouraging entrepreneurs to take more risks and expand abroad.
 - [Expanding abroad: Risky, scary, and exciting](https://williswee.com/thoughts/abroad): Reflections on the challenges and excitement of expanding a startup beyond Singapore and across Asia.
 - [Fight hard with no regrets](https://williswee.com/thoughts/dontdie): A reminder to myself, my team members, and fellow entrepreneurs to fight hard so you have no regrets.
