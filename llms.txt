@@ -28,6 +28,7 @@ Articles and reflections by Willis Wee.
 - [Don’t delay building your startup culture](https://williswee.com/thoughts/buildculture): Reflecting on how culture has turned out to be one of the key competitive advantages for Tech in Asia.
 - [Joining Y Combinator](https://williswee.com/thoughts/yc): Reflections on joining the Y Combinator Winter 2015 batch with Tech in Asia and avoiding complacency.
 - [A startup experiment that could snowball into something bigger](https://williswee.com/thoughts/tiaexperiment): Reflections on building the startup ecosystem in Asia and Tech in Asia's role as a pan-Asian startup experiment.
+- [The biggest problem facing Southeast Asian startups isn’t the ecosystem](https://williswee.com/thoughts/youaretheproblem): A reflection on the real issue in the Southeast Asian startup ecosystem: the need for better entrepreneurs who focus on building awesome products.
 - [Take some risk](https://williswee.com/thoughts/risk): A reflection on the startup ecosystem in Singapore, encouraging entrepreneurs to take more risks and expand abroad.
 - [Expanding abroad: Risky, scary, and exciting](https://williswee.com/thoughts/abroad): Reflections on the challenges and excitement of expanding a startup beyond Singapore and across Asia.
 - [Fight hard with no regrets](https://williswee.com/thoughts/dontdie): A reminder to myself, my team members, and fellow entrepreneurs to fight hard so you have no regrets.
