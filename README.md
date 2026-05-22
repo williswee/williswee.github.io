@@ -17,5 +17,5 @@ Follow the instruction here [README.md#L4-10]
 
 Title: 
 Slug: (single word slug)
-Date: (yyyy-mm-dd)
+Date: (e.g. 2020 January 16)
 Body:
