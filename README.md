@@ -8,3 +8,14 @@ https://williswee.com/
 3. Update: `<title>`, `<meta description>`, `<h1>`, date, and body content
 4. Add a new `<li>` entry **at the top** of `thoughts/index.html`
 5. Add the URL to `sitemap.xml` and `llms.txt`
+
+**Prompt**
+
+Follow the instruction here [README.md#L4-10]
+- add this article into `thoughts` directory
+- on https://williswee.com/thoughts/index.html, rank the article by date (latest post on top)
+
+Title: 
+Slug: (single word slug)
+Date: (yyyy-mm-dd)
+Body:
