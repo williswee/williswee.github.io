@@ -661,21 +661,150 @@ h1:hover .wave {
 /* Button Group */
 .button-group {
     display: flex;
-    gap: 12px;
-    margin-top: 24px;
+    gap: 10px;
+    margin-top: 28px;
+    margin-bottom: 8px;
     flex-wrap: wrap;
 }
 
 .button-group .btn {
     display: inline-flex;
     align-items: center;
+    gap: 7px;
     justify-content: center;
-    padding: 10px 20px;
+    padding: 9px 18px;
     background-color: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--rule);
     border-radius: 30px;
     font-family: var(--font-ui);
-    font-size: 0.9rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-strong);
+    text-decoration: none;
+    transition: all 0.22s ease;
+    background-image: none !important;
+    letter-spacing: 0.01em;
+}
+
+.btn-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+}
+
+.button-group .btn:hover .btn-icon {
+    opacity: 1;
+}
+
+.button-group .btn:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    color: #fff;
+}
+
+/* ================================================================
+   FOLLOW STRIP — persistent icon row at bottom of every page
+   ================================================================ */
+.follow-strip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+}
+
+.follow-strip-label {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-right: 6px;
+}
+
+.follow-strip-icons {
+    display: flex;
+    gap: 4px;
+}
+
+.follow-strip .follow-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    color: var(--muted);
+    border: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    background-image: none !important;
+}
+
+.follow-strip .follow-icon svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+}
+
+.follow-strip .follow-icon:hover {
+    color: var(--text-strong);
+    border-color: var(--rule);
+    background-color: rgba(255,255,255,0.04);
+    transform: translateY(-2px);
+}
+
+/* ================================================================
+   FOLLOW NUDGE — end-of-article CTA in thoughts/ pages
+   ================================================================ */
+.follow-nudge {
+    margin-top: 48px;
+    padding: 28px 32px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.follow-nudge-text {
+    font-family: var(--font-ui);
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.follow-nudge-text strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-strong);
+    margin-bottom: 2px;
+}
+
+.follow-nudge-icons {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.follow-nudge .nudge-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--rule);
+    border-radius: 30px;
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
     font-weight: 500;
     color: var(--text-strong);
     text-decoration: none;
@@ -683,16 +812,35 @@ h1:hover .wave {
     background-image: none !important;
 }
 
-.button-group .btn:hover {
-    background-color: rgba(255, 255, 255, 0.06);
-    border-color: var(--text-strong);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.follow-nudge .nudge-btn svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    opacity: 0.8;
 }
 
-/* ================================================================
-   RESPONSIVE
-   ================================================================ */
+.follow-nudge .nudge-btn:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-1px);
+    color: #fff;
+}
+
+.follow-nudge .nudge-btn:hover svg {
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .follow-nudge {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px 20px;
+    }
+
+    .follow-strip-label {
+        display: none;
+    }
+}
 @media (max-width: 600px) {
     .container, .wrapper {
         padding: 50px 0 80px;
