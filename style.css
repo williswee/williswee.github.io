@@ -355,14 +355,17 @@ ol {
 }
 
 /* Adjust Substack iframe height on mobile so wrapped text isn't cut off */
-@media (max-width: 480px) {
+@media (max-width: 540px) {
+    .newsletter-cta {
+        padding: 24px 16px;
+    }
     .newsletter-cta iframe {
-        height: 380px !important;
+        height: 460px !important;
     }
 }
 @media (max-width: 380px) {
     .newsletter-cta iframe {
-        height: 420px !important;
+        height: 520px !important;
     }
 }
 
