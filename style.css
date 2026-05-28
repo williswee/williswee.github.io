@@ -329,6 +329,31 @@ ol {
 }
 
 /* ================================================================
+   NEWSLETTER CTA
+   ================================================================ */
+.newsletter-cta {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 32px 32px 0 32px;
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.newsletter-cta p {
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    color: var(--text-strong);
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.newsletter-cta iframe {
+    margin: 0 auto;
+    display: block;
+}
+
+/* ================================================================
    ARTICLE LISTING (thoughts/index.html)
    ================================================================ */
 .article-list {
