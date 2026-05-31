@@ -10,6 +10,7 @@
 
 ## Thoughts
 Articles and reflections by Willis Wee.
+- [When work goes quiet](https://williswee.com/thoughts/nowork): Reflections on balancing work and family as a founder, the system that held both up for 16 years, and what happens when the work variable goes quiet.
 - [What I did at TIA](https://williswee.com/thoughts/whatidid): A reflection on my 16 years running Tech in Asia end-to-end, the things we built, the failures, and the hidden heroes.
 - [Mission-driven founders](https://williswee.com/thoughts/mission): Reflections on why mission-driven founders are rare and how obsession with a mission aligns teams and acts as a painkiller during hardships.
 - [One month into the break](https://williswee.com/thoughts/onemonth): Reflections on life, learning, and building side projects one month after leaving Tech in Asia.
