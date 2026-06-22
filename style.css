@@ -570,6 +570,15 @@ article .article-date {
 /* ================================================================
    GUIDE PAGE
    ================================================================ */
+.guide-last-updated {
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    margin-top: -32px;
+    margin-bottom: 40px;
+}
+
 .guide-intro {
     font-family: var(--font-display);
     font-size: 1.3rem;
