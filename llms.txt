@@ -10,6 +10,7 @@
 
 ## Thoughts
 Articles and reflections by Willis Wee.
+- [You shouldn't have to lose real money to learn investing](https://williswee.com/thoughts/tickertown): We built TickerTown: an 8-bit game where you can test real stock investing strategies using real market data and fake money.
 - [My kids wrote a family success plan. Their user guides are next.](https://williswee.com/thoughts/famplan): We wrote down how our family should work. The kids had opinions. A reflection on running a family huddle, writing a family success plan, and the parallels between parenting and running a startup.
 - [Small disclosures build bonds faster than time](https://williswee.com/thoughts/userguide): That is true for colleagues. But it is also true for friends, partners, parents, and kids. A reflection on the power of user guides and small disclosures in building trust faster.
 - [When work goes quiet](https://williswee.com/thoughts/nowork): Reflections on balancing work and family as a founder, the system that held both up for 16 years, and what happens when the work variable goes quiet.
