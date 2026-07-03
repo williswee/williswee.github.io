@@ -434,6 +434,7 @@ article figure {
 
 article figcaption {
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .back-link {
