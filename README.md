@@ -18,7 +18,7 @@ Follow the instruction here [README.md#L4-10]
 Title: 
 Slug: (single word slug)
 Date: (e.g. 2020 January 16)
-Body:
+Body: copy the content in the substack link, add all of them, including the image and caption. Do not change anything.
 
 ---
 
