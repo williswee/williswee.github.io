@@ -428,6 +428,14 @@ article .article-date {
     margin-bottom: 2.5rem;
 }
 
+article figure {
+    margin: 0 0 2rem;
+}
+
+article figcaption {
+    margin-bottom: 2rem;
+}
+
 .back-link {
     font-family: var(--font-ui);
     font-size: 0.85rem;
