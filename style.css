@@ -462,11 +462,85 @@ article figcaption {
 /* ================================================================
    BOOKS PAGE (books.html)
    ================================================================ */
+
+/* --- Controls: filter pills --- */
+.book-controls {
+    margin-top: 8px;
+}
+
+/* Filter pills */
+.filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.filter-pill:hover {
+    color: var(--text-strong);
+    border-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.filter-pill.active {
+    color: var(--accent);
+    border-color: var(--accent);
+    background-color: rgba(201, 169, 110, 0.07);
+}
+
+.pill-count {
+    font-size: 0.7rem;
+    opacity: 0.6;
+}
+
+/* Book tag — category label on each card */
+.book-tag {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+/* Hidden state for filtered-out cards */
+.book-card.book-card--hidden {
+    display: none;
+}
+
+/* Empty state */
+.book-empty {
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 48px;
+    text-align: center;
+}
+
 .book-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
-    margin-top: 40px;
+    margin-top: 32px;
 }
 
 .book-card {

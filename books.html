@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Willis Wee - Books</title>
     <meta name="description"
-        content="Explore Willis Wee’s favorite reads—from management and design to happiness and habits—with concise insights from each book.">
+        content="Explore Willis Wee's favorite reads—from management and design to happiness and habits—with concise insights from each book.">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="avatar.png">
 </head>
@@ -30,169 +30,217 @@
             <h1>Books</h1>
             <p>A selection of books I've enjoyed and what I learned from them.</p>
 
-            <div class="book-grid">
-                <div class="book-card">
+            <!-- Filter Controls -->
+            <div class="book-controls">
+                <div class="filter-pills" id="filter-pills" role="group" aria-label="Filter by category">
+                    <button class="filter-pill active" data-filter="all">All <span class="pill-count" id="count-all"></span></button>
+                    <button class="filter-pill" data-filter="leadership">Leadership <span class="pill-count" id="count-leadership"></span></button>
+                    <button class="filter-pill" data-filter="mindset">Mindset <span class="pill-count" id="count-mindset"></span></button>
+                    <button class="filter-pill" data-filter="investing">Investing <span class="pill-count" id="count-investing"></span></button>
+                    <button class="filter-pill" data-filter="mindfulness">Mindfulness <span class="pill-count" id="count-mindfulness"></span></button>
+                    <button class="filter-pill" data-filter="science">Science <span class="pill-count" id="count-science"></span></button>
+                    <button class="filter-pill" data-filter="career">Career <span class="pill-count" id="count-career"></span></button>
+                    <button class="filter-pill" data-filter="parenting">Parenting <span class="pill-count" id="count-parenting"></span></button>
+                    <button class="filter-pill" data-filter="design">Design <span class="pill-count" id="count-design"></span></button>
+                </div>
+            </div>
+
+            <!-- Empty state -->
+            <p class="book-empty" id="book-empty" hidden>No books match your search.</p>
+
+            <div class="book-grid" id="book-grid">
+                <div class="book-card" data-category="parenting">
+                    <span class="book-tag">Parenting</span>
                     <h3>Calm the Chaos</h3>
                     <p class="book-author">BY DAYNA ABRAHAM</p>
                     <p class="book-review">One of the better parenting books I've read. It teaches you to play to your child's strengths, go on offense, and turn "difficult traits" into superpowers. Most parenting books teach defense: rules, consequences, discipline. This one helps you harness the best of the child.</p>
                 </div>
-                <div class="book-card">
-                    <h3>Clarity & Connection</h3>
+                <div class="book-card" data-category="mindfulness">
+                    <span class="book-tag">Mindfulness</span>
+                    <h3>Clarity &amp; Connection</h3>
                     <p class="book-author">BY YUNG PUEBLO</p>
-                    <p class="book-review">I find its short verses refreshing. It’s an easy go-to read and reread to reset and reflect.</p>
+                    <p class="book-review">I find its short verses refreshing. It's an easy go-to read and reread to reset and reflect.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="investing">
+                    <span class="book-tag">Investing</span>
                     <h3>Coming Into View: How AI and Other Megatrends Will Shape Your Investments</h3>
                     <p class="book-author">BY JOSEPH H. DAVIS</p>
                     <p class="book-review">A good framework for thinking through how investments may play out if AI flies, stalls, or
                         disappoints. And how to navigate each scenario.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="leadership">
+                    <span class="book-tag">Leadership</span>
                     <h3>Competing Against Luck</h3>
                     <p class="book-author">BY CLAYTON M. CHRISTENSEN (WITH KAREN DILLON, TADDY HALL, DAVID S. DUNCAN)</p>
                     <p class="book-review">Clear framework for spotting breakthrough ideas by talking to users and figuring out JTBD, though
-                        it’s easier said than done. You’ll still need luck.</p>
+                        it's easier said than done. You'll still need luck.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="career">
+                    <span class="book-tag">Career</span>
                     <h3>Designing Your Life: How to Build a Well-Lived, Joyful Life</h3>
                     <p class="book-author">BY BILL BURNETT AND DAVE EVANS</p>
                     <p class="book-review">You can MVP life hypotheses, test them, and iterate quickly based on lived experiences.</p>
                 </div>
-                <div class="book-card">
-                    <h3>Don’t Make Me Think</h3>
+                <div class="book-card" data-category="design">
+                    <span class="book-tag">Design</span>
+                    <h3>Don't Make Me Think</h3>
                     <p class="book-author">BY STEVE KRUG</p>
                     <p class="book-review">Changed the way I look at every interface and touch point.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="leadership">
+                    <span class="book-tag">Leadership</span>
                     <h3>Give and Take: A Revolutionary Approach to Success</h3>
                     <p class="book-author">BY ADAM GRANT</p>
                     <p class="book-review">Refreshing research on what I think is common sense. Just give generously and don't be an
                         asshole. And avoid assholes and getting exploited.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="leadership">
+                    <span class="book-tag">Leadership</span>
                     <h3>High Output Management</h3>
                     <p class="book-author">BY ANDREW S. GROVE</p>
                     <p class="book-review">Output = Manager x Leverage, where Leverage = A mix of system, process, software, culture, and
                         smarts. It makes management easier to process.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="science">
+                    <span class="book-tag">Science</span>
                     <h3>How Not to Be Wrong: The Power of Mathematical Thinking</h3>
                     <p class="book-author">BY JORDAN ELLENBERG</p>
-                    <p class="book-review">Reveals math’s hidden role in everyday life.</p>
+                    <p class="book-review">Reveals math's hidden role in everyday life.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="science">
+                    <span class="book-tag">Science</span>
                     <h3>How the World Really Works</h3>
                     <p class="book-author">BY VACLAV SMIL</p>
                     <p class="book-review">A data-driven view of the forces shaping our economy, energy and environment.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="science">
+                    <span class="book-tag">Science</span>
                     <h3>How to Avoid a Climate Disaster</h3>
                     <p class="book-author">BY BILL GATES</p>
                     <p class="book-review">The best book I've read about climate change. Easy to understand, data-driven.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="mindset">
+                    <span class="book-tag">Mindset</span>
                     <h3>Inner Game of Tennis</h3>
                     <p class="book-author">BY W. TIMOTHY GALLWEY</p>
                     <p class="book-review">Mastering your mindset can beat raw skill. Teaches focus and self-belief in high-pressure
                         moments.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="mindfulness">
+                    <span class="book-tag">Mindfulness</span>
                     <h3>Love for Imperfect Things: How to Accept Yourself in a World Striving for Perfection</h3>
                     <p class="book-author">BY HAEMIN SUNIM</p>
                     <p class="book-review">Super easy to read, understand, and process. I love the format: short essays, followed by quick bursts of quotes. Makes you feel good while reading, but also gives you space to pause and self-reflect. Highly recommend.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="leadership">
+                    <span class="book-tag">Leadership</span>
                     <h3>Managing Oneself</h3>
                     <p class="book-author">BY PETER DRUCKER</p>
                     <p class="book-review">Build your life and career around your strengths, values, and how you work best. Be very
                         self-aware.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="mindset">
+                    <span class="book-tag">Mindset</span>
                     <h3>Never Split the Difference</h3>
                     <p class="book-author">BY CHRIS VOSS</p>
-                    <p class="book-review">Super practical advice that’s easily applicable if you put in some effort.</p>
+                    <p class="book-review">Super practical advice that's easily applicable if you put in some effort.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="investing">
+                    <span class="book-tag">Investing</span>
                     <h3>No Worries: How to Live a Stress-Free Financial Life</h3>
                     <p class="book-author">BY JARED DILLIAN</p>
                     <p class="book-review">Fun and educational read. The Awesome Portfolio is dead simple to follow, optimizing for peace of
                         mind.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="design">
+                    <span class="book-tag">Design</span>
                     <h3>Obviously Awesome: How to Nail Product Positioning so Customers Get It, Buy It, Love It</h3>
                     <p class="book-author">BY APRIL DUNFORD</p>
                     <p class="book-review">An easy framework to identify and execute positioning. I use it as part of my workflow when
                         building products.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="career">
+                    <span class="book-tag">Career</span>
                     <h3>Outliers: The Story of Success</h3>
                     <p class="book-author">BY MALCOLM GLADWELL</p>
                     <p class="book-review">Success is rarely just talent. Timing, opportunity, culture, and effort compound over time. Even
                         your birth month can matter more than you think.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="mindset">
+                    <span class="book-tag">Mindset</span>
                     <h3>Principles: Life and Work</h3>
                     <p class="book-author">BY RAY DALIO</p>
                     <p class="book-review">An inside look into Bridgewater's systems and principles. Fascinating but also a little too
                         overwhelming imo. In short, systemize but also humanize.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="investing">
+                    <span class="book-tag">Investing</span>
                     <h3>Quantitative Trading: How to Build Your Own Algorithmic Trading Business</h3>
                     <p class="book-author">BY ERNEST P. CHAN</p>
                     <p class="book-review">Gets into the details of quant trading. Fun.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="parenting">
+                    <span class="book-tag">Parenting</span>
                     <h3>Raising Mentally Strong Kids</h3>
                     <p class="book-author">BY AMY MORIN</p>
                     <p class="book-review">TL;DR: Learn to let go. Applies to adults too.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="career">
+                    <span class="book-tag">Career</span>
                     <h3>Runnin' Down a Dream: How to Thrive in a Career You Actually Love</h3>
                     <p class="book-author">BY BILL GURLEY</p>
                     <p class="book-review">A timely read as I think about what to build next. Very grateful to Bill for sending a copy of
                         his book.</p>
                 </div>
-                <div class="book-card">
-                    <h3>Stephen Hawking’s Brief Answers to the Big Questions</h3>
+                <div class="book-card" data-category="science">
+                    <span class="book-tag">Science</span>
+                    <h3>Stephen Hawking's Brief Answers to the Big Questions</h3>
                     <p class="book-author">BY STEPHEN HAWKING</p>
                     <p class="book-review">Mind-blowing. Fascinating stuff. Joyful read.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="mindfulness">
+                    <span class="book-tag">Mindfulness</span>
                     <h3>The Art of Happiness</h3>
                     <p class="book-author">BY DALAI LAMA AND HOWARD CUTLER</p>
-                    <p class="book-review">Blends ancient wisdom with modern psychology. Go-to book when one isn’t in the happy state.</p>
+                    <p class="book-review">Blends ancient wisdom with modern psychology. Go-to book when one isn't in the happy state.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="mindfulness">
+                    <span class="book-tag">Mindfulness</span>
                     <h3>The Book of Joy</h3>
                     <p class="book-author">BY DALAI LAMA AND DESMOND TUTU (WITH DOUGLAS ABRAMS)</p>
                     <p class="book-review">Two leaders share how to find lasting happiness amid hardship. A joyful read.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="investing">
+                    <span class="book-tag">Investing</span>
                     <h3>The Man Who Solved the Market: How Jim Simons Launched the Quant Revolution</h3>
                     <p class="book-author">BY GREGORY ZUCKERMAN</p>
                     <p class="book-review">Fascinating to see the ups and downs of how Jim Simons and a group of non-Wall Street
                         mathematicians and scientists came together to create one of the world's most successful quant
                         funds.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="parenting">
+                    <span class="book-tag">Parenting</span>
                     <h3>The Whole-Brain Child</h3>
                     <p class="book-author">BY DANIEL J. SIEGEL AND TINA PAYNE BRYSON</p>
                     <p class="book-review">Knowing the brain makes it easier to understand why kids (and adults) behave a certain way.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="mindset">
+                    <span class="book-tag">Mindset</span>
                     <h3>Think Like a Rocket Scientist</h3>
                     <p class="book-author">BY OZAN VAROL</p>
                     <p class="book-review">Teaches problem-solving by mixing bold ideas with logic. I enjoy its space-stories examples.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="mindset">
+                    <span class="book-tag">Mindset</span>
                     <h3>Tiny Habits</h3>
                     <p class="book-author">BY BJ FOGG</p>
                     <p class="book-review">Easy-to-execute steps. Useful for kids and myself to build good habits.</p>
                 </div>
-                <div class="book-card">
+                <div class="book-card" data-category="leadership">
+                    <span class="book-tag">Leadership</span>
                     <h3>Trillion Dollar Coach</h3>
                     <p class="book-author">BY ERIC SCHMIDT, JONATHAN ROSENBERG AND ALAN EAGLE</p>
-                    <p class="book-review">Insightful leadership lessons from a coach’s point of view.</p>
+                    <p class="book-review">Insightful leadership lessons from a coach's point of view.</p>
                 </div>
             </div>
         </main>
@@ -212,6 +260,44 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        (function () {
+            const cards = Array.from(document.querySelectorAll('.book-card'));
+            const pills = Array.from(document.querySelectorAll('.filter-pill'));
+            const emptyState = document.getElementById('book-empty');
+
+            // --- Populate pill counts ---
+            const categories = ['leadership', 'mindset', 'investing', 'mindfulness', 'science', 'career', 'parenting', 'design'];
+            document.getElementById('count-all').textContent = cards.length;
+            categories.forEach(cat => {
+                const el = document.getElementById('count-' + cat);
+                if (el) el.textContent = cards.filter(c => c.dataset.category === cat).length;
+            });
+
+            let activeFilter = 'all';
+
+            function applyFilters() {
+                let visible = 0;
+                cards.forEach(card => {
+                    const show = activeFilter === 'all' || card.dataset.category === activeFilter;
+                    card.classList.toggle('book-card--hidden', !show);
+                    if (show) visible++;
+                });
+                emptyState.hidden = visible > 0;
+            }
+
+            // --- Filter pills ---
+            pills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                    pills.forEach(p => p.classList.remove('active'));
+                    pill.classList.add('active');
+                    activeFilter = pill.dataset.filter;
+                    applyFilters();
+                });
+            });
+        })();
+    </script>
 </body>
 
 </html>
