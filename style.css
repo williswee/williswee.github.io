@@ -437,6 +437,17 @@ article figcaption {
     text-align: center;
 }
 
+article blockquote {
+    border-left: 3px solid var(--muted);
+    margin: 2rem 0;
+    padding: 0.25rem 0 0.25rem 1.5rem;
+    color: var(--muted);
+}
+
+article blockquote p {
+    margin: 0.4rem 0;
+}
+
 .back-link {
     font-family: var(--font-ui);
     font-size: 0.85rem;
