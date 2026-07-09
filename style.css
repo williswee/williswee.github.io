@@ -438,14 +438,15 @@ article figcaption {
 }
 
 article blockquote {
-    border-left: 3px solid var(--muted);
+    background-color: var(--surface);
+    border-radius: 8px;
     margin: 2rem 0;
-    padding: 0.25rem 0 0.25rem 1.5rem;
-    color: var(--muted);
+    padding: 1.5rem;
+    color: var(--text-strong);
 }
 
 article blockquote p {
-    margin: 0.4rem 0;
+    margin: 0.5rem 0;
 }
 
 .back-link {
