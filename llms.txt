@@ -10,6 +10,7 @@
 
 ## Thoughts
 Articles and reflections by Willis Wee.
+- [The startup exited. My founder habits didn't](https://williswee.com/thoughts/habits): The company moved on. My founder muscle memory took longer. Reflections on the letting-go part after exiting a startup you built for over a decade.
 - [I'd do it again, just kinder](https://williswee.com/thoughts/kinder): Same ambition. Less unnecessary heat. Reflections on changing temperature, not direction — and why kinder is not weaker.
 - [You shouldn't have to lose real money to learn investing](https://williswee.com/thoughts/tickertown): We built TickerTown: an 8-bit game where you can test real stock investing strategies using real market data and fake money.
 - [My kids wrote a family success plan. Their user guides are next.](https://williswee.com/thoughts/famplan): We wrote down how our family should work. The kids had opinions. A reflection on running a family huddle, writing a family success plan, and the parallels between parenting and running a startup.

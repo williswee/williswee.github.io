@@ -3,7 +3,7 @@ https://williswee.com/
 
 ## How to publish a new article
 
-1. Copy `thoughts/goodbye.html` as a template
+1. Copy `thoughts/kinder.html` as a template
 2. Rename to `thoughts/{slug}.html` (single word slug, e.g. `mission`)
 3. Update: `<title>`, `<meta description>`, `<h1>`, date, and body content
 4. Add a new `<li>` entry **at the top** of `thoughts/index.html`
@@ -18,7 +18,7 @@ Follow the instruction here [README.md#L4-10]
 Title: 
 Slug: (single word slug)
 Date: (e.g. 2020 January 16)
-Body: copy the content in the substack link, add all of them, including the image and caption. Do not change anything.
+Body: copy the content in the substack link, add all of them, including the image and caption. For image caption, centralize it. Do not change anything.
 
 ---
 
