@@ -26,10 +26,23 @@ Body: copy the content in the substack link, add all of them, including the imag
 
 1. Open `books.html`
 2. Inside `<div class="book-grid">`, add a new `<div class="book-card">` block (books are listed alphabetically by title)
-3. Fill in the three fields:
+3. Set the `data-category` attribute on the card to one of the valid categories (see below)
+4. Fill in the four fields:
+   - `<span class="book-tag">` — category label (title case, matches `data-category`)
    - `<h3>` — full book title
    - `<p class="book-author">` — author name in ALL CAPS, prefixed with `BY`
    - `<p class="book-review">` — 1–3 sentence personal take
+
+**Valid categories:** `leadership` · `mindset` · `investing` · `mindfulness` · `science` · `career` · `parenting` · `design`
+
+```html
+<div class="book-card" data-category="mindset">
+    <span class="book-tag">Mindset</span>
+    <h3>Book Title Here</h3>
+    <p class="book-author">BY AUTHOR NAME</p>
+    <p class="book-review">Your personal take on the book.</p>
+</div>
+```
 
 **Template**
 
