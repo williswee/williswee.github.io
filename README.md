@@ -32,6 +32,7 @@ Body: copy the content in the substack link, add all of them, including the imag
    - `<h3>` — full book title
    - `<p class="book-author">` — author name in ALL CAPS, prefixed with `BY`
    - `<p class="book-review">` — 1–3 sentence personal take
+5. Reorder the filter pills (`<div class="filter-pills">`) so they appear from most to least books per category
 
 **Valid categories:** `leadership` · `mindset` · `investing` · `mindfulness` · `science` · `career` · `parenting` · `design`
 
@@ -58,6 +59,7 @@ Body: copy the content in the substack link, add all of them, including the imag
 
 Follow the instruction here [README.md] under "How to add a book"
 - add the book into `books.html` in alphabetical order by title
+- reorder the filter pills from most to least books per category
 
 Title:
 Author:
