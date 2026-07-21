@@ -449,6 +449,36 @@ article blockquote p {
     margin: 0.5rem 0;
 }
 
+/* Code blocks */
+pre {
+    background-color: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0 2rem;
+    overflow-x: auto;
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+    color: var(--text);
+    border-radius: 0;
+}
+
+code {
+    font-family: 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+    font-size: 0.88em;
+    background-color: rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    padding: 2px 6px;
+    color: var(--text-strong);
+}
+
 .back-link {
     font-family: var(--font-ui);
     font-size: 0.85rem;
