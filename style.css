@@ -1024,6 +1024,46 @@ h1:hover .wave {
     opacity: 1;
 }
 
+/* ================================================================
+   SUBSCRIBE EMBED — end-of-article Substack form
+   ================================================================ */
+.subscribe-embed {
+    margin-top: 48px;
+    padding: 32px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.subscribe-embed p {
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    color: var(--text-strong);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.subscribe-embed iframe {
+    margin: 0 auto;
+    display: block;
+    max-width: 100%;
+}
+
+@media (max-width: 540px) {
+    .subscribe-embed {
+        padding: 24px 16px;
+    }
+    .subscribe-embed iframe {
+        height: 460px !important;
+    }
+}
+@media (max-width: 380px) {
+    .subscribe-embed iframe {
+        height: 520px !important;
+    }
+}
+
 @media (max-width: 600px) {
     .follow-nudge {
         flex-direction: column;
