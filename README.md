@@ -34,7 +34,7 @@ Body: copy the content in the substack link, add all of them, including the imag
    - `<p class="book-review">` — 1–3 sentence personal take
 5. Reorder the filter pills (`<div class="filter-pills">`) so they appear from most to least books per category
 
-**Valid categories:** `leadership` · `mindset` · `investing` · `mindfulness` · `science` · `career` · `parenting` · `design`
+**Valid categories:** `leadership` · `mindset` · `investing` · `life` · `science` · `career` · `parenting` · `design`
 
 ```html
 <div class="book-card" data-category="mindset">
