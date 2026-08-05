@@ -18,7 +18,7 @@ Follow the instruction here [README.md#L4-10]
 Title: 
 Slug: (single word slug)
 Date: (e.g. 2020 January 16)
-Body: copy the content in the substack link, add all of them, including the image and caption. For image caption, centralize it. Do not change anything.
+Body: copy the content in the substack link, add all of them, including the image and caption. Save any images in the `images` directory and reference them properly in the article. For image caption, centralize it. Do not change anything.
 
 ---
 
