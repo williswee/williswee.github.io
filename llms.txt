@@ -10,6 +10,7 @@
 
 ## Thoughts
 Articles and reflections by Willis Wee.
+- [I deposited $10 so I could withdraw $20](https://williswee.com/thoughts/nomoney): A bad stretch teaches you things money can't buy back. But it doesn't teach you how to stop worrying.
 - [We talked to 30+ people about TickerTown. Here's who leaned in.](https://williswee.com/thoughts/tickertownusabilitytest): The conversations didn't prove the idea works. They made it clearer who might care.
 - [You can't stop thinking. That's the whole point.](https://williswee.com/thoughts/meditation): The calm is a side effect. Awareness is the actual skill. Reflections on meditation, metacognition, and learning to notice your own thoughts.
 - [The boring ways I use AI](https://williswee.com/thoughts/boring-ai): AI did change how I work. Here's how I actually use AI — not to impress, just to get shit done.
