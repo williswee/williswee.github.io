@@ -1,6 +1,6 @@
 # Gratitude notes
 
-Collected from [Willis Wee’s Substack Notes](https://williswee.substack.com/notes) on 2026-08-07. The 23 gratitude-note posts are ordered chronologically, oldest to newest.
+Collected from [Willis Wee’s Substack Notes](https://williswee.substack.com/notes) on 2026-08-18. The 29 gratitude-note posts are ordered chronologically, oldest to newest.
 
 ## Gratitude note #1
 
@@ -279,3 +279,63 @@ What's yours?
 3️⃣ The wife's sourdough banana chocolate bread. So yummy. I think she should try to sell it since she enjoys baking too
 
 What's yours?
+
+## Gratitude note #24
+
+*2026-08-11 · [Original note](https://substack.com/@williswee/note/c-312226973)*
+
+1️⃣ A swim session with all the neighborhood kids. Everyone just playing together, having fun.
+
+2️⃣ A family dinner where everyone enjoyed the food. Satisfying to see everyone satisfied.
+
+3️⃣ The wife again. I can share my most inner thoughts with her. even the ones still forming. She never judges.
+
+## Gratitude note #25
+
+*2026-08-12 · [Original note](https://substack.com/@williswee/note/c-312999201)*
+
+1️⃣ Built brain games for the kids. They enjoyed it a lot. Interesting.
+
+2️⃣ Wrote stuff. Received kind words. So grateful.
+
+3️⃣ Grateful to my wife for supporting me to do a long meditation retreat. My first.
+
+## Gratitude note #26
+
+*2026-08-13 · [Original note](https://substack.com/@williswee/note/c-313638202)*
+
+1️⃣ The girls kept playing the brain games, so I built more. and they wanted to share with their friends.
+
+2️⃣ Talked to a founder yesterday. Went quite deep on root causes and next course of action. Quite amazed how she found me.
+
+3️⃣ Two of the older kids decided not to follow us to lunch midway. We told them where we'd be and kept walking. They didn't show up and we didn't go looking. wife and I had a nice lunch, packed food back. We found them on the way home. safe, and they learned a lesson. But grumpy they couldn't eat out. lol.
+
+## Gratitude note #27
+
+*2026-08-14 · [Original note](https://substack.com/@williswee/note/c-314350542)*
+
+1️⃣ Grandpa and the kids baked cookies yesterday. They turned out so well we shared them with three neighbors. and they loved it too.
+
+2️⃣ Japanese curry and palak paneer for dinner. love it.
+
+3️⃣ Random conversations with friends on WhatsApp. Some brought chuckles.😆
+
+## Gratitude note #28
+
+*2026-08-17 · [Original note](https://substack.com/@williswee/note/c-316272928)*
+
+1️⃣ It's nice to talk to the wife about everything: the good, the bad, things to fix, solutions forward. Lucky to have found a soulmate I can share anything and everything with.
+
+2️⃣ Went out with the older girls to buy food by bicycle. It’s a first. They had chilled honey lemon drinks and were grateful for them. It was a fun one.
+
+3️⃣ Oldest daughter said some funny stuff when she's in the mood. Kinda quirky and humorous. I like that style.
+
+## Gratitude note #29
+
+*2026-08-18 · [Original note](https://substack.com/@williswee/note/c-316959660)*
+
+1️⃣ Surprised my youngest by showing up with her scooter. She squealed. We scooted home together (I ran). Cute.
+
+2️⃣ "Courage to Be Happy" is challenging how I see things. I agree on the theory. Not totally sure about the feasibility on certain things. But it's interesting for my brain to chew on.
+
+3️⃣ Friends who still remember you… and then invite you to things and show up to help. That's a nice feeling.
