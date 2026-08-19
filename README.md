@@ -14,11 +14,11 @@ https://williswee.com/
 Follow the instruction here [README.md#L4-10]
 - add this article into `thoughts` directory
 - on https://williswee.com/thoughts/index.html, rank the article by date (latest post on top)
+- Extract the title, date, and body from the live Substack post. Do not ask me for them.
+- Copy all content from the Substack post, including images and captions. Save any images in the `images` directory and reference them properly in the article. For image captions, centralize them. Do not change anything.
 
-Title: 
-Slug: (single word slug)
-Date: (e.g. 2020 January 16)
-Body: copy the content in the substack link, add all of them, including the image and caption. Save any images in the `images` directory and reference them properly in the article. For image caption, centralize it. Do not change anything.
+Substack URL:
+Slug: (single word slug, e.g. `mission`)
 
 ---
 
