@@ -1,6 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Sans:wght@400;500;600&display=swap');
-
 /* ================================================================
    DESIGN SYSTEM — "Demo 5" staging theme
    Original production CSS preserved as style.css for rollback.
@@ -11,7 +9,7 @@
     --text: #c8c5bc;
     --text-strong: #efede8;
     --accent: #c9a96e;
-    --muted: #6b6862;
+    --muted: #8a867f;
     --rule: rgba(255, 255, 255, 0.06);
 
     --font-display: 'Newsreader', Georgia, serif;
@@ -384,7 +382,7 @@ ol {
     padding: 15px 0;
     border-bottom: 1px solid var(--rule);
     margin-bottom: 0;
-    transition: padding-left 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 .article-list li:first-child {
@@ -392,7 +390,7 @@ ol {
 }
 
 .article-list li:hover {
-    padding-left: 6px;
+    transform: translateX(6px);
 }
 
 .article-list li a {
@@ -1089,11 +1087,12 @@ h1:hover .wave {
     }
 
     nav {
-        gap: 2px;
+        gap: 6px;
         flex-wrap: nowrap;
         overflow-x: auto;
         -ms-overflow-style: none;
         scrollbar-width: none;
+        padding-bottom: 4px;
     }
 
     nav::-webkit-scrollbar {
@@ -1101,10 +1100,13 @@ h1:hover .wave {
     }
 
     nav a {
-        padding: 6px 8px;
-        font-size: 0.78rem;
+        padding: 8px 12px;
+        font-size: 0.8rem;
         white-space: nowrap;
         flex-shrink: 0;
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
     }
 
     .article-list li {
@@ -1117,7 +1119,7 @@ h1:hover .wave {
     }
 
     .article-list li:hover {
-        padding-left: 0;
+        transform: none;
     }
 
     .site-brand .avatar {
@@ -1127,5 +1129,24 @@ h1:hover .wave {
 
     .site-name {
         font-size: 1.3rem;
+    }
+}
+
+/* ================================================================
+   ACCESSIBILITY — Reduced Motion Support
+   ================================================================ */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .wave, .status-dot, .avatar, main {
+        animation: none !important;
+    }
+    .site-brand:hover .avatar,
+    .site-brand:active .avatar {
+        animation: none !important;
     }
 }
