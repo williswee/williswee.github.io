@@ -1,0 +1,278 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-24T20:01:00.000Z",
+  "title": "Design System: Willis Wee",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Warm Parchment Gold",
+        "canonical": "oklch(74% 0.09 78)",
+        "tonalRamp": [
+          "#3d301b",
+          "#5e4c2c",
+          "#80693e",
+          "#a38651",
+          "#c9a96e",
+          "#d8bf8d",
+          "#e7d5af",
+          "#f5ebd5"
+        ]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Smoked Obsidian Background",
+        "canonical": "oklch(15% 0.003 90)",
+        "tonalRamp": [
+          "#080807",
+          "#111110",
+          "#1c1c1a",
+          "#292926",
+          "#383834",
+          "#4a4a45",
+          "#5e5e58",
+          "#74746c"
+        ]
+      },
+      "neutral-surface": {
+        "role": "neutral",
+        "displayName": "Deep Mineral Surface",
+        "canonical": "oklch(19% 0.004 85)",
+        "tonalRamp": [
+          "#0e0e0d",
+          "#1a1a18",
+          "#272724",
+          "#353531",
+          "#464641",
+          "#595953",
+          "#6e6e67",
+          "#84847c"
+        ]
+      },
+      "neutral-text": {
+        "role": "neutral",
+        "displayName": "Muted Cream Body Text",
+        "canonical": "oklch(80% 0.01 85)",
+        "tonalRamp": [
+          "#363531",
+          "#52504a",
+          "#706d65",
+          "#908c82",
+          "#b1ad02",
+          "#c8c5bc",
+          "#dbd9d2",
+          "#edece9"
+        ]
+      },
+      "neutral-text-strong": {
+        "role": "neutral",
+        "displayName": "Soft Alabaster Strong Text",
+        "canonical": "oklch(94% 0.007 85)",
+        "tonalRamp": [
+          "#42413e",
+          "#64635e",
+          "#888780",
+          "#adaca4",
+          "#d3d2cb",
+          "#efede8",
+          "#f5f4f1",
+          "#fafaf9"
+        ]
+      },
+      "neutral-muted": {
+        "role": "neutral",
+        "displayName": "Warm Umber Gray",
+        "canonical": "oklch(49% 0.009 75)",
+        "tonalRamp": [
+          "#1f1e1c",
+          "#32302d",
+          "#474540",
+          "#5c5a54",
+          "#6b6862",
+          "#87847c",
+          "#a5a29a",
+          "#c4c2bc"
+        ]
+      },
+      "neutral-border": {
+        "role": "neutral",
+        "displayName": "Translucent Hairline Rule",
+        "canonical": "rgba(255, 255, 255, 0.06)",
+        "tonalRamp": [
+          "rgba(255,255,255,0.02)",
+          "rgba(255,255,255,0.04)",
+          "rgba(255,255,255,0.06)",
+          "rgba(255,255,255,0.1)",
+          "rgba(255,255,255,0.15)",
+          "rgba(255,255,255,0.2)",
+          "rgba(255,255,255,0.3)",
+          "rgba(255,255,255,0.4)"
+        ]
+      },
+      "accent-green": {
+        "role": "accent",
+        "displayName": "Active Green Dot",
+        "canonical": "oklch(81% 0.17 142)",
+        "tonalRamp": [
+          "#134e23",
+          "#1e7836",
+          "#2aa34b",
+          "#3cd062",
+          "#4ade80",
+          "#73e59d",
+          "#9feebb",
+          "#ccf6dc"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display / H1",
+        "purpose": "Primary page titles and hero intros with italic Newsreader warmth."
+      },
+      "headline": {
+        "displayName": "Headline / H2",
+        "purpose": "Major editorial section dividers with delicate baseline rules."
+      },
+      "title": {
+        "displayName": "Title / H3",
+        "purpose": "Card headers, timeline milestones, and article titles."
+      },
+      "body": {
+        "displayName": "Body Reading",
+        "purpose": "Long-form editorial essays and descriptions in Source Serif 4."
+      },
+      "label": {
+        "displayName": "UI / Label",
+        "purpose": "Navigation tabs, category tags, filter pills, and button text in DM Sans."
+      }
+    },
+    "shadows": [
+      {
+        "name": "ambient-low",
+        "value": "0 6px 16px rgba(0, 0, 0, 0.15)",
+        "purpose": "Button and pill hover elevation."
+      },
+      {
+        "name": "ambient-lift",
+        "value": "0 12px 24px rgba(0, 0, 0, 0.2)",
+        "purpose": "Card hover elevation and ambient diffuse glow."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for state transitions, lifts, and background color shifts."
+      },
+      {
+        "name": "pulse-status",
+        "value": "cubic-bezier(0.4, 0, 0.6, 1)",
+        "purpose": "Infinite gentle pulse animation for active status dot."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "container",
+        "value": "640px"
+      },
+      {
+        "name": "mobile",
+        "value": "600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Pill-shaped action button with subtle translucent backdrop and hover lift.",
+      "html": "<a href=\"#\" class=\"ds-btn\"><svg class=\"ds-btn-icon\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z\"/></svg> Substack</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 7px; justify-content: center; padding: 9px 18px; background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 30px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; color: #efede8; text-decoration: none; transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn:hover { background-color: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.18); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); color: #fff; } .ds-btn-icon { width: 14px; height: 14px; opacity: 0.75; transition: opacity 0.2s; } .ds-btn:hover .ds-btn-icon { opacity: 1; }"
+    },
+    {
+      "name": "Filter Pill",
+      "kind": "chip",
+      "refersTo": "filter-pill",
+      "description": "Interactive category filtering pill with count badge and warm gold active state.",
+      "html": "<button class=\"ds-filter-pill ds-filter-pill--active\">Life <span class=\"ds-pill-count\">12</span></button>",
+      "css": ".ds-filter-pill { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 20px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: #6b6862; cursor: pointer; transition: all 0.2s ease; } .ds-filter-pill:hover { color: #efede8; border-color: rgba(255, 255, 255, 0.15); background-color: rgba(255, 255, 255, 0.03); } .ds-filter-pill--active { color: #c9a96e; border-color: #c9a96e; background-color: rgba(201, 169, 110, 0.07); } .ds-pill-count { font-size: 0.7rem; opacity: 0.6; }"
+    },
+    {
+      "name": "Book Card",
+      "kind": "card",
+      "refersTo": "book-card",
+      "description": "Curated reading entry with category tag, italic book title, author, and personal review take.",
+      "html": "<div class=\"ds-book-card\"><span class=\"ds-book-tag\">Life</span><h3 class=\"ds-book-title\">The Surrender Experiment</h3><p class=\"ds-book-author\">BY MICHAEL A. SINGER</p><p class=\"ds-book-review\">From an economics doctoral student to a software CEO, Singer practised surrender: setting aside personal preferences and working with life rather than against it.</p></div>",
+      "css": ".ds-book-card { background-color: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 28px; transition: all 0.3s ease; display: flex; flex-direction: column; } .ds-book-card:hover { background-color: rgba(255, 255, 255, 0.03); transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.1); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); } .ds-book-tag { font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #6b6862; margin-bottom: 12px; } .ds-book-title { font-family: 'Newsreader', Georgia, serif; font-size: 1.35rem; font-weight: 500; font-style: italic; color: #efede8; margin: 0 0 8px 0; line-height: 1.3; } .ds-book-author { font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.75rem; color: #6b6862; letter-spacing: 0.06em; margin-bottom: 20px; text-transform: uppercase; } .ds-book-review { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.05rem; line-height: 1.6; color: #c8c5bc; margin: 0; }"
+    },
+    {
+      "name": "Navigation Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header navigation tab with uppercase tracking, subtle background hover, and active state pill.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-link ds-nav-link--active\">About</a><a href=\"#\" class=\"ds-nav-link\">Thoughts</a><a href=\"#\" class=\"ds-nav-link\">Books</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 6px; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 16px; } .ds-nav-link { font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #6b6862; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: color 0.2s ease, background-color 0.2s ease; } .ds-nav-link:hover { color: #efede8; background-color: rgba(255, 255, 255, 0.03); } .ds-nav-link--active { color: #efede8; background-color: rgba(255, 255, 255, 0.05); font-weight: 600; }"
+    },
+    {
+      "name": "Status Badge",
+      "kind": "custom",
+      "refersTo": "status-badge",
+      "description": "Compact pill badge with a pulsing green indicator representing current focus.",
+      "html": "<div class=\"ds-status-badge\"><span class=\"ds-status-dot\"></span> Currently: Building for joy</div>",
+      "css": ".ds-status-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 20px; background-color: rgba(255, 255, 255, 0.02); font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.82rem; font-weight: 500; color: #efede8; letter-spacing: 0.02em; } .ds-status-dot { width: 8px; height: 8px; border-radius: 50%; background-color: #4ade80; box-shadow: 0 0 8px rgba(74, 222, 128, 0.4); animation: ds-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; } @keyframes ds-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.9); } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Press",
+    "overview": "The Quiet Press embodies a warm, tactile, and restrained editorial haven. Rooted in traditional typographic excellence, it pairs the classic rhythm of literary typesetting with modern dark-mode clarity. Rather than competing for visual noise with aggressive gradients or heavy card elevation, the design recedes into the background to let reflective thoughts, founder insights, and curated works command total focus.\n\nSurfaces feel deep, organic, and composed. A subtle film grain overlay lends warmth to smoked charcoal backgrounds (#111110), while warm parchment gold (#c9a96e) provides quiet, deliberate accents. Micro-interactions are gentle and intentional—delicate link underlines that expand smoothly on hover, soft lift elevations on cards, and quiet pulse indicators for live status.",
+    "keyCharacteristics": [
+      "Literary Typographic Rhythm: Newsreader italic serif headings paired with Source Serif 4 body text and crisp DM Sans uppercase metadata.",
+      "Gilded Obsidian Palette: Deep smoked background tones accented with refined warm gold and soft alabaster typography.",
+      "Restrained Depth: Flat translucent layering (rgba(255, 255, 255, 0.015–0.06)) with subtle ambient hover elevation.",
+      "Zero-Build Simplicity: Pure semantic HTML and modular CSS with instantaneous performance and zero dependency overhead."
+    ],
+    "rules": [
+      {
+        "name": "The Rarity Accent Rule",
+        "body": "The primary gold accent (#c9a96e) is used on <=5% of any given viewport. Its power comes from restraint and intentional focus.",
+        "section": "colors"
+      },
+      {
+        "name": "The Translucent Boundary Rule",
+        "body": "Borders never use opaque solid gray; they use low-opacity white (rgba(255, 255, 255, 0.04-0.06)) to naturally blend with underlying obsidian surfaces.",
+        "section": "colors"
+      },
+      {
+        "name": "The Italic Heading Doctrine",
+        "body": "All H1 and H2 display headers use Newsreader's italic optical weight to convey editorial warmth and authorial voice.",
+        "section": "typography"
+      },
+      {
+        "name": "The Reading Width Rule",
+        "body": "Reading prose is strictly constrained to a centered 640px container (~65-75 characters per line) to maintain optimal typographic cadence.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tonal Depth Rule",
+        "body": "Depth is created through surface opacity and border hairlines, never through opaque skeuomorphic shadows or thick dividers.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the strict 640px maximum content width on all reading layouts.",
+      "Do use Newsreader italic for H1 and H2 headers to maintain the site's signature editorial voice.",
+      "Do reserve #c9a96e (Warm Parchment Gold) for purposeful accents and active states.",
+      "Do maintain translucent hairlines (rgba(255, 255, 255, 0.06)) for borders rather than opaque solid colors.",
+      "Do use hardware-accelerated transforms (transform: translateY(...), opacity) for all interactive hover animations."
+    ],
+    "donts": [
+      "Don't introduce heavy saturated gradients or bright neon background fills.",
+      "Don't use standard heavy drop shadows or skeuomorphic bevels.",
+      "Don't load heavy third-party CSS or JS frameworks; all styles must remain modular, lightweight, and zero-build Vanilla CSS.",
+      "Don't use generic sans-serif fonts for long-form essay prose.",
+      "Don't use layout-thrashing CSS transitions on properties like padding, margin, width, or height."
+    ]
+  }
+}
