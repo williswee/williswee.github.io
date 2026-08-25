@@ -695,11 +695,11 @@ code {
 .timeline-item h2 {
     font-size: 1.4rem;
     font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 500;
-    color: var(--text-strong);
+    font-style: normal;
+    font-weight: 600;
+    color: #ffffff;
     text-transform: none;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     margin-top: 0;
     margin-bottom: 16px;
     border-bottom: none;
