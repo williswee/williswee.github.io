@@ -10,6 +10,7 @@
 
 ## Thoughts
 Articles and reflections by Willis Wee.
+- [Freedom is being disliked by other people](https://williswee.com/thoughts/freedom): Entrepreneurship is self-expression. Not everyone will like what you express.
 - [Most founders I meet don't talk to users](https://williswee.com/thoughts/talktousers): The pattern keeps showing up: founders building on analytics and opinion, without finding ground truth from the people using their product.
 - [I deposited $10 so I could withdraw $20](https://williswee.com/thoughts/nomoney): A bad stretch teaches you things money can't buy back. But it doesn't teach you how to stop worrying.
 - [We talked to 30+ people about TickerTown. Here's who leaned in.](https://williswee.com/thoughts/tickertownusabilitytest): The conversations didn't prove the idea works. They made it clearer who might care.
