@@ -238,14 +238,28 @@ h1 {
 
 h2 {
     font-family: var(--font-display);
-    font-size: 1.6rem;
-    font-weight: 400;
-    font-style: italic;
+    font-size: 1.65rem;
+    font-weight: 600;
+    font-style: normal;
     text-transform: none;
-    letter-spacing: -0.02em;
-    color: var(--text-strong);
-    margin-top: 48px;
-    margin-bottom: 16px;
+    letter-spacing: -0.015em;
+    color: #ffffff;
+    margin-top: 56px;
+    margin-bottom: 20px;
+    line-height: 1.35;
+}
+
+/* Article & Essay Subheadings — Extra crisp spacing and visual punch */
+article h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 600;
+    font-style: normal;
+    color: #ffffff;
+    letter-spacing: -0.015em;
+    line-height: 1.35;
+    margin-top: 56px;
+    margin-bottom: 20px;
 }
 
 h3 {
@@ -1053,6 +1067,30 @@ h1:hover .wave {
     margin: 0 auto;
     display: block;
     max-width: 100%;
+    border: 0 !important;
+    background: transparent !important;
+}
+
+/* Footnotes & Captions */
+.article-footnotes {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.article-footnotes p,
+.article-footnotes ul,
+.article-footnotes li {
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+figure figcaption {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    text-align: center;
 }
 
 @media (max-width: 540px) {
