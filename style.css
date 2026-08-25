@@ -89,7 +89,7 @@ body {
     font-family: var(--font-body);
     font-size: 1.125rem;
     font-optical-sizing: auto;
-    line-height: 1.72;
+    line-height: 1.78;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     display: flex;
@@ -233,23 +233,19 @@ h1 {
     letter-spacing: -0.03em;
     line-height: 1.2;
     margin-top: 0;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 h2 {
     font-family: var(--font-display);
-    font-size: 1.65rem;
-    font-weight: 500;
+    font-size: 1.6rem;
+    font-weight: 400;
     font-style: italic;
     text-transform: none;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
     color: var(--text-strong);
-    margin-top: 56px;
-    margin-bottom: 20px;
-    
-    /* Delicate editorial baseline */
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    margin-top: 48px;
+    margin-bottom: 16px;
 }
 
 h3 {
@@ -262,7 +258,8 @@ h3 {
 }
 
 p {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
+    line-height: 1.78;
 }
 
 strong {
@@ -803,41 +800,51 @@ h1:hover .wave {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 12px;
+    padding: 4px 12px;
     border: 1px solid var(--rule);
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.02);
+    background-color: rgba(255, 255, 255, 0.03);
     font-family: var(--font-ui);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 500;
-    color: var(--text-strong);
+    color: var(--text-muted);
     letter-spacing: 0.02em;
-    margin-bottom: 48px;
-    margin-top: -24px;
+    margin-bottom: 40px;
+    margin-top: 0;
 }
 
 .status-dot {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
-    background-color: #4ade80;
-    box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
-    animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    background-color: var(--accent);
+    box-shadow: 0 0 6px rgba(201, 169, 110, 0.6);
+    animation: pulse-dot 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @keyframes pulse-dot {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.9); }
+    50% { opacity: 0.5; transform: scale(0.85); }
 }
 
 /* Divider replacing hrs */
 .divider {
-    text-align: center;
-    color: var(--rule);
-    font-size: 1.2rem;
-    margin: 8px 0 32px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 48px 0;
+    color: var(--accent);
+    font-size: 0.85rem;
+    opacity: 0.8;
     user-select: none;
-    letter-spacing: 0.2em;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--rule), transparent);
 }
 
 /* Emoji pop */
@@ -854,7 +861,7 @@ h1:hover .wave {
 .button-group {
     display: flex;
     gap: 10px;
-    margin-top: 28px;
+    margin-top: 24px;
     margin-bottom: 8px;
     flex-wrap: wrap;
 }
@@ -862,14 +869,14 @@ h1:hover .wave {
 .button-group .btn {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+    gap: 8px;
     justify-content: center;
-    padding: 9px 18px;
-    background-color: rgba(255, 255, 255, 0.03);
+    padding: 8px 16px;
+    background-color: var(--surface);
     border: 1px solid var(--rule);
-    border-radius: 30px;
+    border-radius: 6px;
     font-family: var(--font-ui);
-    font-size: 0.875rem;
+    font-size: 0.82rem;
     font-weight: 500;
     color: var(--text-strong);
     text-decoration: none;
@@ -891,10 +898,10 @@ h1:hover .wave {
 }
 
 .button-group .btn:hover {
-    background-color: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.18);
+    background-color: #22221f;
+    border-color: rgba(255, 255, 255, 0.14);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
     color: #fff;
 }
 
