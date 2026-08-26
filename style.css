@@ -538,7 +538,8 @@ code {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 5px 12px;
+    padding: 7px 14px;
+    min-height: 36px;
     background: transparent;
     border: 1px solid var(--rule);
     border-radius: 20px;
@@ -566,7 +567,8 @@ code {
 
 .pill-count {
     font-size: 0.7rem;
-    opacity: 0.6;
+    opacity: 0.85;
+    font-weight: 600;
 }
 
 /* Book tag — category label on each card */
@@ -607,7 +609,7 @@ code {
     border: 1px solid var(--rule);
     border-radius: 12px;
     padding: 28px;
-    transition: all 0.3s ease;
+    transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     display: flex;
     flex-direction: column;
 }

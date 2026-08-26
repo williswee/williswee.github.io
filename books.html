@@ -38,29 +38,29 @@
             <!-- Filter Controls -->
             <div class="book-controls">
                 <div class="filter-pills" id="filter-pills" role="group" aria-label="Filter by category">
-                    <button class="filter-pill active" data-filter="all">All <span class="pill-count"
+                    <button class="filter-pill active" data-filter="all" aria-pressed="true">All <span class="pill-count"
                             id="count-all"></span></button>
-                    <button class="filter-pill" data-filter="life">Life <span class="pill-count"
+                    <button class="filter-pill" data-filter="life" aria-pressed="false">Life <span class="pill-count"
                             id="count-life"></span></button>
-                    <button class="filter-pill" data-filter="mindset">Mindset <span class="pill-count"
+                    <button class="filter-pill" data-filter="mindset" aria-pressed="false">Mindset <span class="pill-count"
                             id="count-mindset"></span></button>
-                    <button class="filter-pill" data-filter="leadership">Leadership <span class="pill-count"
+                    <button class="filter-pill" data-filter="leadership" aria-pressed="false">Leadership <span class="pill-count"
                             id="count-leadership"></span></button>
-                    <button class="filter-pill" data-filter="parenting">Parenting <span class="pill-count"
+                    <button class="filter-pill" data-filter="parenting" aria-pressed="false">Parenting <span class="pill-count"
                             id="count-parenting"></span></button>
-                    <button class="filter-pill" data-filter="investing">Investing <span class="pill-count"
+                    <button class="filter-pill" data-filter="investing" aria-pressed="false">Investing <span class="pill-count"
                             id="count-investing"></span></button>
-                    <button class="filter-pill" data-filter="design">Design <span class="pill-count"
+                    <button class="filter-pill" data-filter="design" aria-pressed="false">Design <span class="pill-count"
                             id="count-design"></span></button>
-                    <button class="filter-pill" data-filter="science">Science <span class="pill-count"
+                    <button class="filter-pill" data-filter="science" aria-pressed="false">Science <span class="pill-count"
                             id="count-science"></span></button>
-                    <button class="filter-pill" data-filter="career">Career <span class="pill-count"
+                    <button class="filter-pill" data-filter="career" aria-pressed="false">Career <span class="pill-count"
                             id="count-career"></span></button>
                 </div>
             </div>
 
             <!-- Empty state -->
-            <p class="book-empty" id="book-empty" hidden>No books match your search.</p>
+            <p class="book-empty" id="book-empty" role="status" aria-live="polite" hidden>No books found in this category.</p>
 
             <div class="book-grid" id="book-grid">
                 <div class="book-card" data-category="parenting">
@@ -424,19 +424,19 @@
         <footer class="follow-strip">
             <span class="follow-strip-label">Follow</span>
             <div class="follow-strip-icons">
-                <a href="https://williswee.substack.com" class="follow-icon" target="_blank" aria-label="Substack">
+                <a href="https://williswee.substack.com" class="follow-icon" target="_blank" rel="noopener noreferrer" aria-label="Substack">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
                     </svg>
                 </a>
-                <a href="https://x.com/williswee" class="follow-icon" target="_blank" aria-label="X">
+                <a href="https://x.com/williswee" class="follow-icon" target="_blank" rel="noopener noreferrer" aria-label="X">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
                     </svg>
                 </a>
-                <a href="https://www.linkedin.com/in/williswee/" class="follow-icon" target="_blank"
+                <a href="https://www.linkedin.com/in/williswee/" class="follow-icon" target="_blank" rel="noopener noreferrer"
                     aria-label="LinkedIn">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path
@@ -476,8 +476,12 @@
             // --- Filter pills ---
             pills.forEach(pill => {
                 pill.addEventListener('click', () => {
-                    pills.forEach(p => p.classList.remove('active'));
+                    pills.forEach(p => {
+                        p.classList.remove('active');
+                        p.setAttribute('aria-pressed', 'false');
+                    });
                     pill.classList.add('active');
+                    pill.setAttribute('aria-pressed', 'true');
                     activeFilter = pill.dataset.filter;
                     applyFilters();
                 });
