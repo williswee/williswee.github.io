@@ -5,7 +5,7 @@ https://williswee.com/
 
 1. Copy `thoughts/kinder.html` as a template
 2. Rename to `thoughts/{slug}.html` (single word slug, e.g. `mission`)
-3. Update: `<title>`, `<meta description>`, `<h1>`, date, and body content
+3. Update: `<title>`, `<meta description>`, `<h1>`, subtitle (`<p class="article-subtitle">`), date, and body content. The subtitle goes right below the title image/figure.
 4. Add a new `<li>` entry **at the top** of `thoughts/index.html`
 5. Add the URL to `sitemap.xml` and `llms.txt`
 
@@ -14,7 +14,7 @@ https://williswee.com/
 Follow the instruction here [README.md#L4-10]
 - add this article into `thoughts` directory
 - on https://williswee.com/thoughts/index.html, rank the article by date (latest post on top)
-- Extract the title, date, and body from the live Substack post. Do not ask me for them.
+- Extract the title, subtitle, date, and body from the live Substack post. Do not ask me for them. The subtitle is the Substack post's subtitle/deck. Place it as `<p class="article-subtitle">` right after the title image/figure.
 - Copy all content from the Substack post, including images and captions. Save any images in the `images` directory and reference them properly in the article. For image captions, centralize them. Do not change anything.
 
 Substack URL:
