@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=1.5">
+    <link rel="stylesheet" href="style.css?v=1.6">
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="https://www.useinflect.ai/inflect-tracking.js" data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
     <img src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&iv=2026-08-12.1" alt="" width="1" height="1" style="display:none;" referrerpolicy="unsafe-url" />
@@ -34,20 +34,66 @@
         <main>
             <h1>Projects</h1>
 
+            <nav class="project-nav" id="project-nav" aria-label="Jump to milestone">
+                <a href="#now" class="project-nav-pill active">🌱 Now</a>
+                <a href="#tech-in-asia" class="project-nav-pill">🌏 Tech in Asia</a>
+                <a href="#tuition-center" class="project-nav-pill">📘 Tuition Center</a>
+                <a href="#trading-cards" class="project-nav-pill">🃏 Cards</a>
+                <a href="#grasshoppers" class="project-nav-pill">🦗 Grasshoppers</a>
+            </nav>
+
             <div class="timeline">
-                <div class="timeline-item">
-                    <h2>🌱 Now</h2>
+                <div class="timeline-item" id="now">
+                    <div class="timeline-header">
+                        <div class="timeline-meta-row">
+                            <span class="timeline-age-badge">🌱 Now</span>
+                            <span class="timeline-period-badge">2026</span>
+                        </div>
+                        <h2>Slothware</h2>
+                    </div>
                     <p>After <a
                             href="https://www.linkedin.com/posts/williswee_after-16-years-of-building-tech-in-asia-activity-7444560352060608512-g8uL"
-                            target="_blank" rel="noopener noreferrer">leaving</a> Tech in Asia, I'm taking a break, recharging, and building for fun.</p>
-                    <p>The current project is <strong><a href="https://slothware.ai/" target="_blank" rel="noopener noreferrer">Slothware</a></strong>, starting with
-                        <strong><a href="https://preview.tickertown.ai/" target="_blank" rel="noopener noreferrer">TickerTown</a></strong> —
-                        a communal investing simulator featuring a competitive leaderboard that uses real market data
-                        and play money to help you learn systematic investing. Built with my cofounder Ian Tan.</p>
+                            target="_blank" rel="noopener noreferrer">leaving</a> Tech in Asia, I’m taking a break, recharging, and building stuff under <strong><a href="https://slothware.ai/" target="_blank" rel="noopener noreferrer">Slothware Labs</a></strong> where Ian and I build for joy.</p>
+                    
+                    <div class="spotlight-card">
+                        <div class="spotlight-header">
+                            <div class="spotlight-title-group">
+                                <h3 class="spotlight-title">TickerTown</h3>
+                                <span class="spotlight-sub">Co-built with Ian Tan</span>
+                            </div>
+                            <span class="spotlight-badge"><span class="spotlight-pulse"></span>Experimenting</span>
+                        </div>
+                        <p class="spotlight-desc">A communal investing simulator featuring a competitive leaderboard that uses real market data and play money to help you learn systematic investing.</p>
+                        
+                        <a href="https://preview.tickertown.ai/" target="_blank" rel="noopener noreferrer" class="spotlight-preview-frame" aria-label="Explore TickerTown Live Preview">
+                            <div class="spotlight-browser-bar">
+                                <div class="spotlight-browser-dots">
+                                    <i></i><i></i><i></i>
+                                </div>
+                                <span class="spotlight-browser-url">preview.tickertown.ai</span>
+                                <span class="spotlight-browser-action">Launch ↗</span>
+                            </div>
+                            <div class="spotlight-preview-media">
+                                <img src="tickertown-preview.webp" alt="TickerTown Game Preview" class="spotlight-preview-img" width="720" height="515" loading="lazy">
+                                <div class="spotlight-preview-overlay">
+                                    <span class="spotlight-overlay-btn">
+                                        <span>Play TickerTown</span>
+                                        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
-                <div class="timeline-item">
-                    <h2>📰 Tech in Asia (Age 23)</h2>
+                <div class="timeline-item" id="tech-in-asia">
+                    <div class="timeline-header">
+                        <div class="timeline-meta-row">
+                            <span class="timeline-age-badge">Age 23</span>
+                            <span class="timeline-period-badge">2010 – 2026 · 16 Years</span>
+                        </div>
+                        <h2>🌏 Tech in Asia</h2>
+                    </div>
                     <p><em>(If you're looking for the deep dive into my 16 years here, you can read the <a
                                 href="thoughts/whatidid.html">elaborated version here</a>.)</em></p>
                     <p>Before Tech in Asia became Tech in Asia, it was called Penn Olson—a name I came up with when I
@@ -162,16 +208,22 @@
                     <p>On 31 March 2026, I <a
                             href="https://www.linkedin.com/posts/williswee_after-16-years-of-building-tech-in-asia-activity-7444560352060608512-g8uL" target="_blank" rel="noopener noreferrer">stepped
                             down</a> as CEO of Tech in Asia. It was a bittersweet moment. I’m proud of what we’ve built
-                        over the years, and I’m excited to see what the future
-                        holds for Tech in Asia. I’m also grateful for the opportunity to have worked with such a
-                        talented and
-                        dedicated team. I’m looking forward to taking some time off to recharge and spend time with my
-                        family
-                        before embarking on my next adventure.</p>
+                            over the years, and I’m excited to see what the future
+                            holds for Tech in Asia. I’m also grateful for the opportunity to have worked with such a
+                            talented and
+                            dedicated team. I’m looking forward to taking some time off to recharge and spend time with my
+                            family
+                            before embarking on my next adventure.</p>
                 </div>
 
-                <div class="timeline-item">
-                    <h2>📘 Friends! Learning Center (Age 19)</h2>
+                <div class="timeline-item" id="tuition-center">
+                    <div class="timeline-header">
+                        <div class="timeline-meta-row">
+                            <span class="timeline-age-badge">Age 19</span>
+                            <span class="timeline-period-badge">2006 – 2011 · 5 Years</span>
+                        </div>
+                        <h2>📘 Friends! Learning Center</h2>
+                    </div>
                     <p>At 19, my co-founder and I started a small education business: matching students with home
                         tutors. We
                         eventually raised some money to open a tiny space and run group classes and holiday camps. It
@@ -192,8 +244,14 @@
                         into building Tech in Asia.</p>
                 </div>
 
-                <div class="timeline-item">
-                    <h2>🎴 Trading Cards Inc (Age 15)</h2>
+                <div class="timeline-item" id="trading-cards">
+                    <div class="timeline-header">
+                        <div class="timeline-meta-row">
+                            <span class="timeline-age-badge">Age 15</span>
+                            <span class="timeline-period-badge">2002</span>
+                        </div>
+                        <h2>🃏 Trading Cards Inc</h2>
+                    </div>
                     <p>At 15, I got into buying and selling trading cards. It was easy money—most kids didn’t really
                         know the
                         market value of their cards. I just stuck to one simple rule: buy low, sell high. Things were
@@ -205,8 +263,14 @@
                         and a reminder to always pick who you trust carefully.</p>
                 </div>
 
-                <div class="timeline-item">
-                    <h2>🦗 Grasshopper Inc (Age 10)</h2>
+                <div class="timeline-item" id="grasshoppers">
+                    <div class="timeline-header">
+                        <div class="timeline-meta-row">
+                            <span class="timeline-age-badge">Age 10</span>
+                            <span class="timeline-period-badge">1997 · First Recess Hustle</span>
+                        </div>
+                        <h2>🦗 Grasshopper Inc</h2>
+                    </div>
                     <p>My first shot at entrepreneurship started when I was 10 with a pretty random business:
                         "grasshopper
                         trading." My older brother and I would catch grasshoppers and sell them to classmates to fund
@@ -246,6 +310,42 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        (function () {
+            const pills = Array.from(document.querySelectorAll('.project-nav-pill'));
+            const items = Array.from(document.querySelectorAll('.timeline-item[id]'));
+
+            pills.forEach(pill => {
+                pill.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = pill.getAttribute('href').substring(1);
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        pills.forEach(p => p.classList.remove('active'));
+                        pill.classList.add('active');
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        history.replaceState(null, '', '#' + targetId);
+                    }
+                });
+            });
+
+            if ('IntersectionObserver' in window && pills.length) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const currentId = entry.target.id;
+                            pills.forEach(p => {
+                                p.classList.toggle('active', p.getAttribute('href') === '#' + currentId);
+                            });
+                        }
+                    });
+                }, { rootMargin: '-60px 0px -70% 0px' });
+
+                items.forEach(el => observer.observe(el));
+            }
+        })();
+    </script>
 </body>
 
 </html>
