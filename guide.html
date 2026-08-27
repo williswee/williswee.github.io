@@ -39,7 +39,7 @@
             <div class="guide-section">
                 <h2>💬 Communication preference</h2>
                 <ul>
-                    <li><strong>Hierarchy of communication:</strong> (most→ least urgent): Walk-over to my desk→ Slack→ Email. Tag me on Slack to get my full attention.</li>
+                    <li><strong>Hierarchy of communication:</strong> (most → least urgent): Walk-over to my desk → Slack → Email. Please @tag me on Slack to get my full attention.</li>
                     <li><strong>Public by default:</strong> I prefer open communication on Slack channels. For example, on product-related topics, use the relevant public channel, no private message. Only private message me if it's personal or confidential. I'll do the same.</li>
                     <li><strong>Fast acknowledgment:</strong> I appreciate fast turnaround and acknowledgment of written communications. I like quick “got it” or “on it” type acknowledgments so I know things that we’re discussing are moving.</li>
                     <li><strong>"FYI"s are okay:</strong> If it’s an “FYI” it’s not necessary to respond.</li>
@@ -169,5 +169,112 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        (function () {
+            function slugify(text) {
+                return text.toLowerCase()
+                    .replace(/[^\w\s-]/g, '')
+                    .trim()
+                    .replace(/[\s_-]+/g, '-');
+            }
+
+            // Process H2 section headings
+            const headings = Array.from(document.querySelectorAll('.guide-section h2'));
+            headings.forEach(h2 => {
+                const text = h2.textContent.replace(/^[^\w\s]+/, '').trim();
+                const slug = slugify(text);
+                if (!h2.id) h2.id = slug;
+
+                const anchor = document.createElement('button');
+                anchor.className = 'guide-anchor-link';
+                anchor.setAttribute('type', 'button');
+                anchor.setAttribute('aria-label', `Copy link to ${text}`);
+                anchor.setAttribute('title', 'Copy link to section');
+                anchor.innerHTML = '<span class="anchor-symbol" aria-hidden="true">#</span>';
+
+                anchor.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const url = `${window.location.origin}${window.location.pathname}#${h2.id}`;
+                    navigator.clipboard.writeText(url).then(() => {
+                        const symbol = anchor.querySelector('.anchor-symbol');
+                        if (symbol) symbol.textContent = '✓';
+                        anchor.classList.add('guide-anchor-link--copied');
+                        history.replaceState(null, '', `#${h2.id}`);
+
+                        setTimeout(() => {
+                            if (symbol) symbol.textContent = '#';
+                            anchor.classList.remove('guide-anchor-link--copied');
+                        }, 1500);
+                    });
+                });
+
+                h2.appendChild(anchor);
+            });
+
+            // Process LI items with strong labels
+            const items = Array.from(document.querySelectorAll('.guide-section li'));
+            items.forEach(li => {
+                const strong = li.querySelector('strong');
+                if (!strong) return;
+
+                const rawText = strong.textContent.replace(/[:.]+$/, '').trim();
+                const slug = slugify(rawText);
+                if (!li.id) li.id = slug;
+
+                const anchor = document.createElement('button');
+                anchor.className = 'guide-anchor-link';
+                anchor.setAttribute('type', 'button');
+                anchor.setAttribute('aria-label', `Copy link to ${rawText}`);
+                anchor.setAttribute('title', 'Copy link to rule');
+                anchor.innerHTML = '<span class="anchor-symbol" aria-hidden="true">#</span>';
+
+                anchor.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const url = `${window.location.origin}${window.location.pathname}#${li.id}`;
+                    navigator.clipboard.writeText(url).then(() => {
+                        const symbol = anchor.querySelector('.anchor-symbol');
+                        if (symbol) symbol.textContent = '✓';
+                        anchor.classList.add('guide-anchor-link--copied');
+                        history.replaceState(null, '', `#${li.id}`);
+
+                        setTimeout(() => {
+                            if (symbol) symbol.textContent = '#';
+                            anchor.classList.remove('guide-anchor-link--copied');
+                        }, 1500);
+                    });
+                });
+
+                // Place anchor at the end of the text (before any nested list, or at end of li)
+                const nestedList = li.querySelector('ol, ul');
+                if (nestedList) {
+                    li.insertBefore(anchor, nestedList);
+                } else {
+                    li.appendChild(anchor);
+                }
+            });
+
+            // Handle deep-link scrolling and highlight on load or hashchange
+            function highlightCurrentHash() {
+                if (!window.location.hash) return;
+                const targetId = window.location.hash.substring(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.classList.add('guide-highlight-target');
+                    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    setTimeout(() => {
+                        target.classList.remove('guide-highlight-target');
+                    }, 3000);
+                }
+            }
+
+            if (window.location.hash) {
+                setTimeout(highlightCurrentHash, 100);
+            }
+            window.addEventListener('hashchange', highlightCurrentHash);
+        })();
+    </script>
 </body>
 </html>

@@ -619,6 +619,64 @@ code {
 }
 
 /* ================================================================
+   GUIDE PAGE ANCHOR COPY LINKS
+   ================================================================ */
+.guide-section h2,
+.guide-section li {
+    position: relative;
+    scroll-margin-top: 80px;
+    transition: background-color 0.4s ease, border-left-color 0.4s ease;
+}
+
+.guide-anchor-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 6px;
+    padding: 0 4px;
+    font-family: var(--font-ui);
+    font-size: 0.8em;
+    font-weight: 500;
+    color: var(--muted);
+    opacity: 0;
+    cursor: pointer;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    transition: opacity 0.15s ease, color 0.15s ease, transform 0.15s ease;
+    user-select: none;
+    vertical-align: middle;
+}
+
+.guide-section h2:hover .guide-anchor-link,
+.guide-section li:hover > .guide-anchor-link,
+.guide-anchor-link:focus-visible {
+    opacity: 0.65;
+}
+
+.guide-anchor-link:hover {
+    opacity: 1 !important;
+    color: var(--accent);
+    transform: scale(1.15);
+}
+
+.guide-anchor-link--copied {
+    opacity: 1 !important;
+    color: var(--accent) !important;
+}
+
+/* Target highlight state when navigating via hash */
+.guide-section li:target,
+.guide-section h2:target,
+.guide-highlight-target {
+    background-color: rgba(201, 169, 110, 0.08);
+    border-left: 2px solid var(--accent);
+    padding-left: 8px;
+    border-radius: 0 4px 4px 0;
+}
+
+/* ================================================================
    READING JOURNEY (Progress Line, Footnote Popover, Quote Sharing)
    ================================================================ */
 
