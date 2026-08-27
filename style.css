@@ -394,6 +394,83 @@ ol {
 /* ================================================================
    ARTICLE LISTING (thoughts/index.html)
    ================================================================ */
+.thoughts-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 12px;
+    gap: 12px;
+}
+
+.thoughts-count-label {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.random-pick-btn,
+.random-thought-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    min-height: 34px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--text-strong);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.random-pick-btn:hover,
+.random-thought-btn:hover {
+    background-color: rgba(201, 169, 110, 0.08);
+    border-color: rgba(201, 169, 110, 0.35);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.random-pick-btn:active,
+.random-thought-btn:active {
+    transform: translateY(0);
+}
+
+.random-pick-btn .random-pick-icon,
+.random-thought-btn .random-thought-icon {
+    font-size: 0.85rem;
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.random-pick-btn:hover .random-pick-icon,
+.random-thought-btn:hover .random-thought-icon {
+    transform: rotate(20deg) scale(1.15);
+}
+
+.random-pick-btn.rolling .random-pick-icon,
+.random-thought-btn.rolling .random-thought-icon {
+    animation: dice-spin 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes dice-spin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.25); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
 .article-list {
     list-style: none;
     padding-left: 0;
@@ -509,6 +586,19 @@ code {
     color: var(--text-strong);
 }
 
+.article-nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 1.5rem 0 2rem;
+    flex-wrap: wrap;
+}
+
+.article-nav-row .back-link {
+    margin: 0;
+}
+
 .back-link {
     font-family: var(--font-ui);
     font-size: 0.85rem;
@@ -535,15 +625,20 @@ code {
    BOOKS PAGE (books.html)
    ================================================================ */
 
-/* --- Controls: filter pills --- */
+/* --- Controls: filter pills & action bar --- */
 .book-controls {
-    margin-top: 8px;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 /* Filter pills */
 .filter-pills {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 8px;
 }
 
@@ -563,7 +658,7 @@ code {
     text-transform: uppercase;
     color: var(--muted);
     cursor: pointer;
-    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 
 .filter-pill:hover {
@@ -582,6 +677,13 @@ code {
     font-size: 0.7rem;
     opacity: 0.85;
     font-weight: 600;
+}
+
+.book-actions-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 2px;
 }
 
 /* Book tag — category label on each card */
@@ -614,7 +716,8 @@ code {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
-    margin-top: 32px;
+    margin-top: 24px;
+    transition: opacity 0.3s ease;
 }
 
 .book-card {
@@ -622,9 +725,11 @@ code {
     border: 1px solid var(--rule);
     border-radius: 12px;
     padding: 28px;
-    transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    scroll-margin-top: 100px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.4s ease, filter 0.4s ease;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .book-card:hover {
@@ -632,6 +737,103 @@ code {
     transform: translateY(-4px);
     border-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Spotlight Focus Mode --- */
+.book-grid.book-grid--spotlight .book-card:not(.book-card--spotlight) {
+    opacity: 0.22;
+    filter: grayscale(35%) blur(0.3px);
+    transform: scale(0.985);
+}
+
+.book-card.book-card--spotlight {
+    opacity: 1 !important;
+    filter: none !important;
+    border-color: var(--accent) !important;
+    background-color: rgba(201, 169, 110, 0.05) !important;
+    box-shadow: 0 0 0 2px rgba(201, 169, 110, 0.45), 0 20px 48px rgba(0, 0, 0, 0.7) !important;
+    transform: translateY(-4px) scale(1.015) !important;
+    z-index: 10;
+}
+
+/* --- Floating Book Serendipity Dock --- */
+.floating-book-dock {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: rgba(26, 26, 24, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(201, 169, 110, 0.3);
+    border-radius: 30px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 6px;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.floating-book-dock.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dock-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    min-height: 34px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background: transparent;
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--text-strong);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.dock-btn:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+.dock-btn:active {
+    transform: scale(0.96);
+}
+
+.dock-btn--shuffle {
+    color: var(--accent);
+    font-weight: 600;
+    background-color: rgba(201, 169, 110, 0.1);
+    border-color: rgba(201, 169, 110, 0.25);
+}
+
+.dock-btn--shuffle:hover {
+    background-color: rgba(201, 169, 110, 0.2);
+    border-color: var(--accent);
+    color: #ffffff;
+}
+
+.dock-icon {
+    font-size: 0.85rem;
+}
+
+.dock-shortcut {
+    font-size: 0.82rem;
+    color: var(--accent);
+    opacity: 0.8;
+    margin-left: 2px;
 }
 
 .book-card h3 {

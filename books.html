@@ -57,6 +57,12 @@
                     <button class="filter-pill" data-filter="career" aria-pressed="false">Career <span class="pill-count"
                             id="count-career"></span></button>
                 </div>
+                <div class="book-actions-bar">
+                    <button class="random-pick-btn" id="random-book-btn" type="button" aria-label="Pick a random book">
+                        <span class="random-pick-icon" aria-hidden="true">🎲</span>
+                        <span>Random pick</span>
+                    </button>
+                </div>
             </div>
 
             <!-- Empty state -->
@@ -421,6 +427,18 @@
             </div>
         </main>
 
+        <div class="floating-book-dock" id="floating-book-dock" aria-label="Book recommendation navigation">
+            <button class="dock-btn dock-btn--shuffle" id="dock-shuffle-btn" type="button" aria-label="Shuffle another random book recommendation">
+                <span class="dock-icon">🎲</span>
+                <span>Another pick</span>
+                <span class="dock-shortcut" aria-hidden="true">↻</span>
+            </button>
+            <button class="dock-btn dock-btn--top" id="dock-top-btn" type="button" aria-label="Scroll to top of book list">
+                <span class="dock-icon">↑</span>
+                <span>Top</span>
+            </button>
+        </div>
+
         <footer class="follow-strip">
             <span class="follow-strip-label">Follow</span>
             <div class="follow-strip-icons">
@@ -450,12 +468,34 @@
     <script>
         (function () {
             const cards = Array.from(document.querySelectorAll('.book-card'));
-            const pills = Array.from(document.querySelectorAll('.filter-pill'));
+            const filterPills = Array.from(document.querySelectorAll('.filter-pill[data-filter]'));
             const emptyState = document.getElementById('book-empty');
+            const heroRandomBtn = document.getElementById('random-book-btn');
+            const dock = document.getElementById('floating-book-dock');
+            const dockShuffleBtn = document.getElementById('dock-shuffle-btn');
+            const dockTopBtn = document.getElementById('dock-top-btn');
+            const grid = document.getElementById('book-grid');
 
-            // --- Populate pill counts ---
+            // Helper: generate clean slug for cards
+            function slugify(text) {
+                return text.toLowerCase()
+                    .replace(/[^\w\s-]/g, '')
+                    .trim()
+                    .replace(/[\s_-]+/g, '-');
+            }
+
+            // Ensure every card has a unique ID
+            cards.forEach(card => {
+                if (!card.id) {
+                    const titleEl = card.querySelector('h3');
+                    if (titleEl) card.id = slugify(titleEl.textContent);
+                }
+            });
+
+            // Populate category counts
             const categories = ['leadership', 'mindset', 'investing', 'life', 'science', 'career', 'parenting', 'design'];
-            document.getElementById('count-all').textContent = cards.length;
+            const countAll = document.getElementById('count-all');
+            if (countAll) countAll.textContent = cards.length;
             categories.forEach(cat => {
                 const el = document.getElementById('count-' + cat);
                 if (el) el.textContent = cards.filter(c => c.dataset.category === cat).length;
@@ -463,29 +503,123 @@
 
             let activeFilter = 'all';
 
-            function applyFilters() {
+            function setFilter(filterName) {
+                activeFilter = filterName;
+                filterPills.forEach(p => {
+                    const isActive = p.dataset.filter === filterName;
+                    p.classList.toggle('active', isActive);
+                    p.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                });
+
                 let visible = 0;
                 cards.forEach(card => {
                     const show = activeFilter === 'all' || card.dataset.category === activeFilter;
                     card.classList.toggle('book-card--hidden', !show);
                     if (show) visible++;
                 });
-                emptyState.hidden = visible > 0;
+                if (emptyState) emptyState.hidden = visible > 0;
             }
 
-            // --- Filter pills ---
-            pills.forEach(pill => {
+            filterPills.forEach(pill => {
                 pill.addEventListener('click', () => {
-                    pills.forEach(p => {
-                        p.classList.remove('active');
-                        p.setAttribute('aria-pressed', 'false');
-                    });
-                    pill.classList.add('active');
-                    pill.setAttribute('aria-pressed', 'true');
-                    activeFilter = pill.dataset.filter;
-                    applyFilters();
+                    clearSpotlight();
+                    setFilter(pill.dataset.filter);
                 });
             });
+
+            // Spotlight logic (persistent focus mode)
+            let lastPickedCard = null;
+
+            function clearSpotlight() {
+                if (grid) grid.classList.remove('book-grid--spotlight');
+                cards.forEach(c => {
+                    c.classList.remove('book-card--spotlight');
+                });
+            }
+
+            function spotlightBook(card, updateHash = true) {
+                if (!card) return;
+
+                // Ensure category is visible
+                if (card.classList.contains('book-card--hidden')) {
+                    setFilter('all');
+                }
+
+                clearSpotlight();
+                lastPickedCard = card;
+
+                if (grid) grid.classList.add('book-grid--spotlight');
+                card.classList.add('book-card--spotlight');
+
+                if (updateHash && card.id) {
+                    history.replaceState(null, '', '#' + card.id);
+                }
+
+                // Smooth scroll to center the card
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Show floating dock
+                if (dock) dock.classList.add('show');
+            }
+
+            function pickRandomBook() {
+                let availableCards = cards.filter(c => !c.classList.contains('book-card--hidden'));
+                if (availableCards.length === 0) {
+                    setFilter('all');
+                    availableCards = cards;
+                }
+
+                let pick;
+                if (availableCards.length > 1) {
+                    do {
+                        pick = availableCards[Math.floor(Math.random() * availableCards.length)];
+                    } while (pick === lastPickedCard);
+                } else {
+                    pick = availableCards[0];
+                }
+
+                // Trigger dice spin animation
+                if (heroRandomBtn) {
+                    heroRandomBtn.classList.remove('rolling');
+                    void heroRandomBtn.offsetWidth;
+                    heroRandomBtn.classList.add('rolling');
+                }
+
+                spotlightBook(pick, true);
+            }
+
+            if (heroRandomBtn) heroRandomBtn.addEventListener('click', pickRandomBook);
+            if (dockShuffleBtn) dockShuffleBtn.addEventListener('click', pickRandomBook);
+
+            if (dockTopBtn) {
+                dockTopBtn.addEventListener('click', () => {
+                    clearSpotlight();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Floating dock visibility on scroll
+            const controlsEl = document.querySelector('.book-controls');
+            window.addEventListener('scroll', () => {
+                if (!controlsEl || !dock) return;
+                const rect = controlsEl.getBoundingClientRect();
+                if (rect.bottom < 0) {
+                    dock.classList.add('show');
+                } else if (!grid || !grid.classList.contains('book-grid--spotlight')) {
+                    dock.classList.remove('show');
+                }
+            }, { passive: true });
+
+            // Handle deep-link hash on page load
+            if (window.location.hash) {
+                const hashId = window.location.hash.substring(1);
+                const targetCard = document.getElementById(hashId) || cards.find(c => slugify(c.querySelector('h3')?.textContent || '') === hashId);
+                if (targetCard) {
+                    setTimeout(() => {
+                        spotlightBook(targetCard, false);
+                    }, 150);
+                }
+            }
         })();
     </script>
 </body>

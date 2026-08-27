@@ -38,7 +38,15 @@
                 <iframe src="https://williswee.substack.com/embed?transparent=1&light=1" width="100%" height="320" style="border: 0; background: transparent;" frameborder="0" scrolling="no" loading="lazy" title="Subscribe to Willis Wee newsletter"></iframe>
             </div>
 
-            <ul class="article-list">
+            <div class="thoughts-header-bar">
+                <span class="thoughts-count-label" id="thoughts-count-label"></span>
+                <button class="random-pick-btn" id="random-thought-btn" type="button" aria-label="Open a random essay">
+                    <span class="random-pick-icon" aria-hidden="true">🎲</span>
+                    <span>Random pick</span>
+                </button>
+            </div>
+
+            <ul class="article-list" id="article-list">
                 <li>
                     <a href="freedom.html">Freedom is being disliked by other people</a>
                     <span class="article-date">25 August 2026</span>
@@ -209,6 +217,28 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        (function () {
+            const btn = document.getElementById('random-thought-btn');
+            const countLabel = document.getElementById('thoughts-count-label');
+            const links = Array.from(document.querySelectorAll('.article-list li a'));
+
+            if (countLabel && links.length) {
+                countLabel.textContent = `${links.length} Essays`;
+            }
+
+            if (btn && links.length) {
+                btn.addEventListener('click', () => {
+                    btn.classList.add('rolling');
+                    const randomLink = links[Math.floor(Math.random() * links.length)];
+                    setTimeout(() => {
+                        window.location.href = randomLink.href;
+                    }, 220);
+                });
+            }
+        })();
+    </script>
 </body>
 
 </html>
