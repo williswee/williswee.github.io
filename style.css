@@ -40,6 +40,19 @@ img, video {
     border-radius: 4px;
 }
 
+svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.btn-icon {
+    width: 14px !important;
+    height: 14px !important;
+    max-width: 14px !important;
+    max-height: 14px !important;
+    flex-shrink: 0;
+}
+
 iframe {
     max-width: 100%;
     border-radius: 4px;
@@ -824,7 +837,7 @@ h1:hover .wave {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 4px 12px;
+    padding: 6px 14px;
     border: 1px solid var(--rule);
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.03);
@@ -835,6 +848,22 @@ h1:hover .wave {
     letter-spacing: 0.02em;
     margin-bottom: 40px;
     margin-top: 0;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.status-badge:hover,
+.status-badge:focus-visible {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(201, 169, 110, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: var(--text-strong);
+}
+
+.status-badge:active {
+    transform: translateY(0);
 }
 
 .status-dot {
@@ -844,6 +873,54 @@ h1:hover .wave {
     background-color: var(--accent);
     box-shadow: 0 0 6px rgba(201, 169, 110, 0.6);
     animation: pulse-dot 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    flex-shrink: 0;
+}
+
+.status-text {
+    display: inline-block;
+    color: var(--text);
+    transition: opacity 0.2s ease;
+}
+
+.status-text strong {
+    color: var(--text-strong);
+    font-weight: 600;
+}
+
+.status-fade-in {
+    animation: status-swap 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes status-swap {
+    0% {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.status-shuffle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    margin-right: 2px;
+    opacity: 0.7;
+    flex-shrink: 0;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease, opacity 0.2s ease;
+}
+
+.status-badge:hover .status-shuffle {
+    opacity: 1;
+    color: var(--accent);
+    transform: rotate(180deg);
+}
+
+.status-badge:active .status-shuffle {
+    transform: rotate(360deg);
 }
 
 @keyframes pulse-dot {
