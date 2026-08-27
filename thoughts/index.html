@@ -46,7 +46,13 @@
                 </button>
             </div>
 
-            <ul class="article-list" id="article-list">
+            <div class="timeline-nav" id="timeline-nav" aria-label="Jump to year">
+                <span class="timeline-nav-label">Year</span>
+                <div class="timeline-nav-pills" id="timeline-nav-pills"></div>
+            </div>
+
+            <div id="thoughts-archive-container">
+                <ul class="article-list" id="article-list">
                 <li>
                     <a href="freedom.html">Freedom is being disliked by other people</a>
                     <span class="article-date">25 August 2026</span>
@@ -200,6 +206,7 @@
                     <span class="article-date">26 May 2011</span>
                 </li>
             </ul>
+            </div>
         </main>
 
         <footer class="follow-strip">
@@ -222,14 +229,24 @@
         (function () {
             const btn = document.getElementById('random-thought-btn');
             const countLabel = document.getElementById('thoughts-count-label');
-            const links = Array.from(document.querySelectorAll('.article-list li a'));
+            const originalList = document.getElementById('article-list');
+            const container = document.getElementById('thoughts-archive-container');
+            const timelineNavPills = document.getElementById('timeline-nav-pills');
 
-            if (countLabel && links.length) {
-                countLabel.textContent = `${links.length} Essays`;
+            if (!originalList || !container) return;
+
+            const items = Array.from(originalList.querySelectorAll('li'));
+            const totalCount = items.length;
+
+            if (countLabel) {
+                countLabel.textContent = `${totalCount} Essays`;
             }
 
-            if (btn && links.length) {
+            if (btn && items.length) {
+                const links = Array.from(originalList.querySelectorAll('li a'));
                 btn.addEventListener('click', () => {
+                    btn.classList.remove('rolling');
+                    void btn.offsetWidth;
                     btn.classList.add('rolling');
                     const randomLink = links[Math.floor(Math.random() * links.length)];
                     setTimeout(() => {
@@ -237,8 +254,95 @@
                     }, 220);
                 });
             }
+
+            // Group items by year from their .article-date span
+            const yearGroups = new Map();
+            items.forEach(li => {
+                const dateEl = li.querySelector('.article-date');
+                let year = 'Archive';
+                if (dateEl) {
+                    const match = dateEl.textContent.match(/\b(20\d\d)\b/);
+                    if (match) year = match[1];
+                }
+                if (!yearGroups.has(year)) {
+                    yearGroups.set(year, []);
+                }
+                yearGroups.get(year).push(li);
+            });
+
+            // Clear and rebuild grouped sections
+            container.innerHTML = '';
+
+            // Create "All" quick-jump pill
+            if (timelineNavPills) {
+                timelineNavPills.innerHTML = '';
+                const allPill = document.createElement('button');
+                allPill.className = 'timeline-pill active';
+                allPill.type = 'button';
+                allPill.textContent = `All (${totalCount})`;
+                allPill.addEventListener('click', () => {
+                    document.querySelectorAll('.timeline-pill').forEach(p => p.classList.remove('active'));
+                    allPill.classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+                timelineNavPills.appendChild(allPill);
+            }
+
+            yearGroups.forEach((groupItems, year) => {
+                const groupSection = document.createElement('section');
+                groupSection.className = 'timeline-year-group';
+                groupSection.id = `section-year-${year}`;
+
+                const header = document.createElement('div');
+                header.className = 'timeline-year-header';
+                header.innerHTML = `
+                    <h2 class="timeline-year-title" id="year-${year}">${year}</h2>
+                    <span class="timeline-year-count">${groupItems.length} ${groupItems.length === 1 ? 'essay' : 'essays'}</span>
+                `;
+                groupSection.appendChild(header);
+
+                const ul = document.createElement('ul');
+                ul.className = 'article-list';
+                groupItems.forEach(item => ul.appendChild(item));
+                groupSection.appendChild(ul);
+
+                container.appendChild(groupSection);
+
+                // Add Year quick-jump pill
+                if (timelineNavPills) {
+                    const pill = document.createElement('button');
+                    pill.className = 'timeline-pill';
+                    pill.type = 'button';
+                    pill.dataset.year = year;
+                    pill.textContent = `${year} (${groupItems.length})`;
+                    pill.addEventListener('click', () => {
+                        document.querySelectorAll('.timeline-pill').forEach(p => p.classList.remove('active'));
+                        pill.classList.add('active');
+                        header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    });
+                    timelineNavPills.appendChild(pill);
+                }
+            });
+
+            // Scroll spy for active year pill
+            if ('IntersectionObserver' in window && timelineNavPills) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.querySelector('.timeline-year-title')?.id;
+                            if (id) {
+                                const year = id.replace('year-', '');
+                                document.querySelectorAll('.timeline-pill').forEach(p => {
+                                    p.classList.toggle('active', p.dataset.year === year);
+                                });
+                            }
+                        }
+                    });
+                }, { rootMargin: '-60px 0px -70% 0px' });
+
+                document.querySelectorAll('.timeline-year-header').forEach(el => observer.observe(el));
+            }
         })();
     </script>
 </body>
-
 </html>

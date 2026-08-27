@@ -517,6 +517,114 @@ ol {
 }
 
 /* ================================================================
+   THOUGHTS TIMELINE & YEAR GROUPING
+   ================================================================ */
+.timeline-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.timeline-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.timeline-nav-label {
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-shrink: 0;
+}
+
+.timeline-nav-pills {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: nowrap;
+}
+
+.timeline-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 9px;
+    min-height: 26px;
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 13px;
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.18s ease;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.timeline-pill:hover {
+    color: var(--text-strong);
+    border-color: rgba(201, 169, 110, 0.4);
+    background-color: rgba(201, 169, 110, 0.06);
+}
+
+.timeline-pill.active {
+    color: var(--accent);
+    border-color: var(--accent);
+    background-color: rgba(201, 169, 110, 0.12);
+}
+
+.timeline-year-group {
+    margin-top: 36px;
+    margin-bottom: 12px;
+}
+
+.timeline-year-group:first-of-type {
+    margin-top: 18px;
+}
+
+.timeline-year-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(201, 169, 110, 0.25);
+    scroll-margin-top: 80px;
+}
+
+.timeline-year-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+
+.timeline-year-count {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: var(--muted);
+}
+
+.timeline-year-group .article-list li:first-child {
+    border-top: none;
+}
+
+/* ================================================================
    INDIVIDUAL ARTICLE PAGE
    ================================================================ */
 article .article-date {
