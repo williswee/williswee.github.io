@@ -37,7 +37,7 @@
             </div>
             
             <div class="guide-section">
-                <h2>💬 Communication preference</h2>
+                <h2><span class="guide-emoji" aria-hidden="true">💬</span> Communication preference</h2>
                 <ul>
                     <li><strong>Hierarchy of communication:</strong> (most → least urgent): Walk-over to my desk → Slack → Email. Please @tag me on Slack to get my full attention.</li>
                     <li><strong>Public by default:</strong> I prefer open communication on Slack channels. For example, on product-related topics, use the relevant public channel, no private message. Only private message me if it's personal or confidential. I'll do the same.</li>
@@ -54,7 +54,7 @@
             </div>
 
             <div class="guide-section">
-                <h2>🤝 Management preference</h2>
+                <h2><span class="guide-emoji" aria-hidden="true">🤝</span> Management preference</h2>
                 <ul>
                     <li><strong>Smarter people:</strong> I like to work with people who have experience and are smarter than me. They bring on board different perspectives and will move the needle for the company.</li>
                     <li><strong>Collaborate then empower:</strong> In our initial phase of working together, I tend to be highly collaborative. My goal is to ensure we're fully aligned on goals and context, and to provide all the support you need to get up to speed quickly. As we build that shared understanding and rhythm, my approach naturally evolves to be more of a strategic partner and resource. The end goal is always the same: to set you up to have full ownership of your domain.</li>
@@ -108,7 +108,7 @@
             </div>
 
             <div class="guide-section">
-                <h2>📝 Reporting preference</h2>
+                <h2><span class="guide-emoji" aria-hidden="true">📝</span> Reporting preference</h2>
                 <ul>
                     <li><strong>Systematic sharing:</strong> Create a regular, systematic, clearly framed written process by which you share your progress against the plan. Collaborate with me on this.</li>
                     <li><strong>Data-driven:</strong> Make reporting as quantitative as possible.</li>
@@ -117,7 +117,7 @@
             </div>
 
             <div class="guide-section">
-                <h2>🫠 My flaws</h2>
+                <h2><span class="guide-emoji" aria-hidden="true">🫠</span> My flaws</h2>
                 <ul>
                     <li><strong>Direct under pressure:</strong> I am intensely passionate about our mission. This drive means that in high-pressure situations, my communication can become very direct. I am keenly aware of this and am working to ensure my candor is always paired with patience and empathy. My goal is to challenge ideas, not people. If my delivery ever feels off, I genuinely want you to call it out. It's the fastest way for me to adjust and improve. It’s a continuous learning process to be a better person both at home and at work.</li>
                     <li><strong>Distracted at times:</strong> Sometimes I'm slow to fully grasp a new point or don’t listen well because I’m stuck on an idea or distracted by problems. If I seem distracted, let me know, and try to get my attention.</li>
@@ -130,7 +130,7 @@
             </div>
 
             <div class="guide-section">
-                <h2>💭 Things you might not know about me</h2>
+                <h2><span class="guide-emoji" aria-hidden="true">💭</span> Things you might not know about me</h2>
                 <ul>
                     <li><strong>Astrology:</strong> Chinese zodiac: Ox / Horoscope: Aquarius</li>
                     <li><strong>Value of money:</strong> I came from a poor, broken family. So, I understand the value of money, but I also know that money isn’t everything</li>
@@ -149,7 +149,7 @@
                     <li><strong>Growth mindset:</strong> I enjoy seeing people/things grow</li>
                     <li><strong>High expectations:</strong> I have a tough time letting people I care about down. That is why I push myself and others hard</li>
                     <li><strong>Introverted:</strong> I’m an introvert. I don’t like big groups. I prefer 1-to-1 chats</li>
-                    <li><strong>Goofy personality:</strong> I think I’m quite funny and a little weird.</li>
+                    <li class="guide-quirky"><strong>Goofy personality:</strong> I think I'm quite funny and a little weird.</li>
                 </ul>
             </div>
         </main>
@@ -274,6 +274,25 @@
                 setTimeout(highlightCurrentHash, 100);
             }
             window.addEventListener('hashchange', highlightCurrentHash);
+
+            // Staggered card entrance animation
+            const sections = document.querySelectorAll('.guide-section');
+            sections.forEach((section, i) => {
+                section.style.animationDelay = `${i * 0.07}s`;
+            });
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('guide-section--visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.08 });
+                sections.forEach(section => observer.observe(section));
+            } else {
+                sections.forEach(s => s.classList.add('guide-section--visible'));
+            }
         })();
     </script>
 </body>
