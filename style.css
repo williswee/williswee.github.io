@@ -2078,6 +2078,20 @@ figure figcaption {
     .follow-strip-label {
         display: none;
     }
+
+    .spotlight-browser-action {
+        display: none;
+    }
+
+    .spotlight-browser-bar {
+        position: relative;
+        justify-content: center;
+    }
+
+    .spotlight-browser-dots {
+        position: absolute;
+        left: 12px;
+    }
 }
 @media (max-width: 600px) {
     .container, .wrapper {

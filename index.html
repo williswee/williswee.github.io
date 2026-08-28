@@ -182,7 +182,7 @@
                 { text: 'Currently: <strong>Coaching as comrades</strong>', emoji: '🤝' },
                 { text: 'Currently: <strong>Daydreaming</strong>', emoji: '💭' },
                 { text: 'Currently: <strong>Reading books</strong>', emoji: '📖' },
-                { text: 'Currently: <strong>Angel investing (selectively)</strong>', emoji: '🟢' },
+                { text: 'Currently: <strong>Angel investing (selectively)</strong>', emoji: '' },
                 { text: 'Currently: <strong>Meditating</strong>', emoji: '🧠' },
                 { text: 'Currently: <strong>Eating</strong>', emoji: '(🍏🍔🍜🍣🥑🥦)' },
                 { text: 'Currently: <strong>Writing</strong>', emoji: '📝' },
@@ -206,7 +206,7 @@
                 if (textEl) {
                     textEl.classList.remove('status-fade-in');
                     void textEl.offsetWidth; // Trigger reflow for animation
-                    textEl.innerHTML = `${status.text} ${status.emoji}`;
+                    textEl.innerHTML = status.emoji ? `${status.text} ${status.emoji}` : status.text;
                     textEl.classList.add('status-fade-in');
                 }
                 const cleanText = status.text.replace(/<[^>]*>/g, '');
