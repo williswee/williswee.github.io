@@ -4,6 +4,7 @@
 
 ## Main
 - [Home](https://williswee.com/index.html): Introduction and overview of the site.
+- [Gratitude](https://williswee.com/gratitude.html): A growing archive of daily gratitude notes, with a shareable link for every entry.
 - [Work](https://williswee.com/work.html): A showcase of Willis's professional milestones and projects.
 - [Books](https://williswee.com/books.html): A curated list of books I have read and recommend.
 - [Guide](https://williswee.com/guide.html): A collection of guides and tutorials on various topics.

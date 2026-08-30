@@ -1,6 +1,6 @@
 # Gratitude notes
 
-Collected from [Willis Wee’s Substack Notes](https://williswee.substack.com/notes) on 2026-08-18. The 29 gratitude-note posts are ordered chronologically, oldest to newest.
+Collected from [Willis Wee’s Substack Notes](https://williswee.substack.com/notes) on 2026-08-30. The 37 gratitude-note posts are ordered chronologically, oldest to newest.
 
 ## Gratitude note #1
 
@@ -339,3 +339,83 @@ What's yours?
 2️⃣ "Courage to Be Happy" is challenging how I see things. I agree on the theory. Not totally sure about the feasibility on certain things. But it's interesting for my brain to chew on.
 
 3️⃣ Friends who still remember you… and then invite you to things and show up to help. That's a nice feeling.
+
+## Gratitude note #30
+
+*2026-08-19 · [Original note](https://substack.com/@williswee/note/c-317700125)*
+
+1️⃣ Was mid-conversation with the older girls when Kara waved and caught my attention  and then said, "I love you, daddy." Unprompted. Random. The best feeling.
+
+2️⃣ Lunch with the wife, then buying household stuff together. Simple, quiet pleasures.
+
+3️⃣ Helped a young YC founder today. He seemed genuinely grateful. Made me happy. I’ve been helping a few founders lately. Always gives me energy.
+
+## Gratitude note #31
+
+*2026-08-20 · [Original note](https://substack.com/@williswee/note/c-318441717)*
+
+1️⃣ The girls were supposed to go to the playground. I suggested washing the car instead. They agreed and thought it was fun. Quick work, and a good workout.
+
+2️⃣ A neighbor dropped off a box of home cooked curry. Really delicious.
+
+3️⃣ I'm learning not to crave for recognition for my writing/work. But when people tell you they appreciate it… it always feels very nice.
+
+## Gratitude note #32
+
+*2026-08-21 · [Original note](https://substack.com/@williswee/note/c-319166622)*
+
+1️⃣ The youngest is a little unwell. Spent time with her yesterday. adorable.
+
+2️⃣ A good tennis session with a friend. Happy to know he is doing well.
+
+3️⃣ Feels rather peaceful in the family lately. I've been shifting how I see the kids. treating them as comrades, as equals.
+
+## Gratitude note #33
+
+*2026-08-24 · [Original note](https://substack.com/@williswee/note/c-321213013)*
+
+1️⃣ Reading “The Surrender Experiment” by Michael Singer. Fascinating. so much wisdom and life lessons to draw from it.
+
+2️⃣ My brother enjoys being with the kids. It gives us a breather. 😮‍💨
+
+3️⃣ Last night the kids were throwing cushions and soft toys at each other… and went into hysterical laughter.
+
+## Gratitude note #34
+
+*2026-08-25 · [Original note](https://substack.com/@williswee/note/c-321933996)*
+
+1️⃣ After 34 years, I finally got to reconnect with a teacher who treated me with kindness during a very difficult time when I was young.
+
+2️⃣ Watched Hoppers with the family over the weekend. Kids and wife were still laughing this morning, recounting the animals discussing the pond rules.
+
+3️⃣ Nice to just chat with a friend in person, and sit with a founder who has real motivation and a genuine sense of mission to bring good to the world. That feeling is nice.
+
+## Gratitude note #35
+
+*2026-08-26 · [Original note](https://substack.com/@williswee/note/c-322689075)*
+
+1️⃣ it is quite therapeutic to read, explore, and wonder without any restriction or pressure.
+
+2️⃣ Starting another new book. Seems like a really good read.
+
+3️⃣ Learning to observe difficult situations and thoughts… just being aware, without making rash decision. Not perfect, but slowly getting better.
+
+## Gratitude note #36
+
+*2026-08-27 · [Original note](https://substack.com/@williswee/note/c-323422039)*
+
+1️⃣ Early morning meditation. Really helps to start the day right.
+
+2️⃣ My wife's chocolate banana sourdough bread, and a Hokkaido cheese tart. Good food comes to me without asking.
+
+3️⃣ Weekly walks with the wife. Easy to fall into deep talks. We walk to food stalls we like (without the kids) and that's nice.
+
+## Gratitude note #37
+
+*2026-08-28 · [Original note](https://substack.com/@williswee/note/c-324184935)*
+
+1️⃣ feeling calmer. I think it's the additional morning meditation.
+
+2️⃣ The morning school routine. I just let the girls lead. Miraculously, they're still on time but always cutting it too close. Will let consequence be their teacher. 🙏
+
+3️⃣ People watching at lunch yesterday. Fascinating to observe

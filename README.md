@@ -1,6 +1,12 @@
 Hello, this is just a personal site.
 https://williswee.com/
 
+## How to update gratitude notes
+
+1. Update `gratitude-notes.md`
+2. Run `node scripts/render-gratitude.mjs`
+3. Review `gratitude.html` locally
+
 ## How to publish a new article
 
 1. Copy `thoughts/kinder.html` as a template

@@ -2188,23 +2188,20 @@ figure figcaption {
     }
 
     nav {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 6px;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        padding-bottom: 4px;
-    }
-
-    nav::-webkit-scrollbar {
-        display: none;
+        overflow: visible;
+        padding-bottom: 0;
     }
 
     nav a {
-        padding: 8px 12px;
-        font-size: 0.8rem;
+        justify-content: center;
+        padding: 8px 4px;
+        font-size: 0.74rem;
+        letter-spacing: 0.045em;
         white-space: nowrap;
-        flex-shrink: 0;
+        min-width: 0;
         min-height: 40px;
         display: inline-flex;
         align-items: center;
@@ -2230,6 +2227,252 @@ figure figcaption {
 
     .site-name {
         font-size: 1.3rem;
+    }
+}
+
+/* ================================================================
+   GRATITUDE ARCHIVE
+   ================================================================ */
+.gratitude-hero {
+    margin-bottom: 44px;
+}
+
+.gratitude-eyebrow {
+    margin-bottom: 10px;
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.gratitude-hero h1 {
+    margin-bottom: 16px;
+}
+
+.gratitude-intro {
+    max-width: 590px;
+    margin-bottom: 28px;
+    color: var(--text);
+    font-size: 1.16rem;
+}
+
+.gratitude-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 0;
+}
+
+.gratitude-toolbar .random-pick-btn {
+    margin: 0;
+}
+
+.gratitude-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.gratitude-notes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+.gratitude-note {
+    position: relative;
+    scroll-margin-top: 100px;
+    padding: 28px;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.015);
+    outline: none;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.38s ease, filter 0.38s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .gratitude-note:not(.gratitude-note--spotlight):hover {
+        background-color: rgba(255, 255, 255, 0.032);
+        transform: translateY(-3px);
+        border-color: rgba(201, 169, 110, 0.2);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+    }
+}
+
+.gratitude-notes.gratitude-notes--spotlight .gratitude-note:not(.gratitude-note--spotlight) {
+    opacity: 0.22;
+    filter: grayscale(35%) blur(0.3px);
+    transform: scale(0.985);
+}
+
+.gratitude-note.gratitude-note--spotlight {
+    opacity: 1 !important;
+    filter: none !important;
+    border-color: var(--accent) !important;
+    background-color: rgba(201, 169, 110, 0.05) !important;
+    box-shadow: 0 0 0 2px rgba(201, 169, 110, 0.45), 0 20px 48px rgba(0, 0, 0, 0.7) !important;
+    transform: translateY(-4px) scale(1.015) !important;
+    z-index: 10;
+}
+
+.gratitude-note.gratitude-note--picked::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border: 1px solid rgba(201, 169, 110, 0.72);
+    border-radius: inherit;
+    box-shadow: 0 0 26px rgba(201, 169, 110, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    animation: gratitude-pick-glow 0.72s 0.16s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes gratitude-pick-glow {
+    0% {
+        opacity: 0;
+        transform: scale(0.99);
+    }
+    35% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.025);
+    }
+}
+
+.gratitude-note:target {
+    border-color: rgba(201, 169, 110, 0.55);
+    background-color: rgba(201, 169, 110, 0.045);
+    box-shadow: 0 0 0 1px rgba(201, 169, 110, 0.15), 0 12px 28px rgba(0, 0, 0, 0.24);
+}
+
+.gratitude-note-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.gratitude-note h2 {
+    margin: 0 0 2px;
+    font-size: 1.52rem;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -0.015em;
+}
+
+.gratitude-note h2 a {
+    color: var(--text-strong);
+}
+
+.gratitude-permalink-cue {
+    display: inline-block;
+    margin-left: 0.42em;
+    color: var(--accent);
+    font-family: var(--font-ui);
+    font-size: 0.62em;
+    font-style: normal;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.gratitude-note h2 a:hover .gratitude-permalink-cue,
+.gratitude-note h2 a:focus-visible .gratitude-permalink-cue,
+.gratitude-note:target .gratitude-permalink-cue,
+.gratitude-note--spotlight .gratitude-permalink-cue {
+    opacity: 0.62;
+    transform: translateX(0);
+}
+
+.dock-btn.rolling .dock-icon {
+    animation: dice-spin 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gratitude-note time {
+    display: block;
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.gratitude-note-body p {
+    margin-bottom: 18px;
+    color: var(--text);
+    font-size: 1.08rem;
+    line-height: 1.72;
+}
+
+.gratitude-note-body p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+    .gratitude-hero {
+        margin-bottom: 36px;
+    }
+
+    .gratitude-intro {
+        font-size: 1.08rem;
+    }
+
+    .gratitude-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 16px 0;
+        border-top: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+    }
+
+    .gratitude-toolbar .random-pick-btn {
+        justify-content: center;
+        width: 100%;
+        min-height: 48px;
+        padding-inline: 18px;
+        border-color: rgba(201, 169, 110, 0.28);
+        background-color: rgba(201, 169, 110, 0.065);
+        font-size: 0.88rem;
+        font-weight: 600;
+    }
+
+    .gratitude-note {
+        padding: 22px;
+    }
+
+    .gratitude-note-heading {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .gratitude-note h2 {
+        font-size: 1.38rem;
+    }
+
+    .gratitude-note-body p {
+        font-size: 1.04rem;
+        line-height: 1.7;
+    }
+}
+
+@media (hover: none) {
+    .gratitude-permalink-cue {
+        opacity: 0.34;
+        transform: translateX(0);
     }
 }
 
