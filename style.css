@@ -2188,20 +2188,23 @@ figure figcaption {
     }
 
     nav {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 6px;
-        overflow: visible;
-        padding-bottom: 0;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        padding-bottom: 4px;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
     }
 
     nav a {
-        justify-content: center;
-        padding: 8px 4px;
-        font-size: 0.74rem;
-        letter-spacing: 0.045em;
+        padding: 8px 12px;
+        font-size: 0.8rem;
         white-space: nowrap;
-        min-width: 0;
+        flex-shrink: 0;
         min-height: 40px;
         display: inline-flex;
         align-items: center;
