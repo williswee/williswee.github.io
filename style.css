@@ -200,6 +200,10 @@ nav {
     text-transform: uppercase;
 }
 
+.site-nav-shell {
+    position: relative;
+}
+
 nav a {
     font-family: var(--font-ui);
     font-size: 0.82rem;
@@ -2191,9 +2195,55 @@ figure figcaption {
         gap: 6px;
         flex-wrap: nowrap;
         overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-padding-inline: 12px;
+        scroll-snap-type: x proximity;
         -ms-overflow-style: none;
         scrollbar-width: none;
         padding-bottom: 4px;
+    }
+
+    nav.site-nav--hinting {
+        scroll-snap-type: none;
+    }
+
+    .site-nav-shell::before,
+    .site-nav-shell::after {
+        position: absolute;
+        z-index: 2;
+        top: 17px;
+        bottom: 4px;
+        width: 42px;
+        display: flex;
+        align-items: center;
+        color: rgba(201, 169, 110, 0.88);
+        font-family: var(--font-ui);
+        font-size: 1.15rem;
+        line-height: 1;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 180ms ease;
+    }
+
+    .site-nav-shell::before {
+        content: '‹';
+        left: 0;
+        justify-content: flex-start;
+        padding-left: 2px;
+        background: linear-gradient(90deg, var(--bg) 18%, rgba(17, 17, 16, 0.82) 52%, rgba(17, 17, 16, 0));
+    }
+
+    .site-nav-shell::after {
+        content: '›';
+        right: 0;
+        justify-content: flex-end;
+        padding-right: 2px;
+        background: linear-gradient(270deg, var(--bg) 18%, rgba(17, 17, 16, 0.82) 52%, rgba(17, 17, 16, 0));
+    }
+
+    .site-nav-shell--left::before,
+    .site-nav-shell--right::after {
+        opacity: 1;
     }
 
     nav::-webkit-scrollbar {
@@ -2208,6 +2258,7 @@ figure figcaption {
         min-height: 40px;
         display: inline-flex;
         align-items: center;
+        scroll-snap-align: start;
     }
 
     .article-list li {
@@ -2289,10 +2340,12 @@ figure figcaption {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
+    min-width: 0;
 }
 
 .gratitude-note {
     position: relative;
+    min-width: 0;
     scroll-margin-top: 100px;
     padding: 28px;
     border: 1px solid var(--rule);
@@ -2421,6 +2474,11 @@ figure figcaption {
     line-height: 1.72;
 }
 
+.gratitude-note-body {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
 .gratitude-note-body p:last-child {
     margin-bottom: 0;
 }
@@ -2442,7 +2500,8 @@ figure figcaption {
         border-bottom: 1px solid var(--rule);
     }
 
-    .gratitude-toolbar .random-pick-btn {
+    .gratitude-toolbar .random-pick-btn,
+    .book-actions-bar .random-pick-btn {
         justify-content: center;
         width: 100%;
         min-height: 48px;
