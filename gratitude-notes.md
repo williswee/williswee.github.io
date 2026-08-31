@@ -6,11 +6,11 @@ Collected from [Willis Wee’s Substack Notes](https://williswee.substack.com/no
 
 *2026-07-08 · [Original note](https://substack.com/@williswee/note/c-290327473)*
 
-1⃣ Septin, a designer I work with. She's been effective and I feel like I'm helping her grow. The best working relationships go both ways.
+1️⃣ Septin, a designer I work with. She's been effective and I feel like I'm helping her grow. The best working relationships go both ways.
 
-2⃣ Usability tests on something I'm building went well. Testers were clear and impressed with the design. I know that doesn't mean PMF. It just means it's usable. But it's a good signal. i'll take the win. Running another round of test next week after fixes.
+2️⃣ Usability tests on something I'm building went well. Testers were clear and impressed with the design. I know that doesn't mean PMF. It just means it's usable. But it's a good signal. i'll take the win. Running another round of test next week after fixes.
 
-3⃣ Spoke with a friend who texted me this after the session: “Thank you Willis. Most relaxed and refreshed I’ve felt in weeks! Till the next one 🫡”
+3️⃣ Spoke with a friend who texted me this after the session: “Thank you Willis. Most relaxed and refreshed I’ve felt in weeks! Till the next one 🫡”
 
 What's yours?
 
@@ -18,11 +18,11 @@ What's yours?
 
 *2026-07-09 · [Original note](https://substack.com/@williswee/note/c-290886283)*
 
-1⃣ I'm grateful for the freedom to slow down, to build, to speed up, to write, to daydream, to spend time with family. optionality is a gift.
+1️⃣ I'm grateful for the freedom to slow down, to build, to speed up, to write, to daydream, to spend time with family. optionality is a gift.
 
-2⃣ There's a lot of silence right now and I kind of enjoy it. No one is texting me about deadlines or things I have to do. slightly uncomfortable but I welcome it.
+2️⃣ There's a lot of silence right now and I kind of enjoy it. No one is texting me about deadlines or things I have to do. slightly uncomfortable but I welcome it.
 
-3⃣ Had a pleasant chat with my girls about random stuff this morning. These are the things that will create memories. 😆
+3️⃣ Had a pleasant chat with my girls about random stuff this morning. These are the things that will create memories. 😆
 
 what about you?
 
@@ -30,11 +30,11 @@ what about you?
 
 *2026-07-10 · [Original note](https://substack.com/@williswee/note/c-291552767)*
 
-1⃣ A prominent investor read my recent piece "I'd do it again, just kinder" and said: "wisdom. Proud of you for writing it. Takes courage." Grateful for the encouragement.
+1️⃣ A prominent investor read my recent piece "I'd do it again, just kinder" and said: "wisdom. Proud of you for writing it. Takes courage." Grateful for the encouragement.
 
-2⃣ My ex-investors still reply within the hour when I pick their brains on things. Years after the exit, they still show up. That says something about the relationships we built. Don't take that for granted.
+2️⃣ My ex-investors still reply within the hour when I pick their brains on things. Years after the exit, they still show up. That says something about the relationships we built. Don't take that for granted.
 
-3⃣ Caught up with a YC batchmate and housemate from 2015. We stayed in the same house during the batch and it was one of the most challenging but also most fun and fulfilling stretches of my journey. Texting him brought back a lot of good memories.
+3️⃣ Caught up with a YC batchmate and housemate from 2015. We stayed in the same house during the batch and it was one of the most challenging but also most fun and fulfilling stretches of my journey. Texting him brought back a lot of good memories.
 
 What made you smile today? 😊
 

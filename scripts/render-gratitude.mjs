@@ -91,8 +91,8 @@ const html = `<!DOCTYPE html>
     <meta name="description" content="A growing archive of Willis Wee's daily gratitude notes—three small things worth noticing.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2.1">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Mono:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2.2">
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="site-nav.js?v=1.2" defer></script>
     <script src="gratitude.js" defer></script>
@@ -101,10 +101,10 @@ const html = `<!DOCTYPE html>
 <body>
     <div class="container">
         <header>
-            <div class="site-brand">
+            <a href="index.html" class="site-brand" aria-label="Willis Wee — home">
                 <img src="avatar.png" alt="Willis Wee" class="avatar" width="48" height="48">
                 <span class="site-name">Willis Wee</span>
-            </div>
+            </a>
             <nav>
                 <a href="index.html">About</a>
                 <a href="thoughts/index.html">Thoughts</a>
