@@ -419,3 +419,15 @@ What's yours?
 2️⃣ The morning school routine. I just let the girls lead. Miraculously, they're still on time but always cutting it too close. Will let consequence be their teacher. 🙏
 
 3️⃣ People watching at lunch yesterday. Fascinating to observe
+
+## Gratitude note #38
+
+*2026-08-31*
+
+1️⃣ My family, brother, and my wife's support. Some of the best in my corner.
+
+2️⃣ Been playing with Impeccable to improve product UI/UX. Smart and fun skill to work with.
+
+3️⃣ Had a decent stretch of reading time over the weekend. Peace and quiet. Always nice.
+
+*Also, this is the last gratitude note I'll be publishing on Substack. Moving forward, I feel it’s more apt to publish them on my personal site.*

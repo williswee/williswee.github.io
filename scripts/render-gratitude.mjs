@@ -13,7 +13,7 @@ const notes = [];
 for (let index = 1; index < parts.length; index += 2) {
     const number = Number(parts[index]);
     const section = parts[index + 1].trim();
-    const metadata = section.match(/^\*(\d{4}-\d{2}-\d{2}) · \[Original note\]\((https?:\/\/[^)]+)\)\*\s*/);
+    const metadata = section.match(/^\*(\d{4}-\d{2}-\d{2})(?: · \[Original note\]\((https?:\/\/[^)]+)\))?\*\s*/);
 
     if (!metadata) {
         throw new Error(`Could not parse metadata for gratitude note #${number}`);
@@ -23,7 +23,7 @@ for (let index = 1; index < parts.length; index += 2) {
     notes.push({
         number,
         date: metadata[1],
-        sourceUrl: metadata[2],
+        sourceUrl: metadata[2] ?? null,
         paragraphs: body.split(/\n{2,}/).map((paragraph) => paragraph.trim()).filter(Boolean),
     });
 }
@@ -48,6 +48,13 @@ function linkify(value) {
     );
 }
 
+function renderParagraph(value) {
+    const isEmphasized = value.startsWith('*') && value.endsWith('*');
+    const content = isEmphasized ? value.slice(1, -1) : value;
+    const rendered = linkify(content);
+    return isEmphasized ? `<em>${rendered}</em>` : rendered;
+}
+
 function humanDate(value) {
     const [year, month, day] = value.split('-').map(Number);
     return new Intl.DateTimeFormat('en-GB', {
@@ -69,7 +76,7 @@ const noteMarkup = [...notes]
                         </div>
                     </div>
                     <div class="gratitude-note-body">
-${note.paragraphs.map((paragraph) => `                        <p>${linkify(paragraph)}</p>`).join('\n')}
+${note.paragraphs.map((paragraph) => `                        <p>${renderParagraph(paragraph)}</p>`).join('\n')}
                     </div>
                 </article>`)
     .join('\n');
