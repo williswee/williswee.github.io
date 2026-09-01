@@ -431,3 +431,13 @@ What's yours?
 3️⃣ Had a decent stretch of reading time over the weekend. Peace and quiet. Always nice.
 
 *Also, this is the last gratitude note I'll be publishing on Substack. Moving forward, I feel it’s more apt to publish them on my personal site.*
+
+## Gratitude note #39
+
+*2026-09-01*
+
+1️⃣ Chicken kebab with lots of veggies and honey mustard. Simple and yummy.
+
+2️⃣ The wife, again. She keeps popping up in these notes. ❤️
+
+3️⃣ Helped make a few connections last week. Grateful that people trust me enough to do that… hoping it pays off for everyone involved.
