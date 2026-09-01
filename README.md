@@ -1,11 +1,15 @@
 Hello, this is just a personal site.
 https://williswee.com/
 
-## How to update gratitude notes
+## How to add and publish a gratitude note
 
-1. Update `gratitude-notes.md`
-2. Run `node scripts/render-gratitude.mjs`
-3. Review `gratitude.html` locally
+1. Format the draft to match the latest entry in [`gratitude-notes.md`](gratitude-notes.md), using the next sequential note number and the Singapore date.
+2. Edit the draft for clarity and return it for review.
+3. Wait until the note is explicitly marked **final**. Do not update the site before approval.
+4. After approval, append the final note to [`gratitude-notes.md`](gratitude-notes.md).
+5. Run `node scripts/render-gratitude.mjs` to regenerate `gratitude.html`.
+6. Review the page locally and verify the note's shareable `#note-{number}` link.
+7. Commit and push the changes, then confirm the note is live at [williswee.com/gratitude.html](https://williswee.com/gratitude.html).
 
 ## How to publish a new article
 
