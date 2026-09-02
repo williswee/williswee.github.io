@@ -441,3 +441,13 @@ What's yours?
 2️⃣ The wife, again. She keeps popping up in these notes. ❤️
 
 3️⃣ Helped make a few connections last week. Grateful that people trust me enough to do that… hoping it pays off for everyone involved.
+
+## Gratitude note #40
+
+*2026-09-02*
+
+1️⃣ Diana shared what she's grateful for this morning — three things, totally unprompted. That kind of random, pleasant surprise from your kid is something else.
+
+2️⃣ Had an open conversation with my Build for Joy working partner today. It ended up being really positive — we realised we're more aligned than we thought. That's always a good feeling.
+
+3️⃣ I'm having a lot of fun with Impeccable. Using it to audit and improve all the tiny apps I've built. Not perfect, but there's real joy in building delightful UI/UX with it.
