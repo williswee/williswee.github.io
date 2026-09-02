@@ -446,8 +446,8 @@ What's yours?
 
 *2026-09-02*
 
-1️⃣ Diana shared what she's grateful for this morning — three things, totally unprompted. That kind of random, pleasant surprise from your kid is something else.
+1️⃣ Diana shared what she's grateful for this morning, totally unprompted. Random but pleasant surprise!
 
-2️⃣ Had an open conversation with my Build for Joy working partner today. It ended up being really positive — we realised we're more aligned than we thought. That's always a good feeling.
+2️⃣ Had an open and candid convo with my "build for joy" working partner today. It ended up being really positive. We realized we're more aligned than we thought. Good vibes as always
 
-3️⃣ I'm having a lot of fun with Impeccable. Using it to audit and improve all the tiny apps I've built. Not perfect, but there's real joy in building delightful UI/UX with it.
+3️⃣ I'm having a lot of fun with Impeccable. Using it to audit and improve all the tiny apps I've built. there's real joy in building delightful UI/UX with it.
