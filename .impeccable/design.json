@@ -1,278 +1,371 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-24T20:01:00.000Z",
-  "title": "Design System: Willis Wee",
+  "generatedAt": "2026-09-02T04:20:24Z",
+  "title": "Design System: Willis Wee — Save Point Atlas",
   "extensions": {
     "colorMeta": {
-      "primary": {
+      "save-gold": {
         "role": "primary",
-        "displayName": "Warm Parchment Gold",
-        "canonical": "oklch(74% 0.09 78)",
+        "displayName": "Save Gold",
+        "canonical": "#ffbe63",
         "tonalRamp": [
-          "#3d301b",
-          "#5e4c2c",
-          "#80693e",
-          "#a38651",
-          "#c9a96e",
-          "#d8bf8d",
-          "#e7d5af",
-          "#f5ebd5"
+          "oklch(15% 0.13 75)",
+          "oklch(27% 0.13 75)",
+          "oklch(39% 0.13 75)",
+          "oklch(51% 0.13 75)",
+          "oklch(63% 0.13 75)",
+          "oklch(75% 0.13 75)",
+          "oklch(87% 0.13 75)",
+          "oklch(95% 0.13 75)"
         ]
       },
-      "neutral-bg": {
+      "archive-cyan": {
+        "role": "secondary",
+        "displayName": "Archive Cyan",
+        "canonical": "#8adad0",
+        "tonalRamp": [
+          "oklch(15% 0.07 183)",
+          "oklch(27% 0.07 183)",
+          "oklch(39% 0.07 183)",
+          "oklch(51% 0.07 183)",
+          "oklch(63% 0.07 183)",
+          "oklch(75% 0.07 183)",
+          "oklch(87% 0.07 183)",
+          "oklch(95% 0.07 183)"
+        ]
+      },
+      "quest-green": {
+        "role": "tertiary",
+        "displayName": "Quest Green",
+        "canonical": "#79d99b",
+        "tonalRamp": [
+          "oklch(15% 0.13 145)",
+          "oklch(27% 0.13 145)",
+          "oklch(39% 0.13 145)",
+          "oklch(51% 0.13 145)",
+          "oklch(63% 0.13 145)",
+          "oklch(75% 0.13 145)",
+          "oklch(87% 0.13 145)",
+          "oklch(95% 0.13 145)"
+        ]
+      },
+      "midnight-ink": {
         "role": "neutral",
-        "displayName": "Smoked Obsidian Background",
-        "canonical": "oklch(15% 0.003 90)",
+        "displayName": "Midnight Ink",
+        "canonical": "#07101d",
         "tonalRamp": [
-          "#080807",
-          "#111110",
-          "#1c1c1a",
-          "#292926",
-          "#383834",
-          "#4a4a45",
-          "#5e5e58",
-          "#74746c"
+          "oklch(15% 0.032 255)",
+          "oklch(27% 0.032 255)",
+          "oklch(39% 0.032 255)",
+          "oklch(51% 0.032 255)",
+          "oklch(63% 0.032 255)",
+          "oklch(75% 0.032 255)",
+          "oklch(87% 0.032 255)",
+          "oklch(95% 0.032 255)"
         ]
       },
-      "neutral-surface": {
+      "dialogue-panel": {
         "role": "neutral",
-        "displayName": "Deep Mineral Surface",
-        "canonical": "oklch(19% 0.004 85)",
+        "displayName": "Dialogue Panel",
+        "canonical": "rgba(6, 13, 25, 0.91)",
         "tonalRamp": [
-          "#0e0e0d",
-          "#1a1a18",
-          "#272724",
-          "#353531",
-          "#464641",
-          "#595953",
-          "#6e6e67",
-          "#84847c"
+          "oklch(15% 0.032 255 / 0.91)",
+          "oklch(27% 0.032 255 / 0.91)",
+          "oklch(39% 0.032 255 / 0.91)",
+          "oklch(51% 0.032 255 / 0.91)",
+          "oklch(63% 0.032 255 / 0.91)",
+          "oklch(75% 0.032 255 / 0.91)",
+          "oklch(87% 0.032 255 / 0.91)",
+          "oklch(95% 0.032 255 / 0.91)"
         ]
       },
-      "neutral-text": {
+      "vellum": {
         "role": "neutral",
-        "displayName": "Muted Cream Body Text",
-        "canonical": "oklch(80% 0.01 85)",
+        "displayName": "Vellum",
+        "canonical": "#f4e9cf",
         "tonalRamp": [
-          "#363531",
-          "#52504a",
-          "#706d65",
-          "#908c82",
-          "#b1ad02",
-          "#c8c5bc",
-          "#dbd9d2",
-          "#edece9"
+          "oklch(15% 0.035 82)",
+          "oklch(27% 0.035 82)",
+          "oklch(39% 0.035 82)",
+          "oklch(51% 0.035 82)",
+          "oklch(63% 0.035 82)",
+          "oklch(75% 0.035 82)",
+          "oklch(87% 0.035 82)",
+          "oklch(95% 0.035 82)"
         ]
       },
-      "neutral-text-strong": {
+      "vellum-soft": {
         "role": "neutral",
-        "displayName": "Soft Alabaster Strong Text",
-        "canonical": "oklch(94% 0.007 85)",
+        "displayName": "Soft Vellum",
+        "canonical": "#cfc9bd",
         "tonalRamp": [
-          "#42413e",
-          "#64635e",
-          "#888780",
-          "#adaca4",
-          "#d3d2cb",
-          "#efede8",
-          "#f5f4f1",
-          "#fafaf9"
+          "oklch(15% 0.022 82)",
+          "oklch(27% 0.022 82)",
+          "oklch(39% 0.022 82)",
+          "oklch(51% 0.022 82)",
+          "oklch(63% 0.022 82)",
+          "oklch(75% 0.022 82)",
+          "oklch(87% 0.022 82)",
+          "oklch(95% 0.022 82)"
         ]
       },
-      "neutral-muted": {
+      "map-muted": {
         "role": "neutral",
-        "displayName": "Warm Umber Gray",
-        "canonical": "oklch(49% 0.009 75)",
+        "displayName": "Map Muted",
+        "canonical": "#8f9cad",
         "tonalRamp": [
-          "#1f1e1c",
-          "#32302d",
-          "#474540",
-          "#5c5a54",
-          "#6b6862",
-          "#87847c",
-          "#a5a29a",
-          "#c4c2bc"
+          "oklch(15% 0.032 250)",
+          "oklch(27% 0.032 250)",
+          "oklch(39% 0.032 250)",
+          "oklch(51% 0.032 250)",
+          "oklch(63% 0.032 250)",
+          "oklch(75% 0.032 250)",
+          "oklch(87% 0.032 250)",
+          "oklch(95% 0.032 250)"
         ]
       },
-      "neutral-border": {
+      "frame-line": {
         "role": "neutral",
-        "displayName": "Translucent Hairline Rule",
-        "canonical": "rgba(255, 255, 255, 0.06)",
+        "displayName": "Frame Line",
+        "canonical": "rgba(244, 233, 207, 0.22)",
         "tonalRamp": [
-          "rgba(255,255,255,0.02)",
-          "rgba(255,255,255,0.04)",
-          "rgba(255,255,255,0.06)",
-          "rgba(255,255,255,0.1)",
-          "rgba(255,255,255,0.15)",
-          "rgba(255,255,255,0.2)",
-          "rgba(255,255,255,0.3)",
-          "rgba(255,255,255,0.4)"
+          "oklch(15% 0.035 82 / 0.22)",
+          "oklch(27% 0.035 82 / 0.22)",
+          "oklch(39% 0.035 82 / 0.22)",
+          "oklch(51% 0.035 82 / 0.22)",
+          "oklch(63% 0.035 82 / 0.22)",
+          "oklch(75% 0.035 82 / 0.22)",
+          "oklch(87% 0.035 82 / 0.22)",
+          "oklch(95% 0.035 82 / 0.22)"
         ]
       },
-      "accent-green": {
-        "role": "accent",
-        "displayName": "Active Green Dot",
-        "canonical": "oklch(81% 0.17 142)",
+      "frame-line-strong": {
+        "role": "neutral",
+        "displayName": "Strong Frame Line",
+        "canonical": "rgba(244, 233, 207, 0.5)",
         "tonalRamp": [
-          "#134e23",
-          "#1e7836",
-          "#2aa34b",
-          "#3cd062",
-          "#4ade80",
-          "#73e59d",
-          "#9feebb",
-          "#ccf6dc"
+          "oklch(15% 0.035 82 / 0.5)",
+          "oklch(27% 0.035 82 / 0.5)",
+          "oklch(39% 0.035 82 / 0.5)",
+          "oklch(51% 0.035 82 / 0.5)",
+          "oklch(63% 0.035 82 / 0.5)",
+          "oklch(75% 0.035 82 / 0.5)",
+          "oklch(87% 0.035 82 / 0.5)",
+          "oklch(95% 0.035 82 / 0.5)"
         ]
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Display / H1",
-        "purpose": "Primary page titles and hero intros with italic Newsreader warmth."
+        "displayName": "Display Statement",
+        "purpose": "Base Camp's primary declaration, balanced to roughly 12 characters per line."
       },
       "headline": {
-        "displayName": "Headline / H2",
-        "purpose": "Major editorial section dividers with delicate baseline rules."
+        "displayName": "Biome Headline",
+        "purpose": "The central declaration for Workshop, Memory Archive, and Dawn Terminal."
       },
       "title": {
-        "displayName": "Title / H3",
-        "purpose": "Card headers, timeline milestones, and article titles."
+        "displayName": "Row Title",
+        "purpose": "Quest and destination names that must stay quickly scannable."
       },
       "body": {
-        "displayName": "Body Reading",
-        "purpose": "Long-form editorial essays and descriptions in Source Serif 4."
+        "displayName": "Dialogue Body",
+        "purpose": "Readable explanatory copy and scene dialogue with a 62-character measure."
       },
       "label": {
-        "displayName": "UI / Label",
-        "purpose": "Navigation tabs, category tags, filter pills, and button text in DM Sans."
+        "displayName": "HUD / Control Label",
+        "purpose": "Compact navigation, state, key prompt, and terminal labels."
       }
     },
     "shadows": [
       {
-        "name": "ambient-low",
-        "value": "0 6px 16px rgba(0, 0, 0, 0.15)",
-        "purpose": "Button and pill hover elevation."
+        "name": "hud-float",
+        "value": "0 8px 30px rgba(0, 0, 0, 0.24)",
+        "purpose": "Separates the fixed rail-board header from every biome."
       },
       {
-        "name": "ambient-lift",
-        "value": "0 12px 24px rgba(0, 0, 0, 0.2)",
-        "purpose": "Card hover elevation and ambient diffuse glow."
+        "name": "avatar-cartridge",
+        "value": "0 5px 14px rgba(0, 0, 0, 0.35)",
+        "purpose": "Gives the pixel avatar a small physical insert effect."
+      },
+      {
+        "name": "dialogue-depth",
+        "value": "0 18px 50px rgba(0, 0, 0, 0.32)",
+        "purpose": "Holds a reading plate above full-bleed artwork."
+      },
+      {
+        "name": "save-marker-glow",
+        "value": "0 0 12px rgba(255, 190, 99, 0.38)",
+        "purpose": "Keeps the diamond progress marker visible across changing scenes."
+      },
+      {
+        "name": "live-signal-glow",
+        "value": "0 0 10px rgba(121, 217, 155, 0.72)",
+        "purpose": "Reinforces the small square current-quest signal."
+      },
+      {
+        "name": "control-lift",
+        "value": "0 9px 20px rgba(0, 0, 0, 0.26)",
+        "purpose": "Appears only while a game button is hovered."
       }
     ],
     "motion": [
       {
-        "name": "ease-standard",
-        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
-        "purpose": "Default easing for state transitions, lifts, and background color shifts."
+        "name": "row-travel",
+        "value": "160ms ease-out",
+        "purpose": "Quest and archive rows shift 5px in the travel direction on hover."
       },
       {
-        "name": "pulse-status",
-        "value": "cubic-bezier(0.4, 0, 0.6, 1)",
-        "purpose": "Infinite gentle pulse animation for active status dot."
+        "name": "control-lift",
+        "value": "180ms ease-out",
+        "purpose": "Game buttons lift, recolor their frame, and gain shadow."
+      },
+      {
+        "name": "dialogue-reveal",
+        "value": "700ms cubic-bezier(.16, 1, .3, 1) 120ms",
+        "purpose": "Reveals dialogue plates inward from the outer edge of each alternating scene."
+      },
+      {
+        "name": "scene-settle",
+        "value": "1600ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Settles artwork from a larger, dimmer state into the current biome."
+      },
+      {
+        "name": "quest-flap",
+        "value": "260ms steps(4, end)",
+        "purpose": "Runs the single split-flap beat when the current quest is shuffled."
+      },
+      {
+        "name": "reduced-motion-collapse",
+        "value": "0.01ms",
+        "purpose": "Collapses animation and transition timing and leaves dialogue plates fully revealed."
       }
     ],
     "breakpoints": [
       {
-        "name": "container",
-        "value": "640px"
+        "name": "compact-hud",
+        "value": "1100px"
       },
       {
-        "name": "mobile",
-        "value": "600px"
+        "name": "stacked-scene",
+        "value": "760px"
+      },
+      {
+        "name": "tight-mobile",
+        "value": "460px"
       }
     ]
   },
   "components": [
     {
-      "name": "Primary Button",
+      "name": "Primary Game Button",
       "kind": "button",
-      "refersTo": "button-primary",
-      "description": "Pill-shaped action button with subtle translucent backdrop and hover lift.",
-      "html": "<a href=\"#\" class=\"ds-btn\"><svg class=\"ds-btn-icon\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z\"/></svg> Substack</a>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 7px; justify-content: center; padding: 9px 18px; background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 30px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; color: #efede8; text-decoration: none; transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn:hover { background-color: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.18); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); color: #fff; } .ds-btn-icon { width: 14px; height: 14px; opacity: 0.75; transition: opacity 0.2s; } .ds-btn:hover .ds-btn-icon { opacity: 1; }"
+      "refersTo": "game-button-primary",
+      "description": "Principal next-scene control with Save Gold fill and a circular game-key prompt.",
+      "html": "<a class=\"ds-game-button-primary\" href=\"#\"><span class=\"ds-primary-button-key\">A</span> Enter the workshop</a>",
+      "css": ".ds-game-button-primary { display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 10px 16px; border: 1px solid #ffbe63; background: #ffbe63; color: #07101d; font-family: 'Silkscreen', 'Courier New', monospace; font-size: 0.67rem; text-decoration: none; transition: transform 180ms ease-out, border-color 180ms ease-out, box-shadow 180ms ease-out; } .ds-primary-button-key { display: grid; place-items: center; width: 22px; height: 22px; border: 1px solid currentColor; border-radius: 50%; font-size: 0.62rem; } .ds-game-button-primary:hover { transform: translateY(-3px); border-color: #ffbe63; box-shadow: 0 9px 20px rgba(0, 0, 0, 0.26); } .ds-game-button-primary:focus-visible { outline: 3px solid #ffbe63; outline-offset: 4px; } .ds-game-button-primary:active { transform: translateY(0); box-shadow: none; }"
     },
     {
-      "name": "Filter Pill",
-      "kind": "chip",
-      "refersTo": "filter-pill",
-      "description": "Interactive category filtering pill with count badge and warm gold active state.",
-      "html": "<button class=\"ds-filter-pill ds-filter-pill--active\">Life <span class=\"ds-pill-count\">12</span></button>",
-      "css": ".ds-filter-pill { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 20px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: #6b6862; cursor: pointer; transition: all 0.2s ease; } .ds-filter-pill:hover { color: #efede8; border-color: rgba(255, 255, 255, 0.15); background-color: rgba(255, 255, 255, 0.03); } .ds-filter-pill--active { color: #c9a96e; border-color: #c9a96e; background-color: rgba(201, 169, 110, 0.07); } .ds-pill-count { font-size: 0.7rem; opacity: 0.6; }"
+      "name": "Secondary Game Button",
+      "kind": "button",
+      "refersTo": "game-button-secondary",
+      "description": "Deeper-route action with a translucent navy surface and strong vellum frame.",
+      "html": "<a class=\"ds-game-button-secondary\" href=\"#\"><span class=\"ds-secondary-button-key\">A</span> Open project history</a>",
+      "css": ".ds-game-button-secondary { display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 10px 16px; border: 1px solid rgba(244, 233, 207, 0.5); background: rgba(10, 22, 39, 0.88); color: #f4e9cf; font-family: 'Silkscreen', 'Courier New', monospace; font-size: 0.67rem; text-decoration: none; transition: transform 180ms ease-out, border-color 180ms ease-out, box-shadow 180ms ease-out; } .ds-secondary-button-key { display: grid; place-items: center; width: 22px; height: 22px; border: 1px solid currentColor; border-radius: 50%; font-size: 0.62rem; } .ds-game-button-secondary:hover { transform: translateY(-3px); border-color: #ffbe63; box-shadow: 0 9px 20px rgba(0, 0, 0, 0.26); } .ds-game-button-secondary:focus-visible { outline: 3px solid #ffbe63; outline-offset: 4px; } .ds-game-button-secondary:active { transform: translateY(0); box-shadow: none; }"
     },
     {
-      "name": "Book Card",
+      "name": "Dialogue Panel",
       "kind": "card",
-      "refersTo": "book-card",
-      "description": "Curated reading entry with category tag, italic book title, author, and personal review take.",
-      "html": "<div class=\"ds-book-card\"><span class=\"ds-book-tag\">Life</span><h3 class=\"ds-book-title\">The Surrender Experiment</h3><p class=\"ds-book-author\">BY MICHAEL A. SINGER</p><p class=\"ds-book-review\">From an economics doctoral student to a software CEO, Singer practised surrender: setting aside personal preferences and working with life rather than against it.</p></div>",
-      "css": ".ds-book-card { background-color: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 28px; transition: all 0.3s ease; display: flex; flex-direction: column; } .ds-book-card:hover { background-color: rgba(255, 255, 255, 0.03); transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.1); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); } .ds-book-tag { font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #6b6862; margin-bottom: 12px; } .ds-book-title { font-family: 'Newsreader', Georgia, serif; font-size: 1.35rem; font-weight: 500; font-style: italic; color: #efede8; margin: 0 0 8px 0; line-height: 1.3; } .ds-book-author { font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.75rem; color: #6b6862; letter-spacing: 0.06em; margin-bottom: 20px; text-transform: uppercase; } .ds-book-review { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.05rem; line-height: 1.6; color: #c8c5bc; margin: 0; }"
+      "refersTo": "dialogue-panel",
+      "description": "Solid ink reading plate with a one-pixel frame and two opposing Save Gold brackets.",
+      "html": "<section class=\"ds-dialogue-panel\"><h2 class=\"ds-dialogue-title\">Building for joy.</h2><p class=\"ds-dialogue-copy\">I’m Willis—founder, product builder, and lifelong student of turning ideas into things people care about.</p></section>",
+      "css": ".ds-dialogue-panel { position: relative; width: min(590px, 100%); padding: clamp(24px, 3vw, 42px); border: 1px solid rgba(244, 233, 207, 0.5); background: rgba(6, 13, 25, 0.91); color: #f4e9cf; box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32); } .ds-dialogue-panel::before, .ds-dialogue-panel::after { position: absolute; width: 12px; height: 12px; content: ''; } .ds-dialogue-panel::before { top: -1px; left: -1px; background: linear-gradient(#ffbe63, #ffbe63) 0 0 / 100% 3px no-repeat, linear-gradient(#ffbe63, #ffbe63) 0 0 / 3px 100% no-repeat; } .ds-dialogue-panel::after { right: -1px; bottom: -1px; background: linear-gradient(#ffbe63, #ffbe63) 100% 100% / 100% 3px no-repeat, linear-gradient(#ffbe63, #ffbe63) 100% 100% / 3px 100% no-repeat; } .ds-dialogue-title { max-width: 12ch; margin: 0 0 24px; color: #f4e9cf; font-family: 'Silkscreen', 'Courier New', monospace; font-size: clamp(2.1rem, 4vw, 4.25rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.035em; } .ds-dialogue-copy { max-width: 62ch; margin: 0; color: #cfc9bd; font-family: 'Sora', sans-serif; font-size: clamp(0.93rem, 1.15vw, 1.05rem); line-height: 1.65; }"
     },
     {
-      "name": "Navigation Link",
+      "name": "HUD Navigation",
       "kind": "nav",
-      "refersTo": "nav-link",
-      "description": "Header navigation tab with uppercase tracking, subtle background hover, and active state pill.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-link ds-nav-link--active\">About</a><a href=\"#\" class=\"ds-nav-link\">Thoughts</a><a href=\"#\" class=\"ds-nav-link\">Books</a></nav>",
-      "css": ".ds-nav { display: flex; gap: 6px; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 16px; } .ds-nav-link { font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #6b6862; text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: color 0.2s ease, background-color 0.2s ease; } .ds-nav-link:hover { color: #efede8; background-color: rgba(255, 255, 255, 0.03); } .ds-nav-link--active { color: #efede8; background-color: rgba(255, 255, 255, 0.05); font-weight: 600; }"
+      "refersTo": "hud-navigation",
+      "description": "Rail-board level selector with four destinations and a Save Gold active diamond.",
+      "html": "<nav class=\"ds-hud-nav\" aria-label=\"Explore this page\"><a class=\"ds-hud-link\" href=\"#\" aria-current=\"page\">Base Camp</a><a class=\"ds-hud-link\" href=\"#\">Workshop</a><a class=\"ds-hud-link\" href=\"#\">Archive</a><a class=\"ds-hud-link\" href=\"#\">Terminal</a></nav>",
+      "css": ".ds-hud-nav { position: relative; display: flex; align-items: stretch; min-height: 76px; padding: 0 18px; border-bottom: 1px solid rgba(244, 233, 207, 0.25); background: rgba(5, 11, 20, 0.94); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.24); } .ds-hud-link { position: relative; display: grid; place-items: center; min-width: 116px; padding: 0 15px; color: #8795a8; font-family: 'Silkscreen', 'Courier New', monospace; font-size: 0.67rem; text-align: center; text-decoration: none; } .ds-hud-link::before { position: absolute; bottom: 16px; left: 50%; width: 5px; height: 5px; content: ''; transform: translate(-50%, 12px) rotate(45deg); background: transparent; } .ds-hud-link:hover, .ds-hud-link[aria-current='page'] { color: #f4e9cf; } .ds-hud-link[aria-current='page']::before { background: #ffbe63; box-shadow: 0 0 0 2px rgba(255, 190, 99, 0.18); } .ds-hud-link:focus-visible { outline: 3px solid #ffbe63; outline-offset: -5px; }"
     },
     {
-      "name": "Status Badge",
+      "name": "Quest Row",
       "kind": "custom",
-      "refersTo": "status-badge",
-      "description": "Compact pill badge with a pulsing green indicator representing current focus.",
-      "html": "<div class=\"ds-status-badge\"><span class=\"ds-status-dot\"></span> Currently: Building for joy</div>",
-      "css": ".ds-status-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 20px; background-color: rgba(255, 255, 255, 0.02); font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.82rem; font-weight: 500; color: #efede8; letter-spacing: 0.02em; } .ds-status-dot { width: 8px; height: 8px; border-radius: 50%; background-color: #4ade80; box-shadow: 0 0 8px rgba(74, 222, 128, 0.4); animation: ds-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; } @keyframes ds-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.9); } }"
+      "refersTo": "quest-row",
+      "description": "Three-column work entry with semantic quest state, readable title and detail, and a geometric travel icon.",
+      "html": "<a class=\"ds-quest-row\" href=\"#\"><span class=\"ds-quest-state ds-quest-state-live\">Live experiment</span><span class=\"ds-quest-copy\"><strong>TickerTown</strong><small>A communal investing game using real market data and play money.</small></span><svg class=\"ds-row-icon\" viewBox=\"0 0 18 18\" aria-hidden=\"true\"><path d=\"M4 14L14 4M7 4h7v7\"/></svg></a>",
+      "css": ".ds-quest-row { display: grid; grid-template-columns: 94px minmax(0, 1fr) auto; gap: 15px; align-items: center; padding: 16px 2px; border-top: 1px solid rgba(244, 233, 207, 0.22); border-bottom: 1px solid rgba(244, 233, 207, 0.22); background: #07101d; color: #f4e9cf; text-decoration: none; transition: color 160ms ease-out, transform 160ms ease-out; } .ds-quest-row:hover { color: #ffbe63; transform: translateX(5px); } .ds-quest-row:focus-visible { outline: 3px solid #ffbe63; outline-offset: 4px; } .ds-quest-row:active { transform: translateX(2px); } .ds-quest-state { color: #8f9cad; font-family: 'Silkscreen', 'Courier New', monospace; font-size: 0.54rem; line-height: 1.35; text-transform: uppercase; } .ds-quest-state-live { color: #79d99b; } .ds-quest-copy strong, .ds-quest-copy small { display: block; } .ds-quest-copy strong { margin-bottom: 3px; color: #f4e9cf; font-family: 'Sora', sans-serif; font-size: 0.94rem; } .ds-quest-copy small { color: #8f9cad; font-family: 'Sora', sans-serif; font-size: 0.73rem; line-height: 1.5; } .ds-row-icon { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-linecap: square; stroke-linejoin: miter; stroke-width: 1.5; }"
+    },
+    {
+      "name": "Archive Row",
+      "kind": "custom",
+      "refersTo": "archive-row",
+      "description": "Knowledge destination with stable Archive Cyan taxonomy and a Save Gold directional arrow.",
+      "html": "<a class=\"ds-archive-row\" href=\"#\"><span class=\"ds-archive-index\">Archive</span><span class=\"ds-archive-copy\"><strong>Thoughts</strong><small>Candid notes on company building, leadership, AI, and life.</small></span><svg class=\"ds-archive-arrow\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h9M9 4l4 4-4 4\"/></svg></a>",
+      "css": ".ds-archive-row { display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 15px 2px; border-top: 1px solid rgba(244, 233, 207, 0.22); border-bottom: 1px solid rgba(244, 233, 207, 0.22); background: #07101d; color: #f4e9cf; text-decoration: none; transition: transform 160ms ease-out, color 160ms ease-out; } .ds-archive-row:hover { transform: translateX(5px); color: #ffbe63; } .ds-archive-row:focus-visible { outline: 3px solid #ffbe63; outline-offset: 4px; } .ds-archive-row:active { transform: translateX(2px); } .ds-archive-index { color: #8adad0; font-family: 'Silkscreen', 'Courier New', monospace; font-size: 0.52rem; text-transform: uppercase; } .ds-archive-copy strong, .ds-archive-copy small { display: block; } .ds-archive-copy strong { color: #f4e9cf; font-family: 'Sora', sans-serif; font-size: 0.9rem; } .ds-archive-copy small { margin-top: 2px; color: #8f9cad; font-family: 'Sora', sans-serif; font-size: 0.7rem; line-height: 1.45; } .ds-archive-arrow { width: 16px; height: 16px; fill: none; stroke: #ffbe63; stroke-linecap: square; stroke-linejoin: miter; stroke-width: 1.5; }"
+    },
+    {
+      "name": "Contact Terminal Row",
+      "kind": "custom",
+      "refersTo": "contact-terminal-row",
+      "description": "Compact connection channel with fixed label column, readable purpose, and external-direction icon.",
+      "html": "<a class=\"ds-contact-row\" href=\"#\"><span class=\"ds-contact-channel\">Substack</span><small>Read new field notes</small><svg class=\"ds-contact-icon\" viewBox=\"0 0 18 18\" aria-hidden=\"true\"><path d=\"M4 14L14 4M7 4h7v7\"/></svg></a>",
+      "css": ".ds-contact-row { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 13px 16px; border: 1px solid rgba(244, 233, 207, 0.22); background: rgba(7, 16, 29, 0.72); color: #f4e9cf; text-decoration: none; transition: background-color 160ms ease-out, color 160ms ease-out; } .ds-contact-row:hover { background: rgba(255, 190, 99, 0.08); color: #ffbe63; } .ds-contact-row:focus-visible { outline: 3px solid #ffbe63; outline-offset: 4px; } .ds-contact-row:active { background: rgba(255, 190, 99, 0.13); } .ds-contact-channel { font-family: 'Silkscreen', 'Courier New', monospace; font-size: 0.68rem; } .ds-contact-row small { color: #8f9cad; font-family: 'Sora', sans-serif; font-size: 0.7rem; } .ds-contact-icon { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-linecap: square; stroke-linejoin: miter; stroke-width: 1.5; }"
     }
   ],
   "narrative": {
-    "northStar": "The Quiet Press",
-    "overview": "The Quiet Press embodies a warm, tactile, and restrained editorial haven. Rooted in traditional typographic excellence, it pairs the classic rhythm of literary typesetting with modern dark-mode clarity. Rather than competing for visual noise with aggressive gradients or heavy card elevation, the design recedes into the background to let reflective thoughts, founder insights, and curated works command total focus.\n\nSurfaces feel deep, organic, and composed. A subtle film grain overlay lends warmth to smoked charcoal backgrounds (#111110), while warm parchment gold (#c9a96e) provides quiet, deliberate accents. Micro-interactions are gentle and intentional—delicate link underlines that expand smoothly on hover, soft lift elevations on cards, and quiet pulse indicators for live status.",
+    "northStar": "Save Point Atlas",
+    "overview": "Save Point Atlas turns the homepage into one continuous premium 16-bit narrative adventure. Four personal biomes—Base Camp, Workshop, Memory Archive, and Dawn Terminal—move from present identity to work, reflection, and connection while a restrained rail-board HUD keeps place, progress, and onward movement visible.\n\nThe pixel scenes supply atmosphere, not the reading surface. Solid ink dialogue plates, directional veils, cream text, and the Sora body face protect legibility against the deliberately rich art; Silkscreen is reserved for short game-world signals. Motion is spare and scene-aware: progress tracks the journey, dialogue reveals from the outer edge, artwork settles into focus, and the quest shuffle uses one split-flap beat with a matching polite announcement.\n\nThis system is the built truth for `index.html`, `home-game.css`, `home-game.js`, and `images/game-world/`. Existing deeper pages are legacy surfaces; their fonts, colors, cards, and page layouts are not authority for the new homepage world unless they are deliberately migrated.",
     "keyCharacteristics": [
-      "Literary Typographic Rhythm: Newsreader italic serif headings paired with Source Serif 4 body text and crisp DM Sans uppercase metadata.",
-      "Gilded Obsidian Palette: Deep smoked background tones accented with refined warm gold and soft alabaster typography.",
-      "Restrained Depth: Flat translucent layering (rgba(255, 255, 255, 0.015–0.06)) with subtle ambient hover elevation.",
-      "Zero-Build Simplicity: Pure semantic HTML and modular CSS with instantaneous performance and zero dependency overhead."
+      "Continuous Four-Biome Journey: Base Camp, Workshop, Memory Archive, and Dawn Terminal form one authored progression rather than separate cards or routes.",
+      "Rail-Board Orientation: A fixed rectilinear HUD, gold progress line, active diamond, and desktop journey rail continuously expose location and state.",
+      "Art-and-Plate Composition: Full-bleed 16-bit scenes alternate with opaque dialogue plates and directional dark veils for readable cinematic contrast.",
+      "Two-Font Translation Layer: Silkscreen voices the game world; Sora carries every sentence that needs effortless reading.",
+      "Purposeful Motion Restraint: Scene settling, directional panel reveals, progress, and one split-flap shuffle are the complete signature motion vocabulary."
     ],
     "rules": [
       {
-        "name": "The Rarity Accent Rule",
-        "body": "The primary gold accent (#c9a96e) is used on <=5% of any given viewport. Its power comes from restraint and intentional focus.",
+        "name": "The Beacon Rule",
+        "body": "Save Gold owns primary action, active navigation, progress, focus, and directional emphasis; keep Archive Cyan and Quest Green semantic rather than decorative.",
         "section": "colors"
       },
       {
-        "name": "The Translucent Boundary Rule",
-        "body": "Borders never use opaque solid gray; they use low-opacity white (rgba(255, 255, 255, 0.04-0.06)) to naturally blend with underlying obsidian surfaces.",
+        "name": "The Ink-Plate Rule",
+        "body": "Never place reading copy directly on a detailed scene. Use the Dialogue Panel plus its directional veil so atmosphere cannot erode contrast.",
         "section": "colors"
       },
       {
-        "name": "The Italic Heading Doctrine",
-        "body": "All H1 and H2 display headers use Newsreader's italic optical weight to convey editorial warmth and authorial voice.",
+        "name": "The Translation Rule",
+        "body": "Silkscreen owns short declarations, coordinates, controls, and state; Sora owns explanation. Never set paragraph-length copy in Silkscreen.",
         "section": "typography"
       },
       {
-        "name": "The Reading Width Rule",
-        "body": "Reading prose is strictly constrained to a centered 640px container (~65-75 characters per line) to maintain optimal typographic cadence.",
+        "name": "The Twelve-Character Headline Rule",
+        "body": "Display headings remain compact and balanced at about 12 characters per line so the pixel letterforms read as a composed silhouette, not a wall of text.",
         "section": "typography"
       },
       {
-        "name": "The Tonal Depth Rule",
-        "body": "Depth is created through surface opacity and border hairlines, never through opaque skeuomorphic shadows or thick dividers.",
+        "name": "The Plate-Before-Glow Rule",
+        "body": "Legibility comes from solid ink surfaces, veils, and one-pixel boundaries. Shadows may clarify an existing layer but never replace contrast.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do preserve the strict 640px maximum content width on all reading layouts.",
-      "Do use Newsreader italic for H1 and H2 headers to maintain the site's signature editorial voice.",
-      "Do reserve #c9a96e (Warm Parchment Gold) for purposeful accents and active states.",
-      "Do maintain translucent hairlines (rgba(255, 255, 255, 0.06)) for borders rather than opaque solid colors.",
-      "Do use hardware-accelerated transforms (transform: translateY(...), opacity) for all interactive hover animations."
+      "Do use solid Midnight Ink dialogue plates and directional veils whenever text overlaps pixel art.",
+      "Do keep Silkscreen to headlines, HUD labels, state labels, and compact controls; use Sora for every explanatory sentence.",
+      "Do preserve the alternating full-viewport composition on desktop and the stacked art-then-content composition below 760px.",
+      "Do keep the rectilinear one-pixel frame language, short gold corner brackets, diamond location markers, and square live signals.",
+      "Do pair every shuffled quest update with both the visible split-flap state and the polite live-region announcement.",
+      "Do treat the implemented homepage tokens and components as authority; migrate legacy deeper pages deliberately rather than importing their visual language here."
     ],
     "donts": [
-      "Don't introduce heavy saturated gradients or bright neon background fills.",
-      "Don't use standard heavy drop shadows or skeuomorphic bevels.",
-      "Don't load heavy third-party CSS or JS frameworks; all styles must remain modular, lightweight, and zero-build Vanilla CSS.",
-      "Don't use generic sans-serif fonts for long-form essay prose.",
-      "Don't use layout-thrashing CSS transitions on properties like padding, margin, width, or height."
+      "Don't place body copy directly on detailed pixel artwork or rely on text shadow as the contrast strategy.",
+      "Don't introduce rounded cards, pill navigation, or circles beyond the established keycap control.",
+      "Don't swap the authored 16-bit environmental scenes for photorealism, generic gradients, or isolated decorative sprites.",
+      "Don't make Save Gold, Archive Cyan, and Quest Green interchangeable; each color carries a distinct action or status meaning.",
+      "Don't animate smooth scrolling, scene drift, panel clipping, or flap motion when reduced motion is requested.",
+      "Don't let the legacy Newsreader, Source Serif 4, DM Sans, warm-charcoal, or rounded-card system override this homepage world."
     ]
   }
 }
