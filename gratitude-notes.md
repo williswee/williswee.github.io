@@ -451,3 +451,23 @@ What's yours?
 2️⃣ Had an open and candid convo with my "build for joy" working partner today. It ended up being really positive. We realized we're more aligned than we thought. Good vibes as always
 
 3️⃣ I'm having a lot of fun with Impeccable. Using it to audit and improve all the tiny apps I've built. there's real joy in building delightful UI/UX with it.
+
+## Gratitude note #41
+
+*2026-09-03*
+
+1️⃣ Caught one of my daughters meditating to manage her big emotions. I chuckled and asked, "Are you learning from Daddy?" She chuckled too. then kept going for 10 seconds and said, "I am feeling better." Funny. Wonderful.
+
+2️⃣ My oldest shared randomly she's grateful for Mommy and Daddy bringing her into this world.
+
+3️⃣ Spent almost a whole day learning to design using agent loops. So much fun. Much to learn.
+
+## Gratitude note #42
+
+*2026-09-04*
+
+1️⃣ Had a chat with a friend that went much deeper than expected, in a good way. i feel lucky to have kind, trustworthy people around me who I can just be myself with, without feeling judged.
+
+2️⃣ Spent some 1-1 time with my brother. We talked about anything and everything. Time flew.
+
+3️⃣ Heading off to a digital-free retreat in isolation. A little excited, a little nervous. Let’s see :)
