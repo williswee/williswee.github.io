@@ -11,44 +11,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preload" href="images/game-world/base-camp-personal-v4.png" as="image" fetchpriority="high">
-    <link rel="stylesheet" href="home-game.css?v=3.2">
+    <link rel="stylesheet" href="home-game.css?v=4.0">
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="https://www.useinflect.ai/inflect-tracking.js" data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
-    <script src="home-game.js?v=3.0" defer></script>
+    <script src="home-game.js?v=3.3" defer></script>
 </head>
 
 <body>
     <a class="skip-link" href="#main-content">Skip to the story</a>
 
     <header class="site-hud">
-        <a class="site-brand" href="#base-camp" aria-label="Willis Wee, back to About">
+        <a class="site-brand" href="#base-camp" aria-label="Willis Wee, back to Start">
             <span class="brand-full">Willis Wee</span>
             <span class="brand-short" aria-hidden="true">Willis</span>
-            <small>Singapore · Building for joy</small>
+            <small aria-hidden="true">👋</small>
         </a>
 
         <nav class="chapter-nav" aria-label="Homepage sections">
-            <a href="#base-camp" data-level="base-camp" aria-current="page">About</a>
+            <a href="#base-camp" data-level="base-camp" aria-current="page">Start</a>
             <a href="#workshop" data-level="workshop">Work</a>
             <a href="#archive" data-level="archive">Notes</a>
-            <a href="#terminal" data-level="terminal">Contact</a>
+            <a href="#life" data-level="life">Life</a>
+            <a href="#terminal" data-level="terminal">Connect</a>
         </nav>
         <span class="scroll-progress" aria-hidden="true"></span>
     </header>
 
     <main id="main-content">
-        <section class="game-scene scene-base is-current" id="base-camp" data-scene-name="About">
+        <section class="game-scene scene-base is-current" id="base-camp" data-scene-name="Start">
             <img class="scene-art" src="images/game-world/base-camp-personal-v4.png" alt="Willis, wearing a plain grey T-shirt and shorts and carrying a white canvas tote, looks over Singapore beside his tent, sloth charm, tennis racket, three tennis balls, notebook, and lanterns" width="1946" height="808" fetchpriority="high">
             <div class="scene-veil" aria-hidden="true"></div>
 
             <div class="scene-content scene-content-right">
                 <article class="story-panel">
                     <h1>Building<br>for joy.</h1>
-                    <p class="lede">I’m Willis—a founder and product builder in Singapore. I like turning difficult ideas into things people care about.</p>
-                    <p>After 16 years building <a href="https://www.techinasia.com/" target="_blank" rel="noopener noreferrer">Tech in Asia</a> from zero to YC to exit, I’m exploring what comes next through <a href="https://slothware.ai/" target="_blank" rel="noopener noreferrer">Slothware Labs</a>.</p>
+                    <button class="status-badge" id="status-badge" type="button" aria-label="Current status: Building for joy. Click to shuffle status" title="Click to shuffle status">
+                        <span class="status-shuffle" aria-hidden="true">
+                            <svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" focusable="false">
+                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                            </svg>
+                        </span>
+                        <span class="status-dot" aria-hidden="true"></span>
+                        <span class="status-text" aria-live="polite" aria-atomic="true">Currently: <strong>Building for joy</strong><span class="status-emoji"> 🦥</span></span>
+                    </button>
+                    <p class="lede">I’m Willis, a founder and product builder based in Singapore.</p>
+                    <p>After 16 years building <a href="https://www.techinasia.com/" target="_blank" rel="noopener noreferrer">Tech in Asia</a> from zero to YC to exit, I’m now exploring what’s next through <a href="https://slothware.ai/" target="_blank" rel="noopener noreferrer">Slothware Labs</a>.</p>
 
                     <a class="next-chapter" href="#workshop">
-                        <span><small>Next</small>See what I’m building</span>
+                        <span><small>Scroll next</small>See what I’m building</span>
                         <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg>
                     </a>
                 </article>
@@ -56,13 +67,13 @@
         </section>
 
         <section class="game-scene scene-workshop" id="workshop" data-scene-name="Work">
-            <img class="scene-art" src="images/game-world/workshop-personal-v6.png" alt="Willis vibe-codes in front of a sea-facing Studio Display, typing with his left hand and using a trackpad with his right, beside a vertically docked space-grey MacBook Air with a properly routed Thunderbolt cable" width="1817" height="866" loading="lazy">
+            <img class="scene-art" src="images/game-world/workshop-personal-v11.png" alt="Willis vibe-codes at a sea-facing Studio Display, with his left hand on the keyboard and right hand on the trackpad, beside a closed space-grey MacBook decorated with #GSD, sloth-face, heart, and Stay calm stickers in a wooden vertical stand, a top-connected Thunderbolt cable, and a silver Mac mini" width="1815" height="867" loading="lazy">
             <div class="scene-veil" aria-hidden="true"></div>
 
             <div class="scene-content scene-content-left">
                 <article class="story-panel">
-                    <h2>I like the<br>messy middle.</h2>
-                    <p>The place where product, people, and business have to become one coherent thing. These are the builds occupying my desk now.</p>
+                    <h2>I like mission-<wbr>driven startups.</h2>
+                    <p>I come alive when product, people, and business need to come together coherently to get shit done and deliver on the mission.</p>
 
                     <div class="work-list" aria-label="Selected work">
                         <a href="https://preview.tickertown.ai/" target="_blank" rel="noopener noreferrer">
@@ -70,9 +81,14 @@
                             <span><strong>TickerTown</strong><small>A communal investing game with real market data and play money.</small></span>
                             <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg>
                         </a>
+                        <a href="https://slothware.ai/" target="_blank" rel="noopener noreferrer">
+                            <span class="work-meta">Now</span>
+                            <span><strong>Slothware</strong><small>Where Ian and I build experimental AI-native software for joy.</small></span>
+                            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg>
+                        </a>
                         <a href="work.html#tech-in-asia">
                             <span class="work-meta">2010–26</span>
-                            <span><strong>Tech in Asia</strong><small>Sixteen years serving Asia’s startup community—from zero to exit.</small></span>
+                            <span><strong>Tech in Asia</strong><small>16 years serving Asia’s startup community—from zero to exit.</small></span>
                             <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg>
                         </a>
                         <a href="https://intro.co/williswee" target="_blank" rel="noopener noreferrer">
@@ -85,7 +101,7 @@
                     <div class="panel-links">
                         <a href="work.html">Full work history</a>
                         <a class="next-chapter next-chapter-compact" href="#archive">
-                            <span><small>Next</small>Read my notes</span>
+                            <span><small>Scroll next</small>My notes</span>
                             <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg>
                         </a>
                     </div>
@@ -103,37 +119,77 @@
                     <p>I write to see what I actually think. This is where I keep the useful mistakes, working principles, books, and moments worth remembering.</p>
 
                     <nav class="archive-list" aria-label="Writing and archives">
-                        <a href="thoughts/index.html"><span><strong>Thoughts</strong><small>Building, leadership, AI, and life.</small></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
-                        <a href="guide.html"><span><strong>User Guide</strong><small>How I communicate, decide, and work.</small></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
-                        <a href="books.html"><span><strong>Books</strong><small>Ideas that changed how I see the world.</small></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
-                        <a href="gratitude.html"><span><strong>Gratitude</strong><small>Small records of what is worth noticing.</small></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
+                        <a href="thoughts/index.html"><span><strong>Thoughts</strong><small>Essays about being a dad, husband, and builder.</small></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
+                        <a href="guide.html"><span><strong>User Guide</strong><small>How I work.</small></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
+                        <a href="books.html"><span><strong>Books</strong><small>A collection of what I enjoyed reading.</small></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
+                        <a href="gratitude.html"><span><strong>Gratitude</strong><small>Daily notes on what sparked joy.</small></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
                     </nav>
 
-                    <a class="next-chapter" href="#terminal">
-                        <span><small>Next</small>Say hello</span>
+                    <a class="next-chapter" href="#life">
+                        <span><small>Scroll next</small>Life beyond work</span>
                         <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg>
                     </a>
                 </article>
             </div>
         </section>
 
-        <section class="game-scene scene-terminal" id="terminal" data-scene-name="Contact">
+        <section class="game-scene scene-life" id="life" data-scene-name="Life" aria-labelledby="life-title">
+            <img class="scene-art" src="images/game-world/life-family-v2.png" alt="Willis, his wife, and three daughters spend a quiet evening together in a Singapore coastal park, with books, a Kindle, tennis gear, and a sloth charm beside their picnic blanket" width="1774" height="887" loading="lazy">
+            <div class="scene-veil" aria-hidden="true"></div>
+
+            <div class="scene-content scene-content-left">
+                <article class="story-panel">
+                    <h2 id="life-title">LIFE</h2>
+                    <p class="lede">When I'm not working, I love spending time with my family 👩🏻👧🏻👧🏻👧🏻, playing tennis 🎾, reading 🧠, daydreaming 💭, and angel investing very selectively.</p>
+
+                    <a class="next-chapter" href="#terminal">
+                        <span><small>Scroll next</small>Say hello and connect</span>
+                        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <section class="game-scene scene-terminal" id="terminal" data-scene-name="Connect">
             <img class="scene-art" src="images/game-world/contact-coast-v5.png" alt="Willis naturally holds an ice cream at a coastal Singapore overlook beside a backpack tennis bag with two grey racket grips and a tidy sloth charm" width="1983" height="793" loading="lazy">
             <div class="scene-veil" aria-hidden="true"></div>
 
             <div class="scene-content scene-content-left">
                 <article class="story-panel">
-                    <h2>Let’s compare<br>maps.</h2>
-                    <p>I enjoy meeting fellow founders and builders—especially when there’s a knotty product problem, a difficult transition, or an unusual idea on the table.</p>
+                    <h2>CONNECT.</h2>
+                    <p>I enjoy connecting with fellow founders and builders. Whether you're working through a product challenge or navigating the founder journey, I'm happy to help if I can. Find me on:</p>
 
                     <div class="contact-list" aria-label="Ways to connect">
-                        <a href="https://williswee.substack.com" target="_blank" rel="noopener noreferrer"><span><strong>Substack</strong><small>Read new field notes</small></span><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg></a>
-                        <a href="https://www.linkedin.com/in/williswee/" target="_blank" rel="noopener noreferrer"><span><strong>LinkedIn</strong><small>Follow the current build</small></span><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg></a>
-                        <a href="https://intro.co/williswee" target="_blank" rel="noopener noreferrer"><span><strong>Intro.co</strong><small>Book a founder session</small></span><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg></a>
-                        <a href="https://github.com/williswee" target="_blank" rel="noopener noreferrer"><span><strong>GitHub</strong><small>Inspect the machinery</small></span><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg></a>
+                        <a href="https://williswee.substack.com" target="_blank" rel="noopener noreferrer">
+                            <span class="contact-label">
+                                <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+                                <strong>Substack</strong>
+                            </span>
+                            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/williswee/" target="_blank" rel="noopener noreferrer">
+                            <span class="contact-label">
+                                <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                                <strong>LinkedIn</strong>
+                            </span>
+                            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg>
+                        </a>
+                        <a href="https://intro.co/williswee" target="_blank" rel="noopener noreferrer">
+                            <span class="contact-label">
+                                <svg class="contact-icon contact-icon-stroke" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 10l5-3v10l-5-3v4H4V6h11v4z"/></svg>
+                                <strong>Intro.co</strong>
+                            </span>
+                            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg>
+                        </a>
+                        <a href="https://github.com/williswee" target="_blank" rel="noopener noreferrer">
+                            <span class="contact-label">
+                                <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                                <strong>GitHub</strong>
+                            </span>
+                            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg>
+                        </a>
                     </div>
 
-                    <p class="closing-note">Kindness is not weakness. Build things that leave people better.</p>
                     <a class="return-link" href="#base-camp">Back to the beginning <span aria-hidden="true">↑</span></a>
                 </article>
             </div>

@@ -9,37 +9,41 @@
         content="Entrepreneurship is self-expression. Not everyone will like what you express.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Mono:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=2.2">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reading-room.css?v=1.0">
     <link rel="icon" type="image/png" href="../avatar.png">
     <script src="https://www.useinflect.ai/inflect-tracking.js" data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
     <img src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&iv=2026-08-12.1" alt="" width="1" height="1" style="display:none;" referrerpolicy="unsafe-url" />
-    <script src="../site-nav.js?v=1.2" defer></script>
+    <script src="reading-room.js?v=1.0" defer></script>
 </head>
 
-<body>
-    <div class="container">
-        <header>
-            <a href="../index.html" class="site-brand" aria-label="Willis Wee — home">
-                <img src="../avatar.png" alt="Willis Wee" class="avatar" width="48" height="48">
-                <span class="site-name">Willis Wee</span>
-            </a>
-            <nav>
-                <a href="../index.html">About</a>
-                <a href="index.html" class="active">Thoughts</a>
-                <a href="../guide.html">Guide</a>
-                <a href="../work.html">Work</a>
-                <a href="../books.html">Books</a>
-                <a href="../gratitude.html">Gratitude</a>
-            </nav>
-        </header>
-        <main>
+<body class="essay-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="reading-hud">
+        <a href="../index.html" class="site-brand" aria-label="Willis Wee — home">
+            <span>Willis Wee</span><small aria-hidden="true">👋</small>
+        </a>
+        <nav class="reading-nav" aria-label="Main navigation">
+            <a href="../index.html">Start</a>
+            <a href="index.html" aria-current="page">Thoughts</a>
+            <a href="../guide.html">Guide</a>
+            <a href="../work.html">Work</a>
+            <a href="../books.html">Books</a>
+            <a href="../gratitude.html">Gratitude</a>
+        </nav>
+    </header>
+    <div class="reading-landscape" aria-hidden="true">
+        <img src="../images/game-world/notes-nature-v5.png" alt="" width="1909" height="824" fetchpriority="high">
+    </div>
+    <div class="reading-shell">
+        <main id="main-content" tabindex="-1">
+            <a class="essay-back text-link" href="index.html"><span aria-hidden="true">←</span> All thoughts</a>
             <article>
                 <h1>Freedom is being disliked by other people</h1>
                 <p class="article-date">25 August 2026</p>
 
                 <figure>
-                    <img src="../images/freedom.png" alt="An emo founder looking at the sea. Reflecting on what to eat for dinner." style="width:100%;border-radius:8px;">
+                    <img src="../images/freedom.png" alt="An emo founder looking at the sea. Reflecting on what to eat for dinner." width="1447" height="1087" decoding="async">
                     <figcaption>An emo founder looking at the sea. Reflecting on what to eat for dinner.</figcaption>
                 </figure>
 
@@ -103,22 +107,24 @@
 
             </article>
 
-            <div class="subscribe-embed">
+            <div class="subscribe-embed" id="newsletter">
                 <p>Enjoyed this? Subscribe to get new essays delivered to your inbox.</p>
                 <iframe src="https://williswee.substack.com/embed?transparent=1&light=1" width="100%" height="320" style="border: 0; background: transparent;" frameborder="0" scrolling="no" loading="lazy" title="Subscribe to Willis Wee newsletter"></iframe>
             </div>
 
+            <a class="text-link" href="https://williswee.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe on Substack <span aria-hidden="true">↗</span></a>
             <hr>
             <div class="article-nav-row">
                 <p class="back-link"><a href="index.html">← Back to Thoughts</a></p>
-                <button class="random-pick-btn" id="random-article-btn" type="button" aria-label="Open a random essay">
-                    <span class="random-pick-icon" aria-hidden="true">🎲</span>
+                <button class="random-pick-btn" id="random-article-btn" type="button" hidden aria-label="Open a random essay">
+                    <span class="random-pick-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16"/><path d="M8 8h2v2H8zm6 6h2v2h-2z" fill="currentColor" stroke="none"/></svg></span>
                     <span>Random pick</span>
                 </button>
             </div>
         </main>
 
         <footer class="follow-strip">
+            <a class="footer-home" href="../index.html#archive">Back to my notes <span aria-hidden="true">↗</span></a>
             <span class="follow-strip-label">Follow</span>
             <div class="follow-strip-icons">
                 <a href="https://williswee.substack.com" class="follow-icon" target="_blank" rel="noopener noreferrer" aria-label="Substack">
@@ -133,7 +139,6 @@
             </div>
         </footer>
     </div>
-    <script src="random.js"></script>
 </body>
 
 </html>

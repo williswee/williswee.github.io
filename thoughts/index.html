@@ -8,49 +8,52 @@
     <meta name="description" content="Articles and reflections by Willis Wee.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Mono:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=2.2">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reading-room.css?v=1.0">
     <link rel="icon" type="image/png" href="../avatar.png">
     <script src="https://www.useinflect.ai/inflect-tracking.js" data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
     <img src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&iv=2026-08-12.1" alt="" width="1" height="1" style="display:none;" referrerpolicy="unsafe-url" />
-    <script src="../site-nav.js?v=1.2" defer></script>
+    <script src="reading-room.js?v=1.0" defer></script>
 </head>
 
-<body>
-    <div class="container">
-        <header>
-            <a href="../index.html" class="site-brand" aria-label="Willis Wee — home">
-                <img src="../avatar.png" alt="Willis Wee" class="avatar" width="48" height="48">
-                <span class="site-name">Willis Wee</span>
-            </a>
-            <nav>
-                <a href="../index.html">About</a>
-                <a href="index.html" class="active">Thoughts</a>
-                <a href="../guide.html">Guide</a>
-                <a href="../work.html">Work</a>
-                <a href="../books.html">Books</a>
-                <a href="../gratitude.html">Gratitude</a>
-            </nav>
-        </header>
-        <main>
-            <h1>Thoughts</h1>
-
-            <div class="newsletter-cta">
-                <p>Join my free newsletter to get my latest essays and updates delivered straight to your inbox.</p>
-                <iframe src="https://williswee.substack.com/embed?transparent=1&light=1" width="100%" height="320" style="border: 0; background: transparent;" frameborder="0" scrolling="no" loading="lazy" title="Subscribe to Willis Wee newsletter"></iframe>
+<body class="thoughts-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="reading-hud">
+        <a href="../index.html" class="site-brand" aria-label="Willis Wee — home">
+            <span>Willis Wee</span><small aria-hidden="true">👋</small>
+        </a>
+        <nav class="reading-nav" aria-label="Main navigation">
+            <a href="../index.html">Start</a>
+            <a href="index.html" aria-current="page">Thoughts</a>
+            <a href="../guide.html">Guide</a>
+            <a href="../work.html">Work</a>
+            <a href="../books.html">Books</a>
+            <a href="../gratitude.html">Gratitude</a>
+        </nav>
+    </header>
+    <div class="reading-landscape" aria-hidden="true">
+        <img src="../images/game-world/notes-nature-v5.png" alt="" width="1909" height="824" fetchpriority="high">
+    </div>
+    <div class="reading-shell">
+        <main id="main-content" tabindex="-1">
+            <div class="archive-intro">
+                <h1>Thoughts</h1>
+                <p>Essays about being a dad, husband, and builder.</p>
+                <a class="text-link" href="#newsletter">Subscribe to new essays <span aria-hidden="true">↓</span></a>
             </div>
-
+            <div class="archive-controls">
             <div class="thoughts-header-bar">
-                <span class="thoughts-count-label" id="thoughts-count-label"></span>
-                <button class="random-pick-btn" id="random-thought-btn" type="button" aria-label="Open a random essay">
-                    <span class="random-pick-icon" aria-hidden="true">🎲</span>
+                <span class="thoughts-count-label" id="thoughts-count-label">39 essays</span>
+                <button class="random-pick-btn" id="random-thought-btn" type="button" hidden aria-label="Open a random essay">
+                    <span class="random-pick-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16"/><path d="M8 8h2v2H8zm6 6h2v2h-2z" fill="currentColor" stroke="none"/></svg></span>
                     <span>Random pick</span>
                 </button>
             </div>
 
-            <div class="timeline-nav" id="timeline-nav" aria-label="Jump to year">
+            <nav class="timeline-nav" id="timeline-nav" aria-label="Jump to year" hidden>
                 <span class="timeline-nav-label">Year</span>
                 <div class="timeline-nav-pills" id="timeline-nav-pills"></div>
+            </nav>
             </div>
 
             <div id="thoughts-archive-container">
@@ -213,9 +216,16 @@
                 </li>
             </ul>
             </div>
+            <section class="newsletter-cta" id="newsletter" aria-labelledby="newsletter-title">
+                <h2 id="newsletter-title">Stay in the loop.</h2>
+                <p>Join my free newsletter to get my latest essays and updates delivered straight to your inbox.</p>
+                <iframe src="https://williswee.substack.com/embed?transparent=1&light=1" width="100%" height="320" frameborder="0" scrolling="no" loading="lazy" title="Subscribe to Willis Wee newsletter"></iframe>
+                <a class="text-link" href="https://williswee.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe on Substack <span aria-hidden="true">↗</span></a>
+            </section>
         </main>
 
         <footer class="follow-strip">
+            <a class="footer-home" href="../index.html#archive">Back to my notes <span aria-hidden="true">↗</span></a>
             <span class="follow-strip-label">Follow</span>
             <div class="follow-strip-icons">
                 <a href="https://williswee.substack.com" class="follow-icon" target="_blank" rel="noopener noreferrer" aria-label="Substack">
@@ -231,124 +241,5 @@
         </footer>
     </div>
 
-    <script>
-        (function () {
-            const btn = document.getElementById('random-thought-btn');
-            const countLabel = document.getElementById('thoughts-count-label');
-            const originalList = document.getElementById('article-list');
-            const container = document.getElementById('thoughts-archive-container');
-            const timelineNavPills = document.getElementById('timeline-nav-pills');
-
-            if (!originalList || !container) return;
-
-            const items = Array.from(originalList.querySelectorAll('li'));
-            const totalCount = items.length;
-
-            if (countLabel) {
-                countLabel.textContent = `${totalCount} Essays`;
-            }
-
-            if (btn && items.length) {
-                const links = Array.from(originalList.querySelectorAll('li a'));
-                btn.addEventListener('click', () => {
-                    btn.classList.remove('rolling');
-                    void btn.offsetWidth;
-                    btn.classList.add('rolling');
-                    const randomLink = links[Math.floor(Math.random() * links.length)];
-                    setTimeout(() => {
-                        window.location.href = randomLink.href;
-                    }, 220);
-                });
-            }
-
-            // Group items by year from their .article-date span
-            const yearGroups = new Map();
-            items.forEach(li => {
-                const dateEl = li.querySelector('.article-date');
-                let year = 'Archive';
-                if (dateEl) {
-                    const match = dateEl.textContent.match(/\b(20\d\d)\b/);
-                    if (match) year = match[1];
-                }
-                if (!yearGroups.has(year)) {
-                    yearGroups.set(year, []);
-                }
-                yearGroups.get(year).push(li);
-            });
-
-            // Clear and rebuild grouped sections
-            container.innerHTML = '';
-
-            // Create "All" quick-jump pill
-            if (timelineNavPills) {
-                timelineNavPills.innerHTML = '';
-                const allPill = document.createElement('button');
-                allPill.className = 'timeline-pill active';
-                allPill.type = 'button';
-                allPill.textContent = `All (${totalCount})`;
-                allPill.addEventListener('click', () => {
-                    document.querySelectorAll('.timeline-pill').forEach(p => p.classList.remove('active'));
-                    allPill.classList.add('active');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-                timelineNavPills.appendChild(allPill);
-            }
-
-            yearGroups.forEach((groupItems, year) => {
-                const groupSection = document.createElement('section');
-                groupSection.className = 'timeline-year-group';
-                groupSection.id = `section-year-${year}`;
-
-                const header = document.createElement('div');
-                header.className = 'timeline-year-header';
-                header.innerHTML = `
-                    <h2 class="timeline-year-title" id="year-${year}">${year}</h2>
-                    <span class="timeline-year-count">${groupItems.length} ${groupItems.length === 1 ? 'essay' : 'essays'}</span>
-                `;
-                groupSection.appendChild(header);
-
-                const ul = document.createElement('ul');
-                ul.className = 'article-list';
-                groupItems.forEach(item => ul.appendChild(item));
-                groupSection.appendChild(ul);
-
-                container.appendChild(groupSection);
-
-                // Add Year quick-jump pill
-                if (timelineNavPills) {
-                    const pill = document.createElement('button');
-                    pill.className = 'timeline-pill';
-                    pill.type = 'button';
-                    pill.dataset.year = year;
-                    pill.textContent = `${year} (${groupItems.length})`;
-                    pill.addEventListener('click', () => {
-                        document.querySelectorAll('.timeline-pill').forEach(p => p.classList.remove('active'));
-                        pill.classList.add('active');
-                        header.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    });
-                    timelineNavPills.appendChild(pill);
-                }
-            });
-
-            // Scroll spy for active year pill
-            if ('IntersectionObserver' in window && timelineNavPills) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const id = entry.target.querySelector('.timeline-year-title')?.id;
-                            if (id) {
-                                const year = id.replace('year-', '');
-                                document.querySelectorAll('.timeline-pill').forEach(p => {
-                                    p.classList.toggle('active', p.dataset.year === year);
-                                });
-                            }
-                        }
-                    });
-                }, { rootMargin: '-60px 0px -70% 0px' });
-
-                document.querySelectorAll('.timeline-year-header').forEach(el => observer.observe(el));
-            }
-        })();
-    </script>
 </body>
 </html>
