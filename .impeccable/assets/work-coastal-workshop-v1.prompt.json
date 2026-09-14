@@ -1,0 +1,13 @@
+{
+  "asset": "images/game-world/work-coastal-workshop-v1.webp",
+  "tool": "Built-in ImageGen",
+  "intent": "generate",
+  "use_case": "illustration-story",
+  "reference": {
+    "path": "images/game-world/workshop-personal-v11.png",
+    "role": "Style and palette reference only"
+  },
+  "prompt": "Use case: illustration-story.\nAsset type: unique decorative background for Willis Wee's Work / career history page, part of an established midnight pixel-art personal website.\nPrimary request: create a quiet coastal maker's workshop and a winding path representing a lifetime of building. Output a very tall portrait image, 768 by 2048 pixels.\nInput image: the provided seaside desk image is STYLE AND PALETTE REFERENCE ONLY. Do not reproduce its person, desk setup, or wide composition.\nScene: a modest open-sided timber workshop on a rocky tropical cove at blue hour, a warm amber lantern above the doorway, a simple wooden workbench visible inside. A worn wooden boardwalk winds from the bottom foreground toward the workshop, with a calm deep-blue sea and distant headland behind it. A few coastal leaves frame one edge. No people.\nComposition: this artwork lives entirely in a narrow LEFT sidebar alongside a reading panel; do not put the subject on the right of a wide canvas. Tall portrait 768x2048. Keep the top 35 percent quiet, dark navy sky and distant water, because a navigation box will sit there. Put the recognizable workshop and its warm entrance between 50 and 74 percent down the image; keep all essential features within the central 65 percent of the canvas width so a narrow crop still works. The boardwalk leads down through the lower quarter. Favor a clear silhouette and a small, memorable scene over crowded detail.\nStyle/medium: handcrafted high-quality pixel-art adventure-game scenery matching the reference's crisp blocky contours, restrained dithering, layered deep blues and warm wooden materials. Not vector, not low-poly, not photographic. Simpler than the reference, made for the edge of a long reading page.\nLighting: low-contrast midnight navy, muted teal sea, subdued copper sky near horizon, a small inviting pool of warm amber lantern light. No bright sunset occupying the page, no neon.\nConstraints: no lettering, no logos, no UI, no signs, no frame, no watermark. No tent, no open book or compass from the separate Guide page. No characters or sloth mascots. Keep the art unique to a coastal workshop.",
+  "source": "/Users/williswee/.codex/generated_images/01a06041-1cb4-78a3-a2a5-b227ffc73655/exec-090f40a7-52d3-4ec1-b2ec-4afe861f646b.png",
+  "processing": "WebP quality 88, effort 6; no creative edits or resizing"
+}

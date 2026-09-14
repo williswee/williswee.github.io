@@ -7,39 +7,52 @@
     <meta name="description" content="A guide to understanding how Willis thinks and works, his communication preferences, and his personal philosophies on management and collaboration.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Mono:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2.2">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.2">
+    <link rel="stylesheet" href="guide-game.css?v=1.1">
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="https://www.useinflect.ai/inflect-tracking.js" data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
     <img src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&iv=2026-08-12.1" alt="" width="1" height="1" style="display:none;" referrerpolicy="unsafe-url" />
-    <script src="site-nav.js?v=1.2" defer></script>
+    <script src="guide-game.js?v=1.0" defer></script>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <a href="index.html" class="site-brand" aria-label="Willis Wee — home">
-                <img src="avatar.png" alt="Willis Wee" class="avatar" width="48" height="48">
-                <span class="site-name">Willis Wee</span>
-            </a>
-            <nav>
-                <a href="index.html">About</a>
-                <a href="thoughts/index.html">Thoughts</a>
-                <a href="guide.html" class="active">Guide</a>
-                <a href="work.html">Work</a>
-                <a href="books.html">Books</a>
-                <a href="gratitude.html">Gratitude</a>
-            </nav>
-        </header>
-        <main>
+<body class="guide-page">
+    <a class="skip-link" href="#main-content">Skip to guide</a>
+    <header class="reading-hud">
+        <a href="index.html" class="site-brand" aria-label="Willis Wee — home">
+            <span>Willis Wee</span><small aria-hidden="true">👋</small>
+        </a>
+        <nav class="reading-nav" aria-label="Main navigation">
+            <a href="index.html">Start</a>
+            <a href="thoughts/index.html">Thoughts</a>
+            <a href="guide.html" aria-current="page">Guide</a>
+            <a href="work.html">Work</a>
+            <a href="books.html">Books</a>
+            <a href="gratitude.html">Gratitude</a>
+        </nav>
+    </header>
+    <div class="reading-landscape guide-landscape" aria-hidden="true">
+        <img src="images/game-world/guide-field-manual-v1.webp" alt="" width="768" height="2048" decoding="async">
+    </div>
+    <div class="reading-shell">
+        <main id="main-content" tabindex="-1">
             <h1>My user guide</h1>
             <p class="guide-last-updated">Last updated: July 2026</p>
             
             <div class="guide-intro">
                 <p>Welcome to the Willis User Guide! I offer this to you because I recognize that the faster we get to know each other and how we work, the better and stronger our relationship will be, and the more we'll accomplish together. I encourage you to write your own User Guide so we can learn how to work best with each other. This is a living document that will update as I learn more about myself and how we can best support each other.</p>
             </div>
+
+            <nav class="guide-contents" aria-label="In this guide">
+                <p class="guide-contents-title">In this guide</p>
+                <a href="#communication-preference">Communication preference</a>
+                <a href="#management-preference">Management preference</a>
+                <a href="#reporting-preference">Reporting preference</a>
+                <a href="#my-flaws">My flaws</a>
+                <a href="#things-you-might-not-know-about-me">Things you might not know about me</a>
+            </nav>
             
             <div class="guide-section">
-                <h2><span class="guide-emoji" aria-hidden="true">💬</span> Communication preference</h2>
+                <h2 id="communication-preference"><span class="guide-emoji" aria-hidden="true">💬</span> Communication preference</h2>
                 <ul>
                     <li><strong>Hierarchy of communication:</strong> (most → least urgent): Walk-over to my desk → Slack → Email. Please @tag me on Slack to get my full attention.</li>
                     <li><strong>Public by default:</strong> I prefer open communication on Slack channels. For example, on product-related topics, use the relevant public channel, no private message. Only private message me if it's personal or confidential. I'll do the same.</li>
@@ -56,7 +69,7 @@
             </div>
 
             <div class="guide-section">
-                <h2><span class="guide-emoji" aria-hidden="true">🤝</span> Management preference</h2>
+                <h2 id="management-preference"><span class="guide-emoji" aria-hidden="true">🤝</span> Management preference</h2>
                 <ul>
                     <li><strong>Smarter people:</strong> I like to work with people who have experience and are smarter than me. They bring on board different perspectives and will move the needle for the company.</li>
                     <li><strong>Collaborate then empower:</strong> In our initial phase of working together, I tend to be highly collaborative. My goal is to ensure we're fully aligned on goals and context, and to provide all the support you need to get up to speed quickly. As we build that shared understanding and rhythm, my approach naturally evolves to be more of a strategic partner and resource. The end goal is always the same: to set you up to have full ownership of your domain.</li>
@@ -110,7 +123,7 @@
             </div>
 
             <div class="guide-section">
-                <h2><span class="guide-emoji" aria-hidden="true">📝</span> Reporting preference</h2>
+                <h2 id="reporting-preference"><span class="guide-emoji" aria-hidden="true">📝</span> Reporting preference</h2>
                 <ul>
                     <li><strong>Systematic sharing:</strong> Create a regular, systematic, clearly framed written process by which you share your progress against the plan. Collaborate with me on this.</li>
                     <li><strong>Data-driven:</strong> Make reporting as quantitative as possible.</li>
@@ -119,7 +132,7 @@
             </div>
 
             <div class="guide-section">
-                <h2><span class="guide-emoji" aria-hidden="true">🫠</span> My flaws</h2>
+                <h2 id="my-flaws"><span class="guide-emoji" aria-hidden="true">🫠</span> My flaws</h2>
                 <ul>
                     <li><strong>Direct under pressure:</strong> I am intensely passionate about our mission. This drive means that in high-pressure situations, my communication can become very direct. I am keenly aware of this and am working to ensure my candor is always paired with patience and empathy. My goal is to challenge ideas, not people. If my delivery ever feels off, I genuinely want you to call it out. It's the fastest way for me to adjust and improve. It’s a continuous learning process to be a better person both at home and at work.</li>
                     <li><strong>Distracted at times:</strong> Sometimes I'm slow to fully grasp a new point or don’t listen well because I’m stuck on an idea or distracted by problems. If I seem distracted, let me know, and try to get my attention.</li>
@@ -132,7 +145,7 @@
             </div>
 
             <div class="guide-section">
-                <h2><span class="guide-emoji" aria-hidden="true">💭</span> Things you might not know about me</h2>
+                <h2 id="things-you-might-not-know-about-me"><span class="guide-emoji" aria-hidden="true">💭</span> Things you might not know about me</h2>
                 <ul>
                     <li><strong>Astrology:</strong> Chinese zodiac: Ox / Horoscope: Aquarius</li>
                     <li><strong>Value of money:</strong> I came from a poor, broken family. So, I understand the value of money, but I also know that money isn’t everything</li>
@@ -157,6 +170,7 @@
         </main>
 
         <footer class="follow-strip">
+            <a class="footer-home" href="index.html#archive">Back to my notes</a>
             <span class="follow-strip-label">Follow</span>
             <div class="follow-strip-icons">
                 <a href="https://williswee.substack.com" class="follow-icon" target="_blank" rel="noopener noreferrer" aria-label="Substack">
@@ -172,130 +186,7 @@
         </footer>
     </div>
 
-    <script>
-        (function () {
-            function slugify(text) {
-                return text.toLowerCase()
-                    .replace(/[^\w\s-]/g, '')
-                    .trim()
-                    .replace(/[\s_-]+/g, '-');
-            }
+    <p id="guide-copy-status" class="guide-copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
 
-            // Process H2 section headings
-            const headings = Array.from(document.querySelectorAll('.guide-section h2'));
-            headings.forEach(h2 => {
-                const text = h2.textContent.replace(/^[^\w\s]+/, '').trim();
-                const slug = slugify(text);
-                if (!h2.id) h2.id = slug;
-
-                const anchor = document.createElement('button');
-                anchor.className = 'guide-anchor-link';
-                anchor.setAttribute('type', 'button');
-                anchor.setAttribute('aria-label', `Copy link to ${text}`);
-                anchor.setAttribute('title', 'Copy link to section');
-                anchor.innerHTML = '<span class="anchor-symbol" aria-hidden="true">#</span>';
-
-                anchor.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const url = `${window.location.origin}${window.location.pathname}#${h2.id}`;
-                    navigator.clipboard.writeText(url).then(() => {
-                        const symbol = anchor.querySelector('.anchor-symbol');
-                        if (symbol) symbol.textContent = '✓';
-                        anchor.classList.add('guide-anchor-link--copied');
-                        history.replaceState(null, '', `#${h2.id}`);
-
-                        setTimeout(() => {
-                            if (symbol) symbol.textContent = '#';
-                            anchor.classList.remove('guide-anchor-link--copied');
-                        }, 1500);
-                    });
-                });
-
-                h2.appendChild(anchor);
-            });
-
-            // Process LI items with strong labels
-            const items = Array.from(document.querySelectorAll('.guide-section li'));
-            items.forEach(li => {
-                const strong = li.querySelector('strong');
-                if (!strong) return;
-
-                const rawText = strong.textContent.replace(/[:.]+$/, '').trim();
-                const slug = slugify(rawText);
-                if (!li.id) li.id = slug;
-
-                const anchor = document.createElement('button');
-                anchor.className = 'guide-anchor-link';
-                anchor.setAttribute('type', 'button');
-                anchor.setAttribute('aria-label', `Copy link to ${rawText}`);
-                anchor.setAttribute('title', 'Copy link to rule');
-                anchor.innerHTML = '<span class="anchor-symbol" aria-hidden="true">#</span>';
-
-                anchor.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const url = `${window.location.origin}${window.location.pathname}#${li.id}`;
-                    navigator.clipboard.writeText(url).then(() => {
-                        const symbol = anchor.querySelector('.anchor-symbol');
-                        if (symbol) symbol.textContent = '✓';
-                        anchor.classList.add('guide-anchor-link--copied');
-                        history.replaceState(null, '', `#${li.id}`);
-
-                        setTimeout(() => {
-                            if (symbol) symbol.textContent = '#';
-                            anchor.classList.remove('guide-anchor-link--copied');
-                        }, 1500);
-                    });
-                });
-
-                // Place anchor at the end of the text (before any nested list, or at end of li)
-                const nestedList = li.querySelector('ol, ul');
-                if (nestedList) {
-                    li.insertBefore(anchor, nestedList);
-                } else {
-                    li.appendChild(anchor);
-                }
-            });
-
-            // Handle deep-link scrolling and highlight on load or hashchange
-            function highlightCurrentHash() {
-                if (!window.location.hash) return;
-                const targetId = window.location.hash.substring(1);
-                const target = document.getElementById(targetId);
-                if (target) {
-                    target.classList.add('guide-highlight-target');
-                    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    setTimeout(() => {
-                        target.classList.remove('guide-highlight-target');
-                    }, 3000);
-                }
-            }
-
-            if (window.location.hash) {
-                setTimeout(highlightCurrentHash, 100);
-            }
-            window.addEventListener('hashchange', highlightCurrentHash);
-
-            // Staggered card entrance animation
-            const sections = document.querySelectorAll('.guide-section');
-            sections.forEach((section, i) => {
-                section.style.animationDelay = `${i * 0.07}s`;
-            });
-            if ('IntersectionObserver' in window) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('guide-section--visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.08 });
-                sections.forEach(section => observer.observe(section));
-            } else {
-                sections.forEach(s => s.classList.add('guide-section--visible'));
-            }
-        })();
-    </script>
 </body>
 </html>

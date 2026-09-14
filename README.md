@@ -45,6 +45,20 @@ python3 -m http.server 4173 --bind 127.0.0.1
 
 Open the [homepage](http://localhost:4173/index.html), [Thoughts archive](http://localhost:4173/thoughts/index.html), or [sample essay](http://localhost:4173/thoughts/freedom.html). Refresh the essay to try another preset background. The current redesign lives on `codex/pixel-portfolio-wip-2026-09-02`.
 
+## Editing the User Guide
+
+The redesigned [Guide](guide.html) uses `thoughts/reading-room.css` for the shared navigation and reading shell, with `guide-game.css` and `guide-game.js` for its own layout and interactions. Its dedicated illustration is `images/game-world/guide-field-manual-v1.webp`, composed for the visible left column; it does not use the homepage artwork or randomized essay landscapes.
+
+Keep the complete copy and nested alphabetic lists. Existing section/rule IDs are public deep links: preserve them when editing a heading or bold rule label (set the existing ID explicitly on its `<h2>` or `<li>` if the label changes). When adding a section, update the “In this guide” links as well. Preview [Guide locally](http://localhost:4173/guide.html), check mobile layout, and test both section and rule copy links.
+
+---
+
+## Editing Work
+
+The redesigned [Work page](work.html) shares `thoughts/reading-room.css` with Guide and Thoughts. Its own presentation and milestone navigation live in `work-game.css` and `work-game.js`. Use the dedicated `images/game-world/work-coastal-workshop-v1.webp` illustration, composed for the visible left column; Work does not use the randomized essay backgrounds.
+
+Keep the full stories, dates, project preview links, and existing milestone IDs (`now`, `tech-in-asia`, `tuition-center`, `trading-cards`, and `grasshoppers`). To add a milestone, give its `.timeline-item` section a stable unique ID and labeled heading, then add a matching `.project-nav-link` in the same chronological order. All stories remain readable without JavaScript. Preview [Work locally](http://localhost:4173/work.html) and check desktop navigation, the mobile Milestones menu, direct hash links, and project images before publishing.
+
 ---
 
 ## How to add a book
