@@ -63,6 +63,8 @@ Keep the full stories, dates, project preview links, and existing milestone IDs 
 
 ## How to add a book
 
+The Books page uses the shared reading-world styles in `thoughts/reading-room.css`, page-specific layout in `books-game.css`, and filtering, random picks, spotlight, and permalink behavior in `books-game.js`. Its dedicated reading-nook background is `images/game-world/books-reading-nook-v1.webp`; provenance is recorded in `.impeccable/assets/books-reading-nook-v1.prompt.json`. Keep this page-specific illustration when adding books—individual recommendations do not need cover images or new backgrounds.
+
 1. Open `books.html`
 2. Inside `<div class="book-grid">`, add a new `<div class="book-card">` block (books are listed alphabetically by title)
 3. Set the `data-category` attribute on the card to one of the valid categories (see below)
@@ -71,7 +73,8 @@ Keep the full stories, dates, project preview links, and existing milestone IDs 
    - `<h3>` — full book title
    - `<p class="book-author">` — author name in ALL CAPS, prefixed with `BY`
    - `<p class="book-review">` — 1–3 sentence personal take
-5. Reorder the filter pills (`<div class="filter-pills">`) so they appear from most to least books per category
+5. Reorder the category filters (`<div class="filter-pills">`) so they appear from most to least books per category, keeping All first. Counts are calculated automatically by `books-game.js`; update the initial total in `#book-status` too, so the no-JavaScript view stays accurate.
+6. Keep existing titles and IDs stable: book permalinks are generated from their titles. If correcting a published title, give that card an explicit `id` matching its old permalink before changing the heading. Do not reuse an existing ID.
 
 **Valid categories:** `leadership` · `mindset` · `investing` · `life` · `science` · `career` · `parenting` · `design`
 
@@ -84,22 +87,18 @@ Keep the full stories, dates, project preview links, and existing milestone IDs 
 </div>
 ```
 
-**Template**
+**Before publishing**
 
-```html
-<div class="book-card">
-    <h3>Book Title Here</h3>
-    <p class="book-author">BY AUTHOR NAME</p>
-    <p class="book-review">Your review here.</p>
-</div>
-```
+Preview [Books locally](http://localhost:4173/books.html) on desktop and mobile. Check the new entry's category/count, the mobile Categories menu, Random pick and Another pick within a selected category, and a direct book hash link (for example, `books.html#clarity-connection`). Focus mode keeps the selected book fully visible while fading the other books, introduction, and reading-nook background; navigation and random/Top controls stay clear. Top and category changes should clear the previous spotlight and its book hash and restore the surroundings. All recommendations remain readable without JavaScript; reduced-motion settings disable animated scrolling, fading, and dice feedback.
 
 **Prompt**
 
 Follow the instruction here [README.md] under "How to add a book"
 - add the book into `books.html` in alphabetical order by title
-- reorder the filter pills from most to least books per category
+- set the category and reorder the category filters from most to least books, keeping All first
+- preserve existing book permalinks and update the initial total in `#book-status`
 
 Title:
 Author:
+Category:
 Review:

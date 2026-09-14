@@ -9,36 +9,43 @@
         content="Explore Willis Wee's favorite reads—from management and design to happiness and habits—with concise insights from each book.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Mono:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2.2">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.2">
+    <link rel="stylesheet" href="books-game.css?v=1.1">
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="https://www.useinflect.ai/inflect-tracking.js" data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
-    <img src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&iv=2026-08-12.1" alt="" width="1" height="1" style="display:none;" referrerpolicy="unsafe-url" />
-    <script src="site-nav.js?v=1.2" defer></script>
+    <script src="books-game.js?v=1.0" defer></script>
 </head>
 
-<body>
-    <div class="container">
-        <header>
-            <a href="index.html" class="site-brand" aria-label="Willis Wee — home">
-                <img src="avatar.png" alt="Willis Wee" class="avatar" width="48" height="48">
-                <span class="site-name">Willis Wee</span>
-            </a>
-            <nav>
-                <a href="index.html">About</a>
-                <a href="thoughts/index.html">Thoughts</a>
-                <a href="guide.html">Guide</a>
-                <a href="work.html">Work</a>
-                <a href="books.html" class="active">Books</a>
-                <a href="gratitude.html">Gratitude</a>
-            </nav>
-        </header>
-        <main>
-            <h1>Books</h1>
-            <p>A selection of books I've enjoyed and what I learned from them.</p>
-
-            <!-- Filter Controls -->
-            <div class="book-controls">
+<body class="books-page">
+    <img src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&iv=2026-08-12.1" alt="" width="1" height="1" hidden referrerpolicy="unsafe-url" />
+    <a class="skip-link" href="#main-content">Skip to books</a>
+    <header class="reading-hud">
+        <a href="index.html" class="site-brand" aria-label="Willis Wee — home">
+            <span>Willis Wee</span><small aria-hidden="true">👋</small>
+        </a>
+        <nav class="reading-nav" aria-label="Main navigation">
+            <a href="index.html">Start</a>
+            <a href="thoughts/index.html">Thoughts</a>
+            <a href="guide.html">Guide</a>
+            <a href="work.html">Work</a>
+            <a href="books.html" aria-current="page">Books</a>
+            <a href="gratitude.html">Gratitude</a>
+        </nav>
+    </header>
+    <div class="reading-landscape books-landscape" aria-hidden="true">
+        <img src="images/game-world/books-reading-nook-v1.webp" alt="" width="768" height="2048" decoding="async">
+    </div>
+    <div class="reading-shell">
+        <main id="main-content" tabindex="-1">
+            <div class="books-intro">
+                <h1>Books.</h1>
+                <p>A selection of books I've enjoyed.</p>
+            </div>
+            <aside class="book-filter-sidebar" aria-label="Book categories">
+                <details class="book-filter-menu" open>
+                    <summary><span>Categories</span><span class="current-filter-label">All books</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7 5 5 5-5"/></svg></summary>
+                    <p class="book-filter-title">Browse by category</p>
                 <div class="filter-pills" id="filter-pills" role="group" aria-label="Filter by category">
                     <button class="filter-pill active" data-filter="all" aria-pressed="true">All <span class="pill-count"
                             id="count-all"></span></button>
@@ -59,17 +66,18 @@
                     <button class="filter-pill" data-filter="career" aria-pressed="false">Career <span class="pill-count"
                             id="count-career"></span></button>
                 </div>
-                <div class="book-actions-bar">
-                    <button class="random-pick-btn" id="random-book-btn" type="button" aria-label="Pick a random book">
-                        <span class="random-pick-icon" aria-hidden="true">🎲</span>
-                        <span>Random pick</span>
-                    </button>
-                </div>
+                    <a class="books-back" href="index.html#archive"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M17 10H4M9 5l-5 5 5 5"/></svg>Back</a>
+                </details>
+            </aside>
+            <div class="book-controls">
+                <p class="book-count" id="book-status" role="status" aria-live="polite" aria-atomic="true">47 books</p>
+                <button class="random-pick-btn" id="random-book-btn" type="button" aria-label="Pick a random book">
+                    <span class="random-pick-icon" aria-hidden="true"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14"/><path d="M6 6h1v1H6zM13 13h1v1h-1zM9.5 9.5h1v1h-1z" fill="currentColor" stroke="none"/></svg></span>
+                    <span>Random pick</span>
+                </button>
             </div>
-
-            <!-- Empty state -->
             <p class="book-empty" id="book-empty" role="status" aria-live="polite" hidden>No books found in this category.</p>
-
+            <h2 class="visually-hidden">Reading list</h2>
             <div class="book-grid" id="book-grid">
                 <div class="book-card" data-category="parenting">
                     <span class="book-tag">Parenting</span>
@@ -429,19 +437,8 @@
             </div>
         </main>
 
-        <div class="floating-book-dock" id="floating-book-dock" aria-label="Book recommendation navigation">
-            <button class="dock-btn dock-btn--shuffle" id="dock-shuffle-btn" type="button" aria-label="Shuffle another random book recommendation">
-                <span class="dock-icon">🎲</span>
-                <span>Another pick</span>
-                <span class="dock-shortcut" aria-hidden="true">↻</span>
-            </button>
-            <button class="dock-btn dock-btn--top" id="dock-top-btn" type="button" aria-label="Scroll to top of book list">
-                <span class="dock-icon">↑</span>
-                <span>Top</span>
-            </button>
-        </div>
-
         <footer class="follow-strip">
+            <a class="footer-home" href="index.html#archive">Back to my notes</a>
             <span class="follow-strip-label">Follow</span>
             <div class="follow-strip-icons">
                 <a href="https://williswee.substack.com" class="follow-icon" target="_blank" rel="noopener noreferrer" aria-label="Substack">
@@ -467,163 +464,16 @@
         </footer>
     </div>
 
-    <script>
-        (function () {
-            const cards = Array.from(document.querySelectorAll('.book-card'));
-            const filterPills = Array.from(document.querySelectorAll('.filter-pill[data-filter]'));
-            const emptyState = document.getElementById('book-empty');
-            const heroRandomBtn = document.getElementById('random-book-btn');
-            const dock = document.getElementById('floating-book-dock');
-            const dockShuffleBtn = document.getElementById('dock-shuffle-btn');
-            const dockTopBtn = document.getElementById('dock-top-btn');
-            const grid = document.getElementById('book-grid');
-
-            // Helper: generate clean slug for cards
-            function slugify(text) {
-                return text.toLowerCase()
-                    .replace(/[^\w\s-]/g, '')
-                    .trim()
-                    .replace(/[\s_-]+/g, '-');
-            }
-
-            // Ensure every card has a unique ID
-            cards.forEach(card => {
-                if (!card.id) {
-                    const titleEl = card.querySelector('h3');
-                    if (titleEl) card.id = slugify(titleEl.textContent);
-                }
-            });
-
-            // Populate category counts
-            const categories = ['leadership', 'mindset', 'investing', 'life', 'science', 'career', 'parenting', 'design'];
-            const countAll = document.getElementById('count-all');
-            if (countAll) countAll.textContent = cards.length;
-            categories.forEach(cat => {
-                const el = document.getElementById('count-' + cat);
-                if (el) el.textContent = cards.filter(c => c.dataset.category === cat).length;
-            });
-
-            let activeFilter = 'all';
-
-            function setFilter(filterName) {
-                activeFilter = filterName;
-                filterPills.forEach(p => {
-                    const isActive = p.dataset.filter === filterName;
-                    p.classList.toggle('active', isActive);
-                    p.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-                });
-
-                let visible = 0;
-                cards.forEach(card => {
-                    const show = activeFilter === 'all' || card.dataset.category === activeFilter;
-                    card.classList.toggle('book-card--hidden', !show);
-                    if (show) visible++;
-                });
-                if (emptyState) emptyState.hidden = visible > 0;
-            }
-
-            filterPills.forEach(pill => {
-                pill.addEventListener('click', () => {
-                    clearSpotlight();
-                    setFilter(pill.dataset.filter);
-                });
-            });
-
-            // Spotlight logic (persistent focus mode)
-            let lastPickedCard = null;
-
-            function clearSpotlight() {
-                if (grid) grid.classList.remove('book-grid--spotlight');
-                cards.forEach(c => {
-                    c.classList.remove('book-card--spotlight');
-                });
-            }
-
-            function spotlightBook(card, updateHash = true) {
-                if (!card) return;
-
-                // Ensure category is visible
-                if (card.classList.contains('book-card--hidden')) {
-                    setFilter('all');
-                }
-
-                clearSpotlight();
-                lastPickedCard = card;
-
-                if (grid) grid.classList.add('book-grid--spotlight');
-                card.classList.add('book-card--spotlight');
-
-                if (updateHash && card.id) {
-                    history.replaceState(null, '', '#' + card.id);
-                }
-
-                // Smooth scroll to center the card
-                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                // Show floating dock
-                if (dock) dock.classList.add('show');
-            }
-
-            function pickRandomBook() {
-                let availableCards = cards.filter(c => !c.classList.contains('book-card--hidden'));
-                if (availableCards.length === 0) {
-                    setFilter('all');
-                    availableCards = cards;
-                }
-
-                let pick;
-                if (availableCards.length > 1) {
-                    do {
-                        pick = availableCards[Math.floor(Math.random() * availableCards.length)];
-                    } while (pick === lastPickedCard);
-                } else {
-                    pick = availableCards[0];
-                }
-
-                // Trigger dice spin animation
-                if (heroRandomBtn) {
-                    heroRandomBtn.classList.remove('rolling');
-                    void heroRandomBtn.offsetWidth;
-                    heroRandomBtn.classList.add('rolling');
-                }
-
-                spotlightBook(pick, true);
-            }
-
-            if (heroRandomBtn) heroRandomBtn.addEventListener('click', pickRandomBook);
-            if (dockShuffleBtn) dockShuffleBtn.addEventListener('click', pickRandomBook);
-
-            if (dockTopBtn) {
-                dockTopBtn.addEventListener('click', () => {
-                    clearSpotlight();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            }
-
-            // Floating dock visibility on scroll
-            const controlsEl = document.querySelector('.book-controls');
-            window.addEventListener('scroll', () => {
-                if (!controlsEl || !dock) return;
-                const rect = controlsEl.getBoundingClientRect();
-                if (rect.bottom < 0) {
-                    dock.classList.add('show');
-                } else if (!grid || !grid.classList.contains('book-grid--spotlight')) {
-                    dock.classList.remove('show');
-                }
-            }, { passive: true });
-
-            // Handle deep-link hash on page load
-            if (window.location.hash) {
-                const hashId = window.location.hash.substring(1);
-                const targetCard = document.getElementById(hashId) || cards.find(c => slugify(c.querySelector('h3')?.textContent || '') === hashId);
-                if (targetCard) {
-                    setTimeout(() => {
-                        spotlightBook(targetCard, false);
-                    }, 150);
-                }
-            }
-        })();
-    </script>
+    <div class="floating-book-dock" id="floating-book-dock" role="group" aria-label="Book recommendation navigation" hidden>
+        <button class="dock-btn dock-btn--shuffle" id="dock-shuffle-btn" type="button" aria-label="Shuffle another random book recommendation">
+            <span class="random-pick-icon" aria-hidden="true"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14"/><path d="M6 6h1v1H6zM13 13h1v1h-1zM9.5 9.5h1v1h-1z" fill="currentColor" stroke="none"/></svg></span>
+            <span>Another pick</span>
+        </button>
+        <button class="dock-btn dock-btn--top" id="dock-top-btn" type="button" aria-label="Clear spotlight and return to top of book list">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 17V4M5 9l5-5 5 5"/></svg>
+            <span>Top</span>
+        </button>
+    </div>
 </body>
 
 </html>

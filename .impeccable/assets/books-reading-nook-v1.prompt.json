@@ -1,0 +1,13 @@
+{
+  "asset": "images/game-world/books-reading-nook-v1.webp",
+  "tool": "Built-in ImageGen",
+  "intent": "generate",
+  "use_case": "illustration-story",
+  "reference": {
+    "path": "images/game-world/notes-nature-v5.png",
+    "role": "Style and palette reference only"
+  },
+  "prompt": "Use case: illustration-story.\nAsset type: dedicated portrait decorative background for the Books page of Willis Wee's personal pixel-art website.\nPrimary request: a quiet personal reading nook in a small timber library retreat at night. Create a tall 768 by 2048 pixel image.\nInput image: reference is ONLY for handcrafted pixel-art style, navy forest palette, warmth and crisp blocky rendering. Do not copy the character, outdoor desk or panoramic layout.\nScene: a deep-blue cushioned reading chair tucked beside a low wooden bookcase and a tall cabin window looking out onto moonlit trees. A small amber reading lamp beside the chair lights an open book resting on its seat, with a few well-worn books stacked neatly by the chair. Humble, lived-in, contemplative, not a luxurious library. No people.\nComposition: entire canvas is a narrow portrait scene that will be visible in the LEFT sidebar of a website, never a full-width panorama. The top 45 percent must stay subdued: dark blue night beyond the window, shadowy timber framing, sparse distant tree silhouettes. A category navigation panel will cover that upper area. Put the unmistakable chair, lamp and books between 60 and 82 percent down, within the central 65 percent of the canvas width so a narrow crop preserves them. The lower area shows quiet worn floorboards and soft shadows. In the visible lower-middle area, keep the bookcase, reading chair and warm lamp recognizable as a coherent group.\nStyle: premium 16-bit adventure-game scenery matching the reference. Crisp pixel contours, restrained dithering, layered midnight navy and dark teal, warm brown wood and one small amber light. No generic vector shapes, no low-poly 3D, no photorealism. Simpler than the reference; this is calm atmosphere beside a long reading list.\nConstraints: no text, labels, book titles, logos, UI, frame, or watermark. No human character, no desk computer, no tent, no compass. Keep main objects from the edges. Warm light is small and restrained, not a bright wash across the page.",
+  "source": "/Users/williswee/.codex/generated_images/01a06041-1cb4-78a3-a2a5-b227ffc73655/exec-b7fb599c-a08b-4977-bcd3-6f3344a9695c.png",
+  "processing": "WebP quality 88, effort 6. No resizing or creative edits."
+}
