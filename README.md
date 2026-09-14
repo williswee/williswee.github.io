@@ -8,8 +8,16 @@ https://williswee.com/
 3. Wait until the note is explicitly marked **final**. Do not update the site before approval.
 4. After approval, append the final note to [`gratitude-notes.md`](gratitude-notes.md).
 5. Run `node scripts/render-gratitude.mjs` to regenerate `gratitude.html`.
-6. Review the page locally and verify the note's shareable `#note-{number}` link.
+6. Review the page locally and verify the note's shareable `#note-{number}` link, its date, and the updated note count. Check desktop and mobile, Random pick → Another pick → Top, and focus mode: the selected note stays clear while surrounding notes and artwork fade. Top restores full visibility and clears the selected note hash.
 7. Commit and push the changes, then confirm the note is live at [williswee.com/gratitude.html](https://williswee.com/gratitude.html).
+
+### Gratitude page design and generation
+
+`gratitude-notes.md` remains the source of truth for note content. `scripts/render-gratitude.mjs` owns the entire generated `gratitude.html` page, including navigation, controls, count, and footer. Make layout changes in the generator and regenerate; do not hand-edit the generated page. The renderer preserves the Markdown's existing oldest-first order and displays notes newest-first. Keep note numbers and `note-{number}` IDs stable so published links continue working.
+
+The page uses `thoughts/reading-room.css` for the shared reading-world shell, `gratitude-game.css` for the journal layout/focus fade, and `gratitude.js` for random selection, accessible focus, permalinks, and floating controls. Reduced-motion preferences disable animated scrolling, fading, and dice feedback. All note content and native heading links remain available without JavaScript.
+
+Keep the dedicated `images/game-world/gratitude-evening-journal-v1.webp` illustration when adding notes—no new background is needed per note, and this page does not use the ten-preset essay picker. Generation context is recorded in `.impeccable/assets/gratitude-evening-journal-v1.prompt.json` and the image-adjacent `.webp.json` sidecar. Preview [Gratitude locally](http://localhost:4173/gratitude.html) before publishing.
 
 ## How to publish a new article
 

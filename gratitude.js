@@ -1,4 +1,6 @@
-(function () {
+(() => {
+    'use strict';
+
     const notes = Array.from(document.querySelectorAll('.gratitude-note'));
     const randomButton = document.getElementById('random-gratitude-btn');
     const notesGrid = document.querySelector('.gratitude-notes');
@@ -7,104 +9,214 @@
     const dockTopButton = document.getElementById('gratitude-dock-top-btn');
     const controls = document.querySelector('.gratitude-toolbar');
     const status = document.getElementById('random-gratitude-status');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let selectedNote = null;
     let lastPickedNote = null;
-    let pickedPulseTimer = null;
+    let navigationVersion = 0;
+    let dockUpdateQueued = false;
 
-    function clearSpotlight() {
-        notesGrid?.classList.remove('gratitude-notes--spotlight');
-        notes.forEach((note) => note.classList.remove('gratitude-note--spotlight', 'gratitude-note--picked'));
+    function targetForHash(hash) {
+        if (!hash || hash === '#' || !hash.startsWith('#')) return null;
+        let id;
+        try {
+            id = decodeURIComponent(hash.slice(1));
+        } catch {
+            return null;
+        }
+        const target = document.getElementById(id);
+        return notes.includes(target) ? target : null;
     }
 
-    function spotlightNote(note, updateHash = true) {
-        if (!note) return;
+    function motionBehavior() {
+        return reducedMotion.matches ? 'instant' : 'smooth';
+    }
 
-        clearSpotlight();
-        lastPickedNote = note;
-        notesGrid?.classList.add('gratitude-notes--spotlight');
-        note.classList.add('gratitude-note--spotlight');
+    function headerBottom() {
+        const header = document.querySelector('.reading-hud');
+        return header ? Math.max(0, header.getBoundingClientRect().bottom) : 0;
+    }
 
-        window.clearTimeout(pickedPulseTimer);
-        void note.offsetWidth;
-        note.classList.add('gratitude-note--picked');
-        pickedPulseTimer = window.setTimeout(() => {
-            note.classList.remove('gratitude-note--picked');
-        }, 950);
-
-        if (updateHash && note.id) {
-            window.history.replaceState(null, '', `#${note.id}`);
+    function safeViewport() {
+        const padding = parseFloat(window.getComputedStyle(document.documentElement).scrollPaddingTop);
+        const top = Number.isFinite(padding) ? padding : headerBottom() + 24;
+        let bottom = window.innerHeight - 24;
+        if (dock && !dock.hidden) {
+            const dockHeight = dock.getBoundingClientRect().height;
+            const dockBottom = parseFloat(window.getComputedStyle(dock).bottom) || 24;
+            bottom = Math.min(bottom, window.innerHeight - dockHeight - dockBottom - 16);
         }
+        return { top, bottom: Math.max(top, bottom) };
+    }
 
-        if (status) {
-            const noteNumber = note.dataset.noteNumber;
-            status.textContent = noteNumber ? `Gratitude note #${noteNumber} selected.` : 'Gratitude note selected.';
+    function focusElement(element) {
+        if (!element) return;
+        if (!element.hasAttribute('tabindex') && !element.matches('button, a[href]')) {
+            element.setAttribute('tabindex', '-1');
         }
+        element.focus({ preventScroll: true });
+    }
 
-        note.scrollIntoView({
-            behavior: reduceMotion.matches ? 'auto' : 'smooth',
-            block: 'center',
+    function setDockVisible(visible) {
+        if (!dock) return;
+        if (!visible && dock.contains(document.activeElement)) focusElement(randomButton);
+        dock.hidden = !visible;
+        dock.classList.toggle('show', visible);
+    }
+
+    function updateDock() {
+        dockUpdateQueued = false;
+        const controlsPassed = controls && controls.getBoundingClientRect().bottom <= headerBottom();
+        setDockVisible(Boolean(selectedNote || controlsPassed));
+    }
+
+    function scheduleDockUpdate() {
+        if (dockUpdateQueued) return;
+        dockUpdateQueued = true;
+        window.requestAnimationFrame(updateDock);
+    }
+
+    function queueNavigation(action) {
+        const version = ++navigationVersion;
+        window.requestAnimationFrame(() => {
+            if (version !== navigationVersion) return;
+            action();
+            updateDock();
         });
-        note.focus({ preventScroll: true });
-        dock?.classList.add('show');
+        return version;
+    }
+
+    function alignNote(note, behavior) {
+        const bounds = safeViewport();
+        const rect = note.getBoundingClientRect();
+        const availableHeight = bounds.bottom - bounds.top;
+        const destination = rect.height <= availableHeight
+            ? bounds.top + (availableHeight - rect.height) / 2
+            : bounds.top;
+        window.scrollTo({ top: Math.max(0, window.scrollY + rect.top - destination), behavior });
+    }
+
+    function clearSpotlight() {
+        selectedNote = null;
+        if (notesGrid) notesGrid.classList.remove('gratitude-notes--spotlight');
+        notes.forEach((note) => note.classList.remove('gratitude-note--spotlight'));
+        if (status) status.textContent = '';
+    }
+
+    function spotlightNote(note, updateHash = true, behavior = motionBehavior()) {
+        if (!note) return navigationVersion;
+        clearSpotlight();
+        selectedNote = note;
+        lastPickedNote = note;
+        if (notesGrid) notesGrid.classList.add('gratitude-notes--spotlight');
+        note.classList.add('gratitude-note--spotlight');
+        if (updateHash && note.id) {
+            window.history.replaceState(null, '', `#${encodeURIComponent(note.id)}`);
+        }
+        if (status) {
+            const number = note.dataset.noteNumber;
+            status.textContent = number ? `Gratitude note #${number} selected.` : 'Gratitude note selected.';
+        }
+        setDockVisible(true);
+        return queueNavigation(() => {
+            focusElement(note);
+            alignNote(note, behavior);
+        });
     }
 
     function spinControl(button) {
-        if (!button) return;
+        if (!button || reducedMotion.matches) return;
         button.classList.remove('rolling');
         void button.offsetWidth;
         button.classList.add('rolling');
-        window.setTimeout(() => button.classList.remove('rolling'), 450);
     }
 
-    function pickRandomNote(sourceButton) {
-        if (notes.length === 0) return;
-
-        let pick;
-        if (notes.length > 1) {
-            do {
-                pick = notes[Math.floor(Math.random() * notes.length)];
-            } while (pick === lastPickedNote);
-        } else {
-            [pick] = notes;
-        }
-
-        spinControl(sourceButton);
-        spotlightNote(pick, true);
+    function pickRandomNote(event) {
+        if (!notes.length) return;
+        const choices = notes.length > 1 ? notes.filter((note) => note !== lastPickedNote) : notes;
+        const pick = choices[Math.floor(Math.random() * choices.length)];
+        spinControl(event.currentTarget);
+        spotlightNote(pick);
     }
 
-    randomButton?.addEventListener('click', () => pickRandomNote(randomButton));
-    dockShuffleButton?.addEventListener('click', () => pickRandomNote(dockShuffleButton));
+    [randomButton, dockShuffleButton].forEach((button) => {
+        if (!button) return;
+        button.disabled = !notes.length;
+        button.addEventListener('click', pickRandomNote);
+        button.addEventListener('animationend', () => button.classList.remove('rolling'));
+    });
 
-    dockTopButton?.addEventListener('click', () => {
-        clearSpotlight();
-        dock?.classList.remove('show');
-        if (status) status.textContent = '';
-        window.history.replaceState(null, '', window.location.pathname);
-        window.scrollTo({
-            top: 0,
-            behavior: reduceMotion.matches ? 'auto' : 'smooth',
+    if (dockTopButton) {
+        dockTopButton.addEventListener('click', () => {
+            clearSpotlight();
+            window.history.replaceState(null, '', window.location.pathname + window.location.search);
+            queueNavigation(() => {
+                focusElement(randomButton);
+                window.scrollTo({ top: 0, behavior: motionBehavior() });
+            });
+        });
+    }
+
+    notes.forEach((note) => {
+        const link = note.querySelector('h2 a[href]');
+        if (!link) return;
+        link.addEventListener('click', (event) => {
+            if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+            const target = targetForHash(link.getAttribute('href'));
+            if (!target || targetForHash(window.location.hash) !== target) return;
+
+            // Different note links keep native history and hashchange handling.
+            // Selecting the current link still focuses it without another entry.
+            event.preventDefault();
+            spotlightNote(target, false);
         });
     });
 
-    window.addEventListener('scroll', () => {
-        if (!controls || !dock) return;
-        const controlsRect = controls.getBoundingClientRect();
-
-        if (controlsRect.bottom < 0) {
-            dock.classList.add('show');
-        } else if (!notesGrid?.classList.contains('gratitude-notes--spotlight')) {
-            dock.classList.remove('show');
+    window.addEventListener('scroll', scheduleDockUpdate, { passive: true });
+    window.addEventListener('resize', scheduleDockUpdate);
+    window.addEventListener('load', scheduleDockUpdate, { once: true });
+    window.addEventListener('hashchange', () => {
+        const note = targetForHash(window.location.hash);
+        if (note) spotlightNote(note, false, 'instant');
+        else {
+            navigationVersion++;
+            clearSpotlight();
+            scheduleDockUpdate();
         }
-    }, { passive: true });
+    });
+    updateDock();
 
-    function spotlightFromHash() {
-        if (!window.location.hash) return;
-        const target = document.getElementById(window.location.hash.slice(1));
-        if (target?.classList.contains('gratitude-note')) {
-            window.setTimeout(() => spotlightNote(target, false), 150);
-        }
+    const initialHash = window.location.hash;
+    const initialNote = targetForHash(initialHash);
+    if (!initialNote) return;
+    const initialVersion = spotlightNote(initialNote, false, 'instant');
+
+    // Correct a first anchor jump after fonts/images settle, only while the
+    // visitor has not begun reading or navigated to another note.
+    let userInteracted = false;
+    let initialAlignmentFinished = false;
+    const interruptionEvents = ['wheel', 'touchstart', 'pointerdown', 'keydown'];
+    const stopInitialAlignment = () => { userInteracted = true; };
+    interruptionEvents.forEach((name) => window.addEventListener(name, stopInitialAlignment, { passive: true }));
+
+    function finishInitialAlignment() {
+        if (initialAlignmentFinished) return;
+        initialAlignmentFinished = true;
+        window.clearTimeout(settleTimeout);
+        window.requestAnimationFrame(() => {
+            window.requestAnimationFrame(() => {
+                if (!userInteracted && navigationVersion === initialVersion && window.location.hash === initialHash) {
+                    alignNote(initialNote, 'instant');
+                    scheduleDockUpdate();
+                }
+                interruptionEvents.forEach((name) => window.removeEventListener(name, stopInitialAlignment));
+            });
+        });
     }
 
-    spotlightFromHash();
-    window.addEventListener('hashchange', spotlightFromHash);
+    const loaded = document.readyState === 'complete'
+        ? Promise.resolve()
+        : new Promise((resolve) => window.addEventListener('load', resolve, { once: true }));
+    const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
+    const settleTimeout = window.setTimeout(finishInitialAlignment, 2000);
+    Promise.allSettled([loaded, fontsReady]).then(finishInitialAlignment);
 })();

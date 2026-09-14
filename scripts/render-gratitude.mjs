@@ -91,42 +91,47 @@ const html = `<!DOCTYPE html>
     <meta name="description" content="A growing archive of Willis Wee's daily gratitude notes—three small things worth noticing.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Mono:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2.2">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.2">
+    <link rel="stylesheet" href="gratitude-game.css?v=1.0">
     <link rel="icon" type="image/png" href="avatar.png">
-    <script src="site-nav.js?v=1.2" defer></script>
-    <script src="gratitude.js" defer></script>
+    <script src="gratitude.js?v=2.0" defer></script>
 </head>
 
-<body>
-    <div class="container">
-        <header>
-            <a href="index.html" class="site-brand" aria-label="Willis Wee — home">
-                <img src="avatar.png" alt="Willis Wee" class="avatar" width="48" height="48">
-                <span class="site-name">Willis Wee</span>
-            </a>
-            <nav>
-                <a href="index.html">About</a>
-                <a href="thoughts/index.html">Thoughts</a>
-                <a href="guide.html">Guide</a>
-                <a href="work.html">Work</a>
-                <a href="books.html">Books</a>
-                <a href="gratitude.html" class="active">Gratitude</a>
-            </nav>
-        </header>
-
-        <main>
+<body class="gratitude-page">
+    <a class="skip-link" href="#main-content">Skip to gratitude notes</a>
+    <header class="reading-hud">
+        <a href="index.html" class="site-brand" aria-label="Willis Wee — home">
+            <span>Willis Wee</span><small aria-hidden="true">👋</small>
+        </a>
+        <nav class="reading-nav" aria-label="Main navigation">
+            <a href="index.html">Start</a>
+            <a href="thoughts/index.html">Thoughts</a>
+            <a href="guide.html">Guide</a>
+            <a href="work.html">Work</a>
+            <a href="books.html">Books</a>
+            <a href="gratitude.html" aria-current="page">Gratitude</a>
+        </nav>
+    </header>
+    <div class="reading-landscape gratitude-landscape" aria-hidden="true">
+        <img src="images/game-world/gratitude-evening-journal-v1.webp" alt="" width="768" height="2048" decoding="async">
+    </div>
+    <div class="reading-shell">
+        <main id="main-content" tabindex="-1">
+            <a class="gratitude-back" href="index.html#archive"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M17 10H4M9 5l-5 5 5 5"/></svg>Back</a>
             <section class="gratitude-hero" aria-labelledby="gratitude-title">
-                <p class="gratitude-eyebrow">A daily practice</p>
-                <h1 id="gratitude-title">Gratitude notes</h1>
-                <p class="gratitude-intro">Every weekday, I write down three small things that brought me joy.</p>
+                <div class="gratitude-intro-copy">
+                    <h1 id="gratitude-title">Gratitude.</h1>
+                    <p class="gratitude-intro">Every weekday, I write down three small things that brought me joy.</p>
+                </div>
                 <div class="gratitude-toolbar">
+                    <p class="gratitude-count">${notes.length} ${notes.length === 1 ? 'note' : 'notes'}</p>
                     <button class="random-pick-btn" id="random-gratitude-btn" type="button" aria-label="Read a random gratitude note">
-                        <span class="random-pick-icon" aria-hidden="true">🎲</span>
+                        <span class="random-pick-icon" aria-hidden="true"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14"/><path d="M6 6h1v1H6zM13 13h1v1h-1zM9.5 9.5h1v1h-1z" fill="currentColor" stroke="none"/></svg></span>
                         <span>Random pick</span>
                     </button>
-                    <p class="gratitude-status" id="random-gratitude-status" aria-live="polite"></p>
                 </div>
+                <p class="visually-hidden" id="random-gratitude-status" role="status" aria-live="polite" aria-atomic="true"></p>
             </section>
 
             <div class="gratitude-notes" aria-label="Gratitude notes, latest first">
@@ -134,19 +139,8 @@ ${noteMarkup}
             </div>
         </main>
 
-        <div class="floating-book-dock" id="floating-gratitude-dock" aria-label="Gratitude note navigation">
-            <button class="dock-btn dock-btn--shuffle" id="gratitude-dock-shuffle-btn" type="button" aria-label="Pick another random gratitude note">
-                <span class="dock-icon">🎲</span>
-                <span>Another pick</span>
-                <span class="dock-shortcut" aria-hidden="true">↻</span>
-            </button>
-            <button class="dock-btn dock-btn--top" id="gratitude-dock-top-btn" type="button" aria-label="Return to the top of the gratitude notes">
-                <span class="dock-icon">↑</span>
-                <span>Top</span>
-            </button>
-        </div>
-
         <footer class="follow-strip">
+            <a class="footer-home" href="index.html#archive">Back to my notes</a>
             <span class="follow-strip-label">Follow</span>
             <div class="follow-strip-icons">
                 <a href="https://williswee.substack.com" class="follow-icon" target="_blank" rel="noopener noreferrer" aria-label="Substack">
@@ -160,6 +154,15 @@ ${noteMarkup}
                 </a>
             </div>
         </footer>
+    </div>
+    <div class="floating-gratitude-dock" id="floating-gratitude-dock" role="group" aria-label="Gratitude note navigation" hidden>
+        <button class="dock-btn dock-btn--shuffle" id="gratitude-dock-shuffle-btn" type="button" aria-label="Pick another random gratitude note">
+            <span class="random-pick-icon" aria-hidden="true"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14"/><path d="M6 6h1v1H6zM13 13h1v1h-1zM9.5 9.5h1v1h-1z" fill="currentColor" stroke="none"/></svg></span>
+            <span>Another pick</span>
+        </button>
+        <button class="dock-btn dock-btn--top" id="gratitude-dock-top-btn" type="button" aria-label="Clear focus mode and return to the top of the gratitude notes">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 17V4M5 9l5-5 5 5"/></svg><span>Top</span>
+        </button>
     </div>
 </body>
 
