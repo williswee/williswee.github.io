@@ -127,12 +127,6 @@ p { margin: 0 0 24px; color: var(--cream-soft); }
 .random-pick-icon { display: inline-flex; }
 .rolling .random-pick-icon { animation: dice-turn 220ms cubic-bezier(.16, 1, .3, 1); }
 @keyframes dice-turn { to { transform: rotate(180deg); } }
-.timeline-nav { display: flex; align-items: baseline; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
-.timeline-nav-label { flex: 0 0 auto; font-size: 0.72rem; color: var(--muted); }
-.timeline-nav-pills { display: flex; flex-wrap: wrap; gap: 0 4px; min-width: 0; }
-.timeline-pill { min-height: 38px; padding: 6px 9px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--muted); font-size: 0.72rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.timeline-pill:hover { color: var(--cream); }
-.timeline-pill[aria-current] { color: var(--gold); border-bottom-color: var(--gold); }
 .timeline-year-group { padding-top: 36px; scroll-margin-top: var(--archive-offset); }
 .timeline-year-header { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
 .timeline-year-title { font-size: 1.6rem; }
@@ -157,6 +151,19 @@ p { margin: 0 0 24px; color: var(--cream-soft); }
 .follow-icon svg { width: 18px; height: 18px; }
 
 /* The essay is a reading surface, not another full-screen chapter. */
+.essay-page .reading-landscape {
+    right: calc(5vw + min(800px, 64vw));
+    overflow: hidden;
+    background: var(--ink);
+}
+.essay-page .reading-landscape img {
+    display: block;
+    object-position: center;
+    filter: brightness(0.82) saturate(0.72);
+}
+.essay-page .reading-landscape::after {
+    background: linear-gradient(90deg, rgba(7, 16, 29, 0.08), rgba(7, 16, 29, 0.2) 65%, var(--ink));
+}
 .essay-back { margin-bottom: 24px; }
 article { font-size: 1.0625rem; line-height: 1.85; overflow-wrap: break-word; }
 article h1 { max-width: 22ch; font-size: 2.625rem; line-height: 1.2; text-wrap: pretty; }
@@ -194,6 +201,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
 @media (max-width: 1100px) {
     :root { --pane-inset: 32px; }
     .reading-shell { width: 67vw; margin-right: 3vw; }
+    .essay-page .reading-landscape { right: 70vw; }
     .reading-nav { gap: 22px; }
     article h1 { font-size: 2.25rem; }
 }
@@ -210,13 +218,12 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
     h1 { font-size: 2.625rem; }
     .archive-intro { padding-bottom: 16px; }
     .archive-intro p { margin-top: 16px; }
-    .timeline-nav { align-items: center; gap: 8px; padding-bottom: 8px; }
-    .timeline-nav-pills { flex-wrap: nowrap; overflow-x: auto; padding: 4px; scrollbar-width: thin; }
-    .timeline-pill { min-height: 44px; }
     .thoughts-header-bar { padding-top: 8px; }
     .article-list li > a { font-size: 1rem; }
     .timeline-year-group { padding-top: 28px; }
-    .essay-page .reading-landscape { height: 188px; }
+    .essay-page .reading-landscape { right: 0; height: 188px; }
+    .essay-page .reading-landscape img { object-position: center 40%; }
+    .essay-page .reading-landscape::after { background: linear-gradient(180deg, rgba(7, 16, 29, 0.08), rgba(7, 16, 29, 0.2) 60%, var(--ink)); }
     .essay-page .reading-shell { margin-top: calc(var(--header-height) + 156px); }
     article { font-size: 1rem; line-height: 1.85; }
     article h1 { font-size: 1.875rem; line-height: 1.25; }

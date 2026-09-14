@@ -13,22 +13,37 @@ https://williswee.com/
 
 ## How to publish a new article
 
-1. Copy `thoughts/kinder.html` as a template
-2. Rename to `thoughts/{slug}.html` (single word slug, e.g. `mission`)
-3. Update: `<title>`, `<meta description>`, `<h1>`, subtitle (`<p class="article-subtitle">`), date, and body content. The subtitle goes right below the title image/figure.
-4. Add a new `<li>` entry **at the top** of `thoughts/index.html`
-5. Add the URL to `sitemap.xml` and `llms.txt`
+The current WIP essay template is [`thoughts/freedom.html`](thoughts/freedom.html). Follow the [essay authoring guide](thoughts/README.md) for the shared layout and background setup.
+
+1. Copy `thoughts/freedom.html` to `thoughts/{slug}.html` (single word slug, e.g. `mission`). Keep its shared reading layout, scripts, navigation, and newsletter/footer markup.
+2. Update the title, meta description, heading, date, body, and article images/captions. The subtitle (`<p class="article-subtitle">`) goes right below the title image/figure. Remove any copied Freedom-specific content that does not belong to the new essay.
+3. **Keep the automatic preset background picker.** Every new essay uses `thoughts/essay-landscape.js` to select one of the ten existing images in [`images/reading-landscapes/`](images/reading-landscapes/). Do not generate a new decorative background or assign one manually per essay. The scene is selected once per page load and stays still while reading. Article/hero images from the source post are separate and should still be preserved.
+4. Add the new `<li>` to `thoughts/index.html` in date order, newest first, and update the static essay count. The archive builds its year groupings automatically.
+5. Add the URL to `sitemap.xml` and `llms.txt`. Add the filename to the fallback essay list in `thoughts/reading-room.js` so Random pick also includes it when the archive cannot be fetched.
+6. Preview locally and check the article, background, links, and mobile layout before publishing.
 
 **Prompt**
 
-Follow the instruction here [README.md#L4-10]
+Follow the "How to publish a new article" section in README.md and the essay authoring guide in thoughts/README.md.
 - add this article into `thoughts` directory
 - on https://williswee.com/thoughts/index.html, rank the article by date (latest post on top)
+- use `thoughts/freedom.html` as the layout reference and preserve its automatic ten-preset background picker (`essay-landscape.js`)
+- do not create a new decorative background; the article's own images are separate from the preset scenery
 - Extract the title, subtitle, date, and body from the live Substack post. Do not ask me for them. The subtitle is the Substack post's subtitle/deck. Place it as `<p class="article-subtitle">` right after the title image/figure.
 - Copy all content from the Substack post, including images and captions. Save any images in the `images` directory and reference them properly in the article. For image captions, centralize them. Do not change anything.
 
 Substack URL:
 Slug: (single word slug, e.g. `mission`)
+
+## Local preview
+
+From the repository root, run:
+
+```sh
+python3 -m http.server 4173 --bind 127.0.0.1
+```
+
+Open the [homepage](http://localhost:4173/index.html), [Thoughts archive](http://localhost:4173/thoughts/index.html), or [sample essay](http://localhost:4173/thoughts/freedom.html). Refresh the essay to try another preset background. The current redesign lives on `codex/pixel-portfolio-wip-2026-09-02`.
 
 ---
 

@@ -2,7 +2,6 @@
     'use strict';
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const scrollBehavior = () => reducedMotion.matches ? 'auto' : 'smooth';
     const header = document.querySelector('.reading-hud');
     const headerHeight = () => header?.getBoundingClientRect().height || 76;
 
@@ -39,25 +38,8 @@
             groups.get(year).push(item);
         });
 
-        const yearNav = document.getElementById('timeline-nav');
-        const yearButtons = document.getElementById('timeline-nav-pills');
         const controls = document.querySelector('.archive-controls');
         const fragment = document.createDocumentFragment();
-        const sections = [];
-        const buttons = [];
-        function makeYearButton(label, year) {
-            const button = document.createElement('button');
-            button.type = 'button';
-            button.className = 'timeline-pill';
-            button.textContent = label;
-            button.dataset.year = year;
-            yearButtons.append(button);
-            buttons.push(button);
-            return button;
-        }
-        const all = makeYearButton(`All (${items.length})`, 'all');
-        all.setAttribute('aria-current', 'true');
-        all.addEventListener('click', () => window.scrollTo({top: 0, behavior: scrollBehavior()}));
 
         groups.forEach((groupItems, year) => {
             const section = document.createElement('section');
@@ -79,39 +61,15 @@
             list.append(...groupItems);
             section.append(heading, list);
             fragment.append(section);
-            sections.push({year, section});
-            const button = makeYearButton(`${year} (${groupItems.length})`, year);
-            button.setAttribute('aria-controls', section.id);
-            button.addEventListener('click', () => section.scrollIntoView({behavior: scrollBehavior(), block: 'start'}));
         });
         archive.replaceChildren(fragment);
-        yearNav.hidden = false;
-
-        let framePending = false;
-        function updateYears() {
-            framePending = false;
+        function updateArchiveOffset() {
             const controlsHeight = controls.getBoundingClientRect().height;
             document.documentElement.style.setProperty('--archive-offset', `${controlsHeight + 12}px`);
-            let active = 'all';
-            if (window.scrollY > 20) {
-                sections.forEach(({year, section}) => {
-                    if (section.getBoundingClientRect().top <= headerHeight() + controlsHeight + 42) active = year;
-                });
-            }
-            buttons.forEach(button => {
-                if (button.dataset.year === active) button.setAttribute('aria-current', 'true');
-                else button.removeAttribute('aria-current');
-            });
         }
-        function queueYearUpdate() {
-            if (framePending) return;
-            framePending = true;
-            requestAnimationFrame(updateYears);
-        }
-        window.addEventListener('scroll', queueYearUpdate, {passive: true});
-        window.addEventListener('resize', queueYearUpdate);
-        if ('ResizeObserver' in window) new ResizeObserver(queueYearUpdate).observe(controls);
-        updateYears();
+        window.addEventListener('resize', updateArchiveOffset);
+        if ('ResizeObserver' in window) new ResizeObserver(updateArchiveOffset).observe(controls);
+        updateArchiveOffset();
     }
 
     const article = document.querySelector('article');

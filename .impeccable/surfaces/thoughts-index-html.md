@@ -2,10 +2,22 @@
 schema_version: 1
 slug: thoughts-index-html
 primary_target: thoughts/index.html
-related_targets: ["thoughts/freedom.html", "thoughts/reading-room.css", "thoughts/reading-room.js"]
+related_targets: ["thoughts/freedom.html", "thoughts/tickertownupdate.html", "thoughts/reading-room.css", "thoughts/reading-room.js", "thoughts/essay-landscape.js"]
 ---
 
 # Thoughts — reading room pilot
+
+## TickerTown essay migration — 2026-09-14
+
+At the user's request, tickertownupdate.html now uses the same reading shell, Silkscreen/Sora typography, navigation, newsletter/footer, shared interactions, and ten-preset background picker as Freedom. Preserved all article text, five original image sources/alt text, four captions, and eight numbered footnotes. Added intrinsic image sizes and lazy loading below the first figure; removed legacy rounded-image styling. Corrected one pre-existing malformed footnote URL by removing its trailing `)`. Desktop at 1339px and mobile at 390px checked, no horizontal overflow, background loaded, footnote preview showed the correct note, and the browser reported no errors. This extends the pilot to these two essays only.
+
+## Quieter essay scenery — 2026-09-14
+
+The user requested simpler, less repetitive essay backgrounds drawn from ten pre-created images, accounting for the visible left side. Freedom now uses a pool of ten portrait pixel landscapes in images/reading-landscapes/. The built-in image_gen tool generated each scene separately using notes-nature-v5.png as a style reference; full prompts and original generated paths are in .impeccable/assets/reading-landscapes-prompts.json. Optimized WebP assets preserve the night palette and remove the earlier figure/desk composition. Each is 1024×1536 and about 45–76 KB. A review contact sheet is .impeccable/review/reading-landscapes-contact.jpg.
+
+essay-landscape.js chooses one asset during parsing and downloads only that selected background. It avoids the previous session choice, safely falls back to independent random choice if storage is blocked, and never changes scenery during reading. No-JS uses scene 01. Failed image loads leave the ink background. Essay-scoped CSS fits the image to the left rail ending at the reading pane, gently mutes it, and fades the right edge; mobile uses the existing 188px opening strip. Archive artwork and article content remain intact. This is still the Freedom pilot, not a migration of other essays.
+
+Verified the ten generated scenes together, desktop layout at 1340px, and mobile at 390px without overflow. Reload changed scene 05 to scene 06, with one rendered background and successful 1024px source load; resizing kept the same scene. Browser console had no errors. Focused in-memory selection checks covered all ten choices, no immediate repeat over 100 loads, and blocked storage. Syntax and whitespace checks passed. Viewport reset after QA. Earlier September 14 feedback removed the archive year-jump controls and scroll-spy while retaining year groupings, counts, and Random pick.
 
 Mode: Read. The user approved the Thoughts archive + one-essay pair from the proposed homepage-world migration. The sample is freedom.html because it covers an image, caption, footnotes, quotation, subscription, progress, and quote sharing. Preserve every essay, date, URL, and article word. Other essays, other deeper pages, the finished homepage, and production are outside scope.
 
