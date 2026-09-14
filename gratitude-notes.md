@@ -471,3 +471,121 @@ What's yours?
 2️⃣ Spent some 1-1 time with my brother. We talked about anything and everything. Time flew.
 
 3️⃣ Heading off to a digital-free retreat in isolation. A little excited, a little nervous. Let’s see :)
+
+## Gratitude note #43
+
+*2026-09-05*
+
+1️⃣ Can’t believe I could do 5 × 1-hour sitting meditation sessions + 5 × 1-hour walking meditation sessions in a day.
+
+2️⃣ Surprised by the quality of the food provided by donors. So very thankful. I could get used to Burmese food.
+
+3️⃣ Toilets are clean. Phew!
+
+*Backfilled note. Day 1/9 of the meditation retreat.*
+
+## Gratitude note #44
+
+*2026-09-06*
+
+1️⃣ Almost quit the meditation retreat, but somehow found the strength to persist.
+
+2️⃣ Can’t believe I did 6 × 1-hour sitting meditation sessions + 6 × 1-hour walking meditation sessions in a day.
+
+3️⃣ The first meeting with the meditation teacher was interesting. Short but meaningful.
+
+*Backfilled note. Day 2/9 of the meditation retreat.*
+
+## Gratitude note #45
+
+*2026-09-07*
+
+1️⃣ Almost quit again. But persisted. Now it's starting to feel a little better.
+
+2️⃣ Kind souls helping me along at the retreat through their actions.
+
+3️⃣ Starting to see how the meditation center functions. Pretty amazing how some of the heavy-duty ops are handled by the community. Some members even volunteered to clean when they could have been resting!
+
+*Backfilled note. Day 3/9 of the meditation retreat.*
+
+## Gratitude note #46
+
+*2026-09-08*
+
+1️⃣ My nephew is out! Everything went smoothly and safely. TYTYTY. Can’t wait to meet him.
+
+2️⃣ Learned something about myself. Private. But shared it with the wife.
+
+3️⃣ Grateful that I persisted and pushed through the meditation retreat. I think I'm getting the hang of it.
+
+*Backfilled note. Day 4/9 of the meditation retreat.*
+
+## Gratitude note #47
+
+*2026-09-09*
+
+1️⃣ Burmese tofu curry is seriously awesome. Tastes like butter chicken with tofu. Yum. Mindblown.
+
+2️⃣ I'm starting to sleep much better at the meditation center.
+
+3️⃣ Experimented with a few new ways to meditate. They all failed. I was trying too hard. But managed to get back to basics and regain momentum.
+
+*Backfilled note. Day 5/9 of the meditation retreat.*
+
+## Gratitude note #48
+
+*2026-09-10*
+
+1️⃣ Had the most wonderful 1-hour meditation session. A sense of nothingness, while being aware of thoughts, smells, sounds, and body sensations coming and going. What a wonderful feeling.
+
+2️⃣ I think I’m finally getting walking meditation. Kept it simple, as the meditation teacher instructed. Just observe, be aware, take notes with the mind.
+
+3️⃣ Starting to feel more aware in my daily life at the meditation center. I could observe ants crawling and avoid accidentally stepping on them!
+
+*Backfilled note. Day 6/9 of the meditation retreat.*
+
+## Gratitude note #49
+
+*2026-09-11*
+
+1️⃣ The nothingness meditation streak continues in the morning. Shorter this time, but grateful for the experience.
+
+2️⃣ A kind boy remembered that I wanted my morning coffee without sugar. So thoughtful!
+
+3️⃣ Body aches made meditating challenging after lunch. BUT, I accepted them and made friends with them. Made the best use of the sessions to be more aware of physical sensations.
+
+*Backfilled note. Day 7/9 of the meditation retreat.*
+
+## Gratitude note #50
+
+*2026-09-12*
+
+1️⃣ My body aches disappeared. Interesting.
+
+2️⃣ A passing thought of my kids hugging me. Couldn’t stop smiling while meditating. My last two 1-hour sitting meditation sessions were as good as they could be. I'm so happy I gave my best.
+
+3️⃣ It’s the last night. We didn’t talk much because it wasn’t allowed. But somehow bonds were forged.
+
+*Backfilled note. Day 8/9 of the meditation retreat.*
+
+## Gratitude note #51
+
+*2026-09-13*
+
+1️⃣ Got to meet my nephew. He's so adorable. I totally forgot how small babies can be. Can’t believe my girls have grown so much.
+
+2️⃣ So happy to be home. Greeted with big, warm hugs from the girls and nice drawings. I feel loved. I love my house, my bed, the comfort and scenery. Very, very thankful.
+
+3️⃣ Looking back at some of my favorite Burmese food from the retreat. There are more, but these are the ones I can recall and identify: Burmese tofu curry, Shan noodles, Mohinga, Pathein Halawa.
+
+*Backfilled note. Day 9/9 of the meditation retreat.*
+
+## Gratitude note #52
+
+*2026-09-14*
+
+1️⃣ Again, glad to be home, enjoying the comfort and company of my family. The girls' excitement at seeing me is always precious. :)
+
+2️⃣ Had a good bedtime convo with the wife, catching up on what we'd each been doing over the last 9 days. She's happy. I'm happy. She's a really strong woman.
+
+3️⃣ The lessons from the retreat are still sticking. I know it's only been one day, but I'll take the win one day at a time. Noticed the full moon still out in the early morning, with sunlight in the backdrop. So beautiful. I wonder how many people noticed it too.
