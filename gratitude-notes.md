@@ -589,3 +589,13 @@ What's yours?
 2️⃣ Had a good bedtime convo with the wife, catching up on what we'd each been doing over the last 9 days. She's happy. I'm happy. She's a really strong woman.
 
 3️⃣ The lessons from the retreat are still sticking. I know it's only been one day, but I'll take the win one day at a time. Noticed the full moon still out in the early morning, with sunlight in the backdrop. So beautiful. I wonder how many people noticed it too.
+
+## Gratitude note #53
+
+*2026-09-15*
+
+1️⃣ Watched a Korean drama.
+
+2️⃣ Had home-cooked Japanese curry with rice. Soup style.
+
+3️⃣ Worked on my personal site. Trying to be more creative. Fun. Also updated and backfilled my gratitude notes.
