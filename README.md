@@ -13,6 +13,8 @@ https://williswee.com/
 
 ## How to publish a new article
 
+**Substack imports:** Exclude Substack's in-article subscription buttons, such as **Subscribe now**. Use the site's shared newsletter embed and footer subscription link instead.
+
 1. Copy `thoughts/kinder.html` as a template
 2. Rename to `thoughts/{slug}.html` (single word slug, e.g. `mission`)
 3. Update: `<title>`, `<meta description>`, `<h1>`, subtitle (`<p class="article-subtitle">`), date, and body content. The subtitle goes right below the title image/figure.
@@ -25,7 +27,7 @@ Follow the instruction here [README.md#L4-10]
 - add this article into `thoughts` directory
 - on https://williswee.com/thoughts/index.html, rank the article by date (latest post on top)
 - Extract the title, subtitle, date, and body from the live Substack post. Do not ask me for them. The subtitle is the Substack post's subtitle/deck. Place it as `<p class="article-subtitle">` right after the title image/figure.
-- Copy all content from the Substack post, including images and captions. Save any images in the `images` directory and reference them properly in the article. For image captions, centralize them. Do not change anything.
+- Copy the article content from the Substack post, including images and captions, but omit Substack's in-article subscription buttons (for example, **Subscribe now**). Save any images in the `images` directory and reference them properly in the article. Center image captions and preserve the original wording. Keep the site's shared newsletter embed and footer subscription link.
 
 Substack URL:
 Slug: (single word slug, e.g. `mission`)
