@@ -5,6 +5,7 @@ import path from 'node:path';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const markdownPath = path.join(root, 'gratitude-notes.md');
 const outputPath = path.join(root, 'gratitude.html');
+const sitemapPath = path.join(root, 'sitemap.xml');
 
 const markdown = await readFile(markdownPath, 'utf8');
 const parts = markdown.split(/^## Gratitude note #(\d+)\s*$/gm);
@@ -19,10 +20,16 @@ for (let index = 1; index < parts.length; index += 2) {
         throw new Error(`Could not parse metadata for gratitude note #${number}`);
     }
 
+    const date = metadata[1];
+    const parsedDate = new Date(`${date}T00:00:00Z`);
+    if (Number.isNaN(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== date) {
+        throw new Error(`Invalid date for gratitude note #${number}: ${date}`);
+    }
+
     const body = section.slice(metadata[0].length).trim();
     notes.push({
         number,
-        date: metadata[1],
+        date,
         sourceUrl: metadata[2] ?? null,
         paragraphs: body.split(/\n{2,}/).map((paragraph) => paragraph.trim()).filter(Boolean),
     });
@@ -30,6 +37,27 @@ for (let index = 1; index < parts.length; index += 2) {
 
 if (notes.length === 0) {
     throw new Error('No gratitude notes found');
+}
+
+// Validate the matching entry before writing either generated output. Only this
+// URL belongs to the gratitude publisher; leave all other sitemap bytes intact.
+const latestNoteDate = notes.reduce((latest, note) => note.date > latest ? note.date : latest, notes[0].date);
+const sitemap = await readFile(sitemapPath, 'utf8');
+let gratitudeEntries = 0;
+const updatedSitemap = sitemap.replace(/<url>\s*[\s\S]*?<\/url>/g, (entry) => {
+    if (!/<loc>\s*https:\/\/(?:www\.)?williswee\.com\/gratitude\.html\s*<\/loc>/.test(entry)) {
+        return entry;
+    }
+
+    gratitudeEntries += 1;
+    const lastmodEntries = [...entry.matchAll(/<lastmod>[^<]*<\/lastmod>/g)];
+    if (lastmodEntries.length !== 1) {
+        throw new Error('Expected one lastmod in the gratitude sitemap entry');
+    }
+    return entry.replace(/(<lastmod>)[^<]*(<\/lastmod>)/, `$1${latestNoteDate}$2`);
+});
+if (gratitudeEntries !== 1) {
+    throw new Error(`Expected one gratitude sitemap entry; found ${gratitudeEntries}`);
 }
 
 function escapeHtml(value) {
@@ -92,7 +120,7 @@ const html = `<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.2">
+    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.4">
     <link rel="stylesheet" href="gratitude-game.css?v=1.0">
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="gratitude.js?v=2.0" defer></script>
@@ -170,4 +198,8 @@ ${noteMarkup}
 `;
 
 await writeFile(outputPath, html);
+if (updatedSitemap !== sitemap) {
+    await writeFile(sitemapPath, updatedSitemap);
+}
 console.log(`Rendered ${notes.length} gratitude notes to ${path.relative(root, outputPath)}`);
+console.log(`Gratitude sitemap lastmod: ${latestNoteDate}`);

@@ -815,6 +815,11 @@ code {
 }
 
 /* --- Footnote Popover --- */
+.footnote-popover[hidden],
+.quote-action-dock[hidden] {
+    display: none;
+}
+
 .footnote-popover {
     position: absolute;
     z-index: 1100;

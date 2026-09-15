@@ -86,7 +86,7 @@
     nav.addEventListener('scroll', scheduleCueUpdate, { passive: true });
     nav.addEventListener('focusin', (event) => {
         if (!mobile.matches || !(event.target instanceof HTMLElement)) return;
-        event.target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+        event.target.scrollIntoView({ behavior: reduceMotion.matches ? 'instant' : 'smooth', block: 'nearest', inline: 'nearest' });
     });
     window.addEventListener('resize', positionActiveLink, { passive: true });
     mobile.addEventListener?.('change', positionActiveLink);

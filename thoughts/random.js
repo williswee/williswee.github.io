@@ -9,18 +9,8 @@
     // ================================================================
     // 1. RANDOM ESSAY PICKER
     // ================================================================
-    const DEFAULT_ESSAYS = [
-        'freedom.html', 'talktousers.html', 'nomoney.html', 'tickertownusabilitytest.html',
-        'meditation.html', 'boring-ai.html', 'hakunamatata.html', 'habits.html',
-        'kinder.html', 'tickertown.html', 'famplan.html', 'userguide.html',
-        'nowork.html', 'whatidid.html', 'mission.html', 'onemonth.html',
-        'goodbye.html', 'tiasph.html', 'burnout.html', 'reminders.html',
-        'hithard.html', 'carbonneutral.html', 'ten.html', 'layoffsucks.html',
-        'stress.html', 'risk.html', 'profitable.html', 'buildculture.html',
-        'dontdie.html', 'smallround.html', 'thehardway.html', 'tiaexperiment.html',
-        'bounce.html', 'youaretheproblem.html', 'abroad.html', 'getshitdone.html',
-        'journey.html', 'yc.html'
-    ];
+    // Compatibility reader: share the generated manifest with the modern reader.
+    const DEFAULT_ESSAYS = window.WILLIS_ESSAYS || [];
 
     let essayList = [...DEFAULT_ESSAYS];
 
@@ -99,6 +89,7 @@
         popover.id = 'footnote-popover';
         popover.setAttribute('role', 'tooltip');
         popover.setAttribute('aria-hidden', 'true');
+        popover.hidden = true;
 
         const popoverContent = document.createElement('div');
         popoverContent.className = 'footnote-popover-content';
@@ -111,12 +102,30 @@
         document.body.appendChild(popover);
 
         let hideTimeout;
+        let activeAnchor;
+        let previousDescription;
+
+        function hidePopover() {
+            clearTimeout(hideTimeout);
+            popover.classList.remove('visible');
+            popover.setAttribute('aria-hidden', 'true');
+            popover.hidden = true;
+            if (activeAnchor) {
+                if (previousDescription === null) activeAnchor.removeAttribute('aria-describedby');
+                else activeAnchor.setAttribute('aria-describedby', previousDescription);
+            }
+            activeAnchor = null;
+        }
 
         function showPopover(anchor, contentHtml) {
-            clearTimeout(hideTimeout);
+            hidePopover();
+            activeAnchor = anchor;
+            previousDescription = anchor.getAttribute('aria-describedby');
             popoverContent.innerHTML = contentHtml;
+            popover.hidden = false;
             popover.classList.add('visible');
             popover.setAttribute('aria-hidden', 'false');
+            anchor.setAttribute('aria-describedby', [previousDescription, popover.id].filter(Boolean).join(' '));
 
             const anchorRect = anchor.getBoundingClientRect();
             const popoverWidth = Math.min(320, window.innerWidth - 32);
@@ -145,22 +154,28 @@
             popoverArrow.style.left = arrowLeft + 'px';
         }
 
-        function hidePopover() {
+        function scheduleHidePopover() {
+            clearTimeout(hideTimeout);
             hideTimeout = setTimeout(() => {
-                popover.classList.remove('visible');
-                popover.setAttribute('aria-hidden', 'true');
+                if (activeAnchor?.matches(':hover, :focus') || popover.matches(':hover, :focus-within')) return;
+                hidePopover();
             }, 120);
         }
 
         popover.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
-        popover.addEventListener('mouseleave', hidePopover);
+        popover.addEventListener('mouseleave', scheduleHidePopover);
+        popover.addEventListener('focusout', scheduleHidePopover);
 
         // Find all footnote anchors
         const footnoteAnchors = Array.from(article.querySelectorAll('sup a[href^="#footnote"], a[href^="#fn"], sup'));
         const seenAnchors = new Set();
 
         footnoteAnchors.forEach(el => {
+            // Endnote back-links are navigation, not another preview trigger.
+            if (el.closest('.article-footnotes')) return;
             let anchor = el.tagName === 'A' ? el : el.querySelector('a');
+            if (anchor?.getAttribute('href')?.startsWith('#footnote-anchor')) return;
+            if (seenAnchors.has(anchor || el)) return;
             let footnoteId = '';
 
             if (anchor && anchor.getAttribute('href')?.startsWith('#')) {
@@ -174,10 +189,14 @@
             if (!footnoteEl && el.tagName === 'SUP') {
                 const num = el.textContent.trim();
                 if (/^\d+$/.test(num)) {
-                    // Look for bottom paragraph or sup with matching number
-                    const candidates = Array.from(article.querySelectorAll('p, div')).filter(p => {
+                    // A bare reference points forward to a paragraph beginning
+                    // with its matching number, not back to another reference.
+                    const candidates = Array.from(article.querySelectorAll('p')).filter(p => {
                         const sup = p.querySelector('sup');
-                        return sup && sup.textContent.trim() === num && p !== el.closest('p');
+                        return sup && sup.textContent.trim() === num &&
+                            p.textContent.trim().startsWith(num) &&
+                            p !== el.closest('p') &&
+                            (el.compareDocumentPosition(p) & Node.DOCUMENT_POSITION_FOLLOWING);
                     });
                     if (candidates.length > 0) {
                         footnoteEl = candidates[0];
@@ -185,33 +204,64 @@
                 }
             }
 
-            if (footnoteEl && !seenAnchors.has(el)) {
-                seenAnchors.add(el);
-
+            if (footnoteEl) {
                 // Clone and sanitize footnote content
                 const clone = footnoteEl.cloneNode(true);
                 // Remove back-reference anchor if present
                 const backRef = clone.querySelector('sup, a[href^="#footnote-anchor"]');
                 if (backRef) backRef.remove();
+                clone.querySelectorAll('[id]').forEach(node => node.removeAttribute('id'));
                 const contentHtml = clone.innerHTML.trim();
 
                 if (contentHtml) {
-                    const targetInteractive = anchor || el;
-                    targetInteractive.style.cursor = 'pointer';
+                    // Give older bare superscripts the same native keyboard
+                    // link as explicitly marked-up footnotes.
+                    if (!anchor) {
+                        if (!footnoteEl.id) {
+                            let id = `legacy-footnote-${el.textContent.trim()}`;
+                            while (document.getElementById(id)) id += '-note';
+                            footnoteEl.id = id;
+                        }
+                        anchor = document.createElement('a');
+                        anchor.href = `#${footnoteEl.id}`;
+                        anchor.append(...el.childNodes);
+                        el.appendChild(anchor);
+                    }
+                    seenAnchors.add(anchor);
+                    const targetInteractive = anchor;
+                    if (!anchor.hasAttribute('aria-label')) {
+                        anchor.setAttribute('aria-label', `Footnote ${anchor.textContent.trim()}`);
+                    }
 
                     targetInteractive.addEventListener('mouseenter', () => showPopover(targetInteractive, contentHtml));
-                    targetInteractive.addEventListener('mouseleave', hidePopover);
+                    targetInteractive.addEventListener('mouseleave', scheduleHidePopover);
+                    targetInteractive.addEventListener('focus', () => showPopover(targetInteractive, contentHtml));
+                    targetInteractive.addEventListener('blur', scheduleHidePopover);
 
                     targetInteractive.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        if (popover.classList.contains('visible')) {
-                            hidePopover();
-                        } else {
-                            showPopover(targetInteractive, contentHtml);
-                        }
+                        if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                        // Keep native href/history behavior: focus or hover
+                        // previews; activation reaches the complete endnote.
+                        hidePopover();
+                        window.requestAnimationFrame(() => {
+                            if (window.location.hash !== anchor.hash) return;
+                            if (!footnoteEl.hasAttribute('tabindex')) footnoteEl.setAttribute('tabindex', '-1');
+                            footnoteEl.focus({ preventScroll: true });
+                            footnoteEl.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
+                        });
                     });
                 }
             }
+        });
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') hidePopover();
+        });
+        document.addEventListener('pointerdown', event => {
+            if (!popover.contains(event.target) && !activeAnchor?.contains(event.target)) hidePopover();
+        });
+        document.addEventListener('focusin', event => {
+            if (!popover.contains(event.target) && event.target !== activeAnchor) hidePopover();
         });
     }
 
@@ -224,6 +274,7 @@
         quoteDock.id = 'quote-action-dock';
         quoteDock.setAttribute('role', 'toolbar');
         quoteDock.setAttribute('aria-label', 'Quote actions');
+        quoteDock.hidden = true;
 
         quoteDock.innerHTML = `
             <button class="quote-btn quote-btn--copy" id="quote-copy-btn" type="button" aria-label="Copy quote">
@@ -243,6 +294,24 @@
         const copyLabel = copyBtn.querySelector('.quote-btn-label');
 
         let selectedQuoteText = '';
+        let quoteOrigin;
+        let selectionTimeout;
+
+        function hideQuoteDock() {
+            clearTimeout(selectionTimeout);
+            // Never strand keyboard focus inside an element we are hiding.
+            if (quoteDock.contains(document.activeElement)) {
+                const target = quoteOrigin?.isConnected ? quoteOrigin : article;
+                if (!target.hasAttribute('tabindex')) {
+                    target.setAttribute('tabindex', '-1');
+                    target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true });
+                }
+                target.focus({ preventScroll: true });
+            }
+            quoteDock.classList.remove('visible');
+            quoteDock.hidden = true;
+            selectedQuoteText = '';
+        }
 
         function updateQuoteDock() {
             const selection = window.getSelection();
@@ -256,9 +325,12 @@
                 // Ensure selection is inside article and not inside the dock itself
                 if (article.contains(commonAncestor) && !quoteDock.contains(commonAncestor)) {
                     selectedQuoteText = text;
+                    const origin = commonAncestor.nodeType === Node.ELEMENT_NODE ? commonAncestor : commonAncestor.parentElement;
+                    quoteOrigin = origin.closest('p, li, blockquote, h2, h3') || article;
                     const rect = range.getBoundingClientRect();
 
                     if (rect.width > 0 && rect.height > 0) {
+                        quoteDock.hidden = false;
                         const dockWidth = quoteDock.offsetWidth || 190;
                         const dockHeight = quoteDock.offsetHeight || 36;
 
@@ -284,26 +356,39 @@
             }
 
             // Hide dock if selection is cleared or outside
-            if (!quoteDock.matches(':hover')) {
-                quoteDock.classList.remove('visible');
+            if (!quoteDock.matches(':hover') && !quoteDock.contains(document.activeElement)) {
+                hideQuoteDock();
             }
         }
 
         document.addEventListener('selectionchange', () => {
             // Small debounce to allow smooth selection dragging
-            setTimeout(updateQuoteDock, 100);
+            clearTimeout(selectionTimeout);
+            selectionTimeout = setTimeout(updateQuoteDock, 100);
         });
 
         document.addEventListener('mouseup', updateQuoteDock);
-        document.addEventListener('keyup', updateQuoteDock);
+        document.addEventListener('keyup', event => {
+            if (event.key !== 'Escape') updateQuoteDock();
+        });
+        quoteDock.addEventListener('mouseleave', updateQuoteDock);
+        quoteDock.addEventListener('focusout', () => window.requestAnimationFrame(updateQuoteDock));
+        document.addEventListener('keydown', event => {
+            if (event.key !== 'Escape') return;
+            hideQuoteDock();
+            window.getSelection()?.removeAllRanges();
+        });
 
         // Copy quote action
-        copyBtn.addEventListener('click', (e) => {
+        copyBtn.addEventListener('mousedown', event => event.preventDefault());
+        copyLabel.setAttribute('aria-live', 'polite');
+        copyBtn.addEventListener('click', async (e) => {
             e.stopPropagation();
             if (!selectedQuoteText) return;
 
             const formatted = `“${selectedQuoteText}” — Willis Wee\n${window.location.href}`;
-            navigator.clipboard.writeText(formatted).then(() => {
+            try {
+                await navigator.clipboard.writeText(formatted);
                 copyBtn.classList.add('quote-btn--copied');
                 copyLabel.textContent = 'Copied!';
 
@@ -311,16 +396,17 @@
                     copyBtn.classList.remove('quote-btn--copied');
                     copyLabel.textContent = 'Copy Quote';
                 }, 1800);
-            }).catch(() => {
-                copyLabel.textContent = 'Copied!';
+            } catch {
+                copyBtn.classList.remove('quote-btn--copied');
+                copyLabel.textContent = 'Copy failed';
                 setTimeout(() => copyLabel.textContent = 'Copy Quote', 1800);
-            });
+            }
         });
 
         // Dismiss on clicking outside
         document.addEventListener('mousedown', (e) => {
             if (!quoteDock.contains(e.target) && !article.contains(e.target)) {
-                quoteDock.classList.remove('visible');
+                hideQuoteDock();
             }
         });
     }

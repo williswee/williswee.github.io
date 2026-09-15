@@ -7,13 +7,15 @@ https://williswee.com/
 2. Edit the draft for clarity and return it for review.
 3. Wait until the note is explicitly marked **final**. Do not update the site before approval.
 4. After approval, append the final note to [`gratitude-notes.md`](gratitude-notes.md).
-5. Run `node scripts/render-gratitude.mjs` to regenerate `gratitude.html`.
-6. Review the page locally and verify the note's shareable `#note-{number}` link, its date, and the updated note count. Check desktop and mobile, Random pick → Another pick → Top, and focus mode: the selected note stays clear while surrounding notes and artwork fade. Top restores full visibility and clears the selected note hash.
+5. Run `node scripts/render-gratitude.mjs` to regenerate `gratitude.html` and synchronize the Gratitude entry in `sitemap.xml` with the newest note date. The renderer validates dates and the matching sitemap entry before writing either output; it leaves other sitemap entries untouched.
+6. Review the page locally and verify the note's shareable `#note-{number}` link, its date, the updated note count, and the Gratitude sitemap `lastmod`. Check desktop and mobile, Random pick → Another pick → Top, and focus mode: the selected note stays clear while surrounding notes and artwork fade. Top restores full visibility and clears the selected note hash.
 7. Commit and push the changes, then confirm the note is live at [williswee.com/gratitude.html](https://williswee.com/gratitude.html).
 
 ### Gratitude page design and generation
 
 `gratitude-notes.md` remains the source of truth for note content. `scripts/render-gratitude.mjs` owns the entire generated `gratitude.html` page, including navigation, controls, count, and footer. Make layout changes in the generator and regenerate; do not hand-edit the generated page. The renderer preserves the Markdown's existing oldest-first order and displays notes newest-first. Keep note numbers and `note-{number}` IDs stable so published links continue working.
+
+The renderer also maintains the Gratitude URL's `lastmod` in `sitemap.xml` from the latest date anywhere in the note source, so appending an older backfilled note does not roll that date backward. Include both generated files in the publishing review; adding a note does not require manually editing sitemap dates.
 
 The page uses `thoughts/reading-room.css` for the shared reading-world shell, `gratitude-game.css` for the journal layout/focus fade, and `gratitude.js` for random selection, accessible focus, permalinks, and floating controls. Reduced-motion preferences disable animated scrolling, fading, and dice feedback. All note content and native heading links remain available without JavaScript.
 
@@ -21,14 +23,17 @@ Keep the dedicated `images/game-world/gratitude-evening-journal-v1.webp` illustr
 
 ## How to publish a new article
 
+**Substack imports:** Exclude Substack's in-article subscription buttons, such as **Subscribe now**. Use the site's shared newsletter embed and footer subscription link instead.
+
 The current WIP essay template is [`thoughts/freedom.html`](thoughts/freedom.html). Follow the [essay authoring guide](thoughts/README.md) for the shared layout and background setup.
 
 1. Copy `thoughts/freedom.html` to `thoughts/{slug}.html` (single word slug, e.g. `mission`). Keep its shared reading layout, scripts, navigation, and newsletter/footer markup.
 2. Update the title, meta description, heading, date, body, and article images/captions. The subtitle (`<p class="article-subtitle">`) goes right below the title image/figure. Remove any copied Freedom-specific content that does not belong to the new essay.
 3. **Keep the automatic preset background picker.** Every new essay uses `thoughts/essay-landscape.js` to select one of the ten existing images in [`images/reading-landscapes/`](images/reading-landscapes/). Do not generate a new decorative background or assign one manually per essay. The scene is selected once per page load and stays still while reading. Article/hero images from the source post are separate and should still be preserved.
 4. Add the new `<li>` to `thoughts/index.html` in date order, newest first, and update the static essay count. The archive builds its year groupings automatically.
-5. Add the URL to `sitemap.xml` and `llms.txt`. Add the filename to the fallback essay list in `thoughts/reading-room.js` so Random pick also includes it when the archive cannot be fetched.
-6. Preview locally and check the article, background, links, and mobile layout before publishing.
+5. Add the URL to `sitemap.xml` and `llms.txt`. Run `node scripts/sync-essay-manifest.mjs` to generate the shared random-pick manifest from the archive. Do not maintain a separate list inside a reader script.
+6. Give every article image its actual intrinsic `width` and `height`, descriptive alt text, and `decoding="async"`. Use optimized WebP assets where available, retaining originals; keep the first/hero image eager and mark below-the-fold images `loading="lazy"`. Keep responsive `srcset`/`sizes` when copying the template.
+7. Run `node scripts/sync-essay-manifest.mjs --check`, then preview locally. Check desktop/mobile and text zoom, footnote keyboard navigation, quote copy (including denied clipboard access), Random pick with the archive request blocked, background, links, and image layout before publishing.
 
 **Prompt**
 
@@ -38,7 +43,7 @@ Follow the "How to publish a new article" section in README.md and the essay aut
 - use `thoughts/freedom.html` as the layout reference and preserve its automatic ten-preset background picker (`essay-landscape.js`)
 - do not create a new decorative background; the article's own images are separate from the preset scenery
 - Extract the title, subtitle, date, and body from the live Substack post. Do not ask me for them. The subtitle is the Substack post's subtitle/deck. Place it as `<p class="article-subtitle">` right after the title image/figure.
-- Copy all content from the Substack post, including images and captions. Save any images in the `images` directory and reference them properly in the article. For image captions, centralize them. Do not change anything.
+- Copy the article content from the Substack post, including images and captions, but omit Substack's in-article subscription buttons (for example, **Subscribe now**). Save any images in the `images` directory and reference them properly in the article. Center image captions and preserve the original wording. Keep the site's shared newsletter embed and footer subscription link.
 
 Substack URL:
 Slug: (single word slug, e.g. `mission`)

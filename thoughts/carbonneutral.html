@@ -9,31 +9,38 @@
         content="Tech in Asia is carbon neutral for the years 2011, 2012, 2013, 2019, 2020, 2021, and 2022.">
         <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Mono:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=2.2">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reading-room.css?v=1.4">
+    <link rel="stylesheet" href="emissions-chart.css?v=1">
     <link rel="icon" type="image/png" href="../avatar.png">
-    <script src="https://www.useinflect.ai/inflect-tracking.js" data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
+    <script src="https://www.useinflect.ai/inflect-tracking.js" async data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
     <img src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&iv=2026-08-12.1" alt="" width="1" height="1" style="display:none;" referrerpolicy="unsafe-url" />
-    <script src="../site-nav.js?v=1.2" defer></script>
+    <script src="essay-manifest.js?v=1" defer></script>
+    <script src="reading-room.js?v=1.2" defer></script>
 </head>
 
-<body>
-    <div class="container">
-        <header>
-            <a href="../index.html" class="site-brand" aria-label="Willis Wee — home">
-                <img src="../avatar.png" alt="Willis Wee" class="avatar" width="48" height="48">
-                <span class="site-name">Willis Wee</span>
-            </a>
-            <nav>
-                <a href="../index.html">About</a>
-                <a href="index.html" class="active">Thoughts</a>
-                <a href="../guide.html">Guide</a>
-                <a href="../work.html">Work</a>
-                <a href="../books.html">Books</a>
-                <a href="../gratitude.html">Gratitude</a>
-            </nav>
-        </header>
-        <main>
+<body class="essay-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="reading-hud">
+        <a href="../index.html" class="site-brand" aria-label="Willis Wee — home">
+            <span>Willis Wee</span><small aria-hidden="true">👋</small>
+        </a>
+        <nav class="reading-nav" aria-label="Main navigation">
+            <a href="../index.html">Start</a>
+            <a href="index.html" aria-current="page">Thoughts</a>
+            <a href="../guide.html">Guide</a>
+            <a href="../work.html">Work</a>
+            <a href="../books.html">Books</a>
+            <a href="../gratitude.html">Gratitude</a>
+        </nav>
+    </header>
+    <div class="reading-landscape" aria-hidden="true">
+        <noscript><img src="../images/reading-landscapes/01-misty-ridges.webp" alt="" width="1024" height="1536" decoding="async"></noscript>
+    </div>
+    <script src="essay-landscape.js?v=1.0"></script>
+    <div class="reading-shell">
+        <main id="main-content" tabindex="-1">
+            <a class="essay-back text-link" href="index.html"><span aria-hidden="true">←</span> All thoughts</a>
             <article>
                 <h1>Tech in Asia is carbon neutral in time for Earth Day</h1>
                 <p class="article-date">22 April 2021</p>
@@ -88,7 +95,7 @@
                 <p>
                     <img class="aligncenter size-full wp-image-683486" style="border: 3px solid #eeeeee; padding: 3px;"
                         src="https://cdn.techinasia.com/wp-content/uploads/2021/04/vc-investment-in-climate-tech.png"
-                        alt="vc investment in climate tech" width="1200" height="494" />
+                        alt="vc investment in climate tech" width="1200" height="494" decoding="async" loading="eager">
                 </p>
 
                 <h2>Our next steps</h2>
@@ -105,11 +112,34 @@
                     projects in India, Indonesia, and China, and in the process, achieve carbon neutrality⁵ for the
                     years 2019, 2020, and 2021.
                 </p>
-                <p>
-                    <iframe style="width: 100%; height: 600px; background-color: #fff;" title="Interactive or visual content"
-                        src="https://flo.uri.sh/visualisation/5872771/embed" frameborder="0" scrolling="no"
-                        sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
-                </p>
+                <figure class="emissions-chart" aria-labelledby="emissions-title">
+                    <figcaption id="emissions-title">TIA’s total CO2e* from 2011 to 2021</figcaption>
+                    <table>
+                        <caption>Total CO2e emissions, in metric tons</caption>
+                        <thead><tr><th scope="col">Year</th><th scope="col">CO2e (tons)</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">2011</th><td><span class="emissions-bar" style="--value: 8.36" aria-hidden="true"></span><span>8.36</span></td></tr>
+                            <tr><th scope="row">2012</th><td><span class="emissions-bar" style="--value: 243.54" aria-hidden="true"></span><span>243.54</span></td></tr>
+                            <tr><th scope="row">2013</th><td><span class="emissions-bar" style="--value: 387.02" aria-hidden="true"></span><span>387.02</span></td></tr>
+                            <tr><th scope="row">2014</th><td><span class="emissions-bar" style="--value: 648.97" aria-hidden="true"></span><span>648.97</span></td></tr>
+                            <tr><th scope="row">2015</th><td><span class="emissions-bar" style="--value: 1330.93" aria-hidden="true"></span><span>1,330.93</span></td></tr>
+                            <tr><th scope="row">2016</th><td><span class="emissions-bar" style="--value: 2010.1" aria-hidden="true"></span><span>2,010.1</span></td></tr>
+                            <tr><th scope="row">2017</th><td><span class="emissions-bar" style="--value: 2080.6" aria-hidden="true"></span><span>2,080.6</span></td></tr>
+                            <tr><th scope="row">2018</th><td><span class="emissions-bar" style="--value: 1721.72" aria-hidden="true"></span><span>1,721.72</span></td></tr>
+                            <tr><th scope="row">2019</th><td><span class="emissions-bar" style="--value: 990.14" aria-hidden="true"></span><span>990.14</span></td></tr>
+                            <tr><th scope="row">2020</th><td><span class="emissions-bar" style="--value: 152.09" aria-hidden="true"></span><span>152.09</span></td></tr>
+                            <tr><th scope="row">2021e</th><td><span class="emissions-bar" style="--value: 167.14" aria-hidden="true"></span><span>167.14</span></td></tr>
+                        </tbody>
+                    </table>
+                    <p class="emissions-note">*Carbon dioxide equivalent or CO2e is the standard unit for measuring greenhouse emissions. It refers to the number of metric tons of CO2 emissions with the same global warming potential as one metric ton of another greenhouse gas, according to the US Environmental Protection Agency.</p>
+                    <details class="emissions-original">
+                        <summary>Original interactive chart</summary>
+                        <p><a href="https://flo.uri.sh/visualisation/5872771/embed" target="_blank" rel="noopener noreferrer">Open the chart on Flourish <span aria-hidden="true">↗</span></a></p>
+                        <iframe title="TIA’s total CO2e emissions in metric tons, 2011–2021 — original interactive chart"
+                            src="https://flo.uri.sh/visualisation/5872771/embed" loading="lazy" width="700" height="600"
+                            sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    </details>
+                </figure>
                 <p>
                     We will keep clearing up the legacy carbon emission that we’ve put into the atmosphere since 2011 by
                     continuing our reduction efforts and offsetting the rest by backing meaningful green projects.
@@ -175,7 +205,7 @@
                 <figure class="alignleft" style="max-width: 1508px;">
                     <img class="size-full wp-image-683501"
                         src="https://cdn.techinasia.com/wp-content/uploads/2021/04/climate-change.png"
-                        alt="climate change table and framework" width="1508" height="769" />
+                        alt="climate change table and framework" width="1508" height="769" decoding="async" loading="lazy">
                     <figcaption>This is based on my understanding of the Gates' book.</figcaption>
                 </figure>
                 <p>
@@ -195,22 +225,24 @@
                 </p>
             </article>
 
-            <div class="subscribe-embed">
+            <div class="subscribe-embed" id="newsletter">
                 <p>Enjoyed this? Subscribe to get new essays delivered to your inbox.</p>
-                <iframe src="https://williswee.substack.com/embed?transparent=1&light=1" width="100%" height="320" style="border: 0; background: transparent;" frameborder="0" scrolling="no" loading="lazy" title="Subscribe to Willis Wee newsletter"></iframe>
+                <iframe src="https://williswee.substack.com/embed" width="100%" height="460" style="border: 0; background: transparent;" frameborder="0" scrolling="no" loading="lazy" title="Subscribe to Willis Wee newsletter"></iframe>
             </div>
 
+            <a class="text-link" href="https://williswee.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe on Substack <span aria-hidden="true">↗</span></a>
             <hr>
             <div class="article-nav-row">
                 <p class="back-link"><a href="index.html">← Back to Thoughts</a></p>
-                <button class="random-pick-btn" id="random-article-btn" type="button" aria-label="Open a random essay">
-                    <span class="random-pick-icon" aria-hidden="true">🎲</span>
+                <button class="random-pick-btn" id="random-article-btn" type="button" hidden aria-label="Open a random essay">
+                    <span class="random-pick-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16"/><path d="M8 8h2v2H8zm6 6h2v2h-2z" fill="currentColor" stroke="none"/></svg></span>
                     <span>Random pick</span>
                 </button>
             </div>
         </main>
 
         <footer class="follow-strip">
+            <a class="footer-home" href="../index.html#archive">Back to my notes <span aria-hidden="true">↗</span></a>
             <span class="follow-strip-label">Follow</span>
             <div class="follow-strip-icons">
                 <a href="https://williswee.substack.com" class="follow-icon" target="_blank" rel="noopener noreferrer" aria-label="Substack">
@@ -225,7 +257,6 @@
             </div>
         </footer>
     </div>
-    <script src="random.js"></script>
 </body>
 
 </html>

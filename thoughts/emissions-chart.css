@@ -1,0 +1,19 @@
+/* A readable, no-JavaScript view of the values in the original Flourish chart. */
+.emissions-chart { margin: 36px 0; }
+.emissions-chart > figcaption { color: var(--cream); font-size: 1.125rem; font-weight: 600; }
+.emissions-chart table { width: 100%; margin-block: 16px; border-collapse: collapse; font-size: 0.9375rem; font-variant-numeric: tabular-nums; }
+.emissions-chart caption { padding-bottom: 12px; text-align: left; color: var(--muted); }
+.emissions-chart th, .emissions-chart td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; }
+.emissions-chart th { color: var(--cream); font-weight: 500; }
+.emissions-chart tbody th { width: 5.5em; }
+.emissions-chart td { position: relative; color: var(--cream); }
+.emissions-chart td > span:not(.emissions-bar) { position: relative; }
+.emissions-bar { position: absolute; inset: 4px auto 4px 0; width: calc(var(--value) / 2200 * 100%); background: rgba(255, 190, 99, 0.16); }
+.emissions-chart .emissions-note { color: var(--muted); font-size: 0.8125rem; line-height: 1.75; }
+.emissions-original { margin-top: 20px; }
+.emissions-original summary { min-height: 44px; padding-block: 10px; color: var(--cream); cursor: pointer; }
+.emissions-original summary:hover { color: var(--gold); }
+.emissions-original iframe { display: block; width: 100%; max-width: 100%; height: 600px; border: 0; background: #fff; }
+@media (max-width: 380px) {
+    .emissions-chart th, .emissions-chart td { padding-inline: 6px; }
+}

@@ -10,10 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.2">
+    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.4">
     <link rel="stylesheet" href="books-game.css?v=1.1">
     <link rel="icon" type="image/png" href="avatar.png">
-    <script src="https://www.useinflect.ai/inflect-tracking.js" data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
+    <script src="https://www.useinflect.ai/inflect-tracking.js" async data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
     <script src="books-game.js?v=1.0" defer></script>
 </head>
 
@@ -45,6 +45,11 @@
             <aside class="book-filter-sidebar" aria-label="Book categories">
                 <details class="book-filter-menu" open>
                     <summary><span>Categories</span><span class="current-filter-label">All books</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7 5 5 5-5"/></svg></summary>
+                    <script>
+                        // Set the compact state before any menu content can paint.
+                        // Without JavaScript, the open menu remains fully accessible.
+                        document.currentScript.parentElement.open = !window.matchMedia('(max-width: 760px)').matches;
+                    </script>
                     <p class="book-filter-title">Browse by category</p>
                 <div class="filter-pills" id="filter-pills" role="group" aria-label="Filter by category">
                     <button class="filter-pill active" data-filter="all" aria-pressed="true">All <span class="pill-count"

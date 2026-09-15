@@ -286,6 +286,7 @@ h1, h2 {
     letter-spacing: -0.035em;
     line-height: 1.06;
     text-wrap: balance;
+    overflow-wrap: anywhere;
 }
 
 h1 { font-size: clamp(3.1rem, 5vw, 5.1rem); }
@@ -429,6 +430,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     font-family: var(--font-display);
     font-size: 0.57rem;
     line-height: 1.4;
+    overflow-wrap: anywhere;
 }
 
 .work-list strong,
@@ -601,15 +603,20 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 
     .chapter-nav {
         min-width: 0;
-        justify-content: flex-end;
+        justify-content: safe flex-end;
         gap: 0;
+        overflow-x: auto;
+        scrollbar-width: thin;
     }
 
     .chapter-nav a {
-        min-width: 0;
+        flex: 0 0 auto;
+        min-width: 24px;
         padding-inline: clamp(8px, 2.7vw, 16px);
         font-size: 0.7rem;
     }
+
+    .chapter-nav a:focus-visible { outline-offset: -4px; }
 
     .game-scene {
         min-height: 0;
@@ -666,6 +673,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
         background: rgba(5, 12, 23, 0.98);
         transform: none !important;
         opacity: 1 !important;
+        overflow-wrap: anywhere;
     }
 
     h1, h2 { margin-bottom: 20px; }
@@ -699,7 +707,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 
 @media (max-width: 420px) {
     .site-brand { margin-right: 6px; }
-    .chapter-nav a { padding-inline: 7px; font-size: 0.64rem; }
+    .chapter-nav a { padding-inline: 4px; font-size: 0.64rem; }
     .scene-content { padding-inline: 10px; }
     .story-panel { padding-inline: 18px; }
 

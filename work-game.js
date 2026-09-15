@@ -72,7 +72,12 @@
     }
 
     function setMenuMode() {
-        if (menu) menu.open = !compact.matches;
+        if (menu) {
+            if (compact.matches && menu.open && menu.contains(document.activeElement)) {
+                menu.querySelector('summary')?.focus({ preventScroll: true });
+            }
+            menu.open = !compact.matches;
+        }
         scheduleUpdate();
     }
     setMenuMode();

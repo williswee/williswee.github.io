@@ -5,6 +5,19 @@
     const navLinks = Array.from(document.querySelectorAll('.chapter-nav a'));
     const root = document.documentElement;
 
+    // Enlarged text may turn the compact header into a horizontal scroller.
+    // Keep each keyboard destination visible without moving the page itself.
+    navLinks.forEach(link => {
+        link.addEventListener('focus', () => {
+            const nav = link.parentElement;
+            if (nav.scrollWidth <= nav.clientWidth) return;
+            const navBounds = nav.getBoundingClientRect();
+            const linkBounds = link.getBoundingClientRect();
+            if (linkBounds.left < navBounds.left) nav.scrollLeft += linkBounds.left - navBounds.left;
+            else if (linkBounds.right > navBounds.right) nav.scrollLeft += linkBounds.right - navBounds.right;
+        });
+    });
+
     const statusBadge = document.getElementById('status-badge');
     if (statusBadge) {
         const statuses = [

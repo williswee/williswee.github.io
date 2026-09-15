@@ -11,11 +11,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.2">
+    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.4">
     <link rel="stylesheet" href="work-game.css?v=2.0">
     <link rel="icon" type="image/png" href="avatar.png">
-    <script src="https://www.useinflect.ai/inflect-tracking.js" data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
-    <script src="work-game.js?v=2.0" defer></script>
+    <script src="https://www.useinflect.ai/inflect-tracking.js" async data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
+    <script src="work-game.js?v=2.1" defer></script>
 </head>
 
 <body class="work-page">
@@ -50,6 +50,11 @@
             <aside class="chapter-rail">
                 <details class="chapter-menu" open>
                     <summary><span>Milestones</span><span class="current-chapter">Slothware</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7 5 5 5-5"/></svg></summary>
+                    <script>
+                        // Set the compact state before any menu content can paint.
+                        // Without JavaScript, the open menu remains fully accessible.
+                        document.currentScript.parentElement.open = !window.matchMedia('(max-width: 760px)').matches;
+                    </script>
                     <nav class="project-nav" id="project-nav" aria-label="Work chapters">
                         <p class="chapter-rail-title">The journey</p>
                         <a href="#now" class="project-nav-link" aria-current="location"><span>Now</span><strong>Slothware</strong></a>
