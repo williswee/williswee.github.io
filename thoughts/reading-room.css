@@ -65,12 +65,15 @@ main:focus { outline: none; }
     background: rgba(4, 10, 19, 0.97);
     box-shadow: 0 10px 32px rgba(0, 0, 0, 0.2);
 }
-.site-brand { display: inline-flex; align-items: baseline; gap: 14px; white-space: nowrap; text-decoration: none; }
+.site-brand { display: inline-flex; flex: 0 0 auto; align-items: baseline; gap: 14px; white-space: nowrap; text-decoration: none; }
 .site-brand > span { font: 700 0.88rem/1.4 var(--font-display); letter-spacing: 0.04em; }
 .site-brand small { font-size: 1rem; }
-.reading-nav { display: flex; align-self: stretch; gap: clamp(18px, 2.5vw, 36px); }
+/* Let enlarged labels scroll within the space beside the brand at any width,
+   not only after the mobile breakpoint. Keyboard focus reveals each link. */
+.reading-nav { display: flex; flex: 0 1 auto; min-width: 0; align-self: stretch; gap: clamp(18px, 2.5vw, 36px); overflow-x: auto; scrollbar-width: thin; }
 .reading-nav a {
     display: grid;
+    flex: 0 0 auto;
     place-items: center;
     border-bottom: 2px solid transparent;
     color: var(--muted);
@@ -82,6 +85,8 @@ main:focus { outline: none; }
 }
 .reading-nav a:hover, .reading-nav a[aria-current] { color: var(--cream); }
 .reading-nav a[aria-current] { border-color: var(--gold); }
+/* Keep the full focus ring inside the scrollport, including its block edges. */
+.reading-nav a:focus-visible { outline-offset: -4px; }
 
 .reading-landscape { position: fixed; inset: var(--header-height) 0 0; z-index: -1; }
 .reading-landscape img { width: 100%; height: 100%; object-fit: cover; object-position: 32% center; filter: brightness(0.85); }
@@ -99,6 +104,15 @@ main:focus { outline: none; }
 .reading-shell::before, .reading-shell::after { position: absolute; width: 14px; height: 14px; content: ""; pointer-events: none; }
 .reading-shell::before { top: -1px; left: -1px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
 .reading-shell::after { right: -1px; bottom: -1px; border-right: 2px solid var(--gold); border-bottom: 2px solid var(--gold); }
+/* One selection vocabulary for the library and journal; keyboard focus stays distinct. */
+:is(.book-card, .gratitude-note) { --focus-marker-offset: 12px; }
+:is(.book-card, .gratitude-note):focus { outline: none; }
+:is(.book-card, .gratitude-note):focus-visible { outline: 2px solid var(--gold); outline-offset: 6px; }
+:is(.book-card.book-card--spotlight, .gratitude-note.gratitude-note--spotlight) { z-index: 1; background: transparent; border-bottom-color: transparent; }
+:is(.book-card--spotlight, .gratitude-note--spotlight)::before,
+:is(.book-card--spotlight, .gratitude-note--spotlight)::after { position: absolute; width: 12px; height: 12px; content: ""; pointer-events: none; }
+:is(.book-card--spotlight, .gratitude-note--spotlight)::before { top: 12px; left: calc(-1 * var(--focus-marker-offset)); border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+:is(.book-card--spotlight, .gratitude-note--spotlight)::after { right: calc(-1 * var(--focus-marker-offset)); bottom: 12px; border-right: 2px solid var(--gold); border-bottom: 2px solid var(--gold); }
 h1, h2 { margin: 0; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.035em; text-wrap: balance; }
 h1 { font-size: 3.25rem; line-height: 1.12; }
 h2 { font-size: 1.75rem; line-height: 1.3; }
@@ -143,7 +157,15 @@ p { margin: 0 0 24px; color: var(--cream-soft); }
 .newsletter-cta { scroll-margin-top: var(--archive-offset); }
 .newsletter-cta h2 { margin-bottom: 20px; }
 .newsletter-cta p, .subscribe-embed p { max-width: 48ch; }
-.newsletter-cta iframe, .subscribe-embed iframe { display: block; width: 100%; max-width: 100%; height: 460px; border: 0; background: transparent; color-scheme: dark; }
+.newsletter-fallback { display: inline-flex; align-items: center; min-height: 44px; }
+:is(.newsletter-cta, .subscribe-embed) .newsletter-status { margin: 16px 0 0; color: var(--muted); font-size: .8rem; line-height: 1.75; }
+.newsletter-controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.newsletter-controls button { min-height: 44px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--cream); font-size: .8rem; font-weight: 600; }
+.newsletter-controls button:hover { border-color: var(--gold); color: var(--gold); }
+.newsletter-controls button:disabled { cursor: wait; }
+.newsletter-cta iframe, .subscribe-embed iframe { display: block; width: 100%; max-width: 100%; height: 460px; margin-top: 16px; border: 0; background: transparent; color-scheme: dark; }
+/* Never reserve a screen-sized hole for a disconnected or unavailable provider. */
+iframe[data-newsletter-src][aria-hidden="true"] { display: none; }
 .follow-strip { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--line); }
 .footer-home { margin-right: auto; font-size: 0.78rem; font-weight: 600; }
 .follow-strip-label { color: var(--muted); font-size: 0.72rem; }
@@ -179,7 +201,7 @@ article pre { max-width: 100%; overflow-x: auto; padding: 20px; border: 1px soli
 article pre code { white-space: pre; }
 article figcaption { margin-top: 14px; font-size: 0.75rem; line-height: 1.7; color: var(--muted); }
 article .image-caption { margin-top: 14px; font-size: 0.75rem; line-height: 1.7; color: var(--muted); text-align: center; }
-article .article-subtitle { color: var(--cream); font-size: 1.125rem; font-weight: 500; line-height: 1.7; }
+article .article-subtitle { max-width: 52ch; margin: 20px 0 0; color: var(--cream-soft); font-size: 1.375rem; font-weight: 500; line-height: 1.6; text-wrap: pretty; }
 article ul, article ol { padding-left: 24px; margin: 0 0 26px; color: var(--cream-soft); }
 article li { padding-left: 4px; margin-bottom: 14px; }
 article a { text-decoration-color: var(--gold); }
@@ -213,10 +235,11 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
     article h1 { font-size: 2.25rem; }
 }
 @media (max-width: 760px) {
+    :is(.book-card, .gratitude-note) { --focus-marker-offset: 8px; }
     :root { --header-height: 104px; --pane-inset: 24px; }
     .reading-hud { display: block; padding: 0 20px; }
     .site-brand { height: 48px; align-items: center; }
-    .reading-nav { height: 56px; justify-content: space-between; gap: clamp(6px, 2vw, 14px); overflow-x: auto; scrollbar-width: thin; }
+    .reading-nav { height: 56px; margin-inline: -8px; padding-inline: 8px; justify-content: space-between; gap: clamp(6px, 2vw, 14px); overflow-x: auto; scrollbar-width: thin; }
     .reading-nav a { flex: 0 0 auto; font-size: 0.7rem; }
     .reading-landscape { position: absolute; top: var(--header-height); height: 188px; bottom: auto; }
     .reading-landscape img { object-position: 24% 52%; }
@@ -234,7 +257,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
     .essay-page .reading-shell { margin-top: calc(var(--header-height) + 156px); }
     article { font-size: 1rem; line-height: 1.85; }
     article h1 { font-size: 1.875rem; line-height: 1.25; }
-    article .article-subtitle { font-size: 1.0625rem; }
+    article .article-subtitle { margin-top: 16px; font-size: 1.1875rem; }
     .essay-back { margin-bottom: 20px; }
     .footer-home { flex-basis: 100%; }
     .newsletter-cta iframe, .subscribe-embed iframe { height: 560px; }
@@ -248,6 +271,33 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
     h1 { font-size: 2.25rem; }
     .random-pick-btn { padding-inline: 10px; }
     .newsletter-cta iframe, .subscribe-embed iframe { height: 620px; }
+}
+/* The fixed, scrolling header is an enhancement: without its keyboard scroll
+   handler, let every destination wrap into normal document flow instead. */
+html:not(.reading-nav-enhanced) .reading-hud {
+    position: relative;
+    inset: auto;
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: var(--header-height);
+    padding: 16px 4vw;
+    gap: 12px 24px;
+}
+html:not(.reading-nav-enhanced) .reading-nav {
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    align-self: auto;
+    justify-content: flex-start;
+    height: auto;
+    margin: 0;
+    padding: 4px;
+    gap: 8px 24px;
+    overflow: visible;
+}
+html:not(.reading-nav-enhanced) .reading-nav a {
+    min-width: 44px;
+    min-height: 44px;
 }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }

@@ -6,13 +6,28 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const markdownPath = path.join(root, 'gratitude-notes.md');
 const outputPath = path.join(root, 'gratitude.html');
 const sitemapPath = path.join(root, 'sitemap.xml');
+const args = process.argv.slice(2);
+if (args.some((arg) => arg !== '--check')) {
+    throw new Error('Usage: node scripts/render-gratitude.mjs [--check]');
+}
+const checkOnly = args.includes('--check');
 
 const markdown = await readFile(markdownPath, 'utf8');
-const parts = markdown.split(/^## Gratitude note #(\d+)\s*$/gm);
+const parts = markdown.split(/^## Gratitude note #([^\r\n]*)\r?$/gm);
 const notes = [];
+const noteNumbers = new Set();
 
 for (let index = 1; index < parts.length; index += 2) {
-    const number = Number(parts[index]);
+    const rawNumber = parts[index].trim();
+    const number = Number(rawNumber);
+    if (!/^\d+$/.test(rawNumber) || !Number.isSafeInteger(number) || number <= 0) {
+        throw new Error(`Invalid gratitude note number #${rawNumber}: expected a positive safe integer`);
+    }
+    if (noteNumbers.has(number)) {
+        throw new Error(`Duplicate gratitude note number #${number}: each note must have a unique number to preserve permalinks`);
+    }
+    noteNumbers.add(number);
+
     const section = parts[index + 1].trim();
     const metadata = section.match(/^\*(\d{4}-\d{2}-\d{2})(?: · \[Original note\]\((https?:\/\/[^)]+)\))?\*\s*/);
 
@@ -120,10 +135,11 @@ const html = `<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.4">
-    <link rel="stylesheet" href="gratitude-game.css?v=1.0">
+    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.8">
+    <link rel="stylesheet" href="gratitude-game.css?v=1.3">
     <link rel="icon" type="image/png" href="avatar.png">
-    <script src="gratitude.js?v=2.0" defer></script>
+    <script src="reading-nav.js?v=1.1" defer></script>
+    <script src="gratitude.js?v=2.1" defer></script>
 </head>
 
 <body class="gratitude-page">
@@ -188,6 +204,7 @@ ${noteMarkup}
             <span class="random-pick-icon" aria-hidden="true"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14"/><path d="M6 6h1v1H6zM13 13h1v1h-1zM9.5 9.5h1v1h-1z" fill="currentColor" stroke="none"/></svg></span>
             <span>Another pick</span>
         </button>
+        <button class="dock-btn dock-btn--keep-reading" id="gratitude-dock-keep-reading-btn" type="button" aria-label="Leave focus mode and keep reading here" hidden>Keep reading</button>
         <button class="dock-btn dock-btn--top" id="gratitude-dock-top-btn" type="button" aria-label="Clear focus mode and return to the top of the gratitude notes">
             <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 17V4M5 9l5-5 5 5"/></svg><span>Top</span>
         </button>
@@ -197,9 +214,25 @@ ${noteMarkup}
 </html>
 `;
 
-await writeFile(outputPath, html);
-if (updatedSitemap !== sitemap) {
-    await writeFile(sitemapPath, updatedSitemap);
+if (checkOnly) {
+    const currentHtml = await readFile(outputPath, 'utf8').catch((error) => {
+        if (error.code === 'ENOENT') return null;
+        throw error;
+    });
+    const stale = [];
+    if (currentHtml !== html) stale.push('gratitude.html');
+    if (updatedSitemap !== sitemap) stale.push('sitemap.xml');
+    if (stale.length) {
+        console.error(`Gratitude outputs are stale: ${stale.join(', ')}. After content approval, run node scripts/render-gratitude.mjs.`);
+        process.exitCode = 1;
+    } else {
+        console.log(`Gratitude outputs are current (${notes.length} notes; ${latestNoteDate}).`);
+    }
+} else {
+    await writeFile(outputPath, html);
+    if (updatedSitemap !== sitemap) {
+        await writeFile(sitemapPath, updatedSitemap);
+    }
+    console.log(`Rendered ${notes.length} gratitude notes to ${path.relative(root, outputPath)}`);
+    console.log(`Gratitude sitemap lastmod: ${latestNoteDate}`);
 }
-console.log(`Rendered ${notes.length} gratitude notes to ${path.relative(root, outputPath)}`);
-console.log(`Gratitude sitemap lastmod: ${latestNoteDate}`);

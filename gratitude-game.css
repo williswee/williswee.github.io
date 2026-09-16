@@ -16,7 +16,7 @@
 .gratitude-count { margin: 0; color: var(--muted); font-size: .8rem; font-variant-numeric: tabular-nums; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .gratitude-notes { min-width: 0; }
-.gratitude-note { position: relative; padding: 32px 0; border-bottom: 1px solid var(--line); scroll-margin: 0; transition: background-color 180ms ease-out, opacity 220ms ease-out; }
+.gratitude-note { position: relative; padding: 32px 0; border-bottom: 1px solid var(--line); scroll-margin: 0; transition: opacity 220ms ease-out; }
 .gratitude-note-heading h2 { margin: 0; font: 600 1.2rem/1.55 var(--font-body); letter-spacing: -.02em; text-wrap: pretty; }
 .gratitude-note-heading h2 a { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 44px; color: var(--cream); text-decoration: none; }
 .gratitude-note-heading h2 a:hover { color: var(--gold); }
@@ -29,38 +29,39 @@
 .gratitude-note-body p:last-child { margin-bottom: 0; }
 .gratitude-note-body a { color: var(--cream); }
 .gratitude-note-body a:hover { color: var(--gold); }
-.gratitude-note:focus { outline: none; }
-.gratitude-note--spotlight { background: rgba(255, 190, 99, .055); outline: 1px solid var(--gold); outline-offset: 12px; z-index: 1; }
-.gratitude-note--spotlight:focus { outline: 1px solid var(--gold); }
-.gratitude-note:focus-visible { outline: 2px solid var(--gold); outline-offset: 12px; }
+/* Shared corner markers and keyboard-focus treatment live in reading-room.css. */
 .gratitude-notes--spotlight .gratitude-note:not(.gratitude-note--spotlight) { opacity: .22; }
 .gratitude-page:has(.gratitude-notes--spotlight) :is(.gratitude-landscape, .gratitude-intro-copy) { opacity: .22; }
 /* Keep links readable when keyboard users visit a note outside the spotlight. */
 .gratitude-notes--spotlight .gratitude-note:not(.gratitude-note--spotlight):focus-within { opacity: 1; }
 .gratitude-page :is(.gratitude-back, .random-pick-icon, .floating-gratitude-dock) svg { display: block; width: 20px; height: 20px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.5; }
 .floating-gratitude-dock {
+    --dock-center: calc(95vw - min(400px, 32vw));
     position: fixed;
-    left: calc(95vw - min(400px, 32vw));
+    left: var(--dock-center);
     bottom: max(20px, env(safe-area-inset-bottom));
     z-index: 60;
     display: flex;
     align-items: center;
     gap: 6px;
     width: max-content;
-    max-width: calc(100vw - 32px);
+    /* Keep enlarged controls and their focus rings inside the viewport,
+       while retaining the reading-pane center at ordinary text sizes. */
+    max-width: min(calc(100vw - 32px), calc(200vw - var(--dock-center) - var(--dock-center) - 32px));
     padding: 6px;
     border: 1px solid var(--line-strong);
     background: var(--panel);
     box-shadow: 0 12px 28px rgba(0, 0, 0, .35);
     transform: translateX(-50%);
 }
-.dock-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 8px 14px; border: 1px solid transparent; border-radius: 0; background: transparent; color: var(--cream); font-size: .8rem; font-weight: 600; }
+.dock-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-width: 0; min-height: 44px; padding: 8px 14px; border: 1px solid transparent; border-radius: 0; background: transparent; color: var(--cream); font-size: .8rem; font-weight: 600; overflow-wrap: anywhere; }
 .dock-btn--shuffle { color: var(--gold); border-color: var(--line); }
+.dock-btn--top { flex-shrink: 0; white-space: nowrap; }
 .dock-btn:hover { color: var(--gold); border-color: var(--gold); }
 .dock-btn:disabled { opacity: .55; cursor: default; }
 @media (max-width: 1100px) {
     .gratitude-landscape { right: 70vw; }
-    .floating-gratitude-dock { left: 63.5vw; }
+    .floating-gratitude-dock { --dock-center: 63.5vw; }
 }
 @media (max-width: 760px) {
     .gratitude-landscape { right: 0; }
@@ -74,8 +75,11 @@
     .gratitude-note time { font-size: .72rem; }
     .gratitude-note-body { margin-top: 20px; }
     .gratitude-note-body p { font-size: 1rem; line-height: 1.8; }
-    .gratitude-note--spotlight, .gratitude-note:focus-visible { outline-offset: 8px; }
-    .floating-gratitude-dock { left: 50%; }
+    .floating-gratitude-dock { --dock-center: 50vw; }
+    .floating-gratitude-dock:has(.dock-btn--keep-reading:not([hidden])) { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+    .floating-gratitude-dock .dock-btn--shuffle { grid-column: 1 / -1; grid-row: 1; }
+    .floating-gratitude-dock .dock-btn--keep-reading { grid-column: 1; grid-row: 2; }
+    .floating-gratitude-dock .dock-btn--top { grid-column: 2; grid-row: 2; }
 }
 @media (max-width: 380px) {
     .gratitude-page .random-pick-btn { font-size: .74rem; padding-inline: 10px; gap: 7px; }

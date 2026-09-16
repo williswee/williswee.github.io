@@ -10,15 +10,18 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="reading-room.css?v=1.4">
+    <link rel="stylesheet" href="reading-room.css?v=1.8">
     <link rel="icon" type="image/png" href="../avatar.png">
+    <script src="../reading-nav.js?v=1.1" defer></script>
+    <script src="newsletter.js?v=2" defer></script>
+    <noscript><style>iframe[data-newsletter-src] { display: none; }</style></noscript>
     <script src="https://www.useinflect.ai/inflect-tracking.js" async data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
-    <img src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&iv=2026-08-12.1" alt="" width="1" height="1" style="display:none;" referrerpolicy="unsafe-url" />
     <script src="essay-manifest.js?v=1" defer></script>
-    <script src="reading-room.js?v=1.2" defer></script>
+    <script src="reading-room.js?v=1.3" defer></script>
 </head>
 
 <body class="essay-page">
+    <img src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&iv=2026-08-12.1" alt="" width="1" height="1" style="display:none;" referrerpolicy="unsafe-url" />
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="reading-hud">
         <a href="../index.html" class="site-brand" aria-label="Willis Wee — home">
@@ -85,10 +88,9 @@
 
             <div class="subscribe-embed" id="newsletter">
                 <p>Enjoyed this? Subscribe to get new essays delivered to your inbox.</p>
-                <iframe src="https://williswee.substack.com/embed" width="100%" height="460" style="border: 0; background: transparent;" frameborder="0" scrolling="no" loading="lazy" title="Subscribe to Willis Wee newsletter"></iframe>
+                <a class="text-link newsletter-fallback" href="https://williswee.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe on Substack <span aria-hidden="true">↗</span></a>
+                <iframe data-newsletter-src="https://williswee.substack.com/embed" width="100%" height="460" style="border: 0; background: transparent;" frameborder="0" scrolling="no" loading="lazy" aria-hidden="true" tabindex="-1" title="Subscribe to Willis Wee newsletter"></iframe>
             </div>
-
-            <a class="text-link" href="https://williswee.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe on Substack <span aria-hidden="true">↗</span></a>
             <hr>
             <div class="article-nav-row">
                 <p class="back-link"><a href="index.html">← Back to Thoughts</a></p>

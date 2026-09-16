@@ -62,7 +62,7 @@
     padding: 32px 0;
     border-bottom: 1px solid var(--line);
     scroll-margin: 0;
-    transition: background-color 180ms ease-out, opacity 220ms ease-out;
+    transition: opacity 220ms ease-out;
 }
 .book-card.book-card--hidden { display: none; }
 .book-card h3 { grid-column: 1 / -1; grid-row: 1; margin: 0; color: var(--cream); font: 600 1.2rem/1.55 var(--font-body); letter-spacing: -.02em; overflow-wrap: break-word; }
@@ -74,34 +74,35 @@
 .book-grid--spotlight .book-card:not(.book-card--spotlight) { opacity: .22; }
 .books-page:has(.book-grid--spotlight) .books-landscape { opacity: .22; }
 .books-page:has(.book-grid--spotlight) .books-intro { opacity: .22; }
-.book-card--spotlight { background: rgba(255, 190, 99, .055); outline: 1px solid var(--gold); outline-offset: 12px; z-index: 1; }
-.book-card:focus { outline: none; }
-.book-card--spotlight:focus { outline: 1px solid var(--gold); }
-.book-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 12px; }
+/* Shared corner markers and keyboard-focus treatment live in reading-room.css. */
 .floating-book-dock {
+    --dock-center: calc(95vw - min(400px, 32vw));
     position: fixed;
-    left: calc(95vw - min(400px, 32vw));
+    left: var(--dock-center);
     bottom: max(20px, env(safe-area-inset-bottom));
     z-index: 60;
     display: flex;
     align-items: center;
     gap: 6px;
     width: max-content;
-    max-width: calc(100vw - 32px);
+    /* Keep enlarged controls and their focus rings inside the viewport,
+       while retaining the reading-pane center at ordinary text sizes. */
+    max-width: min(calc(100vw - 32px), calc(200vw - var(--dock-center) - var(--dock-center) - 32px));
     padding: 6px;
     border: 1px solid var(--line-strong);
     background: var(--panel);
     box-shadow: 0 12px 28px rgba(0, 0, 0, .35);
     transform: translateX(-50%);
 }
-.dock-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 8px 14px; border: 1px solid transparent; border-radius: 0; background: transparent; color: var(--cream); font-size: .8rem; font-weight: 600; }
+.dock-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-width: 0; min-height: 44px; padding: 8px 14px; border: 1px solid transparent; border-radius: 0; background: transparent; color: var(--cream); font-size: .8rem; font-weight: 600; overflow-wrap: anywhere; }
 .dock-btn--shuffle { color: var(--gold); border-color: var(--line); }
+.dock-btn--top { flex-shrink: 0; white-space: nowrap; }
 .dock-btn:hover { color: var(--gold); border-color: var(--gold); }
 .dock-btn:disabled { opacity: .55; cursor: default; }
 @media (max-width: 1100px) {
     .books-landscape { right: 70vw; }
     .book-filter-sidebar { left: 3vw; width: 24vw; padding: 18px; }
-    .floating-book-dock { left: 63.5vw; }
+    .floating-book-dock { --dock-center: 63.5vw; }
 }
 @media (max-width: 760px) {
     html { scroll-padding-top: calc(var(--header-height) + 80px); }
@@ -127,8 +128,11 @@
     .book-card h3 { font-size: 1.1rem; }
     .book-review { font-size: 1rem; line-height: 1.8; }
     .book-author, .book-tag { font-size: .68rem; }
-    .book-card--spotlight, .book-card:focus-visible { outline-offset: 8px; }
-    .floating-book-dock { left: 50%; }
+    .floating-book-dock { --dock-center: 50vw; }
+    .floating-book-dock:has(.dock-btn--keep-reading:not([hidden])) { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+    .floating-book-dock .dock-btn--shuffle { grid-column: 1 / -1; grid-row: 1; }
+    .floating-book-dock .dock-btn--keep-reading { grid-column: 1; grid-row: 2; }
+    .floating-book-dock .dock-btn--top { grid-column: 2; grid-row: 2; }
 }
 @media (max-width: 380px) {
     .books-page .random-pick-btn { font-size: .74rem; padding-inline: 10px; gap: 7px; }

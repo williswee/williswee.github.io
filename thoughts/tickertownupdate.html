@@ -10,15 +10,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="reading-room.css?v=1.4">
+    <link rel="stylesheet" href="reading-room.css?v=1.8">
     <link rel="icon" type="image/png" href="../avatar.png">
+    <script src="../reading-nav.js?v=1.1" defer></script>
+    <script src="newsletter.js?v=2" defer></script>
+    <noscript><style>iframe[data-newsletter-src] { display: none; }</style></noscript>
     <script src="https://www.useinflect.ai/inflect-tracking.js" async data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
-    <img src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&iv=2026-08-12.1" alt="" width="1" height="1" style="display:none;" referrerpolicy="unsafe-url" />
     <script src="essay-manifest.js?v=1" defer></script>
-    <script src="reading-room.js?v=1.2" defer></script>
+    <script src="reading-room.js?v=1.3" defer></script>
 </head>
 
 <body class="essay-page">
+    <img src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&iv=2026-08-12.1" alt="" width="1" height="1" style="display:none;" referrerpolicy="unsafe-url" />
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="reading-hud">
         <a href="../index.html" class="site-brand" aria-label="Willis Wee — home">
@@ -42,14 +45,13 @@
             <a class="essay-back text-link" href="index.html"><span aria-hidden="true">←</span> All thoughts</a>
             <article>
                 <h1>Everyone says they're making money investing. Nobody shows the receipts.</h1>
+                <p class="article-subtitle">I stopped vibe investing. Then I realized the hardest part wasn't just learning to build the system. It was finding anyone willing to share theirs.</p>
                 <p class="article-date">1 September 2026</p>
 
                 <figure>
                     <img src="../images/tickertown-update-waitlist.webp" alt="TickerTown private beta preview" width="2969" height="2032" decoding="async" srcset="../images/tickertown-update-waitlist-640.webp 640w, ../images/tickertown-update-waitlist-960.webp 960w, ../images/tickertown-update-waitlist-1440.webp 1440w, ../images/tickertown-update-waitlist.webp 2969w" sizes="(max-width: 380px) calc(100vw - 62px), (max-width: 760px) calc(100vw - 82px), (max-width: 1100px) calc(67vw - 66px), (min-width: 1250px) 710px, calc(64vw - 90px)" loading="eager">
                     <figcaption>Private beta <a href="https://preview.tickertown.ai/">for waitlist users</a>, coming soon</figcaption>
                 </figure>
-
-                <p class="article-subtitle">I stopped vibe investing. Then I realized the hardest part wasn't just learning to build the system. It was finding anyone willing to share theirs.</p>
 
                 <p>
                     Once, I bought Beyond Meat after listening to a podcast.<sup><a href="#footnote-1" id="footnote-anchor-1">1</a></sup> 🤦‍♂️
@@ -180,10 +182,9 @@
 
             <div class="subscribe-embed" id="newsletter">
                 <p>Enjoyed this? Subscribe to get new essays delivered to your inbox.</p>
-                <iframe src="https://williswee.substack.com/embed" width="100%" height="460" style="border: 0; background: transparent;" frameborder="0" scrolling="no" loading="lazy" title="Subscribe to Willis Wee newsletter"></iframe>
+                <a class="text-link newsletter-fallback" href="https://williswee.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe on Substack <span aria-hidden="true">↗</span></a>
+                <iframe data-newsletter-src="https://williswee.substack.com/embed" width="100%" height="460" style="border: 0; background: transparent;" frameborder="0" scrolling="no" loading="lazy" aria-hidden="true" tabindex="-1" title="Subscribe to Willis Wee newsletter"></iframe>
             </div>
-
-            <a class="text-link" href="https://williswee.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe on Substack <span aria-hidden="true">↗</span></a>
             <hr>
             <div class="article-nav-row">
                 <p class="back-link"><a href="index.html">← Back to Thoughts</a></p>

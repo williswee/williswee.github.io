@@ -69,7 +69,11 @@
 
     if (!scenes.length) return;
 
+    const header = document.querySelector('.site-hud');
+    let activeScene = null;
     function selectScene(scene) {
+        if (scene === activeScene) return;
+        activeScene = scene;
         scenes.forEach(item => item.classList.toggle('is-current', item === scene));
         navLinks.forEach(link => {
             if (link.dataset.level === scene.id) link.setAttribute('aria-current', 'page');
@@ -77,28 +81,40 @@
         });
     }
 
-    const observer = new IntersectionObserver(entries => {
-        const visible = entries
-            .filter(entry => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) selectScene(visible.target);
-    }, { threshold: [0.35, 0.55, 0.72] });
-
-    scenes.forEach(scene => observer.observe(scene));
-
     let frameRequested = false;
     function updateProgress() {
+        frameRequested = false;
+        // A viewport activation line works even when enlarged text makes a
+        // scene several screens tall; a whole-scene intersection ratio cannot.
+        const headerBottom = Math.max(0, header?.getBoundingClientRect().bottom || 0);
+        const activationLine = headerBottom + Math.min(100, Math.max(0, window.innerHeight - headerBottom) * 0.25);
+        let current = scenes[0];
+        for (const scene of scenes) {
+            if (scene.getBoundingClientRect().top > activationLine) break;
+            current = scene;
+        }
         const scrollable = document.documentElement.scrollHeight - window.innerHeight;
         const progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+        selectScene(current);
         root.style.setProperty('--scene-progress', progress.toFixed(4));
-        frameRequested = false;
     }
 
-    window.addEventListener('scroll', () => {
+    function queueProgress() {
         if (frameRequested) return;
         frameRequested = true;
         window.requestAnimationFrame(updateProgress);
-    }, { passive: true });
+    }
+    window.addEventListener('scroll', queueProgress, { passive: true });
+    window.addEventListener('resize', queueProgress);
+    window.addEventListener('hashchange', queueProgress);
+    window.addEventListener('pageshow', queueProgress);
+    window.addEventListener('load', queueProgress);
+    if ('ResizeObserver' in window) {
+        const observer = new window.ResizeObserver(queueProgress);
+        scenes.forEach(scene => observer.observe(scene));
+        if (header) observer.observe(header);
+    }
+    document.fonts?.ready.then(queueProgress);
 
     const year = document.getElementById('current-year');
     if (year) year.textContent = String(new Date().getFullYear());

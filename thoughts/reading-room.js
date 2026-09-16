@@ -96,8 +96,14 @@
     let progressPending = false;
     function updateProgress() {
         progressPending = false;
-        const total = document.documentElement.scrollHeight - innerHeight;
-        progress.style.width = `${total > 0 ? Math.max(0, Math.min(100, window.scrollY / total * 100)) : 0}%`;
+        const bounds = article.getBoundingClientRect();
+        const visibleHeight = Math.max(1, innerHeight - headerHeight());
+        const readingDistance = bounds.height - visibleHeight;
+        // Completion belongs to the essay, not the newsletter and footer below it.
+        // A short essay is complete once its final line fits in the viewport.
+        const fraction = !bounds.height ? 0 : bounds.bottom <= innerHeight + 1 ? 1 :
+            readingDistance > 0 ? (headerHeight() - bounds.top) / readingDistance : 0;
+        progress.style.width = `${Math.max(0, Math.min(1, fraction)) * 100}%`;
     }
     function queueProgress() {
         if (progressPending) return;
@@ -107,6 +113,14 @@
     window.addEventListener('scroll', queueProgress, {passive: true});
     window.addEventListener('resize', queueProgress);
     window.addEventListener('load', queueProgress);
+    window.addEventListener('pageshow', queueProgress);
+    article.addEventListener('load', queueProgress, true);
+    if ('ResizeObserver' in window) {
+        const progressResize = new ResizeObserver(queueProgress);
+        progressResize.observe(article);
+        if (header) progressResize.observe(header);
+    }
+    document.fonts?.ready.then(queueProgress);
     updateProgress();
 
     // Preserve code formatting without making a wide snippet overflow the page.
@@ -236,6 +250,14 @@
     let quoteOrigin;
     let selectionTimer;
     let copyTimer;
+    function quoteUrl() {
+        // Essay content is path-based. Drop preview/tracking queries and stale
+        // footnotes, but keep the current origin so local previews still work.
+        const url = new URL(location.href);
+        url.search = '';
+        url.hash = '';
+        return url.href;
+    }
     function hideDock() {
         clearTimeout(selectionTimer);
         if (dock.contains(document.activeElement)) {
@@ -263,7 +285,7 @@
             const top = rect.top - dock.offsetHeight - 12 > headerHeight() ? rect.top - dock.offsetHeight - 12 : rect.bottom + 12;
             dock.style.top = `${window.scrollY + top}px`;
             dock.style.left = `${Math.max(16, Math.min(innerWidth - dock.offsetWidth - 16, rect.left))}px`;
-            share.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`“${text}” — @williswee`)}&url=${encodeURIComponent(location.href)}`;
+            share.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`“${text}” — @williswee`)}&url=${encodeURIComponent(quoteUrl())}`;
         } else if (!dock.contains(document.activeElement) && !dock.matches(':hover')) {
             hideDock();
         }
@@ -284,7 +306,7 @@
         clearTimeout(copyTimer);
         copy.classList.remove('quote-btn--copied');
         try {
-            await navigator.clipboard.writeText(`“${selectedText}” — Willis Wee\n${location.href}`);
+            await navigator.clipboard.writeText(`“${selectedText}” — Willis Wee\n${quoteUrl()}`);
             copy.classList.add('quote-btn--copied');
             copyLabel.textContent = 'Copied!';
         } catch {
