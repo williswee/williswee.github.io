@@ -599,3 +599,13 @@ What's yours?
 2️⃣ Had home-cooked Japanese curry with rice. Soup style.
 
 3️⃣ Worked on my personal site. Trying to be more creative. Fun. Also updated and backfilled my gratitude notes.
+
+## Gratitude note #54
+
+*2026-09-16*
+
+1️⃣ Again, very thankful for the wife for being strong when things get challenging.
+
+2️⃣ Great fun seeing the two bigger girls enjoying climbing. They climb well.
+
+3️⃣ Done planning the year-end holiday trip. All we have to do now is finish the booking.
