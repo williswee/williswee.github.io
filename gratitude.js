@@ -8,7 +8,6 @@
     const dockShuffleButton = document.getElementById('gratitude-dock-shuffle-btn');
     const keepReadingButton = document.getElementById('gratitude-dock-keep-reading-btn');
     const dockTopButton = document.getElementById('gratitude-dock-top-btn');
-    const controls = document.querySelector('.gratitude-toolbar');
     const status = document.getElementById('random-gratitude-status');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let selectedNote = null;
@@ -66,8 +65,10 @@
 
     function updateDock() {
         dockUpdateQueued = false;
-        const controlsPassed = controls && controls.getBoundingClientRect().bottom <= headerBottom();
-        setDockVisible(Boolean(selectedNote || controlsPassed));
+        // Hand off as soon as the main action is clipped, not only after the
+        // whole toolbar disappears beneath the fixed header.
+        const primaryControlObscured = randomButton && randomButton.getBoundingClientRect().top < headerBottom();
+        setDockVisible(Boolean(selectedNote || primaryControlObscured));
     }
 
     function scheduleDockUpdate() {

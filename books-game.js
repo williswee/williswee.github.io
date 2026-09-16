@@ -111,8 +111,14 @@
 
     function updateDock() {
         dockUpdateQueued = false;
-        const controlsPassed = controls && controls.getBoundingClientRect().bottom <= headerBottom();
-        setDockVisible(Boolean(selectedCard || controlsPassed));
+        // Hand off as soon as the main action is clipped, not only after the
+        // whole toolbar disappears. The compact category menu is sticky too;
+        // use its measured edge so enlarged text is handled without a fixed gap.
+        const obstructionBottom = compact.matches && menu
+            ? Math.max(headerBottom(), menu.getBoundingClientRect().bottom)
+            : headerBottom();
+        const primaryControlObscured = randomButton && randomButton.getBoundingClientRect().top < obstructionBottom;
+        setDockVisible(Boolean(selectedCard || primaryControlObscured));
     }
 
     function scheduleDockUpdate() {
@@ -286,6 +292,7 @@
     }
 
     compact.addEventListener('change', setMenuMode);
+    if (menu) menu.addEventListener('toggle', scheduleDockUpdate);
     window.addEventListener('scroll', scheduleDockUpdate, { passive: true });
     window.addEventListener('resize', scheduleDockUpdate);
     window.addEventListener('hashchange', () => {

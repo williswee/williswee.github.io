@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import vm from 'node:vm';
 
-function fixture(kind) {
+function fixture(kind, { compactMode = false, menuPresent = true } = {}) {
     const books = kind === 'books';
     const listeners = new Map();
     const keys = new Map();
@@ -45,6 +45,10 @@ function fixture(kind) {
     const grid = element(books ? 'book-grid' : 'gratitude-notes');
     const status = element(books ? 'book-status' : 'random-gratitude-status');
     const controls = element('controls');
+    const menu = element('book-filter-menu', 'DETAILS');
+    menu.getBoundingClientRect = () => ({ top: 76, bottom: 128, height: 52 });
+    const summary = element('category-summary', 'SUMMARY');
+    menu.querySelector = selector => selector === 'summary' ? summary : null;
     const cards = ['first', 'second', 'third'].map((id, i) => {
         const card = element(id, books ? 'DIV' : 'ARTICLE');
         card.dataset = { category: i === 2 ? 'science' : 'life', noteNumber: i + 1 };
@@ -60,6 +64,7 @@ function fixture(kind) {
             if (selector === '.reading-hud') return { getBoundingClientRect: () => ({ bottom: 76 }) };
             if (selector === '.book-controls' || selector === '.gratitude-toolbar') return controls;
             if (selector === '.gratitude-notes') return grid;
+            if (selector === '.book-filter-menu' && books && menuPresent) return menu;
             return null;
         },
         getElementById: id => elements.find(e => e.id === id) || null,
@@ -68,7 +73,7 @@ function fixture(kind) {
     const window = {
         location, scrollY: 600, scrollX: 12, innerHeight: 800,
         history: { replaceState: (_state, _title, url) => { location.hash = url.includes('#') ? `#${url.split('#')[1]}` : ''; } },
-        matchMedia: query => ({ matches: query.includes('reduced-motion'), addEventListener() {} }),
+        matchMedia: query => ({ matches: query.includes('reduced-motion') || (compactMode && query.includes('max-width')), addEventListener() {} }),
         getComputedStyle: e => e === document.documentElement ? { scrollPaddingTop: '100' } : { bottom: '20' },
         requestAnimationFrame: callback => frames.push(callback),
         addEventListener: (name, handler) => listeners.set(name, handler),
@@ -95,10 +100,86 @@ function fixture(kind) {
         return event;
     };
     const selected = () => cards.find(card => card.classList.contains(books ? 'book-card--spotlight' : 'gratitude-note--spotlight'));
-    return { cards, dock, random, shuffle, keep, top, grid, location, window, document, controls, select, click, escape, selected, flush, scrolls, listeners };
+    return { cards, dock, random, shuffle, keep, top, grid, menu, location, window, document, controls, select, click, escape, selected, flush, scrolls, listeners };
 }
 
+test('books: compact sticky category menu counts as an obstruction at its measured height', () => {
+    const f = fixture('books', { compactMode: true });
+    for (const bottom of [128, 184, 240]) {
+        f.menu.getBoundingClientRect = () => ({ top: 76, bottom, height: bottom - 76 });
+        f.random.getBoundingClientRect = () => ({ top: bottom - 1, bottom: bottom + 43, height: 44 });
+        f.listeners.get('scroll')(); f.flush();
+        assert.equal(f.dock.hidden, false);
+        f.random.getBoundingClientRect = () => ({ top: bottom, bottom: bottom + 44, height: 44 });
+        f.listeners.get('scroll')(); f.flush();
+        assert.equal(f.dock.hidden, true);
+    }
+});
+
+test('books: desktop category rail does not extend the primary action obstruction', () => {
+    const f = fixture('books');
+    f.menu.getBoundingClientRect = () => ({ top: 140, bottom: 680, height: 540 });
+    f.random.getBoundingClientRect = () => ({ top: 130, bottom: 174, height: 44 });
+    f.listeners.get('scroll')(); f.flush();
+    assert.equal(f.dock.hidden, true);
+});
+
+test('books: compact category toggle recalculates handoff without a scroll event', () => {
+    const f = fixture('books', { compactMode: true });
+    f.random.getBoundingClientRect = () => ({ top: 150, bottom: 194, height: 44 });
+    f.menu.getBoundingClientRect = () => ({ top: 76, bottom: 220, height: 144 });
+    f.menu.handlers.get('toggle')(); f.flush();
+    assert.equal(f.dock.hidden, false);
+    f.menu.getBoundingClientRect = () => ({ top: 76, bottom: 128, height: 52 });
+    f.menu.handlers.get('toggle')(); f.flush();
+    assert.equal(f.dock.hidden, true);
+});
+
+test('books: a missing compact menu still uses the header boundary', () => {
+    const f = fixture('books', { compactMode: true, menuPresent: false });
+    f.random.getBoundingClientRect = () => ({ top: 77, bottom: 121, height: 44 });
+    f.listeners.get('scroll')(); f.flush();
+    assert.equal(f.dock.hidden, true);
+    f.random.getBoundingClientRect = () => ({ top: 75, bottom: 119, height: 44 });
+    f.listeners.get('scroll')(); f.flush();
+    assert.equal(f.dock.hidden, false);
+});
+
 for (const kind of ['books', 'gratitude']) {
+    test(`${kind}: dock remains available while the primary random action is partially hidden`, () => {
+        const f = fixture(kind);
+        f.controls.getBoundingClientRect = () => ({ top: 60, bottom: 130, height: 70 });
+        f.random.getBoundingClientRect = () => ({ top: 70, bottom: 114, height: 44 });
+        f.listeners.get('scroll')();
+        f.flush();
+        assert.equal(f.dock.hidden, false);
+
+        f.random.getBoundingClientRect = () => ({ top: 76, bottom: 120, height: 44 });
+        f.listeners.get('scroll')();
+        f.flush();
+        assert.equal(f.dock.hidden, true);
+
+        f.random.getBoundingClientRect = () => ({ top: 75.5, bottom: 119.5, height: 44 });
+        f.listeners.get('scroll')();
+        f.flush();
+        assert.equal(f.dock.hidden, false);
+    });
+
+    test(`${kind}: Keep reading and Escape retain the dock when the primary action is clipped`, () => {
+        const f = fixture(kind);
+        f.random.getBoundingClientRect = () => ({ top: 71, bottom: 115, height: 44 });
+        for (const action of ['keep', 'escape']) {
+            f.select();
+            f.window.scrollY = 494;
+            if (action === 'keep') f.click(f.keep);
+            else f.escape();
+            assert.equal(f.dock.hidden, false);
+            assert.equal(f.selected(), undefined);
+            assert.equal(f.window.scrollY, 494);
+            assert.equal(f.location.hash, '');
+        }
+    });
+
     test(`${kind}: dock follows selected content without disabling other entries`, () => {
         const f = fixture(kind);
         f.select();

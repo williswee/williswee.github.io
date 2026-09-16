@@ -139,7 +139,7 @@ const html = `<!DOCTYPE html>
     <link rel="stylesheet" href="gratitude-game.css?v=1.3">
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="reading-nav.js?v=1.1" defer></script>
-    <script src="gratitude.js?v=2.1" defer></script>
+    <script src="gratitude.js?v=2.2" defer></script>
 </head>
 
 <body class="gratitude-page">
