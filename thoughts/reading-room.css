@@ -193,6 +193,10 @@ article { font-size: 1.0625rem; line-height: 1.85; overflow-wrap: break-word; }
 article h1 { max-width: 22ch; font-size: 2.625rem; line-height: 1.2; text-wrap: pretty; }
 article h2 { margin: 44px 0 20px; }
 article h3 { margin: 32px 0 16px; line-height: 1.5; }
+/* Semantic primary sections retain these essays' approved body-face hierarchy. */
+article h2:is(.article-section-heading--compact, .article-section-heading--body) { font-family: var(--font-body); letter-spacing: normal; text-wrap: wrap; }
+article h2.article-section-heading--compact { margin: 1.33em 0; font-size: 1em; line-height: 1.85; }
+article h2.article-section-heading--body { margin: 32px 0 16px; font-size: 1.17em; line-height: 1.5; }
 article > .article-date { margin: 20px 0 32px; font-size: 0.78rem; color: var(--muted); }
 article p { margin-bottom: 26px; }
 article figure { margin: 0 0 36px; }

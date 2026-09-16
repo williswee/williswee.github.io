@@ -77,9 +77,6 @@
 .work-onward { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: -12px; }
 .work-onward a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 52px; color: var(--cream); font-size: .82rem; font-weight: 600; text-decoration: none; }
 .work-onward a:hover { color: var(--gold); }
-.work-footer nav { display: flex; gap: 24px; flex-wrap: wrap; }
-.work-footer nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); font-size: .75rem; }
-.work-footer nav a:hover { color: var(--gold); }
 @media (max-width: 1100px) {
     .work-landscape { right: 70vw; }
     .chapter-rail { left: 3vw; width: 24vw; padding: 18px; }

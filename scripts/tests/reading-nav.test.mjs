@@ -28,22 +28,16 @@ function navigationFixture({ width = 280, scrollWidth = 640, scrollLeft = 0, loa
         scrollWidth,
         scrollLeft,
         getBoundingClientRect: () => ({ left: 20, right: 20 + width, width }),
-        addEventListener: (type, handler) => listeners.set(type, handler),
-        contains: link => link.nav === nav,
         scrollBy: options => {
             // Browsers clamp the navigation at the first and last item.
             nav.scrollLeft = Math.max(0, Math.min(scrollWidth - width, nav.scrollLeft + options.left));
             scrolls.push(options);
         }
     };
-    let ready;
     const document = {
         readyState: loading ? 'loading' : 'complete',
-        querySelectorAll: () => [nav],
-        addEventListener: (type, handler) => {
-            assert.equal(type, 'DOMContentLoaded');
-            ready = handler;
-        }
+        documentElement: { classList: { add: () => {} } },
+        addEventListener: (type, handler) => listeners.set(type, handler)
     };
     vm.runInNewContext(source, {
         document,
@@ -57,12 +51,12 @@ function navigationFixture({ width = 280, scrollWidth = 640, scrollLeft = 0, loa
                 return { left, right: left + linkWidth, width: linkWidth };
             }
         };
-        link.closest = () => link;
+        link.closest = selector => selector === '.reading-nav' ? (outside ? null : nav) : link;
         const target = nested ? { closest: () => link } : link;
         listeners.get('focusin')({ target });
         return link.getBoundingClientRect();
     }
-    return { nav, scrolls, listeners, focus, ready: () => ready() };
+    return { nav, scrolls, listeners, focus };
 }
 
 test('does not move a non-overflowing desktop navigation', () => {
@@ -121,10 +115,15 @@ test('an oversized label is aligned to its leading edge without oscillating', ()
     assert.equal(fixture.scrolls.length, 1);
 });
 
-test('initializes after parsing when loaded before the navigation', () => {
+test('delegated keyboard navigation initializes before the body is parsed', () => {
     const fixture = navigationFixture({ loading: true });
-    assert.equal(fixture.listeners.size, 0);
-    fixture.ready();
+    assert.deepEqual([...fixture.listeners.keys()], ['focusin']);
     fixture.focus(300);
     assert.equal(fixture.scrolls.length, 1);
+});
+
+test('ignores focus targets without element traversal methods', () => {
+    const fixture = navigationFixture();
+    fixture.listeners.get('focusin')({ target: {} });
+    assert.equal(fixture.scrolls.length, 0);
 });

@@ -30,20 +30,15 @@ test('fallback overrides narrow-screen fixed-height navigation rules', () => {
         styles.indexOf('@media (max-width: 380px)'));
 });
 
-test('normal visuals activate only after keyboard enhancement is installed', () => {
+test('normal visuals activate before body parsing, after delegated keyboard enhancement', () => {
     const events = [];
-    let ready;
     const document = {
         readyState: 'loading',
+        body: null,
         documentElement: { classList: { add: name => events.push(`class:${name}`) } },
-        querySelectorAll: () => [{ addEventListener: type => events.push(`listener:${type}`) }],
-        addEventListener: (type, callback) => {
-            assert.equal(type, 'DOMContentLoaded');
-            ready = callback;
-        }
+        addEventListener: type => events.push(`listener:${type}`)
     };
     vm.runInNewContext(source, { document });
-    assert.deepEqual(events, []);
-    ready();
     assert.deepEqual(events, ['listener:focusin', 'class:reading-nav-enhanced']);
+    assert.doesNotMatch(source, /DOMContentLoaded|querySelectorAll/);
 });

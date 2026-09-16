@@ -135,10 +135,10 @@ const html = `<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.8">
+    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.9">
     <link rel="stylesheet" href="gratitude-game.css?v=1.3">
     <link rel="icon" type="image/png" href="avatar.png">
-    <script src="reading-nav.js?v=1.1" defer></script>
+    <script src="reading-nav.js?v=1.2"></script>
     <script src="gratitude.js?v=2.2" defer></script>
 </head>
 
