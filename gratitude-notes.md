@@ -639,3 +639,13 @@ What's yours?
 2️⃣ Spent quality time trying new food and taking a walk at a park near the beach.
 
 3️⃣ Had fun catching up with friends. Always nice to align things with Ian. Gives me more clarity and excitement.
+
+## Gratitude note #58
+
+*2026-09-22*
+
+1️⃣ Lots of laughter yesterday with the kids. Nice to know they still enjoy a thousand tickles and a thousand kisses, and they’re still small enough for me to catch them for hugs and kisses.
+
+2️⃣ Nice spending time with my eldest girl. She had diarrhea, so we got some good one-on-one time together.
+
+3️⃣ I’ve been eating chocolates quite regularly. I love dark chocolate, especially sea salt and almond flavors. Simple pleasures.
