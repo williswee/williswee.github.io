@@ -150,7 +150,19 @@ p { margin: 0 0 24px; color: var(--cream-soft); }
 .article-list { list-style: none; padding: 0; margin: 0; }
 .article-list li { position: relative; border-bottom: 1px solid var(--line); }
 .article-list li > a { display: block; position: relative; padding: 22px 34px 44px 0; font-size: 1.05rem; font-weight: 500; line-height: 1.55; text-decoration: none; transition: color 180ms ease-out; }
-.article-list li > a::after { position: absolute; right: 0; top: 24px; content: "↗"; font-size: 1.25rem; font-weight: 400; }
+/* A decorative vector keeps Safari from substituting an emoji glyph. */
+.article-list li > a::after {
+    --arrow-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 16 16 4M6 4h10v10' fill='none' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E");
+    position: absolute;
+    right: 0;
+    top: 24px;
+    width: 1.25rem;
+    height: 1.25rem;
+    content: "";
+    background-color: currentColor;
+    -webkit-mask: var(--arrow-icon) center / contain no-repeat;
+    mask: var(--arrow-icon) center / contain no-repeat;
+}
 .article-list li > a:hover { color: var(--gold); }
 .article-list .article-date { position: absolute; bottom: 18px; left: 0; margin: 0; color: var(--muted); font-size: 0.72rem; pointer-events: none; font-variant-numeric: tabular-nums; }
 .newsletter-cta, .subscribe-embed { margin-top: 52px; padding-top: 36px; border-top: 1px solid var(--line); }

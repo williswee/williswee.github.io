@@ -42,7 +42,9 @@
     bottom: max(20px, env(safe-area-inset-bottom));
     z-index: 60;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     gap: 6px;
     width: max-content;
     /* Keep enlarged controls and their focus rings inside the viewport,
@@ -76,10 +78,6 @@
     .gratitude-note-body { margin-top: 20px; }
     .gratitude-note-body p { font-size: 1rem; line-height: 1.8; }
     .floating-gratitude-dock { --dock-center: 50vw; }
-    .floating-gratitude-dock:has(.dock-btn--keep-reading:not([hidden])) { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
-    .floating-gratitude-dock .dock-btn--shuffle { grid-column: 1 / -1; grid-row: 1; }
-    .floating-gratitude-dock .dock-btn--keep-reading { grid-column: 1; grid-row: 2; }
-    .floating-gratitude-dock .dock-btn--top { grid-column: 2; grid-row: 2; }
 }
 @media (max-width: 380px) {
     .gratitude-page .random-pick-btn { font-size: .74rem; padding-inline: 10px; gap: 7px; }

@@ -136,10 +136,10 @@ const html = `<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="thoughts/reading-room.css?v=1.9">
-    <link rel="stylesheet" href="gratitude-game.css?v=1.3">
+    <link rel="stylesheet" href="gratitude-game.css?v=1.4">
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="reading-nav.js?v=1.2"></script>
-    <script src="gratitude.js?v=2.2" defer></script>
+    <script src="gratitude.js?v=2.3" defer></script>
 </head>
 
 <body class="gratitude-page">
@@ -204,7 +204,6 @@ ${noteMarkup}
             <span class="random-pick-icon" aria-hidden="true"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14"/><path d="M6 6h1v1H6zM13 13h1v1h-1zM9.5 9.5h1v1h-1z" fill="currentColor" stroke="none"/></svg></span>
             <span>Another pick</span>
         </button>
-        <button class="dock-btn dock-btn--keep-reading" id="gratitude-dock-keep-reading-btn" type="button" aria-label="Leave focus mode and keep reading here" hidden>Keep reading</button>
         <button class="dock-btn dock-btn--top" id="gratitude-dock-top-btn" type="button" aria-label="Clear focus mode and return to the top of the gratitude notes">
             <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 17V4M5 9l5-5 5 5"/></svg><span>Top</span>
         </button>

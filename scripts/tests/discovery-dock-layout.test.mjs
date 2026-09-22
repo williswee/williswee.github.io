@@ -13,11 +13,4 @@ for (const page of ['books', 'gratitude']) {
         assert.match(css, /--dock-center:\s*50vw/);
         assert.match(css, /\.dock-btn--top\s*\{\s*flex-shrink:\s*0; white-space:\s*nowrap;/);
     });
-
-    test(`${page}: compact focus dock keeps all three actions in two rows`, () => {
-        assert.match(css, /:has\(\.dock-btn--keep-reading:not\(\[hidden\]\)\)\s*\{\s*display: grid; grid-template-columns: minmax\(0, 1fr\) auto;/);
-        assert.match(css, /\.dock-btn--shuffle\s*\{\s*grid-column: 1 \/ -1; grid-row: 1;/);
-        assert.match(css, /\.dock-btn--keep-reading\s*\{\s*grid-column: 1; grid-row: 2;/);
-        assert.match(css, /\.dock-btn--top\s*\{\s*grid-column: 2; grid-row: 2;/);
-    });
 }

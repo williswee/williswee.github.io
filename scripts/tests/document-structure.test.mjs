@@ -57,7 +57,10 @@ test('reading pages and the Gratitude renderer use the current shared cache tags
         const html = read(name);
         if (name === 'index.html') continue;
         readingPages += 1;
-        assert.equal((html.match(/reading-room\.css\?v=1\.9"/g) ?? []).length, 1, name);
+        const readingStyles = name === 'thoughts/index.html'
+            ? /reading-room\.css\?v=1\.10"/g
+            : /reading-room\.css\?v=1\.9"/g;
+        assert.equal((html.match(readingStyles) ?? []).length, 1, name);
         assert.equal((html.match(/reading-nav\.js\?v=1\.2"/g) ?? []).length, 1, name);
         const navScript = html.match(/<script\b[^>]*src="(?:\.\.\/)?reading-nav\.js\?v=1\.2"[^>]*><\/script>/)?.[0];
         assert.ok(navScript, `${name}: missing shared navigation bootstrap`);
@@ -65,11 +68,11 @@ test('reading pages and the Gratitude renderer use the current shared cache tags
         assert.ok(html.indexOf(navScript) < html.indexOf('</head>'), `${name}: bootstrap belongs in the head`);
     }
     assert.equal(readingPages, 45);
-    assert.match(read('books.html'), /books-game\.css\?v=1\.4"/);
-    assert.match(read('gratitude.html'), /gratitude-game\.css\?v=1\.3"/);
+    assert.match(read('books.html'), /books-game\.css\?v=1\.5"/);
+    assert.match(read('gratitude.html'), /gratitude-game\.css\?v=1\.4"/);
     const renderer = read('scripts/render-gratitude.mjs');
     assert.match(renderer, /reading-room\.css\?v=1\.9"/);
-    assert.match(renderer, /gratitude-game\.css\?v=1\.3"/);
+    assert.match(renderer, /gratitude-game\.css\?v=1\.4"/);
     assert.match(renderer, /<script src="reading-nav\.js\?v=1\.2"><\/script>/);
 });
 

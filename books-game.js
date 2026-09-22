@@ -12,7 +12,6 @@
     const randomButton = document.getElementById('random-book-btn');
     const dock = document.getElementById('floating-book-dock');
     const shuffleButton = document.getElementById('dock-shuffle-btn');
-    const keepReadingButton = document.getElementById('dock-keep-reading-btn');
     const topButton = document.getElementById('dock-top-btn');
     const compact = window.matchMedia('(max-width: 760px)');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -182,9 +181,7 @@
     }
 
     function clearSpotlight() {
-        if (keepReadingButton === document.activeElement) focusElement(selectedCard || randomButton);
         selectedCard = null;
-        if (keepReadingButton) keepReadingButton.hidden = true;
         if (grid) grid.classList.remove('book-grid--spotlight');
         cards.forEach((card) => card.classList.remove('book-card--spotlight'));
     }
@@ -207,7 +204,6 @@
         // Keep the fixed controls next in reading/Tab order, not after the
         // entire collection. Other recommendations stay freely reachable.
         if (dock) card.after(dock);
-        if (keepReadingButton) keepReadingButton.hidden = false;
         if (updateHash) window.history.replaceState(null, '', `#${encodeURIComponent(card.id)}`);
         setDockVisible(true);
         return queueNavigation(() => {
@@ -260,12 +256,12 @@
         button.addEventListener('click', pickRandomBook);
         button.addEventListener('animationend', () => button.classList.remove('rolling'));
     });
-    function keepReading() {
+    function exitFocusMode() {
         if (!selectedCard) return;
         const position = { left: window.scrollX, top: window.scrollY, behavior: 'instant' };
         navigationVersion++;
         // Stop any in-flight random-pick scroll before restoring the reading
-        // position. Never leave focus on the control that is about to hide.
+        // position. Restore content focus before the dock can hide.
         window.scrollTo(position);
         if (dock && dock.contains(document.activeElement)) focusElement(selectedCard);
         clearSpotlight();
@@ -273,11 +269,10 @@
         updateDock();
         window.scrollTo(position);
     }
-    if (keepReadingButton) keepReadingButton.addEventListener('click', keepReading);
     document.addEventListener('keydown', (event) => {
         if (event.key !== 'Escape' || event.defaultPrevented || !selectedCard) return;
         event.preventDefault();
-        keepReading();
+        exitFocusMode();
     });
     if (topButton) {
         topButton.addEventListener('click', () => {

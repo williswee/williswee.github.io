@@ -82,7 +82,9 @@
     bottom: max(20px, env(safe-area-inset-bottom));
     z-index: 60;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     gap: 6px;
     width: max-content;
     /* Keep enlarged controls and their focus rings inside the viewport,
@@ -129,10 +131,6 @@
     .book-review { font-size: 1rem; line-height: 1.8; }
     .book-author, .book-tag { font-size: .68rem; }
     .floating-book-dock { --dock-center: 50vw; }
-    .floating-book-dock:has(.dock-btn--keep-reading:not([hidden])) { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
-    .floating-book-dock .dock-btn--shuffle { grid-column: 1 / -1; grid-row: 1; }
-    .floating-book-dock .dock-btn--keep-reading { grid-column: 1; grid-row: 2; }
-    .floating-book-dock .dock-btn--top { grid-column: 2; grid-row: 2; }
 }
 @media (max-width: 380px) {
     .books-page .random-pick-btn { font-size: .74rem; padding-inline: 10px; gap: 7px; }

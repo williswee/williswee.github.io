@@ -36,12 +36,10 @@ function fixture(kind, { compactMode = false, menuPresent = true } = {}) {
     }
     const random = element(books ? 'random-book-btn' : 'random-gratitude-btn', 'BUTTON');
     const shuffle = element(books ? 'dock-shuffle-btn' : 'gratitude-dock-shuffle-btn', 'BUTTON');
-    const keep = element(books ? 'dock-keep-reading-btn' : 'gratitude-dock-keep-reading-btn', 'BUTTON');
-    keep.hidden = true;
     const top = element(books ? 'dock-top-btn' : 'gratitude-dock-top-btn', 'BUTTON');
     const dock = element(books ? 'floating-book-dock' : 'floating-gratitude-dock');
     dock.hidden = true;
-    dock.contains = node => [dock, shuffle, keep, top].includes(node);
+    dock.contains = node => [dock, shuffle, top].includes(node);
     const grid = element(books ? 'book-grid' : 'gratitude-notes');
     const status = element(books ? 'book-status' : 'random-gratitude-status');
     const controls = element('controls');
@@ -56,7 +54,7 @@ function fixture(kind, { compactMode = false, menuPresent = true } = {}) {
             : name === '.book-tag' ? element('', 'SPAN', card.dataset.category) : null;
         return card;
     });
-    const elements = [random, shuffle, keep, top, dock, grid, status, ...cards];
+    const elements = [random, shuffle, top, dock, grid, status, ...cards];
     Object.assign(document, {
         querySelectorAll: selector => selector === '[id]' ? elements
             : selector === (books ? '.book-card' : '.gratitude-note') ? cards : [],
@@ -100,7 +98,7 @@ function fixture(kind, { compactMode = false, menuPresent = true } = {}) {
         return event;
     };
     const selected = () => cards.find(card => card.classList.contains(books ? 'book-card--spotlight' : 'gratitude-note--spotlight'));
-    return { cards, dock, random, shuffle, keep, top, grid, menu, location, window, document, controls, select, click, escape, selected, flush, scrolls, listeners };
+    return { cards, dock, random, shuffle, top, grid, menu, location, window, document, controls, select, click, escape, selected, flush, scrolls, listeners };
 }
 
 test('books: compact sticky category menu counts as an obstruction at its measured height', () => {
@@ -165,19 +163,16 @@ for (const kind of ['books', 'gratitude']) {
         assert.equal(f.dock.hidden, false);
     });
 
-    test(`${kind}: Keep reading and Escape retain the dock when the primary action is clipped`, () => {
+    test(`${kind}: Escape retains the dock when the primary action is clipped`, () => {
         const f = fixture(kind);
         f.random.getBoundingClientRect = () => ({ top: 71, bottom: 115, height: 44 });
-        for (const action of ['keep', 'escape']) {
-            f.select();
-            f.window.scrollY = 494;
-            if (action === 'keep') f.click(f.keep);
-            else f.escape();
-            assert.equal(f.dock.hidden, false);
-            assert.equal(f.selected(), undefined);
-            assert.equal(f.window.scrollY, 494);
-            assert.equal(f.location.hash, '');
-        }
+        f.select();
+        f.window.scrollY = 494;
+        f.escape();
+        assert.equal(f.dock.hidden, false);
+        assert.equal(f.selected(), undefined);
+        assert.equal(f.window.scrollY, 494);
+        assert.equal(f.location.hash, '');
     });
 
     test(`${kind}: dock follows selected content without disabling other entries`, () => {
@@ -185,25 +180,25 @@ for (const kind of ['books', 'gratitude']) {
         f.select();
         assert.equal(f.dock.previousElementSibling, f.cards[0]);
         assert.equal(f.document.activeElement, f.cards[0]);
-        assert.equal(f.keep.hidden, false);
         f.select(2);
         assert.equal(f.dock.previousElementSibling, f.cards[2]);
         assert.equal(f.cards.some(e => e.hidden || e.attrs.has('inert')), false);
     });
 
-    test(`${kind}: Keep reading clears focus mode/hash and retains exact scroll coordinates`, () => {
+    test(`${kind}: Escape clears focus mode/hash, restores content focus and retains exact scroll coordinates`, () => {
         const f = fixture(kind);
         f.select();
         f.window.scrollX = 9;
         f.window.scrollY = 1234;
-        f.click(f.keep);
+        f.shuffle.focus();
+        f.escape();
         assert.equal(f.selected(), undefined);
         assert.equal(f.location.hash, '');
         assert.equal(f.location.search, '?preview=1');
         assert.equal(f.window.scrollX, 9);
         assert.equal(f.window.scrollY, 1234);
         assert.equal(f.document.activeElement, f.cards[0]);
-        assert.equal(f.keep.hidden, true);
+        assert.equal(f.dock.hidden, true);
         assert.equal(f.scrolls.at(-1).behavior, 'instant');
     });
 
@@ -236,15 +231,15 @@ for (const kind of ['books', 'gratitude']) {
         assert.equal(f.document.activeElement, f.random);
     });
 
-    test(`${kind}: invalid hash safely moves focus off the hidden Keep reading action`, () => {
+    test(`${kind}: invalid hash safely moves focus off the hidden dock`, () => {
         const f = fixture(kind);
         f.select();
-        f.keep.focus();
+        f.shuffle.focus();
         f.location.hash = '#unrelated';
         f.listeners.get('hashchange')();
         f.flush();
-        assert.equal(f.keep.hidden, true);
-        assert.equal(f.document.activeElement, f.cards[0]);
+        assert.equal(f.dock.hidden, true);
+        assert.equal(f.document.activeElement, f.random);
         assert.equal(f.location.hash, '#unrelated');
     });
 }

@@ -6,7 +6,6 @@
     const notesGrid = document.querySelector('.gratitude-notes');
     const dock = document.getElementById('floating-gratitude-dock');
     const dockShuffleButton = document.getElementById('gratitude-dock-shuffle-btn');
-    const keepReadingButton = document.getElementById('gratitude-dock-keep-reading-btn');
     const dockTopButton = document.getElementById('gratitude-dock-top-btn');
     const status = document.getElementById('random-gratitude-status');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -98,9 +97,7 @@
     }
 
     function clearSpotlight() {
-        if (keepReadingButton === document.activeElement) focusElement(selectedNote || randomButton);
         selectedNote = null;
-        if (keepReadingButton) keepReadingButton.hidden = true;
         if (notesGrid) notesGrid.classList.remove('gratitude-notes--spotlight');
         notes.forEach((note) => note.classList.remove('gratitude-note--spotlight'));
         if (status) status.textContent = '';
@@ -116,7 +113,6 @@
         // The dock stays visually fixed, but follows this note in reading and
         // keyboard order instead of making visitors traverse the full journal.
         if (dock) note.after(dock);
-        if (keepReadingButton) keepReadingButton.hidden = false;
         if (updateHash && note.id) {
             window.history.replaceState(null, '', `#${encodeURIComponent(note.id)}`);
         }
@@ -153,7 +149,7 @@
         button.addEventListener('animationend', () => button.classList.remove('rolling'));
     });
 
-    function keepReading() {
+    function exitFocusMode() {
         if (!selectedNote) return;
         const position = { left: window.scrollX, top: window.scrollY, behavior: 'instant' };
         navigationVersion++;
@@ -166,11 +162,10 @@
         updateDock();
         window.scrollTo(position);
     }
-    if (keepReadingButton) keepReadingButton.addEventListener('click', keepReading);
     document.addEventListener('keydown', (event) => {
         if (event.key !== 'Escape' || event.defaultPrevented || !selectedNote) return;
         event.preventDefault();
-        keepReading();
+        exitFocusMode();
     });
 
     if (dockTopButton) {
