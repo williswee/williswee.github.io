@@ -10,10 +10,21 @@ const pages = [
         .map(name => `thoughts/${name}`)
 ].sort();
 const read = name => readFileSync(new URL(name, root), 'utf8');
+const essayManifest = JSON.parse(read('thoughts/essay-manifest.js').match(/Object\.freeze\(([\s\S]*?)\);/)?.[1] ?? 'null');
+const topLevelPages = ['books.html', 'gratitude.html', 'guide.html', 'index.html', 'work.html'];
+const analyticsExcludedPages = new Set(['gratitude.html']);
 const trackingPixel = /<img\b[^>]*\bsrc="https:\/\/www\.useinflect\.ai\/api\/bot-traffic\/pixel\?[^" ]+"[^>]*>/g;
 
 test('public documents keep image content out of the head', () => {
-    assert.equal(pages.length, 46, 'update route coverage when adding a public page');
+    assert.ok(Array.isArray(essayManifest) && essayManifest.length, 'missing essay manifest');
+    assert.equal(new Set(essayManifest).size, essayManifest.length, 'duplicate essay manifest entries');
+    assert.deepEqual(pages, [...topLevelPages, 'thoughts/index.html', ...essayManifest.map(name => `thoughts/${name}`)].sort(),
+        'every public document must belong to the site routes or essay manifest');
+    const sitemapPages = [...read('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, url]) => {
+        const pathname = new URL(url).pathname.slice(1);
+        return pathname.endsWith('/') || !pathname ? `${pathname}index.html` : pathname;
+    }).sort();
+    assert.deepEqual(sitemapPages, pages, 'the sitemap must cover each public document exactly once');
     for (const name of pages) {
         const html = read(name);
         const head = html.match(/<head>([\s\S]*?)<\/head>/)?.[1];
@@ -29,7 +40,7 @@ test('each analytics-enabled page retains one hidden body pixel and its async he
         const html = read(name);
         const pixels = [...html.matchAll(trackingPixel)];
         const scripts = html.match(/<script\b[^>]*\bsrc="https:\/\/www\.useinflect\.ai\/inflect-tracking\.js"[^>]*><\/script>/g) ?? [];
-        if (name === 'gratitude.html') {
+        if (analyticsExcludedPages.has(name)) {
             assert.equal(pixels.length, 0, `${name}: do not add unapproved analytics`);
             assert.equal(scripts.length, 0, `${name}: do not add unapproved analytics`);
             continue;
@@ -48,31 +59,32 @@ test('each analytics-enabled page retains one hidden body pixel and its async he
         assert.match(scripts[0], /\basync\b/);
         assert.ok(html.indexOf(scripts[0]) < html.indexOf('</head>'), `${name}: keep the async script in the head`);
     }
-    assert.equal(trackedPages, 45);
+    assert.equal(trackedPages, pages.length - analyticsExcludedPages.size);
 });
 
 test('reading pages and the Gratitude renderer use the current shared cache tags', () => {
+    const sharedStyles = read('books.html').match(/reading-room\.css\?v=\d+(?:\.\d+)*/)?.[0];
+    assert.ok(sharedStyles, 'shared stylesheet must have a versioned URL');
     let readingPages = 0;
     for (const name of pages) {
         const html = read(name);
         if (name === 'index.html') continue;
         readingPages += 1;
-        const readingStyles = name === 'thoughts/index.html'
-            ? /reading-room\.css\?v=1\.10"/g
-            : /reading-room\.css\?v=1\.9"/g;
-        assert.equal((html.match(readingStyles) ?? []).length, 1, name);
+        const readingStyles = html.match(/reading-room\.css(?:\?[^"\s]*)?/g) ?? [];
+        assert.deepEqual(readingStyles, [sharedStyles], `${name}: use the same versioned shared stylesheet`);
         assert.equal((html.match(/reading-nav\.js\?v=1\.2"/g) ?? []).length, 1, name);
         const navScript = html.match(/<script\b[^>]*src="(?:\.\.\/)?reading-nav\.js\?v=1\.2"[^>]*><\/script>/)?.[0];
         assert.ok(navScript, `${name}: missing shared navigation bootstrap`);
         assert.doesNotMatch(navScript, /\b(?:defer|async|type)\b/, `${name}: navigation must initialize before body paint`);
         assert.ok(html.indexOf(navScript) < html.indexOf('</head>'), `${name}: bootstrap belongs in the head`);
     }
-    assert.equal(readingPages, 45);
-    assert.match(read('books.html'), /books-game\.css\?v=1\.5"/);
-    assert.match(read('gratitude.html'), /gratitude-game\.css\?v=1\.4"/);
+    assert.equal(readingPages, pages.length - 1);
+    assert.match(read('books.html'), /books-game\.css\?v=\d+(?:\.\d+)*"/);
+    const gratitudeStyles = read('gratitude.html').match(/gratitude-game\.css\?v=\d+(?:\.\d+)*/)?.[0];
+    assert.ok(gratitudeStyles, 'Gratitude stylesheet must have a versioned URL');
     const renderer = read('scripts/render-gratitude.mjs');
-    assert.match(renderer, /reading-room\.css\?v=1\.9"/);
-    assert.match(renderer, /gratitude-game\.css\?v=1\.4"/);
+    assert.equal(renderer.match(/reading-room\.css\?v=\d+(?:\.\d+)*/)?.[0], sharedStyles, 'renderer must retain the shared cache tag');
+    assert.ok(renderer.includes(`"${gratitudeStyles}"`), 'renderer must retain the Gratitude cache tag');
     assert.match(renderer, /<script src="reading-nav\.js\?v=1\.2"><\/script>/);
 });
 

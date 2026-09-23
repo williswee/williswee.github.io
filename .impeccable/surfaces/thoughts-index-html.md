@@ -5,7 +5,25 @@ primary_target: thoughts/index.html
 related_targets: ["thoughts/freedom.html", "thoughts/tickertownupdate.html", "thoughts/reading-room.css", "thoughts/reading-room.js", "thoughts/essay-landscape.js"]
 ---
 
-# Thoughts — reading room pilot
+# Thoughts — archive and essay reading room
+
+Mode: Read.
+
+## Current contract — audit fixes, 2026-09-23
+
+The migration is complete: the Thoughts archive and all 41 essays share the dark reading room. Along with Guide, Work, Books, and Gratitude, these are the site's 46 inner pages. Preserve every essay's authored text, date, URL, stable anchors, image meaning, caption, and footnote. The archive groups by year and offers Random pick; it no longer has a year-jump navigation strip or year scroll-spy.
+
+All archive arrows are drawn northeast vectors through a CSS mask, so Safari cannot substitute emoji. Navigation, dates, counts, captions, and supporting reader controls use the readable compact type scale. Random-pick and other enhanced controls appear only after initialization; native links and complete static content remain available without JavaScript. Essays use one of ten quiet landscapes chosen once per load, with a static no-JavaScript fallback.
+
+Image optimization serves responsive compressed versions of heavy essay figures while preserving dimensions, alt text, captions, and the original source assets. The intentional eager, low-priority loading of later homepage and meditation-retreat images remains a Safari reliability decision; it is not superseded by generic lazy-loading advice.
+
+## Polish follow-up — 2026-09-23
+
+Archive dates take their natural height below each title, including when enlarged text wraps the date. The entire row remains clickable and its keyboard focus ring includes the date. Preserve this normal-flow spacing rather than restoring fixed bottom space for an absolutely positioned date.
+
+## Historical implementation notes (superseded)
+
+The entries below preserve earlier review evidence and stage-specific decisions. The current contract above and refreshed DESIGN.md supersede their descriptions of current structure, content counts, type sizes, selection fade, and completion status. Old statements about local-only work, no DESIGN.md rewrite, or deployment describe those dated checkpoints; they do not grant or deny permission for a later task. Deployment authorization always comes from the active user request.
 
 ## TickerTown essay migration — 2026-09-14
 

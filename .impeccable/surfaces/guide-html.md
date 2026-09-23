@@ -7,6 +7,18 @@ related_targets: ["guide-game.css", "guide-game.js"]
 
 # Guide — field guide at base camp
 
+Mode: Read.
+
+## Current contract — audit fixes, 2026-09-23
+
+Guide is a fully migrated reading-room page with dedicated field-manual artwork, Silkscreen section declarations, Sora prose, and a contents rail that becomes inline on mobile. Preserve all five sections, 50 labeled rules, 22 nested alphabetic items, 55 stable slugs, and all authored copy and destinations.
+
+The audit correction raises compact navigation and supporting text within the established hierarchy. Copy-link buttons appear only after their handlers initialize; without JavaScript, the complete guide and native contents anchors remain usable. Shared current tokens and responsive rules are documented in DESIGN.md.
+
+## Historical implementation notes (superseded)
+
+The entries below preserve earlier review evidence and stage-specific decisions. The current contract above and refreshed DESIGN.md supersede their descriptions of current structure, content counts, type sizes, selection fade, and completion status. Old statements about local-only work, no DESIGN.md rewrite, or deployment describe those dated checkpoints; they do not grant or deny permission for a later task. Deployment authorization always comes from the active user request.
+
 Mode: Read. Extend the approved homepage and Thoughts world, not the legacy serif/card design. User-pinned direction; code-led, no concept tournament or critic agents per standing workflow preference.
 
 ## Direction contract

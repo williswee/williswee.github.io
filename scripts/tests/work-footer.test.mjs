@@ -23,5 +23,5 @@ test('Work follows the shared social icon pattern and preserves its back link', 
 test('Work inherits shared footer styling without page-specific overrides', () => {
     assert.doesNotMatch(read('work-game.css'), /\.work-footer/);
     assert.doesNotMatch(read('work.html'), /work-footer/);
-    assert.match(read('work.html'), /work-game\.css\?v=2\.1/);
+    assert.match(read('work.html'), /work-game\.css\?v=\d+(?:\.\d+)*"/);
 });

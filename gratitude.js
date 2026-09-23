@@ -206,6 +206,8 @@
             scheduleDockUpdate();
         }
     });
+    // Native note links remain useful even if this enhancement cannot load.
+    if (randomButton) randomButton.hidden = false;
     updateDock();
 
     const initialHash = window.location.hash;

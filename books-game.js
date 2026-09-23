@@ -8,6 +8,7 @@
     const emptyState = document.getElementById('book-empty');
     const status = document.getElementById('book-status');
     const menu = document.querySelector('.book-filter-menu');
+    const filterSidebar = document.querySelector('.book-filter-sidebar');
     const currentFilterLabel = document.querySelector('.current-filter-label');
     const randomButton = document.getElementById('random-book-btn');
     const dock = document.getElementById('floating-book-dock');
@@ -301,6 +302,10 @@
     });
     setMenuMode();
     setFilter('all');
+    // The complete reading list is the default. Reveal optional controls only
+    // once their behavior and initial state are ready.
+    if (filterSidebar) filterSidebar.hidden = false;
+    if (randomButton) randomButton.hidden = false;
     updateDock();
 
     const initialHash = window.location.hash;

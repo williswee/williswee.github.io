@@ -1,103 +1,160 @@
 ---
 name: "Willis Wee — Save Point Atlas"
-description: "A premium 16-bit narrative journey through a founder's work, memory, and next chapter"
+description: "A pixel-art personal journey and a quiet reading room for work, essays, books, and small joys"
 colors:
-  save-gold: "#ffbe63"
-  archive-cyan: "#8adad0"
-  quest-green: "#79d99b"
-  midnight-ink: "#07101d"
-  dialogue-panel: "rgba(6, 13, 25, 0.91)"
-  vellum: "#f4e9cf"
-  vellum-soft: "#cfc9bd"
-  map-muted: "#8f9cad"
-  frame-line: "rgba(244, 233, 207, 0.22)"
-  frame-line-strong: "rgba(244, 233, 207, 0.5)"
+  ink: "#07101d"
+  panel: "#050c17"
+  home-panel: "rgba(5, 12, 23, 0.94)"
+  cream: "#f4e9cf"
+  cream-soft: "#ddd6c8"
+  muted: "#aeb5bd"
+  gold: "#ffbe63"
+  green: "#79d99b"
+  teal: "#8adad0"
+  line: "rgba(244, 233, 207, 0.24)"
+  line-strong: "rgba(244, 233, 207, 0.5)"
 typography:
-  display:
+  home-display:
     fontFamily: "'Silkscreen', 'Courier New', monospace"
-    fontSize: "clamp(2.7rem, 5.3vw, 5.75rem)"
+    fontSize: "clamp(3.1rem, 5vw, 5.1rem)"
     fontWeight: 700
-    lineHeight: 1.08
+    lineHeight: 1.06
     letterSpacing: "-0.035em"
-  headline:
+  home-headline:
     fontFamily: "'Silkscreen', 'Courier New', monospace"
-    fontSize: "clamp(2.1rem, 4vw, 4.25rem)"
+    fontSize: "clamp(2.55rem, 4.3vw, 4.35rem)"
     fontWeight: 700
-    lineHeight: 1.08
+    lineHeight: 1.06
     letterSpacing: "-0.035em"
-  title:
+  reading-display:
+    fontFamily: "'Silkscreen', 'Courier New', monospace"
+    fontSize: "3.25rem"
+    fontWeight: 700
+    lineHeight: 1.12
+    letterSpacing: "-0.035em"
+  essay-title:
+    fontFamily: "'Silkscreen', 'Courier New', monospace"
+    fontSize: "2.625rem"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "-0.035em"
+  reading-section:
+    fontFamily: "'Silkscreen', 'Courier New', monospace"
+    fontSize: "1.75rem"
+    fontWeight: 700
+    lineHeight: 1.3
+    letterSpacing: "-0.035em"
+  archive-year:
+    fontFamily: "'Silkscreen', 'Courier New', monospace"
+    fontSize: "1.6rem"
+    fontWeight: 700
+    lineHeight: 1.3
+    letterSpacing: "-0.035em"
+  essay-subtitle:
+    fontFamily: "'Sora', sans-serif"
+    fontSize: "1.375rem"
+    fontWeight: 500
+    lineHeight: 1.6
+  quotation:
+    fontFamily: "'Sora', sans-serif"
+    fontSize: "1.3rem"
+    fontWeight: 400
+  work-headline:
+    fontFamily: "'Silkscreen', 'Courier New', monospace"
+    fontSize: "2rem"
+    fontWeight: 700
+    lineHeight: 1.35
+    letterSpacing: "-0.035em"
+  brand:
+    fontFamily: "'Silkscreen', 'Courier New', monospace"
+    fontSize: "0.88rem"
+    fontWeight: 700
+    letterSpacing: "0.04em"
+  home-row-title:
+    fontFamily: "'Sora', sans-serif"
+    fontSize: "0.96rem"
+    fontWeight: 700
+  home-onward:
     fontFamily: "'Sora', sans-serif"
     fontSize: "0.94rem"
-    fontWeight: 700
-    lineHeight: 1.5
-  body:
+    fontWeight: 600
+  entry-title:
     fontFamily: "'Sora', sans-serif"
-    fontSize: "clamp(0.93rem, 1.15vw, 1.05rem)"
+    fontSize: "1.2rem"
+    fontWeight: 600
+    lineHeight: 1.55
+    letterSpacing: "-0.02em"
+  home-body:
+    fontFamily: "'Sora', sans-serif"
+    fontSize: "clamp(1rem, 1.12vw, 1.1rem)"
     fontWeight: 400
-    lineHeight: 1.65
-  label:
-    fontFamily: "'Silkscreen', 'Courier New', monospace"
-    fontSize: "0.67rem"
+    lineHeight: 1.7
+  reading-body:
+    fontFamily: "'Sora', sans-serif"
+    fontSize: "1.0625rem"
     fontWeight: 400
-    lineHeight: 1.35
+    lineHeight: 1.85
+  control:
+    fontFamily: "'Sora', sans-serif"
+    fontSize: "0.875rem"
+    fontWeight: 600
+  metadata:
+    fontFamily: "'Sora', sans-serif"
+    fontSize: "0.875rem"
+    fontWeight: 400
+  status:
+    fontFamily: "'Sora', sans-serif"
+    fontSize: "0.8rem"
+    fontWeight: 500
+    lineHeight: 1.5
 rounded:
   none: "0px"
-  key-circle: "50%"
 spacing:
-  tight: "8px"
-  compact: "10px"
-  control: "12px"
+  compact: "8px"
+  control-gap: "10px"
   inset: "16px"
-  standard: "20px"
-  roomy: "24px"
-  section: "28px"
-  panel-fluid: "clamp(24px, 3vw, 42px)"
+  medium: "20px"
+  paragraph: "24px"
+  section: "32px"
+  reading-inset: "44px"
+  home-inset: "clamp(30px, 3vw, 46px)"
 components:
-  game-button-primary:
-    backgroundColor: "{colors.save-gold}"
-    textColor: "{colors.midnight-ink}"
-    typography: "{typography.label}"
+  reading-panel:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.cream}"
     rounded: "{rounded.none}"
-    padding: "10px 16px"
-    height: "46px"
-  game-button-secondary:
-    backgroundColor: "rgba(10, 22, 39, 0.88)"
-    textColor: "{colors.vellum}"
-    typography: "{typography.label}"
+    padding: "{spacing.reading-inset}"
+    width: "min(800px, 64vw)"
+  story-panel:
+    backgroundColor: "{colors.home-panel}"
+    textColor: "{colors.cream}"
     rounded: "{rounded.none}"
-    padding: "10px 16px"
-    height: "46px"
-  dialogue-panel:
-    backgroundColor: "{colors.dialogue-panel}"
-    textColor: "{colors.vellum}"
-    rounded: "{rounded.none}"
-    padding: "{spacing.panel-fluid}"
-    width: "min(590px, 47vw)"
-  hud-navigation:
-    backgroundColor: "rgba(5, 11, 20, 0.94)"
-    textColor: "{colors.vellum}"
-    typography: "{typography.label}"
-    rounded: "{rounded.none}"
-    padding: "0 34px"
-    height: "76px"
-  quest-row:
+    padding: "{spacing.home-inset}"
+    width: "min(610px, 47vw)"
+  discovery-button:
     backgroundColor: "transparent"
-    textColor: "{colors.vellum}"
+    textColor: "{colors.cream}"
+    typography: "{typography.control}"
     rounded: "{rounded.none}"
-    padding: "16px 2px"
-    width: "100%"
-  archive-row:
-    backgroundColor: "transparent"
-    textColor: "{colors.vellum}"
+    padding: "8px 14px"
+  discovery-button-hover:
+    textColor: "{colors.gold}"
+  status-badge:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.cream-soft}"
+    typography: "{typography.status}"
     rounded: "{rounded.none}"
-    padding: "15px 2px"
-    width: "100%"
-  contact-terminal-row:
-    backgroundColor: "transparent"
-    textColor: "{colors.vellum}"
+    padding: "8px 12px"
+  reading-navigation:
+    backgroundColor: "rgba(4, 10, 19, 0.97)"
+    textColor: "{colors.muted}"
+    typography: "{typography.control}"
     rounded: "{rounded.none}"
-    padding: "13px 16px"
-    width: "100%"
+  discovery-dock:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.cream}"
+    rounded: "{rounded.none}"
+    padding: "6px"
 ---
 
 # Design System: Willis Wee — Save Point Atlas
@@ -106,156 +163,142 @@ components:
 
 **Creative North Star: "Save Point Atlas"**
 
-Save Point Atlas turns the homepage into one continuous premium 16-bit narrative adventure. Four personal biomes—Base Camp, Workshop, Memory Archive, and Dawn Terminal—move from present identity to work, reflection, and connection while a restrained rail-board HUD keeps place, progress, and onward movement visible.
+The site pairs a personal pixel-art journey with a quiet reading room. The homepage has five scenes: Start, Work, Notes, Life, and Connect. Its illustrated Singapore landscapes carry the atmosphere; framed navy panels carry the words. A compact fixed header and active gold underline provide orientation without a journey rail or game-key interface.
 
-The pixel scenes supply atmosphere, not the reading surface. Solid ink dialogue plates, directional veils, cream text, and the Sora body face protect legibility against the deliberately rich art; Silkscreen is reserved for short game-world signals. Motion is spare and scene-aware: progress tracks the journey, dialogue reveals from the outer edge, artwork settles into focus, and the quest shuffle uses one split-flap beat with a matching polite announcement.
+The same world continues through all 46 inner pages: Guide, Work, Books, Gratitude, the Thoughts archive, and 41 essays. Their dedicated landscapes sit beside an opaque reading pane on desktop and form a short opening band on mobile. Silkscreen gives short declarations a distinctive voice; Sora carries prose, navigation, metadata, and controls. Content stays readable while discovery and navigation enhance the static document.
 
-This system is the built truth for `index.html`, `home-game.css`, `home-game.js`, and `images/game-world/`. Existing deeper pages are legacy surfaces; their fonts, colors, cards, and page layouts are not authority for the new homepage world unless they are deliberately migrated.
+This is a refresh of the implemented world, not a replacement direction. The source of truth is `home-game.css`, `thoughts/reading-room.css`, and the route styles for Guide, Work, Books, and Gratitude. Surface briefs hold route-specific composition and historical decisions; dated delivery restrictions in those histories do not define permission for future work.
 
 **Key Characteristics:**
-- **Continuous Four-Biome Journey:** Base Camp, Workshop, Memory Archive, and Dawn Terminal form one authored progression rather than separate cards or routes.
-- **Rail-Board Orientation:** A fixed rectilinear HUD, gold progress line, active diamond, and desktop journey rail continuously expose location and state.
-- **Art-and-Plate Composition:** Full-bleed 16-bit scenes alternate with opaque dialogue plates and directional dark veils for readable cinematic contrast.
-- **Two-Font Translation Layer:** Silkscreen voices the game world; Sora carries every sentence that needs effortless reading.
-- **Purposeful Motion Restraint:** Scene settling, directional panel reveals, progress, and one split-flap shuffle are the complete signature motion vocabulary.
+- **Five-scene introduction:** Full-width pixel landscapes and alternating reading panels introduce identity, work, writing, life, and connection.
+- **Shared reading room:** Opaque ink panes protect long-form reading across every inner page.
+- **Two complementary fonts:** Silkscreen marks the world; Sora carries the reading and control interface.
+- **Restrained geometry:** Square frames, thin rules, opposing gold corners, and drawn arrows connect the surfaces.
+- **Progressive enhancement:** Native links and complete static content survive unavailable JavaScript; enhanced controls appear only when ready.
 
 ## Colors
 
-The palette is nocturnal and map-like: Midnight Ink and translucent navy plates establish depth, Vellum carries content, and three semantic signals distinguish action, archive, and live status.
+Midnight ink, warm cream, and restrained gold form the site-wide palette. The frontmatter mirrors the actual CSS values; translucent homepage panels and opaque reading panes are separate tokens.
 
 ### Primary
-- **Save Gold** (`save-gold`): Primary action fills, focus outlines, active progress, corner brackets, arrows, and selective inline emphasis. It is the visual equivalent of a save point or navigational beacon.
+- **Gold** (`gold`): Active navigation, focus outlines, opposing corner marks, hover emphasis, and selected controls. It is a navigational accent, not a large decorative fill.
 
 ### Secondary
-- **Archive Cyan** (`archive-cyan`): Small archive taxonomy labels and knowledge-oriented wayfinding. It does not substitute for action gold.
+- **Category Cyan** (`teal`): Book categories. It is not a general archive taxonomy color.
 
 ### Tertiary
-- **Quest Green** (`quest-green`): Live experiment labels and the current-quest signal light. Its use is strictly status-bearing.
+- **Green** (`green`): The current-status signal and live work metadata. Preserve its status meaning.
 
 ### Neutral
-- **Midnight Ink** (`midnight-ink`): Root canvas, scrollbar track, marker interior, and the mobile bridge between art and content.
-- **Dialogue Panel** (`dialogue-panel`): The dense reading plate placed over each scene; mobile raises its opacity further for safety.
-- **Vellum** (`vellum`): Headlines, active navigation, principal labels, and high-emphasis prose.
-- **Soft Vellum** (`vellum-soft`): Supporting prose and secondary actions that need warmth without competing with headings.
-- **Map Muted** (`map-muted`): Metadata, descriptions, inactive labels, and contextual copy.
-- **Frame Line** (`frame-line`): Quiet row rules and terminal boundaries.
-- **Strong Frame Line** (`frame-line-strong`): Dialogue frames and control outlines that must remain visible over illustrated scenes.
+- **Ink** (`ink`): The surrounding canvas and scene-to-content transitions.
+- **Panel** (`panel`): Opaque inner-page reading surfaces and floating controls.
+- **Home Panel** (`home-panel`): The dense homepage plate over scenery; mobile raises its opacity to 0.98.
+- **Cream** (`cream`): Headlines, principal labels, and emphasized text.
+- **Soft Cream** (`cream-soft`): Paragraph text and secondary action text.
+- **Muted** (`muted`): Readable metadata and inactive navigation; do not simulate a muted role by fading an entire content block.
+- **Line / Strong Line** (`line`, `line-strong`): Quiet list separators and the stronger outer frame.
 
-### Named Rules
+**The Ink-Plate Rule.** Reading text sits on an ink surface. Scenery, veils, and shadows provide atmosphere without determining text contrast.
 
-**The Beacon Rule.** Save Gold owns primary action, active navigation, progress, focus, and directional emphasis; keep Archive Cyan and Quest Green semantic rather than decorative.
-
-**The Ink-Plate Rule.** Never place reading copy directly on a detailed scene. Use the Dialogue Panel plus its directional veil so atmosphere cannot erode contrast.
+**The Readable Selection Rule.** Selection may quiet decorative scenery, but neighboring book reviews, gratitude notes, and introductions retain their normal text contrast.
 
 ## Typography
 
-**Display Font:** Silkscreen, with Courier New and monospace fallbacks
+**Display Font:** Silkscreen, with Courier New and monospace fallbacks.
 
-**Body Font:** Sora, with a sans-serif fallback
+**Body and Interface Font:** Sora, with a sans-serif fallback.
 
-**Label/HUD Font:** Silkscreen, with Courier New and monospace fallbacks
-
-**Character:** Silkscreen gives the world its premium 16-bit voice through blocky, widely recognizable forms. Sora is the translation layer: contemporary, calm, and highly legible at paragraph and metadata sizes.
+Both families are requested together from Google Fonts with `display=swap`, supported by Google Fonts and font-file preconnects. The requested weights are Silkscreen 400/700 and Sora 400/500/600/700. Keep fallback content visible while fonts load.
 
 ### Hierarchy
-- **Display:** The `display` token is reserved for the Base Camp statement; constrain it to roughly 12 characters per line and balance the wrap.
-- **Headline:** The `headline` token carries each biome's central declaration with the same tight, block-built rhythm.
-- **Title:** The `title` token names quests and destinations inside rows; it stays in Sora so lists remain quickly scannable.
-- **Body:** The `body` token carries dialogue and explanatory copy, with a maximum measure of about 62 characters.
-- **Label:** The `label` token handles HUD destinations, key prompts, state labels, and terminal names. Use uppercase only where the implemented component does.
+- **Homepage declarations:** The `home-display` and `home-headline` tokens use balanced wrapping and a maximum measure of 12ch. At 1100px the clamps become 3–4.5rem and 2.45–3.8rem. At 760px they become 2.65–4rem and 2.3–3.55rem.
+- **Reading-page declarations:** `reading-display` titles reduce to 2.625rem on mobile and 2.25rem below 380px. Essay titles use their own smaller role, a maximum measure of 22ch, and 1.875rem/1.25 on mobile. Long titles wrap rather than truncate.
+- **Reading hierarchy:** The `reading-section` role separates essay and newsletter sections; the archive uses the slightly smaller `archive-year` role. Essay decks use `essay-subtitle`; longer quotations use `quotation`. Work's five project headings use `work-headline`, with Sora subheadings below them. These established roles remain larger than prose and supporting metadata.
+- **Homepage row text:** `home-row-title` names work, archive, and contact destinations; `home-onward` names the next section. Their compact Sora size is intentional inside the larger scene composition and is distinct from the shared interface-text token.
+- **Repeated entry titles:** Books and Gratitude use the Sora `entry-title` role, reduced to 1.1rem on mobile. Repeated titles remain calmer than the page declaration.
+- **Prose:** Homepage copy has a maximum measure of 62ch. The 800px reading shell and its insets set the essay measure; essays and Guide/Work prose use `reading-body`, falling to 1rem on mobile. Book reviews and Gratitude paragraphs use 1.0381rem/1.85 on desktop and 1rem/1.8 on mobile.
+- **Controls and supporting text:** The `control` and `metadata` roles use the shared `--font-size-ui` value of 0.875rem (14px at the default root size) for navigation, dates, counts, captions, filters, and dock text. The brand logotype and status badge intentionally retain their established smaller sizes. Preserve tabular numerals for dates and counts.
+- **Status badge:** The intentionally compact `status` role retains its existing size. At widths up to 360px, omit the visible “Currently:” prefix so all 12 full statuses fit at normal text sizes; enlarged text may wrap naturally.
 
-### Named Rules
+### Responsive and component variants
 
-**The Translation Rule.** Silkscreen owns short declarations, coordinates, controls, and state; Sora owns explanation. Never set paragraph-length copy in Silkscreen.
+These are contextual overrides of the named roles, not additional sizes to apply indiscriminately. Keep each override attached to its existing component and breakpoint. CSS is the authority for the exact formulas; a static detector that only reads frontmatter may still report these deliberate variants.
 
-**The Twelve-Character Headline Rule.** Display headings remain compact and balanced at about 12 characters per line so the pixel letterforms read as a composed silhouette, not a wall of text.
+| Role and source | Established variant |
+| --- | --- |
+| Homepage declaration (`home-game.css`, h1) | Up to 1100px: `clamp(3rem, 6vw, 4.5rem)`; up to 760px: `clamp(2.65rem, 13vw, 4rem)`. Both retain 1.06 line height. |
+| Homepage scene heading (`home-game.css`, h2) | Up to 1100px: `clamp(2.45rem, 5.2vw, 3.8rem)`; up to 760px: `clamp(2.3rem, 10.8vw, 3.55rem)`. Both retain 1.06 line height. |
+| Brand (`home-game.css`, `.site-brand > span`) | The mobile homepage uses 0.74rem; inner-page branding retains 0.88rem. This is the logotype exception, not the navigation scale. |
+| Reading-page title (`thoughts/reading-room.css`, h1) | Up to 760px: 2.625rem/1.12; up to 380px: 2.25rem/1.12. |
+| Essay title (`thoughts/reading-room.css`, article h1) | Up to 1100px: 2.25rem/1.2; up to 760px: 1.875rem/1.25. |
+| Guide section title (`guide-game.css`, `.guide-section h2`) | The shared 1.75rem role uses a 1.4 line height here; up to 760px it is 1.375rem, and up to 380px it is 1.25rem. |
+| Work project title (`work-game.css`, `.timeline h2`) | Up to 760px: 1.5rem/1.35. Sora subheadings use 1.17rem/1.45 on desktop and 1.1rem on mobile. |
+| Work exhibit and supporting text (`work-game.css`) | The exhibit's Sora title is 1.3rem/1.45 at weight 600. Its supporting description is 0.94rem/1.8; timeline emphasis also uses 0.94rem. These local content treatments are not metadata controls. |
+| Essay subtitle (`thoughts/reading-room.css`, `.article-subtitle`) | Up to 760px: 1.1875rem/1.6. |
+| Book and Gratitude entry titles (`books-game.css`, `gratitude-game.css`) | Up to 760px: 1.1rem/1.55. |
+
+**The Translation Rule.** Silkscreen owns short declarations and the established brief chapter cues. Sora owns sentences and the navigational interface. Never set paragraph-length copy in the pixel face.
 
 ## Layout
 
-Desktop is a sequence of full-viewport scenes (`min-height: 100svh`) beneath a fixed 76px HUD. Art covers each scene edge to edge; content alternates left and right inside fluid scene insets (`clamp(58px, 7vw, 116px)`), while the dialogue plate stays at `min(590px, 47vw)`. A directional dark veil extends from the plate into the scene, and proximity snapping aligns the journey without forcing every scroll gesture.
+On desktop, the homepage alternates panels across five scenes with a minimum height of 100svh and a fixed 76px header. Standard panels use the frontmatter width and inset; the Life panel is narrower to preserve the family composition. At 1100px the panels grow to 54vw. At 760px the scenes become a natural document flow: each artwork is 44svh with a 300px minimum, followed by a full-width panel. The mobile header is 64px. The page supports a 320px minimum width without forcing the reading text onto the artwork.
 
-At 1100px the HUD compacts, secondary identity and continue labels hide, level targets narrow, and dialogue plates can grow to 55vw. At 760px the structure becomes stacked: the HUD falls to 64px, the journey rail and scroll cue disappear, snapping is removed, artwork occupies the upper 52%, and the full-width dialogue plate begins around 40vh on an 860px minimum scene. At 460px actions stack vertically, row columns tighten, and the terminal footer becomes a short vertical list. The implementation remains usable down to the 320px body minimum.
+Inner pages use an 800px maximum pane, positioned to the right with a 5vw outer margin and 44px inset. At 1100px it uses 67vw and a 32px inset. At 760px the 104px two-row header sits above a 188px art band, followed by the reading pane with a 24px inset; below 380px the inset is 20px. The pane overlaps the art band slightly to maintain continuity. Essays and the Guide/Work/Books/Gratitude portraits occupy the exposed left region rather than continuing behind the opaque pane.
 
-Scene art uses deliberate focal crops on mobile: Base Camp and Memory Archive bias left, while Workshop and Dawn Terminal bias right. This preserves the character and environmental landmark before the dialogue plate takes over the lower reading region.
+Navigation targets are at least 44px in both dimensions. At narrow widths or enlarged text, navigation scrolls within its own row; focus reveals the selected destination without widening the page. Without the navigation enhancement, inner-page links wrap into normal document flow. Side rails for Guide, Work, and Books become inline contents or native compact menus on mobile.
 
 ## Elevation & Depth
 
-Depth is structural rather than card-like. Illustrated distance, directional navy veils, solid dialogue plates, one-pixel frames, and small gold brackets do most of the work; shadows are narrow extensions that separate fixed chrome, plates, markers, and controls from busy art.
+Illustrated distance, navy veils, opaque panes, thin borders, and opposing corner marks establish depth. Shadows separate a small number of structural layers, without rounded cards or luminous halos. The header uses a 10px/32px shadow; homepage panels use a 22px/54px shadow, reading panes a slightly softer version of the same form, and docks a 12px/28px shadow. Exact shadow values live in the sidecar.
 
-### Shadow Vocabulary
-- **HUD Float** (`0 8px 30px rgba(0, 0, 0, 0.24)`): Separates the fixed rail-board header from every biome.
-- **Avatar Cartridge** (`0 5px 14px rgba(0, 0, 0, 0.35)`): Gives the pixel avatar a small physical insert effect.
-- **Dialogue Depth** (`0 18px 50px rgba(0, 0, 0, 0.32)`): Holds the reading plate above full-bleed artwork without making it look like a rounded card.
-- **Save Marker Glow** (`0 0 12px rgba(255, 190, 99, 0.38)`): Makes the diamond progress marker readable against changing scenes.
-- **Live Signal Glow** (`0 0 10px rgba(121, 217, 155, 0.72)`): Reinforces status on the small square quest light.
-- **Control Lift** (`0 9px 20px rgba(0, 0, 0, 0.26)`): Appears only while a game button is hovered.
-
-### Named Rules
-
-**The Plate-Before-Glow Rule.** Legibility comes from solid ink surfaces, veils, and one-pixel boundaries. Shadows may clarify an existing layer but never replace contrast.
+Homepage panels settle through opacity and horizontal movement over 520–700ms, while artwork settles more slowly. Mobile panels remain fully visible. Short control transitions and dice/reload feedback acknowledge deliberate input. Reduced-motion preferences suppress smooth scrolling and decorative animation; content is never dependent on motion completing.
 
 ## Shapes
 
-The form language is rectilinear and instrument-like. Dialogue plates, buttons, HUD bars, avatar frames, terminals, and list rows use square corners with one-pixel boundaries. Dialogue panels carry two short 12px gold corner brackets—top left and bottom right—instead of decorative full frames.
+The system is rectilinear: square panels, rectangular controls, one-pixel boundaries, and opposing 14px gold panel corners. Books and Gratitude selections use smaller opposing 12px corners. The status signal is a 6px square with an explicit width and flex basis so WebKit accounts for it in the badge's intrinsic width.
 
-Diamonds indicate location and progress in the HUD and journey rail. Small squares indicate live status. Circles are reserved for the 22px keycap controls inside game buttons; do not spread pill shapes or rounded cards across the system.
-
-Icons use a consistent wire grammar: inline SVG, no fill, square line caps, miter joins, and approximately 1.5px strokes. Direction arrows are compact and geometric so they read like the same navigation instrument as the HUD.
+Navigation arrows are drawn vectors with square line caps and miter joins. “Scroll next” uses a down arrow; destination links use northeast arrows; returning to the beginning uses an up arrow. The Thoughts archive uses the same vector approach through a CSS mask, avoiding platform emoji substitution. User-authored emoji remain part of the personal copy and are not the icon system.
 
 ## Components
 
-### Game Buttons
-- **Shape:** Square-cornered, one-pixel control with a circular keycap; minimum height is 46px.
-- **Primary:** Save Gold fill with Midnight Ink text for the principal next-scene action.
-- **Secondary:** Translucent navy fill with a Strong Frame Line and Vellum text for deeper-route actions.
-- **Hover / Focus / Active:** Hover lifts 3px, changes the boundary to Save Gold, and adds Control Lift. Keyboard focus uses the global 3px Save Gold outline with 4px offset; active returns the control toward its resting plane.
+### Reading and story panels
 
-### Dialogue Panels
-- **Structure:** Dense Dialogue Panel surface, Strong Frame Line, fluid internal padding, and two opposing gold corner brackets.
-- **Behavior:** JavaScript-enhanced inactive panels collapse from their outer edge, then reveal inward over 700ms with the emphasized scene easing. Opacity settles alongside the clip reveal.
-- **Mobile:** Width becomes 100%, padding becomes 25px by 20px, and panel opacity increases to protect text over the art-to-ink transition.
+Dense ink surfaces with thin warm frames and opposing gold corner marks protect text from the scenery. Story panels alternate across the homepage; reading panels remain a single continuous document. Preserve the declared text measure and responsive insets rather than creating nested cards.
 
-### HUD Navigation and Journey Rail
-- **HUD:** Fixed three-zone rail board with player identity, four centered level destinations, and an onward route. At compact and mobile widths it progressively removes secondary labels while keeping all four destinations.
-- **State:** Intersection observation selects the current biome and applies `aria-current="page"`; the active destination receives Vellum text and a small Save Gold diamond.
-- **Progress:** A passive scroll listener updates one normalized scene-progress value through `requestAnimationFrame`, driving the HUD line, rail fill, marker, and rotated scene label.
+### Navigation
 
-### Current Quest Shuffle
-- **Structure:** Bordered status strip with a glowing square Quest Green signal, contextual label, current quest, and redraw icon.
-- **Motion:** The visible quest uses a 260ms four-step split-flap; content swaps at its midpoint. With reduced motion the swap is immediate.
-- **Accessibility:** The button has an explicit shuffle label, decorative graphics are hidden, and every new quest is repeated into a polite, atomic live region.
+The homepage links to Start, Work, Notes, Life, and Connect within the page. Inner pages link to Start, Thoughts, Guide, Work, Books, and Gratitude. Active text and a gold underline indicate location. The header has a waving-hand brand, no avatar cartridge, game keycaps, active diamonds, or journey rail. Keyboard focus receives a gold outline; inside scrolling navigation the outline sits within the scrollport.
 
-### Quest Rows
-- **Structure:** Three-column row for state, Sora title/description, and an external-direction icon; each row ends with a Frame Line.
-- **State:** Live experiments use Quest Green; other quest states use Map Muted. Hover moves the row 5px in the travel direction and colors the navigation signal Save Gold.
+### Discovery controls and dock
 
-### Archive Rows
-- **Structure:** Three-column destination row with an Archive Cyan taxonomy label, Sora title/description, and Save Gold arrow.
-- **State:** Hover translates the row 5px and shifts its interactive color to Save Gold while the cyan taxonomy remains semantically stable.
+Random pick is a square-edged outlined button with a drawn dice icon and a minimum 44px target. Books and Gratitude share the compact floating **Another pick / Top** dock. There is no Keep reading button. The dock follows the reading-pane center on desktop and the viewport center on mobile, respects the bottom safe area, and may wrap when text is enlarged. Another pick preserves keyboard access; Top clears the selection and returns to the beginning. Escape can clear the selection in place.
 
-### Contact Terminal Rows
-- **Structure:** A framed terminal groups compact rows with fixed-width Silkscreen channel names, Sora descriptions, and geometric external arrows.
-- **State:** Hover adds a low-opacity Save Gold wash and shifts the row's active content to Save Gold; the last row removes its bottom divider.
+### Selected books and gratitude notes
 
-### Scene and Quest Motion
-- **Scene Settle:** Artwork eases from a slightly larger, dimmer, less saturated state into focus over 1600ms, with filter recovery over 1000ms.
-- **Directional Reveal:** Dialogue plates use `cubic-bezier(.16, 1, .3, 1)` so entry feels like a deliberate scene load rather than a generic fade.
-- **Reduced Motion:** Smooth scrolling is disabled, animation and transition durations collapse to 0.01ms, and dialogue plates remain fully revealed.
+A stable hash, explicit focus, and two gold corner marks identify the chosen entry. Reviews, notes, and introduction copy remain at normal contrast as the reader scrolls onward. Only the decorative landscape recedes during selection. Category filtering remains a separate, explicit operation; hidden books are removed from the flow rather than made faint.
+
+### Current status badge
+
+The native button combines a reload SVG, green square, optional prefix, and the full current status. Each activation rotates the reload icon; reduced motion uses a short opacity acknowledgement. Its accessible name and polite live region reflect the current status. The static initial status remains meaningful when the shuffle enhancement is unavailable.
+
+### Lists, figures, and reader tools
+
+Homepage work and destination rows use thin separators and vector arrows. The Thoughts archive groups full essay links by year and retains visible dates. Guide copy actions and essay quote tools provide explicit success or failure feedback. Script-dependent actions become available only after their handlers are ready; complete content, the static current status, native links, anchors, and direct newsletter access remain usable without JavaScript. Essay figures preserve their content, alt text, aspect ratio, and captions; responsive compressed assets serve screen-sized files without changing the authored image.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** use solid Midnight Ink dialogue plates and directional veils whenever text overlaps pixel art.
-- **Do** keep Silkscreen to headlines, HUD labels, state labels, and compact controls; use Sora for every explanatory sentence.
-- **Do** preserve the alternating full-viewport composition on desktop and the stacked art-then-content composition below 760px.
-- **Do** keep the rectilinear one-pixel frame language, short gold corner brackets, diamond location markers, and square live signals.
-- **Do** pair every shuffled quest update with both the visible split-flap state and the polite live-region announcement.
-- **Do** treat the implemented homepage tokens and components as authority; migrate legacy deeper pages deliberately rather than importing their visual language here.
+- Do preserve the five-scene pixel-art homepage and the shared dark reading room across inner pages.
+- Do use opaque ink surfaces for long-form text and full-contrast neighboring entries during selection.
+- Do keep Sora navigation and metadata readable and controls at least 44px across compact viewports.
+- Do use down arrows for onward scrolling, northeast arrows for destination links, and vectors rather than arrow emoji.
+- Do retain all authored content, stable anchors, image descriptions, and complete no-JavaScript reading paths.
+- Do verify long titles, all status strings, 320px layouts, enlarged text, keyboard focus, and reduced motion when changing shared components.
 
 ### Don't:
-- **Don't** place body copy directly on detailed pixel artwork or rely on text shadow as the contrast strategy.
-- **Don't** introduce rounded cards, pill navigation, or circles beyond the established keycap control.
-- **Don't** swap the authored 16-bit environmental scenes for photorealism, generic gradients, or isolated decorative sprites.
-- **Don't** make Save Gold, Archive Cyan, and Quest Green interchangeable; each color carries a distinct action or status meaning.
-- **Don't** animate smooth scrolling, scene drift, panel clipping, or flap motion when reduced motion is requested.
-- **Don't** let the legacy Newsreader, Source Serif 4, DM Sans, warm-charcoal, or rounded-card system override this homepage world.
+- Don't restore the removed journey rail, game keycaps, or Keep reading dock action from historical screenshots or briefs.
+- Don't fade readable books, notes, or introductory text to create a selection effect.
+- Don't truncate status copy or disable text enlargement to force the badge onto one line.
+- Don't replace the established pixel artwork, square frames, or two-font pairing during a refinement.
+- Don't expose an inactive control before its enhancement has initialized.
+- Don't treat dated scope or deployment statements in archived briefs as current permission.

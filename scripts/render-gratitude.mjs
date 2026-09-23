@@ -135,11 +135,11 @@ const html = `<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.9">
-    <link rel="stylesheet" href="gratitude-game.css?v=1.4">
+    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.11">
+    <link rel="stylesheet" href="gratitude-game.css?v=1.5">
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="reading-nav.js?v=1.2"></script>
-    <script src="gratitude.js?v=2.3" defer></script>
+    <script src="gratitude.js?v=2.4" defer></script>
 </head>
 
 <body class="gratitude-page">
@@ -170,7 +170,7 @@ const html = `<!DOCTYPE html>
                 </div>
                 <div class="gratitude-toolbar">
                     <p class="gratitude-count">${notes.length} ${notes.length === 1 ? 'note' : 'notes'}</p>
-                    <button class="random-pick-btn" id="random-gratitude-btn" type="button" aria-label="Read a random gratitude note">
+                    <button class="random-pick-btn" id="random-gratitude-btn" type="button" aria-label="Read a random gratitude note" hidden>
                         <span class="random-pick-icon" aria-hidden="true"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14"/><path d="M6 6h1v1H6zM13 13h1v1h-1zM9.5 9.5h1v1h-1z" fill="currentColor" stroke="none"/></svg></span>
                         <span>Random pick</span>
                     </button>

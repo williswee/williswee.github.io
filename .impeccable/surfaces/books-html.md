@@ -5,7 +5,19 @@ primary_target: books.html
 related_targets: ["books-game.css", "books-game.js"]
 ---
 
-# Books
+# Books — reading shelf
+
+Mode: Read.
+
+## Current contract — audit fixes, 2026-09-23
+
+Books uses the shared reading room and dedicated reading-nook artwork. Preserve the complete 47-book collection, eight categories, record order, reviews, links, and existing slugs. Sora entry titles and reviews remain distinct from the Silkscreen page declaration; author, category, filter, count, and dock text follow the readable compact interface scale.
+
+Random selection is identified by the hash, focus, and gold corner marks. Neighboring books and the introduction remain fully readable after selection and while scrolling; only the decorative landscape fades. The compact floating dock contains Another pick and Top, with no Keep reading control. Filters and random-pick enhancements appear only once ready; without JavaScript all book content remains available. The mobile Categories menu retains keyboard and native details behavior.
+
+## Historical implementation notes (superseded)
+
+The entries below preserve earlier review evidence and stage-specific decisions. The current contract above and refreshed DESIGN.md supersede their descriptions of current structure, content counts, type sizes, selection fade, and completion status. Old statements about local-only work, no DESIGN.md rewrite, or deployment describe those dated checkpoints; they do not grant or deny permission for a later task. Deployment authorization always comes from the active user request.
 
 Mode: Read. Extend the approved reading-page world to the personal book collection. User-pinned sequence and reading-nook setting; code-led, no concept tournament or critic agent per established project preference. Preserve all 47 records and current order, eight categories, counts, random picks, spotlight, deep links, floating controls, and publishing workflow.
 

@@ -5,7 +5,19 @@ primary_target: index.html
 related_targets: ["home-game.css", "home-game.js"]
 ---
 
-# Homepage — Life extension
+# Homepage — five-scene journey
+
+Mode: Experience.
+
+## Current contract — audit fixes, 2026-09-23
+
+The current homepage contains Start / Work / Notes / Life / Connect, backed by five scenic WebP images. The compact fixed header uses an active underline and a single scroll-progress line. There is no journey rail, game-key button system, avatar cartridge, or Life-only font exception. All display headings use Silkscreen; prose and navigation use Sora. DESIGN.md and home-game.css describe the shared current world.
+
+All four Scroll next controls use drawn down arrows; the work, archive, and contact clickthrough rows use northeast SVG arrows. The 12-status badge preserves its full strings and existing compact text size; an explicit 6px status-dot width fixes WebKit intrinsic sizing, and the visible “Currently:” prefix disappears at widths up to 360px. The header uses readable compact labels and contained horizontal navigation scrolling. The audit correction preserves the approved artwork, copy, and badge behavior.
+
+## Historical implementation notes (superseded)
+
+The entries below preserve earlier review evidence and stage-specific decisions. The current contract above and refreshed DESIGN.md supersede their descriptions of current structure, content counts, type sizes, selection fade, and completion status. Old statements about local-only work, no DESIGN.md rewrite, or deployment describe those dated checkpoints; they do not grant or deny permission for a later task. Deployment authorization always comes from the active user request.
 
 ## WIP checkpoint — 2026-09-04
 

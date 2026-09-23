@@ -65,6 +65,11 @@
                 }
             }
         });
+        // Keep the initial status readable when enhancement cannot load.
+        // Advertise shuffle only once its click handler is attached.
+        statusBadge.disabled = false;
+        statusBadge.setAttribute('aria-label', 'Current status: Building for joy. Click to shuffle status');
+        statusBadge.setAttribute('title', 'Click to shuffle status');
     }
 
     if (!scenes.length) return;

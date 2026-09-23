@@ -25,10 +25,14 @@ test('Keyboard focus stays distinct from persistent discovery selection', () => 
     assert.match(css, /pointer-events:\s*none/);
 });
 
-test('Surrounding fade and reduced-motion behavior remain on both discovery pages', () => {
-    assert.match(books, /\.book-grid--spotlight \.book-card:not\(\.book-card--spotlight\)\s*\{\s*opacity:\s*\.22;/);
-    assert.match(gratitude, /\.gratitude-notes--spotlight \.gratitude-note:not\(\.gratitude-note--spotlight\)\s*\{\s*opacity:\s*\.22;/);
+test('Discovery selection preserves readable content and reduced-motion behavior', () => {
     for (const pageCss of [books, gratitude]) {
+        for (const [, selector, declarations] of pageCss.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+            if (!/\.(?:book-card|books-intro|gratitude-note|gratitude-intro-copy)(?![\w-])/.test(selector)) continue;
+            const opacity = declarations.match(/\bopacity:\s*([\d.]+)\s*;/)?.[1];
+            assert.ok(opacity === undefined || Number(opacity) === 1,
+                `${selector.trim()}: selecting an entry must not dim readable content`);
+        }
         assert.match(pageCss, /@media \(prefers-reduced-motion: reduce\)/);
         assert.match(pageCss, /transition:\s*none/);
         assert.doesNotMatch(pageCss, /background-color 180ms/);

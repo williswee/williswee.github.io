@@ -5,7 +5,19 @@ primary_target: gratitude.html
 related_targets: ["gratitude-game.css", "gratitude.js", "scripts/render-gratitude.mjs"]
 ---
 
-# Gratitude
+# Gratitude — evening journal
+
+Mode: Read.
+
+## Current contract — audit fixes, 2026-09-23
+
+Gratitude uses the shared reading room and dedicated evening-window artwork. The current generated journal contains 58 complete notes; preserve their Markdown source, numbering, dates, IDs, links, and paragraph markup. The generator is the authority for the checked-in HTML. Dates, counts, controls, and dock labels use the readable compact interface scale.
+
+A chosen note retains its hash, focus, and opposing gold corners. Other notes and the introduction remain at normal contrast during subsequent scrolling; only decorative scenery fades. The dock contains Another pick and Top, with no Keep reading action. Random discovery is a JavaScript enhancement revealed when ready; complete notes and native permalinks work without JavaScript.
+
+## Historical implementation notes (superseded)
+
+The entries below preserve earlier review evidence and stage-specific decisions. The current contract above and refreshed DESIGN.md supersede their descriptions of current structure, content counts, type sizes, selection fade, and completion status. Old statements about local-only work, no DESIGN.md rewrite, or deployment describe those dated checkpoints; they do not grant or deny permission for a later task. Deployment authorization always comes from the active user request.
 
 Mode: Read. Extend the approved midnight reading-page world to the final page in the user's sequence. Keep all 52 notes, dates, paragraph markup, URLs, numbering, and Markdown publishing workflow unchanged. Code-led continuation of the pinned page family; no concept tournament, critic agent, or DESIGN.md rewrite under the established project boundary.
 

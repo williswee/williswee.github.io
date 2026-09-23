@@ -9,7 +9,7 @@
     background: linear-gradient(90deg, transparent 70%, rgba(7, 16, 29, .4));
 }
 .guide-page h1 { text-wrap: pretty; }
-.guide-last-updated { margin: 20px 0 28px; color: var(--muted); font-size: .78rem; }
+.guide-last-updated { margin: 20px 0 28px; color: var(--muted); font-size: var(--font-size-ui); }
 .guide-intro { font-size: 1.0625rem; line-height: 1.85; }
 .guide-intro p { margin-bottom: 0; }
 .guide-contents {
@@ -31,7 +31,7 @@
     padding: 12px 0;
     color: var(--muted);
     border-top: 1px solid var(--line);
-    font-size: .8rem;
+    font-size: var(--font-size-ui);
     line-height: 1.65;
     text-decoration: none;
     transition: color 180ms ease-out;
@@ -87,7 +87,7 @@
     background: var(--panel);
     color: var(--cream);
     box-shadow: 0 8px 28px rgba(0, 0, 0, .3);
-    font-size: .82rem;
+    font-size: var(--font-size-ui);
     line-height: 1.6;
     opacity: 0;
     transform: translate(-50%, 8px);

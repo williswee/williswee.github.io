@@ -243,7 +243,7 @@ test('all public newsletter pages retain deferred markup and a no-JS subscriptio
         const html = readFileSync(new URL(name, root), 'utf8');
         assert.ok(html.includes('data-newsletter-src='), `${name} must preserve the deferred newsletter`);
         assert.match(html, /<script src="newsletter\.js\?v=\d+(?:\.\d+)*" defer><\/script>/);
-        assert.match(html, /<noscript><style>iframe\[data-newsletter-src\] \{ display: none; \}<\/style><\/noscript>/);
+        assert.match(html, /<noscript>\s*<style>\s*iframe\[data-newsletter-src\]\s*\{\s*display:\s*none;\s*\}\s*<\/style>\s*<\/noscript>/);
         assert.match(html, /<a[^>]+href="https:\/\/williswee\.substack\.com\/subscribe"/);
         assert.doesNotMatch(html, /<iframe\s+src="https:\/\/williswee\.substack\.com\/embed/);
         assert.match(html, /<iframe data-newsletter-src="https:\/\/williswee\.substack\.com\/embed"[^>]+aria-hidden="true" tabindex="-1"/);

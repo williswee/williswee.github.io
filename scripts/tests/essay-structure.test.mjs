@@ -39,9 +39,10 @@ test('every newsletter has one immediate subscription action before its optional
         assert.ok(block, `${name}: newsletter block missing`);
         const links = html.match(/<a\b[^>]*\bhref="https:\/\/williswee\.substack\.com\/subscribe"[^>]*>[\s\S]*?<\/a>/g) ?? [];
         assert.equal(links.length, 1, `${name}: expected one subscription fallback`);
-        const link = links[0];
+        const link = links[0].replace(/\s+/g, ' ');
         assert.match(link, /class="text-link newsletter-fallback"/, name);
-        assert.match(link, /target="_blank" rel="noopener noreferrer"/, name);
+        assert.match(link, /\btarget="_blank"/, name);
+        assert.match(link, /\brel="noopener noreferrer"/, name);
         assert.match(link, />Subscribe on Substack <span aria-hidden="true">↗<\/span><\/a>$/, name);
         const invitation = name === 'index.html'
             ? 'Join my free newsletter to get my latest essays and updates delivered straight to your inbox.'
@@ -49,8 +50,8 @@ test('every newsletter has one immediate subscription action before its optional
         assert.ok(block.replace(/\s+/g, ' ').includes(`<p>${invitation}</p> ${link} <iframe`),
             `${name}: keep invitation, fallback and form adjacent and in that order`);
         assert.match(html, /<script src="newsletter\.js\?v=2" defer><\/script>/, name);
-        assert.match(html, name === 'index.html' ? /reading-room\.css\?v=1\.10/ : /reading-room\.css\?v=1\.9/, name);
-        assert.match(html, /<noscript><style>iframe\[data-newsletter-src\] \{ display: none; \}<\/style><\/noscript>/, name);
+        assert.match(html, /reading-room\.css\?v=\d+(?:\.\d+)*/, name);
+        assert.match(html, /<noscript>\s*<style>\s*iframe\[data-newsletter-src\]\s*\{\s*display:\s*none;\s*\}\s*<\/style>\s*<\/noscript>/, name);
         assert.match(block, /<iframe data-newsletter-src="https:\/\/williswee\.substack\.com\/embed"[^>]+loading="lazy"[^>]+aria-hidden="true" tabindex="-1"[^>]+title="Subscribe to Willis Wee newsletter"><\/iframe>/, name);
         assert.doesNotMatch(block, /<iframe[^>]*\ssrc=/, name);
     }

@@ -12,6 +12,7 @@
     --line-strong: rgba(244, 233, 207, 0.5);
     --font-display: "Silkscreen", "Courier New", monospace;
     --font-body: "Sora", sans-serif;
+    --font-size-ui: .875rem;
     --header-height: 76px;
     --scene-progress: 0;
 }
@@ -64,7 +65,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     background: var(--gold);
     color: var(--ink-solid);
     font-family: var(--font-display);
-    font-size: 0.72rem;
+    font-size: var(--font-size-ui);
     text-decoration: none;
 }
 
@@ -122,7 +123,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     place-items: center;
     min-width: 52px;
     color: #b9c0c7;
-    font-size: 0.76rem;
+    font-size: var(--font-size-ui);
     font-weight: 600;
     letter-spacing: 0.04em;
     text-decoration: none;
@@ -333,9 +334,12 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     transition: border-color 180ms ease-out, background-color 180ms ease-out;
 }
 
-.status-badge:hover,
+.status-badge:enabled:hover,
 .status-badge:focus-visible { border-color: var(--gold); }
-.status-badge:active { background: var(--ink-solid); }
+.status-badge:enabled:active { background: var(--ink-solid); }
+
+.status-badge:disabled { opacity: 1; cursor: default; }
+.status-badge:disabled .status-shuffle { display: none; }
 
 .status-shuffle {
     display: inline-flex;
@@ -345,7 +349,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     transition: transform 300ms cubic-bezier(.16, 1, .3, 1), color 180ms ease-out;
 }
 
-.status-badge:hover .status-shuffle,
+.status-badge:enabled:hover .status-shuffle,
 .status-badge:focus-visible .status-shuffle {
     color: var(--gold);
 }
@@ -382,7 +386,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     margin-bottom: 2px;
     color: var(--gold);
     font-family: var(--font-display);
-    font-size: 0.58rem;
+    font-size: var(--font-size-ui);
     font-weight: 400;
 }
 
@@ -411,7 +415,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 
 .work-list > a {
     display: grid;
-    grid-template-columns: 72px minmax(0, 1fr) auto;
+    grid-template-columns: 84px minmax(0, 1fr) auto;
     gap: 16px;
     align-items: center;
     min-height: 78px;
@@ -430,7 +434,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 .work-meta {
     color: #9ce1b4;
     font-family: var(--font-display);
-    font-size: 0.57rem;
+    font-size: var(--font-size-ui);
     line-height: 1.4;
     overflow-wrap: anywhere;
 }
@@ -454,7 +458,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 .contact-list small {
     margin-top: 3px;
     color: #bfc5c8;
-    font-size: 0.78rem;
+    font-size: var(--font-size-ui);
     line-height: 1.45;
 }
 
@@ -469,7 +473,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 .panel-links > a:first-child {
     padding-block: 12px;
     color: var(--cream-soft);
-    font-size: 0.84rem;
+    font-size: var(--font-size-ui);
     font-weight: 600;
 }
 
@@ -555,7 +559,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     gap: 8px;
     margin-top: var(--return-gap);
     color: var(--cream-soft);
-    font-size: 0.82rem;
+    font-size: var(--font-size-ui);
     font-weight: 600;
 }
 
@@ -567,7 +571,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     bottom: 18px;
     z-index: 4;
     color: rgba(244, 233, 207, 0.72);
-    font-size: 0.7rem;
+    font-size: var(--font-size-ui);
 }
 
 .tracking-pixel {
@@ -613,9 +617,9 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 
     .chapter-nav a {
         flex: 0 0 auto;
-        min-width: 24px;
+        min-width: 44px;
         padding-inline: clamp(8px, 2.7vw, 16px);
-        font-size: 0.7rem;
+        font-size: var(--font-size-ui);
     }
 
     .chapter-nav a:focus-visible { outline-offset: -4px; }
@@ -686,7 +690,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     .story-panel > p.lede { font-size: 1rem; }
 
     .work-list > a {
-        grid-template-columns: 62px minmax(0, 1fr) auto;
+        grid-template-columns: 80px minmax(0, 1fr) auto;
         gap: 11px;
     }
 
@@ -709,7 +713,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 
 @media (max-width: 420px) {
     .site-brand { margin-right: 6px; }
-    .chapter-nav a { padding-inline: 4px; font-size: 0.64rem; }
+    .chapter-nav a { padding-inline: 4px; font-size: var(--font-size-ui); }
     .scene-content { padding-inline: 10px; }
     .story-panel { padding-inline: 18px; }
 
@@ -720,7 +724,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     }
 
     .work-meta { grid-column: 1 / -1; }
-    .work-list small { font-size: 0.74rem; }
+    .work-list small { font-size: var(--font-size-ui); }
 }
 
 @media (max-width: 360px) {

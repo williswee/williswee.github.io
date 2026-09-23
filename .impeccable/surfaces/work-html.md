@@ -5,7 +5,23 @@ primary_target: work.html
 related_targets: ["work-game.css", "work-game.js"]
 ---
 
-# Work history
+# Work — personal history
+
+Mode: Read.
+
+## Current contract — audit fixes, 2026-09-23
+
+Work is a fully migrated reading-room page with dedicated coastal-workshop artwork and five reverse-chronological stories. Preserve the existing narrative, milestones, anchors, images, and external destinations. The desktop milestone rail becomes a native compact menu on mobile. Full stories remain in the document throughout navigation.
+
+Compact milestone labels, dates, and supporting controls follow the readable shared interface scale. Sora carries prose and metadata; Silkscreen carries short declarations. DESIGN.md now records this page as part of the current site rather than a local migration draft.
+
+## Polish follow-up — 2026-09-23
+
+Milestone year ranges stay on one line. A font-relative date column aligns the project names at ordinary sizes; names move below dates when enlarged text needs the room. The selected milestone marker follows the first line's vertical center.
+
+## Historical implementation notes (superseded)
+
+The entries below preserve earlier review evidence and stage-specific decisions. The current contract above and refreshed DESIGN.md supersede their descriptions of current structure, content counts, type sizes, selection fade, and completion status. Old statements about local-only work, no DESIGN.md rewrite, or deployment describe those dated checkpoints; they do not grant or deny permission for a later task. Deployment authorization always comes from the active user request.
 
 Mode: Read. Extend the existing five-chapter work timeline into the user-selected homepage world. Preserve all biographical content, external destinations, and milestone anchors. No homepage changes or production deployment. Code-led, per project preference. No critic agent, per user instruction.
 
