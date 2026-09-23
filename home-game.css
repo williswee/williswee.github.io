@@ -352,6 +352,8 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 
 .status-dot {
     flex: 0 0 6px;
+    /* Include the dot in WebKit's intrinsic inline-flex width calculation. */
+    width: 6px;
     height: 6px;
     background: var(--green);
 }
@@ -719,6 +721,12 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 
     .work-meta { grid-column: 1 / -1; }
     .work-list small { font-size: 0.74rem; }
+}
+
+@media (max-width: 360px) {
+    /* Keep every full status on one line without shrinking text. Natural
+       wrapping remains available when readers enlarge their text. */
+    .status-prefix { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
