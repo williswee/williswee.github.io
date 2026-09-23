@@ -9,7 +9,7 @@
 .books-landscape::after { background: linear-gradient(90deg, transparent 70%, rgba(7, 16, 29, .4)); }
 .books-page .reading-shell { padding-bottom: 120px; }
 .books-page h1 { text-wrap: pretty; }
-.books-intro { margin-bottom: 32px; }
+.books-intro { margin-bottom: 32px; transition: opacity 220ms ease-out; }
 .books-intro p { margin: 24px 0 0; font-size: 1rem; line-height: 1.8; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .book-filter-sidebar {
@@ -62,15 +62,17 @@
     padding: 32px 0;
     border-bottom: 1px solid var(--line);
     scroll-margin: 0;
+    transition: opacity 220ms ease-out;
 }
 .book-card.book-card--hidden { display: none; }
 .book-card h3 { grid-column: 1 / -1; grid-row: 1; margin: 0; color: var(--cream); font: 600 1.2rem/1.55 var(--font-body); letter-spacing: -.02em; overflow-wrap: break-word; }
 .book-author { grid-column: 1; grid-row: 2; align-self: baseline; margin: 0; color: var(--muted); font-size: var(--font-size-ui); line-height: 1.7; letter-spacing: .025em; overflow-wrap: break-word; }
 .book-tag { grid-column: 2; grid-row: 2; align-self: baseline; color: var(--teal); font-size: var(--font-size-ui); line-height: 1.7; }
 .book-review { grid-column: 1 / -1; grid-row: 3; margin: 8px 0 0; color: var(--cream-soft); font-size: 1.0381rem; line-height: 1.85; overflow-wrap: break-word; }
-/* Selection corners identify the pick; every entry remains readable.
-   Only the decorative landscape recedes. */
-.books-page:has(.book-grid--spotlight) .books-landscape { opacity: .22; }
+/* Restore the quiet focus treatment while the selected pick is in view. */
+.book-grid--focus .book-card:not(.book-card--spotlight) { opacity: .22; }
+.book-grid--focus .book-card:not(.book-card--spotlight):focus-within { opacity: 1; }
+.books-page:has(.book-grid--focus) :is(.books-landscape, .books-intro) { opacity: .22; }
 /* Shared corner markers and keyboard-focus treatment live in reading-room.css. */
 .floating-book-dock {
     --dock-center: calc(95vw - min(400px, 32vw));
@@ -133,6 +135,6 @@
     .dock-btn { padding-inline: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
-    .filter-pill, .books-landscape { transition: none; }
+    .filter-pill, .books-landscape, .books-intro, .book-card { transition: none; }
     .rolling .random-pick-icon { animation: none; }
 }

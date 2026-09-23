@@ -284,7 +284,7 @@
       {
         "name": "landscape-fade",
         "value": "220ms ease-out",
-        "purpose": "Quiets decorative Books/Gratitude scenery while preserving readable content."
+        "purpose": "Quiets surrounding entries, introduction, and scenery while the selected Book/Gratitude entry is visible; restores readability on scrolling away."
       }
     ],
     "breakpoints": [
@@ -392,7 +392,7 @@
       },
       {
         "name": "The Readable Selection Rule",
-        "body": "Selection may quiet decorative scenery, but neighboring book reviews, gratitude notes, and introductions retain their normal text contrast.",
+        "body": "Focus mode dims neighboring entries, introductory text, and decorative scenery while the selected entry is in the reading viewport. Scrolling away restores normal contrast without discarding the selection or its link; returning restores focus. Keyboard-focused entries remain readable.",
         "section": "colors"
       },
       {
@@ -403,7 +403,7 @@
     ],
     "dos": [
       "Do preserve the five-scene pixel-art homepage and the shared dark reading room across inner pages.",
-      "Do use opaque ink surfaces for long-form text and full-contrast neighboring entries during selection.",
+      "Do use opaque ink surfaces for long-form text and restore normal contrast when readers scroll away from a focused entry.",
       "Do keep Sora navigation and metadata readable and controls at least 44px across compact viewports.",
       "Do use down arrows for onward scrolling, northeast arrows for destination links, and vectors rather than arrow emoji.",
       "Do retain all authored content, stable anchors, image descriptions, and complete no-JavaScript reading paths.",
@@ -411,7 +411,7 @@
     ],
     "donts": [
       "Don't restore the removed journey rail, game keycaps, or Keep reading dock action from historical screenshots or briefs.",
-      "Don't fade readable books, notes, or introductory text to create a selection effect.",
+      "Don't leave the page dimmed when the selected entry is outside the reading viewport.",
       "Don't truncate status copy or disable text enlargement to force the badge onto one line.",
       "Don't replace the established pixel artwork, square frames, or two-font pairing during a refinement.",
       "Don't expose an inactive control before its enhancement has initialized.",

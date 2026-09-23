@@ -200,7 +200,7 @@ Midnight ink, warm cream, and restrained gold form the site-wide palette. The fr
 
 **The Ink-Plate Rule.** Reading text sits on an ink surface. Scenery, veils, and shadows provide atmosphere without determining text contrast.
 
-**The Readable Selection Rule.** Selection may quiet decorative scenery, but neighboring book reviews, gratitude notes, and introductions retain their normal text contrast.
+**The Readable Selection Rule.** Focus mode dims neighboring entries, introductory text, and decorative scenery while the selected entry is in the reading viewport. Scrolling away restores normal contrast without discarding the selection or its link; returning restores focus. Keyboard-focused entries remain readable.
 
 ## Typography
 
@@ -275,7 +275,7 @@ Random pick is a square-edged outlined button with a drawn dice icon and a minim
 
 ### Selected books and gratitude notes
 
-A stable hash, explicit focus, and two gold corner marks identify the chosen entry. Reviews, notes, and introduction copy remain at normal contrast as the reader scrolls onward. Only the decorative landscape recedes during selection. Category filtering remains a separate, explicit operation; hidden books are removed from the flow rather than made faint.
+A stable hash, explicit focus, and two gold corner marks identify the chosen entry. Focus mode dims neighboring entries, introductory text, and decorative scenery while the selected entry is in the reading viewport. Scrolling away restores normal contrast without discarding the selection or its link; returning restores focus. Keyboard-focused entries remain readable. Category filtering remains a separate, explicit operation; hidden books are removed from the flow rather than made faint.
 
 ### Current status badge
 
@@ -289,7 +289,7 @@ Homepage work and destination rows use thin separators and vector arrows. The Th
 
 ### Do:
 - Do preserve the five-scene pixel-art homepage and the shared dark reading room across inner pages.
-- Do use opaque ink surfaces for long-form text and full-contrast neighboring entries during selection.
+- Do use opaque ink surfaces for long-form text and restore normal contrast when readers scroll away from a focused entry.
 - Do keep Sora navigation and metadata readable and controls at least 44px across compact viewports.
 - Do use down arrows for onward scrolling, northeast arrows for destination links, and vectors rather than arrow emoji.
 - Do retain all authored content, stable anchors, image descriptions, and complete no-JavaScript reading paths.
@@ -297,7 +297,7 @@ Homepage work and destination rows use thin separators and vector arrows. The Th
 
 ### Don't:
 - Don't restore the removed journey rail, game keycaps, or Keep reading dock action from historical screenshots or briefs.
-- Don't fade readable books, notes, or introductory text to create a selection effect.
+- Don't leave the page dimmed when the selected entry is outside the reading viewport.
 - Don't truncate status copy or disable text enlargement to force the badge onto one line.
 - Don't replace the established pixel artwork, square frames, or two-font pairing during a refinement.
 - Don't expose an inactive control before its enhancement has initialized.

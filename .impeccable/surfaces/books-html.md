@@ -13,7 +13,11 @@ Mode: Read.
 
 Books uses the shared reading room and dedicated reading-nook artwork. Preserve the complete 47-book collection, eight categories, record order, reviews, links, and existing slugs. Sora entry titles and reviews remain distinct from the Silkscreen page declaration; author, category, filter, count, and dock text follow the readable compact interface scale.
 
-Random selection is identified by the hash, focus, and gold corner marks. Neighboring books and the introduction remain fully readable after selection and while scrolling; only the decorative landscape fades. The compact floating dock contains Another pick and Top, with no Keep reading control. Filters and random-pick enhancements appear only once ready; without JavaScript all book content remains available. The mobile Categories menu retains keyboard and native details behavior.
+Random selection is identified by the hash, focus, and gold corner marks. Neighboring books, the introduction, and scenery dim while the selected entry is in view; scrolling away restores readability. The compact floating dock contains Another pick and Top, with no Keep reading control. Filters and random-pick enhancements appear only once ready; without JavaScript all book content remains available. The mobile Categories menu retains keyboard and native details behavior.
+
+## Focus-mode restoration — 2026-09-23
+
+Focus mode dims neighboring entries, introductory text, and decorative scenery while the selected entry is in the reading viewport. Scrolling away restores normal contrast without discarding the selection or its link; returning restores focus. Keyboard-focused entries remain readable. The two-action dock remains unchanged.
 
 ## Historical implementation notes (superseded)
 

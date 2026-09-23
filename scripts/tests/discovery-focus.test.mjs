@@ -243,3 +243,42 @@ for (const kind of ['books', 'gratitude']) {
         assert.equal(f.location.hash, '#unrelated');
     });
 }
+
+for (const kind of ['books', 'gratitude']) {
+    const focusClass = kind === 'books' ? 'book-grid--focus' : 'gratitude-notes--focus';
+    test(`${kind}: scrolling away lifts dimming without changing selection, hash, or scroll`, () => {
+        const f = fixture(kind);
+        f.select();
+        assert.equal(f.grid.classList.contains(focusClass), true);
+        const hash = f.location.hash;
+        const scrollCount = f.scrolls.length;
+        for (const rect of [{ top: -200, bottom: 80, height: 280 }, { top: 900, bottom: 1100, height: 200 }]) {
+            f.cards[0].getBoundingClientRect = () => rect;
+            f.listeners.get('scroll')();
+            f.flush();
+            assert.equal(f.grid.classList.contains(focusClass), false);
+            assert.equal(f.selected(), f.cards[0]);
+            assert.equal(f.location.hash, hash);
+            assert.equal(f.scrolls.length, scrollCount);
+        }
+        f.cards[0].getBoundingClientRect = () => ({ top: 300, bottom: 500, height: 200 });
+        f.listeners.get('scroll')();
+        f.flush();
+        assert.equal(f.grid.classList.contains(focusClass), true);
+        f.escape();
+        assert.equal(f.grid.classList.contains(focusClass), false);
+    });
+    test(`${kind}: offscreen picks and long entries keep their selection through navigation`, () => {
+        const f = fixture(kind);
+        f.cards[1].getBoundingClientRect = () => ({ top: 2000, bottom: 3000, height: 1000 });
+        f.select(1);
+        assert.equal(f.grid.classList.contains(focusClass), false);
+        assert.equal(f.selected(), f.cards[1]);
+        f.cards[1].getBoundingClientRect = () => ({ top: -500, bottom: 600, height: 1100 });
+        f.listeners.get('scroll')();
+        f.flush();
+        assert.equal(f.grid.classList.contains(focusClass), true);
+        f.click(f.top);
+        assert.equal(f.grid.classList.contains(focusClass), false);
+    });
+}

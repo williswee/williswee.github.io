@@ -25,14 +25,11 @@ test('Keyboard focus stays distinct from persistent discovery selection', () => 
     assert.match(css, /pointer-events:\s*none/);
 });
 
-test('Discovery selection preserves readable content and reduced-motion behavior', () => {
-    for (const pageCss of [books, gratitude]) {
-        for (const [, selector, declarations] of pageCss.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
-            if (!/\.(?:book-card|books-intro|gratitude-note|gratitude-intro-copy)(?![\w-])/.test(selector)) continue;
-            const opacity = declarations.match(/\bopacity:\s*([\d.]+)\s*;/)?.[1];
-            assert.ok(opacity === undefined || Number(opacity) === 1,
-                `${selector.trim()}: selecting an entry must not dim readable content`);
-        }
+test('Focus dimming is viewport-gated, keyboard-accessible, and reduced-motion aware', () => {
+    for (const [pageCss, group, entry] of [[books, 'book-grid', 'book-card'], [gratitude, 'gratitude-notes', 'gratitude-note']]) {
+        assert.ok(pageCss.includes(`.${group}--focus .${entry}:not(.${entry}--spotlight) { opacity: .22; }`));
+        assert.ok(pageCss.includes(`.${group}--focus .${entry}:not(.${entry}--spotlight):focus-within { opacity: 1; }`));
+        assert.ok(!pageCss.includes(`.${group}--spotlight .${entry}:not`), 'selection alone must not keep other entries dim');
         assert.match(pageCss, /@media \(prefers-reduced-motion: reduce\)/);
         assert.match(pageCss, /transition:\s*none/);
         assert.doesNotMatch(pageCss, /background-color 180ms/);

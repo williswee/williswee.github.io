@@ -13,7 +13,7 @@ Mode: Read.
 
 Gratitude uses the shared reading room and dedicated evening-window artwork. The current generated journal contains 58 complete notes; preserve their Markdown source, numbering, dates, IDs, links, and paragraph markup. The generator is the authority for the checked-in HTML. Dates, counts, controls, and dock labels use the readable compact interface scale.
 
-A chosen note retains its hash, focus, and opposing gold corners. Other notes and the introduction remain at normal contrast during subsequent scrolling; only decorative scenery fades. The dock contains Another pick and Top, with no Keep reading action. Random discovery is a JavaScript enhancement revealed when ready; complete notes and native permalinks work without JavaScript.
+A chosen note retains its hash, focus, and opposing gold corners. Focus mode dims neighboring entries, introductory text, and decorative scenery while the selected entry is in the reading viewport. Scrolling away restores normal contrast without discarding the selection or its link; returning restores focus. Keyboard-focused entries remain readable. The dock contains Another pick and Top, with no Keep reading action. Random discovery is a JavaScript enhancement revealed when ready; complete notes and native permalinks work without JavaScript.
 
 ## Historical implementation notes (superseded)
 

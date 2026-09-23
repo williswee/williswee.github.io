@@ -68,6 +68,12 @@
         // whole toolbar disappears beneath the fixed header.
         const primaryControlObscured = randomButton && randomButton.getBoundingClientRect().top < headerBottom();
         setDockVisible(Boolean(selectedNote || primaryControlObscured));
+        // Focus quiets the surroundings only while the pick is in the reading
+        // viewport. Scrolling away restores the page without losing its link.
+        const bounds = safeViewport();
+        const rect = selectedNote?.getBoundingClientRect();
+        const focusVisible = rect && rect.bottom > bounds.top && rect.top < bounds.bottom;
+        if (notesGrid) notesGrid.classList.toggle('gratitude-notes--focus', Boolean(focusVisible));
     }
 
     function scheduleDockUpdate() {
@@ -99,6 +105,7 @@
     function clearSpotlight() {
         selectedNote = null;
         if (notesGrid) notesGrid.classList.remove('gratitude-notes--spotlight');
+        if (notesGrid) notesGrid.classList.remove('gratitude-notes--focus');
         notes.forEach((note) => note.classList.remove('gratitude-note--spotlight'));
         if (status) status.textContent = '';
     }

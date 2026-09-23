@@ -119,6 +119,12 @@
             : headerBottom();
         const primaryControlObscured = randomButton && randomButton.getBoundingClientRect().top < obstructionBottom;
         setDockVisible(Boolean(selectedCard || primaryControlObscured));
+        // Focus quiets the surroundings only while the pick is in the reading
+        // viewport. Scrolling away restores the page without losing its link.
+        const bounds = safeViewport();
+        const rect = selectedCard?.getBoundingClientRect();
+        const focusVisible = rect && rect.bottom > bounds.top && rect.top < bounds.bottom;
+        if (grid) grid.classList.toggle('book-grid--focus', Boolean(focusVisible));
     }
 
     function scheduleDockUpdate() {
@@ -184,6 +190,7 @@
     function clearSpotlight() {
         selectedCard = null;
         if (grid) grid.classList.remove('book-grid--spotlight');
+        if (grid) grid.classList.remove('book-grid--focus');
         cards.forEach((card) => card.classList.remove('book-card--spotlight'));
     }
 
