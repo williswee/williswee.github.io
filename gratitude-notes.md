@@ -659,3 +659,13 @@ What's yours?
 2️⃣ Grateful that I have the freedom and time to explore ideas and play around with technologies out of curiosity.
 
 3️⃣ Happy that Shake Shack has opened, and we got a good deal on the burgers.
+
+## Gratitude note #60
+
+*2026-09-24*
+
+1️⃣ The children were making things challenging. Long story short, decided to turn that into something positive. The kids noticed and were grateful. That was interesting to observe.
+
+2️⃣ Really enjoying the palak paneer from this particular Indian restaurant. We had it last night. The children enjoyed it, especially my oldest daughter.
+
+3️⃣ Built a simple dashboard to help evaluate startup ideas more easily and collaboratively. It was good fun working on it and using it.
