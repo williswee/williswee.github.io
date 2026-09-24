@@ -669,22 +669,29 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 }
 
 @media (max-width: 760px) {
-    :root { --header-height: 64px; }
+    :root { --header-height: 4rem; }
 
     html {
         scroll-snap-type: none;
-        scroll-padding-top: var(--header-height);
+        /* Safari resolves root rem scroll padding before enlarged text. */
+        scroll-padding-top: 4em;
     }
 
     .site-hud {
         grid-template-columns: auto minmax(0, 1fr);
+        column-gap: 12px;
         padding-inline: 12px;
     }
 
     .brand-full { display: none; }
     .brand-short { display: inline; }
-    .site-brand { gap: 6px; }
+    .site-brand {
+        align-items: center;
+        min-height: 44px;
+        gap: 6px;
+    }
     .site-brand > span { font-size: 0.74rem; }
+    .site-brand small { font-size: 0.875rem; }
 
     .chapter-nav {
         min-width: 0;
@@ -697,8 +704,9 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     .chapter-nav a {
         flex: 0 0 auto;
         min-width: 44px;
-        padding-inline: clamp(8px, 2.7vw, 16px);
-        font-size: var(--font-size-ui);
+        padding-inline: 4px;
+        font-size: 0.75rem;
+        letter-spacing: 0.02em;
     }
 
     .chapter-nav a:focus-visible { outline-offset: -4px; }
@@ -791,8 +799,6 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 }
 
 @media (max-width: 420px) {
-    .site-brand { margin-right: 6px; }
-    .chapter-nav a { padding-inline: 4px; font-size: var(--font-size-ui); }
     .scene-content { padding-inline: 10px; }
     .story-panel { padding-inline: 18px; }
 
@@ -807,6 +813,15 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 }
 
 @media (max-width: 360px) {
+    .site-hud { column-gap: 8px; }
+    .site-brand { gap: 4px; }
+    .site-brand > span { font-size: 0.68rem; }
+    .chapter-nav a {
+        min-width: 36px;
+        padding-inline: 3px;
+        font-size: 0.6875rem;
+    }
+
     /* Keep every full status on one line without shrinking text. Natural
        wrapping remains available when readers enlarge their text. */
     .status-prefix { display: none; }

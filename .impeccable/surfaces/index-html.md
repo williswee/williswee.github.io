@@ -13,7 +13,13 @@ Mode: Experience.
 
 The current homepage contains Start / Work / Notes / Life / Connect, backed by five scenic WebP images. The compact fixed header uses an active underline and a single scroll-progress line. There is no journey rail, game-key button system, avatar cartridge, or Life-only font exception. All display headings use Silkscreen; prose and navigation use Sora. DESIGN.md and home-game.css describe the shared current world.
 
-All four Scroll next controls use drawn down arrows; the work, archive, and contact clickthrough rows use northeast SVG arrows. The 12-status badge preserves its full strings and existing compact text size; an explicit 6px status-dot width fixes WebKit intrinsic sizing, and the visible “Currently:” prefix disappears at widths up to 360px. The header uses readable compact labels and contained horizontal navigation scrolling. The audit correction preserves the approved artwork, copy, and badge behavior.
+All four Scroll next controls use drawn down arrows; the work, archive, and contact clickthrough rows use northeast SVG arrows. The 12-status badge preserves its full strings and existing compact text size; an explicit 6px status-dot width fixes WebKit intrinsic sizing, and the visible “Currently:” prefix disappears at widths up to 360px. The mobile header keeps the short brand and smaller navigation labels on one line, as requested by the user; horizontal scrolling remains available for enlarged text. The audit correction preserves the approved artwork, copy, and badge behavior.
+
+## Mobile header correction — 2026-09-24
+
+Reproduced the crowded header at the iPhone 13 mini's 375px width in WebKit. The user rejected the initial two-row proposal and explicitly prefers one line with smaller menu text. At widths up to 760px, the short brand and five links now share a 64px header with a clear gap and 12px menu text. At widths up to 360px, 11px labels and a slightly smaller brand keep every link visible; link widths can reduce to 36px, with the full header height remaining tappable. Header dimensions scale with enlarged text, and em-based root scroll padding keeps Safari's anchor offset in sync. Desktop layout and homepage content are preserved. The homepage stylesheet cache version is 4.6.
+
+Verified WebKit and Chromium at 320, 375, 414, 760, 768, 812 landscape, and 1440px, plus 200% text at 375px. Keyboard navigation, active-section feedback, anchor clearance, and contained scrolling pass; no page overflow or runtime errors were observed. All 117 Node tests passed again during deployment preflight. These are browser-emulation checks, not a physical iPhone test. The detector used its degraded regex fallback and reported inherited palette/type advisories plus the user-approved smaller header sizes; it is not a full detector pass. The user approved deploying the single-row version to GitHub Pages.
 
 ## Coaching communication — 2026-09-24
 
