@@ -15,6 +15,10 @@ The current homepage contains Start / Work / Notes / Life / Connect, backed by f
 
 All four Scroll next controls use drawn down arrows; the work, archive, and contact clickthrough rows use northeast SVG arrows. The 12-status badge preserves its full strings and existing compact text size; an explicit 6px status-dot width fixes WebKit intrinsic sizing, and the visible “Currently:” prefix disappears at widths up to 360px. The header uses readable compact labels and contained horizontal navigation scrolling. The audit correction preserves the approved artwork, copy, and badge behavior.
 
+## Coaching communication — 2026-09-24
+
+Start and Work lead into the Connect coaching introduction. A collapsed native FAQ explains preparation, working as comrades, and the expected sense of direction. The contact grid prioritizes Book a call and includes the approved Substack helper line. FAQ body text follows the 1rem body size; its summary uses the shared UI token. Approved wording remains concise and unchanged.
+
 ## Historical implementation notes (superseded)
 
 The entries below preserve earlier review evidence and stage-specific decisions. The current contract above and refreshed DESIGN.md supersede their descriptions of current structure, content counts, type sizes, selection fade, and completion status. Old statements about local-only work, no DESIGN.md rewrite, or deployment describe those dated checkpoints; they do not grant or deny permission for a later task. Deployment authorization always comes from the active user request.
@@ -86,3 +90,13 @@ Verification: desktop Life and Connect plus 390px Life and 320px Connect screens
 Removed only the compact Work → Notes link's top rule, preserving other scene dividers. The homepage brand tagline is now the user-requested waving hand, also visible at 320px. Restored the production status badge's 12 messages below the Start heading. A native button provides click, Enter, and Space activation, avoids immediate repeats, updates its accessible name, and announces status text politely. The badge uses the existing square-edged navy, cream, green, and gold design instead of importing the legacy stylesheet; its 0.8rem type matches the original badge, and the emoji header uses 1rem.
 
 Verification: desktop Start and Work screenshots and 320px Start with the longest status reviewed; no horizontal overflow, visible keyboard focus, a 44px minimum badge target, all 12 statuses covered by a Node check, and mouse/Enter/Space confirmed in a fresh browser tab. The earlier preview tab was in annotation mode and intercepted input, so it was not used as interaction evidence. The detector remains degraded without parser dependencies and reports inherited DESIGN.md drift plus the local badge/emoji type sizes, not a full clean pass. Artwork, other pages, and production are unchanged. No commit, push, deployment, or critic ran.
+
+## Connect polish — 2026-09-24
+
+Polished the approved coaching FAQ and contact rows without changing their wording. FAQ questions and answers use the existing 1rem body size, with more space between answers and a gold open-state chevron. Contact icons and arrows align with their titles; the grid becomes one column when the panel cannot support two 200px columns. This keeps the Intro and Substack helper lines readable at intermediate widths while preserving the existing mobile stack and scene artwork.
+
+Verified expanded and collapsed FAQ states at desktop, 780px, and 320px widths, then restored the user's 1043px viewport. Enter and Space toggle the native disclosure with a visible focus ring. Settled layouts have no horizontal overflow; the console returned no errors. Final diff check passed. The one detector run used its degraded regex fallback because parser dependencies are unavailable; its inherited type/color advisories remain intentional for this visual world, not a full clean detector pass. Changes remain local on codex/pixel-portfolio-wip-2026-09-02; main, commits, pushes, and deployment were untouched. Verdict: ready for local review.
+
+## Release QA — 2026-09-24
+
+Updated WIP to origin/main at d368e7d before reapplying the coaching changes, preserving published essays, all 60 gratitude notes, current typography, Safari fixes, arrow conventions, and navigation improvements. Bumped the homepage CSS cache version to 4.5. All 117 regression tests passed; essay-manifest and gratitude-render checks passed. Homepage local links, anchors, and referenced assets exist and are tracked. Verified desktop and 320px FAQ/contact layouts, Enter/Space disclosure behavior, no horizontal overflow, and no browser-console errors in a clean preview tab; annotation controls in the earlier tab intercepted keyboard input. Temporary viewport overrides were reset. The user authorized committing, pushing WIP, and merging to main after QA; old untracked art/review files are excluded.

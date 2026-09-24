@@ -512,23 +512,102 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 
 .contact-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
     gap: 0 24px;
     margin: 26px 0 0;
     border-top: 1px solid var(--line);
 }
 
-.contact-list a { min-height: 72px; }
+.contact-list a {
+    align-items: flex-start;
+    min-width: 0;
+    min-height: 72px;
+    padding-block: 16px;
+}
+
+.contact-list a > svg {
+    margin-top: calc((0.96rem * 1.65 - 20px) / 2);
+}
+
+.contact-list .coaching-booking { color: var(--gold); }
+
+.coaching-faq {
+    margin-top: 24px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.coaching-faq > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 52px;
+    padding-block: 12px;
+    color: var(--cream-soft);
+    font-size: var(--font-size-ui);
+    font-weight: 600;
+    list-style: none;
+    cursor: pointer;
+}
+
+.coaching-faq > summary::-webkit-details-marker { display: none; }
+.coaching-faq > summary::marker { content: ""; }
+.coaching-faq > summary:hover { color: var(--gold); }
+.coaching-faq[open] > summary { color: var(--cream); }
+
+.coaching-faq > summary svg {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+}
+
+.coaching-faq[open] > summary svg {
+    color: var(--gold);
+    transform: rotate(180deg);
+}
+
+.coaching-answers { padding: 16px 0 24px; }
+
+.coaching-answers h3 {
+    margin: 24px 0 8px;
+    color: var(--cream);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.coaching-answers h3:first-child { margin-top: 0; }
+
+.coaching-answers p {
+    margin: 0;
+    color: var(--cream-soft);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.coaching-answers a { text-decoration-color: var(--gold); }
+.coaching-answers a:hover { color: var(--gold); }
+.coaching-faq + .contact-list {
+    margin-top: 12px;
+    border-top: 0;
+}
 
 .contact-label {
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
+    min-width: 0;
 }
+
+.contact-label > span { min-width: 0; }
 
 .contact-list .contact-icon {
     width: 18px;
     height: 18px;
+    margin-top: calc((0.96rem * 1.65 - 18px) / 2);
     fill: currentColor;
     stroke: none;
 }
