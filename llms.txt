@@ -11,6 +11,7 @@
 
 ## Thoughts
 Articles and reflections by Willis Wee.
+- [A small experiment with Google Search](https://williswee.com/thoughts/googlefluid): Making fluid UI easier to visualize through something we already use.
 - [A 9-day meditation retreat](https://williswee.com/thoughts/meditationretreat): 52 hours of sitting meditation, 52 hours of walking meditation, and almost total silence.
 - [Winning the Best Dad Award?](https://williswee.com/thoughts/bestdad): My eldest is nine. If 15 years old marks the start of greater independence, I have just over 300 weeks left in this season of being a dad.
 - [Everyone says they're making money investing. Nobody shows the receipts.](https://williswee.com/thoughts/tickertownupdate): I stopped vibe investing. Then I realized the hardest part wasn't just learning to build the system. It was finding anyone willing to share theirs.
