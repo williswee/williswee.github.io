@@ -78,10 +78,10 @@ async function outputs(directory) {
     return Promise.all(['gratitude.html', 'sitemap.xml'].map((file) => readFile(path.join(directory, file))));
 }
 
-async function appendNote(directory, number, date = '2099-01-01') {
+async function appendNote(directory, number, date = '2099-01-01', body = 'Publisher regression fixture.') {
     const file = path.join(directory, 'gratitude-notes.md');
     const markdown = await readFile(file, 'utf8');
-    await writeFile(file, `${markdown}\n\n## Gratitude note #${number}\n\n*${date}*\n\nPublisher regression fixture.\n`);
+    await writeFile(file, `${markdown}\n\n## Gratitude note #${number}\n\n*${date}*\n\n${body}\n`);
 }
 
 test('valid notes render idempotently without changing their permalinks', async (t) => {
@@ -117,6 +117,23 @@ test('a new unique note updates the page and sitemap while keeping existing IDs'
         assert.equal((html.match(new RegExp(`id="note-${number}"`, 'g')) ?? []).length, 1);
     }
     assert.match(sitemapBuffer.toString(), /<loc>https:\/\/(?:www\.)?williswee\.com\/gratitude\.html<\/loc>\s*<lastmod>2099-01-01<\/lastmod>/);
+});
+
+test('Markdown links render with safe labels and external-link attributes', async (t) => {
+    const directory = await fixture(t);
+    await appendNote(
+        directory,
+        9000,
+        '2099-01-01',
+        'Read [the update](https://example.com/update?topic=joy&day=1).',
+    );
+    const result = render(directory);
+    assert.equal(result.status, 0, result.stderr);
+    const [htmlBuffer] = await outputs(directory);
+    assert.match(
+        htmlBuffer.toString(),
+        /Read <a href="https:\/\/example\.com\/update\?topic=joy&amp;day=1" target="_blank" rel="noopener noreferrer">the update<\/a>\./,
+    );
 });
 
 test('Windows line endings keep valid note headings readable', async (t) => {

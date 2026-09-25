@@ -85,10 +85,19 @@ function escapeHtml(value) {
 }
 
 function linkify(value) {
-    return escapeHtml(value).replace(
-        /(https?:\/\/[^\s<]+)/g,
-        '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>',
-    );
+    const linkPattern = /\[([^\]\r\n]+)\]\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s<]+)/g;
+    let rendered = '';
+    let cursor = 0;
+
+    for (const match of value.matchAll(linkPattern)) {
+        rendered += escapeHtml(value.slice(cursor, match.index));
+        const href = match[2] ?? match[3];
+        const label = match[1] ?? href;
+        rendered += `<a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
+        cursor = match.index + match[0].length;
+    }
+
+    return rendered + escapeHtml(value.slice(cursor));
 }
 
 function renderParagraph(value) {

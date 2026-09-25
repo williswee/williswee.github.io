@@ -674,7 +674,7 @@ What's yours?
 
 *2026-09-25*
 
-1️⃣ Quite happy to have the time to experiment with Jev. Full updates here: https://x.com/williswee/status/2103028022358204876
+1️⃣ Quite happy to have the time to experiment with Jev. [Full updates here](https://x.com/williswee/status/2103028022358204876)
 
 2️⃣ Feels like the training from the silent meditation retreat has helped a lot over the past week. I’m quite thankful for that.
 
