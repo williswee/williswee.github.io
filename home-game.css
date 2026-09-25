@@ -531,6 +531,34 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 
 .contact-list .coaching-booking { color: var(--gold); }
 
+.coaching-more {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 8px;
+    min-height: 44px;
+    margin-top: -8px;
+    color: var(--cream);
+    font-size: var(--font-size-ui);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 160ms ease-out;
+}
+
+.coaching-more:hover { color: var(--gold); }
+
+.coaching-more svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: square;
+    stroke-width: 1.6;
+}
+
+.coaching-more + .coaching-faq { margin-top: 12px; }
+
 .coaching-faq {
     margin-top: 24px;
     border-top: 1px solid var(--line);

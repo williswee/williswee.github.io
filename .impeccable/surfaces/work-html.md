@@ -19,6 +19,18 @@ Compact milestone labels, dates, and supporting controls follow the readable sha
 
 Milestone year ranges stay on one line. A font-relative date column aligns the project names at ordinary sizes; names move below dates when enlarged text needs the room. The selected milestone marker follows the first line's vertical center.
 
+## Shared rail — 2026-09-25
+
+The chapter rail's desktop and tablet geometry now comes from the shared `.reading-rail` in `thoughts/reading-room.css`. `work-game.css` (v2.3) keeps only its 24px padding (18px 12px up to 1100px) and the sticky Milestones menu on phones. Computed geometry is unchanged at 1336, 1000, and 390px.
+
+## Coaching mention — 2026-09-25
+
+At the user's request, the Now section links to Coaching in one plain sentence below the Slothware paragraph: "I also do coaching as comrades for founders." The bold link matches "Slothware Labs" above it. It sits above the TickerTown card and is not a spotlight card, so coaching doesn't read as a Slothware project and the timeline stays personal history.
+
+## Shared landscape — 2026-09-25
+
+The left-column art's geometry and shared treatment (clipping, ink backing, centered image, 0.9 brightness, desktop and phone gradients) now come from `.reading-landscape--portrait` in `thoughts/reading-room.css`. `work-game.css` (v2.4) keeps only its 67% phone crop. Computed styles are unchanged at 1336, 1000, 760, and 390px.
+
 ## Historical implementation notes (superseded)
 
 The entries below preserve earlier review evidence and stage-specific decisions. The current contract above and refreshed DESIGN.md supersede their descriptions of current structure, content counts, type sizes, selection fade, and completion status. Old statements about local-only work, no DESIGN.md rewrite, or deployment describe those dated checkpoints; they do not grant or deny permission for a later task. Deployment authorization always comes from the active user request.

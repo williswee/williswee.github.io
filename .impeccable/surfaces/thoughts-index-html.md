@@ -21,6 +21,14 @@ Image optimization serves responsive compressed versions of heavy essay figures 
 
 Archive dates take their natural height below each title, including when enlarged text wraps the date. The entire row remains clickable and its keyboard focus ring includes the date. Preserve this normal-flow spacing rather than restoring fixed bottom space for an absolutely positioned date.
 
+## Coaching card — 2026-09-25
+
+Every essay, including the `freedom.html` template, carries one shared coaching card between `</article>` and the newsletter block. It uses the user-approved line "Founder and stuck on something? I do coaching as comrades." and links to `../coaching.html`. The card sits outside the article, so reading progress, quote tools, and footnotes are unaffected. It is an ink dialogue box with a decorative "Willis" nameplate, the shared `.dialogue-nameplate` also used by the Coaching testimonials. Essay text is unchanged, and essay sitemap dates were deliberately left alone. The shared stylesheet cache version is 1.17 on every reading page and in the Gratitude renderer. `scripts/tests/coaching.test.mjs` enforces the card.
+
+## Shared landscape — 2026-09-25
+
+Essay scenery shares one left-column geometry rule with the five portrait pages (`.essay-page .reading-landscape` sits beside `.reading-landscape--portrait` in `thoughts/reading-room.css`). The essays' dimmed, desaturated treatment is unchanged, and a redundant phone height was removed. The shared stylesheet cache version is 1.19 on every reading page and in the Gratitude renderer. Computed styles matched a pre-change snapshot at 1336, 1000, 760, and 390px.
+
 ## Historical implementation notes (superseded)
 
 The entries below preserve earlier review evidence and stage-specific decisions. The current contract above and refreshed DESIGN.md supersede their descriptions of current structure, content counts, type sizes, selection fade, and completion status. Old statements about local-only work, no DESIGN.md rewrite, or deployment describe those dated checkpoints; they do not grant or deny permission for a later task. Deployment authorization always comes from the active user request.

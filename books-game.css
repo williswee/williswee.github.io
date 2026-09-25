@@ -1,28 +1,11 @@
 /* A reading nook for the existing book collection. Shared shell lives in reading-room.css. */
-.books-landscape {
-    right: calc(5vw + min(800px, 64vw));
-    overflow: hidden;
-    background: var(--ink);
-    transition: opacity 220ms ease-out;
-}
-.books-landscape img { display: block; object-fit: cover; object-position: center; filter: brightness(.95); }
-.books-landscape::after { background: linear-gradient(90deg, transparent 70%, rgba(7, 16, 29, .4)); }
+.books-landscape { transition: opacity 220ms ease-out; }
+.books-landscape img { filter: brightness(.95); }
 .books-page .reading-shell { padding-bottom: 120px; }
 .books-page h1 { text-wrap: pretty; }
 .books-intro { margin-bottom: 32px; transition: opacity 220ms ease-out; }
 .books-intro p { margin: 24px 0 0; font-size: 1rem; line-height: 1.8; }
-.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
-.book-filter-sidebar {
-    position: fixed;
-    top: calc(var(--header-height) + 64px);
-    left: 4vw;
-    width: min(320px, calc(91vw - min(800px, 64vw) - 40px));
-    max-height: calc(100svh - var(--header-height) - 96px);
-    overflow-y: auto;
-    padding: 22px 24px;
-    border-block: 1px solid var(--line);
-    background: rgba(5, 12, 23, .96);
-}
+.book-filter-sidebar { max-height: calc(100svh - var(--header-height) - 96px); background: rgba(5, 12, 23, .96); }
 .book-filter-menu > summary { display: none; }
 .book-filter-title { margin: 0 0 18px; color: var(--cream); font: 700 1rem/1.4 var(--font-display); }
 .filter-pills { display: flex; flex-direction: column; }
@@ -101,15 +84,11 @@
 .dock-btn:hover { color: var(--gold); border-color: var(--gold); }
 .dock-btn:disabled { opacity: .55; cursor: default; }
 @media (max-width: 1100px) {
-    .books-landscape { right: 70vw; }
-    .book-filter-sidebar { left: 3vw; width: 24vw; padding: 18px; }
     .floating-book-dock { --dock-center: 63.5vw; }
 }
 @media (max-width: 760px) {
     html { scroll-padding-top: calc(var(--header-height) + 80px); }
-    .books-landscape { right: 0; }
     .books-landscape img { object-position: center 68%; }
-    .books-landscape::after { background: linear-gradient(180deg, rgba(7, 16, 29, .12), transparent 65%, var(--ink)); }
     .books-intro { margin-bottom: 28px; }
     .books-intro p { margin-top: 20px; }
     .book-filter-sidebar { position: sticky; top: var(--header-height); left: auto; z-index: 30; width: auto; max-height: none; overflow: visible; padding: 0; margin: 0 calc(-1 * var(--pane-inset)) 24px; background: var(--panel); }

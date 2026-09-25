@@ -3,12 +3,17 @@
   
   <url>
     <loc>https://www.williswee.com/</loc>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
+    <loc>https://www.williswee.com/coaching.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
     <loc>https://www.williswee.com/guide.html</loc>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
@@ -18,7 +23,7 @@
   </url>
   <url>
     <loc>https://www.williswee.com/work.html</loc>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <priority>0.80</priority>
   </url>
   <url>

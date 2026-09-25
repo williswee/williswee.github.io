@@ -25,6 +25,10 @@ Verified WebKit and Chromium at 320, 375, 414, 760, 768, 812 landscape, and 1440
 
 Start and Work lead into the Connect coaching introduction. A collapsed native FAQ explains preparation, working as comrades, and the expected sense of direction. The contact grid prioritizes Book a call and includes the approved Substack helper line. FAQ body text follows the 1rem body size; its summary uses the shared UI token. Approved wording remains concise and unchanged.
 
+## Coaching page links — 2026-09-25
+
+The Work card "Coaching as comrades" now opens `coaching.html`, which matches its northeast destination arrow. Beneath the Connect intro, a compact "More about coaching" link with a northeast arrow also opens the page. All other approved copy and the Start → Connect in-page link are unchanged. The homepage stylesheet cache version is 4.7. See coaching-html.md.
+
 ## Historical implementation notes (superseded)
 
 The entries below preserve earlier review evidence and stage-specific decisions. The current contract above and refreshed DESIGN.md supersede their descriptions of current structure, content counts, type sizes, selection fade, and completion status. Old statements about local-only work, no DESIGN.md rewrite, or deployment describe those dated checkpoints; they do not grant or deny permission for a later task. Deployment authorization always comes from the active user request.

@@ -29,7 +29,7 @@ The current WIP essay template is [`thoughts/freedom.html`](thoughts/freedom.htm
 
 The newsletter's direct subscription link belongs inside its block, immediately after the invitation and before the deferred iframe. It stays available while the form loads automatically near the viewport. Pending and failed forms use compact feedback, with a reload action and a show/hide control for loaded forms; only a shown form reserves its full height. A cross-origin frame load is not proof of a working signup form. Follow the [embed guidance](thoughts/README.md#third-party-embeds), and verify blocked/slow-provider recovery and the no-JavaScript link when changing this shared behavior.
 
-1. Copy `thoughts/freedom.html` to `thoughts/{slug}.html` (single word slug, e.g. `mission`). Keep its shared reading layout, scripts, navigation, and newsletter/footer markup.
+1. Copy `thoughts/freedom.html` to `thoughts/{slug}.html` (single word slug, e.g. `mission`). Keep its shared reading layout, scripts, navigation, coaching card, and newsletter/footer markup.
 2. Update the title, meta description, heading, date, body, and article images/captions. When the source has a subtitle, put its unchanged wording in `<p class="article-subtitle">` immediately after the article's `<h1>`, before the date and title image/figure. Omit this element for essays without a subtitle. Remove any copied Freedom-specific content that does not belong to the new essay.
 3. **Keep the automatic preset background picker.** Every new essay uses `thoughts/essay-landscape.js` to select one of the ten existing images in [`images/reading-landscapes/`](images/reading-landscapes/). Do not generate a new decorative background or assign one manually per essay. The scene is selected once per page load and stays still while reading. Article/hero images from the source post are separate and should still be preserved.
 4. Add the new `<li>` to `thoughts/index.html` in date order, newest first, and update the static essay count. The archive builds its year groupings automatically.
@@ -46,6 +46,7 @@ Follow the "How to publish a new article" section in README.md and the essay aut
 - do not create a new decorative background; the article's own images are separate from the preset scenery
 - Extract the title, subtitle, date, and body from the live Substack post. Do not ask me for them. The subtitle is the Substack post's subtitle/deck. Place it as `<p class="article-subtitle">` immediately after the article's `<h1>`, before the date and title image/figure. Preserve its wording; omit the element when the source has no subtitle.
 - Copy the article content from the Substack post, including images and captions, but omit Substack's in-article subscription buttons (for example, **Subscribe now**). Save any images in the `images` directory and reference them properly in the article. Center image captions and preserve the original wording. Keep the site's shared newsletter block, including its direct subscription link immediately after the invitation and before the deferred iframe.
+- Keep the template's coaching card (`<aside class="coaching-cta">`) unchanged, directly after `</article>` and before the newsletter block.
 
 Substack URL:
 Slug: (single word slug, e.g. `mission`)
@@ -67,6 +68,14 @@ Open the [homepage](http://localhost:4173/index.html), [Thoughts archive](http:/
 The redesigned [Guide](guide.html) uses `thoughts/reading-room.css` for the shared navigation and reading shell, with `guide-game.css` and `guide-game.js` for its own layout and interactions. Its dedicated illustration is `images/game-world/guide-field-manual-v1.webp`, composed for the visible left column; it does not use the homepage artwork or randomized essay landscapes.
 
 Keep the complete copy and nested alphabetic lists. Existing section/rule IDs are public deep links: preserve them when editing a heading or bold rule label (set the existing ID explicitly on its `<h2>` or `<li>` if the label changes). When adding a section, update the “In this guide” links as well. Preview [Guide locally](http://localhost:4173/guide.html), check mobile layout, and test both section and rule copy links.
+
+---
+
+## Editing Coaching
+
+[Coaching](coaching.html) is where every essay's coaching card leads. It shares `thoughts/reading-room.css` with the other reading pages, with its own layout in `coaching-game.css`. Its dedicated backdrop is `images/game-world/coaching-comrades-v1.webp`, fixed rather than randomized and treated like the Guide's landscape. Its link-preview image, `images/game-world/coaching-comrades-og.jpg`, is a crisp 2× crop of the two figures from that art (1200×630). Provenance and crop details are in `.impeccable/assets/coaching-comrades-v1.prompt.json`. Coaching is intentionally not in the header navigation.
+
+Both **Book a call** controls open `https://intro.co/williswee` in a new tab. The coaching card (`aside.coaching-cta`, a dialogue box with a "Willis" nameplate) sits between `</article>` and the newsletter block in every essay, and at the end of the Guide. All copies share the same wording, so change them together. The coaching topics are numbered with pixel tiles (plain digits in `.coaching-topic-mark`); renumber them if you add or remove one. On desktop, the left rail (`.coaching-rail`) links each section's `h2` and offers a booking shortcut; add any new section to it. The generation prompt and asset settings for the "comrades" backdrop are in `.impeccable/assets/coaching-comrades-v1.prompt.json`. To add a testimonial, copy an `<li>` inside `.coaching-quotes`. Replace the nameplate link in `<figcaption>` (the person's name and a source URL) and the curly-quoted text in `<blockquote>`. Use only real, attributable quotes. The last testimonial automatically shows the "continue" arrow that points to Book a call; `coaching-game.js` only pauses its animation while it's off screen. `scripts/tests/coaching.test.mjs` checks the card's placement and nameplate, the booking links, the rail's targets, the topic numbering, that every testimonial names a linked source, and that every local link on the page resolves. Preview [Coaching locally](http://localhost:4173/coaching.html) on desktop and mobile before publishing.
 
 ---
 

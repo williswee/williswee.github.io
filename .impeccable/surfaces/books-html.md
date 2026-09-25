@@ -19,6 +19,14 @@ Random selection is identified by the hash, focus, and gold corner marks. Neighb
 
 Focus mode dims neighboring entries, introductory text, and decorative scenery while the selected entry is in the reading viewport. Scrolling away restores normal contrast without discarding the selection or its link; returning restores focus. Keyboard-focused entries remain readable. The two-action dock remains unchanged.
 
+## Shared rail — 2026-09-25
+
+The category sidebar's desktop and tablet geometry now comes from the shared `.reading-rail` in `thoughts/reading-room.css`. `books-game.css` (v1.8) keeps its taller max-height and 0.96-opacity background, plus the sticky Categories menu on phones. The `.visually-hidden` helper moved to the shared stylesheet. Computed geometry is unchanged at 1336, 1000, and 390px.
+
+## Shared landscape — 2026-09-25
+
+The left-column art's geometry and shared treatment (clipping, ink backing, centered image, desktop and phone gradients) now come from `.reading-landscape--portrait` in `thoughts/reading-room.css`. `books-game.css` (v1.9) keeps its 0.95 brightness, the focus-mode fade, and its 68% phone crop. Computed styles are unchanged at 1336, 1000, 760, and 390px.
+
 ## Historical implementation notes (superseded)
 
 The entries below preserve earlier review evidence and stage-specific decisions. The current contract above and refreshed DESIGN.md supersede their descriptions of current structure, content counts, type sizes, selection fade, and completion status. Old statements about local-only work, no DESIGN.md rewrite, or deployment describe those dated checkpoints; they do not grant or deny permission for a later task. Deployment authorization always comes from the active user request.

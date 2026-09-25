@@ -1,12 +1,5 @@
 /* Gratitude's journal layout extends the shared reading-room shell. */
-.gratitude-landscape {
-    right: calc(5vw + min(800px, 64vw));
-    overflow: hidden;
-    background: var(--ink);
-    transition: opacity 220ms ease-out;
-}
-.gratitude-landscape img { display: block; object-position: center; filter: brightness(.9); }
-.gratitude-landscape::after { background: linear-gradient(90deg, transparent 70%, rgba(7, 16, 29, .4)); }
+.gratitude-landscape { transition: opacity 220ms ease-out; }
 .gratitude-page .reading-shell { padding-bottom: 120px; }
 .gratitude-back { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin: -8px 0 24px; color: var(--cream); font-size: var(--font-size-ui); font-weight: 600; text-decoration: none; }
 .gratitude-back:hover { color: var(--gold); }
@@ -14,7 +7,6 @@
 .gratitude-intro { margin: 24px 0 32px; font-size: 1rem; line-height: 1.8; }
 .gratitude-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 12px 0; border-block: 1px solid var(--line); }
 .gratitude-count { margin: 0; color: var(--muted); font-size: var(--font-size-ui); font-variant-numeric: tabular-nums; }
-.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .gratitude-notes { min-width: 0; }
 .gratitude-note { position: relative; padding: 32px 0; border-bottom: 1px solid var(--line); scroll-margin: 0; transition: opacity 220ms ease-out; }
 .gratitude-note-heading h2 { margin: 0; font: 600 1.2rem/1.55 var(--font-body); letter-spacing: -.02em; text-wrap: pretty; }
@@ -61,13 +53,10 @@
 .dock-btn:hover { color: var(--gold); border-color: var(--gold); }
 .dock-btn:disabled { opacity: .55; cursor: default; }
 @media (max-width: 1100px) {
-    .gratitude-landscape { right: 70vw; }
     .floating-gratitude-dock { --dock-center: 63.5vw; }
 }
 @media (max-width: 760px) {
-    .gratitude-landscape { right: 0; }
     .gratitude-landscape img { object-position: center 66%; }
-    .gratitude-landscape::after { background: linear-gradient(180deg, rgba(7, 16, 29, .12), transparent 65%, var(--ink)); }
     .gratitude-back { margin-bottom: 20px; }
     .gratitude-intro { margin-top: 20px; margin-bottom: 28px; }
     .gratitude-note { padding: 28px 0; }

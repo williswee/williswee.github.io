@@ -15,6 +15,10 @@ Gratitude uses the shared reading room and dedicated evening-window artwork. The
 
 A chosen note retains its hash, focus, and opposing gold corners. Focus mode dims neighboring entries, introductory text, and decorative scenery while the selected entry is in the reading viewport. Scrolling away restores normal contrast without discarding the selection or its link; returning restores focus. Keyboard-focused entries remain readable. The dock contains Another pick and Top, with no Keep reading action. Random discovery is a JavaScript enhancement revealed when ready; complete notes and native permalinks work without JavaScript.
 
+## Shared landscape — 2026-09-25
+
+The left-column art's geometry and shared treatment (clipping, ink backing, centered image, 0.9 brightness, desktop and phone gradients) now come from `.reading-landscape--portrait` in `thoughts/reading-room.css`; the generator writes the class. `gratitude-game.css` (v1.8) keeps its focus-mode fade and 66% phone crop. Computed styles are unchanged at 1336, 1000, 760, and 390px.
+
 ## Historical implementation notes (superseded)
 
 The entries below preserve earlier review evidence and stage-specific decisions. The current contract above and refreshed DESIGN.md supersede their descriptions of current structure, content counts, type sizes, selection fade, and completion status. Old statements about local-only work, no DESIGN.md rewrite, or deployment describe those dated checkpoints; they do not grant or deny permission for a later task. Deployment authorization always comes from the active user request.

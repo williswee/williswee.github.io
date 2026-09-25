@@ -11,7 +11,7 @@ const pages = [
 ].sort();
 const read = name => readFileSync(new URL(name, root), 'utf8');
 const essayManifest = JSON.parse(read('thoughts/essay-manifest.js').match(/Object\.freeze\(([\s\S]*?)\);/)?.[1] ?? 'null');
-const topLevelPages = ['books.html', 'gratitude.html', 'guide.html', 'index.html', 'work.html'];
+const topLevelPages = ['books.html', 'coaching.html', 'gratitude.html', 'guide.html', 'index.html', 'work.html'];
 const analyticsExcludedPages = new Set(['gratitude.html']);
 const trackingPixel = /<img\b[^>]*\bsrc="https:\/\/www\.useinflect\.ai\/api\/bot-traffic\/pixel\?[^" ]+"[^>]*>/g;
 
@@ -97,4 +97,12 @@ test('updated top-level routes have sitemap dates at least as recent as their re
         const date = block.match(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/)?.[1];
         assert.ok(date && date >= '2026-09-16', `${route || '/'}: stale lastmod`);
     }
+});
+
+test('portrait pages share one left-column landscape geometry', () => {
+    for (const page of ['books', 'coaching', 'gratitude', 'guide', 'work']) {
+        assert.match(read(`${page}.html`), new RegExp(`class="reading-landscape reading-landscape--portrait ${page}-landscape"`), page);
+        assert.doesNotMatch(read(`${page}-game.css`), new RegExp(`\\.${page}-landscape \\{[^}]*\\bright:`), `${page}: landscape geometry belongs in reading-room.css`);
+    }
+    assert.match(read('scripts/render-gratitude.mjs'), /class="reading-landscape reading-landscape--portrait gratitude-landscape"/);
 });

@@ -1,25 +1,8 @@
 /* Work shares the reading shell; all career-page styling stays scoped here. */
-.work-landscape {
-    right: calc(5vw + min(800px, 64vw));
-    overflow: hidden;
-    background: var(--ink);
-}
-.work-landscape img { display: block; object-fit: cover; object-position: center; filter: brightness(.9); }
-.work-landscape::after { background: linear-gradient(90deg, transparent 70%, rgba(7, 16, 29, .4)); }
 .work-page h1 { text-wrap: pretty; }
 .work-opening { margin-bottom: 44px; padding-bottom: 36px; border-bottom: 1px solid var(--line); }
 .opening-copy p { margin: 24px 0 0; font-size: 1rem; line-height: 1.85; }
-.chapter-rail {
-    position: fixed;
-    top: calc(var(--header-height) + 64px);
-    left: 4vw;
-    width: min(320px, calc(91vw - min(800px, 64vw) - 40px));
-    max-height: calc(100svh - var(--header-height) - 100px);
-    overflow-y: auto;
-    padding: 24px;
-    border-block: 1px solid var(--line);
-    background: rgba(5, 12, 23, .94);
-}
+.chapter-rail { padding: 24px; }
 .chapter-menu > summary { display: none; }
 .chapter-rail-title { margin: 0 0 20px; color: var(--cream); font: 700 1rem/1.4 var(--font-display); }
 .project-nav-link {
@@ -78,17 +61,14 @@
 .work-onward a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 52px; color: var(--cream); font-size: var(--font-size-ui); font-weight: 600; text-decoration: none; }
 .work-onward a:hover { color: var(--gold); }
 @media (max-width: 1100px) {
-    .work-landscape { right: 70vw; }
-    .chapter-rail { left: 3vw; width: 24vw; padding: 18px 12px; }
+    .chapter-rail { padding: 18px 12px; }
     .project-nav-link { gap: 0; padding-block: 10px; }
     .project-nav-link > span, .project-nav-link > strong { flex-basis: 100%; }
     .project-nav-link[aria-current]::before { top: calc(10px + .85em - 2.5px); }
 }
 @media (max-width: 760px) {
     html { scroll-padding-top: calc(var(--header-height) + 80px); }
-    .work-landscape { right: 0; }
     .work-landscape img { object-position: center 67%; }
-    .work-landscape::after { background: linear-gradient(180deg, rgba(7, 16, 29, .12), transparent 65%, var(--ink)); }
     .work-opening { margin-bottom: 28px; padding-bottom: 28px; }
     .opening-copy p { margin-top: 20px; }
     .chapter-rail { position: sticky; top: var(--header-height); z-index: 30; width: auto; max-height: none; overflow: visible; padding: 0; margin: 0 calc(-1 * var(--pane-inset)) 32px; background: var(--panel); }

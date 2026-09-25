@@ -1,29 +1,8 @@
 /* The Guide shares the reading shell; these rules stay local to its field notes. */
-.guide-landscape {
-    right: calc(5vw + min(800px, 64vw));
-    overflow: hidden;
-    background: var(--ink);
-}
-.guide-landscape img { display: block; object-fit: cover; object-position: center; filter: brightness(.9); }
-.guide-landscape::after {
-    background: linear-gradient(90deg, transparent 70%, rgba(7, 16, 29, .4));
-}
 .guide-page h1 { text-wrap: pretty; }
 .guide-last-updated { margin: 20px 0 28px; color: var(--muted); font-size: var(--font-size-ui); }
 .guide-intro { font-size: 1.0625rem; line-height: 1.85; }
 .guide-intro p { margin-bottom: 0; }
-.guide-contents {
-    position: fixed;
-    top: calc(var(--header-height) + 64px);
-    left: 4vw;
-    width: min(320px, calc(91vw - min(800px, 64vw) - 40px));
-    max-height: calc(100svh - var(--header-height) - 100px);
-    overflow-y: auto;
-    padding: 22px 24px;
-    background: rgba(5, 12, 23, .94);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-}
 .guide-contents-title { margin: 0 0 12px; color: var(--cream); font: 700 1rem/1.4 var(--font-display); }
 .guide-contents a {
     display: block;
@@ -95,14 +74,8 @@
     transition: opacity 180ms ease-out, transform 180ms ease-out;
 }
 .guide-copy-status.is-visible { opacity: 1; transform: translate(-50%, 0); }
-@media (max-width: 1100px) {
-    .guide-landscape { right: 70vw; }
-    .guide-contents { left: 3vw; width: 24vw; padding: 18px; }
-}
 @media (max-width: 760px) {
-    .guide-landscape { right: 0; }
-    .guide-landscape img { object-fit: cover; object-position: center 68%; }
-    .guide-landscape::after { background: linear-gradient(180deg, rgba(7, 16, 29, .12), transparent 65%, var(--ink)); }
+    .guide-landscape img { object-position: center 68%; }
     .guide-page h1 { font-size: 2.625rem; }
     .guide-intro, .guide-section li { font-size: 1rem; }
     .guide-contents { position: static; width: auto; max-height: none; margin-top: 32px; padding: 20px 0 0; background: transparent; border-bottom: 0; }

@@ -15,6 +15,18 @@ Guide is a fully migrated reading-room page with dedicated field-manual artwork,
 
 The audit correction raises compact navigation and supporting text within the established hierarchy. Copy-link buttons appear only after their handlers initialize; without JavaScript, the complete guide and native contents anchors remain usable. Shared current tokens and responsive rules are documented in DESIGN.md.
 
+## Coaching card — 2026-09-25
+
+The Guide closes with the shared coaching card after its final section, linking to `coaching.html`. Like the essays' copy, it is a dialogue box with a "Willis" nameplate. The Coaching page links back to the Guide's "My debugging process" rule and its "My flaws" section, so keep those slugs stable. Guide copy, contents, and slugs are otherwise unchanged.
+
+## Shared rail — 2026-09-25
+
+The contents rail's desktop and tablet geometry now comes from the shared `.reading-rail` in `thoughts/reading-room.css`. `guide-game.css` (v1.3) keeps the phone layout, where the rail becomes inline contents. Computed geometry is unchanged at 1336, 1000, and 390px.
+
+## Shared landscape — 2026-09-25
+
+The left-column art's geometry and shared treatment (clipping, ink backing, centered image, 0.9 brightness, desktop and phone gradients) now come from `.reading-landscape--portrait` in `thoughts/reading-room.css`. `guide-game.css` (v1.4) keeps only its 68% phone crop. Computed styles are unchanged at 1336, 1000, 760, and 390px.
+
 ## Historical implementation notes (superseded)
 
 The entries below preserve earlier review evidence and stage-specific decisions. The current contract above and refreshed DESIGN.md supersede their descriptions of current structure, content counts, type sizes, selection fade, and completion status. Old statements about local-only work, no DESIGN.md rewrite, or deployment describe those dated checkpoints; they do not grant or deny permission for a later task. Deployment authorization always comes from the active user request.
