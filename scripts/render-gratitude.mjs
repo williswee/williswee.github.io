@@ -144,7 +144,7 @@ const html = `<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.11">
+    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.15">
     <link rel="stylesheet" href="gratitude-game.css?v=1.6">
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="reading-nav.js?v=1.2"></script>
@@ -155,7 +155,7 @@ const html = `<!DOCTYPE html>
     <a class="skip-link" href="#main-content">Skip to gratitude notes</a>
     <header class="reading-hud">
         <a href="index.html" class="site-brand" aria-label="Willis Wee — home">
-            <span>Willis Wee</span><small aria-hidden="true">👋</small>
+            <span class="brand-full">Willis Wee</span><span class="brand-short" aria-hidden="true">Willis</span><small aria-hidden="true">👋</small>
         </a>
         <nav class="reading-nav" aria-label="Main navigation">
             <a href="index.html">Start</a>

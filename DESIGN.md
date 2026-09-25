@@ -70,6 +70,28 @@ typography:
     fontSize: "0.88rem"
     fontWeight: 700
     letterSpacing: "0.04em"
+  brand-compact:
+    fontFamily: "'Silkscreen', 'Courier New', monospace"
+    fontSize: "0.74rem"
+    fontWeight: 700
+    letterSpacing: "0.04em"
+  reading-nav-compact:
+    fontFamily: "'Sora', sans-serif"
+    fontSize: "0.75rem"
+    fontWeight: 600
+    letterSpacing: "0.02em"
+  essay-title-mid:
+    fontFamily: "'Silkscreen', 'Courier New', monospace"
+    fontSize: "2.25rem"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "-0.035em"
+  essay-title-compact:
+    fontFamily: "'Silkscreen', 'Courier New', monospace"
+    fontSize: "1.875rem"
+    fontWeight: 700
+    lineHeight: 1.25
+    letterSpacing: "-0.035em"
   home-row-title:
     fontFamily: "'Sora', sans-serif"
     fontSize: "0.96rem"
@@ -228,7 +250,7 @@ These are contextual overrides of the named roles, not additional sizes to apply
 | --- | --- |
 | Homepage declaration (`home-game.css`, h1) | Up to 1100px: `clamp(3rem, 6vw, 4.5rem)`; up to 760px: `clamp(2.65rem, 13vw, 4rem)`. Both retain 1.06 line height. |
 | Homepage scene heading (`home-game.css`, h2) | Up to 1100px: `clamp(2.45rem, 5.2vw, 3.8rem)`; up to 760px: `clamp(2.3rem, 10.8vw, 3.55rem)`. Both retain 1.06 line height. |
-| Brand (`home-game.css`, `.site-brand > span`) | The mobile homepage uses 0.74rem; inner-page branding retains 0.88rem. This is the logotype exception, not the navigation scale. |
+| Brand (`.site-brand > span`) | Desktop keeps “Willis Wee” at 0.88rem. Up to 760px, the homepage and inner pages share the short “Willis” logotype at 0.74rem. This is the logotype exception, not the navigation scale. |
 | Reading-page title (`thoughts/reading-room.css`, h1) | Up to 760px: 2.625rem/1.12; up to 380px: 2.25rem/1.12. |
 | Essay title (`thoughts/reading-room.css`, article h1) | Up to 1100px: 2.25rem/1.2; up to 760px: 1.875rem/1.25. |
 | Guide section title (`guide-game.css`, `.guide-section h2`) | The shared 1.75rem role uses a 1.4 line height here; up to 760px it is 1.375rem, and up to 380px it is 1.25rem. |
@@ -243,7 +265,7 @@ These are contextual overrides of the named roles, not additional sizes to apply
 
 On desktop, the homepage alternates panels across five scenes with a minimum height of 100svh and a fixed 76px header. Standard panels use the frontmatter width and inset; the Life panel is narrower to preserve the family composition. At 1100px the panels grow to 54vw. At 760px the scenes become a natural document flow: each artwork is 44svh with a 300px minimum, followed by a full-width panel. The mobile header keeps the short brand and navigation on one line, with explicit space between them. Its 4rem height is 64px at the default text size and grows with enlarged text; the root scroll offset uses em units so Safari scales it correctly. By user preference, mobile navigation uses 0.75rem text, reducing to 0.6875rem at widths up to 360px. All five links fit at the default size down to 320px. The page supports a 320px minimum width without forcing the reading text onto the artwork.
 
-Inner pages use an 800px maximum pane, positioned to the right with a 5vw outer margin and 44px inset. At 1100px it uses 67vw and a 32px inset. At 760px the 104px two-row header sits above a 188px art band, followed by the reading pane with a 24px inset; below 380px the inset is 20px. The pane overlaps the art band slightly to maintain continuity. Essays and the Guide/Work/Books/Gratitude portraits occupy the exposed left region rather than continuing behind the opaque pane.
+Inner pages use an 800px maximum pane, positioned to the right with a 5vw outer margin and 44px inset. At 1100px it uses 67vw and a 32px inset. At 760px the header stays one row. Its height is 4.75rem, 76px at the default text size, and grows with enlarged text; the root scroll offset uses em units so Safari scales it. The short brand sits beside a sideways-scrolling navigation, above a 188px art band and a reading pane with a 24px inset; below 380px the inset is 20px. The pane overlaps the art band slightly to maintain continuity. Essays and the Guide/Work/Books/Gratitude portraits occupy the exposed left region rather than continuing behind the opaque pane.
 
 Navigation targets are at least 44px in both dimensions, except the homepage at widths up to 360px, where link widths can reduce to 36px while retaining the full header height as the tap target. At narrow widths or enlarged text, navigation scrolls within its own row; focus reveals the selected destination without widening the page. Without the navigation enhancement, inner-page links wrap into normal document flow. Side rails for Guide, Work, and Books become inline contents or native compact menus on mobile.
 

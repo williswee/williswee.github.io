@@ -70,6 +70,7 @@ main:focus { outline: none; }
 .site-brand { display: inline-flex; flex: 0 0 auto; align-items: baseline; gap: 14px; white-space: nowrap; text-decoration: none; }
 .site-brand > span { font: 700 0.88rem/1.4 var(--font-display); letter-spacing: 0.04em; }
 .site-brand small { font-size: 1rem; }
+.brand-short { display: none; }
 /* Let enlarged labels scroll within the space beside the brand at any width,
    not only after the mobile breakpoint. Keyboard focus reveals each link. */
 .reading-nav { display: flex; flex: 0 1 auto; min-width: 0; align-self: stretch; gap: clamp(18px, 2.5vw, 36px); overflow-x: auto; scrollbar-width: thin; }
@@ -260,11 +261,17 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
 }
 @media (max-width: 760px) {
     :is(.book-card, .gratitude-note) { --focus-marker-offset: 8px; }
-    :root { --header-height: 104px; --pane-inset: 24px; }
-    .reading-hud { display: block; padding: 0 20px; }
-    .site-brand { height: 48px; align-items: center; }
-    .reading-nav { height: 56px; margin-inline: -8px; padding-inline: 8px; justify-content: space-between; gap: clamp(6px, 2vw, 14px); overflow-x: auto; scrollbar-width: thin; }
-    .reading-nav a { flex: 0 0 auto; font-size: var(--font-size-ui); }
+    /* 4.75rem is 76px at the default root size and grows when text is enlarged. */
+    :root { --header-height: 4.75rem; --pane-inset: 24px; }
+    html { scroll-padding-top: calc(4.75em + 24px); }
+    .reading-hud { padding-inline: 12px; gap: 12px; }
+    .brand-full { display: none; }
+    .brand-short { display: inline; }
+    .site-brand { align-items: center; min-height: 44px; gap: 6px; }
+    .site-brand > span { font-size: 0.74rem; }
+    .site-brand small { font-size: 0.875rem; }
+    .reading-nav { flex: 1 1 auto; height: auto; margin: 0; padding-inline: 4px; justify-content: safe flex-end; gap: 0; flex-wrap: nowrap; }
+    .reading-nav a { flex: 0 0 auto; padding-inline: 8px; font-size: 0.75rem; letter-spacing: 0.02em; white-space: nowrap; }
     .reading-landscape { position: absolute; top: var(--header-height); height: 188px; bottom: auto; }
     .reading-landscape img { object-position: 24% 52%; }
     .reading-landscape::after { background: linear-gradient(180deg, transparent 50%, rgba(7, 16, 29, 0.5)); }
@@ -289,8 +296,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
 }
 @media (max-width: 380px) {
     :root { --pane-inset: 20px; }
-    .reading-hud { padding-inline: 16px; }
-    .reading-nav { gap: 6px; }
+    .reading-nav a { padding-inline: 6px; }
     .reading-shell { margin-inline: 10px; }
     h1 { font-size: 2.25rem; }
     .random-pick-btn { padding-inline: 10px; }
