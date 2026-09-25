@@ -1,4 +1,9 @@
 /* Coaching shares the reading shell; these rules stay local to the page. */
+/* The figures' heads sit 142.7cqw (or 53.52cqh) down the scaled art. Short windows would tuck them under the
+   rail, so they drop to just below it; taller windows keep the centered crop. coaching-game.js measures the
+   rail, and 420px clears it at the default text size. */
+.coaching-landscape { container-type: size; }
+.coaching-landscape img { object-position: 50% min(0px, max(50%, calc(var(--coaching-rail-clearance, 420px) - max(142.7cqw, 53.52cqh)))); }
 .coaching-page main a:not(.coaching-booking, .coaching-rail-booking, .dialogue-nameplate) { text-decoration-color: var(--gold); transition: color 180ms ease-out; }
 .coaching-page main a:not(.coaching-booking, .coaching-rail-booking, .dialogue-nameplate):hover { color: var(--gold); }
 .coaching-page { --coaching-action-width: 440px; }
@@ -112,9 +117,8 @@
 @media (max-width: 760px) {
     /* Phones keep both in-page booking controls; the rail would only repeat them. */
     .coaching-rail { display: none; }
-    .coaching-landscape { container-type: inline-size; }
-    /* The figures' heads sit 142.7cqw down the scaled art. Their headroom eases from 28px on phones
-       to 10px on small tablets, so faces stay in the band. 62% serves browsers without container units. */
+    /* In the phone band the heads' headroom eases from 28px to 10px on small tablets, so faces stay
+       in view. 62% serves browsers without container units. */
     .coaching-landscape img { object-position: center 62%; object-position: center calc(clamp(10px, 69px - 10.6cqw, 28px) - 142.7cqw); }
     .coaching-landscape::after { background: linear-gradient(180deg, rgba(7, 16, 29, .08), rgba(7, 16, 29, .2) 60%, var(--ink)); }
     .coaching-intro, .coaching-section p, .coaching-topics li { font-size: 1rem; }

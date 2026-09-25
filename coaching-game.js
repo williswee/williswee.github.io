@@ -7,6 +7,19 @@
         }).observe(quotes);
     }
 
+    const art = document.querySelector('.coaching-landscape');
+    const rail = document.querySelector('.coaching-rail');
+    if (art && rail) {
+        // Tells the art where the rail ends, so the figures clear it at any text size.
+        const clearRail = () => {
+            const { bottom } = rail.getBoundingClientRect();
+            if (bottom) art.style.setProperty('--coaching-rail-clearance', `${Math.round(bottom - art.getBoundingClientRect().top + 24)}px`);
+        };
+        clearRail();
+        window.addEventListener('resize', clearRail);
+        document.fonts?.ready.then(clearRail);
+    }
+
     const railLinks = Array.from(document.querySelectorAll('.coaching-rail a[href^="#"]'));
     const sections = railLinks.map((link) => document.getElementById(link.hash.slice(1)));
     if (!railLinks.length || sections.includes(null)) return;

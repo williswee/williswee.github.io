@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 
 const root = new URL('../../', import.meta.url);
 const pages = [
@@ -12,19 +12,21 @@ const pages = [
 const read = name => readFileSync(new URL(name, root), 'utf8');
 const essayManifest = JSON.parse(read('thoughts/essay-manifest.js').match(/Object\.freeze\(([\s\S]*?)\);/)?.[1] ?? 'null');
 const topLevelPages = ['books.html', 'coaching.html', 'gratitude.html', 'guide.html', 'index.html', 'work.html'];
+// Served by GitHub Pages for missing addresses; never listed in the sitemap.
+const utilityPages = ['404.html'];
 const analyticsExcludedPages = new Set(['gratitude.html']);
 const trackingPixel = /<img\b[^>]*\bsrc="https:\/\/www\.useinflect\.ai\/api\/bot-traffic\/pixel\?[^" ]+"[^>]*>/g;
 
 test('public documents keep image content out of the head', () => {
     assert.ok(Array.isArray(essayManifest) && essayManifest.length, 'missing essay manifest');
     assert.equal(new Set(essayManifest).size, essayManifest.length, 'duplicate essay manifest entries');
-    assert.deepEqual(pages, [...topLevelPages, 'thoughts/index.html', ...essayManifest.map(name => `thoughts/${name}`)].sort(),
+    assert.deepEqual(pages, [...topLevelPages, ...utilityPages, 'thoughts/index.html', ...essayManifest.map(name => `thoughts/${name}`)].sort(),
         'every public document must belong to the site routes or essay manifest');
     const sitemapPages = [...read('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, url]) => {
         const pathname = new URL(url).pathname.slice(1);
         return pathname.endsWith('/') || !pathname ? `${pathname}index.html` : pathname;
     }).sort();
-    assert.deepEqual(sitemapPages, pages, 'the sitemap must cover each public document exactly once');
+    assert.deepEqual(sitemapPages, pages.filter(name => !utilityPages.includes(name)), 'the sitemap must cover each public document exactly once');
     for (const name of pages) {
         const html = read(name);
         const head = html.match(/<head>([\s\S]*?)<\/head>/)?.[1];
@@ -73,7 +75,7 @@ test('reading pages and the Gratitude renderer use the current shared cache tags
         const readingStyles = html.match(/reading-room\.css(?:\?[^"\s]*)?/g) ?? [];
         assert.deepEqual(readingStyles, [sharedStyles], `${name}: use the same versioned shared stylesheet`);
         assert.equal((html.match(/reading-nav\.js\?v=1\.2"/g) ?? []).length, 1, name);
-        const navScript = html.match(/<script\b[^>]*src="(?:\.\.\/)?reading-nav\.js\?v=1\.2"[^>]*><\/script>/)?.[0];
+        const navScript = html.match(/<script\b[^>]*src="(?:\.\.\/|\/)?reading-nav\.js\?v=1\.2"[^>]*><\/script>/)?.[0];
         assert.ok(navScript, `${name}: missing shared navigation bootstrap`);
         assert.doesNotMatch(navScript, /\b(?:defer|async|type)\b/, `${name}: navigation must initialize before body paint`);
         assert.ok(html.indexOf(navScript) < html.indexOf('</head>'), `${name}: bootstrap belongs in the head`);
@@ -91,7 +93,7 @@ test('reading pages and the Gratitude renderer use the current shared cache tags
 test('updated top-level routes have sitemap dates at least as recent as their redesign', () => {
     const sitemap = read('sitemap.xml');
     for (const route of ['', 'guide.html', 'work.html', 'books.html']) {
-        const location = `<loc>https://www.williswee.com/${route}</loc>`;
+        const location = `<loc>https://williswee.com/${route}</loc>`;
         const block = sitemap.split('<url>').find(entry => entry.includes(location));
         assert.ok(block, `missing sitemap route: ${route || '/'}`);
         const date = block.match(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/)?.[1];
@@ -105,4 +107,33 @@ test('portrait pages share one left-column landscape geometry', () => {
         assert.doesNotMatch(read(`${page}-game.css`), new RegExp(`\\.${page}-landscape \\{[^}]*\\bright:`), `${page}: landscape geometry belongs in reading-room.css`);
     }
     assert.match(read('scripts/render-gratitude.mjs'), /class="reading-landscape reading-landscape--portrait gratitude-landscape"/);
+});
+
+test('the sitemap and robots.txt use the site\'s own host, so crawlers skip the www redirect', () => {
+    const host = `https://${read('CNAME').trim()}/`;
+    for (const [, url] of read('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)) assert.ok(url.startsWith(host), url);
+    assert.match(read('robots.txt'), new RegExp(`^Sitemap: ${host.replaceAll('.', '\\.')}sitemap\\.xml$`, 'm'));
+});
+
+test('footer social icons say they open a new tab', () => {
+    for (const name of [...pages, 'scripts/render-gratitude.mjs']) {
+        for (const [tag] of read(name).matchAll(/<a\b[^>]*class="follow-icon"[^>]*>/g)) {
+            assert.match(tag, /target="_blank"/, name);
+            assert.match(tag, /aria-label="[^"]+ \(opens in a new tab\)"/, `${name}: announce the new tab`);
+        }
+    }
+});
+
+test('the not-found page works at any depth and stays out of search', () => {
+    const html = read('404.html');
+    assert.match(html, /<meta name="robots" content="noindex">/);
+    const local = [...html.matchAll(/\b(?:href|src)="([^"]+)"/g)].map(([, url]) => url).filter(url => !/^(?:https?:|#)/.test(url));
+    for (const url of local) {
+        assert.ok(url.startsWith('/'), `404.html: ${url} must be root-relative`);
+        const file = url.split(/[?#]/)[0].slice(1) || 'index.html';
+        assert.ok(existsSync(new URL(file, root)), `404.html: missing ${file}`);
+    }
+    for (const way of ['/index.html', '/thoughts/index.html', '/index.html#terminal']) {
+        assert.ok(html.includes(`<a href="${way}"><span>`), `404.html: offer a way back to ${way}`);
+    }
 });

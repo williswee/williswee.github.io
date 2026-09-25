@@ -33,7 +33,7 @@ The newsletter's direct subscription link belongs inside its block, immediately 
 2. Update the title, meta description, heading, date, body, and article images/captions. When the source has a subtitle, put its unchanged wording in `<p class="article-subtitle">` immediately after the article's `<h1>`, before the date and title image/figure. Omit this element for essays without a subtitle. Remove any copied Freedom-specific content that does not belong to the new essay.
 3. **Keep the automatic preset background picker.** Every new essay uses `thoughts/essay-landscape.js` to select one of the ten existing images in [`images/reading-landscapes/`](images/reading-landscapes/). Do not generate a new decorative background or assign one manually per essay. The scene is selected once per page load and stays still while reading. Article/hero images from the source post are separate and should still be preserved.
 4. Add the new `<li>` to `thoughts/index.html` in date order, newest first, and update the static essay count. The archive builds its year groupings automatically.
-5. Add the URL to `sitemap.xml` and `llms.txt`. Run `node scripts/sync-essay-manifest.mjs` to generate the shared random-pick manifest from the archive. Do not maintain a separate list inside a reader script.
+5. Add the URL to `sitemap.xml` and `llms.txt`. Sitemap URLs use the site's own host, `https://williswee.com/`; `www` only redirects there. Run `node scripts/sync-essay-manifest.mjs` to generate the shared random-pick manifest from the archive. Do not maintain a separate list inside a reader script.
 6. Give every article image its actual intrinsic `width` and `height`, descriptive alt text, and `decoding="async"`. Use optimized WebP assets where available, retaining originals; keep the first/hero image eager and mark below-the-fold images `loading="lazy"`. Keep responsive `srcset`/`sizes` when copying the template.
 7. Run `node scripts/sync-essay-manifest.mjs --check`, then preview locally. Check desktop/mobile and text zoom, footnote keyboard navigation, quote copy (including denied clipboard access and selection after visiting a footnote), Random pick with the archive request blocked, background, links, and image layout before publishing. Copy/Share should use the clean article URL, not an unrelated footnote or preview query; the reading bar should finish at the end of the article, excluding the newsletter/footer.
 
@@ -70,6 +70,10 @@ The redesigned [Guide](guide.html) uses `thoughts/reading-room.css` for the shar
 Keep the complete copy and nested alphabetic lists. Existing section/rule IDs are public deep links: preserve them when editing a heading or bold rule label (set the existing ID explicitly on its `<h2>` or `<li>` if the label changes). When adding a section, update the “In this guide” links as well. Preview [Guide locally](http://localhost:4173/guide.html), check mobile layout, and test both section and rule copy links.
 
 ---
+
+## Not-found page
+
+GitHub Pages serves `404.html` for every missing address, at any depth, so every local URL in it is root-relative (`/thoughts/reading-room.css`, not `thoughts/reading-room.css`). It uses the shared forest-path scene, shows the missing address when JavaScript runs, and offers the same three ways back as the Work page. It carries `noindex` and stays out of the sitemap; `scripts/tests/document-structure.test.mjs` enforces both.
 
 ## Editing Coaching
 

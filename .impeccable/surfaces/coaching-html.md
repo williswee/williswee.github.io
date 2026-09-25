@@ -70,6 +70,16 @@ The third audit scored 18/20. The user chose all three fixes:
 
 Computed styles for Coaching, Guide, Work, Books, Gratitude, and an essay matched a pre-change snapshot at 1336, 1000, 760, and 390px. The only differences were Coaching's intended phone crop at 390 and 760px. All 128 tests pass, along with the Gratitude and essay-manifest checks. The detector ran once in degraded regex mode; its four advisory findings are older lines in the Guide and Work stylesheets, outside this pass.
 
+## Live-site audit follow-up — 2026-09-25
+
+The work deployed as `814b443`. The live audit scored 18/20, and the user chose all of its fixes:
+- **Desktop art:** on short laptop windows the rail hid the figures' heads (60px at 1366×657). The art now drops them to 24px below the rail, and taller windows keep the centered crop. `coaching-game.js` (v1.2) measures the rail into `--coaching-rail-clearance`. Without script, the 420px default still clears it by 23–31px. `coaching-game.css` is v1.3.
+- **Footer icons:** on every reading page and in the Gratitude renderer, the Substack, X, and LinkedIn icons now say "(opens in a new tab)".
+- **Not-found page:** `404.html` is new and has its own surface brief.
+- **Sitemap host:** the sitemap and `robots.txt` now use `https://williswee.com/`, so crawlers skip the `www` redirect.
+
+The Cloudflare "Always Use HTTPS" setting is the user's to change; this repository can't set it.
+
 ## Verification — 2026-09-25
 
 All 126 Node tests passed, along with the essay-manifest and Gratitude checks. Later, the dialogue-box testimonials were checked at 1105px and 390px: no overflow, and the continue loop was paused off-screen and running on screen. Chromium checks ran at 1336×1360, 390×844, and 320px, including a three-card testimonial preview made from temporary DOM copies. They showed no horizontal overflow, markers aligned within 1px of their titles, and the booking control in the first screen. Keyboard focus shows the gold ring and border. The type and layout scans ran in degraded regex mode with no findings; this is not a full detector pass. The work is local on the WIP branch; main is untouched.

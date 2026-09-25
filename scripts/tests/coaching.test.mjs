@@ -103,6 +103,11 @@ test('homepage, Work, and llms.txt point founders to the coaching page', () => {
     assert.match(read('llms.txt'), /\[Coaching\]\(https:\/\/williswee\.com\/coaching\.html\)/);
 });
 
+test('the desktop art keeps the figures clear of the rail, measured when script runs', () => {
+    assert.match(read('coaching-game.css'), /\.coaching-landscape img \{ object-position: 50% min\(0px, max\(50%, calc\(var\(--coaching-rail-clearance, \d+px\)/);
+    assert.match(read('coaching-game.js'), /setProperty\('--coaching-rail-clearance'/);
+});
+
 test('the testimonial continue cue stops within five seconds', () => {
     const [, seconds, count] = read('coaching-game.css').match(/animation: coaching-continue ([\d.]+)s [^;]*?(\d+|infinite);/) ?? [];
     assert.ok(seconds && count && count !== 'infinite', 'the continue cue must not loop forever');
