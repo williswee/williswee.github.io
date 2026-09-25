@@ -669,3 +669,13 @@ What's yours?
 2️⃣ Really enjoying the palak paneer from this particular Indian restaurant. We had it last night. The children enjoyed it, especially my oldest daughter.
 
 3️⃣ Built a simple dashboard to help evaluate startup ideas more easily and collaboratively. It was good fun working on it and using it.
+
+## Gratitude note #61
+
+*2026-09-25*
+
+1️⃣ Quite happy to have the time to experiment with Jev. Full updates here: https://x.com/williswee/status/2103028022358204876
+
+2️⃣ Feels like the training from the silent meditation retreat has helped a lot over the past week. I’m quite thankful for that.
+
+3️⃣ Had a nice long walk with the wife as part of our weekly routine. That’s when some of the best conversations actually happen. I’m so thankful to have this life partner with me.
