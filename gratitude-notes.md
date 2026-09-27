@@ -679,3 +679,13 @@ What's yours?
 2️⃣ Feels like the training from the silent meditation retreat has helped a lot over the past week. I’m quite thankful for that.
 
 3️⃣ Had a nice long walk with the wife as part of our weekly routine. That’s when some of the best conversations actually happen. I’m so thankful to have this life partner with me.
+
+## Gratitude note #62
+
+*2026-09-28*
+
+1️⃣ family lunch gathering. It was good to see the kids having fun and connecting with other family members.
+
+2️⃣ It’s nice that founders and friends came together to do me small favors. Awesome feeling.
+
+3️⃣ Still feeling the positive effects of the silent meditation retreat. Yay.
