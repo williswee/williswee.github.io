@@ -68,8 +68,8 @@
 .coaching-rail-booking:is(:hover, :focus-visible) { border-color: var(--gold); }
 .coaching-rail-booking svg { flex: 0 0 auto; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-linecap: square; stroke-width: 1.6; }
 
-.coaching-section { margin-top: 52px; padding-top: 30px; border-top: 1px solid var(--line); }
-.coaching-section h2 { margin-bottom: 24px; text-wrap: pretty; }
+.coaching-section, .coaching-close { margin-top: 52px; padding-top: 30px; border-top: 1px solid var(--line); }
+.coaching-section h2, .coaching-close h2 { margin-bottom: 24px; text-wrap: pretty; }
 .coaching-section p { font-size: 1.0625rem; line-height: 1.85; }
 .coaching-section p:last-child { margin-bottom: 0; }
 .coaching-section h3 { margin: 32px 0 8px; color: var(--cream); font-size: 1.0625rem; font-weight: 600; line-height: 1.5; }
@@ -86,7 +86,6 @@
 /* Extends the tap area of these small links without moving the text. */
 .coaching-receipt a { padding-block: 8px; color: var(--cream-soft); }
 
-.coaching-close { margin-top: 52px; }
 /* Testimonials are dialogue boxes; the shared nameplate names and links each speaker. */
 .coaching-quotes { display: grid; gap: 32px; margin: 0 0 28px; padding: 14px 0 0; list-style: none; }
 .coaching-quote { position: relative; margin: 0; padding: 30px 24px 24px; border: 1px solid var(--line-strong); background: var(--ink); }
@@ -99,18 +98,18 @@
 .coaching-quote blockquote p + p { margin-top: 16px; }
 /* The last line waits for input like a game's dialogue box, pointing down to Book a call. */
 .coaching-quotes > li:last-child .coaching-quote { padding-bottom: 34px; }
-.coaching-quotes > li:last-child .coaching-quote::after {
+.coaching-continue-cue {
     position: absolute;
     right: 18px;
     bottom: 14px;
     width: 12px;
     height: 6px;
-    content: "";
     background: var(--gold);
     clip-path: polygon(0 0, 100% 0, 100% 33.33%, 83.33% 33.33%, 83.33% 66.67%, 66.67% 66.67%, 66.67% 100%, 33.33% 100%, 33.33% 66.67%, 16.67% 66.67%, 16.67% 33.33%, 0 33.33%);
+    pointer-events: none;
 }
 /* Four one-second loops keep this automatic motion under WCAG's five-second limit. */
-.coaching-quotes.is-visible > li:last-child .coaching-quote::after { animation: coaching-continue 1s steps(1, end) 4; }
+.coaching-quotes.is-visible .coaching-continue-cue { animation: coaching-continue 1s steps(1, end) 4; }
 @keyframes coaching-continue { 50% { transform: translateY(3px); } }
 .coaching-not-sure { margin: 0; font-size: 1rem; line-height: 1.8; }
 
@@ -123,9 +122,8 @@
     .coaching-landscape::after { background: linear-gradient(180deg, rgba(7, 16, 29, .08), rgba(7, 16, 29, .2) 60%, var(--ink)); }
     .coaching-intro, .coaching-section p, .coaching-topics li { font-size: 1rem; }
     .coaching-booking { width: 100%; }
-    .coaching-section { margin-top: 36px; padding-top: 26px; }
-    .coaching-section h2 { margin-bottom: 20px; font-size: 1.375rem; }
-    .coaching-close { margin-top: 36px; }
+    .coaching-section, .coaching-close { margin-top: 36px; padding-top: 26px; }
+    .coaching-section h2, .coaching-close h2 { margin-bottom: 20px; font-size: 1.375rem; }
     .coaching-quote { padding: 28px 20px 20px; }
     .coaching-quotes > li:last-child .coaching-quote { padding-bottom: 32px; }
     .coaching-quote blockquote { font-size: 1rem; }

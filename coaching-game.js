@@ -1,10 +1,11 @@
 (() => {
     const quotes = document.querySelector('.coaching-quotes');
-    if (quotes && 'IntersectionObserver' in window) {
-        // The continue cue replays each time the testimonials come on screen.
+    const continueCue = quotes?.querySelector('.coaching-continue-cue');
+    if (continueCue && 'IntersectionObserver' in window) {
+        // Start the continue cue when the final card's arrow enters the reading area.
         new IntersectionObserver(([entry]) => {
             quotes.classList.toggle('is-visible', entry.isIntersecting);
-        }).observe(quotes);
+        }, { rootMargin: '0px 0px -24px 0px' }).observe(continueCue);
     }
 
     const art = document.querySelector('.coaching-landscape');
