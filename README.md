@@ -3,13 +3,15 @@ https://williswee.com/
 
 ## How to add and publish a gratitude note
 
-1. Format the draft to match the latest entry in [`gratitude-notes.md`](gratitude-notes.md), using the next sequential note number and the Singapore date.
-2. Edit the draft for clarity and return it for review.
-3. Wait until the note is explicitly marked **final**. Do not update the site before approval.
-4. After approval, append the final note to [`gratitude-notes.md`](gratitude-notes.md).
-5. Run `node scripts/render-gratitude.mjs` to regenerate `gratitude.html` and synchronize the Gratitude entry in `sitemap.xml` with the newest note date. The renderer validates unique positive safe-integer note numbers, dates, and the matching sitemap entry before writing either output; it leaves other sitemap entries untouched. A duplicate number is an error: correct the new draft's number, never renumber published notes.
-6. Run `node scripts/render-gratitude.mjs --check` to confirm both generated outputs match the approved source and current template without writing anything. Review the page locally and verify the note's shareable `#note-{number}` link, its date, the updated note count, and the Gratitude sitemap `lastmod`. Check desktop and mobile, Random pick → Another pick → Top, and focus mode: gold corners mark the selected note while neighboring notes, the introduction, and artwork fade. Scroll beyond the selected note to restore normal contrast; return to it to restore focus. Scrolling alone does not change the selected note link. Escape clears the selection and note hash without moving the viewport. Top clears focus and returns to the beginning. From a selected note, Tab through its links to the nearby floating controls; other notes must remain keyboard-accessible.
-7. Commit and push the changes, then confirm the note is live at [williswee.com/gratitude.html](https://williswee.com/gratitude.html).
+1. Before drafting or editing, run `git fetch origin` and bring the local `main` branch up to `origin/main` with a fast-forward merge. Preserve unrelated local work; never overwrite or discard it to synchronize the branch.
+2. Format the draft to match the latest entry in [`gratitude-notes.md`](gratitude-notes.md), using the next sequential note number and the Singapore date.
+3. Edit the draft for clarity and return it for review.
+4. Wait until the note is explicitly marked **final**. Do not update the site before approval.
+5. After approval, append the final note to [`gratitude-notes.md`](gratitude-notes.md).
+6. Run `node scripts/render-gratitude.mjs` to regenerate `gratitude.html` and synchronize the Gratitude entry in `sitemap.xml` with the newest note date. The renderer validates unique positive safe-integer note numbers, dates, and the matching sitemap entry before writing either output; it leaves other sitemap entries untouched. A duplicate number is an error: correct the new draft's number, never renumber published notes.
+7. Run `node scripts/render-gratitude.mjs --check` to confirm both generated outputs match the approved source and current template without writing anything. Review the page locally and verify the note's shareable `#note-{number}` link, its date, the updated note count, and the Gratitude sitemap `lastmod`. Check desktop and mobile, Random pick → Another pick → Top, and focus mode: gold corners mark the selected note while neighboring notes, the introduction, and artwork fade. Scroll beyond the selected note to restore normal contrast; return to it to restore focus. Scrolling alone does not change the selected note link. Escape clears the selection and note hash without moving the viewport. Top clears focus and returns to the beginning. From a selected note, Tab through its links to the nearby floating controls; other notes must remain keyboard-accessible.
+8. Immediately before pushing, run `git fetch origin` again. If `origin/main` moved while the note was being prepared, rebase the gratitude commit onto the latest remote branch, preserve the current GitHub changes, regenerate the page from the updated generator, and repeat the checks above. Resolve any overlap by keeping the latest remote implementation while retaining the approved note content.
+9. Push the gratitude commit only after it is based on the latest `origin/main`, then confirm the note is live at [williswee.com/gratitude.html](https://williswee.com/gratitude.html).
 
 ### Gratitude page design and generation
 
