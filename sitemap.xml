@@ -33,8 +33,13 @@
   </url>
   <url>
     <loc>https://williswee.com/thoughts/</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://williswee.com/thoughts/redesign.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.60</priority>
   </url>
   <url>
     <loc>https://williswee.com/thoughts/googlefluid.html</loc>

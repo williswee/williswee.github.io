@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What I learned redesigning my site with AI — Willis Wee</title>
+    <meta name="description"
+        content="75 critic reviews, a return to an earlier design, and the details that made the site feel more like me.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reading-room.css?v=1.19">
+    <link rel="icon" type="image/png" href="../avatar.png">
+    <script src="../reading-nav.js?v=1.2"></script>
+    <script src="newsletter.js?v=2" defer></script>
+    <noscript><style>iframe[data-newsletter-src] { display: none; }</style></noscript>
+    <script src="https://www.useinflect.ai/inflect-tracking.js" async data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
+    <script src="essay-manifest.js?v=1" defer></script>
+    <script src="reading-room.js?v=1.3" defer></script>
+</head>
+
+<body class="essay-page">
+    <img src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&iv=2026-08-12.1" alt="" width="1" height="1" style="display:none;" referrerpolicy="unsafe-url" />
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="reading-hud">
+        <a href="../index.html" class="site-brand" aria-label="Willis Wee — home">
+            <span class="brand-full">Willis Wee</span><span class="brand-short" aria-hidden="true">Willis</span><small aria-hidden="true">👋</small>
+        </a>
+        <nav class="reading-nav" aria-label="Main navigation">
+            <a href="../index.html">Start</a>
+            <a href="index.html" aria-current="page">Thoughts</a>
+            <a href="../guide.html">Guide</a>
+            <a href="../work.html">Work</a>
+            <a href="../books.html">Books</a>
+            <a href="../gratitude.html">Gratitude</a>
+        </nav>
+    </header>
+    <div class="reading-landscape" aria-hidden="true">
+        <noscript><img src="../images/reading-landscapes/01-misty-ridges.webp" alt="" width="1024" height="1536" decoding="async"></noscript>
+    </div>
+    <script src="essay-landscape.js?v=1.0"></script>
+    <div class="reading-shell">
+        <main id="main-content" tabindex="-1">
+            <a class="essay-back text-link" href="index.html"><span aria-hidden="true">←</span> All thoughts</a>
+            <article>
+                <h1>What I learned redesigning my site with AI</h1>
+
+                <p class="article-subtitle">75 critic reviews, a return to an earlier design, and the details that made the site feel more like me.</p>
+
+                <p class="article-date">28 September 2026</p>
+
+                <p>I’ve been playing around with AI in my work, including design.<sup><a id="footnote-anchor-1" href="#footnote-1">1</a></sup> After reading <a href="https://www.lennysnewsletter.com/p/how-to-turn-your-ai-into-a-world">Anshu Chimala’s piece on turning AI into a better designer</a> in Lenny’s Newsletter, I decided to try it on my personal site, <a href="https://williswee.com/">williswee.com</a>.<sup><a id="footnote-anchor-2" href="#footnote-2">2</a></sup></p>
+
+                <p>I’d kept the previous version simple:</p>
+
+                <figure><a href="../images/redesign-old-homepage.png" target="_blank" rel="noopener noreferrer" aria-label="View image full size (opens in a new tab)"><img src="../images/redesign-old-homepage.webp" alt="The old text-focused Willis Wee homepage, with a short introduction and a list of current projects." width="1440" height="906" decoding="async" srcset="../images/redesign-old-homepage-640.webp 640w, ../images/redesign-old-homepage-960.webp 960w, ../images/redesign-old-homepage.webp 1440w" sizes="(max-width: 380px) calc(100vw - 62px), (max-width: 760px) calc(100vw - 82px), (max-width: 1100px) calc(67vw - 66px), (min-width: 1250px) 710px, calc(64vw - 90px)" loading="eager"></a><figcaption style="text-align:center;"><em>The old homepage.</em></figcaption></figure>
+
+                <p>It worked. But I found it too text-heavy, and it didn’t really reflect the more playful side of me.</p>
+
+                <p>The redesign turned out like this:</p>
+
+                <figure>
+                    <video controls playsinline preload="none" poster="../images/redesign-video-poster.webp" width="1920" height="1080" style="display:block;width:100%;height:auto;" aria-label="Redesigned personal site demo: scrolling through work, notes, life, and connect. 30 seconds.">
+                        <source src="../videos/redesign-demo.mp4" type="video/mp4">
+                        Your browser does not support embedded video. <a href="../videos/redesign-demo.mp4">Open the video demo</a>.
+                    </video>
+                    <figcaption style="text-align:center;"><a href="../videos/redesign-demo.mp4" target="_blank" rel="noopener noreferrer">Open video demo</a></figcaption>
+                </figure>
+
+                <p>I kept the homepage scannable. Readers can get a quick sense of who I am, then click through to explore. Each scroll reveals another section: work, notes, life, and a place to connect with me.</p>
+
+                <p>Subjective, I know, but I love this art direction. The information feels less cluttered, and the site feels more playful and more like me.<sup><a id="footnote-anchor-3" href="#footnote-3">3</a></sup></p>
+
+                <p>Here’s how the process went, including the part where the AI got stuck in a loop. If you just want the takeaways, skip to the last section.</p>
+
+                <h2>1. Finding a direction before fussing over details</h2>
+
+                <p>I like pixel art, so that was my starting point. I wanted the site to feel like a series of stills from a video game, while still working as a personal website.</p>
+
+                <p>I adapted the prompt from Anshu’s article. Here’s a cleaned-up version:</p>
+
+                <pre><code>Rebuild my personal site with a bold pixel-art theme and old-school game graphics. Study the current live site and repo to understand its content and information architecture.
+
+Each section should feel like a still from a video game, while still functioning as part of a personal website. Make the artwork relevant to each section.
+
+Follow this procedure:
+1. Generate a long, random alphanumeric string using a shell script.
+2. Use the string as inspiration for the creative direction: colour, layout, typography, and atmosphere. Look for patterns that spark ideas.
+3. Use your judgment to bring the direction to life.
+
+Don’t reveal the string in the design. It’s only for inspiration.
+
+Start a local preview so I can review the result.</code></pre>
+
+                <p>At this stage, I wasn’t trying to get every detail right. I wanted the overall vibe and design language to feel promising. Directionally right is alright.</p>
+
+                <h2>2. Using a design critic</h2>
+
+                <p>Next, I asked the agent to improve the design with help from a separate critic.</p>
+
+                <p>The critic would get only a screenshot, in a fresh context. No code, implementation explanations, or earlier critiques. Just a reaction to what was actually on the screen.</p>
+
+                <p>Here’s the prompt, again adapted from Anshu’s article and lightly edited for readability. I requested <strong>5.6 Sol Extra High</strong> as the critic. You can use any appropriate model available in your own setup.</p>
+
+                <pre><code>I want you to improve this design. Use a 5.6 Sol Extra High subagent as a design critic.
+
+Follow this procedure at each iteration:
+- Capture a screenshot of the current design.
+- Invoke the critic in a fresh context, with just the screenshot, not the code, implementation details, or earlier iterations and critiques.
+- Ask it to evaluate the aesthetic the design is going for, imagine how a top design studio would execute it, and outline the biggest gaps.
+- Ask for a score out of 10 indicating how close it is to that quality bar.
+
+Give the critic this guidance:
+- Consider both the overall structure and composition and the fine details.
+- Watch for patterns that feel overdone, excessive, or obviously AI-generated, and penalize them.
+- Give tight, specific feedback, not vague prose.
+- Be bold and opinionated, rather than defaulting to what is safe or easy.
+
+Your work is only complete when the critic independently scores the design 9/10 or higher. Do not tell the critic this stopping criterion. Use the same critic prompt each time.</code></pre>
+
+                <p>Scoring the designs was useful. But that last instruction on “scoring” was perhaps too open-ended.</p>
+
+                <p>My initial loop produced 75 completed critic reviews before I stopped it. That doesn’t mean 75 completely different websites. Some were refinements or variations. TBH, none of those reviews reached 9/10.</p>
+
+                <p>Here are a few saved directions from the exploration. These aren’t “iterations one, two, and three”; they show the different places it went.</p>
+
+                <figure><a href="../images/redesign-campsite-direction.png" target="_blank" rel="noopener noreferrer" aria-label="View image full size (opens in a new tab)"><img src="../images/redesign-campsite-direction.webp" alt="An early pixel-art campsite homepage with a character, tent, telescope, glowing crystal, and Building for Joy title." width="1430" height="894" decoding="async" srcset="../images/redesign-campsite-direction-640.webp 640w, ../images/redesign-campsite-direction-960.webp 960w, ../images/redesign-campsite-direction.webp 1430w" sizes="(max-width: 380px) calc(100vw - 62px), (max-width: 760px) calc(100vw - 82px), (max-width: 1100px) calc(67vw - 66px), (min-width: 1250px) 710px, calc(64vw - 90px)" loading="lazy"></a><figcaption style="text-align:center;"><em>An earlier campsite direction. Promising atmosphere, but some details felt more like a generic game than my life. Wrong vibe.</em></figcaption></figure>
+
+                <figure><a href="../images/redesign-rooftop-direction.png" target="_blank" rel="noopener noreferrer" aria-label="View image full size (opens in a new tab)"><img src="../images/redesign-rooftop-direction.webp" alt="A rooftop homepage experiment with a sunset skyline and a compact Build For Joy introduction panel." width="1440" height="900" decoding="async" srcset="../images/redesign-rooftop-direction-640.webp 640w, ../images/redesign-rooftop-direction-960.webp 960w, ../images/redesign-rooftop-direction.webp 1440w" sizes="(max-width: 380px) calc(100vw - 62px), (max-width: 760px) calc(100vw - 82px), (max-width: 1100px) calc(67vw - 66px), (min-width: 1250px) 710px, calc(64vw - 90px)" loading="lazy"></a><figcaption style="text-align:center;"><em>One of the rooftop experiments. Not bad, but still wrong vibe.</em></figcaption></figure>
+
+                <figure><a href="../images/redesign-player-card-direction.png" target="_blank" rel="noopener noreferrer" aria-label="View image full size (opens in a new tab)"><img src="../images/redesign-player-card-direction.webp" alt="An illustrated player-card homepage with Build For Joy text beside a pixel-art character on a rooftop." width="1440" height="900" decoding="async" srcset="../images/redesign-player-card-direction-640.webp 640w, ../images/redesign-player-card-direction-960.webp 960w, ../images/redesign-player-card-direction.webp 1440w" sizes="(max-width: 380px) calc(100vw - 62px), (max-width: 760px) calc(100vw - 82px), (max-width: 1100px) calc(67vw - 66px), (min-width: 1250px) 710px, calc(64vw - 90px)" loading="lazy"></a><figcaption style="text-align:center;"><em>An illustrated player-card direction from the saved shortlist. The layout and copy were still experimental.</em></figcaption></figure>
+
+                <p>A fresh design critic was useful, but its score wasn’t an objective measure of my taste. More iterations didn’t automatically mean the site was becoming more “me.”</p>
+
+                <h2>3. Choosing a direction and sticking with it</h2>
+
+                <p>Eventually, I sent this:</p>
+
+                <pre><code>We are in an endless loop. Give me the top 3 scoring designs for my review. Once I pick one, we iterate on that version.</code></pre>
+
+                <p>Then:</p>
+
+                <pre><code>Not great. Give me the next top 10 scores.</code></pre>
+
+                <p><em>These are the actual requests, with spelling and punctuation cleaned up.</em></p>
+
+                <p>The agent assembled comparison boards. Here’s the board with ten additional directions:</p>
+
+                <figure><a href="../images/redesign-comparison-board.png" target="_blank" rel="noopener noreferrer" aria-label="View image full size (opens in a new tab)"><img src="../images/redesign-comparison-board.webp" alt="A comparison board of ten saved homepage directions, showing different layouts, artwork, and typography." width="1400" height="2854" decoding="async" srcset="../images/redesign-comparison-board-640.webp 640w, ../images/redesign-comparison-board-960.webp 960w, ../images/redesign-comparison-board.webp 1400w" sizes="(max-width: 380px) calc(100vw - 62px), (max-width: 760px) calc(100vw - 82px), (max-width: 1100px) calc(67vw - 66px), (min-width: 1250px) 710px, calc(64vw - 90px)" loading="lazy"></a><figcaption style="text-align:center;">Interesting directions. But still not quite the vibe I was looking for.</figcaption></figure>
+
+                <p>Comparing the alternatives gave me more conviction in an <strong>earlier campsite version</strong>. I liked how each scroll told another part of the story. The pixel art was heading in the right direction, and the Singapore references felt relevant.</p>
+
+                <p>So I pointed the agent back to that version with a more specific brief. A shortened, cleaned-up version:</p>
+
+                <pre><code>I think this version has promise.
+
+Keep:
+- The natural flow, with each scroll revealing another part of the story.
+- The pixel-art direction and references to Singapore.
+- The character mostly facing away, rather than emphasizing my face.
+
+Improve:
+- The readability and navigation.
+- Remove irrelevant objects, such as the telescope and glowing crystal.
+- Show my work more subtly.
+- Keep the character consistent: T-shirt, shorts, and sneakers.
+
+Stay with this version so we don’t go into an endless loop again.</code></pre>
+
+                <p>At some point, I gotta stop asking for another direction and start making the chosen one better.</p>
+
+                <h2>4. Making the artwork feel like my life</h2>
+
+                <p>Once I’d chosen the direction, I focused on the details that made it personal:</p>
+
+                <ul><li><p>I usually wear a T-shirt, shorts, and sneakers.</p></li><li><p>I carry a white tote bag and a backpack.</p></li><li><p>I play tennis and enjoy snorkeling.</p></li><li><p>I love reading, writing, and ice cream.</p></li><li><p>My desk setup includes an Apple Studio Display, a Mac mini, and a MacBook in a vertical stand, in clamshell mode.</p></li><li><p>My family is my wife and our three daughters.</p></li></ul>
+
+                <p>Annotations became especially useful here. Instead of asking vaguely for “more personality,” I pointed out what was wrong or missing.</p>
+
+                <p>Some actual examples, lightly cleaned up:</p>
+
+                <pre><code>The sloth, tent, and tennis racket are cropped. Those are the details that show character!
+
+Oh man.. Don’t use a candlestick chart.
+
+I’m working on an Apple Studio Display, with a laptop in clamshell mode, standing vertically.
+
+Add a snorkel set here. I love the sea. I love snorkeling.
+
+Instead of a library, make the background nature: mountains and trees. I love nature.
+
+Keep the books. I love reading, but also include an Amazon Kindle.</code></pre>
+
+                <p>These were separate annotations, not one giant prompt.</p>
+
+                <p>I also asked for stickers on the laptop: “#GSD,” sloth faces, a heart, and “Stay calm.” Small things, but together they made the scenes feel more like mine.</p>
+
+                <p>Looking back, this stage mattered more to me than chasing another decimal point from the critic.</p>
+
+                <h2>5. A good screenshot isn’t a finished website</h2>
+
+                <p>Once the homepage felt right, we carried the direction into <a href="https://williswee.com/thoughts/index.html">Thoughts</a>, <a href="https://williswee.com/guide.html">Guide</a>, <a href="https://williswee.com/work.html">Work</a>, <a href="https://williswee.com/books.html">Books</a>, and <a href="https://williswee.com/gratitude.html">Gratitude</a>. I wanted a consistent visual world while keeping each page’s useful features.</p>
+
+                <p>Reading pages needed a quieter treatment. Books and Gratitude still needed their random picks, permalinks, and focus mode.</p>
+
+                <p>I used <a href="https://impeccable.style/">Impeccable</a> to guide design critiques, audits, and refinement, alongside the agent’s browser testing and code checks.</p>
+
+                <p>We checked mobile layouts, enlarged text, contrast, reduced motion, image weight, and links. We also worked on smaller moments like feedback when shuffling a status, consistent focus-mode fading, and a way to keep reading without jumping back to the top.</p>
+
+                <p>This took several rounds. </p>
+
+                <h2>Takeaway</h2>
+
+                <p>For a personal site or landing page, I found this process useful. For a more complex product, I’d still want to map out the journeys and states first, using Figma, Paper, or whatever helps me think clearly. A good screen doesn’t automatically make a good experience as users move from A to B to C.</p>
+
+                <p>I suspect AI will get better at this, and I’m open to it.</p>
+
+                <p>There are also a few things I’d do differently next time:</p>
+
+                <ul><li><p><strong>Set a budget for the loop.</strong> I’d try a small batch, compare the results, and decide whether to continue. I’d also save each screenshot with its critique so I could check the shortlist later.</p></li><li><p><strong>Experiment with the model pairing.</strong> I’d try a cheaper model for implementation and a stronger one for criticism, then reverse them. Compare notes and see which is a better fit.</p></li><li><p><strong>Give the critic clearer criteria.</strong> “Studio quality” is vague. For this project, I cared about readability, coherent pixel art, recognisable details from my life, and a homepage that was easy to scan. I should have made those priorities more explicit.</p></li><li><p><strong>Use references to communicate taste, not just a style label.</strong> A rough wireframe, mood board, or a few examples of what I like and dislike could give the agent useful boundaries.</p></li></ul>
+
+                <p>For now, I’m happy I have a site that feels a little more like me. Thanks for reading till the end. I hope you found this useful!</p>
+
+                <hr style="margin-top:2rem;margin-bottom:1.5rem;">
+
+                <div class="article-footnotes"><p id="footnote-1"><sup><a href="#footnote-anchor-1">1</a></sup> <a href="https://williswee.com/thoughts/boring-ai.html">Impeccable, Paper, and still Figma</a>. Also ran a <a href="https://williswee.com/thoughts/googlefluid.html">small fun experiment</a> using TypeSafe Jev.</p></div>
+
+                <div class="article-footnotes"><p id="footnote-2"><sup><a href="#footnote-anchor-2">2</a></sup> The whole redesign took me about 4 weeks. I was taking my time experimenting. In between, i also went for a <a href="https://williswee.com/thoughts/meditationretreat.html">9-day silent meditation retreat</a>.</p></div>
+
+                <div class="article-footnotes"><p id="footnote-3"><sup><a href="#footnote-anchor-3">3</a></sup> I can be super playful and naughty. Couple that with stubbornness/determination. Hard to deal with. More about me <a href="https://williswee.com/guide.html#things-you-might-not-know-about-me">here</a>. And i realized my kids are like that too. Karma.</p></div>
+
+            </article>
+
+            <aside class="coaching-cta" aria-label="Coaching">
+                <a href="../coaching.html">
+                    <span class="dialogue-nameplate" aria-hidden="true">Willis</span>
+                    <span><strong>Founder and stuck on something?</strong> I do <span class="coaching-cta-name">coaching as comrades</span>.</span>
+                    <svg viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M4 14L14 4M7 4h7v7"/></svg>
+                </a>
+            </aside>
+
+            <div class="subscribe-embed" id="newsletter">
+                <p>Enjoyed this? Subscribe to get new essays delivered to your inbox.</p>
+                <a class="text-link newsletter-fallback" href="https://williswee.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe on Substack <span aria-hidden="true">↗</span></a>
+                <iframe data-newsletter-src="https://williswee.substack.com/embed" width="100%" height="460" style="border: 0; background: transparent;" frameborder="0" scrolling="no" loading="lazy" aria-hidden="true" tabindex="-1" title="Subscribe to Willis Wee newsletter"></iframe>
+            </div>
+            <hr>
+            <div class="article-nav-row">
+                <p class="back-link"><a href="index.html">← Back to Thoughts</a></p>
+                <button class="random-pick-btn" id="random-article-btn" type="button" hidden aria-label="Open a random essay">
+                    <span class="random-pick-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16"/><path d="M8 8h2v2H8zm6 6h2v2h-2z" fill="currentColor" stroke="none"/></svg></span>
+                    <span>Random pick</span>
+                </button>
+            </div>
+        </main>
+
+        <footer class="follow-strip">
+            <a class="footer-home" href="../index.html#archive">Back to my notes <span aria-hidden="true">↗</span></a>
+            <span class="follow-strip-label">Follow</span>
+            <div class="follow-strip-icons">
+                <a href="https://williswee.substack.com" class="follow-icon" target="_blank" rel="noopener noreferrer" aria-label="Substack (opens in a new tab)">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+                </a>
+                <a href="https://x.com/williswee" class="follow-icon" target="_blank" rel="noopener noreferrer" aria-label="X (opens in a new tab)">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/williswee/" class="follow-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
