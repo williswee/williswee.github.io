@@ -1,5 +1,10 @@
-Hello, this is just a personal site.
-https://williswee.com/
+# Willis Wee
+
+My personal site at [williswee.com](https://williswee.com/).
+
+## Site demo
+
+https://github.com/user-attachments/assets/e95f99ca-d9e3-4186-bd29-d399a3d51ed9
 
 ## How to add and publish a gratitude note
 
@@ -8,46 +13,51 @@ https://williswee.com/
 3. Edit the draft for clarity and return it for review.
 4. Wait until the note is explicitly marked **final**. Do not update the site before approval.
 5. After approval, append the final note to [`gratitude-notes.md`](gratitude-notes.md).
-6. Run `node scripts/render-gratitude.mjs` to regenerate `gratitude.html` and synchronize the Gratitude entry in `sitemap.xml` with the newest note date. The renderer validates unique positive safe-integer note numbers, dates, and the matching sitemap entry before writing either output; it leaves other sitemap entries untouched. A duplicate number is an error: correct the new draft's number, never renumber published notes.
-7. Run `node scripts/render-gratitude.mjs --check` to confirm both generated outputs match the approved source and current template without writing anything. Review the page locally and verify the note's shareable `#note-{number}` link, its date, the updated note count, and the Gratitude sitemap `lastmod`. Check desktop and mobile, Random pick → Another pick → Top, and focus mode: gold corners mark the selected note while neighboring notes, the introduction, and artwork fade. Scroll beyond the selected note to restore normal contrast; return to it to restore focus. Scrolling alone does not change the selected note link. Escape clears the selection and note hash without moving the viewport. Top clears focus and returns to the beginning. From a selected note, Tab through its links to the nearby floating controls; other notes must remain keyboard-accessible.
+6. Run `node scripts/render-gratitude.mjs` to regenerate `gratitude.html` and synchronize the Gratitude entry in `sitemap.xml` with the newest note date. The renderer validates unique positive safe-integer note numbers, dates, and the matching sitemap entry before writing either output. It leaves other sitemap entries untouched. If a number is duplicated, correct the new draft's number. Never renumber published notes.
+7. Run `node scripts/render-gratitude.mjs --check` to confirm both generated outputs match the approved source and current template without writing anything. Review the page locally. Verify the note's shareable `#note-{number}` link, date, updated note count, and Gratitude sitemap `lastmod`. On desktop and mobile, try Random pick, then Another pick, then Top. Check focus mode too. Gold corners mark the selected note while neighboring notes, the introduction, and artwork fade. Scroll beyond the selected note to restore normal contrast, then return to it to restore focus. Scrolling alone does not change the selected note link. Escape clears the selection and note hash without moving the viewport. Top clears focus and returns to the beginning. From a selected note, Tab through its links to the nearby floating controls. Other notes must remain keyboard-accessible.
 8. Immediately before pushing, run `git fetch origin` again. If `origin/main` moved while the note was being prepared, rebase the gratitude commit onto the latest remote branch, preserve the current GitHub changes, regenerate the page from the updated generator, and repeat the checks above. Resolve any overlap by keeping the latest remote implementation while retaining the approved note content.
 9. Push the gratitude commit only after it is based on the latest `origin/main`, then confirm the note is live at [williswee.com/gratitude.html](https://williswee.com/gratitude.html).
 
 ### Gratitude page design and generation
 
-`gratitude-notes.md` remains the source of truth for note content. `scripts/render-gratitude.mjs` owns the entire generated `gratitude.html` page, including navigation, controls, count, and footer. Make layout changes in the generator and regenerate; do not hand-edit the generated page. The renderer preserves the Markdown's existing oldest-first order and displays notes newest-first. Keep note numbers and `note-{number}` IDs stable so published links continue working.
+`gratitude-notes.md` is the source for note content. `scripts/render-gratitude.mjs` generates the entire `gratitude.html` page, including navigation, controls, count, and footer. Make layout changes in the generator and regenerate. Do not hand-edit the generated page. The renderer preserves the Markdown's existing oldest-first order and displays notes newest-first. Keep note numbers and `note-{number}` IDs stable so published links continue working.
 
-The renderer also maintains the Gratitude URL's `lastmod` in `sitemap.xml` from the latest date anywhere in the note source, so appending an older backfilled note does not roll that date backward. Include both generated files in the publishing review; adding a note does not require manually editing sitemap dates. Its read-only `--check` mode exits nonzero when the page or sitemap is stale; it never publishes a draft or repairs output automatically. Preserve the approval step before regeneration.
+The renderer sets the Gratitude URL's `lastmod` in `sitemap.xml` to the latest date in the note source. Adding an older backfilled note does not move that date backward. Include both generated files in the publishing review. Adding a note does not require manual sitemap date edits.
 
-The page uses `thoughts/reading-room.css` for the shared reading-world shell, `reading-nav.js` to keep keyboard-focused header links visible with enlarged text, `gratitude-game.css` for the journal layout and selection markers, and `gratitude.js` for random selection, accessible focus, permalinks, and floating controls. Focus keeps the selected note on the midnight reading surface with amber corner markers; Books uses the same treatment. Reduced-motion preferences disable animated scrolling, fading, and dice feedback. All note content and native heading links remain available without JavaScript; Random pick stays hidden until its handler is ready.
+The read-only `--check` mode exits nonzero when the page or sitemap is stale. It never publishes a draft or repairs output automatically. Preserve the approval step before regeneration.
 
-Keep the dedicated `images/game-world/gratitude-evening-journal-v1.webp` illustration when adding notes—no new background is needed per note, and this page does not use the ten-preset essay picker. Generation context is recorded in `.impeccable/assets/gratitude-evening-journal-v1.prompt.json` and the image-adjacent `.webp.json` sidecar. Preview [Gratitude locally](http://localhost:4173/gratitude.html) before publishing.
+The page uses `thoughts/reading-room.css` for the shared reading layout and `reading-nav.js` to keep keyboard-focused header links visible with enlarged text. `gratitude-game.css` handles the journal layout and selection markers. `gratitude.js` handles random selection, accessible focus, permalinks, and floating controls. Focus keeps the selected note on the midnight reading area with amber corner markers. Books uses the same treatment. Reduced-motion preferences disable animated scrolling, fading, and dice feedback. All note content and native heading links remain available without JavaScript. Random pick stays hidden until its handler is ready.
+
+Keep the dedicated `images/game-world/gratitude-evening-journal-v1.webp` illustration when adding notes. Notes do not need individual backgrounds, and this page does not use the ten-preset essay picker. Generation context is recorded in `.impeccable/assets/gratitude-evening-journal-v1.prompt.json` and the image-adjacent `.webp.json` sidecar. Preview [Gratitude locally](http://localhost:4173/gratitude.html) before publishing.
 
 ## How to publish a new article
 
-**Substack imports:** Exclude Substack's in-article subscription buttons, such as **Subscribe now**. Use the site's shared newsletter block with its immediate subscription link and deferred embed instead.
+For Substack imports, omit in-article subscription buttons such as "Subscribe now". Use the site's shared newsletter block with its immediate subscription link and deferred embed.
 
 The current WIP essay template is [`thoughts/freedom.html`](thoughts/freedom.html). Follow the [essay authoring guide](thoughts/README.md) for the shared layout and background setup.
 
-The newsletter's direct subscription link belongs inside its block, immediately after the invitation and before the deferred iframe. It stays available while the form loads automatically near the viewport. Pending and failed forms use compact feedback, with a reload action and a show/hide control for loaded forms; only a shown form reserves its full height. A cross-origin frame load is not proof of a working signup form. Follow the [embed guidance](thoughts/README.md#third-party-embeds), and verify blocked/slow-provider recovery and the no-JavaScript link when changing this shared behavior.
+Place the newsletter's direct subscription link inside its block, immediately after the invitation and before the deferred iframe. The link stays available while the form loads automatically near the viewport.
+
+Pending and failed forms show compact feedback with a reload action. Loaded forms have a show/hide control, and only a shown form reserves its full height. A cross-origin frame load does not prove that the signup form works. Follow the [embed guidance](thoughts/README.md#third-party-embeds). When changing this shared behavior, check recovery when the provider is blocked or slow, and verify the no-JavaScript link.
 
 1. Copy `thoughts/freedom.html` to `thoughts/{slug}.html` (single word slug, e.g. `mission`). Keep its shared reading layout, scripts, navigation, coaching card, and newsletter/footer markup.
 2. Update the title, meta description, heading, date, body, and article images/captions. When the source has a subtitle, put its unchanged wording in `<p class="article-subtitle">` immediately after the article's `<h1>`, before the date and title image/figure. Omit this element for essays without a subtitle. Remove any copied Freedom-specific content that does not belong to the new essay.
-3. **Keep the automatic preset background picker.** Every new essay uses `thoughts/essay-landscape.js` to select one of the ten existing images in [`images/reading-landscapes/`](images/reading-landscapes/). Do not generate a new decorative background or assign one manually per essay. The scene is selected once per page load and stays still while reading. Article/hero images from the source post are separate and should still be preserved.
+3. Keep the automatic preset background picker. Every new essay uses `thoughts/essay-landscape.js` to select one of the ten existing images in [`images/reading-landscapes/`](images/reading-landscapes/). Do not generate a new decorative background or assign one manually per essay. The scene is selected once per page load and stays still while reading. Preserve article/hero images from the source post as well.
 4. Add the new `<li>` to `thoughts/index.html` in date order, newest first, and update the static essay count. The archive builds its year groupings automatically.
 5. Add the URL to `sitemap.xml` and `llms.txt`. Sitemap URLs use the site's own host, `https://williswee.com/`; `www` only redirects there. Run `node scripts/sync-essay-manifest.mjs` to generate the shared random-pick manifest from the archive. Do not maintain a separate list inside a reader script.
 6. Give every article image its actual intrinsic `width` and `height`, descriptive alt text, and `decoding="async"`. Use optimized WebP assets where available, retaining originals; keep the first/hero image eager and mark below-the-fold images `loading="lazy"`. Keep responsive `srcset`/`sizes` when copying the template.
-7. Run `node scripts/sync-essay-manifest.mjs --check`, then preview locally. Check desktop/mobile and text zoom, footnote keyboard navigation, quote copy (including denied clipboard access and selection after visiting a footnote), Random pick with the archive request blocked, background, links, and image layout before publishing. Copy/Share should use the clean article URL, not an unrelated footnote or preview query; the reading bar should finish at the end of the article, excluding the newsletter/footer.
+7. Run `node scripts/sync-essay-manifest.mjs --check`, then preview locally. Check desktop and mobile, text zoom, footnote keyboard navigation, and quote copy (including denied clipboard access and selection after visiting a footnote). Also check Random pick with the archive request blocked, the background, links, and image layout before publishing. Copy/Share should use the clean article URL, without an unrelated footnote or preview query. The reading bar should finish at the end of the article, excluding the newsletter/footer.
 
-**Prompt**
+### Article import prompt
 
 Follow the "How to publish a new article" section in README.md and the essay authoring guide in thoughts/README.md.
-- add this article into `thoughts` directory
-- on https://williswee.com/thoughts/index.html, rank the article by date (latest post on top)
-- use `thoughts/freedom.html` as the layout reference and preserve its automatic ten-preset background picker (`essay-landscape.js`)
-- do not create a new decorative background; the article's own images are separate from the preset scenery
+
+- Add this article to the `thoughts` directory.
+- Add it to https://williswee.com/thoughts/index.html in date order, newest first.
+- Use `thoughts/freedom.html` as the layout reference and preserve its automatic ten-preset background picker (`essay-landscape.js`).
+- Do not create a new decorative background. The article's own images are separate from the preset scenery.
 - Extract the title, subtitle, date, and body from the live Substack post. Do not ask me for them. The subtitle is the Substack post's subtitle/deck. Place it as `<p class="article-subtitle">` immediately after the article's `<h1>`, before the date and title image/figure. Preserve its wording; omit the element when the source has no subtitle.
-- Copy the article content from the Substack post, including images and captions, but omit Substack's in-article subscription buttons (for example, **Subscribe now**). Save any images in the `images` directory and reference them properly in the article. Center image captions and preserve the original wording. Keep the site's shared newsletter block, including its direct subscription link immediately after the invitation and before the deferred iframe.
+- Copy the article content from the Substack post, including images and captions, but omit Substack's in-article subscription buttons (for example, "Subscribe now"). Save any images in the `images` directory and reference them properly in the article. Center image captions and preserve the original wording. Keep the site's shared newsletter block, including its direct subscription link immediately after the invitation and before the deferred iframe.
 - Keep the template's coaching card (`<aside class="coaching-cta">`) unchanged, directly after `</article>` and before the newsletter block.
 
 Substack URL:
@@ -55,7 +65,7 @@ Slug: (single word slug, e.g. `mission`)
 
 ## Local preview
 
-Run `node --test scripts/tests/*.test.mjs` for the dependency-free regression checks before publishing changes to navigation, reader interactions, focus mode, newsletter loading, or the Gratitude renderer. Generator tests use temporary fixtures, not the real note source or generated page. Also run `node scripts/sync-essay-manifest.mjs --check` and `node scripts/render-gratitude.mjs --check` to catch stale publishing outputs.
+Run `node --test scripts/tests/*.test.mjs` for the dependency-free regression checks before publishing changes to navigation, reader interactions, focus mode, newsletter loading, or the Gratitude renderer. Generator tests use temporary fixtures instead of the real note source or generated page. Also run `node scripts/sync-essay-manifest.mjs --check` and `node scripts/render-gratitude.mjs --check` to catch stale publishing outputs.
 
 From the repository root, run:
 
@@ -63,52 +73,54 @@ From the repository root, run:
 python3 -m http.server 4173 --bind 127.0.0.1
 ```
 
-Open the [homepage](http://localhost:4173/index.html), [Thoughts archive](http://localhost:4173/thoughts/index.html), or [sample essay](http://localhost:4173/thoughts/freedom.html). Refresh the essay to try another preset background. Current design guidance lives in [`DESIGN.md`](DESIGN.md), with page-specific contracts in `.impeccable/surfaces/`.
+Open the [homepage](http://localhost:4173/index.html), [Thoughts archive](http://localhost:4173/thoughts/index.html), or [sample essay](http://localhost:4173/thoughts/freedom.html). Refresh the essay to try another preset background. [`DESIGN.md`](DESIGN.md) contains the current design guidance. Page-specific requirements are in `.impeccable/surfaces/`.
 
-## Editing the User Guide
+## Editing the user guide
 
-The redesigned [Guide](guide.html) uses `thoughts/reading-room.css` for the shared navigation and reading shell, with `guide-game.css` and `guide-game.js` for its own layout and interactions. Its dedicated illustration is `images/game-world/guide-field-manual-v1.webp`, composed for the visible left column; it does not use the homepage artwork or randomized essay landscapes.
+The [Guide](guide.html) uses `thoughts/reading-room.css` for the shared navigation and reading layout. `guide-game.css` and `guide-game.js` handle its layout and interactions. Its dedicated illustration, `images/game-world/guide-field-manual-v1.webp`, is composed for the visible left column. The page does not use the homepage artwork or randomized essay landscapes.
 
-Keep the complete copy and nested alphabetic lists. Existing section/rule IDs are public deep links: preserve them when editing a heading or bold rule label (set the existing ID explicitly on its `<h2>` or `<li>` if the label changes). When adding a section, update the “In this guide” links as well. Preview [Guide locally](http://localhost:4173/guide.html), check mobile layout, and test both section and rule copy links.
-
----
+Keep the complete copy and nested alphabetic lists. Existing section/rule IDs are public deep links. Preserve them when editing a heading or bold rule label (set the existing ID explicitly on its `<h2>` or `<li>` if the label changes). When adding a section, update the "In this guide" links as well. Preview [Guide locally](http://localhost:4173/guide.html), check mobile layout, and test both section and rule copy links.
 
 ## Not-found page
 
-GitHub Pages serves `404.html` for every missing address, at any depth, so every local URL in it is root-relative (`/thoughts/reading-room.css`, not `thoughts/reading-room.css`). It uses the shared forest-path scene, shows the missing address when JavaScript runs, and offers the same three ways back as the Work page. It carries `noindex` and stays out of the sitemap; `scripts/tests/document-structure.test.mjs` enforces both.
+GitHub Pages serves `404.html` for every missing address, at any depth. Use root-relative local URLs in it (`/thoughts/reading-room.css`, not `thoughts/reading-room.css`). It uses the shared forest-path scene, shows the missing address when JavaScript runs, and offers the same three ways back as the Work page. It carries `noindex` and stays out of the sitemap. `scripts/tests/document-structure.test.mjs` enforces both.
 
-## Editing Coaching
+## Editing coaching
 
-[Coaching](coaching.html) is where every essay's coaching card leads. It shares `thoughts/reading-room.css` with the other reading pages, with its own layout in `coaching-game.css`. Its dedicated backdrop is `images/game-world/coaching-comrades-v1.webp`, fixed rather than randomized and treated like the Guide's landscape. Its link-preview image, `images/game-world/coaching-comrades-og.jpg`, is a crisp 2× crop of the two figures from that art (1200×630). Provenance and crop details are in `.impeccable/assets/coaching-comrades-v1.prompt.json`. Coaching is intentionally not in the header navigation.
+[Coaching](coaching.html) is where every essay's coaching card leads. It shares `thoughts/reading-room.css` with the other reading pages, with its own layout in `coaching-game.css`. Its dedicated backdrop, `images/game-world/coaching-comrades-v1.webp`, is fixed and uses the same treatment as the Guide's landscape. Its link-preview image, `images/game-world/coaching-comrades-og.jpg`, is a 2× crop of the two figures from that art (1200×630). Provenance and crop details are in `.impeccable/assets/coaching-comrades-v1.prompt.json`. Coaching is not in the header navigation.
 
-Both **Book a call** controls open `https://intro.co/williswee` in a new tab. The coaching card (`aside.coaching-cta`, a dialogue box with a "Willis" nameplate) sits between `</article>` and the newsletter block in every essay, and at the end of the Guide. All copies share the same wording, so change them together. The coaching topics are numbered with pixel tiles (plain digits in `.coaching-topic-mark`); renumber them if you add or remove one. On desktop, the left rail (`.coaching-rail`) links each section's `h2` and offers a booking shortcut; add any new section to it. The generation prompt and asset settings for the "comrades" backdrop are in `.impeccable/assets/coaching-comrades-v1.prompt.json`. To add a testimonial, copy an `<li>` inside `.coaching-quotes`. Replace the nameplate link in `<figcaption>` (the person's name and a source URL) and the curly-quoted text in `<blockquote>`. Use only real, attributable quotes. The last testimonial automatically shows the "continue" arrow that points to Book a call; `coaching-game.js` only pauses its animation while it's off screen. `scripts/tests/coaching.test.mjs` checks the card's placement and nameplate, the booking links, the rail's targets, the topic numbering, that every testimonial names a linked source, and that every local link on the page resolves. Preview [Coaching locally](http://localhost:4173/coaching.html) on desktop and mobile before publishing.
+Both "Book a call" controls open `https://intro.co/williswee` in a new tab. The coaching card (`aside.coaching-cta`, a dialogue box with a "Willis" nameplate) sits between `</article>` and the newsletter block in every essay, and at the end of the Guide. All copies share the same wording, so change them together.
 
----
+The coaching topics are numbered with pixel tiles (plain digits in `.coaching-topic-mark`). Renumber them if you add or remove one. On desktop, the left rail (`.coaching-rail`) links each section's `h2` and offers a booking shortcut. Add any new section to it. The generation prompt and asset settings for the "comrades" backdrop are in `.impeccable/assets/coaching-comrades-v1.prompt.json`.
 
-## Editing Work
+To add a testimonial, copy an `<li>` inside `.coaching-quotes`. Replace the nameplate link in `<figcaption>` (the person's name and a source URL) and the curly-quoted text in `<blockquote>`. Use only real, attributable quotes. The last testimonial automatically shows the "continue" arrow that points to Book a call. `coaching-game.js` pauses its animation only while it's off screen.
 
-The redesigned [Work page](work.html) shares `thoughts/reading-room.css` with Guide and Thoughts. Its own presentation and milestone navigation live in `work-game.css` and `work-game.js`. Use the dedicated `images/game-world/work-coastal-workshop-v1.webp` illustration, composed for the visible left column; Work does not use the randomized essay backgrounds.
+`scripts/tests/coaching.test.mjs` checks the card's placement and nameplate, booking links, rail targets, and topic numbering. It also checks that every testimonial names a linked source and every local link on the page resolves. Preview [Coaching locally](http://localhost:4173/coaching.html) on desktop and mobile before publishing.
+
+## Editing work
+
+The [Work page](work.html) shares `thoughts/reading-room.css` with Guide and Thoughts. `work-game.css` and `work-game.js` handle its layout and milestone navigation. Use the dedicated `images/game-world/work-coastal-workshop-v1.webp` illustration, composed for the visible left column. Work does not use the randomized essay backgrounds.
 
 Keep the full stories, dates, project preview links, and existing milestone IDs (`now`, `tech-in-asia`, `tuition-center`, `trading-cards`, and `grasshoppers`). To add a milestone, give its `.timeline-item` section a stable unique ID and labeled heading, then add a matching `.project-nav-link` in the same chronological order. All stories remain readable without JavaScript. Preview [Work locally](http://localhost:4173/work.html) and check desktop navigation, the mobile Milestones menu, direct hash links, and project images before publishing.
 
----
-
 ## How to add a book
 
-The Books page uses the shared reading-world styles in `thoughts/reading-room.css`, page-specific layout in `books-game.css`, and filtering, random picks, spotlight, and permalink behavior in `books-game.js`. The selected recommendation stays on the midnight reading surface with the same amber corner markers used by Gratitude. Its dedicated reading-nook background is `images/game-world/books-reading-nook-v1.webp`; provenance is recorded in `.impeccable/assets/books-reading-nook-v1.prompt.json`. Keep this page-specific illustration when adding books—individual recommendations do not need cover images or new backgrounds.
+The Books page uses `thoughts/reading-room.css` for shared reading styles and `books-game.css` for its layout. `books-game.js` handles filtering, random picks, spotlight, and permalinks. The selected recommendation stays on the midnight reading area with the same amber corner markers used by Gratitude.
 
-1. Open `books.html`
-2. Inside `<div class="book-grid">`, add a new `<div class="book-card">` block (books are listed alphabetically by title)
-3. Set the `data-category` attribute on the card to one of the valid categories (see below)
+Its dedicated reading-nook background is `images/game-world/books-reading-nook-v1.webp`. Provenance is recorded in `.impeccable/assets/books-reading-nook-v1.prompt.json`. Keep this illustration when adding books. Individual recommendations do not need cover images or new backgrounds.
+
+1. Open `books.html`.
+2. Inside `<div class="book-grid">`, add a new `<div class="book-card">` block in alphabetical order by title.
+3. Set the card's `data-category` attribute to one of the valid categories below.
 4. Fill in the four fields:
-   - `<span class="book-tag">` — category label (title case, matches `data-category`)
-   - `<h3>` — full book title
-   - `<p class="book-author">` — author name in ALL CAPS, prefixed with `BY`
-   - `<p class="book-review">` — 1–3 sentence personal take
-5. Reorder the category filters (`<div class="filter-pills">`) so they appear from most to least books per category, keeping All first. Counts are calculated automatically by `books-game.js`; update the initial total in `#book-status` too, so the no-JavaScript view stays accurate.
-6. Keep existing titles and IDs stable: book permalinks are generated from their titles. If correcting a published title, give that card an explicit `id` matching its old permalink before changing the heading. Do not reuse an existing ID.
+   - `<span class="book-tag">` contains the category label in title case, matching `data-category`.
+   - `<h3>` contains the full book title.
+   - `<p class="book-author">` contains the author name in ALL CAPS, prefixed with `BY`.
+   - `<p class="book-review">` contains a personal take of 1–3 sentences.
+5. Reorder the category filters (`<div class="filter-pills">`) so they appear from most to least books per category, keeping All first. `books-game.js` calculates counts automatically. Update the initial total in `#book-status` too, so the no-JavaScript view stays accurate.
+6. Keep existing titles and IDs stable. Book permalinks are generated from their titles. If correcting a published title, give that card an explicit `id` matching its old permalink before changing the heading. Do not reuse an existing ID.
 
-**Valid categories:** `leadership` · `mindset` · `investing` · `life` · `science` · `career` · `parenting` · `design`
+Valid categories are `leadership`, `mindset`, `investing`, `life`, `science`, `career`, `parenting`, and `design`.
 
 ```html
 <div class="book-card" data-category="mindset">
@@ -119,16 +131,19 @@ The Books page uses the shared reading-world styles in `thoughts/reading-room.cs
 </div>
 ```
 
-**Before publishing**
+### Before publishing
 
-Preview [Books locally](http://localhost:4173/books.html) on desktop and mobile. Check the new entry's category/count, the mobile Categories menu, Random pick and Another pick within a selected category, and a direct book hash link (for example, `books.html#clarity-connection`). Gold corners mark the selected book while neighboring books, the introduction, and reading-nook background fade. Scrolling beyond the selected book restores normal contrast without changing its hash; returning to it restores focus. Escape clears the spotlight and book hash without changing the scroll position or category. Top returns to the beginning; Top and category changes also clear the previous spotlight/hash and restore the artwork. The dock follows the selected book in keyboard order, without trapping access to other books. All recommendations remain readable without JavaScript; category filters and Random pick stay hidden until their handlers are ready. Reduced-motion settings disable animated scrolling, fading, and dice feedback.
+Preview [Books locally](http://localhost:4173/books.html) on desktop and mobile. Check the new entry's category/count, the mobile Categories menu, Random pick and Another pick within a selected category, and a direct book hash link (for example, `books.html#clarity-connection`).
 
-**Prompt**
+Gold corners mark the selected book while neighboring books, the introduction, and reading-nook background fade. Scrolling beyond the selected book restores normal contrast without changing its hash. Returning to it restores focus. Escape clears the spotlight and book hash without changing the scroll position or category. Top returns to the beginning. Top and category changes also clear the previous spotlight/hash and restore the artwork. The dock follows the selected book in keyboard order, without trapping access to other books. All recommendations remain readable without JavaScript. Category filters and Random pick stay hidden until their handlers are ready. Reduced-motion settings disable animated scrolling, fading, and dice feedback.
 
-Follow the instruction here [README.md] under "How to add a book"
-- add the book into `books.html` in alphabetical order by title
-- set the category and reorder the category filters from most to least books, keeping All first
-- preserve existing book permalinks and update the initial total in `#book-status`
+### Book entry prompt
+
+Follow "How to add a book" in README.md.
+
+- Add the book to `books.html` in alphabetical order by title.
+- Set the category and reorder the category filters from most to least books, keeping All first.
+- Preserve existing book permalinks and update the initial total in `#book-status`.
 
 Title:
 Author:
