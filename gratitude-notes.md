@@ -689,3 +689,13 @@ What's yours?
 2️⃣ It’s nice that founders and friends came together to do me small favors. Awesome feeling.
 
 3️⃣ Still feeling the positive effects of the silent meditation retreat. Yay.
+
+## Gratitude note #63
+
+*2026-09-29*
+
+1️⃣ Yesterday felt a little challenging. A lot of thoughts were floating around in my mind, which affected my mood and morale. Self-doubt started to seep in, but I managed it, made friends with it, and still had a good day, or as good as it could be.
+
+2️⃣ Started a new meditation routine with the girls. I taught them the basics, and they meditated for about 60 seconds. They asked for more, so we did another 90 seconds. They seemed to feel good afterward. I hope this routine sticks because learning to be aware and mindful is a useful life skill.
+
+3️⃣ Met a friend and had a good conversation. He was kind enough to buy me lunch. We had tamago sando. It was delicious, and the coffee was great too.
