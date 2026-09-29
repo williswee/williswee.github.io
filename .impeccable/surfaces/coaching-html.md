@@ -17,7 +17,7 @@ The form asks for name, email, and “What are you working through?” with perm
 
 The native HTML POST points to the user-provided Formspree endpoint `https://formspree.io/f/mdekydke`. The recipient is configured in Formspree, not exposed in the page. `coaching-contact.js` adds inline validation, pending/confirmed-success/error states, draft retention on failure, and duplicate-submit prevention. A deliberate “Continue with Formspree” control recovers from provider/challenge failures; uncertain requests never retry automatically. Without JavaScript the native POST and browser validation remain available. No note values go into browser storage, URLs, custom analytics events, or confirmation copy. Formspree's `_gotcha` honeypot is present.
 
-The five real testimonials now include Daniel before Mariana. One exact sentence in each quote receives gold emphasis. All testimonial text and source links remain intact.
+The six real testimonials now include Daniel and Yao Ming before Mariana. One exact sentence in each quote receives gold emphasis. All testimonial text and source links remain intact.
 
 The 2026-09-25 entries below describe the earlier implementation and its audit history. This contract supersedes their primary-booking flow. CSS is v1.7; contact JS is v1.1. Validate desktop/mobile layout, keyboard focus, failed and confirmed sends, and no-script fallback before publishing. Mocked responses cannot verify the configured inbox or CAPTCHA account settings; delivery and Reply-To need a real test.
 
