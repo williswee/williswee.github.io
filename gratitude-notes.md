@@ -699,3 +699,13 @@ What's yours?
 2️⃣ Started a new meditation routine with the girls. I taught them the basics, and they meditated for about 60 seconds. They asked for more, so we did another 90 seconds. They seemed to feel good afterward. I hope this routine sticks because learning to be aware and mindful is a useful life skill.
 
 3️⃣ Met a friend and had a good conversation. He was kind enough to buy me lunch. We had tamago sando. It was delicious, and the coffee was great too.
+
+## Gratitude note #64
+
+*2026-09-30*
+
+1️⃣ Still feeling a sense of unease. I think it's a pattern during this sabbatical. I swing between feeling calm and peaceful, and feeling impatient. I'm glad I'm managing it well, or as well as I can.
+
+2️⃣ Had an interesting conversation with my older girls about the stories I told them when they were younger. We compared those stories with the ones I tell my youngest girl now. It was a fun conversation.
+
+3️⃣ A friend shared my coaching page unprompted. That was really kind of him. It felt nice.
