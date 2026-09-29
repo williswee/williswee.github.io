@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-23T01:46:32.985870Z",
+  "generatedAt": "2026-09-29T05:44:33.688Z",
   "title": "Design System: Willis Wee — Save Point Atlas",
   "extensions": {
     "colorMeta": {
@@ -157,6 +157,20 @@
           "oklch(83.6% 0.0363 87.79)",
           "oklch(95.0% 0.0363 87.79)"
         ]
+      },
+      "coaching-error": {
+        "role": "semantic",
+        "displayName": "Warm Error",
+        "tonalRamp": [
+          "oklch(15.0% 0.0776 37.45)",
+          "oklch(26.4% 0.0776 37.45)",
+          "oklch(37.9% 0.0776 37.45)",
+          "oklch(49.3% 0.0776 37.45)",
+          "oklch(60.7% 0.0776 37.45)",
+          "oklch(72.1% 0.0776 37.45)",
+          "oklch(83.6% 0.0776 37.45)",
+          "oklch(95.0% 0.0776 37.45)"
+        ]
       }
     },
     "typographyMeta": {
@@ -194,7 +208,7 @@
       },
       "metadata": {
         "displayName": "Supporting Text",
-        "purpose": "Dates, counts, captions, and category labels."
+        "purpose": "Dates, reading estimates, counts, captions, and category labels; dates and counts use tabular numerals."
       },
       "status": {
         "displayName": "Current Status",
@@ -202,7 +216,7 @@
       },
       "reading-section": {
         "displayName": "Reading Section",
-        "purpose": "Essay and newsletter section headings. Guide inherits the size with a 1.4 line height and smaller mobile variants documented in DESIGN.md."
+        "purpose": "Essay, More thoughts, and newsletter section headings. Guide inherits the size with a 1.4 line height and smaller mobile variants documented in DESIGN.md."
       },
       "archive-year": {
         "displayName": "Archive Year",
@@ -231,6 +245,18 @@
       "home-onward": {
         "displayName": "Homepage Next Section",
         "purpose": "The destination text in each Scroll next link."
+      },
+      "continuation-title": {
+        "displayName": "Adjacent Essay Title",
+        "purpose": "Full titles in the More thoughts invitation; Sora at 600 with a 1.55 line height."
+      },
+      "search-text": {
+        "displayName": "Essay Search Text",
+        "purpose": "Archive search text and placeholder, with a 1.6 line height."
+      },
+      "brand-compact": {
+        "displayName": "Compact Logotype",
+        "purpose": "The short mobile Willis logotype at 0.74rem; the homepage alone reduces to 0.68rem at 360px."
       }
     },
     "shadows": [
@@ -264,27 +290,47 @@
       {
         "name": "control-color",
         "value": "180ms ease-out",
-        "purpose": "Acknowledges hover and focus state."
+        "purpose": "Acknowledges shared hover and focus state; useful color and border feedback uses 120ms under reduced motion."
+      },
+      {
+        "name": "search-border",
+        "value": "160ms ease-out",
+        "purpose": "Turns the archive search border gold on focus; 120ms under reduced motion."
+      },
+      {
+        "name": "destination-arrow",
+        "value": "translate(2px, -2px), 180ms ease-out",
+        "purpose": "Moves only the northeast vector on hover or keyboard focus, keeping the link target stationary; suppressed under reduced motion."
+      },
+      {
+        "name": "onward-arrow",
+        "value": "translateY(3px), 180ms ease-out",
+        "purpose": "Acknowledges the homepage onward link on hover or keyboard focus; suppressed under reduced motion."
       },
       {
         "name": "story-settle",
         "value": "opacity 520ms ease-out, transform 700ms cubic-bezier(.16, 1, .3, 1)",
-        "purpose": "Settles already-visible homepage panels."
+        "purpose": "Settles already-visible homepage panels; suppressed under reduced motion."
       },
       {
         "name": "art-settle",
         "value": "filter 1100ms ease-out, transform 1600ms cubic-bezier(.16, 1, .3, 1)",
-        "purpose": "Subtly adjusts the current homepage scene."
+        "purpose": "Subtly adjusts the current homepage scene; suppressed under reduced motion."
       },
       {
         "name": "reload-feedback",
         "value": "300ms cubic-bezier(.16, 1, .3, 1)",
-        "purpose": "Turns the status reload icon on activation; reduced motion uses opacity feedback."
+        "purpose": "Turns the status reload icon on activation; reduced motion keeps it stationary and uses opacity feedback."
+      },
+      {
+        "name": "dice-feedback",
+        "value": "220ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Turns the discovery dice on deliberate input; suppressed under reduced motion."
       },
       {
         "name": "landscape-fade",
         "value": "220ms ease-out",
-        "purpose": "Quiets surrounding entries, introduction, and scenery while the selected Book/Gratitude entry is visible; restores readability on scrolling away."
+        "purpose": "Quiets surrounding entries, introduction, and scenery while a selected Book/Gratitude entry is visible; changes immediately under reduced motion."
       }
     ],
     "breakpoints": [
@@ -295,6 +341,10 @@
       {
         "name": "stacked-mobile",
         "value": "760px"
+      },
+      {
+        "name": "coaching-form-stack",
+        "value": "540px"
       },
       {
         "name": "tight-home",
@@ -315,33 +365,33 @@
       "name": "Random Pick Button",
       "kind": "button",
       "refersTo": "discovery-button",
-      "description": "Outlined discovery control, revealed only when its enhancement is ready.",
+      "description": "Outlined discovery control, revealed only when ready; archive picks respect the current search.",
       "html": "<button class=\"ds-random\" type=\"button\"><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"14\" height=\"14\"/><path d=\"M7 7h.01M13 13h.01\"/></svg>Random pick</button>",
-      "css": ".ds-random{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:8px 14px;border:1px solid var(--line,rgba(244,233,207,.24));border-radius:0;background:transparent;font-family:var(--font-body,'Sora',sans-serif);color:var(--cream,#f4e9cf);font-size:var(--font-size-ui,.875rem);font-weight:600;cursor:pointer;transition:color 180ms ease-out,border-color 180ms ease-out}.ds-random svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5}.ds-random:hover{color:var(--gold,#ffbe63);border-color:var(--gold,#ffbe63)}.ds-random:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:4px;}.ds-random:active{background:var(--ink,#07101d)}.ds-random:disabled{opacity:.65;cursor:wait}"
+      "css": ".ds-random{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:8px 14px;border:1px solid var(--line,rgba(244,233,207,.24));border-radius:0;background:transparent;font-family:var(--font-body,'Sora',sans-serif);color:var(--cream,#f4e9cf);font-size:var(--font-size-ui,.875rem);font-weight:600;cursor:pointer;transition:color 180ms ease-out,border-color 180ms ease-out}.ds-random svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5}.ds-random:hover{color:var(--gold,#ffbe63);border-color:var(--gold,#ffbe63)}.ds-random:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:5px;}.ds-random:disabled{opacity:.65;cursor:default;color:var(--muted,#aeb5bd);border-color:var(--line,rgba(244,233,207,.24))}@media(prefers-reduced-motion:reduce){.ds-random{transition-duration:120ms}}"
     },
     {
       "name": "Reading Navigation",
       "kind": "nav",
       "refersTo": "reading-navigation",
-      "description": "Readable six-destination navigation with contained scrolling and an active underline.",
+      "description": "Six-destination navigation with contained scrolling, active underline, and a contained keyboard focus ring. Overflow chevrons belong to the surrounding header.",
       "html": "<nav class=\"ds-nav\" aria-label=\"Pages\"><a href=\"#\">Start</a><a href=\"#\" aria-current=\"page\">Thoughts</a><a href=\"#\">Guide</a><a href=\"#\">Work</a><a href=\"#\">Books</a><a href=\"#\">Gratitude</a></nav>",
-      "css": ".ds-nav{display:flex;gap:14px;max-width:100%;overflow-x:auto;background:rgba(4,10,19,.97);font-family:var(--font-body,'Sora',sans-serif);color:var(--cream,#f4e9cf);}.ds-nav a{display:grid;flex:0 0 auto;place-items:center;min-width:44px;min-height:56px;border-bottom:2px solid transparent;color:var(--muted,#aeb5bd);font-size:var(--font-size-ui,.875rem);font-weight:600;letter-spacing:.04em;text-decoration:none;transition:color 180ms ease-out}.ds-nav a:hover,.ds-nav a[aria-current]{color:var(--cream,#f4e9cf)}.ds-nav a[aria-current]{border-color:var(--gold,#ffbe63)}.ds-nav a:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:4px;outline-offset:-4px}"
+      "css": ".ds-nav{display:flex;align-items:stretch;gap:clamp(18px,2.5vw,36px);max-width:100%;overflow-x:auto;background:rgba(4,10,19,.97);font-family:var(--font-body,'Sora',sans-serif);color:var(--cream,#f4e9cf);}.ds-nav a{display:grid;flex:0 0 auto;place-items:center;min-width:44px;min-height:44px;border-bottom:2px solid transparent;color:var(--muted,#aeb5bd);font-size:var(--font-size-ui,.875rem);font-weight:600;letter-spacing:.04em;text-decoration:none;transition:color 180ms ease-out}.ds-nav a:hover,.ds-nav a[aria-current]{color:var(--cream,#f4e9cf)}.ds-nav a[aria-current]{border-color:var(--gold,#ffbe63)}.ds-nav a:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:-4px}@media(max-width:1100px){.ds-nav{gap:22px}}@media(max-width:760px){.ds-nav{gap:0;padding-inline:4px}.ds-nav a{padding-inline:8px;font-size:.75rem;letter-spacing:.02em;white-space:nowrap}}@media(max-width:380px){.ds-nav a{padding-inline:6px}}@media(prefers-reduced-motion:reduce){.ds-nav a{transition-duration:120ms}}"
     },
     {
       "name": "Story Panel",
       "kind": "card",
       "refersTo": "story-panel",
       "description": "A dense scenic homepage plate with opposing gold corners.",
-      "html": "<section class=\"ds-story\"><h2>Building for joy.</h2><p>I’m Willis, a founder and product builder based in Singapore.</p></section>",
-      "css": ".ds-story{position:relative;max-width:610px;padding:clamp(30px,3vw,46px);border:1px solid var(--line-strong,rgba(244,233,207,.5));background:rgba(5,12,23,.94);box-shadow:0 22px 54px rgba(0,0,0,.38);font-family:var(--font-body,'Sora',sans-serif);color:var(--cream,#f4e9cf);}.ds-story::before,.ds-story::after{position:absolute;width:14px;height:14px;content:\"\";pointer-events:none}.ds-story::before{top:-2px;left:-2px;border-top:2px solid var(--gold,#ffbe63);border-left:2px solid var(--gold,#ffbe63)}.ds-story::after{right:-2px;bottom:-2px;border-right:2px solid var(--gold,#ffbe63);border-bottom:2px solid var(--gold,#ffbe63)}.ds-story h2{max-width:12ch;margin:0 0 24px;font:700 clamp(2.55rem,4.3vw,4.35rem)/1.06 var(--font-display,\"Silkscreen\",\"Courier New\",monospace);letter-spacing:-.035em;text-wrap:balance;overflow-wrap:anywhere}.ds-story p{max-width:62ch;margin:0;color:var(--cream-soft,#ddd6c8);font-size:clamp(1rem,1.12vw,1.1rem);line-height:1.7}"
+      "html": "<section class=\"ds-story\"><h1>Building<br>for joy.</h1><p>I’m Willis, a founder and product builder based in Singapore.</p></section>",
+      "css": ".ds-story{position:relative;max-width:610px;padding:clamp(30px,3vw,46px);border:1px solid var(--line-strong,rgba(244,233,207,.5));background:rgba(5,12,23,.94);box-shadow:0 22px 54px rgba(0,0,0,.38);font-family:var(--font-body,'Sora',sans-serif);color:var(--cream,#f4e9cf);}.ds-story::before,.ds-story::after{position:absolute;width:14px;height:14px;content:\"\";pointer-events:none}.ds-story::before{top:-2px;left:-2px;border-top:2px solid var(--gold,#ffbe63);border-left:2px solid var(--gold,#ffbe63)}.ds-story::after{right:-2px;bottom:-2px;border-right:2px solid var(--gold,#ffbe63);border-bottom:2px solid var(--gold,#ffbe63)}.ds-story h1{max-width:12ch;margin:0 0 24px;font:700 clamp(3.1rem,5vw,5.1rem)/1.06 var(--font-display,\"Silkscreen\",\"Courier New\",monospace);letter-spacing:-.035em;text-wrap:balance;overflow-wrap:anywhere}.ds-story p{max-width:62ch;margin:0;color:var(--cream-soft,#ddd6c8);font-size:clamp(1rem,1.12vw,1.1rem);line-height:1.7}"
     },
     {
       "name": "Reading Panel",
       "kind": "card",
       "refersTo": "reading-panel",
       "description": "An opaque continuous reading surface shared by all inner pages.",
-      "html": "<section class=\"ds-reading\"><h2>Thoughts</h2><p>Essays about being a dad, husband, and builder.</p><a href=\"#\">Subscribe to new essays</a></section>",
-      "css": ".ds-reading{position:relative;max-width:800px;padding:44px;border:1px solid var(--line-strong,rgba(244,233,207,.5));background:var(--panel,#050c17);box-shadow:0 22px 54px rgba(0,0,0,.32);font-family:var(--font-body,'Sora',sans-serif);color:var(--cream,#f4e9cf);}.ds-reading::before,.ds-reading::after{position:absolute;width:14px;height:14px;content:\"\";pointer-events:none}.ds-reading::before{top:-1px;left:-1px;border-top:2px solid var(--gold,#ffbe63);border-left:2px solid var(--gold,#ffbe63)}.ds-reading::after{right:-1px;bottom:-1px;border-right:2px solid var(--gold,#ffbe63);border-bottom:2px solid var(--gold,#ffbe63)}.ds-reading h2{margin:0 0 20px;font:700 2.625rem/1.12 var(--font-display,\"Silkscreen\",\"Courier New\",monospace);letter-spacing:-.035em;overflow-wrap:anywhere}.ds-reading p{color:var(--cream-soft,#ddd6c8);font-size:1rem;line-height:1.75}.ds-reading a{display:inline-flex;align-items:center;min-height:44px;color:inherit;font-size:var(--font-size-ui,.875rem);font-weight:600;text-underline-offset:5px}.ds-reading a:hover{color:var(--gold,#ffbe63)}.ds-reading a:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:4px;}"
+      "html": "<section class=\"ds-reading\"><h1>Thoughts</h1><p>Essays about being a dad, husband, and builder.</p><a href=\"#\">Subscribe to new essays</a></section>",
+      "css": ".ds-reading{position:relative;max-width:800px;padding:44px;border:1px solid var(--line-strong,rgba(244,233,207,.5));background:var(--ink-solid,var(--panel,#050c17));box-shadow:0 22px 54px rgba(0,0,0,.32);font-family:var(--font-body,'Sora',sans-serif);color:var(--cream,#f4e9cf);}.ds-reading::before,.ds-reading::after{position:absolute;width:14px;height:14px;content:\"\";pointer-events:none}.ds-reading::before{top:-1px;left:-1px;border-top:2px solid var(--gold,#ffbe63);border-left:2px solid var(--gold,#ffbe63)}.ds-reading::after{right:-1px;bottom:-1px;border-right:2px solid var(--gold,#ffbe63);border-bottom:2px solid var(--gold,#ffbe63)}.ds-reading h1{margin:0 0 20px;font:700 3.25rem/1.12 var(--font-display,\"Silkscreen\",\"Courier New\",monospace);letter-spacing:-.035em;overflow-wrap:anywhere}.ds-reading p{color:var(--cream-soft,#ddd6c8);font-size:1rem;line-height:1.75}.ds-reading a{display:inline-flex;align-items:center;min-height:44px;color:inherit;font-size:var(--font-size-ui,.875rem);font-weight:600;text-underline-offset:5px}.ds-reading a:hover{color:var(--gold,#ffbe63)}.ds-reading a:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:5px;}@media(max-width:1100px){.ds-reading{padding:32px}}@media(max-width:760px){.ds-reading{padding:24px}.ds-reading h1{font-size:2.625rem}}@media(max-width:380px){.ds-reading{padding:20px}.ds-reading h1{font-size:2.25rem}}"
     },
     {
       "name": "Current Status",
@@ -349,21 +399,21 @@
       "refersTo": "status-badge",
       "description": "The existing compact native shuffle button with a measured square signal.",
       "html": "<button class=\"ds-status\" type=\"button\" aria-label=\"Current status: Building for joy. Click to shuffle status\"><svg viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z\"/><path d=\"M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z\"/></svg><span class=\"ds-status-dot\" aria-hidden=\"true\"></span><span>Currently: <strong>Building for joy</strong> 🦥</span></button>",
-      "css": ".ds-status{display:inline-flex;align-items:center;gap:8px;max-width:100%;min-height:44px;padding:8px 12px;border:1px solid var(--line,rgba(244,233,207,.24));border-radius:0;background:var(--ink,#07101d);font-family:var(--font-body,'Sora',sans-serif);color:var(--cream,#f4e9cf);font-size:.8rem;font-weight:500;line-height:1.5;text-align:left;cursor:pointer}.ds-status svg{flex:0 0 12px;width:12px;height:12px;fill:currentColor;stroke:none}.ds-status-dot{flex:0 0 6px;width:6px;height:6px;background:var(--green,#79d99b)}.ds-status strong{font-weight:600}.ds-status:hover{border-color:var(--gold,#ffbe63)}.ds-status:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:4px;}.ds-status:active{background:#050c17}"
+      "css": ".ds-status{display:inline-flex;align-items:center;gap:8px;max-width:100%;min-height:44px;padding:8px 12px;border:1px solid var(--line,rgba(244,233,207,.24));border-radius:0;background:var(--ink,#07101d);font-family:var(--font-body,'Sora',sans-serif);color:var(--cream-soft,#ddd6c8);font-size:.8rem;font-weight:500;line-height:1.5;text-align:left;cursor:pointer;transition:border-color 180ms ease-out,background-color 180ms ease-out}.ds-status svg{flex:0 0 12px;width:12px;height:12px;fill:currentColor;stroke:none}.ds-status-dot{flex:0 0 6px;width:6px;height:6px;background:var(--green,#79d99b)}.ds-status strong{font-weight:600}.ds-status:enabled:hover{border-color:var(--gold,#ffbe63)}.ds-status:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:5px;}.ds-status:active{background:#050c17}.ds-status:disabled{opacity:1;cursor:default}.ds-status:disabled svg{display:none}@media(prefers-reduced-motion:reduce){.ds-status{transition-duration:120ms}}"
     },
     {
       "name": "Onward Chapter Link",
       "kind": "custom",
       "description": "The homepage Scroll next control always points down.",
       "html": "<a class=\"ds-next\" href=\"#\"><span><small>Scroll next</small>Life beyond work</span><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M10 3v13M5 11l5 5 5-5\"/></svg></a>",
-      "css": ".ds-next{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:64px;padding-top:18px;border-top:1px solid var(--line,rgba(244,233,207,.24));font-family:var(--font-body,'Sora',sans-serif);color:var(--cream,#f4e9cf);font-size:.94rem;font-weight:600;text-decoration:none}.ds-next small{display:block;color:var(--gold,#ffbe63);font-family:var(--font-display,\"Silkscreen\",\"Courier New\",monospace);font-size:var(--font-size-ui,.875rem);font-weight:400}.ds-next svg{flex:0 0 20px;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:square;stroke-linejoin:miter;transition:transform 180ms ease-out}.ds-next:hover{color:var(--gold,#ffbe63)}.ds-next:hover svg{transform:translateY(4px)}.ds-next:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:4px;}@media(prefers-reduced-motion:reduce){.ds-next svg{transition:none}}"
+      "css": ".ds-next{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:64px;padding-top:18px;border-top:1px solid var(--line,rgba(244,233,207,.24));font-family:var(--font-body,'Sora',sans-serif);color:var(--cream,#f4e9cf);font-size:.94rem;font-weight:600;text-decoration:none}.ds-next small{display:block;color:var(--gold,#ffbe63);font-family:var(--font-display,\"Silkscreen\",\"Courier New\",monospace);font-size:var(--font-size-ui,.875rem);font-weight:400}.ds-next svg{flex:0 0 20px;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:square;stroke-linejoin:miter;transition:transform 180ms ease-out}.ds-next:is(:hover,:focus-visible){color:var(--gold,#ffbe63)}.ds-next:hover svg{transform:translateY(3px)}.ds-next:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:5px;}@media(prefers-reduced-motion:reduce){.ds-next svg{transition:none}.ds-next:is(:hover,:focus-visible) svg{transform:none}}"
     },
     {
       "name": "Destination Row",
       "kind": "custom",
       "description": "A simple readable destination with a consistent northeast vector.",
       "html": "<a class=\"ds-destination\" href=\"#\"><span><strong>Thoughts</strong><small>Essays about being a dad, husband, and builder.</small></span><svg viewBox=\"0 0 18 18\" aria-hidden=\"true\"><path d=\"M4 14L14 4M7 4h7v7\"/></svg></a>",
-      "css": ".ds-destination{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:66px;padding:11px 0;border-bottom:1px solid var(--line,rgba(244,233,207,.24));font-family:var(--font-body,'Sora',sans-serif);color:var(--cream,#f4e9cf);text-decoration:none;transition:color 160ms ease-out,transform 180ms ease-out}.ds-destination strong{display:block;font-size:.96rem}.ds-destination small{display:block;margin-top:3px;color:#bfc5c8;font-size:var(--font-size-ui,.875rem);line-height:1.45}.ds-destination svg{flex:0 0 20px;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:square;stroke-linejoin:miter}.ds-destination:hover{color:var(--gold,#ffbe63);transform:translateX(4px)}.ds-destination:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:4px;}@media(prefers-reduced-motion:reduce){.ds-destination{transition:none;transform:none}}"
+      "css": ".ds-destination{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:66px;padding:11px 0;border-bottom:1px solid var(--line,rgba(244,233,207,.24));font-family:var(--font-body,'Sora',sans-serif);color:var(--cream,#f4e9cf);text-decoration:none;transition:color 160ms ease-out}.ds-destination strong{display:block;font-size:.96rem}.ds-destination small{display:block;margin-top:3px;color:var(--cream-soft,#ddd6c8);font-size:var(--font-size-ui,.875rem);line-height:1.45}.ds-destination svg{flex:0 0 20px;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:square;stroke-linejoin:miter;transition:transform 180ms ease-out}.ds-destination:is(:hover,:focus-visible){color:var(--gold,#ffbe63)}.ds-destination:is(:hover,:focus-visible) svg{transform:translate(2px,-2px)}.ds-destination:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:5px;}@media(prefers-reduced-motion:reduce){.ds-destination{transition-duration:120ms}.ds-destination svg{transition:none}.ds-destination:is(:hover,:focus-visible) svg{transform:none}}"
     },
     {
       "name": "Discovery Dock",
@@ -371,12 +421,28 @@
       "refersTo": "discovery-dock",
       "description": "Compact Another pick / Top actions; no exit-reading row.",
       "html": "<div class=\"ds-dock\" role=\"group\" aria-label=\"Reading controls\"><button class=\"ds-dock-pick\" type=\"button\"><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"14\" height=\"14\"/><path d=\"M7 7h.01M13 13h.01\"/></svg>Another pick</button><button type=\"button\"><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M10 17V4M5 9l5-5 5 5\"/></svg>Top</button></div>",
-      "css": ".ds-dock{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px;width:max-content;max-width:100%;padding:6px;border:1px solid var(--line-strong,rgba(244,233,207,.5));background:var(--panel,#050c17);box-shadow:0 12px 28px rgba(0,0,0,.35)}.ds-dock button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-width:0;min-height:44px;padding:8px 14px;border:1px solid transparent;border-radius:0;background:transparent;font-family:var(--font-body,'Sora',sans-serif);color:var(--cream,#f4e9cf);font-size:var(--font-size-ui,.875rem);font-weight:600;cursor:pointer}.ds-dock .ds-dock-pick{color:var(--gold,#ffbe63);border-color:var(--line,rgba(244,233,207,.24))}.ds-dock svg{flex:0 0 20px;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5}.ds-dock button:hover{border-color:var(--gold,#ffbe63);color:var(--gold,#ffbe63)}.ds-dock button:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:4px;}.ds-dock button:disabled{opacity:.55;cursor:default}"
+      "css": ".ds-dock{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px;width:max-content;max-width:100%;padding:6px;border:1px solid var(--line-strong,rgba(244,233,207,.5));background:var(--ink-solid,var(--panel,#050c17));box-shadow:0 12px 28px rgba(0,0,0,.35)}.ds-dock button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-width:0;min-height:44px;padding:8px 14px;border:1px solid transparent;border-radius:0;background:transparent;font-family:var(--font-body,'Sora',sans-serif);color:var(--cream,#f4e9cf);font-size:var(--font-size-ui,.875rem);font-weight:600;cursor:pointer}.ds-dock .ds-dock-pick{color:var(--gold,#ffbe63);border-color:var(--line,rgba(244,233,207,.24))}.ds-dock svg{flex:0 0 20px;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5}.ds-dock button:hover{border-color:var(--gold,#ffbe63);color:var(--gold,#ffbe63)}.ds-dock button:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:5px;}.ds-dock button:disabled{opacity:.55;cursor:default}"
+    },
+    {
+      "name": "Essay Search",
+      "kind": "input",
+      "refersTo": "essay-search-field",
+      "description": "An ink search field with a full keyboard focus frame, drawn search icon, and a 44px clear action.",
+      "html": "<div class=\"ds-search\"><label for=\"ds-essay-search\">Find an essay</label><div class=\"ds-search-field\"><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><circle cx=\"8.5\" cy=\"8.5\" r=\"5.5\"/><path d=\"m13 13 4 4\"/></svg><input id=\"ds-essay-search\" type=\"search\" placeholder=\"Try a title or year\"><button type=\"button\" aria-label=\"Clear search\"><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"m5 5 10 10M15 5 5 15\"/></svg></button></div></div>",
+      "css": ".ds-search{font-family:var(--font-body,\"Sora\",sans-serif)}.ds-search label{display:block;margin-bottom:8px;color:var(--cream-soft,#ddd6c8);font-size:var(--font-size-ui,.875rem);font-weight:500}.ds-search-field{display:flex;align-items:center;gap:12px;min-height:48px;padding-left:14px;border:1px solid var(--line,rgba(244,233,207,.24));background:var(--ink,#07101d);transition:border-color 160ms ease-out}.ds-search-field:focus-within{border-color:var(--gold,#ffbe63)}.ds-search-field:has(input:focus-visible){outline:3px solid var(--gold,#ffbe63);outline-offset:3px}.ds-search-field>svg{flex:0 0 18px;width:18px;height:18px;fill:none;stroke:var(--muted,#aeb5bd);stroke-width:1.5}.ds-search-field input{flex:1 1 auto;width:100%;min-width:0;min-height:46px;padding:10px 12px 10px 0;border:0;border-radius:0;color:var(--cream,#f4e9cf);background:transparent;caret-color:var(--gold,#ffbe63);font:400 var(--font-size-ui,.875rem)/1.6 var(--font-body,\"Sora\",sans-serif)}.ds-search-field input::placeholder{color:var(--muted,#aeb5bd);opacity:1}.ds-search-field input:focus-visible{outline:none}.ds-search-field input::-webkit-search-cancel-button{-webkit-appearance:none}.ds-search-field button{display:grid;flex:0 0 44px;place-items:center;width:44px;min-height:44px;padding:0;border:0;background:transparent;color:var(--muted,#aeb5bd);cursor:pointer}.ds-search-field button:is(:hover,:focus-visible){color:var(--gold,#ffbe63)}.ds-search-field button:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:-4px}.ds-search-field button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5}@media(prefers-reduced-motion:reduce){.ds-search-field{transition-duration:120ms}}"
+    },
+    {
+      "name": "Adjacent Essay Link",
+      "kind": "custom",
+      "refersTo": "essay-continuation-link",
+      "description": "A ruled invitation to a real neighboring essay, with title, date, estimate, and northeast arrow.",
+      "html": "<a class=\"ds-essay-next\" href=\"#\"><span class=\"ds-essay-title\">Most founders I meet don’t talk to users</span><span class=\"ds-essay-meta\"><span class=\"ds-essay-direction\">Older essay</span> · 19 August 2026 · About 7 min read</span><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M4 16 16 4M6 4h10v10\"/></svg></a>",
+      "css": ".ds-essay-next{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:24px;row-gap:8px;align-items:center;min-height:88px;padding:20px 0;border-block:1px solid var(--line,rgba(244,233,207,.24));color:var(--cream,#f4e9cf);font-family:var(--font-body,\"Sora\",sans-serif);text-decoration:none;overflow-wrap:anywhere;transition:color 180ms ease-out}.ds-essay-title{grid-column:1;color:var(--cream,#f4e9cf);font-size:1.0625rem;font-weight:600;line-height:1.55}.ds-essay-meta{grid-column:1;color:var(--muted,#aeb5bd);font-size:var(--font-size-ui,.875rem);line-height:1.7;font-variant-numeric:tabular-nums}.ds-essay-direction{color:var(--cream-soft,#ddd6c8)}.ds-essay-next>svg{grid-column:2;grid-row:1/span 2;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;transition:transform 180ms ease-out}.ds-essay-next:is(:hover,:focus-visible) .ds-essay-title{color:var(--gold,#ffbe63)}.ds-essay-next:is(:hover,:focus-visible)>svg{color:var(--gold,#ffbe63);transform:translate(2px,-2px)}.ds-essay-next:focus-visible{outline:3px solid var(--gold,#ffbe63);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-essay-next{transition-duration:120ms}.ds-essay-next>svg{transition:none}.ds-essay-next:is(:hover,:focus-visible)>svg{transform:none}}"
     }
   ],
   "narrative": {
     "northStar": "Save Point Atlas",
-    "overview": "The site pairs a personal pixel-art journey with a quiet reading room. The homepage has five scenes: Start, Work, Notes, Life, and Connect. Its illustrated Singapore landscapes carry the atmosphere; framed navy panels carry the words. A compact fixed header and active gold underline provide orientation without a journey rail or game-key interface.\n\nThe same world continues through all 46 inner pages: Guide, Work, Books, Gratitude, the Thoughts archive, and 41 essays. Their dedicated landscapes sit beside an opaque reading pane on desktop and form a short opening band on mobile. Silkscreen gives short declarations a distinctive voice; Sora carries prose, navigation, metadata, and controls. Content stays readable while discovery and navigation enhance the static document.\n\nThis is a refresh of the implemented world, not a replacement direction. The source of truth is `home-game.css`, `thoughts/reading-room.css`, and the route styles for Guide, Work, Books, and Gratitude. Surface briefs hold route-specific composition and historical decisions; dated delivery restrictions in those histories do not define permission for future work.",
+    "overview": "The site pairs a personal pixel-art journey with a quiet reading room. The homepage has five scenes: Start, Work, Notes, Life, and Connect. Its illustrated Singapore landscapes carry the atmosphere; framed navy panels carry the words. A compact fixed header and active gold underline provide orientation without a journey rail or game-key interface.\n\nThe same world continues through Coaching, Guide, Work, Books, Gratitude, the Thoughts archive, and individual essays. The not-found page (\"Off the map.\") uses the shared forest-path scene, a \"Willis\" dialogue box, and three ways back. Their dedicated landscapes sit beside an opaque reading pane on desktop and form a short opening band on mobile. Silkscreen gives short declarations a distinctive voice; Sora carries prose, navigation, metadata, and controls. Content stays readable while discovery and navigation enhance the static document.\n\nThis is a refresh of the implemented world, not a replacement direction. The source of truth is `home-game.css`, `thoughts/reading-room.css`, and the route styles for Coaching, Guide, Work, Books, and Gratitude. Surface briefs hold route-specific composition and historical decisions; dated delivery restrictions in those histories do not define permission for future work.",
     "keyCharacteristics": [
       "**Five-scene introduction:** Full-width pixel landscapes and alternating reading panels introduce identity, work, writing, life, and connection.",
       "**Shared reading room:** Opaque ink panes protect long-form reading across every inner page.",

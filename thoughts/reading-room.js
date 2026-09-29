@@ -27,9 +27,17 @@
     const archive = document.getElementById('thoughts-archive-container');
     if (originalList && archive) {
         const items = [...originalList.children];
-        const links = items.map(item => item.querySelector('a').href);
-        document.getElementById('thoughts-count-label').textContent = `${items.length} essays`;
-        wireRandom(document.getElementById('random-thought-btn'), () => links);
+        const countLabel = document.getElementById('thoughts-count-label');
+        const random = document.getElementById('random-thought-btn');
+        const normalize = text => text.normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim();
+        const entries = items.map(item => ({
+            item,
+            href: item.querySelector('a').href,
+            text: normalize(`${item.querySelector('a').textContent} ${item.querySelector('.article-date').textContent}`)
+        }));
+        let choices = entries.map(entry => entry.href);
+        countLabel.textContent = `${items.length} essays`;
+        wireRandom(random, () => choices);
 
         const groups = new Map();
         items.forEach(item => {
@@ -40,6 +48,7 @@
 
         const controls = document.querySelector('.archive-controls');
         const fragment = document.createDocumentFragment();
+        const yearSections = [];
 
         groups.forEach((groupItems, year) => {
             const section = document.createElement('section');
@@ -61,8 +70,53 @@
             list.append(...groupItems);
             section.append(heading, list);
             fragment.append(section);
+            yearSections.push({ section, count, items: groupItems });
         });
         archive.replaceChildren(fragment);
+
+        const searchTools = document.getElementById('essay-search-tools');
+        const search = document.getElementById('essay-search');
+        const clear = document.getElementById('essay-search-clear');
+        const empty = document.getElementById('essay-search-empty');
+        const reset = document.getElementById('essay-search-reset');
+        if (searchTools && search && clear && empty && reset) {
+            function filterEssays() {
+                const terms = normalize(search.value).split(' ').filter(Boolean);
+                choices = [];
+                entries.forEach(entry => {
+                    const matches = terms.every(term => entry.text.includes(term));
+                    entry.item.hidden = !matches;
+                    if (matches) choices.push(entry.href);
+                });
+                yearSections.forEach(group => {
+                    const visible = group.items.filter(item => !item.hidden).length;
+                    group.section.hidden = !visible;
+                    group.count.textContent = `${visible} ${visible === 1 ? 'essay' : 'essays'}`;
+                });
+                countLabel.textContent = terms.length ? `${choices.length} of ${items.length} essays` : `${items.length} essays`;
+                clear.hidden = !search.value;
+                empty.hidden = choices.length !== 0;
+                if (random) random.disabled = choices.length === 0;
+                updateArchiveOffset();
+            }
+            function clearSearch() {
+                search.value = '';
+                filterEssays();
+                search.focus({ preventScroll: true });
+            }
+            search.addEventListener('input', filterEssays);
+            search.addEventListener('keydown', event => {
+                if (event.key !== 'Escape' || !search.value) return;
+                event.preventDefault();
+                clearSearch();
+            });
+            clear.addEventListener('click', clearSearch);
+            reset.addEventListener('click', clearSearch);
+            window.addEventListener('pageshow', filterEssays);
+            searchTools.hidden = false;
+            filterEssays();
+        }
+
         function updateArchiveOffset() {
             const controlsHeight = controls.getBoundingClientRect().height;
             document.documentElement.style.setProperty('--archive-offset', `${controlsHeight + 12}px`);
@@ -87,6 +141,65 @@
     }).catch(() => { /* The static archive keeps random pick available offline. */ });
     const currentFile = location.pathname.split('/').pop();
     wireRandom(document.getElementById('random-article-btn'), () => essays.filter(file => file !== currentFile));
+
+    const essayDetails = window.WILLIS_ESSAY_DETAILS || [];
+    const currentIndex = essayDetails.findIndex(essay => essay.slug === currentFile);
+    const currentEssay = essayDetails[currentIndex];
+    if (currentEssay) {
+        const date = article.querySelector('.article-date');
+        if (date && !date.querySelector('.article-read-time')) {
+            const estimate = document.createElement('span');
+            estimate.className = 'article-read-time';
+            estimate.textContent = `About ${currentEssay.minutes} min read`;
+            date.append(document.createTextNode(' · '), estimate);
+        }
+
+        const adjacent = [
+            { essay: essayDetails[currentIndex - 1], direction: 'Newer essay' },
+            { essay: essayDetails[currentIndex + 1], direction: 'Older essay' }
+        ].filter(({ essay }) => essay && essay.slug !== currentFile);
+        if (adjacent.length) {
+            const continuation = document.createElement('nav');
+            continuation.className = 'essay-continuation';
+            continuation.setAttribute('aria-label', 'More thoughts');
+            const heading = document.createElement('h2');
+            heading.textContent = 'More thoughts';
+            const list = document.createElement('ul');
+            list.className = 'essay-continuation-list';
+            adjacent.forEach(({ essay, direction }) => {
+                const item = document.createElement('li');
+                const link = document.createElement('a');
+                link.className = 'essay-continuation-link';
+                link.href = essay.slug;
+                const label = document.createElement('span');
+                label.className = 'essay-continuation-direction';
+                label.textContent = direction;
+                const title = document.createElement('span');
+                title.className = 'essay-continuation-title';
+                title.textContent = essay.title;
+                const meta = document.createElement('span');
+                meta.className = 'essay-continuation-meta';
+                meta.append(label, document.createTextNode(` · ${essay.date} · About ${essay.minutes} min read`));
+                const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                arrow.setAttribute('viewBox', '0 0 18 18');
+                arrow.setAttribute('aria-hidden', 'true');
+                arrow.setAttribute('focusable', 'false');
+                arrow.setAttribute('fill', 'none');
+                arrow.setAttribute('stroke', 'currentColor');
+                arrow.setAttribute('stroke-width', '1.5');
+                arrow.setAttribute('stroke-linecap', 'square');
+                arrow.setAttribute('stroke-linejoin', 'miter');
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                path.setAttribute('d', 'M4 14L14 4M7 4h7v7');
+                arrow.append(path);
+                link.append(title, meta, arrow);
+                item.append(link);
+                list.append(item);
+            });
+            continuation.append(heading, list);
+            article.after(continuation);
+        }
+    }
 
     const progress = document.createElement('div');
     progress.id = 'reading-progress-bar';

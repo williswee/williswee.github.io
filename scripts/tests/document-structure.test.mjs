@@ -67,6 +67,8 @@ test('each analytics-enabled page retains one hidden body pixel and its async he
 test('reading pages and the Gratitude renderer use the current shared cache tags', () => {
     const sharedStyles = read('books.html').match(/reading-room\.css\?v=\d+(?:\.\d+)*/)?.[0];
     assert.ok(sharedStyles, 'shared stylesheet must have a versioned URL');
+    const sharedNavigation = read('books.html').match(/reading-nav\.js\?v=\d+(?:\.\d+)*/)?.[0];
+    assert.ok(sharedNavigation, 'shared navigation must have a versioned URL');
     let readingPages = 0;
     for (const name of pages) {
         const html = read(name);
@@ -74,8 +76,8 @@ test('reading pages and the Gratitude renderer use the current shared cache tags
         readingPages += 1;
         const readingStyles = html.match(/reading-room\.css(?:\?[^"\s]*)?/g) ?? [];
         assert.deepEqual(readingStyles, [sharedStyles], `${name}: use the same versioned shared stylesheet`);
-        assert.equal((html.match(/reading-nav\.js\?v=1\.2"/g) ?? []).length, 1, name);
-        const navScript = html.match(/<script\b[^>]*src="(?:\.\.\/|\/)?reading-nav\.js\?v=1\.2"[^>]*><\/script>/)?.[0];
+        assert.deepEqual(html.match(/reading-nav\.js(?:\?[^"\s]*)?/g) ?? [], [sharedNavigation], name);
+        const navScript = html.match(/<script\b[^>]*src="(?:\.\.\/|\/)?reading-nav\.js\?v=\d+(?:\.\d+)*"[^>]*><\/script>/)?.[0];
         assert.ok(navScript, `${name}: missing shared navigation bootstrap`);
         assert.doesNotMatch(navScript, /\b(?:defer|async|type)\b/, `${name}: navigation must initialize before body paint`);
         assert.ok(html.indexOf(navScript) < html.indexOf('</head>'), `${name}: bootstrap belongs in the head`);
@@ -87,7 +89,7 @@ test('reading pages and the Gratitude renderer use the current shared cache tags
     const renderer = read('scripts/render-gratitude.mjs');
     assert.equal(renderer.match(/reading-room\.css\?v=\d+(?:\.\d+)*/)?.[0], sharedStyles, 'renderer must retain the shared cache tag');
     assert.ok(renderer.includes(`"${gratitudeStyles}"`), 'renderer must retain the Gratitude cache tag');
-    assert.match(renderer, /<script src="reading-nav\.js\?v=1\.2"><\/script>/);
+    assert.ok(renderer.includes(`<script src="${sharedNavigation}"></script>`), 'renderer must retain the shared navigation cache tag');
 });
 
 test('updated top-level routes have sitemap dates at least as recent as their redesign', () => {

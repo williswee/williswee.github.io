@@ -39,6 +39,7 @@ test('normal visuals activate before body parsing, after delegated keyboard enha
         addEventListener: type => events.push(`listener:${type}`)
     };
     vm.runInNewContext(source, { document });
-    assert.deepEqual(events, ['listener:focusin', 'class:reading-nav-enhanced']);
-    assert.doesNotMatch(source, /DOMContentLoaded|querySelectorAll/);
+    assert.deepEqual(events, ['listener:focusin', 'class:reading-nav-enhanced', 'listener:DOMContentLoaded']);
+    assert.ok(source.indexOf("classList.add('reading-nav-enhanced')") <
+        source.indexOf("document.addEventListener('DOMContentLoaded'"));
 });

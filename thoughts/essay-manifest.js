@@ -44,3 +44,263 @@ window.WILLIS_ESSAYS = Object.freeze([
     "dontdie.html",
     "journey.html"
 ]);
+window.WILLIS_ESSAY_DETAILS = Object.freeze([
+    {
+        "slug": "redesign.html",
+        "title": "What I learned redesigning my site with AI",
+        "date": "28 September 2026",
+        "minutes": 8
+    },
+    {
+        "slug": "googlefluid.html",
+        "title": "A small experiment with Google Search",
+        "date": "24 September 2026",
+        "minutes": 1
+    },
+    {
+        "slug": "meditationretreat.html",
+        "title": "A 9-day meditation retreat",
+        "date": "21 September 2026",
+        "minutes": 9
+    },
+    {
+        "slug": "bestdad.html",
+        "title": "Winning the Best Dad Award?",
+        "date": "15 September 2026",
+        "minutes": 3
+    },
+    {
+        "slug": "tickertownupdate.html",
+        "title": "Everyone says they're making money investing. Nobody shows the receipts.",
+        "date": "1 September 2026",
+        "minutes": 5
+    },
+    {
+        "slug": "freedom.html",
+        "title": "Freedom is being disliked by other people",
+        "date": "25 August 2026",
+        "minutes": 2
+    },
+    {
+        "slug": "talktousers.html",
+        "title": "Most founders I meet don't talk to users",
+        "date": "19 August 2026",
+        "minutes": 7
+    },
+    {
+        "slug": "nomoney.html",
+        "title": "I deposited $10 so I could withdraw $20",
+        "date": "11 August 2026",
+        "minutes": 3
+    },
+    {
+        "slug": "tickertownusabilitytest.html",
+        "title": "We talked to 30+ people about TickerTown. Here's who leaned in.",
+        "date": "5 August 2026",
+        "minutes": 5
+    },
+    {
+        "slug": "meditation.html",
+        "title": "You can't stop thinking. That's the whole point.",
+        "date": "28 July 2026",
+        "minutes": 3
+    },
+    {
+        "slug": "boring-ai.html",
+        "title": "The boring ways I use AI",
+        "date": "21 July 2026",
+        "minutes": 6
+    },
+    {
+        "slug": "hakunamatata.html",
+        "title": "The joy of building on a stupid idea",
+        "date": "15 July 2026",
+        "minutes": 2
+    },
+    {
+        "slug": "habits.html",
+        "title": "The startup exited. My founder habits didn't",
+        "date": "9 July 2026",
+        "minutes": 4
+    },
+    {
+        "slug": "kinder.html",
+        "title": "I'd do it again, just kinder",
+        "date": "3 July 2026",
+        "minutes": 3
+    },
+    {
+        "slug": "tickertown.html",
+        "title": "You shouldn't have to lose real money to learn investing",
+        "date": "25 June 2026",
+        "minutes": 2
+    },
+    {
+        "slug": "famplan.html",
+        "title": "My kids wrote a family success plan. Their user guides are next.",
+        "date": "22 June 2026",
+        "minutes": 2
+    },
+    {
+        "slug": "userguide.html",
+        "title": "Small disclosures build bonds faster than time",
+        "date": "9 June 2026",
+        "minutes": 4
+    },
+    {
+        "slug": "nowork.html",
+        "title": "When work goes quiet",
+        "date": "1 June 2026",
+        "minutes": 5
+    },
+    {
+        "slug": "whatidid.html",
+        "title": "What I did at TIA",
+        "date": "15 May 2026",
+        "minutes": 4
+    },
+    {
+        "slug": "mission.html",
+        "title": "Mission-driven founders",
+        "date": "5 May 2026",
+        "minutes": 2
+    },
+    {
+        "slug": "onemonth.html",
+        "title": "One month into the break",
+        "date": "30 April 2026",
+        "minutes": 2
+    },
+    {
+        "slug": "goodbye.html",
+        "title": "Thank you and goodbye, Tech in Asia",
+        "date": "31 March 2026",
+        "minutes": 1
+    },
+    {
+        "slug": "tiasph.html",
+        "title": "Tech in Asia x SPH Media",
+        "date": "1 November 2023",
+        "minutes": 3
+    },
+    {
+        "slug": "burnout.html",
+        "title": "A letter to founders who are burning out",
+        "date": "12 September 2023",
+        "minutes": 4
+    },
+    {
+        "slug": "reminders.html",
+        "title": "18 essential reminders from one founder to another",
+        "date": "8 May 2023",
+        "minutes": 7
+    },
+    {
+        "slug": "hithard.html",
+        "title": "Founders are being hit hard by layoffs, too",
+        "date": "14 December 2022",
+        "minutes": 4
+    },
+    {
+        "slug": "carbonneutral.html",
+        "title": "Tech in Asia is carbon neutral in time for Earth Day",
+        "date": "22 April 2021",
+        "minutes": 5
+    },
+    {
+        "slug": "ten.html",
+        "title": "10 lessons from 10 years of Tech in Asia",
+        "date": "25 March 2021",
+        "minutes": 5
+    },
+    {
+        "slug": "layoffsucks.html",
+        "title": "There’s no such thing as a perfect layoff",
+        "date": "1 June 2020",
+        "minutes": 7
+    },
+    {
+        "slug": "stress.html",
+        "title": "The stress (and mindfuck) curve",
+        "date": "13 April 2020",
+        "minutes": 3
+    },
+    {
+        "slug": "profitable.html",
+        "title": "For the first time, we issued bonuses to our team",
+        "date": "16 January 2020",
+        "minutes": 2
+    },
+    {
+        "slug": "getshitdone.html",
+        "title": "Keep your head down and just get shit done",
+        "date": "2 December 2019",
+        "minutes": 3
+    },
+    {
+        "slug": "bounce.html",
+        "title": "It's been a rough year. Here's how we're bouncing back",
+        "date": "19 December 2018",
+        "minutes": 5
+    },
+    {
+        "slug": "buildculture.html",
+        "title": "Don’t delay building your startup culture",
+        "date": "3 December 2015",
+        "minutes": 3
+    },
+    {
+        "slug": "yc.html",
+        "title": "Joining Y Combinator",
+        "date": "4 February 2015",
+        "minutes": 1
+    },
+    {
+        "slug": "tiaexperiment.html",
+        "title": "A startup experiment that could snowball into something bigger",
+        "date": "22 April 2014",
+        "minutes": 2
+    },
+    {
+        "slug": "youaretheproblem.html",
+        "title": "The biggest problem facing Southeast Asian startups isn’t the ecosystem",
+        "date": "14 March 2013",
+        "minutes": 3
+    },
+    {
+        "slug": "smallround.html",
+        "title": "Raising a small round forces you to bootstrap",
+        "date": "31 January 2013",
+        "minutes": 3
+    },
+    {
+        "slug": "thehardway.html",
+        "title": "Learning the hard way",
+        "date": "19 November 2012",
+        "minutes": 2
+    },
+    {
+        "slug": "risk.html",
+        "title": "Take some risk",
+        "date": "16 August 2012",
+        "minutes": 3
+    },
+    {
+        "slug": "abroad.html",
+        "title": "Expanding abroad: Risky, scary, and exciting",
+        "date": "16 May 2012",
+        "minutes": 4
+    },
+    {
+        "slug": "dontdie.html",
+        "title": "Fight hard with no regrets",
+        "date": "27 April 2012",
+        "minutes": 1
+    },
+    {
+        "slug": "journey.html",
+        "title": "My journey as an entrepreneur (so far)",
+        "date": "26 May 2011",
+        "minutes": 4
+    }
+]);

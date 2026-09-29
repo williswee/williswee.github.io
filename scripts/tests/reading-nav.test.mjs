@@ -19,29 +19,65 @@ test('navigation focus ring remains inside its scrollport on every breakpoint', 
     assert.match(styles, /\.reading-nav a:focus-visible\s*\{\s*outline-offset:\s*-4px;\s*\}/);
 });
 
-function navigationFixture({ width = 280, scrollWidth = 640, scrollLeft = 0, loading = false } = {}) {
+function navigationFixture({ width = 280, scrollWidth = 640, scrollLeft = 0, loading = false,
+    enhance = false, activeX = 552, activeWidth = 80 } = {}) {
     const listeners = new Map();
+    const navListeners = new Map();
+    const windowListeners = new Map();
+    const frames = [];
+    const classes = new Set();
+    const properties = new Map();
+    const observed = [];
     const scrolls = [];
+    let fontReady;
+    let resizeObserved;
+    let queries = 0;
+    const header = {
+        getBoundingClientRect: () => ({ left: 0 }),
+        classList: { toggle: (name, enabled) => enabled ? classes.add(name) : classes.delete(name) },
+        style: { setProperty: (name, value) => properties.set(name, value) }
+    };
     const nav = {
         clientWidth: width,
         clientLeft: 0,
         scrollWidth,
         scrollLeft,
-        getBoundingClientRect: () => ({ left: 20, right: 20 + width, width }),
+        closest: () => header,
+        addEventListener: (type, handler) => navListeners.set(type, handler),
+        getBoundingClientRect: () => ({ left: 20, right: 20 + nav.clientWidth, width: nav.clientWidth }),
         scrollBy: options => {
             // Browsers clamp the navigation at the first and last item.
-            nav.scrollLeft = Math.max(0, Math.min(scrollWidth - width, nav.scrollLeft + options.left));
+            nav.scrollLeft = Math.max(0, Math.min(nav.scrollWidth - nav.clientWidth, nav.scrollLeft + options.left));
             scrolls.push(options);
         }
     };
+    const activeLink = {
+        x: activeX,
+        getBoundingClientRect: () => {
+            const left = 20 + activeLink.x - nav.scrollLeft;
+            return { left, right: left + activeWidth, width: activeWidth };
+        }
+    };
+    nav.querySelector = () => activeLink;
+    nav.querySelectorAll = () => [activeLink];
     const document = {
         readyState: loading ? 'loading' : 'complete',
         documentElement: { classList: { add: () => {} } },
-        addEventListener: (type, handler) => listeners.set(type, handler)
+        addEventListener: (type, handler) => listeners.set(type, handler),
+        querySelector: () => { queries += 1; return enhance ? nav : null; },
+        fonts: { ready: { then: handler => { fontReady = handler; } } }
     };
     vm.runInNewContext(source, {
         document,
-        window: { getComputedStyle: () => ({ outlineWidth: '3px', outlineOffset: '5px' }) }
+        window: {
+            getComputedStyle: () => ({ outlineWidth: '3px', outlineOffset: '5px' }),
+            addEventListener: (type, handler) => windowListeners.set(type, handler),
+            requestAnimationFrame: handler => frames.push(handler),
+            ResizeObserver: class {
+                constructor(handler) { resizeObserved = handler; }
+                observe(target) { observed.push(target); }
+            }
+        }
     });
     function focus(x, linkWidth = 80, { nested = false, outside = false } = {}) {
         const link = {
@@ -56,7 +92,13 @@ function navigationFixture({ width = 280, scrollWidth = 640, scrollLeft = 0, loa
         listeners.get('focusin')({ target });
         return link.getBoundingClientRect();
     }
-    return { nav, scrolls, listeners, focus };
+    function flush() {
+        assert.ok(frames.length <= 1, 'navigation work shares one queued animation frame');
+        frames.splice(0).forEach(handler => handler());
+    }
+    return { nav, header, activeLink, scrolls, listeners, navListeners, windowListeners,
+        classes, properties, observed, focus, flush, frames,
+        fontReady: () => fontReady(), resizeObserved: () => resizeObserved(), queries: () => queries };
 }
 
 test('does not move a non-overflowing desktop navigation', () => {
@@ -117,7 +159,8 @@ test('an oversized label is aligned to its leading edge without oscillating', ()
 
 test('delegated keyboard navigation initializes before the body is parsed', () => {
     const fixture = navigationFixture({ loading: true });
-    assert.deepEqual([...fixture.listeners.keys()], ['focusin']);
+    assert.deepEqual([...fixture.listeners.keys()], ['focusin', 'DOMContentLoaded']);
+    assert.equal(fixture.queries(), 0);
     fixture.focus(300);
     assert.equal(fixture.scrolls.length, 1);
 });
@@ -126,4 +169,82 @@ test('ignores focus targets without element traversal methods', () => {
     const fixture = navigationFixture();
     fixture.listeners.get('focusin')({ target: {} });
     assert.equal(fixture.scrolls.length, 0);
+});
+
+test('arrival reveals the active destination and its focus ring without moving the document', () => {
+    const fixture = navigationFixture({ enhance: true, loading: true });
+    assert.equal(fixture.frames.length, 0);
+    fixture.listeners.get('DOMContentLoaded')();
+    fixture.flush();
+    assert.equal(fixture.nav.scrollLeft, 360);
+    assert.equal(fixture.activeLink.getBoundingClientRect().right + 8, 300);
+    assert.deepEqual(Object.keys(fixture.scrolls[0]), ['left', 'behavior']);
+    assert.equal(fixture.scrolls[0].behavior, 'instant');
+    assert.equal(fixture.classes.has('reading-hud--more-before'), true);
+    assert.equal(fixture.classes.has('reading-hud--more-after'), false);
+    assert.equal(fixture.properties.get('--nav-left'), '20px');
+});
+
+test('scroll cues follow the actual horizontal edges and preserve a manually chosen position', () => {
+    const fixture = navigationFixture({ enhance: true, activeX: 8 });
+    fixture.flush();
+    assert.equal(fixture.classes.has('reading-hud--more-before'), false);
+    assert.equal(fixture.classes.has('reading-hud--more-after'), true);
+
+    fixture.nav.scrollLeft = 120;
+    fixture.navListeners.get('scroll')();
+    fixture.flush();
+    assert.equal(fixture.classes.has('reading-hud--more-before'), true);
+    assert.equal(fixture.classes.has('reading-hud--more-after'), true);
+
+    fixture.fontReady();
+    fixture.windowListeners.get('resize')();
+    fixture.resizeObserved();
+    fixture.flush();
+    assert.equal(fixture.nav.scrollLeft, 120);
+    assert.equal(fixture.scrolls.length, 0);
+
+    fixture.nav.scrollLeft = 360;
+    fixture.navListeners.get('scroll')();
+    fixture.flush();
+    assert.equal(fixture.classes.has('reading-hud--more-after'), false);
+});
+
+test('font and viewport changes keep the active link visible until the visitor explores the row', () => {
+    const fixture = navigationFixture({ enhance: true });
+    fixture.flush();
+    fixture.navListeners.get('scroll')(); // The scroll caused by our initial reveal.
+    fixture.nav.clientWidth = 220;
+    fixture.windowListeners.get('resize')();
+    fixture.flush();
+    assert.equal(fixture.nav.scrollLeft, 420);
+
+    fixture.nav.scrollWidth = 720;
+    fixture.activeLink.x = 632;
+    fixture.fontReady();
+    fixture.flush();
+    assert.equal(fixture.nav.scrollLeft, 500);
+    assert.deepEqual(fixture.observed, [fixture.nav, fixture.header, fixture.activeLink]);
+});
+
+test('back-forward restoration retains its horizontal position and refreshes cues', () => {
+    const fixture = navigationFixture({ enhance: true });
+    fixture.flush();
+    fixture.nav.scrollLeft = 80;
+    fixture.windowListeners.get('pageshow')({ persisted: true });
+    fixture.flush();
+    assert.equal(fixture.nav.scrollLeft, 80);
+    assert.equal(fixture.classes.has('reading-hud--more-before'), true);
+    assert.equal(fixture.classes.has('reading-hud--more-after'), true);
+});
+
+test('overflow cues disappear when the entire navigation fits', () => {
+    const fixture = navigationFixture({ enhance: true });
+    fixture.flush();
+    fixture.nav.clientWidth = 700;
+    fixture.nav.scrollLeft = 0;
+    fixture.resizeObserved();
+    fixture.flush();
+    assert.equal(fixture.classes.has('reading-hud--more-before'), false);
+    assert.equal(fixture.classes.has('reading-hud--more-after'), false);
 });

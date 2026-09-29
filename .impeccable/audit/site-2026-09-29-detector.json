@@ -1,0 +1,243 @@
+[
+  {
+    "antipattern": "aphoristic-cadence",
+    "name": "Aphoristic-cadence copy",
+    "description": "Three or more sections landing on a short rebuttal sentence (\"X. No Y.\" / \"X. Just Y.\") or a manufactured-contrast aphorism (\"Not a feature. A platform.\") reads as AI cadence, not voice. Once is fine; the pattern is the tell.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/gratitude.html",
+    "line": 0,
+    "snippet": "3 aphoristic constructions: \"Kept it simple, as the meditation teacher instructed. Just observe, be aware, ta\""
+  },
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/home-game.css",
+    "line": 127,
+    "snippet": "Undocumented color #b9c0c7 is outside DESIGN.md colors",
+    "ignoreValue": "#b9c0c7"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/home-game.css",
+    "line": 703,
+    "snippet": "font-size: clamp(3rem, 6vw, 4.5rem) has fluid endpoints 3rem and 4.5rem off the DESIGN.md type ramp",
+    "ignoreValue": "3rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/home-game.css",
+    "line": 704,
+    "snippet": "font-size: clamp(2.45rem, 5.2vw, 3.8rem) has fluid endpoints 2.45rem and 3.8rem off the DESIGN.md type ramp",
+    "ignoreValue": "2.45rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/home-game.css",
+    "line": 809,
+    "snippet": "font-size: clamp(2.65rem, 13vw, 4rem) has fluid endpoint 4rem off the DESIGN.md type ramp",
+    "ignoreValue": "4rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/home-game.css",
+    "line": 810,
+    "snippet": "font-size: clamp(2.3rem, 10.8vw, 3.55rem) has fluid endpoints 2.3rem and 3.55rem off the DESIGN.md type ramp",
+    "ignoreValue": "2.3rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/home-game.css",
+    "line": 854,
+    "snippet": "font-size: 0.68rem is off the DESIGN.md type ramp",
+    "ignoreValue": "0.68rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/home-game.css",
+    "line": 858,
+    "snippet": "font-size: 0.6875rem is off the DESIGN.md type ramp",
+    "ignoreValue": "0.6875rem"
+  },
+  {
+    "antipattern": "design-system-radius",
+    "name": "Radius outside DESIGN.md",
+    "description": "A border-radius value is outside the DESIGN.md rounded scale. Use a documented radius token or update the design system if the new shape is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/thoughts/boring-ai.html",
+    "line": 67,
+    "snippet": "border-radius: 8px is outside the DESIGN.md rounded scale",
+    "ignoreValue": "8px"
+  },
+  {
+    "antipattern": "design-system-radius",
+    "name": "Radius outside DESIGN.md",
+    "description": "A border-radius value is outside the DESIGN.md rounded scale. Use a documented radius token or update the design system if the new shape is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/thoughts/boring-ai.html",
+    "line": 168,
+    "snippet": "border-radius: 8px is outside the DESIGN.md rounded scale",
+    "ignoreValue": "8px"
+  },
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/thoughts/carbonneutral.html",
+    "line": 115,
+    "snippet": "Undocumented color #eeeeee is outside DESIGN.md colors",
+    "ignoreValue": "#eeeeee"
+  },
+  {
+    "antipattern": "design-system-radius",
+    "name": "Radius outside DESIGN.md",
+    "description": "A border-radius value is outside the DESIGN.md rounded scale. Use a documented radius token or update the design system if the new shape is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/thoughts/habits.html",
+    "line": 67,
+    "snippet": "border-radius: 8px is outside the DESIGN.md rounded scale",
+    "ignoreValue": "8px"
+  },
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/thoughts/habits.html",
+    "line": 68,
+    "snippet": "Undocumented color #888 is outside DESIGN.md colors",
+    "ignoreValue": "#888"
+  },
+  {
+    "antipattern": "design-system-radius",
+    "name": "Radius outside DESIGN.md",
+    "description": "A border-radius value is outside the DESIGN.md rounded scale. Use a documented radius token or update the design system if the new shape is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/thoughts/hakunamatata.html",
+    "line": 67,
+    "snippet": "border-radius: 8px is outside the DESIGN.md rounded scale",
+    "ignoreValue": "8px"
+  },
+  {
+    "antipattern": "design-system-radius",
+    "name": "Radius outside DESIGN.md",
+    "description": "A border-radius value is outside the DESIGN.md rounded scale. Use a documented radius token or update the design system if the new shape is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/thoughts/hakunamatata.html",
+    "line": 97,
+    "snippet": "border-radius: 8px is outside the DESIGN.md rounded scale",
+    "ignoreValue": "8px"
+  },
+  {
+    "antipattern": "design-system-radius",
+    "name": "Radius outside DESIGN.md",
+    "description": "A border-radius value is outside the DESIGN.md rounded scale. Use a documented radius token or update the design system if the new shape is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/thoughts/kinder.html",
+    "line": 67,
+    "snippet": "border-radius: 8px is outside the DESIGN.md rounded scale",
+    "ignoreValue": "8px"
+  },
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/thoughts/kinder.html",
+    "line": 68,
+    "snippet": "Undocumented color #888 is outside DESIGN.md colors",
+    "ignoreValue": "#888"
+  },
+  {
+    "antipattern": "design-system-radius",
+    "name": "Radius outside DESIGN.md",
+    "description": "A border-radius value is outside the DESIGN.md rounded scale. Use a documented radius token or update the design system if the new shape is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/thoughts/meditation.html",
+    "line": 67,
+    "snippet": "border-radius: 8px is outside the DESIGN.md rounded scale",
+    "ignoreValue": "8px"
+  },
+  {
+    "antipattern": "design-system-radius",
+    "name": "Radius outside DESIGN.md",
+    "description": "A border-radius value is outside the DESIGN.md rounded scale. Use a documented radius token or update the design system if the new shape is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/thoughts/talktousers.html",
+    "line": 67,
+    "snippet": "border-radius: 8px is outside the DESIGN.md rounded scale",
+    "ignoreValue": "8px"
+  },
+  {
+    "antipattern": "design-system-radius",
+    "name": "Radius outside DESIGN.md",
+    "description": "A border-radius value is outside the DESIGN.md rounded scale. Use a documented radius token or update the design system if the new shape is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/thoughts/tickertownusabilitytest.html",
+    "line": 67,
+    "snippet": "border-radius: 8px is outside the DESIGN.md rounded scale",
+    "ignoreValue": "8px"
+  },
+  {
+    "antipattern": "design-system-radius",
+    "name": "Radius outside DESIGN.md",
+    "description": "A border-radius value is outside the DESIGN.md rounded scale. Use a documented radius token or update the design system if the new shape is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/thoughts/tickertownusabilitytest.html",
+    "line": 105,
+    "snippet": "border-radius: 8px is outside the DESIGN.md rounded scale",
+    "ignoreValue": "8px"
+  },
+  {
+    "antipattern": "design-system-radius",
+    "name": "Radius outside DESIGN.md",
+    "description": "A border-radius value is outside the DESIGN.md rounded scale. Use a documented radius token or update the design system if the new shape is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/thoughts/tickertownusabilitytest.html",
+    "line": 170,
+    "snippet": "border-radius: 8px is outside the DESIGN.md rounded scale",
+    "ignoreValue": "8px"
+  }
+]

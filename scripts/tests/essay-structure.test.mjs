@@ -43,7 +43,9 @@ test('every newsletter has one immediate subscription action before its optional
         assert.match(link, /class="text-link newsletter-fallback"/, name);
         assert.match(link, /\btarget="_blank"/, name);
         assert.match(link, /\brel="noopener noreferrer"/, name);
-        assert.match(link, />Subscribe on Substack <span aria-hidden="true">↗<\/span><\/a>$/, name);
+        const visibleLabel = link.replace(/<svg\b[\s\S]*?<\/svg>/g, '').replace(/<[^>]+>/g, '').trim();
+        assert.equal(visibleLabel, 'Subscribe on Substack', name);
+        assert.match(link, /<svg\b[^>]*aria-hidden="true"/, `${name}: decorative destination arrow must not change the accessible name`);
         const invitation = name === 'index.html'
             ? 'Join my free newsletter to get my latest essays and updates delivered straight to your inbox.'
             : 'Enjoyed this? Subscribe to get new essays delivered to your inbox.';

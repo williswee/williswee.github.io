@@ -11,6 +11,7 @@ colors:
   gold: "#ffbe63"
   green: "#79d99b"
   teal: "#8adad0"
+  coaching-error: "#ffc0ad"
   line: "rgba(244, 233, 207, 0.24)"
   line-strong: "rgba(244, 233, 207, 0.5)"
 typography:
@@ -116,6 +117,16 @@ typography:
     fontSize: "1.0625rem"
     fontWeight: 400
     lineHeight: 1.85
+  continuation-title:
+    fontFamily: "'Sora', sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 600
+    lineHeight: 1.55
+  search-text:
+    fontFamily: "'Sora', sans-serif"
+    fontSize: "0.875rem"
+    fontWeight: 400
+    lineHeight: 1.6
   control:
     fontFamily: "'Sora', sans-serif"
     fontSize: "0.875rem"
@@ -177,6 +188,18 @@ components:
     textColor: "{colors.cream}"
     rounded: "{rounded.none}"
     padding: "6px"
+  essay-search-field:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.cream}"
+    typography: "{typography.search-text}"
+    rounded: "{rounded.none}"
+    padding: "0 0 0 14px"
+  essay-continuation-link:
+    backgroundColor: "transparent"
+    textColor: "{colors.cream}"
+    typography: "{typography.continuation-title}"
+    rounded: "{rounded.none}"
+    padding: "20px 0"
 ---
 
 # Design System: Willis Wee — Save Point Atlas
@@ -187,7 +210,7 @@ components:
 
 The site pairs a personal pixel-art journey with a quiet reading room. The homepage has five scenes: Start, Work, Notes, Life, and Connect. Its illustrated Singapore landscapes carry the atmosphere; framed navy panels carry the words. A compact fixed header and active gold underline provide orientation without a journey rail or game-key interface.
 
-The same world continues through all 48 inner pages: Coaching, Guide, Work, Books, Gratitude, the Thoughts archive, and 42 essays. The not-found page ("Off the map.") uses the shared forest-path scene, a "Willis" dialogue box, and three ways back. Their dedicated landscapes sit beside an opaque reading pane on desktop and form a short opening band on mobile. Silkscreen gives short declarations a distinctive voice; Sora carries prose, navigation, metadata, and controls. Content stays readable while discovery and navigation enhance the static document.
+The same world continues through Coaching, Guide, Work, Books, Gratitude, the Thoughts archive, and individual essays. The not-found page ("Off the map.") uses the shared forest-path scene, a "Willis" dialogue box, and three ways back. Their dedicated landscapes sit beside an opaque reading pane on desktop and form a short opening band on mobile. Silkscreen gives short declarations a distinctive voice; Sora carries prose, navigation, metadata, and controls. Content stays readable while discovery and navigation enhance the static document.
 
 This is a refresh of the implemented world, not a replacement direction. The source of truth is `home-game.css`, `thoughts/reading-room.css`, and the route styles for Coaching, Guide, Work, Books, and Gratitude. Surface briefs hold route-specific composition and historical decisions; dated delivery restrictions in those histories do not define permission for future work.
 
@@ -220,6 +243,8 @@ Midnight ink, warm cream, and restrained gold form the site-wide palette. The fr
 - **Muted** (`muted`): Readable metadata and inactive navigation; do not simulate a muted role by fading an entire content block.
 - **Line / Strong Line** (`line`, `line-strong`): Quiet list separators and the stronger outer frame.
 
+The Coaching form uses **Warm Error** (`coaching-error`) for invalid field borders, helper messages, and failed submissions. Gold signals successful submission. State also appears in text and accessible announcements.
+
 **The Ink-Plate Rule.** Reading text sits on an ink surface. Scenery, veils, and shadows provide atmosphere without determining text contrast.
 
 **The Readable Selection Rule.** Focus mode dims neighboring entries, introductory text, and decorative scenery while the selected entry is in the reading viewport. Scrolling away restores normal contrast without discarding the selection or its link; returning restores focus. Keyboard-focused entries remain readable.
@@ -240,6 +265,7 @@ Both families are requested together from Google Fonts with `display=swap`, supp
 - **Repeated entry titles:** Books and Gratitude use the Sora `entry-title` role, reduced to 1.1rem on mobile. Repeated titles remain calmer than the page declaration.
 - **Prose:** Homepage copy has a maximum measure of 62ch. The 800px reading shell and its insets set the essay measure; essays and Guide/Work prose use `reading-body`, falling to 1rem on mobile. Book reviews and Gratitude paragraphs use 1.0381rem/1.85 on desktop and 1rem/1.8 on mobile.
 - **Controls and supporting text:** The `control` and `metadata` roles use the shared `--font-size-ui` value of 0.875rem (14px at the default root size) for navigation, dates, counts, captions, filters, and dock text. The brand logotype and status badge intentionally retain their established smaller sizes. Preserve tabular numerals for dates and counts.
+- **Essay discovery:** Search uses `search-text`, with a comfortably spaced 1.6 line height. Adjacent essay titles use `continuation-title`; their metadata uses the shared supporting-text size with a 1.7 line height. Reading estimates sit beside the original publication date and use tabular numerals.
 - **Status badge:** The intentionally compact `status` role retains its existing size. At widths up to 360px, omit the visible “Currently:” prefix so all 12 full statuses fit at normal text sizes; enlarged text may wrap naturally.
 
 ### Responsive and component variants
@@ -250,7 +276,7 @@ These are contextual overrides of the named roles, not additional sizes to apply
 | --- | --- |
 | Homepage declaration (`home-game.css`, h1) | Up to 1100px: `clamp(3rem, 6vw, 4.5rem)`; up to 760px: `clamp(2.65rem, 13vw, 4rem)`. Both retain 1.06 line height. |
 | Homepage scene heading (`home-game.css`, h2) | Up to 1100px: `clamp(2.45rem, 5.2vw, 3.8rem)`; up to 760px: `clamp(2.3rem, 10.8vw, 3.55rem)`. Both retain 1.06 line height. |
-| Brand (`.site-brand > span`) | Desktop keeps “Willis Wee” at 0.88rem. Up to 760px, the homepage and inner pages share the short “Willis” logotype at 0.74rem. This is the logotype exception, not the navigation scale. |
+| Brand (`.site-brand > span`) | Desktop keeps “Willis Wee” at 0.88rem. Up to 760px, the homepage and inner pages share the short “Willis” logotype at 0.74rem; the homepage alone reduces it to 0.68rem at 360px. This is the logotype exception, not the navigation scale. |
 | Reading-page title (`thoughts/reading-room.css`, h1) | Up to 760px: 2.625rem/1.12; up to 380px: 2.25rem/1.12. |
 | Essay title (`thoughts/reading-room.css`, article h1) | Up to 1100px: 2.25rem/1.2; up to 760px: 1.875rem/1.25. |
 | Guide section title (`guide-game.css`, `.guide-section h2`) | The shared 1.75rem role uses a 1.4 line height here; up to 760px it is 1.375rem, and up to 380px it is 1.25rem. |
@@ -273,13 +299,13 @@ Footer social icons open new tabs and say so in their accessible names ("Substac
 
 Illustrated distance, navy veils, opaque panes, thin borders, and opposing corner marks establish depth. Shadows separate a small number of structural layers, without rounded cards or luminous halos. The header uses a 10px/32px shadow; homepage panels use a 22px/54px shadow, reading panes a slightly softer version of the same form, and docks a 12px/28px shadow. Exact shadow values live in the sidecar.
 
-Homepage panels settle through opacity and horizontal movement over 520–700ms, while artwork settles more slowly. Mobile panels remain fully visible. Short control transitions and dice/reload feedback acknowledge deliberate input. Reduced-motion preferences suppress smooth scrolling and decorative animation; content is never dependent on motion completing.
+Homepage panels settle through opacity and horizontal movement over 520–700ms, while artwork settles more slowly. Mobile panels remain fully visible. Short control transitions and dice/reload feedback acknowledge deliberate input. Destination arrows move 2px northeast and onward arrows move 3px down on hover or keyboard focus; the link targets stay in place. Reduced-motion preferences suppress smooth scrolling, homepage snapping, dice turns, spatial arrow movement, and scenic settling. Selection dimming changes immediately, while useful color and border feedback retains a brief 120ms transition. Content is never dependent on motion completing.
 
 ## Shapes
 
 The system is rectilinear: square panels, rectangular controls, one-pixel boundaries, and opposing 14px gold panel corners. Books and Gratitude selections use smaller opposing 12px corners. The status signal is a 6px square with an explicit width and flex basis so WebKit accounts for it in the badge's intrinsic width.
 
-Navigation arrows are drawn vectors with square line caps and miter joins. “Scroll next” uses a down arrow; destination links use northeast arrows; returning to the beginning uses an up arrow. The Thoughts archive uses the same vector approach through a CSS mask, avoiding platform emoji substitution. User-authored emoji remain part of the personal copy and are not the icon system.
+Navigation arrows are drawn vectors with square line caps and miter joins. “Scroll next” uses a down arrow; destination links use northeast arrows; returning to the beginning uses an up arrow; back links use a left arrow. The Thoughts archive and horizontal navigation cues use vectors through CSS masks, avoiding platform emoji substitution. Search and clear controls use drawn SVGs. User-authored emoji remain part of the personal copy and are not the icon system.
 
 ## Components
 
@@ -289,11 +315,21 @@ Dense ink surfaces with thin warm frames and opposing gold corner marks protect 
 
 ### Navigation
 
-The homepage links to Start, Work, Notes, Life, and Connect within the page. Inner pages link to Start, Thoughts, Guide, Work, Books, and Gratitude. Coaching is reached from the homepage, the Guide, and every essay rather than the header, so the mobile header keeps six links; the Coaching page shows no current item. On desktop, Coaching adds a left rail like the Guide's contents, with its four sections and a booking shortcut; phones omit it. Active text and a gold underline indicate location. The header has a waving-hand brand, no avatar cartridge, game keycaps, active diamonds, or journey rail. Keyboard focus receives a gold outline; inside scrolling navigation the outline sits within the scrollport.
+The homepage links to Start, Work, Notes, Life, and Connect within the page. Inner pages link to Start, Thoughts, Guide, Work, Books, and Gratitude. Coaching is reached from the homepage, the Guide, and every essay rather than the header, so the mobile header keeps six links; the Coaching page shows no current item. On desktop, Coaching adds a left rail like the Guide's contents, with its four sections and a booking shortcut; phones omit it. Active text and a gold underline indicate location. The header has a waving-hand brand, no avatar cartridge, game keycaps, active diamonds, or journey rail. Keyboard focus receives a gold outline; inside scrolling navigation the outline sits within the scrollport. On arrival, the current page's destination is revealed within the row without scrolling the document. Small gold chevrons appear only at edges with hidden destinations: 14px on desktop, 8px wide by 12px high on mobile. User scrolling remains under the reader's control.
 
 ### Discovery controls and dock
 
-Random pick is a square-edged outlined button with a drawn dice icon and a minimum 44px target. Books and Gratitude share the compact floating **Another pick / Top** dock. There is no Keep reading button. The dock follows the reading-pane center on desktop and the viewport center on mobile, respects the bottom safe area, and may wrap when text is enlarged. Another pick preserves keyboard access; Top clears the selection and returns to the beginning. Escape can clear the selection in place.
+Random pick is a square-edged outlined button with a drawn dice icon and a minimum 44px target. The Thoughts archive samples only matching essays; an empty result set disables its button with muted text and a default cursor. Books and Gratitude share the compact floating **Another pick / Top** dock. There is no Keep reading button. The dock follows the reading-pane center on desktop and the viewport center on mobile, respects the bottom safe area, and may wrap when text is enlarged. Another pick preserves keyboard access; Top clears the selection and returns to the beginning. Escape can clear the selection in place.
+
+### Search and form fields
+
+The archive search is a square ink field with a thin quiet line, a soft-cream label, cream input text, muted placeholder, and gold caret. It has a 48px minimum height, an 18px search vector, and a 44px clear target. Focus turns the border gold; keyboard focus frames the whole field with a 3px gold outline and 3px offset. The clear control keeps its own contained focus outline. Searching hides unmatched rows and empty year groups while the polite count announces results. Clear and Escape restore the archive and return focus to the field. An empty result shows a short recovery message and a Clear search action. The complete archive remains available when JavaScript is unavailable.
+
+Coaching fields share square ink surfaces and the gold caret, with stronger borders, 48px minimum height, 12px by 14px padding, and 1rem Sora text. Textareas can grow vertically. Invalid fields show Warm Error borders and explicit helper text. The gold submit action turns cream on hover or keyboard focus, and disabled fields retain legible text while submission is pending. At 540px the name/email pair stacks and form actions occupy the available width.
+
+### Adjacent essays
+
+After an essay, a **More thoughts** section presents the real newer and older neighbors as simple rule-separated links. Each row has an 88px minimum height, 20px vertical padding, full title, direction, publication date, reading estimate, and a 20px northeast vector. Titles wrap naturally; no nested card or truncated label is needed. Hover and keyboard focus turn the title and arrow gold while the metadata stays muted. At the archive endpoints, only the available neighbor appears. This section sits outside the article, before Coaching and the newsletter, so reading progress measures the essay alone. Reading estimates use the actual article text at 220 words per minute; video duration is additional.
 
 ### Selected books and gratitude notes
 

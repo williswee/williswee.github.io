@@ -25,6 +25,7 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--header-height);
     scroll-snap-type: y proximity;
+    scrollbar-color: var(--line-strong) var(--ink);
 }
 
 body {
@@ -70,6 +71,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 
 .skip-link:focus { transform: translateY(0); }
+main:focus { outline: none; }
 
 .site-hud {
     position: fixed;
@@ -145,6 +147,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 .chapter-nav a:hover,
 .chapter-nav a[aria-current="page"] { color: var(--cream); }
+.chapter-nav a:hover::after { transform: scaleX(.4); }
 
 .chapter-nav a[aria-current="page"]::after { transform: scaleX(1); }
 
@@ -278,6 +281,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
     transform: translateX(20px);
 }
 
+.js-ready .game-scene:focus-within .story-panel { opacity: 1; transform: none; }
+
 h1, h2 {
     max-width: 12ch;
     margin: 0 0 24px;
@@ -405,8 +410,8 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     transition: transform 180ms ease-out;
 }
 
-.next-chapter:hover { color: var(--gold); }
-.next-chapter:hover svg { transform: translateY(4px); }
+.next-chapter:is(:hover, :focus-visible) { color: var(--gold); }
+.next-chapter:is(:hover, :focus-visible) svg { transform: translateY(3px); }
 
 .work-list {
     margin: 26px 0 0;
@@ -423,16 +428,16 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     border-bottom: 1px solid var(--line);
     color: var(--cream);
     text-decoration: none;
-    transition: color 160ms ease-out, transform 180ms ease-out;
+    transition: color 160ms ease-out;
 }
 
-.work-list > a:hover {
+.work-list > a:is(:hover, :focus-visible) {
     color: var(--gold);
-    transform: translateX(4px);
 }
+.work-list > a:is(:hover, :focus-visible) svg { transform: translate(2px, -2px); }
 
 .work-meta {
-    color: #9ce1b4;
+    color: var(--green);
     font-family: var(--font-display);
     font-size: var(--font-size-ui);
     line-height: 1.4;
@@ -457,7 +462,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 .archive-list small,
 .contact-list small {
     margin-top: 3px;
-    color: #bfc5c8;
+    color: var(--cream-soft);
     font-size: var(--font-size-ui);
     line-height: 1.45;
 }
@@ -501,14 +506,15 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     border-bottom: 1px solid var(--line);
     color: var(--cream);
     text-decoration: none;
-    transition: color 160ms ease-out, transform 180ms ease-out;
+    transition: color 160ms ease-out;
 }
 
-.archive-list a:hover,
-.contact-list a:hover {
+.archive-list a:is(:hover, :focus-visible),
+.contact-list a:is(:hover, :focus-visible) {
     color: var(--gold);
-    transform: translateX(4px);
 }
+.archive-list a:is(:hover, :focus-visible) > svg,
+.contact-list a:is(:hover, :focus-visible) > svg { transform: translate(2px, -2px); }
 
 .contact-list {
     display: grid;
@@ -668,6 +674,8 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     color: var(--cream-soft);
     font-size: var(--font-size-ui);
     font-weight: 600;
+    align-items: center;
+    min-height: 44px;
 }
 
 .return-link:hover { color: var(--gold); }
@@ -856,12 +864,16 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
+    html { scroll-behavior: auto; scroll-snap-type: none; }
+    .scene-art { transform: none; transition: none; }
+    .js-ready .game-scene .story-panel { opacity: 1; transform: none; transition: none; }
     .status-shuffle { transform: none; }
-    *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
+    .status-shuffle, .chapter-nav a::after,
+    .next-chapter svg, .work-list svg, .archive-list svg, .contact-list svg { transition: none; }
+    .next-chapter:is(:hover, :focus-visible) svg,
+    .work-list > a:is(:hover, :focus-visible) svg,
+    .archive-list a:is(:hover, :focus-visible) > svg,
+    .contact-list a:is(:hover, :focus-visible) > svg { transform: none; }
+    .status-badge, .chapter-nav a, .next-chapter,
+    .work-list > a, .archive-list a, .contact-list a { transition-duration: 120ms; }
 }
