@@ -8,6 +8,17 @@
         }, { rootMargin: '0px 0px -24px 0px' }).observe(continueCue);
     }
 
+    const lantern = document.querySelector('.coaching-lantern');
+    if (lantern && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        // Welcome the reader once, when the closing invitation comes into view.
+        const welcome = new IntersectionObserver(([entry]) => {
+            if (!entry.isIntersecting || entry.intersectionRatio < .6) return;
+            lantern.classList.add('has-arrived');
+            welcome.disconnect();
+        }, { threshold: .6 });
+        welcome.observe(lantern);
+    }
+
     const art = document.querySelector('.coaching-landscape');
     const rail = document.querySelector('.coaching-rail');
     if (art && rail) {

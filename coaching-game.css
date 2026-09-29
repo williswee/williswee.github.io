@@ -96,6 +96,7 @@
 .coaching-quote blockquote { margin: 0; padding: 0; border: 0; font-size: 1.0625rem; line-height: 1.75; }
 .coaching-quote blockquote p { margin: 0; color: var(--cream); text-wrap: pretty; }
 .coaching-quote blockquote p + p { margin-top: 16px; }
+.coaching-quote-highlight { color: var(--gold); font-weight: 600; }
 /* The last line waits for input like a game's dialogue box, pointing down to Book a call. */
 .coaching-quotes > li:last-child .coaching-quote { padding-bottom: 34px; }
 .coaching-continue-cue {
@@ -111,6 +112,26 @@
 /* Four one-second loops keep this automatic motion under WCAG's five-second limit. */
 .coaching-quotes.is-visible .coaching-continue-cue { animation: coaching-continue 1s steps(1, end) 4; }
 @keyframes coaching-continue { 50% { transform: translateY(3px); } }
+/* The closing invitation echoes the lantern shared by the comrades in the art. */
+.coaching-booking .coaching-lantern {
+    align-self: center;
+    width: 24px;
+    height: 36px;
+    color: var(--gold);
+    fill: currentColor;
+    stroke: none;
+    shape-rendering: crispEdges;
+}
+.coaching-lantern-light { opacity: .9; }
+.coaching-lantern-glass { fill: var(--gold); opacity: .35; }
+.coaching-lantern-flame { fill: var(--cream); }
+/* A single brief flicker, then steady light; no script leaves it steadily lit. */
+.coaching-lantern.has-arrived .coaching-lantern-light { animation: coaching-lantern-welcome 1.2s steps(1, end) 1; }
+@keyframes coaching-lantern-welcome {
+    0%, 32%, 64%, 100% { opacity: .9; }
+    12%, 48% { opacity: .5; }
+    24%, 56%, 80% { opacity: 1; }
+}
 .coaching-not-sure { margin: 0; font-size: 1rem; line-height: 1.8; }
 
 @media (max-width: 760px) {
