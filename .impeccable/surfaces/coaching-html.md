@@ -2,14 +2,26 @@
 version: 1
 slug: "coaching-html"
 primary_target: "coaching.html"
-related_targets: ["coaching-game.css"]
+related_targets: ["coaching-game.css", "coaching-game.js", "coaching-contact.js"]
 ---
 
 # Coaching — coaching as comrades
 
 Mode: Persuade, inside the established reading room.
 
-## Current contract — 2026-09-25
+## Current contract — 2026-09-29
+
+The primary invitation is now **Send me a note**: an outline link in the hero and desktop rail jumps to a single inline form after the testimonials. **Book a session** remains a secondary Intro link in the hero and close, with the rates/times and 20%-to-charity copy. The visitor can ask about fit before committing to a paid session. All other coaching copy, supporting links, shared navigation, and the established navy/cream/gold world remain in place.
+
+The form asks for name, email, and “What are you working through?” with permanent labels, an all-fields-required note, and a short writing prompt. The reply expectation is **within 3 business days**, supplied by the user. Name and email share a row on desktop and stack on phones. The submit button is solid gold; fields keep the reading room's ink fill and square cream outlines. The existing lantern welcomes the reader beside the form heading with its single 1.2-second flicker and steady reduced-motion fallback.
+
+The native HTML POST points to the user-provided Formspree endpoint `https://formspree.io/f/mdekydke`. The recipient is configured in Formspree, not exposed in the page. `coaching-contact.js` adds inline validation, pending/confirmed-success/error states, draft retention on failure, and duplicate-submit prevention. A deliberate “Continue with Formspree” control recovers from provider/challenge failures; uncertain requests never retry automatically. Without JavaScript the native POST and browser validation remain available. No note values go into browser storage, URLs, custom analytics events, or confirmation copy. Formspree's `_gotcha` honeypot is present.
+
+The five real testimonials now include Daniel before Mariana. One exact sentence in each quote receives gold emphasis. All testimonial text and source links remain intact.
+
+The 2026-09-25 entries below describe the earlier implementation and its audit history. This contract supersedes their primary-booking flow. CSS is v1.7; contact JS is v1.1. Validate desktop/mobile layout, keyboard focus, failed and confirmed sends, and no-script fallback before publishing. Mocked responses cannot verify the configured inbox or CAPTCHA account settings; delivery and Reply-To need a real test.
+
+## Initial contract — 2026-09-25
 
 Coaching is the destination for every essay's coaching card, the Guide's closing card, the homepage Work card, the Connect section's "More about coaching" link, and a one-line mention in the Work page's Now section. It is intentionally not in the header navigation, so the mobile header keeps six links; the page shows the shared header with no current item.
 

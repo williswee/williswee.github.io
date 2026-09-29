@@ -4,13 +4,13 @@
    rail, and 420px clears it at the default text size. */
 .coaching-landscape { container-type: size; }
 .coaching-landscape img { object-position: 50% min(0px, max(50%, calc(var(--coaching-rail-clearance, 420px) - max(142.7cqw, 53.52cqh)))); }
-.coaching-page main a:not(.coaching-booking, .coaching-rail-booking, .dialogue-nameplate) { text-decoration-color: var(--gold); transition: color 180ms ease-out; }
-.coaching-page main a:not(.coaching-booking, .coaching-rail-booking, .dialogue-nameplate):hover { color: var(--gold); }
-.coaching-page { --coaching-action-width: 440px; }
+.coaching-page main a:not(.coaching-invitation, .coaching-rail-contact, .dialogue-nameplate) { text-decoration-color: var(--gold); transition: color 180ms ease-out; }
+.coaching-page main a:not(.coaching-invitation, .coaching-rail-contact, .dialogue-nameplate):hover { color: var(--gold); }
+.coaching-page { --coaching-action-width: 440px; --coaching-error: #ffc0ad; color-scheme: dark; }
 /* A small joiner lets "as" tuck beside either word instead of standing alone in pixel caps. */
 .coaching-title-join { color: var(--gold); font: 500 .42em/1 var(--font-body); letter-spacing: 0; vertical-align: .32em; }
 .coaching-intro { margin: 24px 0; font-size: 1.0625rem; line-height: 1.85; }
-.coaching-booking {
+.coaching-invitation {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,20 +24,23 @@
     text-decoration: none;
     transition: border-color 180ms ease-out;
 }
-.coaching-booking:is(:hover, :focus-visible) { border-color: var(--gold); }
-.coaching-booking-label { display: inline-flex; align-items: flex-start; gap: 12px; min-width: 0; }
-.coaching-booking strong, .coaching-booking small { display: block; }
-.coaching-booking strong { color: var(--gold); font-size: 1rem; font-weight: 600; line-height: 1.5; }
-.coaching-booking small { margin-top: 2px; color: var(--cream-soft); font-size: var(--font-size-ui); line-height: 1.5; }
-.coaching-booking svg { flex: 0 0 auto; width: 20px; height: 20px; fill: none; stroke: currentColor; }
-.coaching-booking-icon { margin-top: 2px; color: var(--gold); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.coaching-booking-arrow { stroke-width: 1.6; stroke-linecap: square; transition: color 180ms ease-out, transform 180ms ease-out; }
-.coaching-booking:is(:hover, :focus-visible) .coaching-booking-arrow { color: var(--gold); transform: translate(2px, -2px); }
+.coaching-invitation:is(:hover, :focus-visible) { border-color: var(--gold); }
+.coaching-invitation-label { display: inline-flex; align-items: flex-start; gap: 12px; min-width: 0; }
+.coaching-invitation strong, .coaching-invitation small { display: block; }
+.coaching-invitation strong { color: var(--gold); font-size: 1rem; font-weight: 600; line-height: 1.5; }
+.coaching-invitation small { margin-top: 2px; color: var(--cream-soft); font-size: var(--font-size-ui); line-height: 1.5; }
+.coaching-invitation svg { flex: 0 0 auto; width: 20px; height: 20px; fill: none; stroke: currentColor; }
+.coaching-invitation-arrow { stroke-width: 1.6; stroke-linecap: square; transition: color 180ms ease-out, transform 180ms ease-out; }
+.coaching-invitation:is(:hover, :focus-visible) .coaching-invitation-arrow { color: var(--gold); transform: translateY(2px); }
 .coaching-note { max-width: var(--coaching-action-width); margin: 0; color: var(--muted); font-size: var(--font-size-ui); line-height: 1.7; text-wrap: pretty; }
+.coaching-book-direct { margin: 0 0 20px; color: var(--cream-soft); font-size: var(--font-size-ui); line-height: 1.8; }
+.coaching-book-direct a { padding-block: 10px; font-weight: 600; }
+.coaching-book-direct svg { width: 12px; height: 12px; margin-left: 4px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.coaching-book-direct small { display: block; margin-top: 2px; color: var(--muted); font-size: inherit; }
 
-/* The shared reading rail carries the sections and a booking shortcut on desktop. */
+/* The shared reading rail carries the sections and a note shortcut on desktop. */
 .coaching-rail-title { margin: 0 0 12px; color: var(--cream); font: 700 1rem/1.4 var(--font-display); }
-.coaching-rail a:not(.coaching-rail-booking) {
+.coaching-rail a:not(.coaching-rail-contact) {
     display: block;
     min-height: 44px;
     padding: 12px 0;
@@ -48,9 +51,9 @@
     text-decoration: none;
     transition: color 180ms ease-out;
 }
-.coaching-rail a:not(.coaching-rail-booking):hover, .coaching-rail a[aria-current] { color: var(--gold); }
+.coaching-rail a:not(.coaching-rail-contact):hover, .coaching-rail a[aria-current] { color: var(--gold); }
 .coaching-rail a[aria-current] { text-decoration: underline; }
-.coaching-rail-booking {
+.coaching-rail-contact {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -65,11 +68,11 @@
     text-decoration: none;
     transition: border-color 180ms ease-out;
 }
-.coaching-rail-booking:is(:hover, :focus-visible) { border-color: var(--gold); }
-.coaching-rail-booking svg { flex: 0 0 auto; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-linecap: square; stroke-width: 1.6; }
+.coaching-rail-contact:is(:hover, :focus-visible) { border-color: var(--gold); }
+.coaching-rail-contact svg { flex: 0 0 auto; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-linecap: square; stroke-width: 1.6; }
 
-.coaching-section, .coaching-close { margin-top: 52px; padding-top: 30px; border-top: 1px solid var(--line); }
-.coaching-section h2, .coaching-close h2 { margin-bottom: 24px; text-wrap: pretty; }
+.coaching-section, .coaching-close, .coaching-contact { margin-top: 52px; padding-top: 30px; border-top: 1px solid var(--line); }
+.coaching-section h2, .coaching-close h2, .coaching-contact h2 { margin-bottom: 24px; text-wrap: pretty; }
 .coaching-section p { font-size: 1.0625rem; line-height: 1.85; }
 .coaching-section p:last-child { margin-bottom: 0; }
 .coaching-section h3 { margin: 32px 0 8px; color: var(--cream); font-size: 1.0625rem; font-weight: 600; line-height: 1.5; }
@@ -97,7 +100,7 @@
 .coaching-quote blockquote p { margin: 0; color: var(--cream); text-wrap: pretty; }
 .coaching-quote blockquote p + p { margin-top: 16px; }
 .coaching-quote-highlight { color: var(--gold); font-weight: 600; }
-/* The last line waits for input like a game's dialogue box, pointing down to Book a call. */
+/* The last line waits for input like a game's dialogue box, pointing down to the note invitation. */
 .coaching-quotes > li:last-child .coaching-quote { padding-bottom: 34px; }
 .coaching-continue-cue {
     position: absolute;
@@ -113,7 +116,7 @@
 .coaching-quotes.is-visible .coaching-continue-cue { animation: coaching-continue 1s steps(1, end) 4; }
 @keyframes coaching-continue { 50% { transform: translateY(3px); } }
 /* The closing invitation echoes the lantern shared by the comrades in the art. */
-.coaching-booking .coaching-lantern {
+.coaching-lantern {
     align-self: center;
     width: 24px;
     height: 36px;
@@ -134,17 +137,52 @@
 }
 .coaching-not-sure { margin: 0; font-size: 1rem; line-height: 1.8; }
 
+/* A short note belongs in the reading flow, with the same ink and gold as the invitation. */
+.coaching-contact h2 { display: flex; align-items: center; gap: 14px; scroll-margin-top: 8px; }
+.coaching-contact .coaching-lantern { flex: 0 0 24px; }
+.coaching-contact-intro { margin: 0 0 12px; font-size: 1.0625rem; line-height: 1.85; }
+.coaching-contact-reply { margin: 0 0 28px; color: var(--gold); font-size: var(--font-size-ui); line-height: 1.7; }
+.coaching-note-form { margin-bottom: 32px; }
+.coaching-note-form fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+.coaching-note-form [hidden] { display: none; }
+.coaching-note-details { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.coaching-field { min-width: 0; }
+.coaching-field label { display: block; margin-bottom: 8px; color: var(--cream); font-size: 1rem; font-weight: 500; line-height: 1.5; }
+.coaching-field :is(input, textarea) { display: block; width: 100%; min-height: 48px; padding: 12px 14px; border: 1px solid var(--line-strong); border-radius: 0; background: var(--ink); color: var(--cream); caret-color: var(--gold); font: 400 1rem/1.6 var(--font-body); transition: border-color 180ms ease-out; }
+.coaching-field :is(input, textarea):hover { border-color: var(--cream-soft); }
+.coaching-field :is(input, textarea):focus { border-color: var(--gold); }
+.coaching-field :is(input, textarea)[aria-invalid="true"] { border-color: var(--coaching-error); }
+.coaching-field :is(input, textarea):disabled { opacity: .65; cursor: wait; }
+.coaching-field textarea { min-height: 168px; resize: vertical; }
+.coaching-field-message { margin-top: 24px; }
+.coaching-form-hint { margin: 0 0 12px; color: var(--muted); font-size: var(--font-size-ui); line-height: 1.7; }
+.coaching-field-error { display: block; margin-top: 8px; color: var(--coaching-error); font-size: var(--font-size-ui); line-height: 1.6; }
+.coaching-note-submit, .coaching-note-provider { min-height: 48px; margin-top: 24px; padding: 12px 24px; border: 1px solid var(--gold); border-radius: 0; background: var(--gold); color: var(--ink); font-size: 1rem; font-weight: 600; line-height: 1.5; transition: background-color 180ms ease-out, border-color 180ms ease-out; }
+.coaching-note-submit:is(:hover, :focus-visible):not(:disabled) { border-color: var(--cream); background: var(--cream); }
+.coaching-note-provider { margin-top: 16px; background: transparent; color: var(--gold); }
+.coaching-note-provider:is(:hover, :focus-visible) { border-color: var(--cream); color: var(--cream); }
+.coaching-form-privacy { margin: 12px 0 0; color: var(--muted); font-size: var(--font-size-ui); line-height: 1.7; }
+.coaching-note-status { margin: 20px 0 0; padding: 16px 18px; border: 1px solid var(--line-strong); color: var(--cream); font-size: 1rem; line-height: 1.8; scroll-margin-top: 8px; }
+.coaching-note-status[data-state="error"] { border-color: var(--coaching-error); color: var(--coaching-error); }
+.coaching-note-status[data-state="success"] { border-color: var(--gold); color: var(--gold); }
+.coaching-book-direct-close { margin: 0 0 28px; padding-top: 24px; border-top: 1px solid var(--line); }
+
+@media (max-width: 540px) {
+    .coaching-note-details { grid-template-columns: 1fr; gap: 24px; }
+    .coaching-note-submit, .coaching-note-provider { width: 100%; }
+}
+
 @media (max-width: 760px) {
-    /* Phones keep both in-page booking controls; the rail would only repeat them. */
+    /* Phones reach the form from the hero; the rail would only repeat it. */
     .coaching-rail { display: none; }
     /* In the phone band the heads' headroom eases from 28px to 10px on small tablets, so faces stay
        in view. 62% serves browsers without container units. */
     .coaching-landscape img { object-position: center 62%; object-position: center calc(clamp(10px, 69px - 10.6cqw, 28px) - 142.7cqw); }
     .coaching-landscape::after { background: linear-gradient(180deg, rgba(7, 16, 29, .08), rgba(7, 16, 29, .2) 60%, var(--ink)); }
-    .coaching-intro, .coaching-section p, .coaching-topics li { font-size: 1rem; }
-    .coaching-booking { width: 100%; }
-    .coaching-section, .coaching-close { margin-top: 36px; padding-top: 26px; }
-    .coaching-section h2, .coaching-close h2 { margin-bottom: 20px; font-size: 1.375rem; }
+    .coaching-intro, .coaching-section p, .coaching-topics li, .coaching-contact-intro { font-size: 1rem; }
+    .coaching-invitation { width: 100%; }
+    .coaching-section, .coaching-close, .coaching-contact { margin-top: 36px; padding-top: 26px; }
+    .coaching-section h2, .coaching-close h2, .coaching-contact h2 { margin-bottom: 20px; font-size: 1.375rem; }
     .coaching-quote { padding: 28px 20px 20px; }
     .coaching-quotes > li:last-child .coaching-quote { padding-bottom: 32px; }
     .coaching-quote blockquote { font-size: 1rem; }

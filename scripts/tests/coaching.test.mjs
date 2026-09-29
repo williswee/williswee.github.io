@@ -34,12 +34,13 @@ test('the guide closes with the same coaching invitation', () => {
     assert.ok(html.indexOf(found[0]) < html.indexOf('</main>'), 'keep the card inside the guide content');
 });
 
-test('the coaching page offers booking at the start and the end', () => {
+test('the coaching page leads with a note and keeps direct booking at both ends', () => {
     const html = read('coaching.html');
     const title = html.match(/<h1>([\s\S]*?)<\/h1>/)?.[1].replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
     assert.equal(title, 'Coaching as comrades');
-    const bookings = html.match(/<a class="coaching-booking"[^>]*>/g) ?? [];
-    assert.equal(bookings.length, 2);
+    assert.match(html, /<a class="coaching-invitation" href="#send-a-note">[\s\S]*?<strong>Send me a note<\/strong>/);
+    const bookings = html.match(/<p class="coaching-book-direct[^\"]*">[\s\S]*?<\/p>/g) ?? [];
+    assert.equal(bookings.length, 2, 'keep booking as a secondary choice in hero and close');
     const introLinks = html.match(/<a\b[^>]*href="https:\/\/intro\.co\/[^"]*"[^>]*>/g) ?? [];
     for (const link of introLinks) {
         assert.match(link, /href="https:\/\/intro\.co\/williswee(?:#[^"]*)?"/, link);
@@ -47,10 +48,31 @@ test('the coaching page offers booking at the start and the end', () => {
         assert.match(link, /\brel="noopener noreferrer"/, link);
     }
     for (const link of bookings) assert.ok(link.includes(`href="${booking}"`), link);
-    assert.ok(bookings.every(link => introLinks.includes(link)), 'booking controls open Intro');
-    for (const control of html.match(/<a class="coaching-booking"[\s\S]*?<\/a>/g) ?? []) {
+    for (const control of bookings) {
         assert.match(control, /<span class="visually-hidden"> \(opens in a new tab\)<\/span>/, 'booking controls announce the new tab');
+        assert.match(control, /Rates &amp; times on Intro\. 20% goes to charity\./);
     }
+});
+
+test('the note form works as native HTML and names each field for accessible email delivery', () => {
+    const html = read('coaching.html');
+    const form = html.match(/<form id="coaching-note-form"[\s\S]*?<\/form>/)?.[0];
+    assert.ok(form, 'missing note form');
+    assert.match(form, /action="https:\/\/formspree\.io\/f\/mdekydke" method="POST"/);
+    assert.doesNotMatch(form, /\bnovalidate\b/, 'native validation must survive without JavaScript');
+    for (const name of ['name', 'email', 'message']) {
+        assert.match(form, new RegExp(`<label for="note-${name}">`));
+        assert.match(form, new RegExp(`<(?:input|textarea) id="note-${name}" name="${name}"[^>]*\\brequired`));
+        assert.match(form, new RegExp(`aria-describedby="[^"]*note-${name}-error`));
+        assert.match(form, new RegExp(`id="note-${name}-error"[^>]*hidden`));
+    }
+    assert.match(form, /name="email" type="email" autocomplete="email"/);
+    assert.match(form, /name="_gotcha" tabindex="-1" autocomplete="off"/);
+    assert.match(form, /type="submit" data-note-submit>Send note<\/button>/);
+    assert.match(form, /id="coaching-note-status"[^>]*role="status"[^>]*aria-live="polite"/);
+    assert.ok(html.indexOf(form) > html.indexOf('aria-labelledby="wall-of-love"'));
+    assert.match(html, /I’ll reply by email within 3 business days\./);
+    assert.match(html, /<script src="coaching-contact\.js\?v=[^"]+" defer><\/script>/);
 });
 
 test('every testimonial quotes a named, linked source', () => {
@@ -71,15 +93,14 @@ test('coaching topics stay numbered in order', () => {
     assert.deepEqual(marks, items.map((_, index) => `${index + 1}`));
 });
 
-test('the desktop rail links to real sections and to booking', () => {
+test('the desktop rail links to real sections including the note form', () => {
     const html = read('coaching.html');
     const rail = html.match(/<nav class="coaching-rail reading-rail"[\s\S]*?<\/nav>/)?.[0];
     assert.ok(rail, 'missing coaching rail');
     const targets = [...rail.matchAll(/href="#([^"]+)"/g)].map(([, id]) => id);
     assert.ok(targets.length > 0);
-    for (const id of targets) assert.match(html, new RegExp(`<h2 id="${id}">`), `rail target #${id}`);
-    assert.match(rail, new RegExp(`<a class="coaching-rail-booking" href="${booking}" target="_blank" rel="noopener noreferrer">`));
-    assert.match(rail, /<span class="visually-hidden"> \(opens in a new tab\)<\/span>/);
+    for (const id of targets) assert.match(html, new RegExp(`<h2 id="${id}"(?: [^>]*)?>`), `rail target #${id}`);
+    assert.match(rail, /<a class="coaching-rail-contact" href="#send-a-note">Send me a note/);
 });
 
 test('coaching page links and link-preview image resolve to published files', () => {
