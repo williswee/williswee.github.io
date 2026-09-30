@@ -709,3 +709,13 @@ What's yours?
 2️⃣ Had an interesting conversation with my older girls about the stories I told them when they were younger. We compared those stories with the ones I tell my youngest girl now. It was a fun conversation.
 
 3️⃣ A friend shared my coaching page unprompted. That was really kind of him. It felt nice.
+
+## Gratitude note #65
+
+*2026-10-01*
+
+1️⃣ Had a very honest, candid, and positive conversation with the wife, sharing something deep inside us.
+
+2️⃣ Met two of my university friends. It was a really good catch-up. We’re going to do it again in November. Looking forward to that.
+
+3️⃣ The children were drawing on the whiteboard together and helping one another. No fights, just pure fun.
