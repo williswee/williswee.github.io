@@ -165,6 +165,7 @@ const html = `<!DOCTYPE html>
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="reading-nav.js?v=1.3"></script>
     <script src="gratitude.js?v=2.5" defer></script>
+    <script src="site-analytics.js?v=1" defer></script>
 </head>
 
 <body class="gratitude-page">

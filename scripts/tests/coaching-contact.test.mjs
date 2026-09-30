@@ -8,6 +8,7 @@ const source = readFileSync(new URL('../../coaching-contact.js', import.meta.url
 function setup({ missingFeature, missingForm = false, abortRejects = true } = {}) {
     const elements = new Map();
     const requests = [];
+    const analyticsEvents = [];
     const timers = new Map();
     const windowListeners = new Map();
     let activeElement;
@@ -67,6 +68,7 @@ function setup({ missingFeature, missingForm = false, abortRejects = true } = {}
         Object.values(fields).forEach(field => { field.input.value = ''; });
     };
     const window = {
+        siteAnalytics: { track: name => analyticsEvents.push(name) },
         addEventListener(type, listener) { windowListeners.set(type, listener); },
         AbortController,
         FormData: class {
@@ -96,7 +98,7 @@ function setup({ missingFeature, missingForm = false, abortRejects = true } = {}
     const document = { getElementById: id => missingForm && id === form.id ? null : elements.get(id) };
     vm.runInNewContext(source, { document, window });
     return {
-        form, fieldset, status, button: submit, providerButton, fields, requests, timers,
+        form, fieldset, status, button: submit, providerButton, fields, requests, timers, analyticsEvents,
         get focused() { return activeElement; },
         async submit() {
             const event = { prevented: false, preventDefault() { this.prevented = true; } };
@@ -181,6 +183,7 @@ test('one request captures fields before disabling controls and confirms provide
     assert.equal(page.form.resetCount, 1);
     assert.equal(page.fieldset.hidden, true);
     assert.equal(page.status.dataset.state, 'success');
+    assert.deepEqual(page.analyticsEvents, ['coaching_note_sent']);
     assert.equal(page.status.textContent, 'Thanks for your note. I’ll reply by email within 3 business days.');
     assert.equal(page.focused, page.status);
     assert.equal(page.timers.size, 0);
@@ -243,9 +246,10 @@ for (const failure of ['network', 'invalid JSON', 'unknown JSON', 'HTTP failure'
         assert.equal(page.fieldset.hidden, false);
         assert.equal(page.fieldset.disabled, false);
         assert.equal(page.focused, page.status);
-        assert.equal(page.requests.length, 1);
-        assert.equal(page.timers.size, 0);
-        assert.equal(page.providerButton.hidden, false);
+    assert.equal(page.requests.length, 1);
+    assert.equal(page.timers.size, 0);
+    assert.equal(page.providerButton.hidden, false);
+    assert.deepEqual(page.analyticsEvents, []);
     });
 }
 

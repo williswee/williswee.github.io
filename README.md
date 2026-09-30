@@ -97,6 +97,26 @@ The note form posts name, email, and message to `https://formspree.io/f/mdekydke
 
 The reply expectation is within 3 business days. Keep submitted values out of URLs, browser storage, analytics, logs, and confirmation text. After changing the endpoint or account settings, verify a clearly labeled test reaches the configured inbox and replying addresses the sender; local mocked tests cannot confirm delivery or account-side CAPTCHA settings.
 
+### Coaching analytics
+
+The site uses [Umami Cloud](https://cloud.umami.is/) for pageviews and coaching funnel events. Its **public Website ID** is in [`site-analytics.js`](site-analytics.js); this is not an API key. The tracker runs on `williswee.com` and `www.williswee.com`, not local previews, and excludes URL search and hash values. Keep the loader in the head of new pages; `scripts/render-gratitude.mjs` owns the generated Gratitude page's copy.
+
+Umami records pageviews automatically. The site sends these named events without field values or event properties:
+
+| Event | Meaning |
+| --- | --- |
+| `coaching_cta_click` | A link to Coaching was clicked; the event's page path identifies the source article or page. |
+| `coaching_note_link_click` | A link on Coaching jumped to the note form. |
+| `coaching_note_started` | The visitor first entered non-whitespace text in the message field on this page load. |
+| `coaching_note_send_click` | The Send note button was clicked, even if validation prevents submission. |
+| `coaching_note_sent` | The enhanced form received an explicit success response from Formspree. |
+| `coaching_note_provider_click` | The visitor chose the Formspree fallback. This does not confirm delivery. |
+| `coaching_booking_click` | A link to book on Intro was clicked. This does not confirm a booking. |
+
+In Umami, compare **unique visitors** who triggered `coaching_cta_click` on an article path with unique visitors to that article in the same date range for an article-to-Coaching click-through rate. To see progression, create a Funnel with `coaching_cta_click` → viewed `/coaching.html` → `coaching_note_started` → `coaching_note_send_click` → `coaching_note_sent`. Filter the first event by article path when comparing individual essays. These are named actions, not a visual map of every click. The last step covers only confirmed inline submissions; native or fallback Formspree submissions cannot be confirmed from this site. Collection starts after the updated site is published. The existing Inflect tag measures bot traffic separately.
+
+Keep actual enquiries and follow-up stages in Formspree or a private lead tracker, never in site analytics or this public repository. [Formspree's free plan](https://help.formspree.io/articles/account-management/account-limits) retains submission history for 30 days; its [automatic Google Sheets plugin](https://help.formspree.io/articles/plugins/use-google-sheets-to-send-your-submissions-to-a-spreadsheet) is a paid-plan feature.
+
 The coaching topics are numbered with pixel tiles (plain digits in `.coaching-topic-mark`). Renumber them if you add or remove one. On desktop, the left rail (`.coaching-rail`) links each section's `h2` and offers a note shortcut. Add any new section to it. The generation prompt and asset settings for the "comrades" backdrop are in `.impeccable/assets/coaching-comrades-v1.prompt.json`.
 
 To add a testimonial, copy an `<li>` inside `.coaching-quotes`. Replace the nameplate link in `<figcaption>` (the person's name and a source URL) and the curly-quoted text in `<blockquote>`. Use only real, attributable quotes. The last testimonial shows the "continue" arrow pointing to the note invitation. `coaching-game.js` runs its four-second animation when the cue is visible. The closing lantern welcomes the reader once and stays lit; reduced motion leaves it steady.

@@ -137,6 +137,7 @@
             // Formspree's current client recognizes `next`; also accept its explicit success flag.
             if (response.ok && result && (typeof result.next === 'string' || result.ok === true) && !errors.length) {
                 succeeded = true;
+                window.siteAnalytics?.track('coaching_note_sent');
                 form.reset();
                 fieldset.hidden = true;
                 showStatus('Thanks for your note. I’ll reply by email within 3 business days.', 'success');
