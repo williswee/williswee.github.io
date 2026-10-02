@@ -719,3 +719,13 @@ What's yours?
 2️⃣ Met two of my university friends. It was a really good catch-up. We’re going to do it again in November. Looking forward to that.
 
 3️⃣ The children were drawing on the whiteboard together and helping one another. No fights, just pure fun.
+
+## Gratitude note #66
+
+*2026-10-02*
+
+1️⃣ Had a really, really great conversation with a friend who is also a founder. He’s going through an exciting, potentially life-changing phase. Wishing him all the best. I also learned a lot from him, so I’m grateful we had this conversation.
+
+2️⃣ Had a really fun morning with my kids. We cycled near the park and enjoyed watching people fish. I found it fascinating that my girl enjoyed it too. It was quite therapeutic, though pretty hot.
+
+3️⃣ Had a good catch-up over dinner with a group of friends, organized by the founder of a fund. We’ve known him for quite some time and were really happy to see him succeeding and flourishing. An amazing, inspiring story.
