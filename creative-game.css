@@ -1,0 +1,98 @@
+/* Creative inherits the shared reading room and the Work workshop illustration. */
+.creative-opening { margin-bottom: 32px; }
+.creative-opening h1 { max-width: 15ch; }
+.creative-intro-tools { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 20px; min-height: 44px; margin-top: 20px; }
+.creative-opening p { margin: 0; font-size: 1.0625rem; }
+.creative-intro-tools .random-pick-btn { flex: 0 0 auto; }
+.creative-page .random-pick-icon svg { display: block; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.creative-projects { margin: 0; padding: 0; list-style: none; }
+.creative-projects > li { position: relative; padding: 28px 0 32px; border-top: 1px solid var(--line); scroll-margin-top: calc(var(--header-height) + 24px); }
+.creative-projects > li:last-child { border-bottom: 1px solid var(--line); }
+.creative-project--picked::before, .creative-project--picked::after { position: absolute; width: 12px; height: 12px; content: ""; pointer-events: none; }
+.creative-project--picked::before { top: 20px; left: -12px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+.creative-project--picked::after { bottom: 20px; right: -12px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+.creative-project--picked h2 { color: var(--gold); }
+.creative-projects h2 {
+    margin-bottom: 10px;
+    font: 600 1.2rem/1.55 var(--font-body);
+    letter-spacing: -0.02em;
+    text-wrap: pretty;
+}
+.creative-projects > li > p { margin: 0; max-width: 52ch; }
+.creative-project-media { margin: 20px 0 12px; }
+.creative-preview-link { display: block; }
+.creative-preview-link:is(:hover, :focus-visible) img { border-color: var(--gold); }
+.creative-project-media :is(img, video) {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    background: var(--ink);
+}
+.creative-project-media figcaption {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0 16px;
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: var(--font-size-ui);
+}
+.creative-project-media figcaption a { display: inline-flex; align-items: center; min-height: 44px; }
+.creative-project-media figcaption a:hover { color: var(--gold); }
+.creative-demo-note { flex-basis: 100%; }
+.creative-demo-description { flex: 1 1 9rem; min-width: min(100%, 9rem); }
+.creative-demo-description[open] { flex-basis: 100%; }
+.creative-demo-description > summary {
+    width: fit-content;
+    max-width: 100%;
+    min-height: 44px;
+    padding-block: 10px;
+    color: var(--cream-soft);
+    cursor: pointer;
+}
+.creative-demo-description > summary:is(:hover, :focus-visible) { color: var(--gold); }
+.creative-demo-description > div {
+    padding-block: 8px 16px;
+    color: var(--cream-soft);
+    font-size: 1rem;
+}
+.creative-demo-description p { margin: 0 0 12px; max-width: 65ch; }
+.creative-demo-description p:last-child { margin-bottom: 0; }
+.creative-project-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 44px;
+    color: var(--gold);
+    font-size: var(--font-size-ui);
+    font-weight: 600;
+    text-decoration: none;
+}
+.creative-project-link > svg {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: square;
+    transition: transform 180ms ease-out;
+}
+.creative-project-link:is(:hover, :focus-visible) > svg { transform: translate(2px, -2px); }
+.creative-project-link:is(:hover, :focus-visible) > span { text-decoration: underline; text-underline-offset: 5px; }
+.creative-more { margin: 24px 0 0; color: var(--muted); font-size: var(--font-size-ui); }
+
+@media (max-width: 760px) {
+    .creative-landscape img { object-position: center 68%; }
+    .creative-opening p { font-size: 1rem; }
+    .creative-projects > li { padding-block: 24px; }
+    .creative-projects h2 { font-size: 1.1rem; }
+    .creative-project-media { margin-top: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .creative-project-link > svg { transition: none; }
+    .creative-project-link:is(:hover, :focus-visible) > svg { transform: none; }
+}

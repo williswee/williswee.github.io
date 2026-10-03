@@ -65,6 +65,14 @@ Follow the "How to publish a new article" section in README.md and the essay aut
 Substack URL:
 Slug: (single word slug, e.g. `mission`)
 
+## Adding a creative project
+
+The Creative row in the homepage Work section opens `creative.html`. This page holds the growing list of projects made for fun. Add a `<li>` inside `.creative-projects` with a stable ID, project name, short description, visual preview, destination, and action label. Use a native `<video controls playsinline preload="metadata">` with a poster when a demo exists; otherwise use an optimized project image with alt text, intrinsic dimensions, and responsive sources. Keep media outside the action link so playback controls work independently. Include a direct video link for playback recovery. Keep the native links usable without JavaScript. Links to X open in a new tab and say so for screen readers; the Willis game opens in the same tab.
+
+Give each silent demo an equivalent text description of its interactions and results inside a native "Video description" disclosure. Connect the video to the disclosure with `aria-details`, and reference its always-visible summary with `aria-describedby`. Keep visible link wording at the start of any custom accessible name, then add project or new-tab context.
+
+The page inherits `thoughts/reading-room.css` and `reading-nav.js`, with project-list styles in `creative-game.css`. It reuses the Work workshop illustration. `creative-game.js` adds the optional "Surprise me" picker, which chooses a different project, focuses its heading, and updates its hash. The gold selection corners stay visible under reduced motion; the die turn and smooth scrolling stop. Keep every entry's ID stable and retain its `h2` so new projects join the picker automatically. Update the Creative entry's `lastmod` in `sitemap.xml` when changing the list. Preview the homepage Work row and Creative page at desktop and phone widths.
+
 ## Local preview
 
 Run `node --test scripts/tests/*.test.mjs` for the dependency-free regression checks before publishing changes to navigation, reader interactions, focus mode, newsletter loading, or the Gratitude renderer. Generator tests use temporary fixtures instead of the real note source or generated page. Also run `node scripts/sync-essay-manifest.mjs --check` and `node scripts/render-gratitude.mjs --check` to catch stale publishing outputs.

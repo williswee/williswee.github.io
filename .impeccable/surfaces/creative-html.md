@@ -1,0 +1,56 @@
+---
+schema_version: 1
+slug: creative-html
+primary_target: creative.html
+related_targets: ["creative-game.css", "thoughts/reading-room.css", "index.html"]
+---
+
+# Creative projects
+
+Mode: Read.
+
+## Current contract, 2026-10-03
+
+Creative is a growing list of projects Willis builds to explore. The fifth Work row on the homepage opens `creative.html`. Its label is "Creative", its title is "Randomly fun projects", and its description is "Things I build just to explore." The page opens with "Randomly fun projects." and the same description.
+
+This is a narrow addition to the existing site. It uses the shared reading room, Silkscreen page heading, Sora project headings and prose, navy reading pane, cream text, gold details, and existing Work workshop portrait. On desktop, the portrait sits beside the reading pane. On phones, it becomes the opening band, with a 68% vertical crop. The project list uses ruled rows. Each row has a title, description, full-width preview, and separate action link with a northeast arrow. It can grow by adding another list item.
+
+Each project action is a native link. Media sits outside the action link so video controls work independently. The two X posts open in new tabs with `noopener noreferrer` and accessible new-tab notices. The game opens in the same tab. The list works without JavaScript. The page keeps the shared navigation, skip link, footer links, and a "Back to Work" link to `index.html#workshop`. The gold action links have a minimum height of 44px. Hover and keyboard focus underline their text; reduced-motion preferences remove the arrow transition.
+
+Each silent video has a native "Video description" disclosure beside its direct-file link. The controls wrap with enlarged text, and an open description uses the full pane width. The prose describes the recorded interactions and results, verified against the final video. `aria-details` connects the player to the disclosure, while `aria-describedby` references its always-visible summary. Chrome omits descriptions that reference content inside a closed disclosure, so the player points to the available control and exposes the full prose when it opens. The summary has a project-specific accessible name, native disclosure marker, visible keyboard focus, and a minimum height of 44px. Description text uses the shared body font at 1rem. Custom link names retain the full visible wording before adding project or new-tab context.
+
+## Discovery interaction
+
+The delight thesis is a small dice roll in the workshop that takes the visitor straight to a project. An inline "Surprise me" button sits beside the introduction on desktop and wraps beneath it on phones. It uses the shared random-pick control and drawn die from Books and Gratitude. `creative-game.js` reveals it only after initialization and only when at least two projects exist.
+
+Each pick excludes the last chosen project, focuses its heading beneath the fixed navigation, and updates the URL hash without adding a history entry. Gold heading text and opposing 12px corners identify the selection. Other projects stay fully visible. The die turns for 220ms on activation, without delaying navigation. Reduced motion removes the turn and uses immediate scrolling; the selected state remains visible. Escape clears the marks and project hash without moving focus or scrolling, and it preserves the previous choice for the next roll. Existing project hashes also restore their selection marks. The picker never plays a video or opens a project link.
+
+## Supplied projects and exact destinations
+
+- "Brain games for kids" links to `https://x.com/williswee/status/2092113393419518026?s=20`. Its description is "Brain games I built for my girls, with a little friendly competition."
+- "GoogleFluid" links to `https://x.com/williswee/status/2103028022358204876?s=20`. Its description is "A Google Search experiment where the interface changes as you type."
+- "Find the real Willis" links to `https://williswee.com/game`. Its description is "A five-minute game. Three versions of me. Two are making shit up."
+
+The homepage Notes section no longer contains the game link. Creative now groups these three supplied projects under Work.
+
+## Project previews
+
+Brain games uses a 30-second recording of actual gameplay on the public `https://dlkplay10.vercel.app/`, captured on 2026-10-03. The recording shows casual play through level 1 of Arrow Exit, Star Circuit, and Color Pour, with each puzzle solved and the cursor visible. The raw clips last 13, 11, and 15 seconds. They were joined and sped up to 1.3 times speed with FFmpeg `setpts=PTS/1.3`. There are no overlays, captions, narration, or audio.
+
+The page serves `videos/brain-games-demo.mp4`, encoded as H.264 with `yuv420p` at 1280 × 900 and 30 frames per second. Its poster, `images/brain-games-demo-poster.webp`, comes from 0.5 seconds into the finished video. Native controls, `playsinline`, and `preload="metadata"` allow playback without JavaScript. The video has no surrounding anchor and does not autoplay. A visible "Open video" link and an in-player fallback open the MP4 directly; there is no visible demo caption. The previous Open Graph image copies were removed after this recording replaced them.
+
+GoogleFluid reuses `videos/googlefluid-demo-738b72e42608.mp4` and `images/googlefluid-demo-poster-1280-9f83b9bd09fe.webp`. The 30-second silent demo uses native video controls, `playsinline`, and `preload="metadata"`. It has no surrounding anchor. A visible "Open video" link and an in-player fallback both open the MP4 directly.
+
+Find the real Willis uses a screenshot of the public `https://williswee.com/game` starting screen, captured without authentication at 1280 × 860 on 2026-10-03. The page serves `images/creative-real-willis-640.webp` and `images/creative-real-willis-1280.webp` with responsive source selection and lazy loading.
+
+The previews retain their aspect ratios and fill the reading pane's available width. The Brain games recording and Willis screenshot use actual project content. Their source URLs, capture dates, formats, and dimensions are recorded in `.impeccable/assets/creative-project-previews.json`.
+
+## Sources and system fit
+
+The implementation sources are `creative.html`, `creative-game.css`, and `creative-game.js`. Shared layout, typography, colors, and responsive behavior come from `thoughts/reading-room.css`. The reused portrait is `images/game-world/work-coastal-workshop-v1.webp`, with existing provenance in `.impeccable/assets/work-coastal-workshop-v1.prompt.json`. The homepage entry is in `index.html`; its existing contract is in `.impeccable/surfaces/index-html.md`.
+
+The page follows `PRODUCT.md`'s static HTML/CSS constraint and purpose of sharing personal projects. The existing design system fits this addition. It introduces no generated imagery, global tokens, or new visual direction, so `DESIGN.md` and the global design sidecar remain unchanged.
+
+The Willis image preview also links to the game, with a gold border on hover and keyboard focus. Both videos remain outside links.
+
+The accessibility fixes passed Chrome checks at 1283, 768, 390, and 320px, including a 200% root text size at 320px. The browser exposes both video-description relationships while disclosures are closed and all description text when opened. Enter and Space toggle the disclosures, and both remain usable without JavaScript or loaded MP4s. Project links preserve their visible wording in the computed accessible names. The homepage round trip and 30-second Brain video playback pass. All 28 document-structure and reading-navigation tests pass. These checks do not constitute a full assistive-technology certification.

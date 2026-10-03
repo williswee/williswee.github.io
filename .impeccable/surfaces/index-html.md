@@ -9,6 +9,10 @@ related_targets: ["home-game.css", "home-game.js"]
 
 Mode: Experience.
 
+## Creative projects addition, 2026-10-02
+
+The fifth Work row links to `creative.html` with the label "Creative", title "Randomly fun projects", and description "Things I build just to explore." The game link has moved out of Notes into the Creative project list. The existing homepage world and shared design system remain unchanged. See `.impeccable/surfaces/creative-html.md` for the new page's contract and sources.
+
 ## Current contract — audit fixes, 2026-09-23
 
 The current homepage contains Start / Work / Notes / Life / Connect, backed by five scenic WebP images. The compact fixed header uses an active underline and a single scroll-progress line. There is no journey rail, game-key button system, avatar cartridge, or Life-only font exception. All display headings use Silkscreen; prose and navigation use Sora. DESIGN.md and home-game.css describe the shared current world.

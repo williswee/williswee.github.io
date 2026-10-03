@@ -11,7 +11,7 @@ const pages = [
 ].sort();
 const read = name => readFileSync(new URL(name, root), 'utf8');
 const essayManifest = JSON.parse(read('thoughts/essay-manifest.js').match(/Object\.freeze\(([\s\S]*?)\);/)?.[1] ?? 'null');
-const topLevelPages = ['books.html', 'coaching.html', 'gratitude.html', 'guide.html', 'index.html', 'work.html'];
+const topLevelPages = ['books.html', 'coaching.html', 'creative.html', 'gratitude.html', 'guide.html', 'index.html', 'work.html'];
 // Served by GitHub Pages for missing addresses; never listed in the sitemap.
 const utilityPages = ['404.html'];
 const analyticsExcludedPages = new Set(['gratitude.html']);
