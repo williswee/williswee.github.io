@@ -24,8 +24,26 @@
     if (art && rail) {
         // Tells the art where the rail ends, so the figures clear it at any text size.
         const clearRail = () => {
+            const artRect = art.getBoundingClientRect();
+            const railTop = rail.getBoundingClientRect().top;
+            // The selected portrait's heads and lantern span y=1205 through y=1465.
+            // Short windows reserve that space; the rail can scroll if text needs more room.
+            const scale = Math.max(artRect.width / 768, artRect.height / 2048);
+            const railRoom = Math.min(
+                artRect.bottom - railTop - 24 - 260 * scale - 16,
+                artRect.top + 1205 * scale - railTop - 24
+            );
+            rail.style.setProperty('--coaching-rail-room', `${Math.max(44, Math.floor(railRoom))}px`);
             const { bottom } = rail.getBoundingClientRect();
-            if (bottom) art.style.setProperty('--coaching-rail-clearance', `${Math.round(bottom - art.getBoundingClientRect().top + 24)}px`);
+            if (bottom) {
+                const clearance = Math.round(bottom - artRect.top + 24);
+                art.style.setProperty('--coaching-rail-clearance', `${clearance}px`);
+                const centered = (artRect.height - 2048 * scale) / 2;
+                const lanternFits = artRect.height - 16 - 1465 * scale;
+                const headsClearRail = clearance - 1205 * scale;
+                const shortCrop = Math.min(0, Math.max(headsClearRail, Math.min(centered, lanternFits)));
+                art.style.setProperty('--coaching-short-crop', `${shortCrop}px`);
+            }
         };
         clearRail();
         window.addEventListener('resize', clearRail);

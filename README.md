@@ -97,7 +97,7 @@ GitHub Pages serves `404.html` for every missing address, at any depth. Use root
 
 ## Editing coaching
 
-[Coaching](coaching.html) is where every essay's coaching card leads. It shares `thoughts/reading-room.css` with the other reading pages, with its own layout in `coaching-game.css`. Its dedicated backdrop, `images/game-world/coaching-comrades-v1.webp`, is fixed and uses the same treatment as the Guide's landscape. Its link-preview image, `images/game-world/coaching-comrades-og.jpg`, is a 2× crop of the two figures from that art (1200×630). Provenance and crop details are in `.impeccable/assets/coaching-comrades-v1.prompt.json`. Coaching is not in the header navigation.
+[Coaching](coaching.html) is where every essay's coaching card leads. It shares `thoughts/reading-room.css` with the other reading pages, with its own layout in `coaching-game.css`. Its dedicated backdrop, `images/game-world/coaching-comrades-v2.webp`, is fixed and uses the same treatment as the Guide's landscape. Its link-preview image, `images/game-world/coaching-comrades-v2-og.jpg`, is a landscape version of the selected bench scene (1731×909). Provenance and framing details are in `.impeccable/assets/coaching-comrades-v2.prompt.json`. Coaching is not in the header navigation.
 
 "Send me a note" is the primary invitation in the hero and desktop rail. It leads to the inline form after the testimonials. The secondary "Book a session" links in the hero and close open `https://intro.co/williswee` in a new tab. The coaching card (`aside.coaching-cta`, a dialogue box with a "Willis" nameplate) sits between `</article>` and the newsletter block in every essay, and at the end of the Guide. All copies share the same wording, so change them together.
 
@@ -125,7 +125,7 @@ In Umami, compare **unique visitors** who triggered `coaching_cta_click` on an a
 
 Keep actual enquiries and follow-up stages in Formspree or a private lead tracker, never in site analytics or this public repository. [Formspree's free plan](https://help.formspree.io/articles/account-management/account-limits) retains submission history for 30 days; its [automatic Google Sheets plugin](https://help.formspree.io/articles/plugins/use-google-sheets-to-send-your-submissions-to-a-spreadsheet) is a paid-plan feature.
 
-The coaching topics are numbered with pixel tiles (plain digits in `.coaching-topic-mark`). Renumber them if you add or remove one. On desktop, the left rail (`.coaching-rail`) links each section's `h2` and offers a note shortcut. Add any new section to it. The generation prompt and asset settings for the "comrades" backdrop are in `.impeccable/assets/coaching-comrades-v1.prompt.json`.
+The coaching topics are numbered with pixel tiles (plain digits in `.coaching-topic-mark`). Renumber them if you add or remove one. On desktop, the left rail (`.coaching-rail`) links each section's `h2` and offers a note shortcut. Add any new section to it. The generation prompt and asset settings for the "comrades" backdrop are in `.impeccable/assets/coaching-comrades-v2.prompt.json`.
 
 To add a testimonial, copy an `<li>` inside `.coaching-quotes`. Replace the nameplate link in `<figcaption>` (the person's name and a source URL) and the curly-quoted text in `<blockquote>`. Use only real, attributable quotes. The last testimonial shows the "continue" arrow pointing to the note invitation. `coaching-game.js` runs its four-second animation when the cue is visible. The closing lantern welcomes the reader once and stays lit; reduced motion leaves it steady.
 

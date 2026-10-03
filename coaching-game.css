@@ -1,9 +1,9 @@
 /* Coaching shares the reading shell; these rules stay local to the page. */
-/* The figures' heads sit 142.7cqw (or 53.52cqh) down the scaled art. Short windows would tuck them under the
+/* The figures' heads sit 156.9cqw (or 58.84cqh) down the scaled art. Short windows would tuck them under the
    rail, so they drop to just below it; taller windows keep the centered crop. coaching-game.js measures the
    rail, and 420px clears it at the default text size. */
 .coaching-landscape { container-type: size; }
-.coaching-landscape img { object-position: 50% min(0px, max(50%, calc(var(--coaching-rail-clearance, 420px) - max(142.7cqw, 53.52cqh)))); }
+.coaching-landscape img { object-position: 50% min(0px, max(50%, calc(var(--coaching-rail-clearance, 420px) - max(156.9cqw, 58.84cqh)))); }
 .coaching-page main a:not(.coaching-invitation, .coaching-rail-contact, .dialogue-nameplate) { text-decoration-color: var(--gold); transition: color 180ms ease-out; }
 .coaching-page main a:not(.coaching-invitation, .coaching-rail-contact, .dialogue-nameplate):hover { color: var(--gold); }
 .coaching-page { --coaching-action-width: 440px; --coaching-error: #ffc0ad; color-scheme: dark; }
@@ -39,6 +39,7 @@
 .coaching-book-direct small { display: block; margin-top: 2px; color: var(--muted); font-size: inherit; }
 
 /* The shared reading rail carries the sections and a note shortcut on desktop. */
+.coaching-rail { max-height: min(calc(100svh - var(--header-height) - 100px), var(--coaching-rail-room, 100svh)); }
 .coaching-rail-title { margin: 0 0 12px; color: var(--cream); font: 700 1rem/1.4 var(--font-display); }
 .coaching-rail a:not(.coaching-rail-contact) {
     display: block;
@@ -135,6 +136,13 @@
     12%, 48% { opacity: .5; }
     24%, 56%, 80% { opacity: 1; }
 }
+@media (prefers-reduced-motion: reduce) {
+    /* Keep the invitation cues visible and steady, including preference changes mid-visit. */
+    .coaching-quotes.is-visible .coaching-continue-cue,
+    .coaching-lantern.has-arrived .coaching-lantern-light { animation: none; }
+    .coaching-invitation-arrow { transition: color 180ms ease-out; }
+    .coaching-invitation:is(:hover, :focus-visible) .coaching-invitation-arrow { transform: none; }
+}
 .coaching-not-sure { margin: 0; font-size: 1rem; line-height: 1.8; }
 
 /* A short note belongs in the reading flow, with the same ink and gold as the invitation. */
@@ -167,6 +175,20 @@
 .coaching-note-status[data-state="success"] { border-color: var(--gold); color: var(--gold); }
 .coaching-book-direct-close { margin: 0 0 28px; padding-top: 24px; border-top: 1px solid var(--line); }
 
+/* Short desktop windows need room below the rail for the bench and lantern.
+   Keep the links at least 44px tall and align the reading panel with the compact rail. */
+@media (min-width: 761px) and (max-height: 740px) {
+    .coaching-rail {
+        top: calc(var(--header-height) + 24px);
+        padding-block: 12px;
+    }
+    .coaching-page .reading-shell { margin-top: calc(var(--header-height) + 24px); }
+    .coaching-landscape img { object-position: 50% var(--coaching-short-crop, 50%); }
+    .coaching-rail-title { margin-bottom: 8px; }
+    .coaching-rail a:not(.coaching-rail-contact) { padding-block: 8px; }
+    .coaching-rail-contact { margin-top: 10px; }
+}
+
 @media (max-width: 540px) {
     .coaching-note-details { grid-template-columns: 1fr; gap: 24px; }
     .coaching-note-submit, .coaching-note-provider { width: 100%; }
@@ -175,9 +197,10 @@
 @media (max-width: 760px) {
     /* Phones reach the form from the hero; the rail would only repeat it. */
     .coaching-rail { display: none; }
-    /* In the phone band the heads' headroom eases from 28px to 10px on small tablets, so faces stay
-       in view. 62% serves browsers without container units. */
-    .coaching-landscape img { object-position: center 62%; object-position: center calc(clamp(10px, 69px - 10.6cqw, 28px) - 142.7cqw); }
+    /* The band grows on small tablets to keep the shared notebook above the reading panel. */
+    .coaching-landscape { height: max(188px, 35vw); }
+    .coaching-page .reading-shell { margin-top: calc(var(--header-height) + max(156px, 35vw - 32px)); }
+    .coaching-landscape img { object-position: center 68%; object-position: center calc(clamp(10px, 69px - 10.6cqw, 28px) - 156.9cqw); }
     .coaching-landscape::after { background: linear-gradient(180deg, rgba(7, 16, 29, .08), rgba(7, 16, 29, .2) 60%, var(--ink)); }
     .coaching-intro, .coaching-section p, .coaching-topics li, .coaching-contact-intro { font-size: 1rem; }
     .coaching-invitation { width: 100%; }
