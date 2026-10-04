@@ -60,7 +60,7 @@ main:focus { outline: none; }
     inset: 0 0 auto;
     z-index: 50;
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
     height: var(--header-height);
     padding: 0 4vw;
@@ -75,7 +75,8 @@ main:focus { outline: none; }
 .brand-short { display: none; }
 /* Let enlarged labels scroll within the space beside the brand at any width,
    not only after the mobile breakpoint. Keyboard focus reveals each link. */
-.reading-nav { display: flex; flex: 0 1 auto; min-width: 0; align-self: stretch; gap: clamp(18px, 2.5vw, 36px); overflow-x: auto; scrollbar-width: thin; }
+/* Share the text baseline with the brand while retaining full-height links. */
+.reading-nav { display: flex; flex: 0 1 auto; min-width: 0; height: 100%; align-self: baseline; gap: clamp(18px, 2.5vw, 36px); overflow-x: auto; scrollbar-width: thin; }
 .reading-nav a {
     display: grid;
     flex: 0 0 auto;
@@ -380,10 +381,10 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
     .reading-hud::after { right: 1px; width: 8px; height: 12px; }
     .brand-full { display: none; }
     .brand-short { display: inline; }
-    .site-brand { align-items: center; min-height: 44px; gap: 6px; }
+    .site-brand { min-height: 44px; gap: 6px; }
     .site-brand > span { font-size: 0.74rem; }
     .site-brand small { font-size: 0.875rem; }
-    .reading-nav { flex: 1 1 auto; height: auto; margin: 0; padding-inline: 4px; justify-content: safe flex-end; gap: 0; flex-wrap: nowrap; }
+    .reading-nav { flex: 1 1 auto; margin: 0; padding-inline: 4px; justify-content: safe flex-end; gap: 0; flex-wrap: nowrap; }
     .reading-nav a { flex: 0 0 auto; padding-inline: 8px; font-size: 0.75rem; letter-spacing: 0.02em; white-space: nowrap; }
     .reading-landscape { position: absolute; top: var(--header-height); height: 188px; bottom: auto; }
     .reading-landscape img { object-position: 24% 52%; }

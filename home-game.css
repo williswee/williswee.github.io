@@ -79,7 +79,7 @@ main:focus { outline: none; }
     z-index: 50;
     display: grid;
     grid-template-columns: minmax(210px, 1fr) auto;
-    align-items: center;
+    align-items: baseline;
     height: var(--header-height);
     padding: 0 clamp(24px, 4vw, 64px);
     border-bottom: 1px solid rgba(244, 233, 207, 0.18);
@@ -115,7 +115,9 @@ main:focus { outline: none; }
 
 .chapter-nav {
     display: flex;
-    align-self: stretch;
+    /* Export the menu text baseline to the header's shared baseline row. */
+    align-self: baseline;
+    height: 100%;
     gap: clamp(18px, 2.8vw, 44px);
 }
 
@@ -722,7 +724,6 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     .brand-full { display: none; }
     .brand-short { display: inline; }
     .site-brand {
-        align-items: center;
         min-height: 44px;
         gap: 6px;
     }
