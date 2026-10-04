@@ -53,6 +53,8 @@
     const railLinks = Array.from(document.querySelectorAll('.coaching-rail a[href^="#"]'));
     const sections = railLinks.map((link) => document.getElementById(link.hash.slice(1)));
     if (!railLinks.length || sections.includes(null)) return;
+    // The note shortcut stays last in the rail; track sections in page order.
+    sections.sort((a, b) => a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1);
     const header = document.querySelector('.reading-hud');
     let pending = false;
 
@@ -65,8 +67,8 @@
             if (section.getBoundingClientRect().top <= readingLine) current = section;
         });
         if (window.scrollY >= root.scrollHeight - window.innerHeight - 2) current = sections.at(-1);
-        railLinks.forEach((link, index) => {
-            if (sections[index] === current) link.setAttribute('aria-current', 'location');
+        railLinks.forEach((link) => {
+            if (link.hash === `#${current?.id}`) link.setAttribute('aria-current', 'location');
             else link.removeAttribute('aria-current');
         });
     }

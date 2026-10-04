@@ -80,6 +80,8 @@
 .coaching-section h2 + h3 { margin-top: 0; }
 .coaching-emoji { display: inline-block; margin-right: 4px; font-size: 1.15em; vertical-align: -1px; }
 .coaching-section h3 + p { margin-bottom: 0; }
+.coaching-faq-section h3 { display: grid; grid-template-columns: 1.4em minmax(0, 1fr); gap: 10px; align-items: start; }
+.coaching-faq-section .coaching-emoji { margin: 0; text-align: center; }
 .coaching-topics { margin: 0; padding: 0; list-style: none; }
 .coaching-topics li { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; margin: 0 0 24px; color: var(--cream-soft); font-size: 1.0625rem; line-height: 1.7; }
 .coaching-topics li:last-child { margin-bottom: 0; }
@@ -156,13 +158,15 @@
 .coaching-note-details { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .coaching-field { min-width: 0; }
 .coaching-field label { display: block; margin-bottom: 8px; color: var(--cream); font-size: 1rem; font-weight: 500; line-height: 1.5; }
+.coaching-field-budget label { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 8px; }
+.coaching-field-optional { color: var(--muted); font-size: var(--font-size-ui); font-weight: 400; }
 .coaching-field :is(input, textarea) { display: block; width: 100%; min-height: 48px; padding: 12px 14px; border: 1px solid var(--line-strong); border-radius: 0; background: var(--ink); color: var(--cream); caret-color: var(--gold); font: 400 1rem/1.6 var(--font-body); transition: border-color 180ms ease-out; }
 .coaching-field :is(input, textarea):hover { border-color: var(--cream-soft); }
 .coaching-field :is(input, textarea):focus { border-color: var(--gold); }
 .coaching-field :is(input, textarea)[aria-invalid="true"] { border-color: var(--coaching-error); }
 .coaching-field :is(input, textarea):disabled { opacity: .65; cursor: wait; }
 .coaching-field textarea { min-height: 168px; resize: vertical; }
-.coaching-field-message { margin-top: 24px; }
+.coaching-field-message, .coaching-field-budget { margin-top: 24px; }
 .coaching-form-hint { margin: 0 0 12px; color: var(--muted); font-size: var(--font-size-ui); line-height: 1.7; }
 .coaching-field-error { display: block; margin-top: 8px; color: var(--coaching-error); font-size: var(--font-size-ui); line-height: 1.6; }
 .coaching-note-submit, .coaching-note-provider { min-height: 48px; margin-top: 24px; padding: 12px 24px; border: 1px solid var(--gold); border-radius: 0; background: var(--gold); color: var(--ink); font-size: 1rem; font-weight: 600; line-height: 1.5; transition: background-color 180ms ease-out, border-color 180ms ease-out; }

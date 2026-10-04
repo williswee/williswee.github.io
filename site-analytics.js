@@ -38,7 +38,8 @@
             if (window.location.pathname === '/coaching.html' && url.origin === window.location.origin &&
                 url.pathname === '/coaching.html' && url.hash === '#send-a-note') {
                 track('coaching_note_link_click');
-            } else if (url.origin === window.location.origin && url.pathname === '/coaching.html') {
+            } else if (window.location.pathname !== '/coaching.html' &&
+                url.origin === window.location.origin && url.pathname === '/coaching.html') {
                 track('coaching_cta_click');
             } else if (url.hostname === 'intro.co' && url.pathname === '/williswee') {
                 track('coaching_booking_click');

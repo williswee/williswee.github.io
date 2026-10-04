@@ -25,13 +25,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="thoughts/reading-room.css?v=1.20">
-    <link rel="stylesheet" href="coaching-game.css?v=1.9">
+    <link rel="stylesheet" href="coaching-game.css?v=1.12">
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="reading-nav.js?v=1.3"></script>
     <script src="https://www.useinflect.ai/inflect-tracking.js" async data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
-    <script src="coaching-game.js?v=1.5" defer></script>
+    <script src="coaching-game.js?v=1.6" defer></script>
     <script src="coaching-contact.js?v=1.2" defer></script>
-    <script src="site-analytics.js?v=1" defer></script>
+    <script src="site-analytics.js?v=1.1" defer></script>
 </head>
 <body class="coaching-page">
     <img decoding="async" src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&iv=2026-08-12.1" alt="" width="1" height="1" style="display:none;" referrerpolicy="unsafe-url" />
@@ -71,9 +71,9 @@
                 <p class="coaching-rail-title">On this page</p>
                 <a href="#who-its-for">Who it’s for</a>
                 <a href="#what-we-can-work-on">What we can work on</a>
-                <a href="#how-it-works">How it works</a>
                 <a href="#about-me">A bit about me</a>
                 <a href="#wall-of-love">Wall of love</a>
+                <a href="#faq">FAQ</a>
                 <a class="coaching-rail-contact" href="#send-a-note">Send me a note<svg viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M9 3v12M4 10l5 5 5-5"/></svg></a>
             </nav>
 
@@ -118,18 +118,6 @@
                         <span class="coaching-receipt"><a href="thoughts/layoffsucks.html">There’s no such thing as a perfect layoff</a><span aria-hidden="true"> · </span><a href="thoughts/burnout.html">A letter to founders who are burning out</a></span>
                     </li>
                 </ul>
-            </section>
-
-            <section class="coaching-section" aria-labelledby="how-it-works">
-                <h2 id="how-it-works">How it works</h2>
-                <h3>Can we meet online, and what does it cost?</h3>
-                <p>You can book a one-to-one video call through <a href="https://intro.co/williswee" target="_blank" rel="noopener noreferrer">Intro<span class="visually-hidden"> (opens in a new tab)</span></a>. The booking page lists current session lengths, rates, and available times.</p>
-                <h3><span class="coaching-emoji" aria-hidden="true">🎒</span> What should I bring?</h3>
-                <p>A challenge, the context, and what you’ve tried. Missing data, too many paths, strong emotions, or a skill you haven’t learned yet. All is good.</p>
-                <h3><span class="coaching-emoji" aria-hidden="true">🤝</span> What does “comrades” mean?</h3>
-                <p>We work through challenges together, on equal footing. I’m friendly and candid, and open to your feedback too. More about me in <a href="guide.html">my user guide</a>.</p>
-                <h3><span class="coaching-emoji" aria-hidden="true">🧭</span> What will I leave with?</h3>
-                <p>A clearer sense of your options and where to go next. I can share concrete examples or help draft a plan. You own the decisions and execution.</p>
             </section>
 
             <section class="coaching-section" aria-labelledby="about-me">
@@ -218,7 +206,7 @@
                 <form id="coaching-note-form" class="coaching-note-form" action="https://formspree.io/f/mdekydke" method="POST">
                     <fieldset id="coaching-note-fields">
                         <legend class="visually-hidden">Your note to Willis</legend>
-                        <p class="coaching-form-hint">All fields are required.</p>
+                        <p class="coaching-form-hint">Name, email, and your note are required.</p>
                         <div class="coaching-note-details">
                             <div class="coaching-field">
                                 <label for="note-name">Name</label>
@@ -237,6 +225,11 @@
                             <textarea id="note-message" name="message" rows="5" maxlength="6000" aria-describedby="note-message-hint note-message-error" required></textarea>
                             <span id="note-message-error" class="coaching-field-error" hidden></span>
                         </div>
+                        <div class="coaching-field coaching-field-budget">
+                            <label for="note-budget">Budget per 60 minute session <span class="coaching-field-optional">Optional</span></label>
+                            <p id="note-budget-hint" class="coaching-form-hint">Include the currency. It helps me understand your budget, but I can't promise to match it.</p>
+                            <input id="note-budget" name="budget" type="text" maxlength="120" aria-describedby="note-budget-hint">
+                        </div>
                         <input type="hidden" name="_subject" value="Coaching enquiry from williswee.com">
                         <div hidden aria-hidden="true"><label for="note-website">Leave this field empty</label><input id="note-website" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
                         <button class="coaching-note-submit" type="submit" data-note-submit>Send note</button>
@@ -247,6 +240,32 @@
                 </form>
                 <p class="coaching-book-direct coaching-book-direct-close">Ready to book? <a href="https://intro.co/williswee" target="_blank" rel="noopener noreferrer">Book a session<svg viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M4 14L14 4M7 4h7v7"/></svg><span class="visually-hidden"> (opens in a new tab)</span></a><small>Rates &amp; times on Intro. 20% goes to charity.</small></p>
                 <p class="coaching-not-sure">Not sure yet? See how I think in <a href="thoughts/reminders.html">18 essential reminders from one founder to another</a> or <a href="thoughts/ten.html">10 lessons from 10 years of Tech in Asia</a>. Or read <a href="guide.html#my-flaws">my flaws</a> first.</p>
+            </section>
+
+            <section class="coaching-section coaching-faq-section" id="how-it-works" aria-labelledby="faq">
+                <h2 id="faq">FAQ</h2>
+                <h3><span class="coaching-emoji" aria-hidden="true">💻</span> Can we meet online, and what does it cost?</h3>
+                <p>You can book a one-to-one video call through <a href="https://intro.co/williswee" target="_blank" rel="noopener noreferrer">Intro<span class="visually-hidden"> (opens in a new tab)</span></a>. The booking page lists current session lengths, rates, and available times.</p>
+                <h3><span class="coaching-emoji" aria-hidden="true">🌱</span> I only have an idea. Is it too early?</h3>
+                <p>No. We can work through what to build, who it's for, and how to test it before you spend too much time or money.</p>
+                <h3><span class="coaching-emoji" aria-hidden="true">🙋</span> How do I know if you're the right person?</h3>
+                <p>Read <a href="guide.html">my user guide</a> to get a feel for how I think. If you're still unsure, <a href="#send-a-note">send me a note</a> about what you're working through. We can see whether a session would help.</p>
+                <h3><span class="coaching-emoji" aria-hidden="true">🎒</span> What should I bring?</h3>
+                <p>A challenge, the context, and what you’ve tried. Missing data, too many paths, strong emotions, or a skill you haven’t learned yet. All is good.</p>
+                <h3><span class="coaching-emoji" aria-hidden="true">🧩</span> What if I can't quite name the problem yet?</h3>
+                <p>That's okay. Tell me what's happening and what you've tried. Sometimes the first job is to figure out what the actual problem is. We can start there.</p>
+                <h3><span class="coaching-emoji" aria-hidden="true">🤝</span> What does “comrades” mean?</h3>
+                <p>We work through challenges together, on equal footing. I’m friendly and candid, and open to your feedback too. More about me in <a href="guide.html">my user guide</a>.</p>
+                <h3><span class="coaching-emoji" aria-hidden="true">💬</span> What if I disagree with your advice?</h3>
+                <p>Tell me candidly. We will figure it out.</p>
+                <h3><span class="coaching-emoji" aria-hidden="true">🧭</span> What will I leave with?</h3>
+                <p>A clearer sense of your options and where to go next. I can share concrete examples or help draft a plan. You own the decisions and execution.</p>
+                <h3><span class="coaching-emoji" aria-hidden="true">🔒</span> Is what we discuss confidential?</h3>
+                <p>Yes. I treat everything we discuss as private and confidential.</p>
+                <h3><span class="coaching-emoji" aria-hidden="true">📅</span> Can we work together on an ongoing basis?</h3>
+                <p>Yes. Ongoing sessions are possible, and I'll apply a discount. We can discuss the details.</p>
+                <h3 id="cancellations"><span class="coaching-emoji" aria-hidden="true">🔄</span> Can I cancel or get a refund?</h3>
+                <p>For sessions booked through Intro, <a href="https://intro.co/faq" target="_blank" rel="noopener noreferrer">Intro's cancellation policy<span class="visually-hidden"> (opens in a new tab)</span></a> applies. If you arrange a session directly with me, you can cancel any time before it starts. You can also request a full refund within 3 days after the session.</p>
             </section>
         </main>
 

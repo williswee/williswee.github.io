@@ -43,7 +43,7 @@ test('the coaching page leads with a note and keeps direct booking at both ends'
     assert.equal(bookings.length, 2, 'keep booking as a secondary choice in hero and close');
     const introLinks = html.match(/<a\b[^>]*href="https:\/\/intro\.co\/[^"]*"[^>]*>/g) ?? [];
     for (const link of introLinks) {
-        assert.match(link, /href="https:\/\/intro\.co\/williswee(?:#[^"]*)?"/, link);
+        assert.match(link, /href="https:\/\/intro\.co\/(?:williswee(?:#[^"]*)?|faq)"/, link);
         assert.match(link, /\btarget="_blank"/, link);
         assert.match(link, /\brel="noopener noreferrer"/, link);
     }

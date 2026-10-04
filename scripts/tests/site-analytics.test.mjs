@@ -13,7 +13,8 @@ test('every public content page loads the analytics adapter once', () => {
         for (const name of readdirSync(directory).filter(name => name.endsWith('.html') && name !== '404.html')) {
             const html = readFileSync(new URL(name, directory), 'utf8');
             const prefix = folder ? '../' : '';
-            const expected = `<script src="${prefix}site-analytics.js?v=1" defer></script>`;
+            const version = !folder && name === 'coaching.html' ? '1.1' : '1';
+            const expected = `<script src="${prefix}site-analytics.js?v=${version}" defer></script>`;
             assert.equal(html.split(expected).length - 1, 1, `${folder}${name}`);
         }
     }
@@ -98,4 +99,37 @@ test('an early notes-start event waits for the tracker to load', () => {
     page.window.umami = { track: name => events.push(name) };
     page.loaded();
     assert.deepEqual(events, ['coaching_note_started']);
+});
+
+test('coaching section, skip, and self links do not count as incoming CTAs', () => {
+    const page = setup();
+    const events = [];
+    page.window.location.href = 'https://williswee.com/coaching.html';
+    page.window.location.pathname = '/coaching.html';
+    page.window.umami = { track: name => events.push(name) };
+
+    for (const href of [
+        '#who-its-for', '#what-we-can-work-on', '#about-me', '#wall-of-love', '#faq',
+        '#main-content', '#how-it-works', '#cancellations', 'coaching.html',
+        '/coaching.html#faq', 'https://williswee.com/coaching.html#faq'
+    ]) {
+        page.click(new page.Element({ href }));
+    }
+    assert.deepEqual(events, []);
+
+    page.click(new page.Element({ href: '#send-a-note' }));
+    page.click(new page.Element({ href: 'https://intro.co/williswee' }));
+    assert.deepEqual(events, ['coaching_note_link_click', 'coaching_booking_click']);
+});
+
+test('links entering coaching still count from home, guide, and essays', () => {
+    for (const pathname of ['/index.html', '/guide.html', '/thoughts/freedom.html']) {
+        const page = setup();
+        const events = [];
+        page.window.location.href = `https://williswee.com${pathname}`;
+        page.window.location.pathname = pathname;
+        page.window.umami = { track: name => events.push(name) };
+        page.click(new page.Element({ href: '/coaching.html#faq' }));
+        assert.deepEqual(events, ['coaching_cta_click'], pathname);
+    }
 });
