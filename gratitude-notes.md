@@ -729,3 +729,13 @@ What's yours?
 2️⃣ Had a really fun morning with my kids. We cycled near the park and enjoyed watching people fish. I found it fascinating that my girl enjoyed it too. It was quite therapeutic, though pretty hot.
 
 3️⃣ Had a good catch-up over dinner with a group of friends, organized by the founder of a fund. We’ve known him for quite some time and were really happy to see him succeeding and flourishing. An amazing, inspiring story.
+
+## Gratitude note #67
+
+*2026-10-05*
+
+1️⃣ Not a very peaceful weekend, but I was aware. Awareness is good. I stayed as calm as I could.
+
+2️⃣ I really enjoy solitude. I missed it so much. I enjoyed walking around aimlessly for three hours at a park by the beach. Such a nice feeling. I’d almost forgotten what it felt like to be at peace.
+
+3️⃣ It’s good to see my little nephew getting chubbier every week.
