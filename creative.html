@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="thoughts/reading-room.css?v=1.21">
-    <link rel="stylesheet" href="creative-game.css?v=1.6">
+    <link rel="stylesheet" href="creative-game.css?v=1.8">
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="reading-nav.js?v=1.3"></script>
     <script src="creative-game.js?v=1.1" defer></script>
@@ -77,15 +77,43 @@
 
             <!-- Keep video outside links so playback controls work independently. All entries work without JavaScript. -->
             <ul class="creative-projects" aria-label="Creative projects">
+                <li id="chix-run">
+                    <div class="creative-project-heading">
+                        <h2>Chix Run</h2>
+                        <time class="creative-project-date" datetime="2026-10-05">5 October 2026</time>
+                    </div>
+                    <p>One chicken, a very bad escape plan, and a rooftop full of coins.</p>
+                    <figure class="creative-project-media creative-project-media--portrait">
+                        <video controls playsinline preload="metadata" poster="images/chix-run-demo-poster-a5fc910c8b02.webp" width="960" height="1440" aria-label="Chix Run demo. 15 seconds of gameplay with sound." aria-describedby="chix-run-video-description-toggle" aria-details="chix-run-video-description">
+                            <source src="videos/chix-run-demo-15s-a5fc910c8b02.mp4" type="video/mp4">
+                            Your browser does not support embedded video. <a href="videos/chix-run-demo-15s-a5fc910c8b02.mp4">Open the Chix Run demo</a>.
+                        </video>
+                        <figcaption>
+                            <details class="creative-demo-description" id="chix-run-video-description">
+                                <summary id="chix-run-video-description-toggle">Video description<span class="visually-hidden"> for Chix Run</span></summary>
+                                <div>
+                                    <p>A cartoon chicken runs across a rooftop, moving between coin trails and drones. Eight coins in a row activate a glowing shield. The chicken dashes through obstacles, with gold bursts, “Smash!” messages, and arcade sound effects. The score rises as the run reaches Round 2.</p>
+                                </div>
+                            </details>
+                            <a href="videos/chix-run-demo-15s-a5fc910c8b02.mp4" aria-label="Open video: Chix Run">Open video</a>
+                        </figcaption>
+                    </figure>
+                    <div class="creative-project-actions">
+                        <a class="creative-project-link" href="/chix-run/">
+                            <span>Play Chix Run</span>
+                            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M6 4h10v10"/></svg>
+                        </a>
+                    </div>
+                </li>
                 <li id="find-the-real-willis">
                     <div class="creative-project-heading">
                         <h2>Find the real Willis</h2>
-                        <time class="creative-project-date" datetime="2026-10-05">5 October 2026</time>
+                        <time class="creative-project-date" datetime="2026-09-30">30 September 2026</time>
                     </div>
                     <p>A five-minute game. Three versions of me. Two are making shit up.</p>
                     <figure class="creative-project-media">
                         <a class="creative-preview-link" href="https://williswee.com/game" aria-label="Play Find the real Willis">
-                            <img src="images/creative-real-willis-1280.webp" srcset="images/creative-real-willis-640.webp 640w, images/creative-real-willis-1280.webp 1280w" sizes="(max-width: 380px) calc(100vw - 62px), (max-width: 760px) calc(100vw - 82px), (max-width: 1100px) calc(67vw - 66px), (min-width: 1250px) 710px, calc(64vw - 90px)" width="1280" height="860" alt="The Find the real Willis starting screen: three pixel-art versions of Willis beside a Singapore campsite, with six questions to find the real one." decoding="async" loading="eager">
+                            <img src="images/creative-real-willis-1280.webp" srcset="images/creative-real-willis-640.webp 640w, images/creative-real-willis-1280.webp 1280w" sizes="(max-width: 380px) calc(100vw - 62px), (max-width: 760px) calc(100vw - 82px), (max-width: 1100px) calc(67vw - 66px), (min-width: 1250px) 710px, calc(64vw - 90px)" width="1280" height="860" alt="The Find the real Willis starting screen: three pixel-art versions of Willis beside a Singapore campsite, with six questions to find the real one." decoding="async" loading="lazy">
                         </a>
                     </figure>
                     <div class="creative-project-actions">

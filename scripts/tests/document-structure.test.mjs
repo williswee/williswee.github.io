@@ -14,6 +14,8 @@ const essayManifest = JSON.parse(read('thoughts/essay-manifest.js').match(/Objec
 const topLevelPages = ['books.html', 'coaching.html', 'creative.html', 'gratitude.html', 'guide.html', 'index.html', 'work.html'];
 // Served by GitHub Pages for missing addresses; never listed in the sitemap.
 const utilityPages = ['404.html'];
+// Standalone games have their own canvas UI and bundled assets.
+const standaloneAppPages = ['chix-run/index.html'];
 const analyticsExcludedPages = new Set(['gratitude.html']);
 const trackingPixel = /<img\b[^>]*\bsrc="https:\/\/www\.useinflect\.ai\/api\/bot-traffic\/pixel\?[^" ]+"[^>]*>/g;
 
@@ -26,7 +28,8 @@ test('public documents keep image content out of the head', () => {
         const pathname = new URL(url).pathname.slice(1);
         return pathname.endsWith('/') || !pathname ? `${pathname}index.html` : pathname;
     }).sort();
-    assert.deepEqual(sitemapPages, pages.filter(name => !utilityPages.includes(name)), 'the sitemap must cover each public document exactly once');
+    assert.deepEqual(sitemapPages, [...pages.filter(name => !utilityPages.includes(name)), ...standaloneAppPages].sort(), 'the sitemap must cover each public document exactly once');
+    for (const name of standaloneAppPages) assert.ok(existsSync(new URL(name, root)), `${name}: missing standalone game`);
     for (const name of pages) {
         const html = read(name);
         const head = html.match(/<head>([\s\S]*?)<\/head>/)?.[1];

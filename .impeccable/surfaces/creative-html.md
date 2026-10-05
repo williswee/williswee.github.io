@@ -29,13 +29,16 @@ Each cycle visits every project once, and the first pick of the next cycle canno
 
 Projects appear newest first, with a muted date aligned to the title baseline when space allows, wrapping beneath the heading on narrower screens. Dates use a native `time` element with an ISO date:
 
-- "Find the real Willis" (5 October 2026) links to `https://williswee.com/game`. Its description is "A five-minute game. Three versions of me. Two are making shit up."
+- "Chix Run" (5 October 2026) links to `/chix-run/`. Its description is "One chicken, a very bad escape plan, and a rooftop full of coins."
+- "Find the real Willis" (30 September 2026) links to `https://williswee.com/game`. Its description is "A five-minute game. Three versions of me. Two are making shit up."
 - "GoogleFluid" (24 September 2026) links to `https://x.com/williswee/status/2103028022358204876?s=20`. Its description is "A Google Search experiment where the interface changes as you type."
 - "Brain games for kids" (12 August 2026) links to `https://x.com/williswee/status/2092113393419518026?s=20`. Its description is "Brain games I built for my girls, with a little friendly competition."
 
-The homepage Notes section no longer contains the game link. Creative now groups these three supplied projects under Work.
+The homepage Notes section no longer contains the game link. Creative now groups these four supplied projects under Work.
 
 ## Project previews
+
+Chix Run uses a 15-second recording of real keyboard gameplay captured on 2026-10-05. It shows coins, two shields, four dashes, six obstacle smashes and the transition to Round 2, with the actual game sound effects. No captions or overlays were added. `videos/chix-run-demo-15s-a5fc910c8b02.mp4` is H.264/AAC stereo at 960 × 1440, 60fps, exactly 15 seconds. `images/chix-run-demo-poster-a5fc910c8b02.webp` comes from one second into that video. The native player is unmuted, does not autoplay, and has a direct-file link plus an equivalent description disclosure. The portrait player is centered at up to 400px wide and preserves the complete canvas. The standalone game serves prebuilt local assets under `/chix-run/`; editable Bun/TypeScript source is in `chix-run/source/`.
 
 Brain games uses a 30-second recording of actual gameplay on the public `https://dlkplay10.vercel.app/`, captured on 2026-10-03. The recording shows casual play through level 1 of Arrow Exit, Star Circuit, and Color Pour, with each puzzle solved and the cursor visible. The raw clips last 13, 11, and 15 seconds. They were joined and sped up to 1.3 times speed with FFmpeg `setpts=PTS/1.3`. There are no overlays, captions, narration, or audio.
 
@@ -43,9 +46,9 @@ The page serves `videos/brain-games-demo.mp4`, encoded as H.264 with `yuv420p` a
 
 GoogleFluid reuses `videos/googlefluid-demo-738b72e42608.mp4` and `images/googlefluid-demo-poster-1280-9f83b9bd09fe.webp`. The 30-second silent demo uses native video controls, `playsinline`, and `preload="metadata"`. It has no surrounding anchor. A visible "Open video" link and an in-player fallback both open the MP4 directly.
 
-Find the real Willis uses a screenshot of the public `https://williswee.com/game` starting screen, captured without authentication at 1280 × 860 on 2026-10-03. The page serves `images/creative-real-willis-640.webp` and `images/creative-real-willis-1280.webp` with responsive source selection and eager loading because it is the first project.
+Find the real Willis uses a screenshot of the public `https://williswee.com/game` starting screen, captured without authentication at 1280 × 860 on 2026-10-03. The page serves `images/creative-real-willis-640.webp` and `images/creative-real-willis-1280.webp` with responsive source selection and lazy loading below Chix Run.
 
-The previews retain their aspect ratios and fill the reading pane's available width. The Brain games recording and Willis screenshot use actual project content. Their source URLs, capture dates, formats, and dimensions are recorded in `.impeccable/assets/creative-project-previews.json`.
+The previews retain their aspect ratios. Landscape previews fill the reading pane's available width; portrait previews are centered at up to 400px wide. The Brain games recording and Willis screenshot use actual project content. Their source URLs, capture dates, formats, and dimensions are recorded in `.impeccable/assets/creative-project-previews.json`.
 
 ## Sources and system fit
 

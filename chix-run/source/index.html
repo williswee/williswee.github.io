@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0c0d14" />
+    <meta name="description" content="Chix Run. One chicken, a very bad escape plan, and a rooftop full of coins. Move, dodge, and dash through drones." />
+    <link rel="canonical" href="https://williswee.com/chix-run/" />
+    <title>Chix Run</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand"><img src="/favicon.svg" alt="" width="28" height="28" /><span>CHIX RUN<span class="brand-dot">.</span></span></div>
+      <div class="header-right"><button id="sound-toggle" type="button" aria-pressed="false" aria-label="Mute game sound"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4zM17 8q5 4 0 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg><span>SOUND ON</span></button></div>
+    </header>
+    <main id="app" class="stage" aria-label="Chix Run arcade game">
+      <aside class="left-rail" aria-label="About this run">
+        <h1>SMALL CHICKEN.<br />BIG <span>ESCAPE.</span></h1>
+        <p>One chicken.<br />Very bad escape plan.<br />Run it back.</p>
+        <div class="personal-best"><span>YOUR PERSONAL BEST</span><strong id="personal-best">000</strong><span class="best-unit">COINS IN THE BAG</span></div>
+        <div class="shift-tag"><i></i>ENDLESS ROOFTOP RUN</div>
+      </aside>
+      <div class="game-frame"><div class="frame-lights" aria-hidden="true"><i></i><i></i><i></i></div><div class="game-surface"><canvas id="game" tabindex="0" aria-label="Chix Run. Enter to start. Arrow keys or A and D to move. Space or Shift to dash. On touch, hold either side to move and tap the dash button."></canvas></div></div>
+      <aside class="right-rail" aria-label="Game instructions">
+        <div class="rail-rule"></div><h2>MAKE YOUR<br />OWN LUCK.</h2>
+        <dl class="controls-guide">
+          <div><dt>MOVE</dt><dd><div class="key-row"><kbd>←</kbd><kbd>→</kbd><span>or A / D</span></div><p>Keep your feet. Follow the gold.</p></dd></div>
+          <div><dt>DASH</dt><dd><div class="key-row"><kbd class="wide-key">SPACE</kbd><span>or Shift</span></div><p>Break through drones.<br />Recharge. Do it again.</p></dd></div>
+        </dl>
+        <div class="touch-note"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 12V5a2 2 0 0 1 4 0v6l2-1 5 3-2 8H9l-5-7a2 2 0 0 1 3-2l2 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg><span>ON YOUR PHONE?<br />Hold either side. Tap to dash.</span></div>
+      </aside>
+      <p id="status" class="sr-only" role="status" aria-live="polite"></p>
+    </main>
+    <footer class="site-footer">
+      <p>Built with Bun, TypeScript &amp; KAPLAY.</p>
+      <details class="project-about">
+        <summary>About this project <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M8 3v10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg></summary>
+        <div class="about-panel">
+          <h2>A CHICKEN. A TYPE EXPERIMENT.</h2>
+          <p>Chix Run is a tiny browser arcade built with Codex, Bun, strict TypeScript and KAPLAY. The experiment: make illegal game states unrepresentable.</p>
+          <p>Menu, playing and game over share one typed state. A pure transition function handles every score and life change. All character art is drawn in-game, and sound is synthesized in your browser.</p>
+          <h3>Tools &amp; fonts</h3>
+          <ul>
+            <li><a href="https://github.com/kaplayjs/kaplay" target="_blank" rel="noreferrer">KAPLAY 3001.0.19</a> <span><a href="./licenses/kaplay-LICENSE.md" target="_blank" rel="noreferrer">License</a> · game engine</span></li>
+            <li><a href="https://github.com/oven-sh/bun" target="_blank" rel="noreferrer">Bun</a> <span>MIT · runtime and package manager</span></li>
+            <li><a href="https://github.com/microsoft/TypeScript" target="_blank" rel="noreferrer">TypeScript</a> <span>Apache 2.0 · types</span></li>
+            <li><a href="https://github.com/vitejs/vite" target="_blank" rel="noreferrer">Vite</a> <span>MIT · development and build tools</span></li>
+            <li><a href="https://github.com/google/fonts/tree/main/ofl/anton" target="_blank" rel="noreferrer">Anton</a> &amp; <a href="https://github.com/Outfitio/Outfit-Fonts" target="_blank" rel="noreferrer">Outfit</a> <span>SIL OFL 1.1 · locally bundled fonts</span></li>
+          </ul>
+        </div>
+      </details>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

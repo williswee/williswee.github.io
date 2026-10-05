@@ -3,6 +3,43 @@
   "page": "creative.html",
   "assets": [
     {
+      "project": "Chix Run",
+      "source_type": "local project gameplay recording",
+      "source_url": "https://williswee.com/chix-run/",
+      "captured_date": "2026-10-05",
+      "method": "Captured the KAPLAY canvas and actual WebAudio mix during real keyboard gameplay, then selected one continuous 15-second stretch and normalized the sound for playback. Game state and spawns were never set.",
+      "source_range_seconds": [3.5, 18.5],
+      "speed_multiplier": 1,
+      "overlays": false,
+      "captions": false,
+      "narration": false,
+      "outputs": [
+        {
+          "path": "videos/chix-run-demo-15s-a5fc910c8b02.mp4",
+          "format": "mp4",
+          "codec": "h264",
+          "pixel_format": "yuv420p",
+          "width": 960,
+          "height": 1440,
+          "frames_per_second": 60,
+          "duration_seconds": 15,
+          "bytes": 7807210,
+          "audio": true,
+          "audio_codec": "aac",
+          "audio_source": "native game sound effects",
+          "integrated_loudness_lufs": -15.99
+        },
+        {
+          "path": "images/chix-run-demo-poster-a5fc910c8b02.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "source_video_time_seconds": 1
+        }
+      ],
+      "generated_imagery": false
+    },
+    {
       "project": "Brain games for kids",
       "source_type": "public project gameplay recording",
       "source_url": "https://dlkplay10.vercel.app/",

@@ -31,6 +31,10 @@
     border: 1px solid var(--line);
     background: var(--ink);
 }
+.creative-project-media--portrait video {
+    width: min(100%, 400px);
+    margin-inline: auto;
+}
 .creative-project-media figcaption {
     display: flex;
     align-items: flex-start;
