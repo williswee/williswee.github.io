@@ -13,7 +13,7 @@ Mode: Read.
 
 Creative is a growing list of projects Willis builds to explore. The fifth Work row on the homepage opens `creative.html`. Its label is "Creative", its title is "Randomly fun projects", and its description is "Things I build just to explore." The page opens with "Randomly fun projects." and the same description.
 
-This is a narrow addition to the existing site. It uses the shared reading room, Silkscreen page heading, Sora project headings and prose, navy reading pane, cream text, gold details, and existing Work workshop portrait. On desktop, the portrait sits beside the reading pane. On phones, it becomes the opening band, with a 68% vertical crop. The project list uses ruled rows. Each row has a title, description, full-width preview, and separate action link with a northeast arrow. It can grow by adding another list item.
+This is a narrow addition to the existing site. It uses the shared reading room, Silkscreen page heading, Sora project headings and prose, navy reading pane, cream text, gold details, and a dedicated seaside pixel-art workshop portrait. Willis appears from behind at a warm game-building desk, with a small thought cloud. The illustration keeps the coastline and boardwalk atmosphere of the site while giving Creative its own story. On desktop, the portrait sits beside the reading pane. On phones, it becomes the opening band with a 60% vertical crop that includes Willis and the thought cloud. The project list uses ruled rows. Each row has a title, description, full-width preview, and separate action link with a northeast arrow. It can grow by adding another list item.
 
 Each project action is a native link. Media sits outside the action link so video controls work independently. The two X posts open in new tabs with `noopener noreferrer` and accessible new-tab notices. The game opens in the same tab. The list works without JavaScript. The page keeps the shared navigation, skip link, footer links, and a "Back to Work" link to `index.html#workshop`. The gold action links have a minimum height of 44px. Hover and keyboard focus underline their text; reduced-motion preferences remove the arrow transition.
 
@@ -49,9 +49,9 @@ The previews retain their aspect ratios and fill the reading pane's available wi
 
 ## Sources and system fit
 
-The implementation sources are `creative.html`, `creative-game.css`, and `creative-game.js`. Shared layout, typography, colors, and responsive behavior come from `thoughts/reading-room.css`. The reused portrait is `images/game-world/work-coastal-workshop-v1.webp`, with existing provenance in `.impeccable/assets/work-coastal-workshop-v1.prompt.json`. The homepage entry is in `index.html`; its existing contract is in `.impeccable/surfaces/index-html.md`.
+The implementation sources are `creative.html`, `creative-game.css`, and `creative-game.js`. Shared layout, typography, colors, and responsive behavior come from `thoughts/reading-room.css`. Creative uses its own portrait, `images/game-world/creative-workshop-v1.webp`, with provenance in `.impeccable/assets/creative-workshop-v1.prompt.json`. Work retains `images/game-world/work-coastal-workshop-v1.webp`. The homepage entry is in `index.html`; its existing contract is in `.impeccable/surfaces/index-html.md`.
 
-The page follows `PRODUCT.md`'s static HTML/CSS constraint and purpose of sharing personal projects. The existing design system fits this addition. It introduces no generated imagery, global tokens, or new visual direction, so `DESIGN.md` and the global design sidecar remain unchanged.
+The page follows `PRODUCT.md`'s static HTML/CSS constraint and purpose of sharing personal projects. The new illustration stays within the existing pixel-art world. It introduces no global tokens or new visual direction, so `DESIGN.md` and the global design sidecar remain unchanged.
 
 The Willis image preview also links to the game, with a gold border on hover and keyboard focus. Both videos remain outside links.
 

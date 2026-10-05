@@ -1,4 +1,4 @@
-/* Creative inherits the shared reading room and the Work workshop illustration. */
+/* Creative uses the shared reading room with its own seaside workshop illustration. */
 .creative-opening { margin-bottom: 32px; }
 .creative-opening h1 { max-width: 15ch; }
 .creative-intro-tools { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 20px; min-height: 44px; margin-top: 20px; }
@@ -91,7 +91,7 @@
 .creative-more { margin: 24px 0 0; color: var(--muted); font-size: var(--font-size-ui); }
 
 @media (max-width: 760px) {
-    .creative-landscape img { object-position: center 68%; }
+    .creative-landscape img { object-position: center 60%; }
     .creative-opening p { font-size: 1rem; }
     .creative-projects > li { padding-block: 24px; }
     .creative-projects h2 { font-size: 1.1rem; }

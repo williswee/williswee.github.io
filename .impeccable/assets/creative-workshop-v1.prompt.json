@@ -1,0 +1,28 @@
+{
+  "asset": "images/game-world/creative-workshop-v1.webp",
+  "tool": "Built-in ImageGen",
+  "intent": "edit",
+  "use_case": "precise-object-edit",
+  "created": "2026-10-05",
+  "status": "Approved Creative-page artwork",
+  "source": "/Users/williswee/.codex/generated_images/01a0eb9a-9489-7c51-9a01-1dd4479c692f/exec-6f772668-2f44-4bc6-9d60-6359244a9242.png",
+  "references": [
+    {
+      "path": "images/game-world/work-coastal-workshop-v1.webp",
+      "role": "Edit target; current Work and Creative-page coastal backdrop"
+    },
+    {
+      "path": "images/game-world/workshop-personal-v11.png",
+      "role": "Willis appearance, clothing and back-view reference only"
+    }
+  ],
+  "prompt": "Use case: precise-object-edit.\nAsset type: portrait pixel-art backdrop for Willis Wee's Creative page.\nInput image 1: EDIT TARGET — the current tall coastal workshop artwork. This is the visual foundation the user wants. Keep its recognizable timber cabin, calm sea at blue hour, deep navy sky, warm lanterns, coastal foliage, rocky shore, and winding boardwalk.\nInput image 2: CHARACTER REFERENCE ONLY — the existing scene of Willis working at his sea-facing computer. Match the man's short black hair, black T-shirt, tan shorts, light sneakers and casual back-view silhouette. Do not copy the reference's wide framing.\n\nPrimary request: Make the familiar coastal workshop feel like Willis's inviting little studio for building fun personal projects. Creative, playful, human, and believable.\nInside the open workshop, show Willis from behind sitting at the workbench, leaning slightly toward a desktop monitor as he builds a small colorful pixel game. His hands rest naturally at the keyboard and mouse. A recognizable playful little platform-game world appears on the screen, with a bright path and a tiny character, no text or complex UI.\nGive the desk a few purposeful signs of play and experimentation: an open sketchbook with simple game-level doodles and a single folded paper airplane. Replace some of the original austere tool clutter with these works in progress. Everything rests on a real surface. Keep the workspace comfortable and lightly scattered, not packed with props.\nRetain the earlier requested thinking cloud: a SMALL soft cream pixel-outline thought bubble linked by two dots to Willis's head, containing one simple imaginary scene — a tiny paper airplane flying over a little game island. It should look like an idea he is pondering, tucked near him, not a giant graphic competing with the landscape.\n\nComposition: preserve the original portrait 768x2048, viewpoint, sea-and-sky depth, and boardwalk leading toward the open workshop. You may gently enlarge the workshop opening and desk so Willis, his game screen, and thought cloud read together as one clear focal cluster when this image appears in a narrow 250-400px sidebar. Keep the activity around 55-72% of image height. The cabin must still feel like the same seaside place. The sky remains quiet.\nStyle: preserve the target's detailed but crisp handcrafted pixel-art scenery, square pixel clusters, subtle dithering, midnight blue shadows, muted teal foliage, warm golden light, and wood textures. Give the game and projects a few restrained joyful coral, yellow, and turquoise notes.\nInvariants and exclusions: same grounded coastal workshop world. No toy contraptions, no marble runs, no oversized dice, no floating real-world objects, no rubber ducks, no arcade machine, no bizarre architecture. No additional people, no front-facing portrait, no text, no logos, no UI overlay, no border or watermark. Avoid a crowded toy shop. The delight should come from a cozy human place where someone makes things for fun.",
+  "direction": "Return to the existing grounded coastal workshop; Willis makes a playful pixel game with sketches and a small thought cloud. Replaces the rejected contraption direction.",
+  "original_asset": "images/game-world/creative-workshop-v1.png",
+  "dimensions": [
+    768,
+    2048
+  ],
+  "processing": "WebP quality 90, method 6; original dimensions, no visual edits or cropping",
+  "bytes": 302784
+}
