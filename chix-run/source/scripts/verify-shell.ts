@@ -132,10 +132,12 @@ try {
       assert(shell.summary.height >= 44, "The About disclosure must have a 44px touch target");
       assert(!/THE NIGHT SHIFT EDITION|GO FERAL|FRENZY/i.test(shell.domText), "Removed edition and frenzy jargon must not remain in the DOM");
       assert(shell.footerText.includes("Built with Bun, TypeScript & KAPLAY."));
-      assert(shell.footerText.includes("make illegal game states unrepresentable"));
-      assert(shell.footerText.includes("pure transition function"));
-      assert(shell.footerText.includes("sound is synthesized in your browser"));
-      assert.deepEqual(shell.creditLinks, expectedLinks, "Every requested OSS credit must have its official link");
+      assert(shell.footerText.includes("KAPLAY, a free browser game engine"));
+      assert(shell.footerText.includes("I worked with Codex"));
+      assert(shell.footerText.includes("sounds are made in your browser"));
+      assert(!/type experiment|illegal game states|pure transition function/i.test(shell.footerText), "About text must explain the game in plain English");
+      assert.deepEqual(shell.creditLinks.filter(link => !link.startsWith(localUrl.origin)), expectedLinks, "Every requested tool credit must have its official link");
+      assert(shell.creditLinks.some(link => link.endsWith("/licenses/kaplay-LICENSE.md")), "The exact package license must remain linked");
       for (const row of shell.headlineInkRows) {
         assert(row.x >= shell.headline.x - 1 && row.right <= shell.headline.right + 1, "Chicken headline must fit its rail");
       }
