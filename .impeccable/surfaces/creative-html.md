@@ -2,14 +2,14 @@
 schema_version: 1
 slug: creative-html
 primary_target: creative.html
-related_targets: ["creative-game.css", "thoughts/reading-room.css", "index.html"]
+related_targets: ["creative-game.css", "creative-game.js", "thoughts/reading-room.css", "index.html"]
 ---
 
 # Creative projects
 
 Mode: Read.
 
-## Current contract, 2026-10-03
+## Current contract, 2026-10-05
 
 Creative is a growing list of projects Willis builds to explore. The fifth Work row on the homepage opens `creative.html`. Its label is "Creative", its title is "Randomly fun projects", and its description is "Things I build just to explore." The page opens with "Randomly fun projects." and the same description.
 
@@ -21,15 +21,17 @@ Each silent video has a native "Video description" disclosure beside its direct-
 
 ## Discovery interaction
 
-The delight thesis is a small dice roll in the workshop that takes the visitor straight to a project. An inline "Surprise me" button sits beside the introduction on desktop and wraps beneath it on phones. It uses the shared random-pick control and drawn die from Books and Gratitude. `creative-game.js` reveals it only after initialization and only when at least two projects exist.
+The delight thesis is curiosity that opens a different project each time, with another roll beside the project just discovered. An inline "Surprise me" button sits beside the introduction on desktop and wraps beneath it on phones. It uses the shared random-pick control and drawn die from Books and Gratitude. `creative-game.js` reveals it only after initialization and only when at least two projects exist. One reusable "Another surprise" button moves into the selected project's action group so continued exploration does not require returning to the top. It wraps below the destination link when space is limited.
 
-Each pick excludes the last chosen project, focuses its heading beneath the fixed navigation, and updates the URL hash without adding a history entry. Gold heading text and opposing 12px corners identify the selection. Other projects stay fully visible. The die turns for 220ms on activation, without delaying navigation. Reduced motion removes the turn and uses immediate scrolling; the selected state remains visible. Escape clears the marks and project hash without moving focus or scrolling, and it preserves the previous choice for the next roll. Existing project hashes also restore their selection marks. The picker never plays a video or opens a project link.
+Each cycle visits every project once, and the first pick of the next cycle cannot repeat the previous pick. Each pick focuses the project's heading beneath the fixed navigation and updates the URL hash without adding a history entry. Gold heading text and opposing 12px corners identify the selection. Other projects stay fully visible. The activated control's die turns for 220ms without delaying navigation. Reduced motion removes the turn and uses immediate scrolling; the selected state remains visible. Escape clears the marks and project hash and hides the contextual button. If that button has focus, focus returns to the selected heading before hiding it; otherwise focus and scrolling stay unchanged. Existing project hashes restore selection marks and count as a visited project in a fresh cycle. The picker never plays a video or opens a project link.
 
 ## Supplied projects and exact destinations
 
-- "Brain games for kids" links to `https://x.com/williswee/status/2092113393419518026?s=20`. Its description is "Brain games I built for my girls, with a little friendly competition."
-- "GoogleFluid" links to `https://x.com/williswee/status/2103028022358204876?s=20`. Its description is "A Google Search experiment where the interface changes as you type."
-- "Find the real Willis" links to `https://williswee.com/game`. Its description is "A five-minute game. Three versions of me. Two are making shit up."
+Projects appear newest first, with a muted date aligned to the title baseline when space allows, wrapping beneath the heading on narrower screens. Dates use a native `time` element with an ISO date:
+
+- "Find the real Willis" (5 October 2026) links to `https://williswee.com/game`. Its description is "A five-minute game. Three versions of me. Two are making shit up."
+- "GoogleFluid" (24 September 2026) links to `https://x.com/williswee/status/2103028022358204876?s=20`. Its description is "A Google Search experiment where the interface changes as you type."
+- "Brain games for kids" (12 August 2026) links to `https://x.com/williswee/status/2092113393419518026?s=20`. Its description is "Brain games I built for my girls, with a little friendly competition."
 
 The homepage Notes section no longer contains the game link. Creative now groups these three supplied projects under Work.
 
@@ -41,7 +43,7 @@ The page serves `videos/brain-games-demo.mp4`, encoded as H.264 with `yuv420p` a
 
 GoogleFluid reuses `videos/googlefluid-demo-738b72e42608.mp4` and `images/googlefluid-demo-poster-1280-9f83b9bd09fe.webp`. The 30-second silent demo uses native video controls, `playsinline`, and `preload="metadata"`. It has no surrounding anchor. A visible "Open video" link and an in-player fallback both open the MP4 directly.
 
-Find the real Willis uses a screenshot of the public `https://williswee.com/game` starting screen, captured without authentication at 1280 × 860 on 2026-10-03. The page serves `images/creative-real-willis-640.webp` and `images/creative-real-willis-1280.webp` with responsive source selection and lazy loading.
+Find the real Willis uses a screenshot of the public `https://williswee.com/game` starting screen, captured without authentication at 1280 × 860 on 2026-10-03. The page serves `images/creative-real-willis-640.webp` and `images/creative-real-willis-1280.webp` with responsive source selection and eager loading because it is the first project.
 
 The previews retain their aspect ratios and fill the reading pane's available width. The Brain games recording and Willis screenshot use actual project content. Their source URLs, capture dates, formats, and dimensions are recorded in `.impeccable/assets/creative-project-previews.json`.
 
@@ -54,3 +56,5 @@ The page follows `PRODUCT.md`'s static HTML/CSS constraint and purpose of sharin
 The Willis image preview also links to the game, with a gold border on hover and keyboard focus. Both videos remain outside links.
 
 The accessibility fixes passed Chrome checks at 1283, 768, 390, and 320px, including a 200% root text size at 320px. The browser exposes both video-description relationships while disclosures are closed and all description text when opened. Enter and Space toggle the disclosures, and both remain usable without JavaScript or loaded MP4s. Project links preserve their visible wording in the computed accessible names. The homepage round trip and 30-second Brain video playback pass. All 28 document-structure and reading-navigation tests pass. These checks do not constitute a full assistive-technology certification.
+
+The 2026-10-05 polish passed browser checks at 1280, 768, 390, and 320px with no horizontal overflow or console errors. Three consecutive picks visited all three projects, the contextual button followed the selection, Escape restored heading focus before hiding a focused button, and the video description still opened with Enter at 320px. Five discovery regression tests cover cycle boundaries, hash seeding, button movement, focus, and reduced motion; all eight document-structure tests also pass. The Impeccable detector reported no findings in the three Creative implementation files, but ran in regex fallback because its HTML parser dependencies were unavailable; computed contrast was not evaluated by that scan.

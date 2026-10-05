@@ -27,10 +27,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="thoughts/reading-room.css?v=1.21">
-    <link rel="stylesheet" href="creative-game.css?v=1.3">
+    <link rel="stylesheet" href="creative-game.css?v=1.5">
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="reading-nav.js?v=1.3"></script>
-    <script src="creative-game.js?v=1" defer></script>
+    <script src="creative-game.js?v=1.1" defer></script>
     <script src="https://www.useinflect.ai/inflect-tracking.js" async data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
     <script src="site-analytics.js?v=1" defer></script>
 </head>
@@ -77,33 +77,29 @@
 
             <!-- Keep video outside links so playback controls work independently. All entries work without JavaScript. -->
             <ul class="creative-projects" aria-label="Creative projects">
-                <li id="brain-games">
-                    <h2>Brain games for kids</h2>
-                    <p>Brain games I built for my girls, with a little friendly competition.</p>
+                <li id="find-the-real-willis">
+                    <div class="creative-project-heading">
+                        <h2>Find the real Willis</h2>
+                        <time class="creative-project-date" datetime="2026-10-05">5 October 2026</time>
+                    </div>
+                    <p>A five-minute game. Three versions of me. Two are making shit up.</p>
                     <figure class="creative-project-media">
-                        <video controls playsinline preload="metadata" poster="images/brain-games-demo-poster.webp" width="1280" height="900" aria-label="Brain games demo: Arrow Exit, Star Circuit, and Color Pour. 30 seconds of silent gameplay at 1.3 times speed." aria-describedby="brain-games-video-description-toggle" aria-details="brain-games-video-description">
-                            <source src="videos/brain-games-demo.mp4" type="video/mp4">
-                            Your browser does not support embedded video. <a href="videos/brain-games-demo.mp4">Open the Brain games demo</a>.
-                        </video>
-                        <figcaption>
-                            <details class="creative-demo-description" id="brain-games-video-description">
-                                <summary id="brain-games-video-description-toggle">Video description<span class="visually-hidden"> for Brain games for kids</span></summary>
-                                <div>
-                                    <p>The demo shows three completed puzzles. In Arrow Exit, the player selects arrow blocks with a clear path off the grid until the board is empty and "Great escape!" appears.</p>
-                                    <p>In Star Circuit, the player rotates tiles to connect a glowing path across the grid and light the final star. "Whole sky lit!" confirms completion.</p>
-                                    <p>In Color Pour, the player moves colored layers between bottles until red, blue, and yellow each fill their own bottle. The game reaches 100% and displays "Perfect pour!"</p>
-                                </div>
-                            </details>
-                            <a href="videos/brain-games-demo.mp4" aria-label="Open video: Brain games for kids">Open video</a>
-                        </figcaption>
+                        <a class="creative-preview-link" href="https://williswee.com/game" aria-label="Play Find the real Willis">
+                            <img src="images/creative-real-willis-1280.webp" srcset="images/creative-real-willis-640.webp 640w, images/creative-real-willis-1280.webp 1280w" sizes="(max-width: 380px) calc(100vw - 62px), (max-width: 760px) calc(100vw - 82px), (max-width: 1100px) calc(67vw - 66px), (min-width: 1250px) 710px, calc(64vw - 90px)" width="1280" height="860" alt="The Find the real Willis starting screen: three pixel-art versions of Willis beside a Singapore campsite, with six questions to find the real one." decoding="async" loading="eager">
+                        </a>
                     </figure>
-                    <a class="creative-project-link" href="https://x.com/williswee/status/2092113393419518026?s=20" target="_blank" rel="noopener noreferrer" aria-label="View project on X: Brain games for kids (opens in a new tab)">
-                        <span>View project on X</span>
-                        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M6 4h10v10"/></svg>
-                    </a>
+                    <div class="creative-project-actions">
+                        <a class="creative-project-link" href="https://williswee.com/game">
+                            <span>Play the game</span>
+                            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M6 4h10v10"/></svg>
+                        </a>
+                    </div>
                 </li>
                 <li id="googlefluid">
-                    <h2>GoogleFluid</h2>
+                    <div class="creative-project-heading">
+                        <h2>GoogleFluid</h2>
+                        <time class="creative-project-date" datetime="2026-09-24">24 September 2026</time>
+                    </div>
                     <p>A Google Search experiment where the interface changes as you type.</p>
                     <figure class="creative-project-media">
                         <video controls playsinline preload="metadata" poster="images/googlefluid-demo-poster-1280-9f83b9bd09fe.webp" width="1920" height="1080" aria-label="GoogleFluid demo: search interfaces changing as you type. 30 seconds, silent." aria-describedby="googlefluid-video-description-toggle" aria-details="googlefluid-video-description">
@@ -123,25 +119,48 @@
                             <a href="videos/googlefluid-demo-738b72e42608.mp4" aria-label="Open video: GoogleFluid">Open video</a>
                         </figcaption>
                     </figure>
-                    <a class="creative-project-link" href="https://x.com/williswee/status/2103028022358204876?s=20" target="_blank" rel="noopener noreferrer" aria-label="View project on X: GoogleFluid (opens in a new tab)">
-                        <span>View project on X</span>
-                        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M6 4h10v10"/></svg>
-                    </a>
-                </li>
-                <li id="find-the-real-willis">
-                    <h2>Find the real Willis</h2>
-                    <p>A five-minute game. Three versions of me. Two are making shit up.</p>
-                    <figure class="creative-project-media">
-                        <a class="creative-preview-link" href="https://williswee.com/game" aria-label="Play Find the real Willis">
-                            <img src="images/creative-real-willis-1280.webp" srcset="images/creative-real-willis-640.webp 640w, images/creative-real-willis-1280.webp 1280w" sizes="(max-width: 380px) calc(100vw - 62px), (max-width: 760px) calc(100vw - 82px), (max-width: 1100px) calc(67vw - 66px), (min-width: 1250px) 710px, calc(64vw - 90px)" width="1280" height="860" alt="The Find the real Willis starting screen: three pixel-art versions of Willis beside a Singapore campsite, with six questions to find the real one." decoding="async" loading="lazy">
+                    <div class="creative-project-actions">
+                        <a class="creative-project-link" href="https://x.com/williswee/status/2103028022358204876?s=20" target="_blank" rel="noopener noreferrer" aria-label="View project on X: GoogleFluid (opens in a new tab)">
+                            <span>View project on X</span>
+                            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M6 4h10v10"/></svg>
                         </a>
+                    </div>
+                </li>
+                <li id="brain-games">
+                    <div class="creative-project-heading">
+                        <h2>Brain games for kids</h2>
+                        <time class="creative-project-date" datetime="2026-08-12">12 August 2026</time>
+                    </div>
+                    <p>Brain games I built for my girls, with a little friendly competition.</p>
+                    <figure class="creative-project-media">
+                        <video controls playsinline preload="metadata" poster="images/brain-games-demo-poster.webp" width="1280" height="900" aria-label="Brain games demo: Arrow Exit, Star Circuit, and Color Pour. 30 seconds of silent gameplay at 1.3 times speed." aria-describedby="brain-games-video-description-toggle" aria-details="brain-games-video-description">
+                            <source src="videos/brain-games-demo.mp4" type="video/mp4">
+                            Your browser does not support embedded video. <a href="videos/brain-games-demo.mp4">Open the Brain games demo</a>.
+                        </video>
+                        <figcaption>
+                            <details class="creative-demo-description" id="brain-games-video-description">
+                                <summary id="brain-games-video-description-toggle">Video description<span class="visually-hidden"> for Brain games for kids</span></summary>
+                                <div>
+                                    <p>The demo shows three completed puzzles. In Arrow Exit, the player selects arrow blocks with a clear path off the grid until the board is empty and "Great escape!" appears.</p>
+                                    <p>In Star Circuit, the player rotates tiles to connect a glowing path across the grid and light the final star. "Whole sky lit!" confirms completion.</p>
+                                    <p>In Color Pour, the player moves colored layers between bottles until red, blue, and yellow each fill their own bottle. The game reaches 100% and displays "Perfect pour!"</p>
+                                </div>
+                            </details>
+                            <a href="videos/brain-games-demo.mp4" aria-label="Open video: Brain games for kids">Open video</a>
+                        </figcaption>
                     </figure>
-                    <a class="creative-project-link" href="https://williswee.com/game">
-                        <span>Play the game</span>
-                        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M6 4h10v10"/></svg>
-                    </a>
+                    <div class="creative-project-actions">
+                        <a class="creative-project-link" href="https://x.com/williswee/status/2092113393419518026?s=20" target="_blank" rel="noopener noreferrer" aria-label="View project on X: Brain games for kids (opens in a new tab)">
+                            <span>View project on X</span>
+                            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M6 4h10v10"/></svg>
+                        </a>
+                    </div>
                 </li>
             </ul>
+            <button class="random-pick-btn creative-reroll" id="another-project-btn" type="button" aria-label="Another surprise: jump to a different project" hidden>
+                <span class="random-pick-icon" aria-hidden="true"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14"/><path d="M6 6h1v1H6zM13 13h1v1h-1zM9.5 9.5h1v1h-1z" fill="currentColor" stroke="none"/></svg></span>
+                <span>Another surprise</span>
+            </button>
             <p class="creative-more">More projects as I make them.</p>
         </main>
 
