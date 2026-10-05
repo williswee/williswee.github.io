@@ -20,6 +20,7 @@
     text-wrap: pretty;
 }
 .creative-projects > li > p { margin: 0; max-width: 52ch; }
+.creative-projects > li > p + p { margin-top: 12px; }
 .creative-project-date { color: var(--muted); font-size: var(--font-size-ui); font-variant-numeric: tabular-nums; }
 .creative-project-media { margin: 20px 0 12px; }
 .creative-preview-link { display: block; }

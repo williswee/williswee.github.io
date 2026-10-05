@@ -29,16 +29,16 @@ Each cycle visits every project once, and the first pick of the next cycle canno
 
 Projects appear newest first, with a muted date aligned to the title baseline when space allows, wrapping beneath the heading on narrower screens. Dates use a native `time` element with an ISO date:
 
-- "Chix Run" (5 October 2026) links to `/chix-run/`. Its description is "One chicken, a very bad escape plan, and a rooftop full of coins."
-- "Find the real Willis" (30 September 2026) links to `https://williswee.com/game`. Its description is "A five-minute game. Three versions of me. Two are making shit up."
+- "Chix Run" (5 October 2026) links to `/chix-run/`. Its description is "One chicken, a very bad escape plan, and a rooftop full of coins." A separate paragraph follows: "I built this for fun to see what I could make with a free game engine and Codex. It started as a bean, then became a ridiculous chicken."
+- "Find the real Willis" (30 September 2026) links to `https://williswee.com/game`. Its description is "A five-minute game. Three versions of me. Two are making shit up." A separate paragraph follows: "We used to play 2 Truths and a Lie at Tech in Asia with every new team member. So I built this for reminiscence’s sake."
 - "GoogleFluid" (24 September 2026) links to `https://x.com/williswee/status/2103028022358204876?s=20`. Its description is "A Google Search experiment where the interface changes as you type."
 - "Brain games for kids" (12 August 2026) links to `https://x.com/williswee/status/2092113393419518026?s=20`. Its description is "Brain games I built for my girls, with a little friendly competition."
 
-The homepage Notes section no longer contains the game link. Creative now groups these four supplied projects under Work.
+The homepage Notes section no longer contains the game link. Creative now groups these four supplied projects under Work. Adjacent description and story paragraphs have a scoped 12px gap.
 
 ## Project previews
 
-Chix Run uses a 15-second recording of real keyboard gameplay captured on 2026-10-05. It shows coins, two shields, four dashes, six obstacle smashes and the transition to Round 2, with the actual game sound effects. No captions or overlays were added. `videos/chix-run-demo-15s-a5fc910c8b02.mp4` is H.264/AAC stereo at 960 × 1440, 60fps, exactly 15 seconds. `images/chix-run-demo-poster-a5fc910c8b02.webp` comes from one second into that video. The native player is unmuted, does not autoplay, and has a direct-file link plus an equivalent description disclosure. The portrait player is centered at up to 400px wide and preserves the complete canvas. The standalone game serves prebuilt local assets under `/chix-run/`; editable Bun/TypeScript source is in `chix-run/source/`.
+Chix Run uses a 15-second recording of real keyboard gameplay captured on 2026-10-05. It shows coins, two shields, four dashes, six obstacle smashes and the transition to Round 2, with the actual game sound effects. No captions or overlays were added. `videos/chix-run-demo-15s-a5fc910c8b02.mp4` is H.264/AAC stereo at 960 × 1440, 60fps, exactly 15 seconds. `images/chix-run-demo-poster-a5fc910c8b02.webp` comes from one second into that video. The native player is unmuted, does not autoplay, and has a direct-file link. At the user's request it has no "Video description" disclosure or relationships pointing to one; other projects retain theirs. The portrait player is centered at up to 400px wide and preserves the complete canvas. The standalone game serves prebuilt local assets under `/chix-run/`; editable Bun/TypeScript source is in `chix-run/source/`.
 
 Brain games uses a 30-second recording of actual gameplay on the public `https://dlkplay10.vercel.app/`, captured on 2026-10-03. The recording shows casual play through level 1 of Arrow Exit, Star Circuit, and Color Pour, with each puzzle solved and the cursor visible. The raw clips last 13, 11, and 15 seconds. They were joined and sped up to 1.3 times speed with FFmpeg `setpts=PTS/1.3`. There are no overlays, captions, narration, or audio.
 

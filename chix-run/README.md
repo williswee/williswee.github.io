@@ -1,6 +1,6 @@
 # Chix Run
 
-A one-screen chicken arcade built with Bun, strict TypeScript, Vite and KAPLAY 3001.0.19. The generated static game in this directory is served at `/chix-run/`; editable code lives in `source/`.
+A one-screen chicken arcade built with Bun, strict TypeScript, Vite and KAPLAY 3001.0.19. The generated static game in this directory is served at `/chix-run/`; editable code lives in `source/`. The header’s Back to Creative button returns to `https://williswee.com/creative.html` in the same tab.
 
 ## Local development
 
