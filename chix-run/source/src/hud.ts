@@ -3,10 +3,11 @@ import type { Phase } from './flow';
 import type { Arcade } from './arcade';
 import { dashReadyProgress } from './arcade';
 import { palette } from './art';
+import type { ControlRect, TouchControlLayout } from './controls';
 
 export type PlayingPhase = Extract<Phase, { kind: 'playing' }>;
 export type RunGuidance = 'move' | 'dash' | null;
-export type HudState = { arcade: Arcade; elapsed: number; level: number; best: number; inputMode: 'keyboard' | 'pointer'; guidance: RunGuidance };
+export type HudState = { arcade: Arcade; elapsed: number; level: number; best: number; inputMode: 'keyboard' | 'pointer'; guidance: RunGuidance; controls: TouchControlLayout | null; steering: -1 | 0 | 1 };
 
 /** Menu and game-over phases cannot be rendered by the live game HUD. */
 export function playingHud(k: KAPLAYCtx, initial: PlayingPhase, read: () => HudState): Comp & { renderPhase: (phase: PlayingPhase) => void } {
@@ -16,7 +17,7 @@ export function playingHud(k: KAPLAYCtx, initial: PlayingPhase, read: () => HudS
     k.drawText({ text: value, pos: k.vec2(x, y), font, size, color: c(color), anchor: center ? 'center' : 'topleft' });
   }
   return { id: 'playing-hud', renderPhase(next) { phase = next; }, draw() {
-    const { arcade, elapsed, level, inputMode, guidance } = read();
+    const { arcade, elapsed, level, inputMode, guidance, controls, steering } = read();
     const frenzy = arcade.frenzyRemaining > 0;
     k.drawRect({ width: 480, height: 151, color: c('#111320'), opacity: 0.95 });
     k.drawLine({ p1: k.vec2(24, 93), p2: k.vec2(456, 93), width: 1, color: c(palette.line) });
@@ -44,10 +45,41 @@ export function playingHud(k: KAPLAYCtx, initial: PlayingPhase, read: () => HudS
     if (arcade.magnetRemaining > 0) {
       label(`MAGNET  ${Math.ceil(arcade.magnetRemaining)}s`, 335, 109, 13, palette.cyan);
     } else label(arcade.dash.kind === 'ready' ? 'DASH READY' : arcade.dash.kind === 'dashing' ? 'DASHING' : 'DASH RECHARGING', 319, 109, 12, palette.muted);
-    k.drawRect({ pos: k.vec2(0, 632), width: 480, height: 88, color: c('#10121e'), opacity: 0.96 });
-    k.drawLine({ p1: k.vec2(24, 632), p2: k.vec2(456, 632), color: c(palette.line), width: 1 });
     const ready = arcade.dash.kind === 'ready';
     const dashing = arcade.dash.kind === 'dashing';
+    if (controls) {
+      k.drawRect({ pos: k.vec2(0, controls.barTop), width: 480, height: 720 - controls.barTop, color: c('#10121e'), opacity: 0.98 });
+      k.drawLine({ p1: k.vec2(16, controls.barTop), p2: k.vec2(464, controls.barTop), color: c(palette.line), width: 1 });
+      function button(rect: ControlRect, fill: string, edge: string) {
+        k.drawRect({ pos: k.vec2(rect.x, rect.y), width: rect.width, height: rect.height, radius: 12, color: c(fill), outline: { width: 2, color: c(edge) } });
+      }
+      for (const [rect, direction, word] of [[controls.left, -1, 'LEFT'], [controls.right, 1, 'RIGHT']] as const) {
+        const pressed = steering === direction;
+        button(rect, pressed ? '#51406c' : '#28253b', pressed ? palette.cream : palette.violet);
+        const x = rect.x + rect.width / 2;
+        const y = rect.y + rect.height * 0.29;
+        const arrow = controls.fontSize * 0.45;
+        k.drawLines({ pts: [k.vec2(x - arrow, y), k.vec2(x + arrow, y)], width: 3, color: c(palette.cream), cap: 'round' });
+        k.drawLines({ pts: [k.vec2(x + direction * arrow * 0.2, y - arrow * 0.7), k.vec2(x + direction * arrow, y), k.vec2(x + direction * arrow * 0.2, y + arrow * 0.7)], width: 3, color: c(palette.cream), cap: 'round', join: 'round' });
+        label(word, x, rect.y + rect.height * 0.71, controls.fontSize, palette.cream, 'Display', true);
+      }
+      const dashRect = controls.dash;
+      const dashX = dashRect.x + dashRect.width / 2;
+      const dashY = dashRect.y + dashRect.height / 2;
+      button(dashRect, ready ? palette.mint : dashing ? palette.cyan : '#292737', ready || dashing ? palette.cream : palette.violet);
+      if (guidance === 'dash' && ready) k.drawRect({ pos: k.vec2(dashRect.x - 3, dashRect.y - 3), width: dashRect.width + 6, height: dashRect.height + 6, radius: 15, fill: false, outline: { width: 2, color: c(palette.cream) } });
+      label(ready ? 'DASH' : dashing ? 'DASH!' : `${arcade.dash.kind === 'cooldown' ? arcade.dash.remaining.toFixed(1) : '0'}s`, dashX, dashY, controls.fontSize * 1.2, ready || dashing ? palette.ink : palette.cream, 'Display', true);
+      if (!ready && !dashing) k.drawRect({ pos: k.vec2(dashRect.x + 12, dashRect.y + dashRect.height - 10), width: (dashRect.width - 24) * dashReadyProgress(arcade), height: 4, radius: 2, color: c(palette.mint) });
+      const help = controls.compact
+        ? dashing ? 'DASH: YOU’RE SAFE' : !ready ? 'WAIT: DODGE'
+          : guidance === 'move' ? 'HOLD LEFT / RIGHT' : 'DASH: SMASH DRONES'
+        : dashing ? 'DASH: YOU CAN’T GET HIT' : !ready ? 'WAIT: KEEP DODGING'
+          : guidance === 'move' ? 'HOLD LEFT / RIGHT TO MOVE' : 'TAP DASH: SMASH DRONES';
+      label(help, 240, controls.helpY, controls.helpFontSize, palette.cream, 'Outfit', true);
+      return;
+    }
+    k.drawRect({ pos: k.vec2(0, 632), width: 480, height: 88, color: c('#10121e'), opacity: 0.96 });
+    k.drawLine({ p1: k.vec2(24, 632), p2: k.vec2(456, 632), color: c(palette.line), width: 1 });
     k.drawRect({ pos: k.vec2(240, 665), width: 144, height: 44, radius: 10, anchor: 'center', color: c(ready ? palette.mint : dashing ? palette.cyan : '#292737') });
     if (guidance === 'dash' && ready) k.drawRect({ pos: k.vec2(240, 665), width: 152, height: 52, radius: 13, anchor: 'center', fill: false, outline: { width: 2, color: c(palette.cream) } });
     if (!ready && !dashing) k.drawRect({ pos: k.vec2(176, 687), width: 128 * dashReadyProgress(arcade), height: 3, radius: 2, color: c(palette.mint) });

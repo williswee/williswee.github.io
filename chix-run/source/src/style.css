@@ -99,4 +99,12 @@ kbd { display: grid; place-items: center; min-width: 27px; height: 25px; border:
   #sound-toggle { width: 44px; justify-content: center; }
   #sound-toggle > span { display: none; }
 }
+@media (pointer: coarse) and (max-height: 500px) {
+  body { padding: 0 12px max(6px, env(safe-area-inset-bottom)); grid-template-rows: 54px minmax(0, 1fr) 44px; }
+  .site-header { height: 54px; }
+  .site-footer { height: 44px; flex-direction: row; justify-content: flex-end; }
+  .site-footer > p { display: none; }
+  .game-frame { width: calc(min(480px, calc((100dvh - 134px) * 2 / 3)) + 14px); }
+  .about-panel { max-height: calc(100dvh - 110px); }
+}
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }

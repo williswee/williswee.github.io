@@ -24,6 +24,12 @@ cp -R dist/. ../
 
 Remove obsolete generated assets from `chix-run/assets/` when a rebuild changes their hashes, while retaining `source/` and this README. Commit the generated files together with their source, then push the website repository's publishing branch. Relative asset paths keep the game self-contained under `/chix-run/` on GitHub Pages.
 
+## Mobile controls and sound
+
+Pointer input uses large KAPLAY Left, Dash and Right controls with shared drawing/hit geometry and hold feedback. Buttons adapt to the rendered court; short touch viewports compact the shell. Keyboard controls remain available.
+
+Audio unlocks on trusted touch/pointer release and retries on subsequent gestures. Safari’s optional playback routing supports enabled sound with the silent switch; unmuting plays a short confirmation. All audio is synthesized locally.
+
 ## Credits and bundled notices
 
 Character art is drawn with KAPLAY shapes; game audio is synthesized locally with Web Audio. Anton and Outfit are bundled under SIL OFL 1.1, with their notices in `fonts/` and `source/public/fonts/`.

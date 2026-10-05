@@ -3,6 +3,8 @@ import { createSound, type SoundKind } from './sound';
 
 const originalContext = Object.getOwnPropertyDescriptor(globalThis, 'AudioContext');
 const originalWebkit = Object.getOwnPropertyDescriptor(globalThis, 'webkitAudioContext');
+const originalNavigator = Object.getOwnPropertyDescriptor(globalThis, 'navigator');
+const originalNow = Date.now;
 
 function setAudioContext(value: unknown): void {
   Object.defineProperty(globalThis, 'AudioContext', { configurable: true, writable: true, value });
@@ -14,6 +16,9 @@ afterEach(() => {
   else Reflect.deleteProperty(globalThis, 'AudioContext');
   if (originalWebkit) Object.defineProperty(globalThis, 'webkitAudioContext', originalWebkit);
   else Reflect.deleteProperty(globalThis, 'webkitAudioContext');
+  if (originalNavigator) Object.defineProperty(globalThis, 'navigator', originalNavigator);
+  else Reflect.deleteProperty(globalThis, 'navigator');
+  Date.now = originalNow;
 });
 
 const param = () => ({
@@ -34,6 +39,7 @@ class ContextStub {
   resumeCalls = 0;
   finishResume: () => void = () => {};
   failResume: () => void = () => {};
+  onstatechange: (() => void) | null = null;
 
   constructor() { ContextStub.latest = this; ContextStub.constructed++; }
   createGain() { return { ...node(), gain: param() }; }
@@ -77,7 +83,6 @@ describe('local game sounds', () => {
     expect(ContextStub.constructed).toBe(0);
 
     sound.unlock();
-    sound.unlock();
     const context = ContextStub.latest!;
     expect(ContextStub.constructed).toBe(1);
     expect(context.resumeCalls).toBe(1);
@@ -113,5 +118,89 @@ describe('local game sounds', () => {
     context.finishResume();
     await Promise.resolve();
     expect(context.voices).toBe(0);
+  });
+
+  test('a later activation retries a pending resume without waiting for the first promise', async () => {
+    setAudioContext(ContextStub);
+    const sound = createSound();
+    sound.unlock();
+    const context = ContextStub.latest!;
+    const failFirstGesture = context.failResume;
+    sound.unlock();
+    expect(context.resumeCalls).toBe(2);
+    sound.play('dash');
+    failFirstGesture();
+    await Promise.resolve();
+    await Promise.resolve();
+    context.finishResume();
+    await Promise.resolve();
+    expect(context.voices).toBe(1);
+  });
+
+  test('an interrupted context recovers on a new gesture without recreating or automatically resuming it', async () => {
+    ContextStub.constructed = 0;
+    setAudioContext(ContextStub);
+    const sound = createSound();
+    sound.unlock();
+    const context = ContextStub.latest!;
+    context.finishResume();
+    await Promise.resolve();
+    context.state = 'interrupted';
+    context.onstatechange?.();
+    sound.play('coin');
+    expect(context.resumeCalls).toBe(1);
+    expect(context.voices).toBe(0);
+    sound.unlock();
+    sound.play('near');
+    context.state = 'running';
+    context.onstatechange?.();
+    expect(context.voices).toBe(1);
+    expect(context.resumeCalls).toBe(2);
+    expect(ContextStub.constructed).toBe(1);
+    context.finishResume();
+    await Promise.resolve();
+    expect(context.voices).toBe(1);
+  });
+
+  test('keeps a held start tap briefly but discards stale gameplay effects on resume', async () => {
+    setAudioContext(ContextStub);
+    let now = 0;
+    Date.now = () => now;
+    const sound = createSound();
+    sound.unlock();
+    sound.play('start');
+    sound.play('coin');
+    now = 600;
+    ContextStub.latest!.finishResume();
+    await Promise.resolve();
+    expect(ContextStub.latest!.voices).toBe(4);
+  });
+
+  test('requests the optional playback route only on an unmuted user unlock', () => {
+    setAudioContext(ContextStub);
+    const audioSession = { type: 'ambient' };
+    Object.defineProperty(globalThis, 'navigator', { configurable: true, value: { audioSession } });
+    const sound = createSound();
+    sound.toggle();
+    sound.unlock();
+    expect(audioSession.type).toBe('ambient');
+    sound.toggle();
+    expect(audioSession.type).toBe('ambient');
+    sound.unlock();
+    expect(audioSession.type).toBe('playback');
+  });
+
+  test('still starts WebAudio when the optional playback route rejects configuration', async () => {
+    setAudioContext(ContextStub);
+    Object.defineProperty(globalThis, 'navigator', {
+      configurable: true,
+      value: { audioSession: { get type() { return 'ambient'; }, set type(_value: string) { throw new Error('Unsupported'); } } },
+    });
+    const sound = createSound();
+    sound.unlock();
+    sound.play('near');
+    ContextStub.latest!.finishResume();
+    await Promise.resolve();
+    expect(ContextStub.latest!.voices).toBe(1);
   });
 });

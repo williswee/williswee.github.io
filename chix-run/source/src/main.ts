@@ -6,6 +6,7 @@ import { chickenArt, coinArt, hazardArt, magnetArt, palette } from './art';
 import { makeWorld } from './world';
 import { createSound } from './sound';
 import { loadDisplayFont } from './display-font';
+import { touchControlLayout } from './controls';
 import './style.css';
 
 const canvas = document.querySelector<HTMLCanvasElement>('#game');
@@ -40,6 +41,12 @@ let flash = 0;
 let flashColor: string = palette.cyan;
 let activeBanner: GameObj | null = null;
 let inputMode: 'keyboard' | 'pointer' = matchMedia('(pointer: coarse)').matches ? 'pointer' : 'keyboard';
+let touchControls = inputMode === 'pointer' ? touchControlLayout(canvas.getBoundingClientRect().width) : null;
+let steering: -1 | 0 | 1 = 0;
+function refreshControls() {
+  touchControls = inputMode === 'pointer' ? touchControlLayout(canvas!.getBoundingClientRect().width) : null;
+}
+new ResizeObserver(refreshControls).observe(canvas);
 type Lesson = 'move' | 'dash';
 const learnedLessons = new Set<Lesson>();
 try {
@@ -120,7 +127,7 @@ function dispatch(event: FlowEvent) {
 }
 
 function enter(next: Phase) {
-  pointers.clear(); player = null; hud = null; items.clear();
+  pointers.clear(); steering = 0; player = null; hud = null; items.clear();
   switch (next.kind) {
     case 'menu': k.go('menu'); break;
     case 'playing': k.go('playing', next); break;
@@ -212,12 +219,12 @@ k.scene('playing', (initial: PlayingPhase) => {
   arcade = freshArcade(); elapsed = 0; run += 1; hits = 0; coins = 0; dashes = 0; smashes = 0; nearMisses = 0; magnets = 0; flash = 0;
   if (canvas) canvas.style.cursor = 'default';
   makeWorld(k, () => ({ elapsed, speed: arcade.dash.kind === 'dashing' ? 480 : 230 + level() * 20, frenzy: arcade.frenzyRemaining > 0 }), reducedMotion);
-  hud = playingHud(k, initial, () => ({ arcade, elapsed, level: level(), best, inputMode, guidance: runGuidance() })); k.add([k.z(50), hud]);
+  hud = playingHud(k, initial, () => ({ arcade, elapsed, level: level(), best, inputMode, guidance: runGuidance(), controls: touchControls, steering })); k.add([k.z(50), hud]);
   let direction = 0;
   let invincibleUntil = 0;
   let trailAt = 0;
   let showerAt = 0;
-  const chicken = k.add([k.pos(240, PLAYER_Y), k.rotate(0),
+  const chicken = k.add([k.pos(240, touchControls?.playerY ?? PLAYER_Y), k.rotate(0),
     k.area({ shape: new k.Rect(k.vec2(-18, -25), 36, 50) }),
     chickenArt(k, () => ({ time: reducedMotion ? 0 : elapsed, moving: direction, dash: arcade.dash.kind === 'dashing', frenzy: arcade.frenzyRemaining > 0 })), 'player', k.z(15)]);
   player = chicken;
@@ -306,6 +313,8 @@ k.scene('playing', (initial: PlayingPhase) => {
     const keyboard = gameKeyboardActive() ? Number(k.isKeyDown('right') || k.isKeyDown('d')) - Number(k.isKeyDown('left') || k.isKeyDown('a')) : 0;
     const pointer = [...pointers.values()].reduce<number>((sum, dir) => sum + dir, 0);
     direction = keyboard || Math.sign(pointer);
+    steering = Math.sign(direction) as -1 | 0 | 1;
+    chicken.pos.y = touchControls?.playerY ?? PLAYER_Y;
     const dashing = arcade.dash.kind === 'dashing';
     chicken.move(direction * SPEED * (dashing ? 2.1 : 1), 0);
     chicken.pos.x = k.clamp(chicken.pos.x, 38, 442);
@@ -401,6 +410,7 @@ function logicalPoint(event: PointerEvent) {
 canvas.addEventListener('pointerdown', (event) => {
   if (event.button !== 0) return;
   inputMode = 'pointer';
+  refreshControls();
   event.preventDefault(); canvas.focus({ preventScroll: true }); sound.unlock();
   const point = logicalPoint(event);
   if (phase.kind !== 'playing') {
@@ -409,23 +419,33 @@ canvas.addEventListener('pointerdown', (event) => {
     }
     return;
   }
-  if (point.x >= 168 && point.x <= 312 && point.y >= 640) { dash(); return; }
+  if (touchControls && point.x >= touchControls.dash.x && point.x <= touchControls.dash.x + touchControls.dash.width
+    && point.y >= touchControls.dash.y && point.y <= touchControls.dash.y + touchControls.dash.height) { dash(); return; }
   canvas.setPointerCapture(event.pointerId); pointers.set(event.pointerId, point.x < W / 2 ? -1 : 1);
 });
 canvas.addEventListener('pointermove', (event) => {
   if (pointers.has(event.pointerId)) pointers.set(event.pointerId, logicalPoint(event).x < W / 2 ? -1 : 1);
 });
-for (const name of ['pointerup', 'pointercancel', 'lostpointercapture'] as const) canvas.addEventListener(name, (event) => pointers.delete(event.pointerId));
+for (const name of ['pointerup', 'pointercancel', 'lostpointercapture'] as const) canvas.addEventListener(name, (event) => {
+  pointers.delete(event.pointerId);
+  // Safari grants touch activation on finger-up, rather than touch pointer-down.
+  if (name === 'pointerup' && event.isTrusted) sound.unlock();
+});
+canvas.addEventListener('touchend', event => { if (event.isTrusted) sound.unlock(); }, { passive: true });
 window.addEventListener('blur', () => pointers.clear());
 document.addEventListener('visibilitychange', () => pointers.clear());
 canvas.addEventListener('contextmenu', event => event.preventDefault());
 canvas.addEventListener('keydown', event => { if (['ArrowLeft', 'ArrowRight', ' ', 'Enter', 'Shift'].includes(event.key)) event.preventDefault(); });
 document.addEventListener('keydown', event => {
-  if (gameKeyboardActive() && ['ArrowLeft', 'ArrowRight', 'a', 'A', 'd', 'D', ' ', 'Enter', 'Shift'].includes(event.key)) inputMode = 'keyboard';
+  if (event.isTrusted && gameKeyboardActive() && ['ArrowLeft', 'ArrowRight', 'a', 'A', 'd', 'D', ' ', 'Enter', 'Shift'].includes(event.key)) {
+    inputMode = 'keyboard'; refreshControls(); sound.unlock();
+  }
 });
 const soundButton = document.querySelector<HTMLButtonElement>('#sound-toggle');
 soundButton?.addEventListener('click', () => {
-  sound.unlock(); const muted = sound.toggle(); soundButton.setAttribute('aria-pressed', String(muted));
+  const muted = sound.toggle();
+  if (!muted) { sound.unlock(); sound.play('near'); }
+  soundButton.setAttribute('aria-pressed', String(muted));
   soundButton.setAttribute('aria-label', muted ? 'Unmute game sound' : 'Mute game sound');
   const label = soundButton.querySelector('span'); if (label) label.textContent = muted ? 'SOUND OFF' : 'SOUND ON';
 });
@@ -436,5 +456,7 @@ if (import.meta.env.DEV) Object.defineProperty(window, '__chixRun', { value: Obj
   items: [...items].map(item => ({ kind: item.kind, x: item.pos.x, y: item.pos.y, width: item.width, hazardType: item.hazardType })),
   arcade: { ...arcade, dash: { ...arcade.dash } }, run, hits, coins, elapsed, dashes, smashes, nearMisses, magnets, best, level: level(),
   guidance: { inputMode, active: runGuidance(), learned: [...learnedLessons] },
+  controls: touchControls ? { ...touchControls, left: { ...touchControls.left }, dash: { ...touchControls.dash }, right: { ...touchControls.right } } : null,
+  steering,
 }) }), writable: false, configurable: true });
 k.onLoad(() => { announce(); enter(phase); });

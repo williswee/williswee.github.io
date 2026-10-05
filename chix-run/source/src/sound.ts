@@ -1,6 +1,7 @@
 export type SoundKind = 'start' | 'coin' | 'dash' | 'hit' | 'power' | 'over' | 'near';
 
 export interface GameSound {
+  /** Call synchronously from a user gesture, including touch/pointer release. */
   unlock(): void;
   /** Returns the new muted state. Toggling never creates an audio context. */
   toggle(): boolean;
@@ -13,15 +14,27 @@ type AudioGlobals = typeof globalThis & {
   webkitAudioContext?: typeof AudioContext;
 };
 
+type PlaybackNavigator = Navigator & { audioSession?: { type: string } };
+
 class SynthSound implements GameSound {
   private context: AudioContext | null = null;
   private master: GainNode | null = null;
   private noise: AudioBuffer | null = null;
   private muted = false;
   private resuming = false;
+  private resumeAttempt = 0;
   private pending: { kind: SoundKind; pitch: number; at: number }[] = [];
 
   unlock(): void {
+    if (this.muted) return;
+    // Safari's default WebAudio session follows the iPhone silent switch. Request
+    // the media playback route only when the player chooses to produce sound.
+    try {
+      const session = (globalThis.navigator as PlaybackNavigator | undefined)?.audioSession;
+      if (session && session.type !== 'playback') session.type = 'playback';
+    } catch {
+      // Audio Session is optional; unsupported/restricted routing must not block audio.
+    }
     try {
       if (!this.context || this.context.state === 'closed') {
         const audioGlobals = globalThis as AudioGlobals;
@@ -46,22 +59,30 @@ class SynthSound implements GameSound {
         this.noise = noise;
         this.resuming = false;
         this.pending = [];
+        context.onstatechange = () => {
+          if (this.context === context && context.state === 'running') {
+            this.resuming = false;
+            this.flushPending();
+          }
+        };
       }
       const context = this.context;
       if (context.state === 'running') {
         this.flushPending();
         return;
       }
-      if (this.resuming) return;
       this.resuming = true;
+      const attempt = ++this.resumeAttempt;
       // Called only by unlock(), which the game invokes from a user gesture.
-      // Queue that gesture's sound briefly while Safari finishes resuming audio.
+      // A touch-down resume may remain pending until an activation gesture ends.
+      // Retry inside each later gesture rather than letting that promise block
+      // touch-end recovery. Only the latest attempt may clear the pending queue.
       void context.resume().then(() => {
-        if (this.context !== context) return;
+        if (this.context !== context || this.resumeAttempt !== attempt) return;
         this.resuming = false;
         this.flushPending();
       }).catch(() => {
-        if (this.context !== context) return;
+        if (this.context !== context || this.resumeAttempt !== attempt) return;
         this.resuming = false;
         this.pending = [];
       });
@@ -135,11 +156,12 @@ class SynthSound implements GameSound {
   }
 
   private flushPending(): void {
+    if (this.context?.state !== 'running') return;
     const pending = this.pending;
     this.pending = [];
-    if (this.context?.state !== 'running') return;
     for (const sound of pending) {
-      if (Date.now() - sound.at < 350) this.play(sound.kind, sound.pitch);
+      // A start tap can be held through activation; gameplay effects must stay fresh.
+      if (Date.now() - sound.at < (sound.kind === 'start' ? 1000 : 350)) this.play(sound.kind, sound.pitch);
     }
   }
 
