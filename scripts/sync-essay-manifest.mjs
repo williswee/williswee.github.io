@@ -34,7 +34,7 @@ const details = await Promise.all(essays.map(async slug => {
     if (!article || !title || !date) throw new Error(`Missing essay title, date, or article in ${slug}.`);
     // Include captions and footnotes, but not publication metadata or HTML attrs.
     // This is a reading estimate; watching embedded demos is additional time.
-    const words = plainText(article.replace(/<p\b[^>]*class="article-date"[^>]*>[\s\S]*?<\/p>/, ' '))
+    const words = plainText(article.replace(/<p\b[^>]*class="article-(?:date|author)"[^>]*>[\s\S]*?<\/p>/g, ' '))
         .match(/[\p{L}\p{N}]+(?:['’][\p{L}\p{N}]+)*/gu) ?? [];
     return { slug, title: plainText(title), date: plainText(date), minutes: Math.max(1, Math.ceil(words.length / 220)) };
 }));

@@ -7,7 +7,7 @@ const source = readFileSync(new URL('../../thoughts/reading-room.js', import.met
 const manifest = {};
 vm.runInNewContext(readFileSync(new URL('../../thoughts/essay-manifest.js', import.meta.url), 'utf8'), { window: manifest });
 
-function readerFixture({ href = 'http://localhost:4173/thoughts/freedom.html?reading=3#footnote-1', top = 264, height = 2000, viewport = 900, headerSize = 76, resizeObserver = true, essayDetails = [] } = {}) {
+function readerFixture({ href = 'http://localhost:4173/thoughts/freedom.html?reading=3#footnote-1', top = 264, height = 2000, viewport = 900, headerSize = 76, resizeObserver = true, essayDetails = [], relatedReading = false } = {}) {
     const documentEvents = new Map();
     const windowEvents = new Map();
     const frames = [];
@@ -15,6 +15,7 @@ function readerFixture({ href = 'http://localhost:4173/thoughts/freedom.html?rea
     const elements = [];
     const clipboard = [];
     const continuations = [];
+    const continuationAnchors = [];
     let resizeCallback;
     let fontsReady;
     let selected = '';
@@ -39,7 +40,11 @@ function readerFixture({ href = 'http://localhost:4173/thoughts/freedom.html?rea
     const article = element();
     article.contains = () => true;
     article.getBoundingClientRect = () => ({ top, height, bottom: top + height });
-    article.after = node => continuations.push(node);
+    article.after = node => { continuations.push(node); continuationAnchors.push('article'); };
+    if (relatedReading) article.nextElementSibling = {
+        classList: { contains: name => name === 'related-reading' },
+        after: node => { continuations.push(node); continuationAnchors.push('related-reading'); }
+    };
     const date = element();
     date.textContent = '25 August 2026';
     article.querySelector = selector => selector === '.article-date' ? date : null;
@@ -86,6 +91,7 @@ function readerFixture({ href = 'http://localhost:4173/thoughts/freedom.html?rea
     return {
         article, header, observed, frames, clipboard, location, share, label, document, date,
         continuation: () => continuations[0],
+        continuationAnchor: () => continuationAnchors[0],
         progress: () => parseFloat(progress.style.width),
         bounds: values => { if ('top' in values) top = values.top; if ('height' in values) height = values.height; if ('header' in values) headerSize = values.header; if ('viewport' in values) sandbox.innerHeight = values.viewport; },
         event: type => windowEvents.get(type)(),
@@ -126,6 +132,14 @@ test('essay completion offers the adjacent actual titles with distinct destinati
     assert.deepEqual(links.map(link => link.children[0].textContent), [manifest.WILLIS_ESSAY_DETAILS[index - 1].title, manifest.WILLIS_ESSAY_DETAILS[index + 1].title]);
     assert.equal(new Set(links.map(link => link.href)).size, links.length);
     assert.ok(links.every(link => link.href !== 'freedom.html'));
+});
+
+test('related reading stays after the essay and before its chronological continuation', () => {
+    for (const relatedReading of [false, true]) {
+        const f = readerFixture({ essayDetails: manifest.WILLIS_ESSAY_DETAILS, relatedReading });
+        assert.ok(f.continuation());
+        assert.equal(f.continuationAnchor(), relatedReading ? 'related-reading' : 'article');
+    }
 });
 
 test('newest and oldest essays offer only their existing neighbor without looping the archive', () => {

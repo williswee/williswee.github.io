@@ -160,7 +160,7 @@ const html = `<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.21">
+    <link rel="stylesheet" href="thoughts/reading-room.css?v=1.22">
     <link rel="stylesheet" href="gratitude-game.css?v=1.8">
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="reading-nav.js?v=1.3"></script>
@@ -179,6 +179,7 @@ const html = `<!DOCTYPE html>
             <a href="thoughts/index.html">Thoughts</a>
             <a href="guide.html">Guide</a>
             <a href="work.html">Work</a>
+            <a href="/coaching.html">Coaching</a>
             <a href="books.html">Books</a>
             <a href="gratitude.html" aria-current="page">Gratitude</a>
         </nav>

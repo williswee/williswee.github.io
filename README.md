@@ -60,7 +60,7 @@ Follow the "How to publish a new article" section in README.md and the essay aut
 - Do not create a new decorative background. The article's own images are separate from the preset scenery.
 - Extract the title, subtitle, date, and body from the live Substack post. Do not ask me for them. The subtitle is the Substack post's subtitle/deck. Place it as `<p class="article-subtitle">` immediately after the article's `<h1>`, before the date and title image/figure. Preserve its wording; omit the element when the source has no subtitle.
 - Copy the article content from the Substack post, including images and captions, but omit Substack's in-article subscription buttons (for example, "Subscribe now"). Save any images in the `images` directory and reference them properly in the article. Center image captions and preserve the original wording. Keep the site's shared newsletter block, including its direct subscription link immediately after the invitation and before the deferred iframe.
-- Keep the template's coaching card (`<aside class="coaching-cta">`) unchanged, directly after `</article>` and before the newsletter block.
+- Keep the template's coaching card (`<aside class="coaching-cta">`) unchanged, after `</article>` and any optional Related reading block, before the newsletter block.
 
 Substack URL:
 Slug: (single word slug, e.g. `mission`)
@@ -78,6 +78,14 @@ Find the real Willis keeps its short description, followed by the story about pl
 Give each silent demo an equivalent text description of its interactions and results inside a native "Video description" disclosure. Connect the video to the disclosure with `aria-details`, and reference its always-visible summary with `aria-describedby`. Keep visible link wording at the start of any custom accessible name, then add project or new-tab context.
 
 The page inherits `thoughts/reading-room.css` and `reading-nav.js`, with project-list styles in `creative-game.css`. Its dedicated seaside pixel-art workshop illustration is `images/game-world/creative-workshop-v1.webp`, with provenance in `.impeccable/assets/creative-workshop-v1.prompt.json`: Willis is seen from behind at a game-building desk with a small thought cloud. The Work page keeps its own workshop illustration. `creative-game.js` adds the optional "Surprise me" picker, which visits every project before repeating, focuses its heading, and updates its hash. A single "Another surprise" button moves beside the selected project's action. Escape clears the selection; if that button has focus, focus returns to the project heading before the button hides. The gold selection corners stay visible under reduced motion; the die turn and smooth scrolling stop. Keep every entry's ID stable and retain its `h2` and `.creative-project-actions` so new projects join the picker automatically. Update the Creative entry's `lastmod` in `sitemap.xml` when changing the list. Preview the homepage Work row and Creative page at desktop and phone widths.
+
+## Author and article metadata
+
+Run `node scripts/sync-structured-data.mjs` after changing an essay’s heading, description, canonical, publication date, or article image, or after adding an essay to the Thoughts archive. It maintains static JSON-LD for the homepage, coaching page, and all archived essays, with no runtime dependency or build step. Run `node scripts/sync-structured-data.mjs --check` before publishing.
+
+The homepage uses `ProfilePage` with Willis as its `Person`; coaching uses `WebPage`; the 43 archived essays use `BlogPosting`. Author identity links come from the homepage’s existing public profiles. Publication dates come from each essay’s visible date, and modified dates are omitted. Article images are included only when the article contains a meaningful image with descriptive alt text; the shared avatar and decorative scenery are excluded. Other pages, games, and the generated Gratitude page are outside this generator’s scope. It adds no reviews, ratings, FAQs, or offers.
+
+Keep the small linked author byline separate from `.article-date` so the existing date and reading-time parsers remain accurate. Selected essays can include a static `.related-reading` navigation block after the article and before the coaching card. The reader inserts its chronological “More thoughts” links after that block. The founder reading groups stay outside `#article-list` so archive counts, search, and random picks retain the complete essay list.
 
 ## Local preview
 
@@ -103,7 +111,7 @@ GitHub Pages serves `404.html` for every missing address, at any depth. Use root
 
 ## Editing coaching
 
-[Coaching](coaching.html) is where every essay's coaching card leads. It shares `thoughts/reading-room.css` with the other reading pages, with its own layout in `coaching-game.css`. Its dedicated backdrop, `images/game-world/coaching-comrades-v2.webp`, is fixed and uses the same treatment as the Guide's landscape. Its link-preview image, `images/game-world/coaching-comrades-v2-og.jpg`, is a landscape version of the selected bench scene (1731×909). Provenance and framing details are in `.impeccable/assets/coaching-comrades-v2.prompt.json`. Coaching is not in the header navigation.
+[Coaching](coaching.html) is where every essay's coaching card leads. It shares `thoughts/reading-room.css` with the other reading pages, with its own layout in `coaching-game.css`. Its dedicated backdrop, `images/game-world/coaching-comrades-v2.webp`, is fixed and uses the same treatment as the Guide's landscape. Its link-preview image, `images/game-world/coaching-comrades-v2-og.jpg`, is a landscape version of the selected bench scene (1731×909). Provenance and framing details are in `.impeccable/assets/coaching-comrades-v2.prompt.json`. Coaching appears immediately after Work in the header navigation, with the same link style and active-page treatment as the other destinations.
 
 "Send me a note" is the primary invitation in the hero and desktop rail. It leads to the inline form after the testimonials. The secondary "Book a session" links in the hero and close open `https://intro.co/williswee` in a new tab. The coaching card (`aside.coaching-cta`, a dialogue box with a "Willis" nameplate) sits between `</article>` and the newsletter block in every essay, and at the end of the Guide. All copies share the same wording, so change them together.
 

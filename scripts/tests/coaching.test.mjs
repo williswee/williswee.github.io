@@ -19,7 +19,7 @@ test('every essay ends with one coaching invitation before its newsletter', () =
         assert.match(found[0], /<a href="\.\.\/coaching\.html">/, name);
         assert.ok(found[0].includes(invitation), `${name}: keep the approved invitation copy`);
         assert.ok(found[0].includes(nameplate), `${name}: Willis speaks from the card's nameplate`);
-        assert.match(html, /<\/article>\s*<aside class="coaching-cta"/, `${name}: the card follows the article directly`);
+        assert.match(html, /<\/article>\s*(?:<nav class="related-reading"[\s\S]*?<\/nav>\s*)?<aside class="coaching-cta"/, `${name}: the card follows the article and any related reading`);
         assert.ok(html.indexOf(found[0]) < html.indexOf('id="newsletter"'), `${name}: the card precedes the newsletter`);
     }
 });
@@ -109,7 +109,7 @@ test('coaching page links and link-preview image resolve to published files', ()
         .map(([, path]) => path)
         .filter(path => !/^(?:https?:|mailto:)/.test(path));
     assert.ok(local.length > 10, 'expected the page to link its supporting essays');
-    for (const path of local) assert.ok(existsSync(new URL(path, root)), `missing ${path}`);
+    for (const path of local) assert.ok(existsSync(new URL(path.replace(/^\//, ''), root)), `missing ${path}`);
     const preview = html.match(/<meta property="og:image" content="https:\/\/williswee\.com\/([^"]+)">/)?.[1];
     assert.ok(preview && existsSync(new URL(preview, root)), 'missing link-preview image');
     assert.match(html, /<meta name="description" content="[^"]+">/);

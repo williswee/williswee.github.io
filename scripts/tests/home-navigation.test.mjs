@@ -22,6 +22,13 @@ function fixture({ tops = [0, 1000, 2000, 3000, 4000], y = 0, height = 844, head
         setAttribute: function (name, value) { this[name] = value; },
         removeAttribute: function (name) { delete this[name]; },
     }));
+    const coachingLink = {
+        dataset: {},
+        addEventListener() {},
+        setAttribute: function (name, value) { this[name] = value; },
+        removeAttribute: function (name) { delete this[name]; },
+    };
+    links.splice(2, 0, coachingLink);
     const root = { classList: { add() {} }, style: { setProperty: (key, value) => properties.set(key, value) }, scrollHeight: 6000 };
     const document = {
         documentElement: root,
@@ -39,7 +46,7 @@ function fixture({ tops = [0, 1000, 2000, 3000, 4000], y = 0, height = 844, head
     vm.runInNewContext(source, { document, window });
     function flush() { while (frames.length) frames.shift()(); }
     return {
-        scenes, links, tops, window, root, properties, frames, flush,
+        scenes, links, coachingLink, tops, window, root, properties, frames, flush,
         active: () => links.find(link => link['aria-current'] === 'page')?.dataset.level,
         emit: event => { listeners.get(event)(); flush(); },
         scroll: position => { window.scrollY = position; listeners.get('scroll')(); flush(); },
@@ -53,6 +60,19 @@ test('home starts on the first scene and exactly one scene/link is current', () 
     assert.equal(f.active(), 'base-camp');
     assert.equal(f.scenes.filter(scene => scene.current).length, 1);
     assert.equal(f.links.filter(link => link['aria-current']).length, 1);
+});
+
+test('the Coaching destination never becomes current as homepage scenes change', () => {
+    const f = fixture();
+    assert.deepEqual(f.coachingLink.dataset, {});
+    for (const [position, id] of [[0, 'base-camp'], [950, 'workshop'], [1950, 'archive'],
+        [2950, 'life'], [3950, 'terminal'], [0, 'base-camp']]) {
+        f.scroll(position);
+        assert.equal(f.active(), id);
+        assert.equal(f.coachingLink['aria-current'], undefined);
+        assert.equal(f.links.filter(link => link['aria-current']).length, 1);
+        assert.equal(f.scenes.filter(scene => scene.current).length, 1);
+    }
 });
 
 test('sections taller than three viewports activate at enlarged text sizes', () => {

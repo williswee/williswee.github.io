@@ -23,7 +23,7 @@ The 2026-09-25 entries below describe the earlier implementation and its audit h
 
 ## Initial contract — 2026-09-25
 
-Coaching is the destination for every essay's coaching card, the Guide's closing card, the homepage Work card, the Connect section's "More about coaching" link, and a one-line mention in the Work page's Now section. It is intentionally not in the header navigation, so the mobile header keeps six links; the page shows the shared header with no current item.
+Coaching is the destination for every essay's coaching card, the Guide's closing card, the homepage Work card, the Connect section's "More about coaching" link, and a one-line mention in the Work page's Now section. It appears immediately after Work in the shared header navigation, with the same link style and mobile behavior as the other destinations. Coaching is marked current only on this page.
 
 The page's one job is a click on **Book a call** (`https://intro.co/williswee`, new tab). One booking control sits in the first screen (verified at 390×844 and 1280×720); the other closes the page after the testimonial. Both reuse the homepage booking anatomy (video icon, gold label, "Rates & times on Intro. 20% goes to charity.", northeast arrow) inside the inner-page outline (`--line-strong`, gold on hover and keyboard focus). Each booking link, and the inline "via Intro" and "Slothware Labs" links, announces "(opens in a new tab)" through a visually hidden span.
 

@@ -197,7 +197,9 @@
                 list.append(item);
             });
             continuation.append(heading, list);
-            article.after(continuation);
+            const related = article.nextElementSibling;
+            const continuationAnchor = related?.classList.contains('related-reading') ? related : article;
+            continuationAnchor.after(continuation);
         }
     }
 
