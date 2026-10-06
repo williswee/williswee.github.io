@@ -5,9 +5,17 @@ primary_target: index.html
 related_targets: ["home-game.css", "home-game.js"]
 ---
 
-# Homepage — five-scene journey
+# Homepage — six-scene journey
 
 Mode: Experience.
+
+## Connect content separation — 2026-10-06
+
+The user requested all coaching-specific Terminal content move into the Coaching scene. The existing founder introduction appears there once, followed by Explore coaching, the unchanged three-question FAQ and the unchanged Intro booking row. Connect retains its five social destinations and the exact new invitation “Come say hello lah.” Only “lah” is interactive, with the supplied definition available on hover, focus and tap, dismissible with Escape or an outside pointer action. No booking behavior, detailed coaching-page content or essay content changed.
+
+## Coaching section — 2026-10-06
+
+The user requested that Coaching behave like the other homepage menu items. The homepage now has Start / Work / Coaching / Notes / Life / Connect, with a native `#coaching` destination between Work and Notes. It reuses the approved founder introduction, the existing comrades portrait, and the shared scene/panel/link styles. “Explore coaching” opens the complete canonical coaching page; no form or testimonials are duplicated. Inner-page navigation continues to link directly to page destinations.
 
 ## Creative projects addition, 2026-10-02
 

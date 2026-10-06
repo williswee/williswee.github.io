@@ -118,7 +118,7 @@ test('coaching page links and link-preview image resolve to published files', ()
 test('homepage, Work, and llms.txt point founders to the coaching page', () => {
     const html = read('index.html');
     assert.match(html, /<a href="coaching\.html">\s*<span class="work-meta">Sessions<\/span>\s*<span><strong>Coaching as comrades<\/strong>/);
-    assert.match(html, /<a class="coaching-more" href="coaching\.html">More about coaching</);
+    assert.match(html, /<a class="coaching-more" href="coaching\.html">Explore coaching</);
     const now = read('work.html').match(/<section class="timeline-item" id="now"[\s\S]*?<\/section>/)?.[0] ?? '';
     assert.match(now, /<p>I also do <strong><a href="coaching\.html">coaching as comrades<\/a><\/strong> for founders\.<\/p>/);
     assert.match(read('llms.txt'), /\[Coaching\]\(https:\/\/williswee\.com\/coaching\.html\)/);

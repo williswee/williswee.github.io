@@ -199,6 +199,8 @@ main:focus { outline: none; }
 
 .scene-base .scene-art { object-position: 31% center; }
 .scene-workshop .scene-art { object-position: 55% center; }
+/* Reuse the coaching portrait beside the panel without hiding the comrades. */
+.scene-coaching .scene-art { width: 50%; object-position: 50% 65%; }
 .scene-archive .scene-art { object-position: 42% center; }
 .scene-life .scene-art { object-position: 89% center; }
 .scene-life .story-panel { width: min(500px, 43vw); }
@@ -219,6 +221,7 @@ main:focus { outline: none; }
 }
 
 .scene-base .scene-veil,
+.scene-coaching .scene-veil,
 .scene-archive .scene-veil {
     background:
         linear-gradient(90deg, rgba(3, 9, 18, 0.06) 0%, rgba(3, 9, 18, 0.04) 37%, rgba(3, 9, 18, 0.62) 72%, rgba(3, 9, 18, 0.82) 100%),
@@ -663,6 +666,40 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     stroke-linejoin: round;
 }
 
+.connect-greeting { position: relative; }
+.word-help-trigger {
+    min-width: 44px;
+    min-height: 44px;
+    margin-inline: -8px;
+    padding: 0 8px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-decoration: underline dotted var(--gold);
+    text-underline-offset: 5px;
+    cursor: help;
+}
+.word-help-trigger:disabled { cursor: default; text-decoration: none; }
+.word-help-trigger:is(:hover, :focus-visible) { color: var(--gold); }
+.word-help-definition {
+    position: absolute;
+    z-index: 5;
+    top: 100%;
+    left: 0;
+    width: min(24rem, 100%);
+    padding: 12px 14px;
+    border: 1px solid var(--line-strong);
+    background: var(--ink-solid);
+    color: var(--cream-soft);
+    font-size: var(--font-size-ui);
+    line-height: 1.6;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+.word-help-definition[hidden] { display: none; }
+.word-help-fallback { color: var(--cream-soft); font-size: var(--font-size-ui); line-height: 1.6; }
+
 .closing-note {
     margin-top: 26px !important;
     color: var(--gold) !important;
@@ -770,6 +807,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 
     .scene-base .scene-art { object-position: 30% center; }
     .scene-workshop .scene-art { object-position: 69% center; }
+    .scene-coaching .scene-art { width: 100%; object-position: 50% 65%; }
     .scene-archive .scene-art { object-position: 31% center; }
     .scene-life .scene-art { object-position: 100% center; }
     .scene-life .story-panel { width: 100%; }
@@ -778,6 +816,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     .scene-veil,
     .scene-base .scene-veil,
     .scene-workshop .scene-veil,
+    .scene-coaching .scene-veil,
     .scene-archive .scene-veil,
     .scene-life .scene-veil,
     .scene-terminal .scene-veil {

@@ -26,10 +26,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preload" href="images/game-world/base-camp-personal-v4-q92.webp" as="image" fetchpriority="high">
-    <link rel="stylesheet" href="home-game.css?v=4.10">
+    <link rel="stylesheet" href="home-game.css?v=4.12">
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="https://www.useinflect.ai/inflect-tracking.js" async data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
     <script src="home-game.js?v=3.6" defer></script>
+    <script src="home-word-help.js?v=1" defer></script>
     <script src="site-analytics.js?v=1" defer></script>
     <script type="application/ld+json" id="structured-data">
         {
@@ -69,7 +70,7 @@
         <nav class="chapter-nav" aria-label="Main navigation">
             <a href="#base-camp" data-level="base-camp" aria-current="page">Start</a>
             <a href="#workshop" data-level="workshop">Work</a>
-            <a href="/coaching.html">Coaching</a>
+            <a href="#coaching" data-level="coaching">Coaching</a>
             <a href="#archive" data-level="archive">Notes</a>
             <a href="#life" data-level="life">Life</a>
             <a href="#terminal" data-level="terminal">Connect</a>
@@ -78,7 +79,7 @@
     </header>
 
     <main id="main-content" tabindex="-1">
-        <!-- Start all five scene downloads before mobile scrolling reaches them. -->
+        <!-- Start scene downloads before mobile scrolling reaches them. -->
         <section class="game-scene scene-base is-current" id="base-camp" data-scene-name="Start">
             <img decoding="async" class="scene-art" src="images/game-world/base-camp-personal-v4-q92.webp" alt="Willis, wearing a plain grey T-shirt and shorts and carrying a white canvas tote, looks over Singapore beside his tent, sloth charm, tennis racket, three tennis balls, notebook, and lanterns" width="1946" height="808" fetchpriority="high">
             <div class="scene-veil" aria-hidden="true"></div>
@@ -147,11 +148,54 @@
 
                     <div class="panel-links">
                         <a href="work.html">Full work history</a>
-                        <a class="next-chapter next-chapter-compact" href="#archive">
-                            <span><small>Scroll next</small>My notes</span>
+                        <a class="next-chapter next-chapter-compact" href="#coaching">
+                            <span><small>Scroll next</small>Coaching as comrades</span>
                             <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v13M5 11l5 5 5-5"/></svg>
                         </a>
                     </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="game-scene scene-coaching" id="coaching" data-scene-name="Coaching" aria-labelledby="coaching-title">
+            <img decoding="async" class="scene-art" src="images/game-world/coaching-comrades-v2.webp" alt="Two comrades sit beside a lantern on a bench overlooking the water at dusk" width="768" height="2048" loading="eager" fetchpriority="low">
+            <div class="scene-veil" aria-hidden="true"></div>
+
+            <div class="scene-content scene-content-right">
+                <article class="story-panel">
+                    <h2 id="coaching-title">Coaching as comrades.</h2>
+                    <p>I help ambitious founders get unstuck—from 0 to 1, and 1 to 2. We’ll work through the problem together and find a clearer way forward.</p>
+                    <a class="coaching-more" href="coaching.html">Explore coaching<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg></a>
+
+                    <details class="coaching-faq">
+                        <summary>
+                            <span>A few questions about coaching</span>
+                            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 8 5 5 5-5"/></svg>
+                        </summary>
+                        <div class="coaching-answers">
+                            <h3>What should I bring?</h3>
+                            <p>A challenge, the context, and what you’ve tried. Missing data, too many paths, strong emotions, or a skill you haven’t learned yet. All is good.</p>
+                            <h3>What does “comrades” mean?</h3>
+                            <p>We work through challenges together, on equal footing. I’m friendly and candid, and open to your feedback too. More about me in <a href="guide.html">my user guide</a>.</p>
+                            <h3>What will I leave with?</h3>
+                            <p>A clearer sense of your options and where to go next. I can share concrete examples or help draft a plan. You own the decisions and execution.</p>
+                        </div>
+                    </details>
+
+                    <div class="contact-list" aria-label="Coaching sessions">
+                        <a class="coaching-booking" href="https://intro.co/williswee" target="_blank" rel="noopener noreferrer">
+                            <span class="contact-label">
+                                <svg class="contact-icon contact-icon-stroke" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 10l5-3v10l-5-3v4H4V6h11v4z"/></svg>
+                                <span><strong>Book a call</strong><small>Rates &amp; times on Intro</small></span>
+                            </span>
+                            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg>
+                        </a>
+                    </div>
+
+                    <a class="next-chapter" href="#archive">
+                        <span><small>Scroll next</small>My notes</span>
+                        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v13M5 11l5 5 5-5"/></svg>
+                    </a>
                 </article>
             </div>
         </section>
@@ -204,32 +248,9 @@
             <div class="scene-content scene-content-left">
                 <article class="story-panel">
                     <h2>CONNECT :)</h2>
-                    <p>I help ambitious founders get unstuck—from 0 to 1, and 1 to 2. We’ll work through the problem together and find a clearer way forward.</p>
-                    <a class="coaching-more" href="coaching.html">More about coaching<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg></a>
-
-                    <details class="coaching-faq">
-                        <summary>
-                            <span>A few questions about coaching</span>
-                            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 8 5 5 5-5"/></svg>
-                        </summary>
-                        <div class="coaching-answers">
-                            <h3>What should I bring?</h3>
-                            <p>A challenge, the context, and what you’ve tried. Missing data, too many paths, strong emotions, or a skill you haven’t learned yet. All is good.</p>
-                            <h3>What does “comrades” mean?</h3>
-                            <p>We work through challenges together, on equal footing. I’m friendly and candid, and open to your feedback too. More about me in <a href="guide.html">my user guide</a>.</p>
-                            <h3>What will I leave with?</h3>
-                            <p>A clearer sense of your options and where to go next. I can share concrete examples or help draft a plan. You own the decisions and execution.</p>
-                        </div>
-                    </details>
-
+                    <p class="connect-greeting">Come say hello <span class="word-help" id="lah-help"><button class="word-help-trigger" id="lah-trigger" type="button" aria-describedby="lah-definition" aria-expanded="false" disabled>lah</button><span class="word-help-definition" id="lah-definition" role="tooltip" hidden>Lah — a Singlish word added to the end of a sentence for emphasis, warmth, or certainty.</span></span>.</p>
+                    <noscript><p class="word-help-fallback">Lah — a Singlish word added to the end of a sentence for emphasis, warmth, or certainty.</p></noscript>
                     <div class="contact-list" aria-label="Ways to connect">
-                        <a class="coaching-booking" href="https://intro.co/williswee" target="_blank" rel="noopener noreferrer">
-                            <span class="contact-label">
-                                <svg class="contact-icon contact-icon-stroke" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 10l5-3v10l-5-3v4H4V6h11v4z"/></svg>
-                                <span><strong>Book a call</strong><small>Rates &amp; times on Intro</small></span>
-                            </span>
-                            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg>
-                        </a>
                         <a href="https://williswee.substack.com" target="_blank" rel="noopener noreferrer">
                             <span class="contact-label">
                                 <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
