@@ -29,6 +29,16 @@ Every essay, including the `freedom.html` template, carries one shared coaching 
 
 Essay scenery shares one left-column geometry rule with the five portrait pages (`.essay-page .reading-landscape` sits beside `.reading-landscape--portrait` in `thoughts/reading-room.css`). The essays' dimmed, desaturated treatment is unchanged, and a redundant phone height was removed. The shared stylesheet cache version is 1.19 on every reading page and in the Gratitude renderer. Computed styles matched a pre-change snapshot at 1336, 1000, 760, and 390px.
 
+## Founder starting points — 2026-10-07
+
+The user selected three essays total, one each for Customer discovery, Product building, and Leadership: `talktousers.html`, `whatidid.html`, and `buildculture.html`. Preserve their selected titles and descriptions verbatim. These replace the six-essay, three-column group with a single vertical list at every width. Each row is one native link, named by its heading and described by its summary. The curated list stays outside the searchable archive and uses its own classes; the archive still contains 43 essays.
+
+Rows use thin separators and 24px vertical padding. Titles use Sora at 20px, reducing to 18px on phones, with 16px summaries and the existing 14px gold topic label. This local title hierarchy is intentional. Whole-row keyboard focus retains the shared gold outline; hover and focus reveal a small gold corner and move the drawn northeast arrow by 2px without shifting layout. Reduced motion removes the movement. Existing artwork, fonts, and colors remain the visual foundation. All shared stylesheet references, including the Gratitude renderer, use version 1.23.
+
+Verified the actual reading path through all three links, keyboard activation and focus, search and Escape clearing, and Random pick. Desktop (1440px), intermediate (900px), and phones (390px and 320px) have no document overflow; titles and summaries wrap naturally. Browser console reports no warnings or errors. All 225 existing tests pass, the 43-essay manifest matches, and all 68 Gratitude notes are current. The one detector pass used degraded regex mode because parser dependencies are unavailable; its sole advisory points to the unchanged 20px related-reading heading. No clean parser-based audit is claimed. Source review found no unrelated changes beyond the shared stylesheet cache version.
+
+Preview evidence: `/Users/williswee/.codex/visualizations/2026/09/28/01a0e602-e993-71c3-acdd-30a2d248fa56/thoughts-founder-rows.jpg`. The user reviewed the local preview and approved committing and pushing this update on 2026-10-07. The implementation branch is `codex/thoughts-founder-reading`, based on the latest GitHub `main`.
+
 ## Historical implementation notes (superseded)
 
 The entries below preserve earlier review evidence and stage-specific decisions. The current contract above and refreshed DESIGN.md supersede their descriptions of current structure, content counts, type sizes, selection fade, and completion status. Old statements about local-only work, no DESIGN.md rewrite, or deployment describe those dated checkpoints; they do not grant or deny permission for a later task. Deployment authorization always comes from the active user request.
