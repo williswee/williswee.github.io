@@ -55,4 +55,5 @@ Articles and reflections by Willis Wee.
 - [Take some risk](https://williswee.com/thoughts/risk): A reflection on the startup ecosystem in Singapore, encouraging entrepreneurs to take more risks and expand abroad.
 - [Expanding abroad: Risky, scary, and exciting](https://williswee.com/thoughts/abroad): Reflections on the challenges and excitement of expanding a startup beyond Singapore and across Asia.
 - [Fight hard with no regrets](https://williswee.com/thoughts/dontdie): A reminder to myself, my team members, and fellow entrepreneurs to fight hard so you have no regrets.
+- [We’re Rebranding: Announcing ‘Tech in Asia’](https://williswee.com/thoughts/penn-olson-rebrand): We’re dropping the name Penn Olson and rebranding our Asia tech news blog to Tech in Asia.
 - [My journey as an entrepreneur (so far)](https://williswee.com/thoughts/journey): From selling grasshoppers at recess to founding Tech in Asia.

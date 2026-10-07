@@ -42,6 +42,7 @@ window.WILLIS_ESSAYS = Object.freeze([
     "risk.html",
     "abroad.html",
     "dontdie.html",
+    "penn-olson-rebrand.html",
     "journey.html"
 ]);
 window.WILLIS_ESSAY_DETAILS = Object.freeze([
@@ -296,6 +297,12 @@ window.WILLIS_ESSAY_DETAILS = Object.freeze([
         "title": "Fight hard with no regrets",
         "date": "27 April 2012",
         "minutes": 1
+    },
+    {
+        "slug": "penn-olson-rebrand.html",
+        "title": "We’re Rebranding: Announcing ‘Tech in Asia’",
+        "date": "7 March 2012",
+        "minutes": 3
     },
     {
         "slug": "journey.html",
