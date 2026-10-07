@@ -739,3 +739,13 @@ What's yours?
 2️⃣ I really enjoy solitude. I missed it so much. I enjoyed walking around aimlessly for three hours at a park by the beach. Such a nice feeling. I’d almost forgotten what it felt like to be at peace.
 
 3️⃣ It’s good to see my little nephew getting chubbier every week.
+
+## Gratitude note #68
+
+*2026-10-07*
+
+1️⃣ Thankful for the wife. She’s resilient. I’m the lucky one.
+
+2️⃣ Had quite a peaceful night with the kids.
+
+3️⃣ The youngest one talks to me a lot. So adorable. Haha.
