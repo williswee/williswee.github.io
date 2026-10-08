@@ -13,6 +13,7 @@
 
 ## Thoughts
 Articles and reflections by Willis Wee.
+- [Daddy, what can you buy with $0.20?](https://williswee.com/thoughts/grasshopper): My two older girls had never heard of $0.20 recess money. So I told them about the grasshoppers.
 - [What I learned redesigning my site with AI](https://williswee.com/thoughts/redesign): 75 critic reviews, a return to an earlier design, and the objects from my life.
 - [A small experiment with Google Search](https://williswee.com/thoughts/googlefluid): Making fluid UI easier to visualize through something we already use.
 - [A 9-day meditation retreat](https://williswee.com/thoughts/meditationretreat): 52 hours of sitting meditation, 52 hours of walking meditation, and almost total silence.
