@@ -759,3 +759,13 @@ What's yours?
 2️⃣ Jogging along the sea is always nice.
 
 3️⃣ Helping a friend build his own unique AI workflow has been quite fulfilling and fun.
+
+## Gratitude note #70
+
+*2026-10-09*
+
+1️⃣ Had a nice walk alone yesterday morning. That was nice.
+
+2️⃣ Had a simple lunch with the wife. We chatted and laughed.
+
+3️⃣ Having time to myself to work on stuff and daydream.
