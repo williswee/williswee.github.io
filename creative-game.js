@@ -32,8 +32,16 @@
         return projects.find(project => `#${encodeURIComponent(project.id)}` === window.location.hash) || null;
     }
 
+    function focusHeading(project) {
+        const heading = project.querySelector('h2');
+        heading.setAttribute('tabindex', '-1');
+        heading.focus({ preventScroll: true });
+    }
+
     function seedFromHash() {
         const project = projectForHash();
+        // Moving or hiding the focused reroll would otherwise drop keyboard focus.
+        if (document.activeElement === reroll && selected !== project) focusHeading(project || selected);
         if (project) remaining = projects.filter(entry => entry !== project);
         markProject(project);
     }
@@ -72,11 +80,7 @@
     document.addEventListener('keydown', event => {
         if (event.key !== 'Escape' || event.defaultPrevented || !selected) return;
         // A focused reroll cannot disappear along with its selected project.
-        if (document.activeElement === reroll) {
-            const heading = selected.querySelector('h2');
-            heading.setAttribute('tabindex', '-1');
-            heading.focus({ preventScroll: true });
-        }
+        if (document.activeElement === reroll) focusHeading(selected);
         markProject(null);
         if (projectForHash()) {
             window.history.replaceState(window.history.state, '', window.location.pathname + window.location.search);

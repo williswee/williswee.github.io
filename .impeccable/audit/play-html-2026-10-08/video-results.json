@@ -1,0 +1,59 @@
+{
+  "errors": [],
+  "sizes": [
+    {
+      "viewport": 1346,
+      "document": 1346,
+      "videoWidth": 710,
+      "videoHeight": 400.25,
+      "contentWidth": 708,
+      "contentHeight": 398.25
+    },
+    {
+      "viewport": 768,
+      "document": 768,
+      "videoWidth": 448.546875,
+      "videoHeight": 253.171875,
+      "contentWidth": 446.546875,
+      "contentHeight": 251.171875
+    },
+    {
+      "viewport": 390,
+      "document": 390,
+      "videoWidth": 308,
+      "videoHeight": 174.125,
+      "contentWidth": 306,
+      "contentHeight": 172.125
+    },
+    {
+      "viewport": 320,
+      "document": 320,
+      "videoWidth": 258,
+      "videoHeight": 146,
+      "contentWidth": 256,
+      "contentHeight": 144
+    }
+  ],
+  "rangeSupported": true,
+  "metadata": {
+    "duration": 30.016,
+    "width": 1920,
+    "height": 1080,
+    "controls": true,
+    "playsInline": true,
+    "autoplay": false,
+    "paused": true,
+    "preload": "metadata",
+    "poster": "http://127.0.0.1:61062/images/3d-floorplan-demo-poster-310546bc46f2.webp",
+    "src": "http://127.0.0.1:61062/videos/3d-floorplan-demo-310546bc46f2.mp4"
+  },
+  "nativePlay": true,
+  "seek": true,
+  "playToEnd": true,
+  "keyboardDisclosure": true,
+  "references": {
+    "duplicateIds": [],
+    "missing": []
+  },
+  "legacyRedirects": true
+}

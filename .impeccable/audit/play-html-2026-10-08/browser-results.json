@@ -1,0 +1,696 @@
+{
+  "screens": [
+    {
+      "name": "desktop",
+      "width": 1346,
+      "documentWidth": 1346,
+      "headings": [
+        [
+          "H1",
+          "Randomly fun projects."
+        ],
+        [
+          "H2",
+          "3D Floorplan"
+        ],
+        [
+          "H2",
+          "Chix Run"
+        ],
+        [
+          "H2",
+          "Find the real Willis"
+        ],
+        [
+          "H2",
+          "GoogleFluid"
+        ],
+        [
+          "H2",
+          "Brain games for kids"
+        ]
+      ],
+      "duplicateIDs": [],
+      "missingAriaRefs": [],
+      "missingImages": [],
+      "brand": {
+        "x": 53.828125,
+        "y": 22.25,
+        "width": 143.484375,
+        "height": 28
+      },
+      "actions": [
+        {
+          "text": "Surprise me",
+          "x": 1087.546875,
+          "y": 321.46875,
+          "width": 146.15625,
+          "height": 44
+        },
+        {
+          "text": "Play 3D Floorplan",
+          "x": 523.703125,
+          "y": 1000.71875,
+          "width": 710,
+          "height": 44
+        },
+        {
+          "text": "Play Chix Run",
+          "x": 523.703125,
+          "y": 1926.46875,
+          "width": 710,
+          "height": 44
+        },
+        {
+          "text": "Play the game",
+          "x": 523.703125,
+          "y": 2678.90625,
+          "width": 710,
+          "height": 44
+        },
+        {
+          "text": "View project on X",
+          "x": 523.703125,
+          "y": 3362.90625,
+          "width": 710,
+          "height": 44
+        },
+        {
+          "text": "View project on X",
+          "x": 523.703125,
+          "y": 4121.96875,
+          "width": 710,
+          "height": 44
+        }
+      ],
+      "contrast": {
+        "body": {
+          "color": "rgb(221, 214, 200)",
+          "ratio": 13.56
+        },
+        "title": {
+          "color": "rgb(244, 233, 207)",
+          "ratio": 16.24
+        },
+        "date": {
+          "color": "rgb(174, 181, 189)",
+          "ratio": 9.47
+        },
+        "action": {
+          "color": "rgb(255, 190, 99)",
+          "ratio": 11.94
+        }
+      },
+      "previewName": "Play 3D Floorplan",
+      "previewDimensions": {
+        "x": 523.703125,
+        "y": 544.21875,
+        "width": 710,
+        "height": 444.5
+      }
+    },
+    {
+      "name": "tall",
+      "width": 875,
+      "documentWidth": 875,
+      "headings": [
+        [
+          "H1",
+          "Randomly fun projects."
+        ],
+        [
+          "H2",
+          "3D Floorplan"
+        ],
+        [
+          "H2",
+          "Chix Run"
+        ],
+        [
+          "H2",
+          "Find the real Willis"
+        ],
+        [
+          "H2",
+          "GoogleFluid"
+        ],
+        [
+          "H2",
+          "Brain games for kids"
+        ]
+      ],
+      "duplicateIDs": [],
+      "missingAriaRefs": [],
+      "missingImages": [],
+      "brand": {
+        "x": 35,
+        "y": 22.25,
+        "width": 143.484375,
+        "height": 28
+      },
+      "actions": [
+        {
+          "text": "Surprise me",
+          "x": 669.59375,
+          "y": 309.46875,
+          "width": 146.15625,
+          "height": 44
+        },
+        {
+          "text": "Play 3D Floorplan",
+          "x": 295.5,
+          "y": 898.125,
+          "width": 520.25,
+          "height": 44
+        },
+        {
+          "text": "Play Chix Run",
+          "x": 295.5,
+          "y": 1851.875,
+          "width": 520.25,
+          "height": 44
+        },
+        {
+          "text": "Play the game",
+          "x": 295.5,
+          "y": 2504.8125,
+          "width": 520.25,
+          "height": 44
+        },
+        {
+          "text": "View project on X",
+          "x": 295.5,
+          "y": 3110.078125,
+          "width": 520.25,
+          "height": 44
+        },
+        {
+          "text": "View project on X",
+          "x": 295.5,
+          "y": 3735.71875,
+          "width": 520.25,
+          "height": 44
+        }
+      ],
+      "contrast": {
+        "body": {
+          "color": "rgb(221, 214, 200)",
+          "ratio": 13.56
+        },
+        "title": {
+          "color": "rgb(244, 233, 207)",
+          "ratio": 16.24
+        },
+        "date": {
+          "color": "rgb(174, 181, 189)",
+          "ratio": 9.47
+        },
+        "action": {
+          "color": "rgb(255, 190, 99)",
+          "ratio": 11.94
+        }
+      },
+      "previewName": "Play 3D Floorplan",
+      "previewDimensions": {
+        "x": 295.5,
+        "y": 560.21875,
+        "width": 520.25,
+        "height": 325.90625
+      }
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "documentWidth": 768,
+      "headings": [
+        [
+          "H1",
+          "Randomly fun projects."
+        ],
+        [
+          "H2",
+          "3D Floorplan"
+        ],
+        [
+          "H2",
+          "Chix Run"
+        ],
+        [
+          "H2",
+          "Find the real Willis"
+        ],
+        [
+          "H2",
+          "GoogleFluid"
+        ],
+        [
+          "H2",
+          "Brain games for kids"
+        ]
+      ],
+      "duplicateIDs": [],
+      "missingAriaRefs": [],
+      "missingImages": [],
+      "brand": {
+        "x": 30.71875,
+        "y": 22.25,
+        "width": 143.484375,
+        "height": 28
+      },
+      "actions": [
+        {
+          "text": "Surprise me",
+          "x": 565.8125,
+          "y": 367.703125,
+          "width": 146.15625,
+          "height": 44
+        },
+        {
+          "text": "Play 3D Floorplan",
+          "x": 263.421875,
+          "y": 911.53125,
+          "width": 448.546875,
+          "height": 44
+        },
+        {
+          "text": "Play Chix Run",
+          "x": 263.421875,
+          "y": 1893.28125,
+          "width": 448.546875,
+          "height": 44
+        },
+        {
+          "text": "Play the game",
+          "x": 263.421875,
+          "y": 2526.046875,
+          "width": 448.546875,
+          "height": 44
+        },
+        {
+          "text": "View project on X",
+          "x": 263.421875,
+          "y": 3090.96875,
+          "width": 448.546875,
+          "height": 44
+        },
+        {
+          "text": "View project on X",
+          "x": 263.421875,
+          "y": 3694.1875,
+          "width": 448.546875,
+          "height": 44
+        }
+      ],
+      "contrast": {
+        "body": {
+          "color": "rgb(221, 214, 200)",
+          "ratio": 13.56
+        },
+        "title": {
+          "color": "rgb(244, 233, 207)",
+          "ratio": 16.24
+        },
+        "date": {
+          "color": "rgb(174, 181, 189)",
+          "ratio": 9.47
+        },
+        "action": {
+          "color": "rgb(255, 190, 99)",
+          "ratio": 11.94
+        }
+      },
+      "previewName": "Play 3D Floorplan",
+      "previewDimensions": {
+        "x": 263.421875,
+        "y": 618.453125,
+        "width": 448.546875,
+        "height": 281.078125
+      }
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "documentWidth": 390,
+      "headings": [
+        [
+          "H1",
+          "Randomly fun projects."
+        ],
+        [
+          "H2",
+          "3D Floorplan"
+        ],
+        [
+          "H2",
+          "Chix Run"
+        ],
+        [
+          "H2",
+          "Find the real Willis"
+        ],
+        [
+          "H2",
+          "GoogleFluid"
+        ],
+        [
+          "H2",
+          "Brain games for kids"
+        ]
+      ],
+      "duplicateIDs": [],
+      "missingAriaRefs": [],
+      "missingImages": [],
+      "brand": {
+        "x": 12,
+        "y": 24,
+        "width": 78.65625,
+        "height": 44
+      },
+      "actions": [
+        {
+          "text": "Surprise me",
+          "x": 41,
+          "y": 458.09375,
+          "width": 146.15625,
+          "height": 44
+        },
+        {
+          "text": "Play 3D Floorplan",
+          "x": 41,
+          "y": 931.609375,
+          "width": 308,
+          "height": 44
+        },
+        {
+          "text": "Play Chix Run",
+          "x": 41,
+          "y": 1784.875,
+          "width": 308,
+          "height": 44
+        },
+        {
+          "text": "Play the game",
+          "x": 41,
+          "y": 2361.234375,
+          "width": 308,
+          "height": 44
+        },
+        {
+          "text": "View project on X",
+          "x": 41,
+          "y": 2828.625,
+          "width": 308,
+          "height": 44
+        },
+        {
+          "text": "View project on X",
+          "x": 41,
+          "y": 3343.046875,
+          "width": 308,
+          "height": 44
+        }
+      ],
+      "contrast": {
+        "body": {
+          "color": "rgb(221, 214, 200)",
+          "ratio": 13.56
+        },
+        "title": {
+          "color": "rgb(244, 233, 207)",
+          "ratio": 16.24
+        },
+        "date": {
+          "color": "rgb(174, 181, 189)",
+          "ratio": 9.47
+        },
+        "action": {
+          "color": "rgb(255, 190, 99)",
+          "ratio": 11.94
+        }
+      },
+      "previewName": "Play 3D Floorplan",
+      "previewDimensions": {
+        "x": 41,
+        "y": 726.359375,
+        "width": 308,
+        "height": 193.25
+      }
+    },
+    {
+      "name": "narrow",
+      "width": 320,
+      "documentWidth": 320,
+      "headings": [
+        [
+          "H1",
+          "Randomly fun projects."
+        ],
+        [
+          "H2",
+          "3D Floorplan"
+        ],
+        [
+          "H2",
+          "Chix Run"
+        ],
+        [
+          "H2",
+          "Find the real Willis"
+        ],
+        [
+          "H2",
+          "GoogleFluid"
+        ],
+        [
+          "H2",
+          "Brain games for kids"
+        ]
+      ],
+      "duplicateIDs": [],
+      "missingAriaRefs": [],
+      "missingImages": [],
+      "brand": {
+        "x": 12,
+        "y": 24,
+        "width": 78.65625,
+        "height": 44
+      },
+      "actions": [
+        {
+          "text": "Surprise me",
+          "x": 31,
+          "y": 433.9375,
+          "width": 138.15625,
+          "height": 44
+        },
+        {
+          "text": "Play 3D Floorplan",
+          "x": 31,
+          "y": 904.203125,
+          "width": 258,
+          "height": 44
+        },
+        {
+          "text": "Play Chix Run",
+          "x": 31,
+          "y": 1710.46875,
+          "width": 258,
+          "height": 44
+        },
+        {
+          "text": "Play the game",
+          "x": 31,
+          "y": 2281.234375,
+          "width": 258,
+          "height": 44
+        },
+        {
+          "text": "View project on X",
+          "x": 31,
+          "y": 2777,
+          "width": 258,
+          "height": 44
+        },
+        {
+          "text": "View project on X",
+          "x": 31,
+          "y": 3284.265625,
+          "width": 258,
+          "height": 44
+        }
+      ],
+      "contrast": {
+        "body": {
+          "color": "rgb(221, 214, 200)",
+          "ratio": 13.56
+        },
+        "title": {
+          "color": "rgb(244, 233, 207)",
+          "ratio": 16.24
+        },
+        "date": {
+          "color": "rgb(174, 181, 189)",
+          "ratio": 9.47
+        },
+        "action": {
+          "color": "rgb(255, 190, 99)",
+          "ratio": 11.94
+        }
+      },
+      "previewName": "Play 3D Floorplan",
+      "previewDimensions": {
+        "x": 31,
+        "y": 730.203125,
+        "width": 258,
+        "height": 162
+      }
+    },
+    {
+      "name": "200-percent-text",
+      "width": 320,
+      "documentWidth": 320,
+      "headings": [
+        [
+          "H1",
+          "Randomly fun projects."
+        ],
+        [
+          "H2",
+          "3D Floorplan"
+        ],
+        [
+          "H2",
+          "Chix Run"
+        ],
+        [
+          "H2",
+          "Find the real Willis"
+        ],
+        [
+          "H2",
+          "GoogleFluid"
+        ],
+        [
+          "H2",
+          "Brain games for kids"
+        ]
+      ],
+      "duplicateIDs": [],
+      "missingAriaRefs": [],
+      "missingImages": [],
+      "brand": {
+        "x": 12,
+        "y": 48.5,
+        "width": 143.296875,
+        "height": 49
+      },
+      "actions": [
+        {
+          "text": "Surprise me",
+          "x": 31,
+          "y": 876.125,
+          "width": 224.3125,
+          "height": 67
+        },
+        {
+          "text": "Play 3D Floorplan",
+          "x": 31,
+          "y": 1869.6875,
+          "width": 258,
+          "height": 98
+        },
+        {
+          "text": "Play Chix Run",
+          "x": 31,
+          "y": 3515.25,
+          "width": 258,
+          "height": 49
+        },
+        {
+          "text": "Play the game",
+          "x": 31,
+          "y": 4834.375,
+          "width": 258,
+          "height": 49
+        },
+        {
+          "text": "View project on X",
+          "x": 31,
+          "y": 5939.9375,
+          "width": 258,
+          "height": 98
+        },
+        {
+          "text": "View project on X",
+          "x": 31,
+          "y": 6926.0625,
+          "width": 258,
+          "height": 98
+        }
+      ],
+      "contrast": {
+        "body": {
+          "color": "rgb(221, 214, 200)",
+          "ratio": 13.56
+        },
+        "title": {
+          "color": "rgb(244, 233, 207)",
+          "ratio": 16.24
+        },
+        "date": {
+          "color": "rgb(174, 181, 189)",
+          "ratio": 9.47
+        },
+        "action": {
+          "color": "rgb(255, 190, 99)",
+          "ratio": 11.94
+        }
+      },
+      "previewName": "Play 3D Floorplan",
+      "previewDimensions": {
+        "x": 31,
+        "y": 1695.6875,
+        "width": 258,
+        "height": 162
+      }
+    }
+  ],
+  "errors": [],
+  "skip": "skip-link",
+  "skipDestination": "main-content",
+  "keyboard": {
+    "picked": "find-the-real-willis",
+    "focused": {
+      "tag": "H2",
+      "text": "Find the real Willis",
+      "outline": "rgb(255, 190, 99) solid 3px",
+      "top": 1874.875
+    },
+    "escapeFocus": "Find the real Willis",
+    "rerollHidden": true
+  },
+  "disclosureOpen": true,
+  "reducedMotion": {
+    "matches": true,
+    "animations": 0,
+    "selection": "googlefluid",
+    "arrowTransition": "0s"
+  },
+  "actionFocus": {
+    "label": "Play 3D Floorplan",
+    "outline": "rgb(255, 190, 99) solid 3px"
+  },
+  "floorplanDestination": "/3d-floorplan/",
+  "noJS": {
+    "path": "/play",
+    "projects": 5,
+    "randomHidden": true,
+    "overflow": false,
+    "navPosition": "relative"
+  },
+  "settledKeyboardScroll": {
+    "project": "find-the-real-willis",
+    "headingTop": 125.875,
+    "headerBottom": 76
+  }
+}

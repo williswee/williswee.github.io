@@ -10,7 +10,7 @@ const root = new URL('../../', import.meta.url);
 test('every public content page loads the analytics adapter once', () => {
     for (const folder of ['', 'thoughts/']) {
         const directory = new URL(folder, root);
-        for (const name of readdirSync(directory).filter(name => name.endsWith('.html') && name !== '404.html')) {
+        for (const name of readdirSync(directory).filter(name => name.endsWith('.html') && !['404.html', 'creative.html'].includes(name))) {
             const html = readFileSync(new URL(name, directory), 'utf8');
             const prefix = folder ? '../' : '';
             const version = !folder && name === 'coaching.html' ? '1.1' : '1';

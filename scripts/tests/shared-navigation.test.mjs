@@ -6,7 +6,7 @@ import test from 'node:test';
 const root = new URL('../../', import.meta.url);
 const read = name => readFileSync(new URL(name, root), 'utf8');
 const readingPages = [
-    ...readdirSync(root).filter(name => name.endsWith('.html') && name !== 'index.html'),
+    ...readdirSync(root).filter(name => name.endsWith('.html') && !['index.html', 'creative.html'].includes(name)),
     ...readdirSync(new URL('thoughts/', root))
         .filter(name => name.endsWith('.html'))
         .map(name => `thoughts/${name}`),

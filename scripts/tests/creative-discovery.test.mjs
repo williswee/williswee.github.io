@@ -55,7 +55,7 @@ function fixture({ hash = '', reducedMotion = false, random = () => 0 } = {}) {
         };
     });
     const location = {
-        pathname: '/creative.html',
+        pathname: '/play',
         get search() { return currentSearch; },
         get hash() { return currentHash; }
     };
@@ -79,7 +79,7 @@ function fixture({ hash = '', reducedMotion = false, random = () => 0 } = {}) {
             state: null,
             replaceState(_state, _title, url) {
                 history.push(url);
-                const resolved = new URL(url, 'https://williswee.com/creative.html?preview=1');
+                const resolved = new URL(url, 'https://williswee.com/play?preview=1');
                 currentHash = resolved.hash;
                 currentSearch = resolved.search;
             }
@@ -176,6 +176,31 @@ test('Escape preserves focus and scroll except when hiding the focused reroll', 
     f.escape();
     assert.equal(f.activeElement(), other);
     assert.equal(f.reroll.hidden, true);
+});
+
+test('hash changes protect a focused reroll without stealing other focus or scrolling', () => {
+    const f = fixture();
+    f.click(f.intro);
+    f.setFocus(f.reroll);
+    const scrollCount = f.scrolls.length;
+    f.changeHash('#brain-games');
+    assert.equal(f.activeElement(), f.projects[2].heading);
+    assert.equal(f.projects[2].heading.focusOptions.preventScroll, true);
+    assert.equal(f.reroll.parent, f.projects[2].actions);
+    assert.equal(f.scrolls.length, scrollCount);
+
+    f.setFocus(f.reroll);
+    f.changeHash('#unknown-project');
+    assert.equal(f.activeElement(), f.projects[2].heading);
+    assert.equal(f.reroll.hidden, true);
+    assert.equal(f.scrolls.length, scrollCount);
+
+    const elsewhere = {};
+    f.setFocus(elsewhere);
+    f.changeHash('#googlefluid');
+    assert.equal(f.activeElement(), elsewhere);
+    assert.equal(f.reroll.parent, f.projects[1].actions);
+    assert.equal(fixture({ hash: '#googlefluid' }).activeElement(), null);
 });
 
 test('reduced motion skips die animation and uses immediate scrolling', () => {

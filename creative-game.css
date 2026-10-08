@@ -1,4 +1,5 @@
 /* Creative uses the shared reading room with its own seaside workshop illustration. */
+.creative-landscape img { object-position: 75% center; }
 .creative-opening { margin-bottom: 32px; }
 .creative-opening h1 { max-width: 15ch; }
 .creative-intro-tools { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 20px; min-height: 44px; margin-top: 20px; }

@@ -69,7 +69,8 @@ main:focus { outline: none; }
     background: rgba(4, 10, 19, 0.97);
     box-shadow: 0 10px 32px rgba(0, 0, 0, 0.2);
 }
-.site-brand { display: inline-flex; flex: 0 0 auto; align-items: baseline; gap: 14px; white-space: nowrap; text-decoration: none; }
+/* Extend the home link's hit area without moving its text baseline. */
+.site-brand { display: inline-flex; flex: 0 0 auto; align-items: baseline; min-height: 44px; gap: 14px; white-space: nowrap; text-decoration: none; }
 .site-brand > span { font: 700 0.88rem/1.4 var(--font-display); letter-spacing: 0.04em; }
 .site-brand small { font-size: 1rem; }
 .brand-short { display: none; }
@@ -422,7 +423,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
     .reading-hud::after { right: 1px; width: 8px; height: 12px; }
     .brand-full { display: none; }
     .brand-short { display: inline; }
-    .site-brand { min-height: 44px; gap: 6px; }
+    .site-brand { gap: 6px; }
     .site-brand > span { font-size: 0.74rem; }
     .site-brand small { font-size: 0.875rem; }
     .reading-nav { flex: 1 1 auto; margin: 0; padding-inline: 4px; justify-content: safe flex-end; gap: 0; flex-wrap: nowrap; }

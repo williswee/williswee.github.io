@@ -11,24 +11,27 @@ const pages = [
 ].sort();
 const read = name => readFileSync(new URL(name, root), 'utf8');
 const essayManifest = JSON.parse(read('thoughts/essay-manifest.js').match(/Object\.freeze\(([\s\S]*?)\);/)?.[1] ?? 'null');
-const topLevelPages = ['books.html', 'coaching.html', 'creative.html', 'gratitude.html', 'guide.html', 'index.html', 'work.html'];
+const topLevelPages = ['books.html', 'coaching.html', 'play.html', 'gratitude.html', 'guide.html', 'index.html', 'work.html'];
 // Served by GitHub Pages for missing addresses; never listed in the sitemap.
 const utilityPages = ['404.html'];
+// Compatibility addresses redirect to their canonical content page.
+const redirectPages = ['creative.html'];
 // Standalone games have their own canvas UI and bundled assets.
 const standaloneAppPages = ['chix-run/index.html'];
-const analyticsExcludedPages = new Set(['gratitude.html']);
+const analyticsExcludedPages = new Set(['gratitude.html', ...redirectPages]);
 const trackingPixel = /<img\b[^>]*\bsrc="https:\/\/www\.useinflect\.ai\/api\/bot-traffic\/pixel\?[^" ]+"[^>]*>/g;
 
 test('public documents keep image content out of the head', () => {
     assert.ok(Array.isArray(essayManifest) && essayManifest.length, 'missing essay manifest');
     assert.equal(new Set(essayManifest).size, essayManifest.length, 'duplicate essay manifest entries');
-    assert.deepEqual(pages, [...topLevelPages, ...utilityPages, 'thoughts/index.html', ...essayManifest.map(name => `thoughts/${name}`)].sort(),
+    assert.deepEqual(pages, [...topLevelPages, ...utilityPages, ...redirectPages, 'thoughts/index.html', ...essayManifest.map(name => `thoughts/${name}`)].sort(),
         'every public document must belong to the site routes or essay manifest');
     const sitemapPages = [...read('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, url]) => {
         const pathname = new URL(url).pathname.slice(1);
+        if (pathname === 'play') return 'play.html';
         return pathname.endsWith('/') || !pathname ? `${pathname}index.html` : pathname;
     }).sort();
-    assert.deepEqual(sitemapPages, [...pages.filter(name => !utilityPages.includes(name)), ...standaloneAppPages].sort(), 'the sitemap must cover each public document exactly once');
+    assert.deepEqual(sitemapPages, [...pages.filter(name => !utilityPages.includes(name) && !redirectPages.includes(name)), ...standaloneAppPages].sort(), 'the sitemap must cover each public content document exactly once');
     for (const name of standaloneAppPages) assert.ok(existsSync(new URL(name, root)), `${name}: missing standalone game`);
     for (const name of pages) {
         const html = read(name);
@@ -75,7 +78,7 @@ test('reading pages and the Gratitude renderer use the current shared cache tags
     let readingPages = 0;
     for (const name of pages) {
         const html = read(name);
-        if (name === 'index.html') continue;
+        if (name === 'index.html' || redirectPages.includes(name)) continue;
         readingPages += 1;
         const readingStyles = html.match(/reading-room\.css(?:\?[^"\s]*)?/g) ?? [];
         assert.deepEqual(readingStyles, [sharedStyles], `${name}: use the same versioned shared stylesheet`);
@@ -85,7 +88,7 @@ test('reading pages and the Gratitude renderer use the current shared cache tags
         assert.doesNotMatch(navScript, /\b(?:defer|async|type)\b/, `${name}: navigation must initialize before body paint`);
         assert.ok(html.indexOf(navScript) < html.indexOf('</head>'), `${name}: bootstrap belongs in the head`);
     }
-    assert.equal(readingPages, pages.length - 1);
+    assert.equal(readingPages, pages.length - 1 - redirectPages.length);
     assert.match(read('books.html'), /books-game\.css\?v=\d+(?:\.\d+)*"/);
     const gratitudeStyles = read('gratitude.html').match(/gratitude-game\.css\?v=\d+(?:\.\d+)*/)?.[0];
     assert.ok(gratitudeStyles, 'Gratitude stylesheet must have a versioned URL');

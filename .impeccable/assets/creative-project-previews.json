@@ -1,7 +1,43 @@
 {
   "schema_version": 1,
-  "page": "creative.html",
+  "page": "play.html",
   "assets": [
+    {
+      "project": "3D Floorplan",
+      "source_type": "local project edited walkthrough",
+      "source_url": "https://williswee.com/3d-floorplan/",
+      "source_project": "williswee/3D-floorplan",
+      "source_path": "walkthrough/out/floor-plan-walkthrough-v2.mp4",
+      "source_sha256": "310546bc46f22f57083549ae85e43df2d6b66d70aa78e001a6ffed12da582a30",
+      "captured_date": "2026-10-07",
+      "version": 2,
+      "method": "Existing Remotion export, copied unchanged. Real app screenshots and two camera-tour recordings, numbered callouts, measured cursor motion, and original ambient music/click sounds. Ends on the filled prompt without pressing Send.",
+      "speed_multiplier": 1.3,
+      "narration": false,
+      "outputs": [
+        {
+          "path": "videos/3d-floorplan-demo-310546bc46f2.mp4",
+          "format": "mp4",
+          "codec": "h264",
+          "width": 1920,
+          "height": 1080,
+          "frames_per_second": 30,
+          "duration_seconds": 30.016,
+          "bytes": 12089178,
+          "audio": true,
+          "audio_codec": "aac"
+        },
+        {
+          "path": "images/3d-floorplan-demo-poster-310546bc46f2.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 720,
+          "source_video_time_seconds": 6,
+          "bytes": 32670
+        }
+      ],
+      "generated_imagery": false
+    },
     {
       "project": "Chix Run",
       "source_type": "local project gameplay recording",
