@@ -9,6 +9,10 @@ related_targets: ["creative-game.css", "creative-game.js", "thoughts/reading-roo
 
 Mode: Read.
 
+## Current preference, 2026-10-08
+
+The project list now lives at `/play` in `play.html`; `creative.html` is a compatibility redirect. The user explicitly removed all visible **Video description** disclosures and separate **Open video** links. Preserve native video controls, accessible labels, in-player fallback links, brief duration/audio notes, and the primary project actions. This preference supersedes the older media guidance below.
+
 ## Current contract, 2026-10-05
 
 Creative is a growing list of projects Willis builds to explore. The fifth Work row on the homepage opens `creative.html`. Its label is "Creative", its title is "Randomly fun projects", and its description is "Things I build just to explore." The page opens with "Randomly fun projects." and the same description.

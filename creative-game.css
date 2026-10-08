@@ -38,36 +38,10 @@
     margin-inline: auto;
 }
 .creative-project-media figcaption {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0 16px;
     margin-top: 8px;
     color: var(--muted);
     font-size: var(--font-size-ui);
 }
-.creative-project-media figcaption a { display: inline-flex; align-items: center; min-height: 44px; }
-.creative-project-media figcaption a:hover { color: var(--gold); }
-.creative-demo-note { flex-basis: 100%; }
-.creative-demo-description { flex: 1 1 9rem; min-width: min(100%, 9rem); }
-.creative-demo-description[open] { flex-basis: 100%; }
-.creative-demo-description > summary {
-    width: fit-content;
-    max-width: 100%;
-    min-height: 44px;
-    padding-block: 10px;
-    color: var(--cream-soft);
-    cursor: pointer;
-}
-.creative-demo-description > summary:is(:hover, :focus-visible) { color: var(--gold); }
-.creative-demo-description > div {
-    padding-block: 8px 16px;
-    color: var(--cream-soft);
-    font-size: 1rem;
-}
-.creative-demo-description p { margin: 0 0 12px; max-width: 65ch; }
-.creative-demo-description p:last-child { margin-bottom: 0; }
 .creative-project-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; }
 .creative-reroll { flex: 0 1 auto; }
 .creative-project-link {
