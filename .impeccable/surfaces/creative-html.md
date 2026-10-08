@@ -11,7 +11,7 @@ Mode: Read.
 
 ## Current preference, 2026-10-08
 
-The project list now lives at `/play` in `play.html`; `creative.html` is a compatibility redirect. The user explicitly removed all visible **Video description** disclosures and separate **Open video** links. Preserve native video controls, accessible labels, in-player fallback links, brief duration/audio notes, and the primary project actions. This preference supersedes the older media guidance below.
+The project list now lives at `/play` in `play.html`; `creative.html` is a compatibility redirect. The user explicitly removed all visible video captions, **Video description** disclosures, and separate **Open video** links. Preserve native video controls, accessible labels, in-player fallback links, and the primary project actions. This preference supersedes the older media guidance below.
 
 ## Current contract, 2026-10-05
 

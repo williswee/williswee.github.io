@@ -37,11 +37,6 @@
     width: min(100%, 400px);
     margin-inline: auto;
 }
-.creative-project-media figcaption {
-    margin-top: 8px;
-    color: var(--muted);
-    font-size: var(--font-size-ui);
-}
 .creative-project-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; }
 .creative-reroll { flex: 0 1 auto; }
 .creative-project-link {
