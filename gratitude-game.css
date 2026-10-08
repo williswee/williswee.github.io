@@ -21,10 +21,11 @@
 .gratitude-note-body p:last-child { margin-bottom: 0; }
 .gratitude-note-body a { color: var(--cream); }
 .gratitude-note-body a:hover { color: var(--gold); }
-/* Restore the quiet focus treatment while the selected pick is in view. */
-.gratitude-notes--focus .gratitude-note:not(.gratitude-note--spotlight) { opacity: .22; }
+/* Keep surrounding notes readable while the selected pick is in view. */
+.gratitude-notes--focus .gratitude-note:not(.gratitude-note--spotlight) { opacity: var(--reading-context-opacity); }
 .gratitude-notes--focus .gratitude-note:not(.gratitude-note--spotlight):focus-within { opacity: 1; }
-.gratitude-page:has(.gratitude-notes--focus) :is(.gratitude-landscape, .gratitude-intro-copy) { opacity: .22; }
+.gratitude-page:has(.gratitude-notes--focus) .gratitude-intro-copy { opacity: var(--reading-context-opacity); }
+.gratitude-page:has(.gratitude-notes--focus) .gratitude-landscape { opacity: .22; }
 .gratitude-page :is(.gratitude-back, .random-pick-icon, .floating-gratitude-dock) svg { display: block; width: 20px; height: 20px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.5; }
 .floating-gratitude-dock {
     --dock-center: calc(95vw - min(400px, 32vw));

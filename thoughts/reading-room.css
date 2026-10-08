@@ -11,6 +11,7 @@
     --teal: #8adad0;
     --line: rgba(244, 233, 207, 0.24);
     --line-strong: rgba(244, 233, 207, 0.5);
+    --reading-context-opacity: .7;
     --font-display: "Silkscreen", "Courier New", monospace;
     --font-body: "Sora", sans-serif;
     --font-size-ui: .875rem;

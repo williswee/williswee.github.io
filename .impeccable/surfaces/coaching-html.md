@@ -9,6 +9,16 @@ related_targets: ["coaching-game.css", "coaching-game.js", "coaching-contact.js"
 
 Mode: Persuade, inside the established reading room.
 
+## Full-height landscape correction — 2026-10-08
+
+The desktop backdrop now uses `images/game-world/coaching-lantern-bench-portrait-v1.webp` (768×2048), a vertical extension of the chosen lantern-bench scene. Its two peers remain seated with visible personal space, alongside the notebook, tote, bench, and lantern. Extended tree canopy, sky, and rocky foreground let the image fill the same fixed landscape column used by Guide and Thoughts. The shared image rules remain `width: 100%`, `height: 100%`, and `object-fit: cover`; there is no vignette mask or separately sized illustration.
+
+The script only caps the scrollable navigation rail and adjusts the portrait's vertical crop. Crop offsets always stay between the full-cover image's bottom and top bounds, so the artwork never reveals blank bands. Where the available geometry permits, both heads stay 24px below the rail and the lantern stays 24px above the viewport edge. Extremely wide, short columns prioritize complete background coverage. The source artwork's spacing between the people is never compressed.
+
+At 760px and below, a native picture source selects the original `images/game-world/coaching-lantern-bench-v1.webp` (1774×887). It covers the existing 260–320px opening band at `30% 60%`, followed by the established 32px pane overlap. The navigation rail stays hidden. Social previews continue to use this original wide image. Cache versions are `coaching-game.css?v=1.14` and `coaching-game.js?v=1.8`.
+
+The previous landscape-fitted-below-the-rail treatment was rejected by the user and is superseded. Regression checks execute the crop script through desktop, mobile, narrow tablet, enlarged rail text, and very wide short-window states, checking full coverage, bounded offsets, source switching, and group clearance wherever geometrically possible. Final browser review is coordinated with the homepage correction.
+
 ## Current contract — 2026-09-29
 
 The primary invitation is now **Send me a note**: an outline link in the hero and desktop rail jumps to a single inline form after the testimonials. **Book a session** remains a secondary Intro link in the hero and close, with the rates/times and 20%-to-charity copy. The visitor can ask about fit before committing to a paid session. All other coaching copy, supporting links, shared navigation, and the established navy/cream/gold world remain in place.

@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
+import { runInNewContext } from 'node:vm';
 
 const root = new URL('../../', import.meta.url);
 const read = name => readFileSync(new URL(name, root), 'utf8');
@@ -124,9 +125,109 @@ test('homepage, Work, and llms.txt point founders to the coaching page', () => {
     assert.match(read('llms.txt'), /\[Coaching\]\(https:\/\/williswee\.com\/coaching\.html\)/);
 });
 
-test('the desktop art keeps the figures clear of the rail, measured when script runs', () => {
-    assert.match(read('coaching-game.css'), /\.coaching-landscape img \{ object-position: 50% min\(0px, max\(50%, calc\(var\(--coaching-rail-clearance, \d+px\)/);
-    assert.match(read('coaching-game.js'), /setProperty\('--coaching-rail-clearance'/);
+test('coaching uses a full-height portrait and the original wide mobile artwork', () => {
+    const html = read('coaching.html');
+    const picture = html.match(/<picture>[\s\S]*?<\/picture>/)?.[0];
+    assert.ok(picture, 'supply artwork for each layout');
+    assert.match(picture, /<source media="\(max-width: 760px\)" srcset="images\/game-world\/coaching-lantern-bench-v1\.webp" width="1774" height="887">/);
+    assert.match(picture, /<img src="images\/game-world\/coaching-lantern-bench-portrait-v1\.webp"[^>]*width="768" height="2048"/);
+    assert.match(read('thoughts/reading-room.css'), /\.reading-landscape img \{[^}]*width: 100%;[^}]*height: 100%;[^}]*object-fit: cover;/);
+    const css = read('coaching-game.css');
+    assert.match(css, /\.coaching-landscape picture \{[^}]*width: 100%;[^}]*height: 100%;/);
+    assert.doesNotMatch(css, /--coaching-art-width|--coaching-art-top|mask-image/, 'do not shrink or fade the artwork into a vignette');
+});
+
+test('coaching crops stay within a full-cover image through resizing and enlarged rail text', () => {
+    const fixtures = [
+        { name: 'short desktop', compact: false, art: { top: 76, width: 497.7, height: 581 }, railTop: 100, railHeight: 311 },
+        { name: 'phone', compact: true, art: { top: 76, width: 390, height: 260 }, paneTop: 304 },
+        { name: 'narrow tablet', compact: false, art: { top: 76, width: 230.4, height: 948 }, railTop: 140, railHeight: 443 },
+        { name: 'small phone', compact: true, art: { top: 76, width: 320, height: 260 }, paneTop: 304 },
+        { name: 'small tablet with mobile pane', compact: true, art: { top: 76, width: 744, height: 320 }, paneTop: 364 },
+        { name: 'tall desktop', compact: false, art: { top: 76, width: 378.82, height: 1268 }, railTop: 140, railHeight: 377 },
+        { name: 'short desktop after enlarged rail text', compact: false, art: { top: 76, width: 497.7, height: 581 }, railTop: 100, railHeight: 530 },
+        { name: 'very wide short desktop', compact: false, art: { top: 76, width: 1024, height: 581 }, railTop: 100, railHeight: 377 }
+    ];
+    let fixture = fixtures[0];
+    const properties = () => {
+        const values = new Map();
+        return {
+            setProperty: (name, value) => values.set(name, value),
+            removeProperty: name => values.delete(name),
+            getPropertyValue: name => values.get(name) ?? ''
+        };
+    };
+    const art = {
+        style: properties(),
+        getBoundingClientRect: () => ({ ...fixture.art, left: 0, right: fixture.art.width, bottom: fixture.art.top + fixture.art.height })
+    };
+    const rail = {
+        style: properties(),
+        getBoundingClientRect() {
+            if (fixture.compact) return { top: 0, bottom: 0, height: 0 };
+            const maxHeight = parseFloat(this.style.getPropertyValue('--coaching-rail-room')) || Infinity;
+            const height = Math.min(fixture.railHeight, maxHeight);
+            return { top: fixture.railTop, bottom: fixture.railTop + height, height };
+        }
+    };
+    const listeners = new Map();
+    const document = {
+        querySelector: selector => ({ '.coaching-landscape': art, '.coaching-rail': rail })[selector] ?? null,
+        querySelectorAll: () => []
+    };
+    const window = {
+        matchMedia: () => ({ matches: fixture.compact }),
+        addEventListener(name, listener) {
+            const handlers = listeners.get(name) ?? [];
+            handlers.push(listener);
+            listeners.set(name, handlers);
+        }
+    };
+    runInNewContext(read('coaching-game.js'), { document, window });
+
+    const assertCovered = () => {
+        const label = fixture.name;
+        const frame = art.getBoundingClientRect();
+        const epsilon = .01;
+        if (fixture.compact) {
+            assert.equal(art.style.getPropertyValue('--coaching-art-offset'), '', `${label}: remove the desktop crop`);
+            assert.equal(rail.style.getPropertyValue('--coaching-rail-room'), '', `${label}: remove the desktop rail cap`);
+            const scale = Math.max(frame.width / 1774, frame.height / 887);
+            const imageLeft = (frame.width - 1774 * scale) * .3;
+            const imageTop = frame.top + (frame.height - 887 * scale) * .6;
+            assert.ok(imageLeft <= epsilon && imageLeft + 1774 * scale >= frame.width - epsilon, `${label}: cover the full width`);
+            assert.ok(imageTop <= frame.top + epsilon && imageTop + 887 * scale >= frame.bottom - epsilon, `${label}: cover the full height`);
+            assert.ok(imageLeft + 300 * scale >= -epsilon && imageLeft + 920 * scale <= frame.width + epsilon, `${label}: keep the bench group inside the mobile band`);
+            assert.ok(imageTop + 360 * scale >= frame.top - epsilon, `${label}: preserve both heads`);
+            assert.ok(imageTop + 748 * scale <= fixture.paneTop + epsilon, `${label}: keep the lantern above the overlapping pane`);
+            return;
+        }
+
+        const scale = Math.max(frame.width / 768, frame.height / 2048);
+        const offset = parseFloat(art.style.getPropertyValue('--coaching-art-offset'));
+        const minOffset = frame.height - 2048 * scale;
+        assert.ok(Number.isFinite(offset), `${label}: use a finite crop offset`);
+        assert.ok(offset >= minOffset - epsilon && offset <= epsilon, `${label}: never reveal an uncovered top or bottom edge`);
+        assert.ok(768 * scale >= frame.width - epsilon, `${label}: cover the column width`);
+        const railFrame = rail.getBoundingClientRect();
+        assert.ok(railFrame.height >= 44, `${label}: keep a usable scrolling rail`);
+        const heads = frame.top + offset + 1100 * scale;
+        const lanternBase = frame.top + offset + 1510 * scale;
+        const lowestOffset = Math.max(minOffset, railFrame.bottom + 24 - frame.top - 1100 * scale);
+        const highestOffset = Math.min(0, frame.height - 24 - 1510 * scale);
+        if (lowestOffset <= highestOffset) {
+            assert.ok(heads >= railFrame.bottom + 24 - epsilon, `${label}: keep the heads below the rail when they fit`);
+            assert.ok(lanternBase <= frame.bottom - 24 + epsilon, `${label}: keep the lantern above the viewport edge when it fits`);
+        }
+        assert.equal(art.style.getPropertyValue('--coaching-art-width'), '', `${label}: do not resize the covered image`);
+        assert.equal(art.style.getPropertyValue('--coaching-art-top'), '', `${label}: do not position a detached image`);
+    };
+    assertCovered();
+    assert.ok(listeners.get('resize')?.length, 'adjust cropping when the container changes');
+    for (fixture of fixtures.slice(1)) {
+        for (const resize of listeners.get('resize')) resize();
+        assertCovered();
+    }
 });
 
 test('the testimonial continue cue stops within five seconds', () => {

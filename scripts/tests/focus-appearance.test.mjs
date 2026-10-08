@@ -27,11 +27,36 @@ test('Keyboard focus stays distinct from persistent discovery selection', () => 
 
 test('Focus dimming is viewport-gated, keyboard-accessible, and reduced-motion aware', () => {
     for (const [pageCss, group, entry] of [[books, 'book-grid', 'book-card'], [gratitude, 'gratitude-notes', 'gratitude-note']]) {
-        assert.ok(pageCss.includes(`.${group}--focus .${entry}:not(.${entry}--spotlight) { opacity: .22; }`));
+        assert.ok(pageCss.includes(`.${group}--focus .${entry}:not(.${entry}--spotlight) { opacity: var(--reading-context-opacity); }`));
         assert.ok(pageCss.includes(`.${group}--focus .${entry}:not(.${entry}--spotlight):focus-within { opacity: 1; }`));
         assert.ok(!pageCss.includes(`.${group}--spotlight .${entry}:not`), 'selection alone must not keep other entries dim');
         assert.match(pageCss, /@media \(prefers-reduced-motion: reduce\)/);
         assert.match(pageCss, /transition:\s*none/);
         assert.doesNotMatch(pageCss, /background-color 180ms/);
     }
+});
+
+test('Surrounding discovery text retains AA contrast after opacity compositing', () => {
+    const value = token => css.match(new RegExp(`${token}:\\s*([^;]+);`))?.[1];
+    const rgb = token => {
+        const hex = value(token);
+        assert.match(hex, /^#[a-f0-9]{6}$/i, token);
+        return [1, 3, 5].map(start => parseInt(hex.slice(start, start + 2), 16) / 255);
+    };
+    const luminance = color => color.map(channel => channel <= .04045
+        ? channel / 12.92 : ((channel + .055) / 1.055) ** 2.4)
+        .reduce((sum, channel, index) => sum + channel * [.2126, .7152, .0722][index], 0);
+    const opacity = Number(value('--reading-context-opacity'));
+    assert.ok(opacity > 0 && opacity <= 1);
+    const background = rgb('--panel');
+    for (const token of ['--cream', '--cream-soft', '--muted', '--teal', '--gold']) {
+        const foreground = rgb(token).map((channel, index) =>
+            channel * opacity + background[index] * (1 - opacity));
+        const contrast = (luminance(foreground) + .05) / (luminance(background) + .05);
+        assert.ok(contrast >= 4.5, `${token} at ${opacity} opacity: ${contrast.toFixed(2)}:1`);
+    }
+    // Introductory copy participates in the same readable treatment; only art
+    // may use the stronger fade because it carries no reading task.
+    assert.match(books, /\.books-intro\s*\{\s*opacity:\s*var\(--reading-context-opacity\);/);
+    assert.match(gratitude, /\.gratitude-intro-copy\s*\{\s*opacity:\s*var\(--reading-context-opacity\);/);
 });

@@ -52,10 +52,11 @@
 .book-author { grid-column: 1; grid-row: 2; align-self: baseline; margin: 0; color: var(--muted); font-size: var(--font-size-ui); line-height: 1.7; letter-spacing: .025em; overflow-wrap: break-word; }
 .book-tag { grid-column: 2; grid-row: 2; align-self: baseline; color: var(--teal); font-size: var(--font-size-ui); line-height: 1.7; }
 .book-review { grid-column: 1 / -1; grid-row: 3; margin: 8px 0 0; color: var(--cream-soft); font-size: 1.0381rem; line-height: 1.85; overflow-wrap: break-word; }
-/* Restore the quiet focus treatment while the selected pick is in view. */
-.book-grid--focus .book-card:not(.book-card--spotlight) { opacity: .22; }
+/* Keep surrounding recommendations readable while the selected pick is in view. */
+.book-grid--focus .book-card:not(.book-card--spotlight) { opacity: var(--reading-context-opacity); }
 .book-grid--focus .book-card:not(.book-card--spotlight):focus-within { opacity: 1; }
-.books-page:has(.book-grid--focus) :is(.books-landscape, .books-intro) { opacity: .22; }
+.books-page:has(.book-grid--focus) .books-intro { opacity: var(--reading-context-opacity); }
+.books-page:has(.book-grid--focus) .books-landscape { opacity: .22; }
 /* Shared corner markers and keyboard-focus treatment live in reading-room.css. */
 .floating-book-dock {
     --dock-center: calc(95vw - min(400px, 32vw));

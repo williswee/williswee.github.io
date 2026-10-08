@@ -1,0 +1,134 @@
+{
+  "initial": [
+    {
+      "route": "guide.html",
+      "missingImages": [],
+      "overflow": 0,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "route": "work.html",
+      "missingImages": [],
+      "overflow": 0,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "route": "books.html",
+      "missingImages": [],
+      "overflow": 0,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "route": "gratitude.html",
+      "missingImages": [],
+      "overflow": 0,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "route": "play.html",
+      "missingImages": [],
+      "overflow": 0,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "route": "404.html",
+      "missingImages": [],
+      "overflow": 0,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "route": "guide.html",
+      "overflow": 0,
+      "viewport": [
+        1280,
+        800
+      ]
+    },
+    {
+      "route": "work.html",
+      "overflow": 0,
+      "viewport": [
+        1280,
+        800
+      ]
+    },
+    {
+      "route": "play.html",
+      "overflow": 0,
+      "viewport": [
+        1280,
+        800
+      ]
+    }
+  ],
+  "books": {
+    "dimmed": [
+      {
+        "opacity": "0.7",
+        "title": "Think Like a Rocket Scientist"
+      },
+      {
+        "opacity": "0.7",
+        "title": "Trillion Dollar Coach"
+      },
+      {
+        "opacity": "0.7",
+        "title": "When Things Don't Go Your Way: Zen Wisdom for Difficult Times"
+      }
+    ],
+    "focusActive": true,
+    "overflow": 0,
+    "selected": "Tiny Habits",
+    "styles": [
+      "https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap",
+      "thoughts/reading-room.css?v=1.25",
+      "books-game.css?v=1.10"
+    ],
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "gratitude": {
+    "dimmed": [
+      {
+        "opacity": "0.7",
+        "title": "Gratitude note #30#"
+      },
+      {
+        "opacity": "0.7",
+        "title": "Gratitude note #28#"
+      }
+    ],
+    "focusActive": true,
+    "overflow": 0,
+    "selected": "Gratitude note #29#",
+    "styles": [
+      "https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap",
+      "thoughts/reading-room.css?v=1.25",
+      "gratitude-game.css?v=1.9"
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  }
+}

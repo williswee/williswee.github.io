@@ -1,0 +1,144 @@
+[
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/home-game.css",
+    "line": 134,
+    "snippet": "Undocumented color #b9c0c7 is outside DESIGN.md colors",
+    "ignoreValue": "#b9c0c7"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/home-game.css",
+    "line": 748,
+    "snippet": "font-size: clamp(3rem, 6vw, 4.5rem) has fluid endpoints 3rem and 4.5rem off the DESIGN.md type ramp",
+    "ignoreValue": "3rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/home-game.css",
+    "line": 749,
+    "snippet": "font-size: clamp(2.45rem, 5.2vw, 3.8rem) has fluid endpoints 2.45rem and 3.8rem off the DESIGN.md type ramp",
+    "ignoreValue": "2.45rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/home-game.css",
+    "line": 878,
+    "snippet": "font-size: clamp(2.65rem, 13vw, 4rem) has fluid endpoint 4rem off the DESIGN.md type ramp",
+    "ignoreValue": "4rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/home-game.css",
+    "line": 879,
+    "snippet": "font-size: clamp(2.3rem, 10.8vw, 3.55rem) has fluid endpoints 2.3rem and 3.55rem off the DESIGN.md type ramp",
+    "ignoreValue": "2.3rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/home-game.css",
+    "line": 923,
+    "snippet": "font-size: 0.68rem is off the DESIGN.md type ramp",
+    "ignoreValue": "0.68rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/home-game.css",
+    "line": 927,
+    "snippet": "font-size: 0.6875rem is off the DESIGN.md type ramp",
+    "ignoreValue": "0.6875rem"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/thoughts/reading-room.css",
+    "line": 193,
+    "snippet": "font-size: 1.25rem is off the DESIGN.md type ramp",
+    "ignoreValue": "1.25rem"
+  },
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/guide-game.css",
+    "line": 68,
+    "snippet": "Undocumented color rgba(0, 0, 0, .3) is outside DESIGN.md colors",
+    "ignoreValue": "rgba(0, 0, 0, .3)"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/guide-game.css",
+    "line": 91,
+    "snippet": "font-size: 1.25rem is off the DESIGN.md type ramp",
+    "ignoreValue": "1.25rem"
+  },
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/work-game.css",
+    "line": 42,
+    "snippet": "Undocumented color #796748 is outside DESIGN.md colors",
+    "ignoreValue": "#796748"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/work-game.css",
+    "line": 89,
+    "snippet": "font-size: 1.5rem is off the DESIGN.md type ramp",
+    "ignoreValue": "1.5rem"
+  },
+  {
+    "antipattern": "aphoristic-cadence",
+    "name": "Aphoristic-cadence copy",
+    "description": "Three or more sections landing on a short rebuttal sentence (\"X. No Y.\" / \"X. Just Y.\") or a manufactured-contrast aphorism (\"Not a feature. A platform.\") reads as AI cadence, not voice. Once is fine; the pattern is the tell.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "/Users/williswee/Downloads/Code/williswee/williswee.github.io/gratitude.html",
+    "line": 0,
+    "snippet": "5 aphoristic constructions: \"Not a very peaceful weekend, but I was aware. Awareness is good.\""
+  }
+]

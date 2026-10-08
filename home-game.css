@@ -199,8 +199,7 @@ main:focus { outline: none; }
 
 .scene-base .scene-art { object-position: 31% center; }
 .scene-workshop .scene-art { object-position: 55% center; }
-/* Reuse the coaching portrait beside the panel without hiding the comrades. */
-.scene-coaching .scene-art { width: 50%; object-position: 50% 65%; }
+.scene-coaching .scene-art { object-position: 74% center; }
 .scene-archive .scene-art { object-position: 42% center; }
 .scene-life .scene-art { object-position: 89% center; }
 .scene-life .story-panel { width: min(500px, 43vw); }
@@ -221,7 +220,6 @@ main:focus { outline: none; }
 }
 
 .scene-base .scene-veil,
-.scene-coaching .scene-veil,
 .scene-archive .scene-veil {
     background:
         linear-gradient(90deg, rgba(3, 9, 18, 0.06) 0%, rgba(3, 9, 18, 0.04) 37%, rgba(3, 9, 18, 0.62) 72%, rgba(3, 9, 18, 0.82) 100%),
@@ -229,6 +227,7 @@ main:focus { outline: none; }
 }
 
 .scene-workshop .scene-veil,
+.scene-coaching .scene-veil,
 .scene-life .scene-veil,
 .scene-terminal .scene-veil {
     background:
@@ -750,6 +749,35 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     h2 { font-size: clamp(2.45rem, 5.2vw, 3.8rem); }
 }
 
+@media (min-width: 1101px) {
+    .scene-coaching .story-panel { width: min(590px, 45vw); }
+}
+
+/* Portrait tablets use the same art-above-panel reading order as phones.
+   A side-by-side crop here would hide one of the two peers. */
+@media (min-width: 761px) and (max-width: 1100px) and (max-aspect-ratio: 1/1) {
+    .scene-coaching .scene-art {
+        position: relative;
+        display: block;
+        z-index: 0;
+        height: 50svh;
+        object-position: 100% center;
+        transform: none;
+    }
+    .scene-coaching .scene-veil {
+        bottom: auto;
+        z-index: 1;
+        height: 50svh;
+        background: linear-gradient(180deg, transparent 65%, var(--ink));
+    }
+    .scene-coaching .scene-content {
+        min-height: 50svh;
+        margin-top: -34px;
+        padding: 0 34px 38px;
+    }
+    .scene-coaching .story-panel { width: min(640px, 100%); }
+}
+
 @media (max-width: 760px) {
     :root { --header-height: 4rem; }
 
@@ -807,7 +835,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
 
     .scene-base .scene-art { object-position: 30% center; }
     .scene-workshop .scene-art { object-position: 69% center; }
-    .scene-coaching .scene-art { width: 100%; object-position: 50% 65%; }
+    .scene-coaching .scene-art { object-position: 100% center; }
     .scene-archive .scene-art { object-position: 31% center; }
     .scene-life .scene-art { object-position: 100% center; }
     .scene-life .story-panel { width: 100%; }

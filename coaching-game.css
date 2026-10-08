@@ -1,9 +1,8 @@
 /* Coaching shares the reading shell; these rules stay local to the page. */
-/* The figures' heads sit 156.9cqw (or 58.84cqh) down the scaled art. Short windows would tuck them under the
-   rail, so they drop to just below it; taller windows keep the centered crop. coaching-game.js measures the
-   rail, and 420px clears it at the default text size. */
-.coaching-landscape { container-type: size; }
-.coaching-landscape img { object-position: 50% min(0px, max(50%, calc(var(--coaching-rail-clearance, 420px) - max(156.9cqw, 58.84cqh)))); }
+/* The portrait extends the bench scene into the shared full-height landscape.
+   Crop adjustment moves the covered image; it never shrinks it into a vignette. */
+.coaching-landscape picture { display: block; width: 100%; height: 100%; }
+.coaching-landscape img { object-position: 38% var(--coaching-art-offset, 50%); }
 .coaching-page main a:not(.coaching-invitation, .coaching-rail-contact, .dialogue-nameplate) { text-decoration-color: var(--gold); transition: color 180ms ease-out; }
 .coaching-page main a:not(.coaching-invitation, .coaching-rail-contact, .dialogue-nameplate):hover { color: var(--gold); }
 .coaching-page { --coaching-action-width: 440px; --coaching-error: #ffc0ad; color-scheme: dark; }
@@ -187,7 +186,6 @@
         padding-block: 12px;
     }
     .coaching-page .reading-shell { margin-top: calc(var(--header-height) + 24px); }
-    .coaching-landscape img { object-position: 50% var(--coaching-short-crop, 50%); }
     .coaching-rail-title { margin-bottom: 8px; }
     .coaching-rail a:not(.coaching-rail-contact) { padding-block: 8px; }
     .coaching-rail-contact { margin-top: 10px; }
@@ -201,11 +199,11 @@
 @media (max-width: 760px) {
     /* Phones reach the form from the hero; the rail would only repeat it. */
     .coaching-rail { display: none; }
-    /* The band grows on small tablets to keep the shared notebook above the reading panel. */
-    .coaching-landscape { height: max(188px, 35vw); }
-    .coaching-page .reading-shell { margin-top: calc(var(--header-height) + max(156px, 35vw - 32px)); }
-    .coaching-landscape img { object-position: center 68%; object-position: center calc(clamp(10px, 69px - 10.6cqw, 28px) - 156.9cqw); }
-    .coaching-landscape::after { background: linear-gradient(180deg, rgba(7, 16, 29, .08), rgba(7, 16, 29, .2) 60%, var(--ink)); }
+    /* Leave the full bench and lantern above the pane's 32px overlap. */
+    .coaching-landscape { height: clamp(260px, 45vw, 320px); }
+    .coaching-landscape img { object-position: 30% 60%; }
+    .coaching-page .reading-shell { margin-top: calc(var(--header-height) + clamp(260px, 45vw, 320px) - 32px); }
+    .coaching-landscape::after { background: linear-gradient(180deg, transparent 84%, var(--ink)); }
     .coaching-intro, .coaching-section p, .coaching-topics li, .coaching-contact-intro { font-size: 1rem; }
     .coaching-invitation { width: 100%; }
     .coaching-section, .coaching-close, .coaching-contact { margin-top: 36px; padding-top: 26px; }

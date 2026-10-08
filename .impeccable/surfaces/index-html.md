@@ -9,13 +9,35 @@ related_targets: ["home-game.css", "home-game.js"]
 
 Mode: Experience.
 
+## Current Coaching layout — 2026-10-08
+
+The user requires a full-height homepage chapter and a continuous full-height inner-page backdrop. This correction supersedes the earlier natural-height and vignette treatments recorded below.
+
+The homepage retains `images/game-world/coaching-right-overlook-v1.webp` (1536×1024), generated with built-in ImageGen. Its provenance and exact prompt are in `.impeccable/assets/coaching-right-overlook-v1.prompt.json`. The Coaching panel sits on the left, and the two peers, notebook, bench, and lantern occupy the right. Other scene alignments retain their existing positions.
+
+Desktop Coaching uses the shared `100svh` minimum and full-cover artwork with `object-position: 74% center`. Above 1100px, its panel is `min(590px, 45vw)` wide to expose the complete group. On portrait tablets from 761–1100px with an aspect ratio at most 1:1, `50svh` of artwork stacks above the panel with a `100% center` crop; the section stays at least `100svh` and grows when its content needs more room. Phones retain the art-above-panel layout and the `100% center` crop. The existing FAQ, booking row, section navigation, and approved wording remain part of the Coaching section.
+
+The canonical `coaching.html` page now uses `coaching-lantern-bench-portrait-v1.webp` (768×2048), a continuous vertical extension generated with built-in ImageGen. It covers the shared full-height landscape column. Provenance is in `.impeccable/assets/coaching-lantern-bench-portrait-v1.prompt.json`. The original wide `coaching-lantern-bench-v1.webp` (1774×887) remains the mobile and social-preview image. The inner page's complete contract is in `coaching-html.md`.
+
+## Earlier right-overlook natural-height treatment — 2026-10-08 (superseded)
+
+The initial right-overlook implementation sized the desktop artwork to `max(100vw, min(150svh, available-right-space × 2.5))` and gave the scene a minimum of `min(100svh, artwork-height)`. Tall windows followed its natural height, and the bottom 6% faded into navy. The inner page fitted the wide bench illustration into the space below its rail. The user rejected this treatment; these sizing and vignette rules are historical and must not guide later edits.
+
+Historical verification for that superseded implementation covered the homepage at 1280×720, 1313×1344, 768×1024 and 390×844, and the inner bench at 1313×1344, 1280×720, 768×1024, 390×844 and 320×740. It included FAQ keyboard behavior, overflow checks, 16 home/shared-navigation tests, 11 Coaching tests and 21 contact tests. The layout detector returned zero matches in degraded regex mode. Screenshots under `/tmp/coaching-art-review/right-*.jpg` and `inner-bench-*.jpg` document the earlier local preview only; they do not verify the current full-height correction.
+
+## Previous lantern-bench homepage artwork — 2026-10-08 (superseded)
+
+This historical version followed the user's selection of variation 01, Lantern bench, after reviewing variation 03. Its visible personal space between the two peers gave their conversation a more professional, equal-footing feel. The homepage used `images/game-world/coaching-lantern-bench-v1.webp` (1774×887), with the desktop text panel on the right and the bench's 35% horizontal point centered in the available space on the left. The scene followed artwork and panel-content height, with a bottom fade. This artwork placement and natural-height contract are superseded by the current full-height right-overlook layout above. Prompts and candidates remain in `images/game-world/coaching-variants-2026-10-08/`.
+
+Historical verification of that natural-height version covered 1222×1344, 1440×900, 1024×900, 768×1024 and 390×844, FAQ keyboard behavior, the Notes link, and 16 home/shared-navigation tests. The detector used degraded regex mode and reported eight advisories. The scoped audit in `.impeccable/audit/home-coaching-2026-10-08.md` describes that earlier implementation and does not verify the current full-height correction.
+
 ## Connect content separation — 2026-10-06
 
 The user requested all coaching-specific Terminal content move into the Coaching scene. The existing founder introduction appears there once, followed by Explore coaching, the unchanged three-question FAQ and the unchanged Intro booking row. Connect retains its five social destinations and the exact new invitation “Come say hello lah.” Only “lah” is interactive, with the supplied definition available on hover, focus and tap, dismissible with Escape or an outside pointer action. No booking behavior, detailed coaching-page content or essay content changed.
 
 ## Coaching section — 2026-10-06
 
-The user requested that Coaching behave like the other homepage menu items. The homepage now has Start / Work / Coaching / Notes / Life / Connect, with a native `#coaching` destination between Work and Notes. It reuses the approved founder introduction, the existing comrades portrait, and the shared scene/panel/link styles. “Explore coaching” opens the complete canonical coaching page; no form or testimonials are duplicated. Inner-page navigation continues to link directly to page destinations.
+The user requested that Coaching behave like the other homepage menu items. The homepage now has Start / Work / Coaching / Notes / Life / Connect, with a native `#coaching` destination between Work and Notes. It reuses the approved founder introduction and shared scene/panel/link styles, with the dedicated wide coaching artwork selected on 2026-10-08. “Explore coaching” opens the complete canonical coaching page; no form or testimonials are duplicated. Inner-page navigation continues to link directly to page destinations.
 
 ## Creative projects addition, 2026-10-02
 
