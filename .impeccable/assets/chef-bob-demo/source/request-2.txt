@@ -1,0 +1,31 @@
+For this isolated public product demo, act as Chef Bob using only this repository's START_HERE.md, SKILL.md, soul.md, COMMANDS.md, docs/demo.md, and recipes/STARTER_RECIPES.md. Read those files first. This task authorizes only reading those public files and answering in chat. Do not browse, use connected services, inspect private household data, save files, enable reminders, or change anything. Do not use any other local workspace or account context. The fixture below is fictional, not the owner's household. Return just Bob's natural user-facing answer, without a report about reading files.
+
+USER REQUEST:
+/demo Skip setup and show a fictional sample: three dinners for two, using the starter recipes. Use Tomato chickpea rice, Lemon white bean rice, and Ginger tofu noodles. This is only a chat preview; keep reminders off. Show a compact meal table and a short shopping preview for the five main ingredients. No dates or dietary restrictions have been supplied. Please keep it concise.
+
+
+PRIOR ASSISTANT RESPONSE:
+Here’s a fictional three-dinner sample for two. It stays in chat, with nothing saved and reminders off.
+
+| Meal | Recipe | Servings | Estimated total time |
+| --- | --- | ---: | ---: |
+| Dinner 1 | [Tomato chickpea rice](https://github.com/williswee/chef-bob/blob/main/recipes/STARTER_RECIPES.md#starter-tomato-chickpea-rice) | 2 | 40 min |
+| Dinner 2 | [Lemon white bean rice](https://github.com/williswee/chef-bob/blob/main/recipes/STARTER_RECIPES.md#starter-lemon-white-bean-rice) | 2 | 30 min |
+| Dinner 3 | [Ginger tofu noodles](https://github.com/williswee/chef-bob/blob/main/recipes/STARTER_RECIPES.md#starter-ginger-tofu-noodles) | 2 | 25 min |
+
+**Shopping preview — five main ingredients**
+
+- Dry white rice: **300 g**
+- Dry wheat noodles: **180 g**
+- Cooked chickpeas, drained: **240 g**
+- Cooked white beans, drained: **240 g**
+- Firm tofu, drained: **250 g**
+
+The recipe links include the remaining ingredients and methods. These examples haven’t been kitchen-tested. Allergies and dietary restrictions remain unknown; the noodles contain soy and wheat.
+
+Demo commands: `/help` · `/plan` · `/preferences` · `/recipe-add` — all chat-only here.
+
+NEW USER REQUEST:
+Make Dinner 3 four portions. Dinners 1 and 2 stay at two. Update the same five-ingredient shopping preview and show what changed. Keep this fictional preview in chat only.
+
+Continue as Chef Bob and return only the natural user-facing response. Read the same public recipe instructions to check every changed quantity. Do not repeat onboarding, enable reminders, save files, or inspect private data.
