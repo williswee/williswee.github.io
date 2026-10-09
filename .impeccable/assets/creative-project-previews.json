@@ -39,43 +39,6 @@
       "generated_imagery": false
     },
     {
-      "project": "Chef Bob",
-      "source_type": "edited conversation demo",
-      "source_url": "https://github.com/williswee/chef-bob",
-      "source_commit": "2f83dfedd7f35b817dddba85714d071659c4e5f8",
-      "captured_date": "2026-10-09",
-      "method": "Actual Chef Bob replies captured in two isolated, ephemeral, read-only AI sessions using the pinned open-source skill, then condensed and reformatted into an editorial conversation video. Prompts are shortened excerpts. Persistent sample-conversation labelling; not an app or Grok UI screen recording.",
-      "source_transcripts": ".impeccable/assets/chef-bob-demo/source/",
-      "render_source": ".impeccable/assets/chef-bob-demo/render/",
-      "source_sha256": "29185d3b5aca9f020545ff2aa72f83cd3c09d6b05f99cc1e07e6b68dcd708323",
-      "data": "Fictional two-person household using the public starter recipes; no private household data. Shopping preview contains five main ingredients, not the full list. Starter recipes are not kitchen-tested.",
-      "narration": false,
-      "outputs": [
-        {
-          "path": "videos/chef-bob-demo-29185d3b5aca.mp4",
-          "format": "mp4",
-          "codec": "h264",
-          "pixel_format": "yuvj420p",
-          "width": 1920,
-          "height": 1080,
-          "frames_per_second": 30,
-          "frames": 960,
-          "duration_seconds": 32,
-          "bytes": 1623144,
-          "audio": false
-        },
-        {
-          "path": "images/chef-bob-demo-poster-29185d3b5aca.webp",
-          "format": "webp",
-          "width": 1280,
-          "height": 720,
-          "source_video_time_seconds": 8,
-          "bytes": 23706
-        }
-      ],
-      "generated_imagery": false
-    },
-    {
       "project": "Chix Run",
       "source_type": "local project gameplay recording",
       "source_url": "https://williswee.com/chix-run/",

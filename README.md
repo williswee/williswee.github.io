@@ -73,7 +73,7 @@ Keep projects in newest-first order. Group the `h2` and `<time class="creative-p
 
 3D Floorplan (9 October 2026) opens `/3d-floorplan/` in the same tab. Its description links to the open-source Pascal Editor that inspired the experiment; its 30-second v2 walkthrough combines actual app captures and camera tours, with the original music. Use native video controls and a poster from the video. The demo ends with an idea entered; it does not show a generated redesign.
 
-Chef Bob (6 October 2026) links to its open-source GitHub repository and Grok bot; its primary action opens the bot in a new tab with an accessible new-tab notice. Its 32-second silent demo presents an edited sample conversation using actual replies from the open-source skill: plan three dinners, change one dinner's portions, and update the shopping quantities. It uses fictional household data and is labelled as a sample conversation, not a recording of the Grok interface. The video poster is a frame from the demo. Reproducible render source and captured replies are in `.impeccable/assets/chef-bob-demo/`.
+Chef Bob (6 October 2026) links to its open-source GitHub repository and Grok bot; its primary action opens the bot in a new tab with an accessible new-tab notice. Keep this entry as text and project links, without the rejected demo video.
 
 Tiny Brain (5 October 2026) links to its GitHub repository and preserves the supplied explanation and friend feedback. Its entry uses text and project links; its demo is deferred until requested.
 
