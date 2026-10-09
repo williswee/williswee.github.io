@@ -38,6 +38,7 @@
     margin-inline: auto;
 }
 .creative-project-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; }
+.creative-projects > li > p + .creative-project-actions { margin-top: 12px; }
 .creative-reroll { flex: 0 1 auto; }
 .creative-project-link {
     display: flex;
