@@ -6,6 +6,19 @@ My personal site at [williswee.com](https://williswee.com/).
 
 https://github.com/user-attachments/assets/e95f99ca-d9e3-4186-bd29-d399a3d51ed9
 
+## Notify search engines after publishing
+
+After a new, updated, or deleted page is live, submit its canonical URL with Node.js 18 or newer:
+
+```sh
+node scripts/submit-indexnow.mjs --dry-run https://williswee.com/gratitude.html
+node scripts/submit-indexnow.mjs https://williswee.com/gratitude.html
+```
+
+Pass multiple URLs as separate arguments. The script reads `indexnow-key.txt`, checks that the live key file matches, and submits the URLs to [IndexNow](https://www.indexnow.org/documentation). Keep the key file published at the site root. `--dry-run` validates the key and URLs without making network requests.
+
+Submit changed pages only. Keep `sitemap.xml` current for the complete site inventory and submit `https://williswee.com/sitemap.xml` in Bing Webmaster Tools. HTTP 200 confirms receipt; HTTP 202 means key validation is pending. Neither response guarantees indexing.
+
 ## How to add and publish a gratitude note
 
 1. Before drafting or editing, run `git fetch origin` and bring the local `main` branch up to `origin/main` with a fast-forward merge. Preserve unrelated local work; never overwrite or discard it to synchronize the branch.
