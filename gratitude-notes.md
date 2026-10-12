@@ -769,3 +769,13 @@ What's yours?
 2️⃣ Had a simple lunch with the wife. We chatted and laughed.
 
 3️⃣ Having time to myself to work on stuff and daydream.
+
+## Gratitude note #71
+
+*2026-10-12*
+
+1️⃣ Celebrated Laura's birthday. The kids had so much fun.
+
+2️⃣ Shared the Grasshopper Hustle story [on Reddit](https://www.reddit.com/r/singaporestartups/s/ssP3URHiPB). People seem to like it.
+
+3️⃣ The wife is resilient and shielded me from the loud, fussy kids.
