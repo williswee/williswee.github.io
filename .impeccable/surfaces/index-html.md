@@ -9,6 +9,18 @@ related_targets: ["home-game.css", "home-game.js"]
 
 Mode: Experience.
 
+## Polish and technical audit — 2026-10-12
+
+The requested polish preserves the current scenes, heading treatment, latest captions and single-row mobile navigation. All nine external links now announce new-tab behavior through accessible names; three labelled link collections use `role="group"`; the brand has a shared 44px minimum target; and the status control's accessible name matches its visible “Currently:” prefix. The unused `.closing-note` rule is removed. Cache versions are `home-game.css?v=4.20` and `home-game.js?v=3.7`.
+
+The audit score is 18/20 within the inspected scope, with no P0/P1 findings and all four smaller findings resolved. The final confirmation covers 1440, 1032, 768, 390 and 320px widths plus a 320px temporary fixture with 200% text scaling. All 228 regression tests and generated content checks passed; no console errors were observed. The detector used its degraded regex fallback and returned eight inherited palette/type advisories. See `.impeccable/audit/index-html-2026-10-12.md` for evidence and limits. Changes remain local and unpublished.
+
+## Coaching and Connect refinement — 2026-10-12
+
+The homepage Coaching heading now follows `coaching.html`: cream Silkscreen words, a smaller gold Sora “as” using the same `.42em` size, weight 500 and `.32em` vertical alignment, and no terminal period. The homepage FAQ is removed; the introduction, Explore coaching link, Intro booking row and Notes navigation remain. Connect now offers four destinations: Substack, LinkedIn, GitHub and X. Its approved captions are “I write to see what I actually think.” for Substack and “AI codes. I take the blame.” for GitHub. This supersedes the older FAQ and five-social-link preservation requirements below.
+
+Verified Coaching and Connect at 1190×1344 and 390×844: matching heading composition, clean caption wrapping, active chapter navigation, no document overflow and no console errors. All 52 relevant Node checks and the structured-data check passed. Independent final diff review passed. The mechanical detector used its degraded regex fallback and reported inherited palette/type advisories. This is a local preview; no publication was performed.
+
 ## Current Coaching layout — 2026-10-08
 
 The user requires a full-height homepage chapter and a continuous full-height inner-page backdrop. This correction supersedes the earlier natural-height and vignette treatments recorded below.

@@ -1,6 +1,5 @@
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
-import { createHash } from 'node:crypto';
 import test from 'node:test';
 
 const root = new URL('../../', import.meta.url);
@@ -138,43 +137,26 @@ test('the homepage introduction leaves the full coaching canonical, enquiry form
 });
 
 
-// Approved homepage markup before the Connect/Coaching split, 6 October 2026.
-// Normalize indentation only so moving these blocks cannot silently change their copy or SVGs.
+// Keep the approved founder introduction and booking control in Coaching.
 const compactMarkup = html => html.replace(/\s+/g, ' ').trim();
 const originalCoachingIntro = 'I help ambitious founders get unstuck—from 0 to 1, and 1 to 2. We’ll work through the problem together and find a clearer way forward.';
-const originalCoachingFAQ = `<details class="coaching-faq">
-    <summary>
-        <span>A few questions about coaching</span>
-        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 8 5 5 5-5"/></svg>
-    </summary>
-    <div class="coaching-answers">
-        <h3>What should I bring?</h3>
-        <p>A challenge, the context, and what you’ve tried. Missing data, too many paths, strong emotions, or a skill you haven’t learned yet. All is good.</p>
-        <h3>What does “comrades” mean?</h3>
-        <p>We work through challenges together, on equal footing. I’m friendly and candid, and open to your feedback too. More about me in <a href="guide.html">my user guide</a>.</p>
-        <h3>What will I leave with?</h3>
-        <p>A clearer sense of your options and where to go next. I can share concrete examples or help draft a plan. You own the decisions and execution.</p>
-    </div>
-</details>`;
 const originalCoachingBooking = `<a class="coaching-booking" href="https://intro.co/williswee" target="_blank" rel="noopener noreferrer">
     <span class="contact-label">
         <svg class="contact-icon contact-icon-stroke" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 10l5-3v10l-5-3v4H4V6h11v4z"/></svg>
         <span><strong>Book a call</strong><small>Rates &amp; times on Intro</small></span>
     </span>
     <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg>
+    <span class="visually-hidden"> (opens in a new tab)</span>
 </a>`;
 
-// Fingerprints cover each original social anchor's label, caption, accessibility
-// attributes, destination, and SVG without copying five long icons into this test.
-const originalSocialLinks = [
-    ['https://williswee.substack.com', '8474cec050702119dd711ae5f026458bf1568b2231935e5a3b9d8dfc05306f48'],
-    ['https://www.linkedin.com/in/williswee/', 'e21b0b2215cc7120509bdbe89d5c8c3ab35a389280fd5cfdc6df2f59519081a9'],
-    ['https://github.com/williswee', 'ea317fdc71ad32c38f9869784841c8a086daca44f2bb1fd0337a849e7aa1d36d'],
-    ['https://x.com/williswee', 'ebbc9eb15f003a9d64e2a41405396e80fb4ecd35ebee8eb80ad341d0bb3a4e8f'],
-    ['https://www.instagram.com/williswee', '7f800f210f156e5cabbefe78f3efd6e9271b957a1583947f85aa443d7bef5562'],
+const socialLinks = [
+    ['https://williswee.substack.com', 'Substack', 'I write to see what I actually think.'],
+    ['https://www.linkedin.com/in/williswee/', 'LinkedIn', 'I try to sound professional here.'],
+    ['https://github.com/williswee', 'GitHub', 'AI codes. I take the blame.'],
+    ['https://x.com/williswee', 'X', 'Where I get overwhelmed.'],
 ];
 
-test('Coaching owns the single original introduction, FAQ, and booking control', () => {
+test('Coaching keeps its introduction and booking control without the homepage FAQ', () => {
     const html = read('index.html');
     const coaching = homeScenes().find(scene => scene.id === 'coaching');
     const terminal = homeScenes().find(scene => scene.id === 'terminal');
@@ -183,10 +165,8 @@ test('Coaching owns the single original introduction, FAQ, and booking control',
         .filter(([, text]) => visibleText(text) === originalCoachingIntro);
     assert.equal(introductions.length, 1, 'keep one original coaching introduction, in Coaching');
     assert.ok(coaching.content.includes(introductions[0][0]));
-    const faqs = html.match(/<details class="coaching-faq">[\s\S]*?<\/details>/g) ?? [];
-    assert.equal(faqs.length, 1, 'move the FAQ rather than duplicating it');
-    assert.ok(coaching.content.includes(faqs[0]));
-    assert.equal(compactMarkup(faqs[0]), compactMarkup(originalCoachingFAQ));
+    assert.doesNotMatch(html, /coaching-faq|A few questions about coaching/,
+        'coaching questions belong on the detailed page');
     const bookings = html.match(/<a class="coaching-booking"[\s\S]*?<\/a>/g) ?? [];
     assert.equal(bookings.length, 1, 'move the Intro control rather than duplicating it');
     assert.equal(compactMarkup(bookings[0]), compactMarkup(originalCoachingBooking));
@@ -200,15 +180,19 @@ test('Coaching owns the single original introduction, FAQ, and booking control',
     assert.ok(!visibleText(terminal.content).includes(originalCoachingIntro));
 });
 
-test('Connect retains all five original social links in order without changing their markup', () => {
+test('Connect offers the four approved social destinations and captions in order', () => {
     const terminal = homeScenes().find(scene => scene.id === 'terminal');
     assert.ok(terminal);
     const list = terminal.content.match(/<div\b(?=[^>]*class="contact-list")(?=[^>]*aria-label="Ways to connect")[^>]*>([\s\S]*?)<\/div>/)?.[1];
     assert.ok(list, 'keep the existing social contact list');
     const links = [...list.matchAll(/<a\b([^>]*)>[\s\S]*?<\/a>/g)];
-    assert.deepEqual(links.map(([, attrs]) => attribute(attrs, 'href')), originalSocialLinks.map(([url]) => url));
-    for (const [index, [markup]] of links.entries()) {
-        assert.equal(createHash('sha256').update(compactMarkup(markup)).digest('hex'), originalSocialLinks[index][1],
-            `${originalSocialLinks[index][0]}: keep the existing label, caption, destination, accessibility attributes, and SVG`);
+    assert.deepEqual(links.map(([, attrs]) => attribute(attrs, 'href')), socialLinks.map(([url]) => url));
+    for (const [index, [markup, attrs]] of links.entries()) {
+        const [url, label, caption] = socialLinks[index];
+        assert.equal(visibleText(markup.match(/<strong>([\s\S]*?)<\/strong>/)?.[1] ?? ''), label, url);
+        assert.equal(visibleText(markup.match(/<small>([\s\S]*?)<\/small>/)?.[1] ?? ''), caption, url);
+        assert.equal(attribute(attrs, 'target'), '_blank', url);
+        assert.equal(attribute(attrs, 'rel'), 'noopener noreferrer', url);
+        assert.match(markup, /<svg class="contact-icon"/, url);
     }
 });
