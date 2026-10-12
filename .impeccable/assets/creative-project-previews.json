@@ -39,6 +39,68 @@
       "generated_imagery": false
     },
     {
+      "project": "Chef Bob",
+      "source_type": "generated editorial illustration",
+      "source_url": "https://github.com/williswee/chef-bob",
+      "source_commit": "2f83dfedd7f35b817dddba85714d071659c4e5f8",
+      "created_date": "2026-10-09",
+      "status": "User approved for publication on 2026-10-12",
+      "tool": "Built-in ImageGen",
+      "method": "Original pixel-art illustration based on public meal-planning, portion and shopping-list features. Imagined cook in a coastal kitchen, matching the existing site palette and illustration style. Optimized into responsive WebP sizes without cropping.",
+      "prompt": ".impeccable/assets/chef-bob-illustration/prompt.txt",
+      "source_image": ".impeccable/assets/chef-bob-illustration/chef-bob-kitchen-v1.png",
+      "outputs": [
+        {
+          "path": "images/projects/chef-bob/chef-bob-kitchen-v1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 84190
+        },
+        {
+          "path": "images/projects/chef-bob/chef-bob-kitchen-v1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 238534
+        }
+      ],
+      "generated_imagery": true,
+      "notes": "Illustration only; no canonical Chef Bob appearance or real app interface is claimed. Existing text, dates and project links are preserved."
+    },
+    {
+      "project": "Tiny Brain",
+      "source_type": "user-provided image restyled with image generation",
+      "source_url": "https://github.com/williswee/tiny-brain",
+      "source_reference": "User attachment: cute-brain-with-thumbs-up-cartoon-vector-icon-illustration-people-science-isolated-flat-vector_138676-14698.avif",
+      "style_reference": "images/game-world/creative-workshop-v1.webp",
+      "created_date": "2026-10-12",
+      "version": 3,
+      "status": "User approved for publication on 2026-10-12",
+      "tool": "Built-in ImageGen",
+      "method": "Restyled the user-provided cute brain mascot with hand-crafted pixel edges, warm coral/cream/gold shading and a midnight-blue background. Preserves the cheerful face, both thumbs up, short legs and full silhouette; adapts the square reference to a landscape 3:2 composition. AVIF was losslessly decoded to PNG for tool compatibility. WebP conversion without cropping.",
+      "prompt": ".impeccable/assets/tiny-brain-illustration/mascot-v3.prompt.txt",
+      "source_image": ".impeccable/assets/tiny-brain-illustration/tiny-brain-mascot-v3.png",
+      "outputs": [
+        {
+          "path": "images/projects/tiny-brain/tiny-brain-mascot-v3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 25062
+        },
+        {
+          "path": "images/projects/tiny-brain/tiny-brain-mascot-v3-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 51908
+        }
+      ],
+      "generated_imagery": true,
+      "notes": "Replaces the network-brain draft at the user's request. Existing text, dates, links and Chef Bob illustration are preserved."
+    },
+    {
       "project": "Chix Run",
       "source_type": "local project gameplay recording",
       "source_url": "https://williswee.com/chix-run/",
