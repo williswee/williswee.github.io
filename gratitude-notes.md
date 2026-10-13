@@ -779,3 +779,13 @@ What's yours?
 2️⃣ Shared the Grasshopper Hustle story [on Reddit](https://www.reddit.com/r/singaporestartups/s/ssP3URHiPB). People seem to like it.
 
 3️⃣ The wife is resilient and shielded me from the loud, fussy kids.
+
+## Gratitude note #72
+
+*2026-10-13*
+
+1️⃣ Kids were very nice to be with yesterday during dinner.
+
+2️⃣ Finally got to play tennis. Haze cleared out yesterday morning so we took the chance.
+
+3️⃣ Excited to build. Though not sure where this will lead us.
