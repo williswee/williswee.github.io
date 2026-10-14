@@ -1,0 +1,30 @@
+{
+  "fetchedAt": "2026-10-13T04:12:22.315Z",
+  "stations": {
+    "url": "https://celestrak.org/NORAD/elements/gp.php?GROUP=stations&FORMAT=json",
+    "fetchedAt": "2026-10-13T04:12:22.315Z",
+    "epoch": "2026-10-12T03:27:40.741056",
+    "count": 21,
+    "dropped": 0
+  },
+  "earthquakes": {
+    "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",
+    "fetchedAt": "2026-10-13T04:12:21.938Z",
+    "generatedAt": "2026-10-13T04:12:02.000Z",
+    "count": 241,
+    "dropped": 0
+  },
+  "texture": {
+    "file": "/textures/earth-night.jpg",
+    "title": "NASA Black Marble 2016",
+    "source": "https://science.nasa.gov/earth/earth-observatory/earth-at-night/maps/",
+    "url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/144000/144898/BlackMarble_2016_01deg.jpg",
+    "credit": "NASA Earth Observatory / NOAA Suomi NPP VIIRS",
+    "dimensions": [
+      3600,
+      1800
+    ],
+    "usage": "NASA informational media; generally not subject to copyright in the United States. Credit required; no endorsement implied.",
+    "usageUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+  }
+}

@@ -3,6 +3,7 @@
 > A personal website for Willis Wee. Projects, essays, books, and a user guide.
 
 ## Main
+- [Orbit Watch](https://williswee.com/orbit/): A 3D globe for exploring calculated satellite positions, reported earthquakes and guided lessons with official sources.
 - [Home](https://williswee.com/index.html): Introduction and overview of the site.
 - [Coaching](https://williswee.com/coaching.html): Candid 1:1 coaching for founders going from 0 to 1 and 1 to 2: who it's for, what we work on, and how to book a call on Intro.
 - [Gratitude](https://williswee.com/gratitude.html): A growing archive of daily gratitude notes, with a shareable link for every entry.

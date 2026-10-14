@@ -1,0 +1,5564 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "generated": 1791864722000,
+    "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",
+    "title": "USGS All Earthquakes, Past Day",
+    "status": 200,
+    "api": "2.7.0",
+    "count": 241
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "nc75448661",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.783332824707,
+          38.8376655578613,
+          1.82000005245209
+        ]
+      },
+      "properties": {
+        "mag": 0.2,
+        "place": "5 km WNW of Cobb, CA",
+        "time": 1791864181230,
+        "updated": 1791864280675,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448661",
+        "title": "M 0.2 - 5 km WNW of Cobb, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ok2026uazz",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.84803772,
+          35.0286026,
+          2.804848671
+        ]
+      },
+      "properties": {
+        "mag": 2.25,
+        "place": "8 km ESE of Chickasha, Oklahoma",
+        "time": 1791863432600,
+        "updated": 1791863548671,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ok2026uazz",
+        "title": "M 2.3 - 8 km ESE of Chickasha, Oklahoma",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ugrrkp",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -149.076,
+          62.915,
+          78.2
+        ]
+      },
+      "properties": {
+        "mag": 1.5,
+        "place": "53 km S of Cantwell, Alaska",
+        "time": 1791862986111,
+        "updated": 1791863080506,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ugrrkp",
+        "title": "M 1.5 - 53 km S of Cantwell, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ugrdfy",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -146.372,
+          61.585,
+          19.1
+        ]
+      },
+      "properties": {
+        "mag": 2,
+        "place": "49 km SSE of Nelchina, Alaska",
+        "time": 1791862004765,
+        "updated": 1791862119709,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ugrdfy",
+        "title": "M 2.0 - 49 km SSE of Nelchina, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pr71536558",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.8265,
+          18.0346666666667,
+          16.93
+        ]
+      },
+      "properties": {
+        "mag": 2.2,
+        "place": "2 km E of Yauco, Puerto Rico",
+        "time": 1791861965980,
+        "updated": 1791863493460,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/pr71536558",
+        "title": "M 2.2 - 2 km E of Yauco, Puerto Rico",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346999",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.877833333333,
+          34.1033333333333,
+          16.86
+        ]
+      },
+      "properties": {
+        "mag": 1.52,
+        "place": "8 km SW of Westlake Village, CA",
+        "time": 1791861613590,
+        "updated": 1791861820196,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346999",
+        "title": "M 1.5 - 8 km SW of Westlake Village, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346991",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.481666666667,
+          33.495,
+          13.84
+        ]
+      },
+      "properties": {
+        "mag": 0.72,
+        "place": "19 km ESE of Anza, CA",
+        "time": 1791861062370,
+        "updated": 1791861271315,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346991",
+        "title": "M 0.7 - 19 km ESE of Anza, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1y6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.2536,
+          -28.8882,
+          128.266
+        ]
+      },
+      "properties": {
+        "mag": 4.4,
+        "place": "38 km NE of Chilecito, Argentina",
+        "time": 1791860651094,
+        "updated": 1791864211040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1y6",
+        "title": "M 4.4 - 38 km NE of Chilecito, Argentina",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346983",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.255,
+          33.3111666666667,
+          8.97
+        ]
+      },
+      "properties": {
+        "mag": 1.06,
+        "place": "13 km ENE of Borrego Springs, CA",
+        "time": 1791860611720,
+        "updated": 1791860819596,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346983",
+        "title": "M 1.1 - 13 km ENE of Borrego Springs, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448646",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.454833984375,
+          37.4233322143555,
+          3.79999995231628
+        ]
+      },
+      "properties": {
+        "mag": 1.63,
+        "place": "26 km WSW of Westley, CA",
+        "time": 1791860038030,
+        "updated": 1791862342792,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448646",
+        "title": "M 1.6 - 26 km WSW of Westley, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1y4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.5888,
+          7.582,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 4.7,
+        "place": "9 km SSE of La Mesa, Panama",
+        "time": 1791859682033,
+        "updated": 1791860532040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1y4",
+        "title": "M 4.7 - 9 km SSE of La Mesa, Panama",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ugpdsh",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.558,
+          56.852,
+          10.5
+        ]
+      },
+      "properties": {
+        "mag": 1.8,
+        "place": "85 km W of Akhiok, Alaska",
+        "time": 1791858467138,
+        "updated": 1791858550389,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ugpdsh",
+        "title": "M 1.8 - 85 km W of Akhiok, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448636",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.842498779297,
+          37.5641670227051,
+          2.99000000953674
+        ]
+      },
+      "properties": {
+        "mag": 1.46,
+        "place": "14 km W of Toms Place, CA",
+        "time": 1791858465770,
+        "updated": 1791860843633,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448636",
+        "title": "M 1.5 - 14 km W of Toms Place, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448631",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.782836914062,
+          38.8370018005371,
+          2.07999992370605
+        ]
+      },
+      "properties": {
+        "mag": 1.26,
+        "place": "5 km WNW of Cobb, CA",
+        "time": 1791858059270,
+        "updated": 1791858155264,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448631",
+        "title": "M 1.3 - 5 km WNW of Cobb, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ugokaw",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -150.098,
+          61.389,
+          45.8
+        ]
+      },
+      "properties": {
+        "mag": 1.7,
+        "place": "7 km WNW of Point MacKenzie, Alaska",
+        "time": 1791857078744,
+        "updated": 1791857179631,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ugokaw",
+        "title": "M 1.7 - 7 km WNW of Point MacKenzie, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346959",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.7605,
+          33.5816666666667,
+          12.17
+        ]
+      },
+      "properties": {
+        "mag": 0.88,
+        "place": "9 km WNW of Anza, CA",
+        "time": 1791856695140,
+        "updated": 1791856897706,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346959",
+        "title": "M 0.9 - 9 km WNW of Anza, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ugnwhi",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -152.345,
+          61.24,
+          5
+        ]
+      },
+      "properties": {
+        "mag": 0.6,
+        "place": "67 km WNW of Tyonek, Alaska",
+        "time": 1791856143882,
+        "updated": 1791856209218,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ugnwhi",
+        "title": "M 0.6 - 67 km WNW of Tyonek, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1xk",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.4058,
+          -36.1819,
+          25.568
+        ]
+      },
+      "properties": {
+        "mag": 4,
+        "place": "62 km NW of Tomé, Chile",
+        "time": 1791855863964,
+        "updated": 1791857639040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1xk",
+        "title": "M 4.0 - 62 km NW of Tomé, Chile",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uu80159661",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.905333333333,
+          38.5238333333333,
+          2.68
+        ]
+      },
+      "properties": {
+        "mag": 1.67,
+        "place": "16 km NNE of Milford, Utah",
+        "time": 1791855183810,
+        "updated": 1791856866050,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu80159661",
+        "title": "M 1.7 - 16 km NNE of Milford, Utah",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346951",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.363666666667,
+          33.3363333333333,
+          12.04
+        ]
+      },
+      "properties": {
+        "mag": 1.14,
+        "place": "9 km N of Borrego Springs, CA",
+        "time": 1791855059980,
+        "updated": 1791855269953,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346951",
+        "title": "M 1.1 - 9 km N of Borrego Springs, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ugmtzw",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -152.439,
+          60.205,
+          111.8
+        ]
+      },
+      "properties": {
+        "mag": 1.9,
+        "place": "46 km WNW of Ninilchik, Alaska",
+        "time": 1791854168930,
+        "updated": 1791854412059,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ugmtzw",
+        "title": "M 1.9 - 46 km WNW of Ninilchik, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hv75055022",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.080333333333,
+          19.3611666666667,
+          6.06
+        ]
+      },
+      "properties": {
+        "mag": 3.13,
+        "place": "12 km SSE of Fern Forest, Hawaii",
+        "time": 1791853748590,
+        "updated": 1791861195971,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv75055022",
+        "title": "M 3.1 - 12 km SSE of Fern Forest, Hawaii",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hv75055012",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.261337280273,
+          19.183500289917,
+          38.5999984741211
+        ]
+      },
+      "properties": {
+        "mag": 2.05,
+        "place": "22 km E of Pāhala, Hawaii",
+        "time": 1791852543090,
+        "updated": 1791852746400,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv75055012",
+        "title": "M 2.1 - 22 km E of Pāhala, Hawaii",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1x7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.4423,
+          45.3536,
+          277.064
+        ]
+      },
+      "properties": {
+        "mag": 4.1,
+        "place": "81 km NE of Esashi, Japan",
+        "time": 1791851758172,
+        "updated": 1791861794040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1x7",
+        "title": "M 4.1 - 81 km NE of Esashi, Japan",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448606",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.817665100098,
+          38.8136672973633,
+          2.6800000667572
+        ]
+      },
+      "properties": {
+        "mag": 1.07,
+        "place": "7 km NW of The Geysers, CA",
+        "time": 1791851196100,
+        "updated": 1791851295384,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448606",
+        "title": "M 1.1 - 7 km NW of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448601",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.839164733887,
+          38.8448333740234,
+          1.92999994754791
+        ]
+      },
+      "properties": {
+        "mag": 0.27,
+        "place": "10 km WNW of Cobb, CA",
+        "time": 1791850902450,
+        "updated": 1791850999069,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448601",
+        "title": "M 0.3 - 10 km WNW of Cobb, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ugksjp",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -153.216,
+          60.18,
+          5
+        ]
+      },
+      "properties": {
+        "mag": 0.6,
+        "place": "61 km E of Port Alsworth, Alaska",
+        "time": 1791850458211,
+        "updated": 1791850502370,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ugksjp",
+        "title": "M 0.6 - 61 km E of Port Alsworth, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346935",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.745333333333,
+          33.5108333333333,
+          6.17
+        ]
+      },
+      "properties": {
+        "mag": 0.37,
+        "place": "8 km SW of Anza, CA",
+        "time": 1791850119920,
+        "updated": 1791850327612,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346935",
+        "title": "M 0.4 - 8 km SW of Anza, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448596",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.781997680664,
+          38.8358345031738,
+          1.62999999523163
+        ]
+      },
+      "properties": {
+        "mag": 0.2,
+        "place": "5 km WNW of Cobb, CA",
+        "time": 1791850092800,
+        "updated": 1791850190253,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448596",
+        "title": "M 0.2 - 5 km WNW of Cobb, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346927",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.459166666667,
+          34.0695,
+          3.45
+        ]
+      },
+      "properties": {
+        "mag": 1.65,
+        "place": "3 km S of Fontana, CA",
+        "time": 1791849848950,
+        "updated": 1791850486810,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346927",
+        "title": "M 1.7 - 3 km S of Fontana, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448591",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.78099822998,
+          38.8388328552246,
+          1.95000004768372
+        ]
+      },
+      "properties": {
+        "mag": 1.26,
+        "place": "5 km WNW of Cobb, CA",
+        "time": 1791849749740,
+        "updated": 1791849845021,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448591",
+        "title": "M 1.3 - 5 km WNW of Cobb, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1x2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.5285,
+          7.7956,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 4.6,
+        "place": "23 km WNW of Río Grande, Panama",
+        "time": 1791849721476,
+        "updated": 1791861073040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1x2",
+        "title": "M 4.6 - 23 km WNW of Río Grande, Panama",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1wz",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.6339,
+          7.8267,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 4.5,
+        "place": "24 km SW of Zapotillo, Panama",
+        "time": 1791848713532,
+        "updated": 1791860524040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1wz",
+        "title": "M 4.5 - 24 km SW of Zapotillo, Panama",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1x0",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.3681,
+          -6.3101,
+          130.231
+        ]
+      },
+      "properties": {
+        "mag": 4.1,
+        "place": "274 km WSW of Tual, Indonesia",
+        "time": 1791848632181,
+        "updated": 1791856608040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1x0",
+        "title": "M 4.1 - 274 km WSW of Tual, Indonesia",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1ww",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.4934,
+          7.7328,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 4.9,
+        "place": "17 km W of Río Grande, Panama",
+        "time": 1791848206150,
+        "updated": 1791863369764,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1ww",
+        "title": "M 4.9 - 17 km W of Río Grande, Panama",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ugjlay",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -151.309,
+          62.385,
+          84
+        ]
+      },
+      "properties": {
+        "mag": 2.5,
+        "place": "30 km WSW of Petersville, Alaska",
+        "time": 1791848148306,
+        "updated": 1791854673527,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ugjlay",
+        "title": "M 2.5 - 30 km WSW of Petersville, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hv75054972",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.279833333333,
+          19.3896666666667,
+          1.51
+        ]
+      },
+      "properties": {
+        "mag": 1.71,
+        "place": "7 km SW of Volcano, Hawaii",
+        "time": 1791847740210,
+        "updated": 1791854817270,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv75054972",
+        "title": "M 1.7 - 7 km SW of Volcano, Hawaii",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ugizxy",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -157.046,
+          55.182,
+          7.1
+        ]
+      },
+      "properties": {
+        "mag": 3.5,
+        "place": "150 km SE of Chignik, Alaska",
+        "time": 1791847381765,
+        "updated": 1791855194040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ugizxy",
+        "title": "M 3.5 - 150 km SE of Chignik, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1wn",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.4896,
+          7.6896,
+          11
+        ]
+      },
+      "properties": {
+        "mag": 6.1,
+        "place": "17 km W of Río Grande, Panama",
+        "time": 1791847236003,
+        "updated": 1791864485101,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1wn",
+        "title": "M 6.1 - 17 km W of Río Grande, Panama",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ugimnk",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -151.205,
+          60.872,
+          77.3
+        ]
+      },
+      "properties": {
+        "mag": 1.9,
+        "place": "20 km NNE of Nikiski, Alaska",
+        "time": 1791846455726,
+        "updated": 1791846549014,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ugimnk",
+        "title": "M 1.9 - 20 km NNE of Nikiski, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hv75054942",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.609329223633,
+          19.5081672668457,
+          36.6100006103516
+        ]
+      },
+      "properties": {
+        "mag": 2.07,
+        "place": "27 km ENE of Honaunau-Napoopoo, Hawaii",
+        "time": 1791845277780,
+        "updated": 1791845491720,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv75054942",
+        "title": "M 2.1 - 27 km ENE of Honaunau-Napoopoo, Hawaii",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346903",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.169833333333,
+          36.2163333333333,
+          6.02
+        ]
+      },
+      "properties": {
+        "mag": 1.74,
+        "place": "16 km WSW of Olancha, CA",
+        "time": 1791844477810,
+        "updated": 1791844691651,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346903",
+        "title": "M 1.7 - 16 km WSW of Olancha, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ughhtb",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -149.02,
+          65.321,
+          5
+        ]
+      },
+      "properties": {
+        "mag": 1,
+        "place": "24 km NE of Minto, Alaska",
+        "time": 1791844324569,
+        "updated": 1791844389120,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ughhtb",
+        "title": "M 1.0 - 24 km NE of Minto, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026uggtey",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -150.898,
+          63.108,
+          124.5
+        ]
+      },
+      "properties": {
+        "mag": 2,
+        "place": "63 km SE of Denali National Park, Alaska",
+        "time": 1791843318166,
+        "updated": 1791843510842,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026uggtey",
+        "title": "M 2.0 - 63 km SE of Denali National Park, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448551",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.791168212891,
+          38.8306655883789,
+          1.38999998569489
+        ]
+      },
+      "properties": {
+        "mag": 0.49,
+        "place": "6 km W of Cobb, CA",
+        "time": 1791843067000,
+        "updated": 1791843164383,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448551",
+        "title": "M 0.5 - 6 km W of Cobb, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nn00925686",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.0887,
+          38.6988,
+          0
+        ]
+      },
+      "properties": {
+        "mag": 0.96,
+        "place": "56 km S of Kingston, Nevada",
+        "time": 1791842399031,
+        "updated": 1791843051277,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nn00925686",
+        "title": "M 1.0 Explosion - 56 km S of Kingston, Nevada",
+        "status": "reviewed",
+        "type": "explosion",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uw714118932",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.191333333333,
+          46.202,
+          2.54
+        ]
+      },
+      "properties": {
+        "mag": -0.02,
+        "place": "37 km NNE of Amboy, Washington",
+        "time": 1791842339590,
+        "updated": 1791844830470,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uw714118932",
+        "title": "M 0.0 - 37 km NNE of Amboy, Washington",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1w7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.4309,
+          7.9416,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 4.5,
+        "place": "5 km WSW of Calidonia, Panama",
+        "time": 1791841734521,
+        "updated": 1791852113498,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1w7",
+        "title": "M 4.5 - 5 km WSW of Calidonia, Panama",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1w6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.5113,
+          7.8015,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 4.5,
+        "place": "21 km WNW of Río Grande, Panama",
+        "time": 1791841410326,
+        "updated": 1791851712040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1w6",
+        "title": "M 4.5 - 21 km WNW of Río Grande, Panama",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ugfnbc",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -151.869,
+          62.199,
+          112.8
+        ]
+      },
+      "properties": {
+        "mag": 1.5,
+        "place": "33 km NW of Skwentna, Alaska",
+        "time": 1791841093666,
+        "updated": 1791841280669,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ugfnbc",
+        "title": "M 1.5 - 33 km NW of Skwentna, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hv75054867",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.281,
+          19.3903333333333,
+          1.68
+        ]
+      },
+      "properties": {
+        "mag": 1.78,
+        "place": "7 km SW of Volcano, Hawaii",
+        "time": 1791840522720,
+        "updated": 1791843589890,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv75054867",
+        "title": "M 1.8 - 7 km SW of Volcano, Hawaii",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hv75054862",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.279663085938,
+          19.3911666870117,
+          0.870000004768372
+        ]
+      },
+      "properties": {
+        "mag": 1.9,
+        "place": "7 km SW of Volcano, Hawaii",
+        "time": 1791840511990,
+        "updated": 1791840715010,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv75054862",
+        "title": "M 1.9 - 7 km SW of Volcano, Hawaii",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uw714118892",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.3335,
+          46.2188333333333,
+          14.68
+        ]
+      },
+      "properties": {
+        "mag": 0.21,
+        "place": "35 km NNE of Amboy, Washington",
+        "time": 1791838639480,
+        "updated": 1791844021520,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uw714118892",
+        "title": "M 0.2 - 35 km NNE of Amboy, Washington",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hv75054847",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.495834350586,
+          19.1781673431396,
+          31.3400001525879
+        ]
+      },
+      "properties": {
+        "mag": 2.32,
+        "place": "3 km SSW of Pāhala, Hawaii",
+        "time": 1791838571250,
+        "updated": 1791838775360,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv75054847",
+        "title": "M 2.3 - 3 km SSW of Pāhala, Hawaii",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448501",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.471000671387,
+          37.5263328552246,
+          8.02999973297119
+        ]
+      },
+      "properties": {
+        "mag": 2.17,
+        "place": "16 km NNW of Dixon Lane-Meadow Creek, CA",
+        "time": 1791838321710,
+        "updated": 1791840142333,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448501",
+        "title": "M 2.2 - 16 km NNW of Dixon Lane-Meadow Creek, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hv75054812",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.487503051758,
+          19.1685009002686,
+          28.1100006103516
+        ]
+      },
+      "properties": {
+        "mag": 2.46,
+        "place": "3 km SSW of Pāhala, Hawaii",
+        "time": 1791836486550,
+        "updated": 1791836702590,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv75054812",
+        "title": "M 2.5 - 3 km SSW of Pāhala, Hawaii",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1vf",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.5677,
+          7.7181,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 4.8,
+        "place": "25 km W of Río Grande, Panama",
+        "time": 1791835525236,
+        "updated": 1791851057113,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1vf",
+        "title": "M 4.8 - 25 km W of Río Grande, Panama",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346887",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.119666666667,
+          33.6813333333333,
+          -0.63
+        ]
+      },
+      "properties": {
+        "mag": 0.66,
+        "place": "4 km SW of Winchester, CA",
+        "time": 1791835391680,
+        "updated": 1791835867285,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346887",
+        "title": "M 0.7 Quarry Blast - 4 km SW of Winchester, CA",
+        "status": "reviewed",
+        "type": "quarry blast",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ugcflj",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -153.6,
+          58.508,
+          72.2
+        ]
+      },
+      "properties": {
+        "mag": 2.1,
+        "place": "64 km NW of Aleneva, Alaska",
+        "time": 1791835169667,
+        "updated": 1791835370518,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ugcflj",
+        "title": "M 2.1 - 64 km NW of Aleneva, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uw714118862",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.1915,
+          46.2046666666667,
+          2.12
+        ]
+      },
+      "properties": {
+        "mag": -0.05,
+        "place": "38 km NNE of Amboy, Washington",
+        "time": 1791835163590,
+        "updated": 1791838047850,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uw714118862",
+        "title": "M -0.1 - 38 km NNE of Amboy, Washington",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nn00925681",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.9102,
+          38.1505,
+          11.6622
+        ]
+      },
+      "properties": {
+        "mag": 2.13,
+        "place": "31 km SSE of Mina, Nevada",
+        "time": 1791834912245,
+        "updated": 1791836360318,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nn00925681",
+        "title": "M 2.1 - 31 km SSE of Mina, Nevada",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ugcaqp",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -147.45,
+          64.961,
+          5
+        ]
+      },
+      "properties": {
+        "mag": 1.3,
+        "place": "7 km E of Fox, Alaska",
+        "time": 1791834838128,
+        "updated": 1791834950306,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ugcaqp",
+        "title": "M 1.3 - 7 km E of Fox, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448471",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.772666931152,
+          38.8071670532227,
+          3.25
+        ]
+      },
+      "properties": {
+        "mag": 0.91,
+        "place": "4 km NNW of The Geysers, CA",
+        "time": 1791834464770,
+        "updated": 1791834562911,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448471",
+        "title": "M 0.9 - 4 km NNW of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448466",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.814666748047,
+          38.8344993591309,
+          1.74000000953674
+        ]
+      },
+      "properties": {
+        "mag": 1.25,
+        "place": "8 km W of Cobb, CA",
+        "time": 1791834451790,
+        "updated": 1791838046113,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448466",
+        "title": "M 1.3 - 8 km W of Cobb, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448461",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.141334533691,
+          37.7448348999023,
+          5.78999996185303
+        ]
+      },
+      "properties": {
+        "mag": 1.44,
+        "place": "3 km NNE of San Leandro, CA",
+        "time": 1791834212460,
+        "updated": 1791836251983,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448461",
+        "title": "M 1.4 - 3 km NNE of San Leandro, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uw714118832",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.185833333333,
+          46.2016666666667,
+          3.3
+        ]
+      },
+      "properties": {
+        "mag": 0.12,
+        "place": "38 km NNE of Amboy, Washington",
+        "time": 1791833839110,
+        "updated": 1791838770220,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uw714118832",
+        "title": "M 0.1 - 38 km NNE of Amboy, Washington",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448456",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.603332519531,
+          37.3333320617676,
+          6.23000001907349
+        ]
+      },
+      "properties": {
+        "mag": 0.67,
+        "place": "20 km E of Alum Rock, CA",
+        "time": 1791833099350,
+        "updated": 1791833198169,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448456",
+        "title": "M 0.7 - 20 km E of Alum Rock, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ugaqev",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -152.417,
+          62.404,
+          13.9
+        ]
+      },
+      "properties": {
+        "mag": 1.3,
+        "place": "70 km NW of Skwentna, Alaska",
+        "time": 1791832315026,
+        "updated": 1791832396110,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ugaqev",
+        "title": "M 1.3 - 70 km NW of Skwentna, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346879",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.289333333333,
+          33.3203333333333,
+          11.1
+        ]
+      },
+      "properties": {
+        "mag": 1.24,
+        "place": "11 km NE of Borrego Springs, CA",
+        "time": 1791832021450,
+        "updated": 1791835019819,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346879",
+        "title": "M 1.2 - 11 km NE of Borrego Springs, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uw714118812",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.186,
+          46.2011666666667,
+          1.9
+        ]
+      },
+      "properties": {
+        "mag": -0.23,
+        "place": "38 km NNE of Amboy, Washington",
+        "time": 1791831547540,
+        "updated": 1791835363920,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uw714118812",
+        "title": "M -0.2 - 38 km NNE of Amboy, Washington",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346871",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.365666666667,
+          33.9261666666667,
+          7.38
+        ]
+      },
+      "properties": {
+        "mag": 0.79,
+        "place": "12 km N of Thousand Palms, CA",
+        "time": 1791831403370,
+        "updated": 1791835337096,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346871",
+        "title": "M 0.8 - 12 km N of Thousand Palms, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufzwkj",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -149.852,
+          62.256,
+          14.2
+        ]
+      },
+      "properties": {
+        "mag": 1.4,
+        "place": "10 km N of Susitna North, Alaska",
+        "time": 1791830945905,
+        "updated": 1791831009468,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufzwkj",
+        "title": "M 1.4 - 10 km N of Susitna North, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346863",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.763333333333,
+          33.5773333333333,
+          13.06
+        ]
+      },
+      "properties": {
+        "mag": 1.23,
+        "place": "9 km WNW of Anza, CA",
+        "time": 1791830602260,
+        "updated": 1791832455821,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346863",
+        "title": "M 1.2 - 9 km WNW of Anza, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346855",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.758333333333,
+          33.5823333333333,
+          12.35
+        ]
+      },
+      "properties": {
+        "mag": 0.56,
+        "place": "8 km WNW of Anza, CA",
+        "time": 1791830306430,
+        "updated": 1791835533676,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346855",
+        "title": "M 0.6 - 8 km WNW of Anza, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufzmon",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -153.068,
+          60.028,
+          5
+        ]
+      },
+      "properties": {
+        "mag": 0.7,
+        "place": "63 km ENE of Pedro Bay, Alaska",
+        "time": 1791830265151,
+        "updated": 1791830308015,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufzmon",
+        "title": "M 0.7 - 63 km ENE of Pedro Bay, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1us",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -127.0627,
+          40.6928,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 2.8,
+        "place": "237 km W of Ferndale, California",
+        "time": 1791830041393,
+        "updated": 1791832138040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1us",
+        "title": "M 2.8 - 237 km W of Ferndale, California",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448446",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.807502746582,
+          38.8300018310547,
+          2.08999991416931
+        ]
+      },
+      "properties": {
+        "mag": 0.74,
+        "place": "7 km NW of The Geysers, CA",
+        "time": 1791829999990,
+        "updated": 1791830097470,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448446",
+        "title": "M 0.7 - 7 km NW of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448441",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.844169616699,
+          38.8209991455078,
+          2.19000005722046
+        ]
+      },
+      "properties": {
+        "mag": 0.4,
+        "place": "9 km WNW of The Geysers, CA",
+        "time": 1791829919360,
+        "updated": 1791830017999,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448441",
+        "title": "M 0.4 - 9 km WNW of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1uv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          67,
+          -16.5382,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 4.6,
+        "place": "Mid-Indian Ridge",
+        "time": 1791829819138,
+        "updated": 1791831510040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1uv",
+        "title": "M 4.6 - Mid-Indian Ridge",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1ut",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          67.1096,
+          -16.294,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 4.7,
+        "place": "Mid-Indian Ridge",
+        "time": 1791829661875,
+        "updated": 1791831104040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1ut",
+        "title": "M 4.7 - Mid-Indian Ridge",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1uq",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.8113,
+          -33.721,
+          33.627
+        ]
+      },
+      "properties": {
+        "mag": 4.8,
+        "place": "23 km SW of San Antonio, Chile",
+        "time": 1791829038852,
+        "updated": 1791855483275,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1uq",
+        "title": "M 4.8 - 23 km SW of San Antonio, Chile",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448431",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.765998840332,
+          38.8250007629395,
+          1.85000002384186
+        ]
+      },
+      "properties": {
+        "mag": 1.33,
+        "place": "4 km W of Cobb, CA",
+        "time": 1791828392320,
+        "updated": 1791830242188,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448431",
+        "title": "M 1.3 - 4 km W of Cobb, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346839",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.706833333333,
+          33.541,
+          6.05
+        ]
+      },
+      "properties": {
+        "mag": 0.02,
+        "place": "3 km WSW of Anza, CA",
+        "time": 1791827898460,
+        "updated": 1791830256670,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346839",
+        "title": "M 0.0 - 3 km WSW of Anza, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uu80159611",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.903833333333,
+          38.5,
+          4.42
+        ]
+      },
+      "properties": {
+        "mag": 2.15,
+        "place": "14 km NE of Milford, Utah",
+        "time": 1791827239270,
+        "updated": 1791829867580,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu80159611",
+        "title": "M 2.2 - 14 km NE of Milford, Utah",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346831",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.713,
+          33.5318333333333,
+          6.13
+        ]
+      },
+      "properties": {
+        "mag": 1.52,
+        "place": "4 km SW of Anza, CA",
+        "time": 1791827188900,
+        "updated": 1791829958920,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346831",
+        "title": "M 1.5 - 4 km SW of Anza, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufxqfk",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -154.611,
+          55.41,
+          26.6
+        ]
+      },
+      "properties": {
+        "mag": 2.5,
+        "place": "173 km S of Akhiok, Alaska",
+        "time": 1791826920997,
+        "updated": 1791827050352,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufxqfk",
+        "title": "M 2.5 - 173 km S of Akhiok, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346823",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.761833333333,
+          33.581,
+          12.49
+        ]
+      },
+      "properties": {
+        "mag": 0.84,
+        "place": "9 km WNW of Anza, CA",
+        "time": 1791826258460,
+        "updated": 1791830897602,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346823",
+        "title": "M 0.8 - 9 km WNW of Anza, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1uk",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          142.5791,
+          39.61,
+          35
+        ]
+      },
+      "properties": {
+        "mag": 4.4,
+        "place": "54 km E of Miyako, Japan",
+        "time": 1791825953427,
+        "updated": 1791827351040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1uk",
+        "title": "M 4.4 - 54 km E of Miyako, Japan",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448411",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.827331542969,
+          38.8619995117188,
+          0.740000009536743
+        ]
+      },
+      "properties": {
+        "mag": 0.74,
+        "place": "10 km WNW of Cobb, CA",
+        "time": 1791825876530,
+        "updated": 1791825973045,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448411",
+        "title": "M 0.7 - 10 km WNW of Cobb, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448406",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.842002868652,
+          38.8354988098145,
+          1.3400000333786
+        ]
+      },
+      "properties": {
+        "mag": 0.65,
+        "place": "10 km NW of The Geysers, CA",
+        "time": 1791825768680,
+        "updated": 1791825862825,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448406",
+        "title": "M 0.7 - 10 km NW of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448401",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.081665039062,
+          39.2171669006348,
+          3.05999994277954
+        ]
+      },
+      "properties": {
+        "mag": 1.89,
+        "place": "4 km NNE of Dollar Point, CA",
+        "time": 1791825758370,
+        "updated": 1791827842923,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448401",
+        "title": "M 1.9 - 4 km NNE of Dollar Point, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufwuay",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -156.779,
+          57.12,
+          102.1
+        ]
+      },
+      "properties": {
+        "mag": 2.5,
+        "place": "57 km SE of Ugashik, Alaska",
+        "time": 1791825384260,
+        "updated": 1791825650040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufwuay",
+        "title": "M 2.5 - 57 km SE of Ugashik, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448391",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.727500915527,
+          38.7680015563965,
+          1.12999999523163
+        ]
+      },
+      "properties": {
+        "mag": 0.8,
+        "place": "3 km ESE of The Geysers, CA",
+        "time": 1791825278120,
+        "updated": 1791825373026,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448391",
+        "title": "M 0.8 - 3 km ESE of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufwpjv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -152.805,
+          59.67,
+          100.9
+        ]
+      },
+      "properties": {
+        "mag": 2.2,
+        "place": "56 km WSW of Anchor Point, Alaska",
+        "time": 1791825064617,
+        "updated": 1791825290496,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufwpjv",
+        "title": "M 2.2 - 56 km WSW of Anchor Point, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hv75054717",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.490493774414,
+          19.1700000762939,
+          30.5699996948242
+        ]
+      },
+      "properties": {
+        "mag": 1.9,
+        "place": "3 km SSW of Pāhala, Hawaii",
+        "time": 1791824459690,
+        "updated": 1791824671830,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv75054717",
+        "title": "M 1.9 - 3 km SSW of Pāhala, Hawaii",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346815",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.923,
+          34.1013333333333,
+          8.17
+        ]
+      },
+      "properties": {
+        "mag": 1.07,
+        "place": "13 km NE of Yucaipa, CA",
+        "time": 1791824248970,
+        "updated": 1791830668626,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346815",
+        "title": "M 1.1 - 13 km NE of Yucaipa, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufvxxy",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -153.029,
+          60.362,
+          5
+        ]
+      },
+      "properties": {
+        "mag": 0.9,
+        "place": "73 km ENE of Port Alsworth, Alaska",
+        "time": 1791823854657,
+        "updated": 1791823895027,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufvxxy",
+        "title": "M 0.9 - 73 km ENE of Port Alsworth, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hv75054687",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.487670898438,
+          19.1743335723877,
+          29.7900009155273
+        ]
+      },
+      "properties": {
+        "mag": 1.79,
+        "place": "3 km SSW of Pāhala, Hawaii",
+        "time": 1791822863320,
+        "updated": 1791823078080,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv75054687",
+        "title": "M 1.8 - 3 km SSW of Pāhala, Hawaii",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufuksm",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.376,
+          58.168,
+          5
+        ]
+      },
+      "properties": {
+        "mag": 0.4,
+        "place": "86 km NW of Karluk, Alaska",
+        "time": 1791821141329,
+        "updated": 1791856418600,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufuksm",
+        "title": "M 0.4 - 86 km NW of Karluk, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufuhdl",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -151.177,
+          61.155,
+          62.7
+        ]
+      },
+      "properties": {
+        "mag": 1.7,
+        "place": "5 km WNW of Beluga, Alaska",
+        "time": 1791820894645,
+        "updated": 1791820989403,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufuhdl",
+        "title": "M 1.7 - 5 km WNW of Beluga, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346807",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.759166666667,
+          33.5816666666667,
+          12.57
+        ]
+      },
+      "properties": {
+        "mag": 0.48,
+        "place": "8 km WNW of Anza, CA",
+        "time": 1791820337800,
+        "updated": 1791830423280,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346807",
+        "title": "M 0.5 - 8 km WNW of Anza, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1sn",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          154.8502,
+          48.2626,
+          35
+        ]
+      },
+      "properties": {
+        "mag": 4.9,
+        "place": "283 km SSW of Severo-Kuril’sk, Russia",
+        "time": 1791819873749,
+        "updated": 1791821664040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1sn",
+        "title": "M 4.9 - 283 km SSW of Severo-Kuril’sk, Russia",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tx2026ucnjfr",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.441,
+          31.654,
+          5.2795
+        ]
+      },
+      "properties": {
+        "mag": 1.7,
+        "place": "58 km S of Whites City, New Mexico",
+        "time": 1791819555701,
+        "updated": 1791820031858,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ucnjfr",
+        "title": "M 1.7 - 58 km S of Whites City, New Mexico",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pr71536538",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.9915,
+          19.1101666666667,
+          19.9
+        ]
+      },
+      "properties": {
+        "mag": 3.35,
+        "place": "15 km NNE of Miches, Dominican Republic",
+        "time": 1791819393960,
+        "updated": 1791822340830,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/pr71536538",
+        "title": "M 3.4 - 15 km NNE of Miches, Dominican Republic",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448361",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.533996582031,
+          35.9794998168945,
+          10.2399997711182
+        ]
+      },
+      "properties": {
+        "mag": 2.03,
+        "place": "13 km NW of Parkfield, CA",
+        "time": 1791819214000,
+        "updated": 1791823943474,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448361",
+        "title": "M 2.0 - 13 km NW of Parkfield, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026uftgts",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -159.326,
+          55.397,
+          17.8
+        ]
+      },
+      "properties": {
+        "mag": 2.5,
+        "place": "57 km S of Ivanof Bay, Alaska",
+        "time": 1791819065575,
+        "updated": 1791819170165,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026uftgts",
+        "title": "M 2.5 - 57 km S of Ivanof Bay, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346791",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.4425,
+          34.0216666666667,
+          8.06
+        ]
+      },
+      "properties": {
+        "mag": 1.45,
+        "place": "4 km SSW of Westwood, CA",
+        "time": 1791818920830,
+        "updated": 1791828027970,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346791",
+        "title": "M 1.5 - 4 km SSW of Westwood, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026uftdbb",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -151.78,
+          60.841,
+          86.3
+        ]
+      },
+      "properties": {
+        "mag": 1.6,
+        "place": "31 km WNW of Nikiski, Alaska",
+        "time": 1791818879614,
+        "updated": 1791818979813,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026uftdbb",
+        "title": "M 1.6 - 31 km WNW of Nikiski, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346783",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.630666666667,
+          33.593,
+          13.45
+        ]
+      },
+      "properties": {
+        "mag": 1.41,
+        "place": "6 km NE of Anza, CA",
+        "time": 1791818552480,
+        "updated": 1791827116616,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346783",
+        "title": "M 1.4 - 6 km NE of Anza, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448351",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.62483215332,
+          40.2890014648438,
+          0.730000019073486
+        ]
+      },
+      "properties": {
+        "mag": 3.43,
+        "place": "29 km W of Petrolia, CA",
+        "time": 1791818516130,
+        "updated": 1791823042365,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448351",
+        "title": "M 3.4 - 29 km W of Petrolia, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448346",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.757835388184,
+          38.7840003967285,
+          1.86000001430511
+        ]
+      },
+      "properties": {
+        "mag": 1.13,
+        "place": "1 km N of The Geysers, CA",
+        "time": 1791818437760,
+        "updated": 1791821850239,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448346",
+        "title": "M 1.1 - 1 km N of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448341",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.756500244141,
+          38.7868347167969,
+          1.62999999523163
+        ]
+      },
+      "properties": {
+        "mag": 2.02,
+        "place": "1 km N of The Geysers, CA",
+        "time": 1791818433140,
+        "updated": 1791820343053,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448341",
+        "title": "M 2.0 - 1 km N of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nn00925670",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.2766,
+          40.7513,
+          7.3916
+        ]
+      },
+      "properties": {
+        "mag": 2.2,
+        "place": "4 km WSW of Burning Man Earth, Nevada",
+        "time": 1791818373224,
+        "updated": 1791825320324,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nn00925670",
+        "title": "M 2.2 - 4 km WSW of Burning Man Earth, Nevada",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufslif",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -153.036,
+          60.422,
+          26.8
+        ]
+      },
+      "properties": {
+        "mag": 0.7,
+        "place": "74 km ENE of Port Alsworth, Alaska",
+        "time": 1791817584909,
+        "updated": 1791817630730,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufslif",
+        "title": "M 0.7 - 74 km ENE of Port Alsworth, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346775",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.245166666667,
+          34.045,
+          14.1
+        ]
+      },
+      "properties": {
+        "mag": 0.94,
+        "place": "2 km ESE of Loma Linda, CA",
+        "time": 1791816357610,
+        "updated": 1791825396752,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346775",
+        "title": "M 0.9 - 2 km ESE of Loma Linda, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1s8",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.8342,
+          51.4264,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 4.6,
+        "place": "194 km SE of Attu Station, Alaska",
+        "time": 1791815393312,
+        "updated": 1791819004396,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1s8",
+        "title": "M 4.6 - 194 km SE of Attu Station, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufqvwj",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -152.852,
+          60.353,
+          132.8
+        ]
+      },
+      "properties": {
+        "mag": 2.6,
+        "place": "73 km WNW of Ninilchik, Alaska",
+        "time": 1791814751296,
+        "updated": 1791816771040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufqvwj",
+        "title": "M 2.6 - 73 km WNW of Ninilchik, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufqssy",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.191,
+          57.356,
+          56.1
+        ]
+      },
+      "properties": {
+        "mag": 1.7,
+        "place": "50 km WSW of Karluk, Alaska",
+        "time": 1791814501542,
+        "updated": 1791814584014,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufqssy",
+        "title": "M 1.7 - 50 km WSW of Karluk, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448321",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.783668518066,
+          38.8344993591309,
+          1.71000003814697
+        ]
+      },
+      "properties": {
+        "mag": 1.08,
+        "place": "5 km WNW of Cobb, CA",
+        "time": 1791814389280,
+        "updated": 1791814487951,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448321",
+        "title": "M 1.1 - 5 km WNW of Cobb, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346767",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.603833333333,
+          32.7693333333333,
+          14.43
+        ]
+      },
+      "properties": {
+        "mag": 1.59,
+        "place": "5 km WSW of El Centro, CA",
+        "time": 1791814364700,
+        "updated": 1791828587522,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346767",
+        "title": "M 1.6 - 5 km WSW of El Centro, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346759",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.603166666667,
+          32.7545,
+          10.34
+        ]
+      },
+      "properties": {
+        "mag": 1.44,
+        "place": "6 km SW of El Centro, CA",
+        "time": 1791814281580,
+        "updated": 1791824657349,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346759",
+        "title": "M 1.4 - 6 km SW of El Centro, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uw714118722",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4035,
+          46.4875,
+          17.87
+        ]
+      },
+      "properties": {
+        "mag": 0.52,
+        "place": "7 km SE of Mossyrock, Washington",
+        "time": 1791813728300,
+        "updated": 1791834845080,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uw714118722",
+        "title": "M 0.5 - 7 km SE of Mossyrock, Washington",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346743",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.519166666667,
+          32.9445,
+          10.3
+        ]
+      },
+      "properties": {
+        "mag": 1.47,
+        "place": "4 km SSE of Brawley, CA",
+        "time": 1791813565110,
+        "updated": 1791824409074,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346743",
+        "title": "M 1.5 - 4 km SSE of Brawley, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346727",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.986333333333,
+          33.9858333333333,
+          15.55
+        ]
+      },
+      "properties": {
+        "mag": 0.3,
+        "place": "6 km E of Calimesa, CA",
+        "time": 1791813038560,
+        "updated": 1791819040638,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346727",
+        "title": "M 0.3 - 6 km E of Calimesa, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1s2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          67.099,
+          -16.2931,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 4.8,
+        "place": "Mid-Indian Ridge",
+        "time": 1791812681942,
+        "updated": 1791813882040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1s2",
+        "title": "M 4.8 - Mid-Indian Ridge",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448311",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.795501708984,
+          38.8199996948242,
+          3.27999997138977
+        ]
+      },
+      "properties": {
+        "mag": 0.76,
+        "place": "6 km NW of The Geysers, CA",
+        "time": 1791812585300,
+        "updated": 1791812683828,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448311",
+        "title": "M 0.8 - 6 km NW of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nn00925667",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.2918,
+          40.754,
+          7.3953
+        ]
+      },
+      "properties": {
+        "mag": 2.33,
+        "place": "5 km WSW of Burning Man Earth, Nevada",
+        "time": 1791812449613,
+        "updated": 1791824365544,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nn00925667",
+        "title": "M 2.3 - 5 km WSW of Burning Man Earth, Nevada",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448306",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.793830871582,
+          38.8196678161621,
+          2.8199999332428
+        ]
+      },
+      "properties": {
+        "mag": 0.94,
+        "place": "6 km NW of The Geysers, CA",
+        "time": 1791812261180,
+        "updated": 1791812358730,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448306",
+        "title": "M 0.9 - 6 km NW of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nn00925665",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.3047,
+          40.7557,
+          6.6045
+        ]
+      },
+      "properties": {
+        "mag": 2.13,
+        "place": "6 km W of Burning Man Earth, Nevada",
+        "time": 1791812233649,
+        "updated": 1791825889620,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nn00925665",
+        "title": "M 2.1 - 6 km W of Burning Man Earth, Nevada",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448301",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.793830871582,
+          38.8181648254395,
+          2.71000003814697
+        ]
+      },
+      "properties": {
+        "mag": 1.93,
+        "place": "6 km NW of The Geysers, CA",
+        "time": 1791812184300,
+        "updated": 1791814043295,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448301",
+        "title": "M 1.9 - 6 km NW of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av93068119",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -159.543833333333,
+          56.1101666666667,
+          4.34
+        ]
+      },
+      "properties": {
+        "mag": -0.31,
+        "place": "23 km N of Ivanof Bay, Alaska",
+        "time": 1791811777320,
+        "updated": 1791853491760,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av93068119",
+        "title": "M -0.3 - 23 km N of Ivanof Bay, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1rx",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.4946,
+          7.3997,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 4.5,
+        "place": "6 km W of Tonosí, Panama",
+        "time": 1791811038746,
+        "updated": 1791816301040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1rx",
+        "title": "M 4.5 - 6 km W of Tonosí, Panama",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufoslq",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.157,
+          57.473,
+          73.9
+        ]
+      },
+      "properties": {
+        "mag": 1.6,
+        "place": "43 km WSW of Karluk, Alaska",
+        "time": 1791810882540,
+        "updated": 1791810954149,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufoslq",
+        "title": "M 1.6 - 43 km WSW of Karluk, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufoork",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -150.962,
+          64.96,
+          1
+        ]
+      },
+      "properties": {
+        "mag": 1.5,
+        "place": "16 km WSW of Manley Hot Springs, Alaska",
+        "time": 1791810619729,
+        "updated": 1791810720160,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufoork",
+        "title": "M 1.5 - 16 km WSW of Manley Hot Springs, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1rv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -159.9069,
+          54.4548,
+          35
+        ]
+      },
+      "properties": {
+        "mag": 3.5,
+        "place": "105 km SSE of Sand Point, Alaska",
+        "time": 1791810341141,
+        "updated": 1791819160602,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1rv",
+        "title": "M 3.5 - 105 km SSE of Sand Point, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346719",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.174166666667,
+          36.2181666666667,
+          7.08
+        ]
+      },
+      "properties": {
+        "mag": 1.14,
+        "place": "17 km WSW of Olancha, CA",
+        "time": 1791810012290,
+        "updated": 1791813608038,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346719",
+        "title": "M 1.1 - 17 km WSW of Olancha, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346711",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.240833333333,
+          34.045,
+          17.65
+        ]
+      },
+      "properties": {
+        "mag": 0.9,
+        "place": "2 km E of Loma Linda, CA",
+        "time": 1791809686000,
+        "updated": 1791823040499,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346711",
+        "title": "M 0.9 - 2 km E of Loma Linda, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346703",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.009,
+          33.5331666666667,
+          3.24
+        ]
+      },
+      "properties": {
+        "mag": 1.05,
+        "place": "14 km ENE of Temecula, CA",
+        "time": 1791808749520,
+        "updated": 1791815844610,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346703",
+        "title": "M 1.1 - 14 km ENE of Temecula, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av93068114",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.134833333333,
+          58.2296666666667,
+          0.03
+        ]
+      },
+      "properties": {
+        "mag": -0.48,
+        "place": "83 km NNW of Karluk, Alaska",
+        "time": 1791808584750,
+        "updated": 1791853041320,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av93068114",
+        "title": "M -0.5 - 83 km NNW of Karluk, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uu80008173",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.181666666667,
+          39.5676666666667,
+          1.36
+        ]
+      },
+      "properties": {
+        "mag": 1.29,
+        "place": "9 km SSW of Clear Creek, Utah",
+        "time": 1791808497440,
+        "updated": 1791831661820,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu80008173",
+        "title": "M 1.3 - 9 km SSW of Clear Creek, Utah",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av94445093",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -168.25,
+          53.3723333333333,
+          5.33
+        ]
+      },
+      "properties": {
+        "mag": 0.16,
+        "place": "63 km NE of Nikolski, Alaska",
+        "time": 1791808493240,
+        "updated": 1791852771950,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av94445093",
+        "title": "M 0.2 - 63 km NE of Nikolski, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346687",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.013333333333,
+          33.5325,
+          3.35
+        ]
+      },
+      "properties": {
+        "mag": 1.14,
+        "place": "13 km ENE of Temecula, CA",
+        "time": 1791808377170,
+        "updated": 1791813685319,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346687",
+        "title": "M 1.1 - 13 km ENE of Temecula, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346695",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.014,
+          33.5316666666667,
+          2.84
+        ]
+      },
+      "properties": {
+        "mag": 1.74236673547828,
+        "place": "13 km ENE of Temecula, CA",
+        "time": 1791808377090,
+        "updated": 1791813689215,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346695",
+        "title": "M 1.7 - 13 km ENE of Temecula, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufnapa",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -145.485,
+          65.734,
+          4.6
+        ]
+      },
+      "properties": {
+        "mag": 2.6,
+        "place": "36 km WNW of Central, Alaska",
+        "time": 1791807844525,
+        "updated": 1791809169040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufnapa",
+        "title": "M 2.6 - 36 km WNW of Central, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nn00925660",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.3016,
+          40.7533,
+          5.5182
+        ]
+      },
+      "properties": {
+        "mag": 1.85,
+        "place": "6 km WSW of Burning Man Earth, Nevada",
+        "time": 1791807699797,
+        "updated": 1791827222106,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nn00925660",
+        "title": "M 1.9 - 6 km WSW of Burning Man Earth, Nevada",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufmsrw",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -149.281,
+          61.878,
+          5
+        ]
+      },
+      "properties": {
+        "mag": 1.9,
+        "place": "15 km N of Fishhook, Alaska",
+        "time": 1791807300341,
+        "updated": 1791807409439,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufmsrw",
+        "title": "M 1.9 - 15 km N of Fishhook, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448276",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.210502624512,
+          36.6018333435059,
+          8.52000045776367
+        ]
+      },
+      "properties": {
+        "mag": 1.73,
+        "place": "10 km NW of Pinnacles, CA",
+        "time": 1791807252430,
+        "updated": 1791810442904,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448276",
+        "title": "M 1.7 - 10 km NW of Pinnacles, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nn00925658",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.3977,
+          40.7726,
+          3.4832
+        ]
+      },
+      "properties": {
+        "mag": 2.58,
+        "place": "13 km NNW of Gerlach, Nevada",
+        "time": 1791807211321,
+        "updated": 1791827033230,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nn00925658",
+        "title": "M 2.6 - 13 km NNW of Gerlach, Nevada",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448271",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.583335876465,
+          40.269832611084,
+          5.01000022888184
+        ]
+      },
+      "properties": {
+        "mag": 2.53,
+        "place": "26 km WSW of Petrolia, CA",
+        "time": 1791807196850,
+        "updated": 1791809579040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448271",
+        "title": "M 2.5 - 26 km WSW of Petrolia, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448266",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.741500854492,
+          38.7743339538574,
+          1.87000000476837
+        ]
+      },
+      "properties": {
+        "mag": 0.77,
+        "place": "1 km ESE of The Geysers, CA",
+        "time": 1791806330640,
+        "updated": 1791806427816,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448266",
+        "title": "M 0.8 - 1 km ESE of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1rm",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.0997,
+          -9.152,
+          55.223
+        ]
+      },
+      "properties": {
+        "mag": 4.6,
+        "place": "100 km SSW of Kencong, Indonesia",
+        "time": 1791806288604,
+        "updated": 1791808791040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1rm",
+        "title": "M 4.6 - 100 km SSW of Kencong, Indonesia",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448261",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.65633392334,
+          40.2903327941895,
+          0.280000001192093
+        ]
+      },
+      "properties": {
+        "mag": 3.41,
+        "place": "32 km W of Petrolia, CA",
+        "time": 1791805541870,
+        "updated": 1791817311734,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448261",
+        "title": "M 3.4 - 32 km W of Petrolia, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av94445028",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -154.8775,
+          58.2353333333333,
+          4.25
+        ]
+      },
+      "properties": {
+        "mag": 0.33,
+        "place": "78 km NNW of Karluk, Alaska",
+        "time": 1791805257400,
+        "updated": 1791852169410,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av94445028",
+        "title": "M 0.3 - 78 km NNW of Karluk, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026uflokh",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -152.844,
+          62.645,
+          12.4
+        ]
+      },
+      "properties": {
+        "mag": 1.6,
+        "place": "88 km ESE of Nikolai, Alaska",
+        "time": 1791805201881,
+        "updated": 1791805284669,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026uflokh",
+        "title": "M 1.6 - 88 km ESE of Nikolai, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1rh",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          67.3909,
+          -8.873,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 5.4,
+        "place": "Mid-Indian Ridge",
+        "time": 1791804523398,
+        "updated": 1791812041051,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1rh",
+        "title": "M 5.4 - Mid-Indian Ridge",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346663",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.9555,
+          34.4945,
+          9.29
+        ]
+      },
+      "properties": {
+        "mag": 1.15,
+        "place": "4 km SE of Littlerock, CA",
+        "time": 1791804476310,
+        "updated": 1791815840060,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346663",
+        "title": "M 1.2 - 4 km SE of Littlerock, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av94445008",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -154.987833333333,
+          58.2956666666667,
+          2.99
+        ]
+      },
+      "properties": {
+        "mag": -0.09,
+        "place": "86 km NNW of Karluk, Alaska",
+        "time": 1791803996300,
+        "updated": 1791851658770,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av94445008",
+        "title": "M -0.1 - 86 km NNW of Karluk, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufkmix",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -151.476,
+          61.609,
+          82.2
+        ]
+      },
+      "properties": {
+        "mag": 1.4,
+        "place": "42 km S of Skwentna, Alaska",
+        "time": 1791803320940,
+        "updated": 1791803410673,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufkmix",
+        "title": "M 1.4 - 42 km S of Skwentna, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1re",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.646,
+          7.4832,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 4.3,
+        "place": "6 km NNW of El Cortezo, Panama",
+        "time": 1791803247400,
+        "updated": 1791804887040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1re",
+        "title": "M 4.3 - 6 km NNW of El Cortezo, Panama",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufkhbo",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.319,
+          58.191,
+          5
+        ]
+      },
+      "properties": {
+        "mag": 0.5,
+        "place": "86 km NW of Karluk, Alaska",
+        "time": 1791802896917,
+        "updated": 1791851509500,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufkhbo",
+        "title": "M 0.5 - 86 km NW of Karluk, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346655",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.599666666667,
+          35.7836666666667,
+          8.95
+        ]
+      },
+      "properties": {
+        "mag": 0.89,
+        "place": "18 km W of Searles Valley, CA",
+        "time": 1791802747190,
+        "updated": 1791822556374,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346655",
+        "title": "M 0.9 - 18 km W of Searles Valley, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tx2026ucdwfs",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.421,
+          31.678,
+          7.2791
+        ]
+      },
+      "properties": {
+        "mag": 1.5,
+        "place": "55 km S of Whites City, New Mexico",
+        "time": 1791802349348,
+        "updated": 1791807989398,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ucdwfs",
+        "title": "M 1.5 - 55 km S of Whites City, New Mexico",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "se60628526",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.3158333333333,
+          35.636,
+          11.2
+        ]
+      },
+      "properties": {
+        "mag": 1.88,
+        "place": "7 km SW of Tellico Village, Tennessee",
+        "time": 1791802246050,
+        "updated": 1791814034730,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/se60628526",
+        "title": "M 1.9 - 7 km SW of Tellico Village, Tennessee",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufjwtq",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -150.807,
+          61.65,
+          62.5
+        ]
+      },
+      "properties": {
+        "mag": 2.1,
+        "place": "19 km NW of Susitna, Alaska",
+        "time": 1791802185506,
+        "updated": 1791802319750,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufjwtq",
+        "title": "M 2.1 - 19 km NW of Susitna, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pr71536523",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.902,
+          17.999,
+          13.58
+        ]
+      },
+      "properties": {
+        "mag": 1.98,
+        "place": "1 km NE of Fuig, Puerto Rico",
+        "time": 1791802050020,
+        "updated": 1791803275860,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/pr71536523",
+        "title": "M 2.0 - 1 km NE of Fuig, Puerto Rico",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hv75054497",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.373672485352,
+          19.2971668243408,
+          29.4500007629395
+        ]
+      },
+      "properties": {
+        "mag": 2.19,
+        "place": "15 km NE of Pāhala, Hawaii",
+        "time": 1791801648780,
+        "updated": 1791801860920,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv75054497",
+        "title": "M 2.2 - 15 km NE of Pāhala, Hawaii",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av94444963",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -159.341,
+          56.2433333333333,
+          5.5
+        ]
+      },
+      "properties": {
+        "mag": 0.38,
+        "place": "35 km W of Chignik Lake, Alaska",
+        "time": 1791801445640,
+        "updated": 1791850607770,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av94444963",
+        "title": "M 0.4 - 35 km W of Chignik Lake, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uu80159596",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.905833333333,
+          38.513,
+          3.34
+        ]
+      },
+      "properties": {
+        "mag": 1.87,
+        "place": "15 km NE of Milford, Utah",
+        "time": 1791800418500,
+        "updated": 1791831428070,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu80159596",
+        "title": "M 1.9 - 15 km NE of Milford, Utah",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av94444948",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -169.889,
+          52.7846666666667,
+          7.78
+        ]
+      },
+      "properties": {
+        "mag": 1.77,
+        "place": "71 km WSW of Nikolski, Alaska",
+        "time": 1791800321620,
+        "updated": 1791832529590,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av94444948",
+        "title": "M 1.8 - 71 km WSW of Nikolski, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346647",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.811166666667,
+          36.0158333333333,
+          1.71
+        ]
+      },
+      "properties": {
+        "mag": 0.86,
+        "place": "12 km NE of Little Lake, CA",
+        "time": 1791800031560,
+        "updated": 1791813778681,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346647",
+        "title": "M 0.9 - 12 km NE of Little Lake, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026uficmq",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.362,
+          58.186,
+          5
+        ]
+      },
+      "properties": {
+        "mag": 0.9,
+        "place": "87 km NW of Karluk, Alaska",
+        "time": 1791798981994,
+        "updated": 1791850427510,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026uficmq",
+        "title": "M 0.9 - 87 km NW of Karluk, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hv75054462",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.42317199707,
+          19.0628337860107,
+          40.4500007629395
+        ]
+      },
+      "properties": {
+        "mag": 1.73,
+        "place": "16 km E of Naalehu, Hawaii",
+        "time": 1791798127580,
+        "updated": 1791798342440,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv75054462",
+        "title": "M 1.7 - 16 km E of Naalehu, Hawaii",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448251",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.810165405273,
+          38.8255004882812,
+          2.25
+        ]
+      },
+      "properties": {
+        "mag": 0.71,
+        "place": "7 km NW of The Geysers, CA",
+        "time": 1791797352270,
+        "updated": 1791797447754,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448251",
+        "title": "M 0.7 - 7 km NW of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uw714118632",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.483666666667,
+          45.7793333333333,
+          13.83
+        ]
+      },
+      "properties": {
+        "mag": 0.72,
+        "place": "3 km E of Battle Ground, Washington",
+        "time": 1791797038750,
+        "updated": 1791833079070,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uw714118632",
+        "title": "M 0.7 - 3 km E of Battle Ground, Washington",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uu80159586",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.895333333333,
+          38.4885,
+          6
+        ]
+      },
+      "properties": {
+        "mag": 1.39,
+        "place": "14 km NE of Milford, Utah",
+        "time": 1791796801710,
+        "updated": 1791831083320,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu80159586",
+        "title": "M 1.4 - 14 km NE of Milford, Utah",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufgvdx",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.793,
+          57.614,
+          34.4
+        ]
+      },
+      "properties": {
+        "mag": 1.1,
+        "place": "80 km W of Karluk, Alaska",
+        "time": 1791796674749,
+        "updated": 1791796729736,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufgvdx",
+        "title": "M 1.1 - 80 km W of Karluk, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448246",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.59049987793,
+          40.2815017700195,
+          7.11999988555908
+        ]
+      },
+      "properties": {
+        "mag": 2.72,
+        "place": "26 km W of Petrolia, CA",
+        "time": 1791796375060,
+        "updated": 1791797843503,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448246",
+        "title": "M 2.7 - 26 km W of Petrolia, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uw714118622",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.463666666667,
+          45.7688333333333,
+          12.6
+        ]
+      },
+      "properties": {
+        "mag": 1.16,
+        "place": "3 km W of Venersborg, Washington",
+        "time": 1791795663350,
+        "updated": 1791830651010,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uw714118622",
+        "title": "M 1.2 - 3 km W of Venersborg, Washington",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1r3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          125.9293,
+          0.6834,
+          49.217
+        ]
+      },
+      "properties": {
+        "mag": 4.6,
+        "place": "122 km SE of Bitung, Indonesia",
+        "time": 1791795554629,
+        "updated": 1791812787040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1r3",
+        "title": "M 4.6 - 122 km SE of Bitung, Indonesia",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av94444858",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -153.035,
+          60.0393333333333,
+          0.78
+        ]
+      },
+      "properties": {
+        "mag": 0.12,
+        "place": "66 km ENE of Pedro Bay, Alaska",
+        "time": 1791795542590,
+        "updated": 1791846074150,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av94444858",
+        "title": "M 0.1 - 66 km ENE of Pedro Bay, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448241",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.842002868652,
+          38.8211669921875,
+          2.14000010490417
+        ]
+      },
+      "properties": {
+        "mag": 0.85,
+        "place": "9 km WNW of The Geysers, CA",
+        "time": 1791794719300,
+        "updated": 1791794812785,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448241",
+        "title": "M 0.9 - 9 km WNW of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346639",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.523,
+          33.4953333333333,
+          14.16
+        ]
+      },
+      "properties": {
+        "mag": 0.67,
+        "place": "15 km ESE of Anza, CA",
+        "time": 1791794671640,
+        "updated": 1791813842550,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346639",
+        "title": "M 0.7 - 15 km ESE of Anza, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tx2026ubzkyh",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.946,
+          28.856,
+          8.1479
+        ]
+      },
+      "properties": {
+        "mag": 1.8,
+        "place": "15 km ESE of Pearsall, Texas",
+        "time": 1791794328189,
+        "updated": 1791837125168,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ubzkyh",
+        "title": "M 1.8 - 15 km ESE of Pearsall, Texas",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1qy",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          128.9661,
+          -8.237,
+          22.434
+        ]
+      },
+      "properties": {
+        "mag": 4.7,
+        "place": "219 km E of Lospalos, Timor Leste",
+        "time": 1791793808695,
+        "updated": 1791798855040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1qy",
+        "title": "M 4.7 - 219 km E of Lospalos, Timor Leste",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026uffept",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -151.132,
+          59.359,
+          54.9
+        ]
+      },
+      "properties": {
+        "mag": 2.1,
+        "place": "26 km SSE of Halibut Cove, Alaska",
+        "time": 1791793730720,
+        "updated": 1791793815317,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026uffept",
+        "title": "M 2.1 - 26 km SSE of Halibut Cove, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av94444833",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -152.7355,
+          60.4156666666667,
+          3.58
+        ]
+      },
+      "properties": {
+        "mag": -0.2,
+        "place": "71 km NW of Ninilchik, Alaska",
+        "time": 1791793692250,
+        "updated": 1791844992910,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av94444833",
+        "title": "M -0.2 - 71 km NW of Ninilchik, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tx2026ubyylo",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.421,
+          31.664,
+          5.8948
+        ]
+      },
+      "properties": {
+        "mag": 2.5,
+        "place": "56 km S of Whites City, New Mexico",
+        "time": 1791793453261,
+        "updated": 1791796292960,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ubyylo",
+        "title": "M 2.5 - 56 km S of Whites City, New Mexico",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av94444818",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -166.650833333333,
+          53.9005,
+          7.79
+        ]
+      },
+      "properties": {
+        "mag": 0.71,
+        "place": "7 km W of Dutch Harbor, Alaska",
+        "time": 1791793295100,
+        "updated": 1791845864860,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av94444818",
+        "title": "M 0.7 - 7 km W of Dutch Harbor, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufetyq",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -148.43,
+          60.283,
+          12.4
+        ]
+      },
+      "properties": {
+        "mag": 1.7,
+        "place": "33 km NW of Chenega, Alaska",
+        "time": 1791792993681,
+        "updated": 1791793203912,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufetyq",
+        "title": "M 1.7 - 33 km NW of Chenega, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av93068109",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -152.377166666667,
+          61.2233333333333,
+          6.88
+        ]
+      },
+      "properties": {
+        "mag": 0.08,
+        "place": "69 km WNW of Tyonek, Alaska",
+        "time": 1791792612140,
+        "updated": 1791845683600,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av93068109",
+        "title": "M 0.1 - 69 km WNW of Tyonek, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av94444808",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -152.357666666667,
+          61.2331666666667,
+          9.04
+        ]
+      },
+      "properties": {
+        "mag": 0.06,
+        "place": "68 km WNW of Tyonek, Alaska",
+        "time": 1791792612130,
+        "updated": 1791844302270,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av94444808",
+        "title": "M 0.1 - 68 km WNW of Tyonek, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufejqz",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -150.217,
+          65.762,
+          5.1
+        ]
+      },
+      "properties": {
+        "mag": 1.7,
+        "place": "28 km N of Rampart, Alaska",
+        "time": 1791792281270,
+        "updated": 1791793014904,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufejqz",
+        "title": "M 1.7 - 28 km N of Rampart, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufehoi",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.727,
+          57.668,
+          90.9
+        ]
+      },
+      "properties": {
+        "mag": 2.4,
+        "place": "76 km W of Karluk, Alaska",
+        "time": 1791792133214,
+        "updated": 1791792916467,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufehoi",
+        "title": "M 2.4 - 76 km W of Karluk, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufeblf",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -149.785,
+          64.789,
+          9
+        ]
+      },
+      "properties": {
+        "mag": 1.4,
+        "place": "37 km WNW of Four Mile Road, Alaska",
+        "time": 1791791712422,
+        "updated": 1791792751271,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufeblf",
+        "title": "M 1.4 - 37 km WNW of Four Mile Road, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346631",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.1215,
+          33.2688333333333,
+          11.6
+        ]
+      },
+      "properties": {
+        "mag": 0.89,
+        "place": "14 km N of Ocotillo Wells, CA",
+        "time": 1791791019220,
+        "updated": 1791815824624,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346631",
+        "title": "M 0.9 - 14 km N of Ocotillo Wells, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufdnhk",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -151.956,
+          61.016,
+          87.3
+        ]
+      },
+      "properties": {
+        "mag": 1.3,
+        "place": "44 km W of Tyonek, Alaska",
+        "time": 1791790731965,
+        "updated": 1791790819020,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufdnhk",
+        "title": "M 1.3 - 44 km W of Tyonek, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufdlpm",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -148.357,
+          61.539,
+          23.9
+        ]
+      },
+      "properties": {
+        "mag": 0.9,
+        "place": "29 km S of Chickaloon, Alaska",
+        "time": 1791790616361,
+        "updated": 1791790677708,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufdlpm",
+        "title": "M 0.9 - 29 km S of Chickaloon, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448226",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.817169189453,
+          38.8294982910156,
+          1.5900000333786
+        ]
+      },
+      "properties": {
+        "mag": 0.76,
+        "place": "8 km NW of The Geysers, CA",
+        "time": 1791790406280,
+        "updated": 1791790501996,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448226",
+        "title": "M 0.8 - 8 km NW of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tx2026ubxdoe",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.446,
+          31.66,
+          6.0999
+        ]
+      },
+      "properties": {
+        "mag": 1.8,
+        "place": "57 km S of Whites City, New Mexico",
+        "time": 1791790395230,
+        "updated": 1791798298195,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ubxdoe",
+        "title": "M 1.8 - 57 km S of Whites City, New Mexico",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tx2026ubxdze",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.46,
+          31.675,
+          6.0999
+        ]
+      },
+      "properties": {
+        "mag": 1.7,
+        "place": "56 km S of Whites City, New Mexico",
+        "time": 1791790215596,
+        "updated": 1791796813935,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ubxdze",
+        "title": "M 1.7 - 56 km S of Whites City, New Mexico",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufddmb",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -145.182,
+          63.244,
+          5
+        ]
+      },
+      "properties": {
+        "mag": 1.8,
+        "place": "27 km NE of Paxson, Alaska",
+        "time": 1791790053320,
+        "updated": 1791790169744,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufddmb",
+        "title": "M 1.8 - 27 km NE of Paxson, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hv75054417",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.480163574219,
+          19.144832611084,
+          11.0600004196167
+        ]
+      },
+      "properties": {
+        "mag": 1.84,
+        "place": "6 km S of Pāhala, Hawaii",
+        "time": 1791790031900,
+        "updated": 1791790244590,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv75054417",
+        "title": "M 1.8 - 6 km S of Pāhala, Hawaii",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufdbwh",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -158.929,
+          55.351,
+          24.9
+        ]
+      },
+      "properties": {
+        "mag": 2.5,
+        "place": "63 km SSE of Perryville, Alaska",
+        "time": 1791789942912,
+        "updated": 1791795845040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufdbwh",
+        "title": "M 2.5 - 63 km SSE of Perryville, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hv75054412",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.501007080078,
+          19.1180000305176,
+          32.5900001525879
+        ]
+      },
+      "properties": {
+        "mag": 1.81,
+        "place": "9 km SSW of Pāhala, Hawaii",
+        "time": 1791789512030,
+        "updated": 1791789721670,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv75054412",
+        "title": "M 1.8 - 9 km SSW of Pāhala, Hawaii",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1qd",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.9143,
+          7.6987,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 4.5,
+        "place": "7 km ESE of Tebario, Panama",
+        "time": 1791789366367,
+        "updated": 1791790729040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1qd",
+        "title": "M 4.5 - 7 km ESE of Tebario, Panama",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tx2026ubwpqb",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.962,
+          28.838,
+          7.3979
+        ]
+      },
+      "properties": {
+        "mag": 1.9,
+        "place": "14 km ESE of Pearsall, Texas",
+        "time": 1791789215108,
+        "updated": 1791797286625,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ubwpqb",
+        "title": "M 1.9 - 14 km ESE of Pearsall, Texas",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ok2026tzkx",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.76866667,
+          34.9825,
+          7.32
+        ]
+      },
+      "properties": {
+        "mag": 1.88,
+        "place": "7 km N of Alex, Oklahoma",
+        "time": 1791788742820,
+        "updated": 1791806802337,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ok2026tzkx",
+        "title": "M 1.9 - 7 km N of Alex, Oklahoma",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tx2026ubwdvv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.953,
+          28.827,
+          7.7568
+        ]
+      },
+      "properties": {
+        "mag": 2.2,
+        "place": "15 km ESE of Pearsall, Texas",
+        "time": 1791788396003,
+        "updated": 1791790621636,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ubwdvv",
+        "title": "M 2.2 - 15 km ESE of Pearsall, Texas",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tx2026ubwcwk",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.551,
+          31.63,
+          6.8176
+        ]
+      },
+      "properties": {
+        "mag": 1.5,
+        "place": "62 km SSW of Whites City, New Mexico",
+        "time": 1791788337542,
+        "updated": 1791804965968,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ubwcwk",
+        "title": "M 1.5 - 62 km SSW of Whites City, New Mexico",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1q8",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.9004,
+          -40.6771,
+          32.309
+        ]
+      },
+      "properties": {
+        "mag": 4.2,
+        "place": "25 km SSE of Pahiatua, New Zealand",
+        "time": 1791787939764,
+        "updated": 1791815160040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1q8",
+        "title": "M 4.2 - 25 km SSE of Pahiatua, New Zealand",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uw714118612",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.408333333333,
+          46.5776666666667,
+          16.11
+        ]
+      },
+      "properties": {
+        "mag": 0.34,
+        "place": "7 km NE of Mossyrock, Washington",
+        "time": 1791787338810,
+        "updated": 1791830440240,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uw714118612",
+        "title": "M 0.3 - 7 km NE of Mossyrock, Washington",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448221",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.819831848145,
+          38.832332611084,
+          1.87999999523163
+        ]
+      },
+      "properties": {
+        "mag": 0.7,
+        "place": "8 km NW of The Geysers, CA",
+        "time": 1791787073080,
+        "updated": 1791787172977,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448221",
+        "title": "M 0.7 - 8 km NW of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346623",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.2515,
+          33.5913333333333,
+          4.16
+        ]
+      },
+      "properties": {
+        "mag": 0.43,
+        "place": "3 km ESE of Wildomar, CA",
+        "time": 1791787019400,
+        "updated": 1791787218359,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346623",
+        "title": "M 0.4 - 3 km ESE of Wildomar, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av94444718",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -152.327833333333,
+          61.3238333333333,
+          1.8
+        ]
+      },
+      "properties": {
+        "mag": -0.26,
+        "place": "69 km WNW of Beluga, Alaska",
+        "time": 1791786805380,
+        "updated": 1791843101220,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av94444718",
+        "title": "M -0.3 - 69 km WNW of Beluga, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av94444713",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -153.2835,
+          59.9833333333333,
+          15.42
+        ]
+      },
+      "properties": {
+        "mag": -0.15,
+        "place": "50 km ENE of Pedro Bay, Alaska",
+        "time": 1791786420770,
+        "updated": 1791842710810,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av94444713",
+        "title": "M -0.2 - 50 km ENE of Pedro Bay, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026ufayor",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -138.305,
+          64.619,
+          5
+        ]
+      },
+      "properties": {
+        "mag": 2.3,
+        "place": "82 km NE of Dawson City, Canada",
+        "time": 1791786107016,
+        "updated": 1791820157326,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026ufayor",
+        "title": "M 2.3 - 82 km NE of Dawson City, Canada",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av93068099",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -158.086833333333,
+          56.7595,
+          0.33
+        ]
+      },
+      "properties": {
+        "mag": 0.06,
+        "place": "55 km NNE of Chignik, Alaska",
+        "time": 1791784781460,
+        "updated": 1791842380430,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av93068099",
+        "title": "M 0.1 - 55 km NNE of Chignik, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448216",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.845169067383,
+          38.8586654663086,
+          2.25999999046326
+        ]
+      },
+      "properties": {
+        "mag": 1.23,
+        "place": "11 km WNW of Cobb, CA",
+        "time": 1791784503620,
+        "updated": 1791784602242,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448216",
+        "title": "M 1.2 - 11 km WNW of Cobb, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "nc75448211",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.827835083008,
+          38.8316650390625,
+          0.740000009536743
+        ]
+      },
+      "properties": {
+        "mag": 1.08,
+        "place": "9 km NW of The Geysers, CA",
+        "time": 1791784486380,
+        "updated": 1791784582593,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75448211",
+        "title": "M 1.1 - 9 km NW of The Geysers, CA",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026uezrgt",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -158.045,
+          56.717,
+          5
+        ]
+      },
+      "properties": {
+        "mag": 1.6,
+        "place": "51 km NNE of Chignik, Alaska",
+        "time": 1791783811789,
+        "updated": 1791841599470,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026uezrgt",
+        "title": "M 1.6 - 51 km NNE of Chignik, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ok2026tzib",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.774,
+          34.981,
+          7.92
+        ]
+      },
+      "properties": {
+        "mag": 2.46,
+        "place": "7 km N of Alex, Oklahoma",
+        "time": 1791783535520,
+        "updated": 1791815195554,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ok2026tzib",
+        "title": "M 2.5 - 7 km N of Alex, Oklahoma",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026uezkyh",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -150.854,
+          64.948,
+          4.5
+        ]
+      },
+      "properties": {
+        "mag": 1.8,
+        "place": "11 km WSW of Manley Hot Springs, Alaska",
+        "time": 1791783423936,
+        "updated": 1791819350338,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026uezkyh",
+        "title": "M 1.8 - 11 km WSW of Manley Hot Springs, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av94444668",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -153.083666666667,
+          60.0438333333333,
+          -2.62
+        ]
+      },
+      "properties": {
+        "mag": -0.83,
+        "place": "63 km ENE of Pedro Bay, Alaska",
+        "time": 1791783014210,
+        "updated": 1791841479260,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av94444668",
+        "title": "M -0.8 - 63 km ENE of Pedro Bay, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1q2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.2189,
+          -8.3245,
+          121.104
+        ]
+      },
+      "properties": {
+        "mag": 4.6,
+        "place": "25 km SSE of Blitar, Indonesia",
+        "time": 1791782889720,
+        "updated": 1791786797040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1q2",
+        "title": "M 4.6 - 25 km SSE of Blitar, Indonesia",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1pz",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          179.9814,
+          -25.1916,
+          470.833
+        ]
+      },
+      "properties": {
+        "mag": 4.5,
+        "place": "south of the Fiji Islands",
+        "time": 1791782150307,
+        "updated": 1791783392040,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1pz",
+        "title": "M 4.5 - south of the Fiji Islands",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av94444658",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -152.268166666667,
+          61.3338333333333,
+          -2.4
+        ]
+      },
+      "properties": {
+        "mag": 0.41,
+        "place": "67 km WNW of Beluga, Alaska",
+        "time": 1791781893110,
+        "updated": 1791841178890,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av94444658",
+        "title": "M 0.4 - 67 km WNW of Beluga, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uw714118602",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.191666666667,
+          46.2048333333333,
+          2.52
+        ]
+      },
+      "properties": {
+        "mag": 0.2,
+        "place": "38 km NNE of Amboy, Washington",
+        "time": 1791781290020,
+        "updated": 1791830104930,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uw714118602",
+        "title": "M 0.2 - 38 km NNE of Amboy, Washington",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346615",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.486,
+          33.492,
+          13.83
+        ]
+      },
+      "properties": {
+        "mag": 0.78,
+        "place": "19 km ESE of Anza, CA",
+        "time": 1791781220830,
+        "updated": 1791822284304,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346615",
+        "title": "M 0.8 - 19 km ESE of Anza, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "av94444643",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -169.904333333333,
+          52.7733333333333,
+          9.23
+        ]
+      },
+      "properties": {
+        "mag": 1.31,
+        "place": "72 km WSW of Nikolski, Alaska",
+        "time": 1791781100740,
+        "updated": 1791840008850,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/av94444643",
+        "title": "M 1.3 - 72 km WSW of Nikolski, Alaska",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ci41346607",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.496833333333,
+          33.4891666666667,
+          12.92
+        ]
+      },
+      "properties": {
+        "mag": 1.76,
+        "place": "18 km ESE of Anza, CA",
+        "time": 1791781060850,
+        "updated": 1791819889093,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci41346607",
+        "title": "M 1.8 - 18 km ESE of Anza, CA",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tx2026ubsadw",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.194,
+          31.614,
+          6.0999
+        ]
+      },
+      "properties": {
+        "mag": 1.6,
+        "place": "50 km NW of Toyah, Texas",
+        "time": 1791780898995,
+        "updated": 1791803702186,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ubsadw",
+        "title": "M 1.6 - 50 km NW of Toyah, Texas",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tx2026ubruxf",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.939,
+          28.833,
+          8.1168
+        ]
+      },
+      "properties": {
+        "mag": 2.2,
+        "place": "16 km ESE of Pearsall, Texas",
+        "time": 1791780533025,
+        "updated": 1791862664338,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ubruxf",
+        "title": "M 2.2 - 16 km ESE of Pearsall, Texas",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026uexvav",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -150.662,
+          62.02,
+          62.6
+        ]
+      },
+      "properties": {
+        "mag": 2.1,
+        "place": "38 km E of Skwentna, Alaska",
+        "time": 1791780529266,
+        "updated": 1791780729838,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026uexvav",
+        "title": "M 2.1 - 38 km E of Skwentna, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tx2026ubrqyt",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.291,
+          31.663,
+          6.3562
+        ]
+      },
+      "properties": {
+        "mag": 1.8,
+        "place": "57 km S of Whites City, New Mexico",
+        "time": 1791780295578,
+        "updated": 1791800100415,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ubrqyt",
+        "title": "M 1.8 - 57 km S of Whites City, New Mexico",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026uexrzk",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -154.891,
+          58.288,
+          7.2
+        ]
+      },
+      "properties": {
+        "mag": 0.6,
+        "place": "84 km NNW of Karluk, Alaska",
+        "time": 1791780263602,
+        "updated": 1791839707540,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026uexrzk",
+        "title": "M 0.6 - 84 km NNW of Karluk, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1pl",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -175.1452,
+          -18.723,
+          195.212
+        ]
+      },
+      "properties": {
+        "mag": 5.5,
+        "place": "122 km W of Neiafu, Tonga",
+        "time": 1791779892859,
+        "updated": 1791789896682,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1pl",
+        "title": "M 5.5 - 122 km W of Neiafu, Tonga",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026uexihs",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -149.047,
+          62.742,
+          62.8
+        ]
+      },
+      "properties": {
+        "mag": 2.4,
+        "place": "63 km ENE of Chase, Alaska",
+        "time": 1791779593942,
+        "updated": 1791779780418,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026uexihs",
+        "title": "M 2.4 - 63 km ENE of Chase, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "aka2026uewzoh",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.884,
+          57.918,
+          21.3
+        ]
+      },
+      "properties": {
+        "mag": 1,
+        "place": "93 km WNW of Karluk, Alaska",
+        "time": 1791778987008,
+        "updated": 1791839227060,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026uewzoh",
+        "title": "M 1.0 - 93 km WNW of Karluk, Alaska",
+        "status": "automatic",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tx2026ubqvuw",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.173,
+          32.411,
+          8.9111
+        ]
+      },
+      "properties": {
+        "mag": 1.6,
+        "place": "35 km ENE of McKinney Acres, Texas",
+        "time": 1791778805567,
+        "updated": 1791826347000,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/tx2026ubqvuw",
+        "title": "M 1.6 - 35 km ENE of McKinney Acres, Texas",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pr71536518",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.174,
+          18.2055,
+          62.63
+        ]
+      },
+      "properties": {
+        "mag": 2.62,
+        "place": "3 km W of Mayagüez, Puerto Rico",
+        "time": 1791778702990,
+        "updated": 1791779980290,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/pr71536518",
+        "title": "M 2.6 - 3 km W of Mayagüez, Puerto Rico",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "us6000u1pf",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.5351,
+          7.5974,
+          10
+        ]
+      },
+      "properties": {
+        "mag": 4.2,
+        "place": "8 km SSE of Llano de Piedra, Panama",
+        "time": 1791778502936,
+        "updated": 1791784622852,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1pf",
+        "title": "M 4.2 - 8 km SSE of Llano de Piedra, Panama",
+        "status": "reviewed",
+        "type": "earthquake",
+        "tsunami": 0
+      }
+    }
+  ],
+  "bbox": [
+    -175.1452,
+    -40.6771,
+    -2.62,
+    179.9814,
+    65.762,
+    470.833
+  ]
+}
