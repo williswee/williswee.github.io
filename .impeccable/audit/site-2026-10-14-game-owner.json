@@ -1,0 +1,16 @@
+{
+  "title": "Find the real Willis",
+  "project_id": "appgprj_6abb70e2ded081918f23424452cd0fb0",
+  "slug": "real-willis",
+  "current_live_url": "https://real-willis.williswee.chatgpt.site",
+  "version_number": 9,
+  "source_commit_sha": "22d4f6b6a784f2760b1d9da5421e07e29c42bc9d",
+  "custom_domains": [],
+  "ownership_evidence": "Unique matching title and description in the owner's Sites registry; the williswee.com/game proxy/deployment mapping is not exposed in that registry.",
+  "origin_response": "Sign in required",
+  "public_game_gaps": [
+    "No rel=canonical, Open Graph, Twitter or JSON-LD metadata in public HTML.",
+    "No shared analytics adapter, Umami host, gateway or website ID in HTML or its five referenced JavaScript bundles."
+  ],
+  "live_dashboard_ingestion": "Unverified; no additional browser visit or test event sent."
+}
