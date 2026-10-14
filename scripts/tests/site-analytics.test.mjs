@@ -13,14 +13,14 @@ test('every public content page loads the analytics adapter once', () => {
         for (const name of readdirSync(directory).filter(name => name.endsWith('.html') && !['404.html', 'creative.html'].includes(name))) {
             const html = readFileSync(new URL(name, directory), 'utf8');
             const prefix = folder ? '../' : '';
-            const version = !folder && name === 'coaching.html' ? '1.1' : '1';
+            const version = '2';
             const expected = `<script src="${prefix}site-analytics.js?v=${version}" defer></script>`;
             assert.equal(html.split(expected).length - 1, 1, `${folder}${name}`);
         }
     }
 });
 
-function setup(code = source) {
+function setup(code = source, { hostname = 'williswee.com', pathname = '/thoughts/freedom.html' } = {}) {
     const listeners = new Map();
     const scriptListeners = new Map();
     const scripts = [];
@@ -46,12 +46,57 @@ function setup(code = source) {
         head: { append(script) { scripts.push(script); } },
         addEventListener(type, callback) { listeners.set(type, callback); }
     };
-    const window = { location: { href: 'https://williswee.com/thoughts/freedom.html', origin: 'https://williswee.com', pathname: '/thoughts/freedom.html' } };
-    vm.runInNewContext(code, { document, window, Element, URL });
+    const window = { location: { hostname, href: `https://${hostname}${pathname}`, origin: `https://${hostname}`, pathname } };
+    const context = { document, window, Element, URL };
+    vm.runInNewContext(code, context);
     return { window, scripts, Element, click: target => listeners.get('click')?.({ target }),
         input: (value, id = 'note-message') => listeners.get('input')?.({ target: { id, value } }),
-        loaded: () => scriptListeners.get('load')?.() };
+        loaded: () => scriptListeners.get('load')?.(), again: () => vm.runInNewContext(code, context) };
 }
+
+test('previews and the published development source never load the tracker', () => {
+    for (const hostname of ['localhost', '127.0.0.1', 'example.com']) {
+        const page = setup(source, { hostname });
+        assert.equal(page.scripts.length, 0);
+        assert.equal(page.window.siteAnalytics, undefined);
+    }
+    assert.equal(setup(source, { pathname: '/chix-run/source/index.html' }).scripts.length, 0);
+});
+
+test('duplicate adapter execution cannot add another automatic pageview loader', () => {
+    const page = setup();
+    page.again();
+    assert.equal(page.scripts.length, 1);
+});
+
+test('the public tracking helper rejects personal content and unknown events', () => {
+    const page = setup();
+    const events = [];
+    page.window.umami = { track: (...args) => events.push(args) };
+    for (const name of ['A private coaching message', 'someone@example.com', { email: 'someone@example.com' }, 'unknown_event']) {
+        page.window.siteAnalytics.track(name);
+    }
+    assert.deepEqual(events, []);
+    page.window.siteAnalytics.track('coaching_note_sent');
+    assert.deepEqual(events, [['coaching_note_sent']]);
+});
+
+test('extensionless Coaching links preserve incoming and note-link event semantics', () => {
+    const page = setup(source, { pathname: '/coaching' });
+    const events = [];
+    page.window.umami = { track: name => events.push(name) };
+    page.click(new page.Element({ href: '/coaching.html' }));
+    page.click(new page.Element({ href: '#send-a-note' }));
+    assert.deepEqual(events, ['coaching_note_link_click']);
+});
+
+test('all standalone demos retain one shared loader without another Umami integration', () => {
+    for (const path of ['chix-run/index.html', '3d-floorplan/index.html', 'orbit/index.html']) {
+        const html = readFileSync(new URL(path, root), 'utf8');
+        assert.equal((html.match(/<script src="\/site-analytics\.js\?v=2" defer><\/script>/g) ?? []).length, 1, path);
+        assert.doesNotMatch(html, /cloud\.umami\.is|data-umami-event/, path);
+    }
+});
 
 test('analytics stays off until a public website ID is supplied', () => {
     const page = setup(disabledSource);
@@ -67,6 +112,7 @@ test('the loader limits collection to this site and excludes URL query and hash 
     assert.equal(page.scripts[0].dataset.domains, 'williswee.com,www.williswee.com');
     assert.equal(page.scripts[0].dataset.excludeSearch, 'true');
     assert.equal(page.scripts[0].dataset.excludeHash, 'true');
+    assert.equal(page.scripts[0].dataset.doNotTrack, 'true');
 });
 
 test('coaching journey emits only named events and never note text', () => {

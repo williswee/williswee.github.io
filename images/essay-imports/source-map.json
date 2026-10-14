@@ -1,0 +1,982 @@
+[
+  {
+    "page": "thoughts/boring-ai.html",
+    "source_url": "https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb8ab682e-bfa5-4e7b-a70d-79adaedd4ac5_1448x1086.png",
+    "original": "images/essay-imports/boring-ai-1-original-4aea762fbcbd.jpg",
+    "original_bytes": 274188,
+    "declared_before": [
+      1448,
+      1086
+    ],
+    "verified": [
+      1448,
+      1086
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/boring-ai-1-640-9c8816a9f77b.webp",
+        "bytes": 101020
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/boring-ai-1-960-e161b02a209c.webp",
+        "bytes": 201438
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/boring-ai-1-1440-69e44ebbbaf2.webp",
+        "bytes": 346034
+      },
+      {
+        "width": 1448,
+        "path": "../images/essay-imports/boring-ai-1-original-4aea762fbcbd.jpg",
+        "bytes": 274188,
+        "preserved_original": true
+      }
+    ]
+  },
+  {
+    "page": "thoughts/boring-ai.html",
+    "source_url": "https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F35631a1b-5d0f-405a-8d58-22fd649cc2ea_2916x1856.png",
+    "original": "images/essay-imports/boring-ai-2-original-bac0c6ef2322.png",
+    "original_bytes": 680325,
+    "declared_before": [
+      1456,
+      927
+    ],
+    "verified": [
+      1456,
+      927
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/boring-ai-2-640-901e4dbce3bc.webp",
+        "bytes": 39362
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/boring-ai-2-960-ece9dc384328.webp",
+        "bytes": 78900
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/boring-ai-2-1440-5ddad48f4556.webp",
+        "bytes": 145598
+      },
+      {
+        "width": 1456,
+        "path": "../images/essay-imports/boring-ai-2-1456-38834092dcad.webp",
+        "bytes": 144260
+      }
+    ]
+  },
+  {
+    "page": "thoughts/bounce.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2018/12/1.-cash-cow-750x458.png",
+    "original": "images/essay-imports/bounce-1-original-c71e11a8bd6f.png",
+    "original_bytes": 89237,
+    "declared_before": [
+      750,
+      458
+    ],
+    "verified": [
+      750,
+      458
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/bounce-1-640-585240c471d4.webp",
+        "bytes": 7476
+      },
+      {
+        "width": 750,
+        "path": "../images/essay-imports/bounce-1-750-26c0264b39bb.webp",
+        "bytes": 8870
+      }
+    ]
+  },
+  {
+    "page": "thoughts/bounce.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2018/12/2.-news-750x451.png",
+    "original": "images/essay-imports/bounce-2-original-3d339a1c7ccf.png",
+    "original_bytes": 77915,
+    "declared_before": [
+      750,
+      451
+    ],
+    "verified": [
+      750,
+      451
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/bounce-2-640-02b5d3f43163.webp",
+        "bytes": 14298
+      },
+      {
+        "width": 750,
+        "path": "../images/essay-imports/bounce-2-750-c8363237a269.webp",
+        "bytes": 16094
+      }
+    ]
+  },
+  {
+    "page": "thoughts/bounce.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2018/12/3.-jobs-750x452.png",
+    "original": "images/essay-imports/bounce-3-original-871827c1e02e.png",
+    "original_bytes": 73127,
+    "declared_before": [
+      750,
+      452
+    ],
+    "verified": [
+      750,
+      452
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/bounce-3-640-ba381cc27d07.webp",
+        "bytes": 11792
+      },
+      {
+        "width": 750,
+        "path": "../images/essay-imports/bounce-3-750-38a2e12be189.webp",
+        "bytes": 13468
+      }
+    ]
+  },
+  {
+    "page": "thoughts/bounce.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2018/12/4.-studio-750x466.png",
+    "original": "images/essay-imports/bounce-4-original-1422706affdb.png",
+    "original_bytes": 62165,
+    "declared_before": [
+      750,
+      466
+    ],
+    "verified": [
+      750,
+      466
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/bounce-4-640-354c42ed192d.webp",
+        "bytes": 6090
+      },
+      {
+        "width": 750,
+        "path": "../images/essay-imports/bounce-4-750-f6f7f56a1689.webp",
+        "bytes": 7462
+      }
+    ]
+  },
+  {
+    "page": "thoughts/carbonneutral.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2021/04/vc-investment-in-climate-tech.png",
+    "original": "images/essay-imports/carbonneutral-1-original-d30afdf9d449.png",
+    "original_bytes": 38020,
+    "declared_before": [
+      1200,
+      494
+    ],
+    "verified": [
+      1200,
+      494
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/carbonneutral-1-640-0ef08b907f55.webp",
+        "bytes": 14922
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/carbonneutral-1-960-ac4247dc698c.webp",
+        "bytes": 24048
+      },
+      {
+        "width": 1200,
+        "path": "../images/essay-imports/carbonneutral-1-1200-b40d7df0fdd3.webp",
+        "bytes": 31698
+      }
+    ]
+  },
+  {
+    "page": "thoughts/carbonneutral.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2021/04/climate-change.png",
+    "original": "images/essay-imports/carbonneutral-2-original-f5558cb40f36.png",
+    "original_bytes": 121659,
+    "declared_before": [
+      1508,
+      769
+    ],
+    "verified": [
+      1508,
+      769
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/carbonneutral-2-640-7a4cf1e64255.webp",
+        "bytes": 28942
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/carbonneutral-2-960-1aa08b03351a.webp",
+        "bytes": 50326
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/carbonneutral-2-1440-6d501b3fe2c2.webp",
+        "bytes": 85410
+      },
+      {
+        "width": 1508,
+        "path": "../images/essay-imports/carbonneutral-2-1508-0585d8c8bb1f.webp",
+        "bytes": 91638
+      }
+    ]
+  },
+  {
+    "page": "thoughts/famplan.html",
+    "source_url": "https://substackcdn.com/image/fetch/$s_!89rU!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa0ea7cc3-2ab9-4dcf-b717-fb9d71e21676_3024x2587.png",
+    "original": "images/essay-imports/famplan-1-original-bcb5bd607cc3.webp",
+    "original_bytes": 280124,
+    "declared_before": [
+      1456,
+      1246
+    ],
+    "verified": [
+      1456,
+      1246
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/famplan-1-640-473cc62c806c.webp",
+        "bytes": 79102
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/famplan-1-960-b8591c48d769.webp",
+        "bytes": 169826
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/famplan-1-1440-f55a7f7e6174.webp",
+        "bytes": 339676
+      },
+      {
+        "width": 1456,
+        "path": "../images/essay-imports/famplan-1-original-bcb5bd607cc3.webp",
+        "bytes": 280124,
+        "preserved_original": true
+      }
+    ]
+  },
+  {
+    "page": "thoughts/famplan.html",
+    "source_url": "https://substackcdn.com/image/fetch/$s_!Wvcy!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F28909135-86bd-47b5-96ee-927e0ff33967_1964x2618.jpeg",
+    "original": "images/essay-imports/famplan-2-original-7d46bb76742d.webp",
+    "original_bytes": 554952,
+    "declared_before": [
+      1456,
+      1941
+    ],
+    "verified": [
+      1456,
+      1941
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/famplan-2-640-f2c51b06bc73.webp",
+        "bytes": 165946
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/famplan-2-960-b9128413f474.webp",
+        "bytes": 344984
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/famplan-2-1440-b1f7855846c2.webp",
+        "bytes": 651216
+      },
+      {
+        "width": 1456,
+        "path": "../images/essay-imports/famplan-2-original-7d46bb76742d.webp",
+        "bytes": 554952,
+        "preserved_original": true
+      }
+    ]
+  },
+  {
+    "page": "thoughts/getshitdone.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2019/11/forrest-li-sea-group.jpg",
+    "original": "images/essay-imports/getshitdone-1-original-8d42740d4ccb.jpg",
+    "original_bytes": 779828,
+    "declared_before": [
+      1400,
+      933
+    ],
+    "verified": [
+      1400,
+      933
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/getshitdone-1-640-768c46de1df3.webp",
+        "bytes": 76786
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/getshitdone-1-960-58a76e01e912.webp",
+        "bytes": 151088
+      },
+      {
+        "width": 1400,
+        "path": "../images/essay-imports/getshitdone-1-1400-8cc5aa977c23.webp",
+        "bytes": 307194
+      }
+    ]
+  },
+  {
+    "page": "thoughts/getshitdone.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2019/11/Sea-Group-market-cap.png",
+    "original": "images/essay-imports/getshitdone-2-original-518eda1fc8db.png",
+    "original_bytes": 46358,
+    "declared_before": [
+      1414,
+      1152
+    ],
+    "verified": [
+      1414,
+      1152
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/getshitdone-2-640-b69c43b18a60.webp",
+        "bytes": 19962
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/getshitdone-2-960-e963ddbc99bb.webp",
+        "bytes": 33370
+      },
+      {
+        "width": 1414,
+        "path": "../images/essay-imports/getshitdone-2-original-518eda1fc8db.png",
+        "bytes": 46358,
+        "preserved_original": true
+      }
+    ]
+  },
+  {
+    "page": "thoughts/habits.html",
+    "source_url": "https://images.unsplash.com/photo-1548475390-f6908921aaf8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMDAzMzh8MHwxfHNlYXJjaHw3fHxyYWluYm93fGVufDB8fHx8MTc4MzI3NTM4NHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "original": "images/essay-imports/habits-1-original-e80109fd68ea.jpg",
+    "original_bytes": 107270,
+    "declared_before": [
+      1080,
+      720
+    ],
+    "verified": [
+      1080,
+      720
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/habits-1-640-4e655d278e61.webp",
+        "bytes": 40200
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/habits-1-960-db126d1b8064.webp",
+        "bytes": 75892
+      },
+      {
+        "width": 1080,
+        "path": "../images/essay-imports/habits-1-1080-d8528fa9162b.webp",
+        "bytes": 94316
+      }
+    ]
+  },
+  {
+    "page": "thoughts/hakunamatata.html",
+    "source_url": "https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc7893622-984c-4e6b-ad61-ab99c025b153_2050x1494.png",
+    "original": "images/essay-imports/hakunamatata-1-original-b3c9dfd447dd.png",
+    "original_bytes": 2388080,
+    "declared_before": [
+      1456,
+      1061
+    ],
+    "verified": [
+      1456,
+      1061
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/hakunamatata-1-640-037fb497aa06.webp",
+        "bytes": 74794
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/hakunamatata-1-960-ca25b94535ba.webp",
+        "bytes": 151828
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/hakunamatata-1-1440-1b9a508aafed.webp",
+        "bytes": 280342
+      },
+      {
+        "width": 1456,
+        "path": "../images/essay-imports/hakunamatata-1-1456-3d67da7c7034.webp",
+        "bytes": 266276
+      }
+    ]
+  },
+  {
+    "page": "thoughts/hakunamatata.html",
+    "source_url": "https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc1370e07-5795-4723-99d0-424a04b72bfe_2198x1386.png",
+    "original": "images/essay-imports/hakunamatata-2-original-5831dce8a187.png",
+    "original_bytes": 542572,
+    "declared_before": [
+      1456,
+      918
+    ],
+    "verified": [
+      1456,
+      918
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/hakunamatata-2-640-a8ac708762ea.webp",
+        "bytes": 40954
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/hakunamatata-2-960-376b5223cb87.webp",
+        "bytes": 77842
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/hakunamatata-2-1440-47df33240bb3.webp",
+        "bytes": 142030
+      },
+      {
+        "width": 1456,
+        "path": "../images/essay-imports/hakunamatata-2-1456-cb73ef106946.webp",
+        "bytes": 129884
+      }
+    ]
+  },
+  {
+    "page": "thoughts/hithard.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2022/12/1671012960_startup-curve-chart.jpg",
+    "original": "images/essay-imports/hithard-1-original-b82922193a10.jpg",
+    "original_bytes": 18872,
+    "declared_before": [
+      576,
+      418
+    ],
+    "verified": [
+      576,
+      418
+    ],
+    "variants": [
+      {
+        "width": 576,
+        "path": "../images/essay-imports/hithard-1-original-b82922193a10.jpg",
+        "bytes": 18872,
+        "preserved_original": true
+      }
+    ]
+  },
+  {
+    "page": "thoughts/journey.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2011/05/willis-in-japan.jpg",
+    "original": "images/essay-imports/journey-1-original-caf9590441d0.jpg",
+    "original_bytes": 56659,
+    "declared_before": [
+      630,
+      419
+    ],
+    "verified": [
+      630,
+      419
+    ],
+    "variants": [
+      {
+        "width": 630,
+        "path": "../images/essay-imports/journey-1-630-10d04c98389b.webp",
+        "bytes": 52612
+      }
+    ]
+  },
+  {
+    "page": "thoughts/kinder.html",
+    "source_url": "https://substackcdn.com/image/fetch/$s_!dKVw!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd45237a7-3796-4382-aeb2-f8bf86f5cdbc_1200x675.webp",
+    "original": "images/essay-imports/kinder-1-original-d988ab941ac5.jpg",
+    "original_bytes": 77268,
+    "declared_before": [
+      1200,
+      675
+    ],
+    "verified": [
+      1200,
+      675
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/kinder-1-640-a6384791acf6.webp",
+        "bytes": 34840
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/kinder-1-960-64fba44f4b81.webp",
+        "bytes": 55358
+      },
+      {
+        "width": 1200,
+        "path": "../images/essay-imports/kinder-1-1200-e50aa9ecc8c9.webp",
+        "bytes": 70540
+      }
+    ]
+  },
+  {
+    "page": "thoughts/meditation.html",
+    "source_url": "https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcd24c601-0aaf-432a-9c9b-2e4f3b988528_1448x1086.png",
+    "original": "images/essay-imports/meditation-1-original-f83ad30e2a0c.jpg",
+    "original_bytes": 174214,
+    "declared_before": [
+      1448,
+      1086
+    ],
+    "verified": [
+      1448,
+      1086
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/meditation-1-640-8ffe7a88ac94.webp",
+        "bytes": 59812
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/meditation-1-960-3e5c5a33f1e3.webp",
+        "bytes": 120896
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/meditation-1-1440-e4b1e674e591.webp",
+        "bytes": 220460
+      },
+      {
+        "width": 1448,
+        "path": "../images/essay-imports/meditation-1-original-f83ad30e2a0c.jpg",
+        "bytes": 174214,
+        "preserved_original": true
+      }
+    ]
+  },
+  {
+    "page": "thoughts/nowork.html",
+    "source_url": "https://pbs.twimg.com/media/HJqKtLyacAARdOd?format=jpg&name=medium",
+    "original": "images/essay-imports/nowork-1-original-dec1787e01f6.jpg",
+    "original_bytes": 86965,
+    "declared_before": [
+      1200,
+      675
+    ],
+    "verified": [
+      1200,
+      675
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/nowork-1-640-6bfb729dcb9d.webp",
+        "bytes": 28116
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/nowork-1-960-0450dc732c6f.webp",
+        "bytes": 49588
+      },
+      {
+        "width": 1200,
+        "path": "../images/essay-imports/nowork-1-1200-de37d1d16d9a.webp",
+        "bytes": 71484
+      }
+    ]
+  },
+  {
+    "page": "thoughts/nowork.html",
+    "source_url": "https://pbs.twimg.com/media/HJqKlZwawAATJz1?format=jpg&name=medium",
+    "original": "images/essay-imports/nowork-2-original-db4227e19fca.jpg",
+    "original_bytes": 89190,
+    "declared_before": [
+      1200,
+      675
+    ],
+    "verified": [
+      1200,
+      675
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/nowork-2-640-47bc0f60e86c.webp",
+        "bytes": 22396
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/nowork-2-960-6c6c69bc2ab8.webp",
+        "bytes": 44718
+      },
+      {
+        "width": 1200,
+        "path": "../images/essay-imports/nowork-2-1200-dd38a6d339a8.webp",
+        "bytes": 70598
+      }
+    ]
+  },
+  {
+    "page": "thoughts/penn-olson-rebrand.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2012/03/Tech-In-Asia-rebranding1.jpg",
+    "original": "images/essay-imports/penn-olson-rebrand-1-original-ea871cbae53d.jpg",
+    "original_bytes": 92409,
+    "declared_before": [
+      650,
+      375
+    ],
+    "verified": [
+      650,
+      375
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/penn-olson-rebrand-1-640-6aa5bd1013fd.webp",
+        "bytes": 37674
+      },
+      {
+        "width": 650,
+        "path": "../images/essay-imports/penn-olson-rebrand-1-650-0bd034438c59.webp",
+        "bytes": 38138
+      }
+    ]
+  },
+  {
+    "page": "thoughts/profitable.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2020/01/commentary-team-photo-1.jpg",
+    "original": "images/essay-imports/profitable-1-original-055b66f0bd0d.jpg",
+    "original_bytes": 298829,
+    "declared_before": [
+      1200,
+      652
+    ],
+    "verified": [
+      1200,
+      652
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/profitable-1-640-b8eab5565433.webp",
+        "bytes": 124832
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/profitable-1-960-61cbfff2c84c.webp",
+        "bytes": 273246
+      },
+      {
+        "width": 1200,
+        "path": "../images/essay-imports/profitable-1-original-055b66f0bd0d.jpg",
+        "bytes": 298829,
+        "preserved_original": true
+      }
+    ]
+  },
+  {
+    "page": "thoughts/profitable.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2020/01/commentary-maria-li-tia-coo.jpg",
+    "original": "images/essay-imports/profitable-2-original-427b17b4cd60.jpg",
+    "original_bytes": 51868,
+    "declared_before": [
+      1200,
+      675
+    ],
+    "verified": [
+      1200,
+      675
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/profitable-2-640-195764149b61.webp",
+        "bytes": 36972
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/profitable-2-960-a985f38d8706.webp",
+        "bytes": 59586
+      },
+      {
+        "width": 1200,
+        "path": "../images/essay-imports/profitable-2-original-427b17b4cd60.jpg",
+        "bytes": 51868,
+        "preserved_original": true
+      }
+    ]
+  },
+  {
+    "page": "thoughts/stress.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2020/04/stress-curve.jpg",
+    "original": "images/essay-imports/stress-1-original-1a89af9ede50.jpg",
+    "original_bytes": 78617,
+    "declared_before": [
+      1000,
+      777
+    ],
+    "verified": [
+      1000,
+      777
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/stress-1-640-5a6e9f8e8590.webp",
+        "bytes": 21750
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/stress-1-960-b5f745ffc926.webp",
+        "bytes": 36094
+      },
+      {
+        "width": 1000,
+        "path": "../images/essay-imports/stress-1-1000-583b7cb6d79b.webp",
+        "bytes": 38714
+      }
+    ]
+  },
+  {
+    "page": "thoughts/ten.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2021/03/TIA-10-year-anniversary-2.png",
+    "original": "images/essay-imports/ten-1-original-6d15652931fc.png",
+    "original_bytes": 193817,
+    "declared_before": [
+      1920,
+      1005
+    ],
+    "verified": [
+      1920,
+      1005
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/ten-1-640-b9874cfdd218.webp",
+        "bytes": 37638
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/ten-1-960-72efb10d3d40.webp",
+        "bytes": 65834
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/ten-1-1440-9ca9d86623ff.webp",
+        "bytes": 110556
+      },
+      {
+        "width": 1920,
+        "path": "../images/essay-imports/ten-1-1920-2088934173d1.webp",
+        "bytes": 154262
+      }
+    ]
+  },
+  {
+    "page": "thoughts/tiaexperiment.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2014/04/tech-in-asia-on-map.jpg",
+    "original": "images/essay-imports/tiaexperiment-1-original-163a0ee4f2b0.jpg",
+    "original_bytes": 179253,
+    "declared_before": [
+      865,
+      575
+    ],
+    "verified": [
+      865,
+      575
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/tiaexperiment-1-640-6c39e802cfb5.webp",
+        "bytes": 51116
+      },
+      {
+        "width": 865,
+        "path": "../images/essay-imports/tiaexperiment-1-865-5440d545f73f.webp",
+        "bytes": 89284
+      }
+    ]
+  },
+  {
+    "page": "thoughts/tiasph.html",
+    "source_url": "https://cdn.techinasia.com/wp-content/uploads/2023/11/1698814991_TIA-x-BT-scaled.jpeg",
+    "original": "images/essay-imports/tiasph-1-original-21cb43a665f8.jpg",
+    "original_bytes": 703317,
+    "declared_before": [
+      2560,
+      1920
+    ],
+    "verified": [
+      2560,
+      1920
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/tiasph-1-640-ca7843017403.webp",
+        "bytes": 61960
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/tiasph-1-960-4978b437662c.webp",
+        "bytes": 128386
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/tiasph-1-1440-7dea2958cf2d.webp",
+        "bytes": 272654
+      },
+      {
+        "width": 2560,
+        "path": "../images/essay-imports/tiasph-1-2560-850d70b28357.webp",
+        "bytes": 660688
+      }
+    ]
+  },
+  {
+    "page": "thoughts/tickertown.html",
+    "source_url": "https://substack-post-media.s3.amazonaws.com/public/images/597d7696-e843-4978-9f3a-9f71733e41d1_1704x1304.png",
+    "original": "images/essay-imports/tickertown-1-original-16938c1e0dfe.png",
+    "original_bytes": 2214646,
+    "declared_before": [
+      1704,
+      1304
+    ],
+    "verified": [
+      1704,
+      1304
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/tickertown-1-640-f67c82685c1d.webp",
+        "bytes": 66244
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/tickertown-1-960-20ce7922fdbc.webp",
+        "bytes": 128298
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/tickertown-1-1440-9d3d10235b27.webp",
+        "bytes": 238366
+      },
+      {
+        "width": 1704,
+        "path": "../images/essay-imports/tickertown-1-1704-9c45c9d24e64.webp",
+        "bytes": 299946
+      }
+    ]
+  },
+  {
+    "page": "thoughts/tickertown.html",
+    "source_url": "https://substack-post-media.s3.amazonaws.com/public/images/ede9acdb-fa37-440c-90be-056106fe55d1_1704x1329.png",
+    "original": "images/essay-imports/tickertown-2-original-9ce9b75ae4d3.png",
+    "original_bytes": 1192560,
+    "declared_before": [
+      1704,
+      1329
+    ],
+    "verified": [
+      1704,
+      1329
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/tickertown-2-640-ae1c36396f87.webp",
+        "bytes": 39144
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/tickertown-2-960-6411267580f8.webp",
+        "bytes": 71066
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/tickertown-2-1440-b1333a0a745b.webp",
+        "bytes": 126088
+      },
+      {
+        "width": 1704,
+        "path": "../images/essay-imports/tickertown-2-1704-23ec2b5243ec.webp",
+        "bytes": 153230
+      }
+    ]
+  },
+  {
+    "page": "thoughts/userguide.html",
+    "source_url": "https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2d7242f8-c5b5-435c-9802-77365703e122_1080x614.jpeg",
+    "original": "images/essay-imports/userguide-1-original-23ba0d9c8730.webp",
+    "original_bytes": 20752,
+    "declared_before": [
+      1080,
+      614
+    ],
+    "verified": [
+      1080,
+      614
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/userguide-1-640-b9793b085851.webp",
+        "bytes": 19226
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/userguide-1-960-db05940172e0.webp",
+        "bytes": 26026
+      },
+      {
+        "width": 1080,
+        "path": "../images/essay-imports/userguide-1-original-23ba0d9c8730.webp",
+        "bytes": 20752,
+        "preserved_original": true
+      }
+    ]
+  }
+]

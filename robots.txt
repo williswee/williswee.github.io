@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /chix-run/source/
 
 Sitemap: https://williswee.com/sitemap.xml
