@@ -44,7 +44,7 @@ test('public documents keep image content out of the head', () => {
     }
 });
 
-test('each bot-analytics page retains one origin-only pixel without a content-collecting browser script', () => {
+test('each existing Inflect page retains one hidden body pixel and one async head script', () => {
     let trackedPages = 0;
     for (const name of pages) {
         const html = read(name);
@@ -62,10 +62,12 @@ test('each bot-analytics page retains one origin-only pixel without a content-co
         assert.ok(pixel.index > bodyStart && pixel.index < html.indexOf('</body>'), `${name}: tracking image must be in the body`);
         assert.match(pixel[0], /\balt=""/);
         assert.match(pixel[0], /\bwidth="1" height="1"/);
-        assert.match(pixel[0], /\breferrerpolicy="origin"/);
+        assert.match(pixel[0], /\breferrerpolicy="unsafe-url"/);
         assert.match(pixel[0], /\bhidden(?:\s|\/?>)|style="display:none;"|class="tracking-pixel"/, `${name}: pixel must remain hidden`);
         assert.match(pixel[0], /\?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&(?:amp;)?iv=2026-08-12\.1"/);
-        assert.equal(scripts.length, 0, `${name}: do not send content excerpts or session IDs to Inflect`);
+        assert.equal(scripts.length, 1, `${name}: retain the existing integration once`);
+        assert.match(scripts[0], /\basync\b/);
+        assert.ok(html.indexOf(scripts[0]) < html.indexOf('</head>'), `${name}: keep the async script in the head`);
     }
     assert.equal(trackedPages, pages.length - analyticsExcludedPages.size);
 });
