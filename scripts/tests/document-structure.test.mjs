@@ -16,8 +16,8 @@ const topLevelPages = ['books.html', 'coaching.html', 'play.html', 'gratitude.ht
 const utilityPages = ['404.html'];
 // Compatibility addresses redirect to their canonical content page.
 const redirectPages = ['creative.html'];
-// Standalone games have their own canvas UI and bundled assets.
-const standaloneAppPages = ['chix-run/index.html'];
+// Standalone apps have their own canvas UI and bundled assets.
+const standaloneAppPages = ['chix-run/index.html', 'orbit/index.html'];
 const analyticsExcludedPages = new Set(['gratitude.html', ...redirectPages]);
 const trackingPixel = /<img\b[^>]*\bsrc="https:\/\/www\.useinflect\.ai\/api\/bot-traffic\/pixel\?[^" ]+"[^>]*>/g;
 
