@@ -799,3 +799,13 @@ What's yours?
 2️⃣ Working on a new, more serious thing. Again, unsure where that venture will go, but input first and enjoy the ride.
 
 3️⃣ Working on a fun 3D demo on the side.
+
+## Gratitude note #74
+
+*2026-10-15*
+
+1️⃣ The oldest girl used some toilet rolls to bring joy to the family with her magic tricks. She even said she was surprised by how much joy something so simple could bring. That was a warm and nice feeling.
+
+2️⃣ Had an interesting discussion about human dominance on Earth and whether humans might one day become extinct. Everyone asked thoughtful questions and shared different perspectives. It was a fun discussion.
+
+3️⃣ The girls were very goofy, making up random stories in English and Mandarin. They were quite creative and funny.
