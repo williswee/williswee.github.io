@@ -1,0 +1,24 @@
+[
+  {
+    "transport": "mock only; no production requests",
+    "provider_outcomes_enabled": false,
+    "umami_pageviews": 1,
+    "inflect_citations": 1,
+    "inflect_configuration_requests": 1,
+    "inflect_outcome_captures": 0,
+    "distinct_globals": true,
+    "duplicate_adapter_and_hash_navigation_no_extra_pageviews": true,
+    "existing_inflect_url_collection_preserved": true
+  },
+  {
+    "transport": "mock only; no production requests",
+    "provider_outcomes_enabled": true,
+    "umami_pageviews": 1,
+    "inflect_citations": 1,
+    "inflect_configuration_requests": 1,
+    "inflect_outcome_captures": 1,
+    "distinct_globals": true,
+    "duplicate_adapter_and_hash_navigation_no_extra_pageviews": true,
+    "existing_inflect_url_collection_preserved": true
+  }
+]

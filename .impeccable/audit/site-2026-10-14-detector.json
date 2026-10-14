@@ -1,0 +1,15 @@
+{
+  "mode": "degraded regex fallback",
+  "missing_parsers": [
+    "htmlparser2",
+    "css-select",
+    "css-tree",
+    "domutils"
+  ],
+  "findings": {
+    "aphoristic-cadence": 1,
+    "design-system-radius": 11,
+    "design-system-color": 6,
+    "design-system-font-size": 9
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "website_id": "fe208afe-7586-4157-8a5c-4d8ac8ae640a",
+  "source": "Mac mini Chrome, authenticated existing Umami Cloud Realtime UI",
+  "live_script_loaded_once": true,
+  "baseline": {
+    "pageviews": 2,
+    "events": 0
+  },
+  "after": {
+    "pageviews": 4,
+    "events": 2
+  },
+  "test_pageviews": [
+    {
+      "path": "/thoughts/tiasph.html",
+      "utc": "2026-10-14T15:18:32Z"
+    },
+    {
+      "path": "/coaching.html",
+      "utc": "2026-10-14T15:18:41Z"
+    }
+  ],
+  "confirmed_dashboard_events": [
+    {
+      "name": "coaching_cta_click",
+      "path": "/thoughts/tiasph.html",
+      "utc": "2026-10-14T15:18:38Z"
+    },
+    {
+      "name": "coaching_note_link_click",
+      "path": "/coaching.html",
+      "utc": "2026-10-14T15:19:52Z"
+    }
+  ],
+  "hash_navigation_extra_pageviews": 0,
+  "form_submissions": 0,
+  "booking_submissions": 0,
+  "test_traffic": "2 live pageviews and 2 existing link events; no query marker, personal field data or broad live crawl",
+  "limitations": [
+    "Local loader fixes for standalone demos are unpublished; their live ingestion remains unverified.",
+    "Form success and fallback behavior verified with mocks; no real enquiry was sent.",
+    "Exact browser request status codes were not captured; dashboard ingestion is stronger evidence of receipt for the two named link events."
+  ]
+}

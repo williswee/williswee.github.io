@@ -17,7 +17,9 @@ const utilityPages = ['404.html'];
 // Compatibility addresses redirect to their canonical content page.
 const redirectPages = ['creative.html'];
 // Standalone apps have their own canvas UI and bundled assets.
-const standaloneAppPages = ['chix-run/index.html', 'orbit/index.html'];
+const standaloneAppPages = ['chix-run/index.html', 'orbit/index.html', '3d-floorplan/index.html'];
+// This live route is served separately by Cloudflare; its project is outside this checkout.
+const externallyHostedAppPages = ['game'];
 const analyticsExcludedPages = new Set(['gratitude.html', ...redirectPages]);
 const trackingPixel = /<img\b[^>]*\bsrc="https:\/\/www\.useinflect\.ai\/api\/bot-traffic\/pixel\?[^" ]+"[^>]*>/g;
 
@@ -31,7 +33,7 @@ test('public documents keep image content out of the head', () => {
         if (pathname === 'play') return 'play.html';
         return pathname.endsWith('/') || !pathname ? `${pathname}index.html` : pathname;
     }).sort();
-    assert.deepEqual(sitemapPages, [...pages.filter(name => !utilityPages.includes(name) && !redirectPages.includes(name)), ...standaloneAppPages].sort(), 'the sitemap must cover each public content document exactly once');
+    assert.deepEqual(sitemapPages, [...pages.filter(name => !utilityPages.includes(name) && !redirectPages.includes(name)), ...standaloneAppPages, ...externallyHostedAppPages].sort(), 'the sitemap must cover each public content document exactly once');
     for (const name of standaloneAppPages) assert.ok(existsSync(new URL(name, root)), `${name}: missing standalone game`);
     for (const name of pages) {
         const html = read(name);
@@ -42,7 +44,7 @@ test('public documents keep image content out of the head', () => {
     }
 });
 
-test('each analytics-enabled page retains one hidden body pixel and its async head script', () => {
+test('each existing Inflect page retains one hidden body pixel and one async head script', () => {
     let trackedPages = 0;
     for (const name of pages) {
         const html = read(name);
@@ -63,7 +65,7 @@ test('each analytics-enabled page retains one hidden body pixel and its async he
         assert.match(pixel[0], /\breferrerpolicy="unsafe-url"/);
         assert.match(pixel[0], /\bhidden(?:\s|\/?>)|style="display:none;"|class="tracking-pixel"/, `${name}: pixel must remain hidden`);
         assert.match(pixel[0], /\?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&(?:amp;)?iv=2026-08-12\.1"/);
-        assert.equal(scripts.length, 1, `${name}: analytics script must be retained once`);
+        assert.equal(scripts.length, 1, `${name}: retain the existing integration once`);
         assert.match(scripts[0], /\basync\b/);
         assert.ok(html.indexOf(scripts[0]) < html.indexOf('</head>'), `${name}: keep the async script in the head`);
     }

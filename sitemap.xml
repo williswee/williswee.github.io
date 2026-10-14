@@ -13,7 +13,7 @@
   </url>
   <url>
     <loc>https://williswee.com/chix-run/</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
@@ -108,47 +108,47 @@
   </url>
   <url>
     <loc>https://williswee.com/thoughts/meditation.html</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://williswee.com/thoughts/boring-ai.html</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://williswee.com/thoughts/hakunamatata.html</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://williswee.com/thoughts/habits.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://williswee.com/thoughts/kinder.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://williswee.com/thoughts/tickertown.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://williswee.com/thoughts/famplan.html</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://williswee.com/thoughts/userguide.html</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://williswee.com/thoughts/nowork.html</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
@@ -173,7 +173,7 @@
   </url>
   <url>
     <loc>https://williswee.com/thoughts/tiasph.html</loc>
-    <lastmod>2023-11-01</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
@@ -188,17 +188,17 @@
   </url>
   <url>
     <loc>https://williswee.com/thoughts/hithard.html</loc>
-    <lastmod>2022-12-14</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://williswee.com/thoughts/carbonneutral.html</loc>
-    <lastmod>2021-04-22</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://williswee.com/thoughts/ten.html</loc>
-    <lastmod>2021-03-25</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
@@ -208,22 +208,22 @@
   </url>
   <url>
     <loc>https://williswee.com/thoughts/stress.html</loc>
-    <lastmod>2020-04-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://williswee.com/thoughts/profitable.html</loc>
-    <lastmod>2020-01-16</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://williswee.com/thoughts/getshitdone.html</loc>
-    <lastmod>2019-12-02</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://williswee.com/thoughts/bounce.html</loc>
-    <lastmod>2018-12-19</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
@@ -238,7 +238,7 @@
   </url>
   <url>
     <loc>https://williswee.com/thoughts/tiaexperiment.html</loc>
-    <lastmod>2014-04-22</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
@@ -273,12 +273,12 @@
   </url>
   <url>
     <loc>https://williswee.com/thoughts/penn-olson-rebrand.html</loc>
-    <lastmod>2012-03-07</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://williswee.com/thoughts/journey.html</loc>
-    <lastmod>2011-05-26</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
   </url>
 
@@ -286,5 +286,14 @@
     <loc>https://williswee.com/orbit/</loc>
     <lastmod>2026-10-14</lastmod>
     <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://williswee.com/3d-floorplan/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://williswee.com/game</loc>
+    <priority>0.70</priority>
   </url>
 </urlset>

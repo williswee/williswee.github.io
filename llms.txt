@@ -3,61 +3,64 @@
 > A personal website for Willis Wee. Projects, essays, books, and a user guide.
 
 ## Main
+- [Floor Plan Studio](https://williswee.com/3d-floorplan/): Explore and furnish two homes in an interactive 3D floor plan studio, try material palettes, rearrange furniture, and pin comments.
+- [Chix Run](https://williswee.com/chix-run/): A chicken rooftop game with coins, drones, movement and dash controls.
+- [Find the real Willis](https://williswee.com/game): Ask six questions, spot two impostors, and get to know Willis through his writing.
 - [Orbit Watch](https://williswee.com/orbit/): A 3D globe for exploring calculated satellite positions, reported earthquakes and guided lessons with official sources.
-- [Home](https://williswee.com/index.html): Introduction and overview of the site.
+- [Home](https://williswee.com/): Introduction and overview of the site.
 - [Coaching](https://williswee.com/coaching.html): Candid 1:1 coaching for founders going from 0 to 1 and 1 to 2: who it's for, what we work on, and how to book a call on Intro.
 - [Gratitude](https://williswee.com/gratitude.html): A growing archive of daily gratitude notes, with a shareable link for every entry.
 - [Work](https://williswee.com/work.html): Work I did, from selling grasshoppers at age 10 to 16 years running Tech in Asia.
-- [Play](https://williswee.com/play): Randomly fun projects. 3D Floorplan, Chef Bob, Tiny Brain, Chix Run, Find the real Willis, GoogleFluid, and Brain games for kids.
+- [Play](https://williswee.com/play): Randomly fun projects. Orbit Watch, 3D Floorplan, Chef Bob, Tiny Brain, Chix Run, Find the real Willis, GoogleFluid, and Brain games for kids.
 - [Books](https://williswee.com/books.html): A curated list of books I have read and recommend.
 - [Guide](https://williswee.com/guide.html): Willis's personal user guide: how he communicates and works, and his flaws.
 
 ## Thoughts
 Articles and reflections by Willis Wee.
 - [I built an orbit watch for fun](https://williswee.com/thoughts/orbit-watch.html): I built a globe to visualize satellites and track earthquakes for fun.
-- [I built a 3D floor plan demo for fun](https://williswee.com/thoughts/3d-floorplan-fun): I tried the open-source Pascal Editor on a four-bedroom layout. It makes more sense for small design firms and folks planning a renovation.
-- [Daddy, what can you buy with $0.20?](https://williswee.com/thoughts/grasshopper): My two older girls had never heard of $0.20 recess money. So I told them about the grasshoppers.
-- [What I learned redesigning my site with AI](https://williswee.com/thoughts/redesign): 75 critic reviews, a return to an earlier design, and the objects from my life.
-- [A small experiment with Google Search](https://williswee.com/thoughts/googlefluid): Making fluid UI easier to visualize through something we already use.
-- [A 9-day meditation retreat](https://williswee.com/thoughts/meditationretreat): 52 hours of sitting meditation, 52 hours of walking meditation, and almost total silence.
-- [Winning the Best Dad Award?](https://williswee.com/thoughts/bestdad): My eldest is nine. If 15 years old marks the start of greater independence, I have just over 300 weeks left in this season of being a dad.
-- [Everyone says they're making money investing. Nobody shows the receipts.](https://williswee.com/thoughts/tickertownupdate): I stopped vibe investing. Then I realized the hardest part wasn't just learning to build the system. It was finding anyone willing to share theirs.
-- [Freedom is being disliked by other people](https://williswee.com/thoughts/freedom): Entrepreneurship is self-expression. Not everyone will like what you express.
-- [Most founders I meet don't talk to users](https://williswee.com/thoughts/talktousers): The pattern keeps showing up: founders building on analytics and opinion, without finding ground truth from the people using their product.
-- [I deposited $10 so I could withdraw $20](https://williswee.com/thoughts/nomoney): A bad stretch teaches you things money can't buy back. But it doesn't teach you how to stop worrying.
-- [We talked to 30+ people about TickerTown. Here's who leaned in.](https://williswee.com/thoughts/tickertownusabilitytest): The conversations didn't prove the idea works. They made it clearer who might care.
-- [You can't stop thinking. That's the whole point.](https://williswee.com/thoughts/meditation): The calm is a side effect. Awareness is the actual skill. Reflections on meditation, metacognition, and learning to notice your own thoughts.
-- [The boring ways I use AI](https://williswee.com/thoughts/boring-ai): AI did change how I work. Here's how I actually use AI — not to impress, just to get shit done.
-- [The joy of building on a stupid idea](https://williswee.com/thoughts/hakunamatata): Low expectations, high focus, and a stupid idea. Reflections on building TickerTown for the joy of building, not chasing metrics.
-- [The startup exited. My founder habits didn't](https://williswee.com/thoughts/habits): The company moved on. My founder muscle memory took longer. Reflections on the letting-go part after exiting a startup you built for over a decade.
-- [I'd do it again, just kinder](https://williswee.com/thoughts/kinder): Same ambition. Less unnecessary heat. Reflections on changing temperature, not direction — and why kinder is not weaker.
-- [You shouldn't have to lose real money to learn investing](https://williswee.com/thoughts/tickertown): We built TickerTown: an 8-bit game where you can test real stock investing strategies using real market data and fake money.
-- [My kids wrote a family success plan. Their user guides are next.](https://williswee.com/thoughts/famplan): We wrote down how our family should work. The kids had opinions. A reflection on running a family huddle, writing a family success plan, and the parallels between parenting and running a startup.
-- [Small disclosures build bonds faster than time](https://williswee.com/thoughts/userguide): That is true for colleagues. But it is also true for friends, partners, parents, and kids. A reflection on the power of user guides and small disclosures in building trust faster.
-- [When work goes quiet](https://williswee.com/thoughts/nowork): Reflections on balancing work and family as a founder, the system that held both up for 16 years, and what happens when the work variable goes quiet.
-- [What I did at TIA](https://williswee.com/thoughts/whatidid): A reflection on my 16 years running Tech in Asia end-to-end, the things we built, the failures, and the hidden heroes.
-- [Mission-driven founders](https://williswee.com/thoughts/mission): Reflections on why mission-driven founders are rare and how obsession with a mission aligns teams and acts as a painkiller during hardships.
-- [One month into the break](https://williswee.com/thoughts/onemonth): Reflections on life, learning, and building side projects one month after leaving Tech in Asia.
-- [Thank you and goodbye, Tech in Asia](https://williswee.com/thoughts/goodbye): After 16 years of building Tech in Asia, Willis reflects on his journey and steps down as CEO.
-- [Tech in Asia x SPH Media](https://williswee.com/thoughts/tiasph): Exciting news on SPH Media's plan to acquire Tech in Asia, scaling our mission and preserving our team's independence and culture.
-- [A letter to founders who are burning out](https://williswee.com/thoughts/burnout): Reflections on the struggles founders face during an economic downturn, sharing lessons learned from my own journey with Tech in Asia.
-- [18 essential reminders from one founder to another](https://williswee.com/thoughts/reminders): From having a clear vision to being kind, here are 18 essential reminders for those ready to take on the challenge of building a startup.
-- [Founders are being hit hard by layoffs, too](https://williswee.com/thoughts/hithard): Reflections on the struggles and immense stress founders face during layoffs, and why the growth-at-all-costs model is heavily criticized.
-- [Tech in Asia is carbon neutral in time for Earth Day](https://williswee.com/thoughts/carbonneutral): Reflections on carbon accounting, the impact of tech businesses on the environment, and Tech in Asia's journey to becoming carbon neutral.
-- [10 lessons from 10 years of Tech in Asia](https://williswee.com/thoughts/ten): Ten lessons from ten years of building Tech in Asia.
-- [There’s no such thing as a perfect layoff](https://williswee.com/thoughts/layoffsucks): Reflections on why executing layoffs is incredibly difficult, and sharing perspectives from my own experience with a layoff in 2018.
-- [The stress (and mindfuck) curve](https://williswee.com/thoughts/stress): Trading notes on dealing with pressure as a founder during the COVID-19 pandemic and navigating the comfort and strain zones.
-- [For the first time, we issued bonuses to our team](https://williswee.com/thoughts/profitable): Reflections on reaching profitability in 2019, giving bonuses to the team, and taking control of the company's fate.
-- [Keep your head down and just get shit done](https://williswee.com/thoughts/getshitdone): Reflections on Sea Group's success and why successful founders tend to keep their heads down and focus on getting work done.
-- [It's been a rough year. Here's how we're bouncing back](https://williswee.com/thoughts/bounce): A hard 2018 at Tech in Asia, what we learned, and how we started to recover.
-- [Don’t delay building your startup culture](https://williswee.com/thoughts/buildculture): How culture became one of Tech in Asia's advantages, and why we should have built it earlier.
-- [Joining Y Combinator](https://williswee.com/thoughts/yc): Reflections on joining the Y Combinator Winter 2015 batch with Tech in Asia and avoiding complacency.
-- [A startup experiment that could snowball into something bigger](https://williswee.com/thoughts/tiaexperiment): Reflections on building the startup ecosystem in Asia and Tech in Asia's role as a pan-Asian startup experiment.
-- [The biggest problem facing Southeast Asian startups isn’t the ecosystem](https://williswee.com/thoughts/youaretheproblem): A reflection on the real issue in the Southeast Asian startup ecosystem: the need for better entrepreneurs who focus on building awesome products.
-- [Raising a small round forces you to bootstrap](https://williswee.com/thoughts/smallround): A reflection on the benefits of raising a small round of funding and the advantages of bootstrapping for early-stage startups.
-- [Learning the hard way](https://williswee.com/thoughts/thehardway): Reflections on how entrepreneurs often learn their most valuable lessons through failure and adversity.
-- [Take some risk](https://williswee.com/thoughts/risk): A reflection on the startup ecosystem in Singapore, encouraging entrepreneurs to take more risks and expand abroad.
-- [Expanding abroad: Risky, scary, and exciting](https://williswee.com/thoughts/abroad): Reflections on the challenges and excitement of expanding a startup beyond Singapore and across Asia.
-- [Fight hard with no regrets](https://williswee.com/thoughts/dontdie): A reminder to myself, my team members, and fellow entrepreneurs to fight hard so you have no regrets.
-- [We’re Rebranding: Announcing ‘Tech in Asia’](https://williswee.com/thoughts/penn-olson-rebrand): We’re dropping the name Penn Olson and rebranding our Asia tech news blog to Tech in Asia.
-- [My journey as an entrepreneur (so far)](https://williswee.com/thoughts/journey): From selling grasshoppers at recess to founding Tech in Asia.
+- [I built a 3D floor plan demo for fun](https://williswee.com/thoughts/3d-floorplan-fun.html): I tried the open-source Pascal Editor on a four-bedroom layout. It makes more sense for small design firms and folks planning a renovation.
+- [Daddy, what can you buy with $0.20?](https://williswee.com/thoughts/grasshopper.html): My two older girls had never heard of $0.20 recess money. So I told them about the grasshoppers.
+- [What I learned redesigning my site with AI](https://williswee.com/thoughts/redesign.html): 75 critic reviews, a return to an earlier design, and the objects from my life.
+- [A small experiment with Google Search](https://williswee.com/thoughts/googlefluid.html): Making fluid UI easier to visualize through something we already use.
+- [A 9-day meditation retreat](https://williswee.com/thoughts/meditationretreat.html): 52 hours of sitting meditation, 52 hours of walking meditation, and almost total silence.
+- [Winning the Best Dad Award?](https://williswee.com/thoughts/bestdad.html): My eldest is nine. If 15 years old marks the start of greater independence, I have just over 300 weeks left in this season of being a dad.
+- [Everyone says they're making money investing. Nobody shows the receipts.](https://williswee.com/thoughts/tickertownupdate.html): I stopped vibe investing. Then I realized the hardest part wasn't just learning to build the system. It was finding anyone willing to share theirs.
+- [Freedom is being disliked by other people](https://williswee.com/thoughts/freedom.html): Entrepreneurship is self-expression. Not everyone will like what you express.
+- [Most founders I meet don't talk to users](https://williswee.com/thoughts/talktousers.html): The pattern keeps showing up: founders building on analytics and opinion, without finding ground truth from the people using their product.
+- [I deposited $10 so I could withdraw $20](https://williswee.com/thoughts/nomoney.html): A bad stretch teaches you things money can't buy back. But it doesn't teach you how to stop worrying.
+- [We talked to 30+ people about TickerTown. Here's who leaned in.](https://williswee.com/thoughts/tickertownusabilitytest.html): The conversations didn't prove the idea works. They made it clearer who might care.
+- [You can't stop thinking. That's the whole point.](https://williswee.com/thoughts/meditation.html): The calm is a side effect. Awareness is the actual skill. Reflections on meditation, metacognition, and learning to notice your own thoughts.
+- [The boring ways I use AI](https://williswee.com/thoughts/boring-ai.html): AI did change how I work. Here's how I actually use AI — not to impress, just to get shit done.
+- [The joy of building on a stupid idea](https://williswee.com/thoughts/hakunamatata.html): Low expectations, high focus, and a stupid idea. Reflections on building TickerTown for the joy of building, not chasing metrics.
+- [The startup exited. My founder habits didn't](https://williswee.com/thoughts/habits.html): The company moved on. My founder muscle memory took longer. Reflections on the letting-go part after exiting a startup you built for over a decade.
+- [I'd do it again, just kinder](https://williswee.com/thoughts/kinder.html): Same ambition. Less unnecessary heat. Reflections on changing temperature, not direction — and why kinder is not weaker.
+- [You shouldn't have to lose real money to learn investing](https://williswee.com/thoughts/tickertown.html): We built TickerTown: an 8-bit game where you can test real stock investing strategies using real market data and fake money.
+- [My kids wrote a family success plan. Their user guides are next.](https://williswee.com/thoughts/famplan.html): We wrote down how our family should work. The kids had opinions. A reflection on running a family huddle, writing a family success plan, and the parallels between parenting and running a startup.
+- [Small disclosures build bonds faster than time](https://williswee.com/thoughts/userguide.html): That is true for colleagues. But it is also true for friends, partners, parents, and kids. A reflection on the power of user guides and small disclosures in building trust faster.
+- [When work goes quiet](https://williswee.com/thoughts/nowork.html): Reflections on balancing work and family as a founder, the system that held both up for 16 years, and what happens when the work variable goes quiet.
+- [What I did at TIA](https://williswee.com/thoughts/whatidid.html): A reflection on my 16 years running Tech in Asia end-to-end, the things we built, the failures, and the hidden heroes.
+- [Mission-driven founders](https://williswee.com/thoughts/mission.html): Reflections on why mission-driven founders are rare and how obsession with a mission aligns teams and acts as a painkiller during hardships.
+- [One month into the break](https://williswee.com/thoughts/onemonth.html): Reflections on life, learning, and building side projects one month after leaving Tech in Asia.
+- [Thank you and goodbye, Tech in Asia](https://williswee.com/thoughts/goodbye.html): After 16 years of building Tech in Asia, Willis reflects on his journey and steps down as CEO.
+- [Tech in Asia x SPH Media](https://williswee.com/thoughts/tiasph.html): Exciting news on SPH Media's plan to acquire Tech in Asia, scaling our mission and preserving our team's independence and culture.
+- [A letter to founders who are burning out](https://williswee.com/thoughts/burnout.html): Reflections on the struggles founders face during an economic downturn, sharing lessons learned from my own journey with Tech in Asia.
+- [18 essential reminders from one founder to another](https://williswee.com/thoughts/reminders.html): From having a clear vision to being kind, here are 18 essential reminders for those ready to take on the challenge of building a startup.
+- [Founders are being hit hard by layoffs, too](https://williswee.com/thoughts/hithard.html): Reflections on the struggles and immense stress founders face during layoffs, and why the growth-at-all-costs model is heavily criticized.
+- [Tech in Asia is carbon neutral in time for Earth Day](https://williswee.com/thoughts/carbonneutral.html): Reflections on carbon accounting, the impact of tech businesses on the environment, and Tech in Asia's journey to becoming carbon neutral.
+- [10 lessons from 10 years of Tech in Asia](https://williswee.com/thoughts/ten.html): Ten lessons from ten years of building Tech in Asia.
+- [There’s no such thing as a perfect layoff](https://williswee.com/thoughts/layoffsucks.html): Reflections on why executing layoffs is incredibly difficult, and sharing perspectives from my own experience with a layoff in 2018.
+- [The stress (and mindfuck) curve](https://williswee.com/thoughts/stress.html): Trading notes on dealing with pressure as a founder during the COVID-19 pandemic and navigating the comfort and strain zones.
+- [For the first time, we issued bonuses to our team](https://williswee.com/thoughts/profitable.html): Reflections on reaching profitability in 2019, giving bonuses to the team, and taking control of the company's fate.
+- [Keep your head down and just get shit done](https://williswee.com/thoughts/getshitdone.html): Reflections on Sea Group's success and why successful founders tend to keep their heads down and focus on getting work done.
+- [It's been a rough year. Here's how we're bouncing back](https://williswee.com/thoughts/bounce.html): A hard 2018 at Tech in Asia, what we learned, and how we started to recover.
+- [Don’t delay building your startup culture](https://williswee.com/thoughts/buildculture.html): How culture became one of Tech in Asia's advantages, and why we should have built it earlier.
+- [Joining Y Combinator](https://williswee.com/thoughts/yc.html): Reflections on joining the Y Combinator Winter 2015 batch with Tech in Asia and avoiding complacency.
+- [A startup experiment that could snowball into something bigger](https://williswee.com/thoughts/tiaexperiment.html): Reflections on building the startup ecosystem in Asia and Tech in Asia's role as a pan-Asian startup experiment.
+- [The biggest problem facing Southeast Asian startups isn’t the ecosystem](https://williswee.com/thoughts/youaretheproblem.html): A reflection on the real issue in the Southeast Asian startup ecosystem: the need for better entrepreneurs who focus on building awesome products.
+- [Raising a small round forces you to bootstrap](https://williswee.com/thoughts/smallround.html): A reflection on the benefits of raising a small round of funding and the advantages of bootstrapping for early-stage startups.
+- [Learning the hard way](https://williswee.com/thoughts/thehardway.html): Reflections on how entrepreneurs often learn their most valuable lessons through failure and adversity.
+- [Take some risk](https://williswee.com/thoughts/risk.html): A reflection on the startup ecosystem in Singapore, encouraging entrepreneurs to take more risks and expand abroad.
+- [Expanding abroad: Risky, scary, and exciting](https://williswee.com/thoughts/abroad.html): Reflections on the challenges and excitement of expanding a startup beyond Singapore and across Asia.
+- [Fight hard with no regrets](https://williswee.com/thoughts/dontdie.html): A reminder to myself, my team members, and fellow entrepreneurs to fight hard so you have no regrets.
+- [We’re Rebranding: Announcing ‘Tech in Asia’](https://williswee.com/thoughts/penn-olson-rebrand.html): We’re dropping the name Penn Olson and rebranding our Asia tech news blog to Tech in Asia.
+- [My journey as an entrepreneur (so far)](https://williswee.com/thoughts/journey.html): From selling grasshoppers at recess to founding Tech in Asia.

@@ -1,0 +1,72 @@
+{
+  "browser": "Mac mini Chrome via existing extension",
+  "desktop_checks": [
+    {
+      "page": "/",
+      "width": 1440,
+      "documentWidth": 1440,
+      "visibleUnloadedImages": 0,
+      "trackerScripts": 0
+    },
+    {
+      "page": "/work.html",
+      "width": 1440,
+      "documentWidth": 1440,
+      "visibleUnloadedImages": 0,
+      "trackerScripts": 0
+    },
+    {
+      "page": "/guide.html",
+      "width": 1440,
+      "documentWidth": 1440,
+      "visibleUnloadedImages": 0,
+      "trackerScripts": 0
+    },
+    {
+      "page": "/books.html",
+      "width": 1440,
+      "documentWidth": 1440,
+      "visibleUnloadedImages": 0,
+      "trackerScripts": 0
+    },
+    {
+      "page": "/coaching.html",
+      "width": 1440,
+      "documentWidth": 1440,
+      "visibleUnloadedImages": 0,
+      "trackerScripts": 0
+    }
+  ],
+  "screenshots": "Settled desktop screenshots inspected for Home, Work, Guide, Books and Coaching; Home and Coaching artwork confirmed after resource/compositor settling.",
+  "console_errors": 0,
+  "sampled_normal_reading_contrast": {
+    "cream_soft_on_panel": 13.56,
+    "muted_on_panel": 9.47
+  },
+  "viewport_reset": {
+    "initial": [
+      1497,
+      873
+    ],
+    "tested": [
+      1440,
+      900
+    ],
+    "restored_and_confirmed": [
+      1497,
+      873
+    ]
+  },
+  "remaining_cleanup": {
+    "old_audit_tab_ids": [
+      "1990266577",
+      "1990266580",
+      "1990266583"
+    ],
+    "status": "unverified",
+    "reason": "Earlier audit tabs have detached debugger sessions; querying/resetting/closing the old local preview tab returned debugger-not-attached. Native apps are unavailable while the Mac is locked. No unrelated tabs were operated."
+  },
+  "new_production_analytics_test_traffic": 0,
+  "fresh_qa_tab_closed": true,
+  "local_qa_server_stopped": true
+}
