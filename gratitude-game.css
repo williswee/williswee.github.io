@@ -67,6 +67,7 @@
     .floating-gratitude-dock { --dock-center: 50vw; }
 }
 @media (max-width: 380px) {
+    .gratitude-intro-copy h1 { font-size: 2rem; }
     .gratitude-page .random-pick-btn { padding-inline: 10px; gap: 7px; }
     .gratitude-toolbar { gap: 8px; }
     .dock-btn { padding-inline: 10px; }
