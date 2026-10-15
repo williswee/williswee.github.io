@@ -809,3 +809,13 @@ What's yours?
 2️⃣ Had an interesting discussion about human dominance on Earth and whether humans might one day become extinct. Everyone asked thoughtful questions and shared different perspectives. It was a fun discussion.
 
 3️⃣ The girls were very goofy, making up random stories in English and Mandarin. They were quite creative and funny.
+
+## Gratitude note #75
+
+*2026-10-16*
+
+1️⃣ Nice to meet a young, ambitious founder and feel their intensity. Clearly a contrarian, an independent thinker, and highly competitive. Fascinating.
+
+2️⃣ Nice to send the kids to school early and on time. I think this is probably the earliest ever, and with no drama.
+
+3️⃣ Enjoyed the nice dinner with really, really good food, only possible because of my wife's support.
