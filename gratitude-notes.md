@@ -819,3 +819,13 @@ What's yours?
 2️⃣ Nice to send the kids to school early and on time. I think this is probably the earliest ever, and with no drama.
 
 3️⃣ Enjoyed the nice dinner with really, really good food, only possible because of my wife's support.
+
+## Gratitude note #76
+
+*2026-10-19*
+
+1️⃣ The sky looked great yesterday, with no haze, so I brought the kids cycling and we had some fun outdoors. It was nice to be outside. Super grateful for the good weather and hoping it continues!
+
+2️⃣ Brought the young one to a playdate. It was quick, but it was nice to have a real and honest chat with the neighbor.
+
+3️⃣ Feels like work is starting to take shape. I still don't know where all this will lead, but I'm seeing how one door leads to another, even when other doors close.
