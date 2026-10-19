@@ -829,3 +829,13 @@ What's yours?
 2️⃣ Brought the young one to a playdate. It was quick, but it was nice to have a real and honest chat with the neighbor.
 
 3️⃣ Feels like work is starting to take shape. I still don't know where all this will lead, but I'm seeing how one door leads to another, even when other doors close.
+
+## Gratitude note #77
+
+*2026-10-20*
+
+1️⃣ Had another day of good weather, so we took the chance to play tennis.
+
+2️⃣ It was nice spending time with the wife. We had a simple lunch after the gym and walked around browsing.
+
+3️⃣ It always feels nice when a founder is grateful for the advice they received. Nice to feel appreciated.
