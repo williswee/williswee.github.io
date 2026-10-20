@@ -839,3 +839,13 @@ What's yours?
 2️⃣ It was nice spending time with the wife. We had a simple lunch after the gym and walked around browsing.
 
 3️⃣ It always feels nice when a founder is grateful for the advice they received. Nice to feel appreciated.
+
+## Gratitude note #78
+
+*2026-10-21*
+
+1️⃣ Feeling the urge to keep building on this one idea. There’s the usual anxiety, excitement, and doubt, but this is the idea I’ve pushed the furthest so far in this phase. Just enjoying the ride and the momentum.
+
+2️⃣ Quite fun to see Tickertown being built and becoming playable. There’s a sense of satisfaction. Bug fixing now.
+
+3️⃣ Lucky with the weather these days. It’s less hazy. Clean air and nice weather are just too awesome.
