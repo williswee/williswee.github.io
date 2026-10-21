@@ -24,8 +24,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/thoughts/reading-room.css?v=1.25">
+    <link rel="stylesheet" href="/site-navigation.css?v=2">
+    <script src="/site-navigation.js?v=1" defer></script>
     <link rel="icon" type="image/png" href="/avatar.png">
-    <script src="/reading-nav.js?v=1.3"></script>
+
     <style>
         /* GitHub Pages serves this page for every missing address, so its local URLs are root-relative. */
         .lost-note { position: relative; margin: 40px 0 36px; padding: 30px 24px 22px; border: 1px solid var(--line-strong); background: var(--ink); }
@@ -50,19 +52,29 @@
 <body class="lost-page">
     <img decoding="async" src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&iv=2026-08-12.1" alt="" width="1" height="1" style="display:none;" referrerpolicy="unsafe-url" />
     <a class="skip-link" href="#main-content">Skip to main content</a>
-    <header class="reading-hud">
-        <a href="/index.html" class="site-brand" aria-label="Willis Wee — home">
+    <header class="reading-hud site-header">
+        <a class="site-brand" href="/" aria-label="Willis Wee, home">
             <span class="brand-full">Willis Wee</span><span class="brand-short" aria-hidden="true">Willis</span><small aria-hidden="true">👋</small>
         </a>
-        <nav class="reading-nav" aria-label="Main navigation">
-            <a href="/index.html">Start</a>
-            <a href="/thoughts/index.html">Thoughts</a>
-            <a href="/guide.html">Guide</a>
-            <a href="/work.html">Work</a>
-            <a href="/coaching.html">Coaching</a>
-            <a href="/books.html">Books</a>
-            <a href="/gratitude.html">Gratitude</a>
-        </nav>
+        <details class="site-menu">
+            <summary class="site-menu-toggle">Menu <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5 7 5 5 5-5"/></svg></summary>
+            <nav class="site-navigation" aria-label="Main navigation">
+                <a class="site-home-link" href="/">Home</a>
+                <a href="/work.html">Work</a>
+                <a href="/coaching.html">Coaching</a>
+                <a href="/thoughts/">Writing</a>
+                <details class="site-more">
+                    <summary>More <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5 7 5 5 5-5"/></svg></summary>
+                    <div class="site-more-links">
+                        <a href="/play">Play</a>
+                        <a href="/books.html">Books</a>
+                        <a href="/guide.html">User guide</a>
+                        <a href="/gratitude.html">Gratitude</a>
+                        <a href="/#terminal">Connect</a>
+                    </div>
+                </details>
+            </nav>
+        </details>
     </header>
     <div class="reading-landscape reading-landscape--portrait lost-landscape" aria-hidden="true">
         <img src="/images/reading-landscapes/09-forest-path.webp" alt="" width="1024" height="1536" decoding="async" fetchpriority="high">
@@ -76,13 +88,24 @@
                 <p class="lost-path" hidden>You were looking for <code></code>.</p>
             </div>
             <nav class="lost-paths" aria-label="Ways back">
-                <a href="/index.html"><span>Back to the beginning</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
-                <a href="/thoughts/index.html"><span>Read my thoughts</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
-                <a href="/index.html#terminal"><span>Say hello and connect</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
+                <a href="/"><span>Back to the beginning</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
+                <a href="/thoughts/"><span>Read my writing</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
+                <a href="/#terminal"><span>Say hello and connect</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
             </nav>
         </main>
 
         <footer class="follow-strip">
+            <nav class="site-footer-nav" aria-label="Footer navigation">
+                <a href="/">Home</a>
+                <a href="/work.html">Work</a>
+                <a href="/coaching.html">Coaching</a>
+                <a href="/thoughts/">Writing</a>
+                <a href="/play">Play</a>
+                <a href="/books.html">Books</a>
+                <a href="/guide.html">User guide</a>
+                <a href="/gratitude.html">Gratitude</a>
+                <a href="/#terminal">Connect</a>
+            </nav>
             <span class="follow-strip-label">Follow</span>
             <div class="follow-strip-icons">
                 <a href="https://williswee.substack.com" class="follow-icon" target="_blank" rel="noopener noreferrer" aria-label="Substack (opens in a new tab)">

@@ -161,9 +161,9 @@
         if (adjacent.length) {
             const continuation = document.createElement('nav');
             continuation.className = 'essay-continuation';
-            continuation.setAttribute('aria-label', 'More thoughts');
+            continuation.setAttribute('aria-label', 'More writing');
             const heading = document.createElement('h2');
-            heading.textContent = 'More thoughts';
+            heading.textContent = 'More writing';
             const list = document.createElement('ul');
             list.className = 'essay-continuation-list';
             adjacent.forEach(({ essay, direction }) => {

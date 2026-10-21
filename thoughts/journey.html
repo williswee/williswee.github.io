@@ -27,31 +27,61 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="reading-room.css?v=1.25">
+    <link rel="stylesheet" href="/site-navigation.css?v=2">
+    <script src="/site-navigation.js?v=1" defer></script>
     <link rel="icon" type="image/png" href="../avatar.png">
-    <script src="../reading-nav.js?v=1.3"></script>
+
     <script src="newsletter.js?v=2" defer></script>
     <noscript><style>iframe[data-newsletter-src] { display: none; }</style></noscript>
     <script src="essay-manifest.js?v=4" defer></script>
-    <script src="reading-room.js?v=1.5" defer></script>
+    <script src="reading-room.js?v=1.6" defer></script>
     <script src="../site-analytics.js?v=2" defer></script>
     <script type="application/ld+json" id="structured-data">
         {
             "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "@id": "https://williswee.com/thoughts/journey.html#article",
-            "url": "https://williswee.com/thoughts/journey.html",
-            "mainEntityOfPage": "https://williswee.com/thoughts/journey.html",
-            "headline": "My journey as an entrepreneur (so far)",
-            "description": "From selling grasshoppers at recess to founding Tech in Asia.",
-            "datePublished": "2011-05-26",
-            "inLanguage": "en",
-            "author": {
-                "@type": "Person",
-                "@id": "https://williswee.com/#person",
-                "name": "Willis Wee",
-                "url": "https://williswee.com/"
-            },
-            "image": "https://williswee.com/images/essay-imports/journey-1-630-10d04c98389b.webp"
+            "@graph": [
+                {
+                    "@type": "BlogPosting",
+                    "@id": "https://williswee.com/thoughts/journey.html#article",
+                    "url": "https://williswee.com/thoughts/journey.html",
+                    "mainEntityOfPage": "https://williswee.com/thoughts/journey.html",
+                    "headline": "My journey as an entrepreneur (so far)",
+                    "description": "From selling grasshoppers at recess to founding Tech in Asia.",
+                    "datePublished": "2011-05-26",
+                    "inLanguage": "en",
+                    "author": {
+                        "@type": "Person",
+                        "@id": "https://williswee.com/#person",
+                        "name": "Willis Wee",
+                        "url": "https://williswee.com/"
+                    },
+                    "image": "https://williswee.com/images/essay-imports/journey-1-630-10d04c98389b.webp"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "@id": "https://williswee.com/thoughts/journey.html#breadcrumb",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://williswee.com/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Writing",
+                            "item": "https://williswee.com/thoughts/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 3,
+                            "name": "My journey as an entrepreneur (so far)",
+                            "item": "https://williswee.com/thoughts/journey.html"
+                        }
+                    ]
+                }
+            ]
         }
     </script>
     <script src="https://www.useinflect.ai/inflect-tracking.js" async data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
@@ -60,19 +90,29 @@
 <body class="essay-page">
     <img decoding="async" src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&iv=2026-08-12.1" alt="" width="1" height="1" style="display:none;" referrerpolicy="unsafe-url" />
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <header class="reading-hud">
-        <a href="../index.html" class="site-brand" aria-label="Willis Wee — home">
+    <header class="reading-hud site-header">
+        <a class="site-brand" href="/" aria-label="Willis Wee, home">
             <span class="brand-full">Willis Wee</span><span class="brand-short" aria-hidden="true">Willis</span><small aria-hidden="true">👋</small>
         </a>
-        <nav class="reading-nav" aria-label="Main navigation">
-            <a href="../index.html">Start</a>
-            <a href="index.html" aria-current="page">Thoughts</a>
-            <a href="../guide.html">Guide</a>
-            <a href="../work.html">Work</a>
-            <a href="/coaching.html">Coaching</a>
-            <a href="../books.html">Books</a>
-            <a href="../gratitude.html">Gratitude</a>
-        </nav>
+        <details class="site-menu">
+            <summary class="site-menu-toggle">Menu <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5 7 5 5 5-5"/></svg></summary>
+            <nav class="site-navigation" aria-label="Main navigation">
+                <a class="site-home-link" href="/">Home</a>
+                <a href="/work.html">Work</a>
+                <a href="/coaching.html">Coaching</a>
+                <a href="/thoughts/" aria-current="location">Writing</a>
+                <details class="site-more">
+                    <summary>More <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5 7 5 5 5-5"/></svg></summary>
+                    <div class="site-more-links">
+                        <a href="/play">Play</a>
+                        <a href="/books.html">Books</a>
+                        <a href="/guide.html">User guide</a>
+                        <a href="/gratitude.html">Gratitude</a>
+                        <a href="/#terminal">Connect</a>
+                    </div>
+                </details>
+            </nav>
+        </details>
     </header>
     <div class="reading-landscape" aria-hidden="true">
         <noscript><img src="../images/reading-landscapes/01-misty-ridges.webp" alt="" width="1024" height="1536" decoding="async"></noscript>
@@ -80,7 +120,13 @@
     <script src="essay-landscape.js?v=1.0"></script>
     <div class="reading-shell">
         <main id="main-content" tabindex="-1">
-            <a class="essay-back text-link" href="index.html"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M16 10H3M8 5l-5 5 5 5"/></svg> All thoughts</a>
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/thoughts/">Writing</a></li>
+                    <li><span aria-current="page">My journey as an entrepreneur (so far)</span></li>
+                </ol>
+            </nav>
             <article>
                 <h1>My journey as an entrepreneur (so far)</h1>
                 <p class="article-author">By <a href="/">Willis Wee</a></p>
@@ -135,7 +181,7 @@
             </div>
             <hr>
             <div class="article-nav-row">
-                <p class="back-link"><a href="index.html"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M16 10H3M8 5l-5 5 5 5"/></svg>Back to Thoughts</a></p>
+                <p class="back-link"><a href="/thoughts/"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M16 10H3M8 5l-5 5 5 5"/></svg>Back to writing</a></p>
                 <button class="random-pick-btn" id="random-article-btn" type="button" hidden aria-label="Open a random essay">
                     <span class="random-pick-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16"/><path d="M8 8h2v2H8zm6 6h2v2h-2z" fill="currentColor" stroke="none"/></svg></span>
                     <span>Random pick</span>
@@ -144,7 +190,17 @@
         </main>
 
         <footer class="follow-strip">
-            <a class="footer-home" href="../index.html#archive">Back to my notes <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4 16 16 4M6 4h10v10"/></svg></a>
+            <nav class="site-footer-nav" aria-label="Footer navigation">
+                <a href="/">Home</a>
+                <a href="/work.html">Work</a>
+                <a href="/coaching.html">Coaching</a>
+                <a href="/thoughts/" aria-current="location">Writing</a>
+                <a href="/play">Play</a>
+                <a href="/books.html">Books</a>
+                <a href="/guide.html">User guide</a>
+                <a href="/gratitude.html">Gratitude</a>
+                <a href="/#terminal">Connect</a>
+            </nav>
             <span class="follow-strip-label">Follow</span>
             <div class="follow-strip-icons">
                 <a href="https://williswee.substack.com" class="follow-icon" target="_blank" rel="noopener noreferrer" aria-label="Substack (opens in a new tab)">

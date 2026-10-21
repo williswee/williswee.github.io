@@ -72,23 +72,30 @@ test('each existing Inflect page retains one hidden body pixel and one async hea
     assert.equal(trackedPages, pages.length - analyticsExcludedPages.size);
 });
 
-test('reading pages and the Gratitude renderer use the current shared cache tags', () => {
+test('all content pages load the same progressive navigation assets after their page styles', () => {
     const sharedStyles = read('books.html').match(/reading-room\.css\?v=\d+(?:\.\d+)*/)?.[0];
     assert.ok(sharedStyles, 'shared stylesheet must have a versioned URL');
-    const sharedNavigation = read('books.html').match(/reading-nav\.js\?v=\d+(?:\.\d+)*/)?.[0];
-    assert.ok(sharedNavigation, 'shared navigation must have a versioned URL');
+    const sharedNavigation = read('books.html').match(/\/site-navigation\.js\?v=\d+(?:\.\d+)*/)?.[0];
+    const sharedNavigationStyles = read('books.html').match(/\/site-navigation\.css\?v=\d+(?:\.\d+)*/)?.[0];
+    assert.ok(sharedNavigation && sharedNavigationStyles, 'shared navigation assets must have versioned root-relative URLs');
     let readingPages = 0;
     for (const name of pages) {
         const html = read(name);
-        if (name === 'index.html' || redirectPages.includes(name)) continue;
-        readingPages += 1;
-        const readingStyles = html.match(/reading-room\.css(?:\?[^"\s]*)?/g) ?? [];
-        assert.deepEqual(readingStyles, [sharedStyles], `${name}: use the same versioned shared stylesheet`);
-        assert.deepEqual(html.match(/reading-nav\.js(?:\?[^"\s]*)?/g) ?? [], [sharedNavigation], name);
-        const navScript = html.match(/<script\b[^>]*src="(?:\.\.\/|\/)?reading-nav\.js\?v=\d+(?:\.\d+)*"[^>]*><\/script>/)?.[0];
-        assert.ok(navScript, `${name}: missing shared navigation bootstrap`);
-        assert.doesNotMatch(navScript, /\b(?:defer|async|type)\b/, `${name}: navigation must initialize before body paint`);
-        assert.ok(html.indexOf(navScript) < html.indexOf('</head>'), `${name}: bootstrap belongs in the head`);
+        if (redirectPages.includes(name)) continue;
+        if (name !== 'index.html') {
+            readingPages += 1;
+            const readingStyles = html.match(/reading-room\.css(?:\?[^"\s]*)?/g) ?? [];
+            assert.deepEqual(readingStyles, [sharedStyles], `${name}: use the same versioned shared stylesheet`);
+        }
+        assert.deepEqual(html.match(/\/site-navigation\.js(?:\?[^"\s]*)?/g) ?? [], [sharedNavigation], name);
+        assert.deepEqual(html.match(/\/site-navigation\.css(?:\?[^"\s]*)?/g) ?? [], [sharedNavigationStyles], name);
+        assert.doesNotMatch(html, /<script\b[^>]*src="[^"]*reading-nav\.js/, `${name}: do not initialize the obsolete scroll menu`);
+        const navScript = html.match(/<script\b[^>]*src="\/site-navigation\.js\?v=\d+(?:\.\d+)*"[^>]*><\/script>/)?.[0];
+        assert.ok(navScript, `${name}: missing shared navigation enhancement`);
+        assert.match(navScript, /\bdefer\b/, `${name}: initialize after the static menu is parsed`);
+        assert.ok(html.indexOf(navScript) < html.indexOf('</head>'), `${name}: script belongs in the head`);
+        const stylesheets = [...html.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/g)];
+        assert.equal(stylesheets.at(-1)?.[1], sharedNavigationStyles, `${name}: shared navigation overrides page-specific header styles`);
     }
     assert.equal(readingPages, pages.length - 1 - redirectPages.length);
     assert.match(read('books.html'), /books-game\.css\?v=\d+(?:\.\d+)*"/);
@@ -97,7 +104,6 @@ test('reading pages and the Gratitude renderer use the current shared cache tags
     const renderer = read('scripts/render-gratitude.mjs');
     assert.equal(renderer.match(/reading-room\.css\?v=\d+(?:\.\d+)*/)?.[0], sharedStyles, 'renderer must retain the shared cache tag');
     assert.ok(renderer.includes(`"${gratitudeStyles}"`), 'renderer must retain the Gratitude cache tag');
-    assert.ok(renderer.includes(`<script src="${sharedNavigation}"></script>`), 'renderer must retain the shared navigation cache tag');
 });
 
 test('updated top-level routes have sitemap dates at least as recent as their redesign', () => {
@@ -140,10 +146,11 @@ test('the not-found page works at any depth and stays out of search', () => {
     const local = [...html.matchAll(/\b(?:href|src)="([^"]+)"/g)].map(([, url]) => url).filter(url => !/^(?:https?:|#)/.test(url));
     for (const url of local) {
         assert.ok(url.startsWith('/'), `404.html: ${url} must be root-relative`);
-        const file = url.split(/[?#]/)[0].slice(1) || 'index.html';
+        const pathname = url.split(/[?#]/)[0].slice(1);
+        const file = pathname === 'play' ? 'play.html' : pathname.endsWith('/') || !pathname ? `${pathname}index.html` : pathname;
         assert.ok(existsSync(new URL(file, root)), `404.html: missing ${file}`);
     }
-    for (const way of ['/index.html', '/thoughts/index.html', '/index.html#terminal']) {
+    for (const way of ['/', '/thoughts/', '/#terminal']) {
         assert.ok(html.includes(`<a href="${way}"><span>`), `404.html: offer a way back to ${way}`);
     }
 });

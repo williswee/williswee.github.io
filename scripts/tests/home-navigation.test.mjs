@@ -48,7 +48,7 @@ function fixture({ tops = [0, 1000, 2000, 3000, 4000, 5000], y = 0, height = 844
     function flush() { while (frames.length) frames.shift()(); }
     return {
         scenes, links, tops, window, root, properties, frames, historyCalls, flush,
-        active: () => links.find(link => link['aria-current'] === 'page')?.dataset.level,
+        active: () => links.find(link => link['aria-current'] === 'location')?.dataset.level,
         emit: (event, detail = {}) => { listeners.get(event)(detail); flush(); },
         scroll: position => { window.scrollY = position; listeners.get('scroll')(); flush(); },
         resize: () => { resizeCallback(); flush(); },

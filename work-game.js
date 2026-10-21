@@ -31,6 +31,19 @@
 
     let queued = false;
     let activeId;
+    const menuSummary = menu?.querySelector('summary');
+    let previousCompact = compact.matches;
+    let lastFocused = document.activeElement;
+
+    // WebKit can blur the summary when CSS hides it before the media event.
+    // Remember focus, but discard it when the reader moves elsewhere.
+    document.addEventListener('focusin', (event) => {
+        if (event.target === document.body && previousCompact && !compact.matches && lastFocused === menuSummary) return;
+        lastFocused = event.target;
+    });
+    document.addEventListener('pointerdown', (event) => {
+        if (lastFocused === menuSummary && !menuSummary?.contains(event.target)) lastFocused = null;
+    });
 
     function updateChapter() {
         queued = false;
@@ -73,11 +86,19 @@
 
     function setMenuMode() {
         if (menu) {
+            const focused = document.activeElement;
+            const summaryFocused = focused === menuSummary ||
+                (previousCompact && !compact.matches && focused === document.body && lastFocused === menuSummary);
             if (compact.matches && menu.open && menu.contains(document.activeElement)) {
-                menu.querySelector('summary')?.focus({ preventScroll: true });
+                menuSummary?.focus({ preventScroll: true });
             }
             menu.open = !compact.matches;
+            if (!compact.matches && summaryFocused) {
+                const current = chapters.find(({ section }) => section.id === activeId) || chapters[0];
+                current.link.focus({ preventScroll: true });
+            }
         }
+        previousCompact = compact.matches;
         scheduleUpdate();
     }
     setMenuMode();

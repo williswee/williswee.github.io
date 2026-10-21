@@ -98,6 +98,35 @@ function publishedDate(article, path) {
     return iso;
 }
 
+function essayBreadcrumbs(html, path, canonical, headline) {
+    const nav = one(elements(html, 'nav').filter(match => {
+        const attrs = attributes(tags(match[0], 'nav')[0][0]);
+        return (attrs.class ?? '').split(/\s+/).includes('breadcrumbs');
+    }), path, 'visible breadcrumb navigation');
+    const list = one(elements(nav[1], 'ol'), path, 'ordered breadcrumb list');
+    const items = elements(list[1], 'li');
+    if (items.length !== 3) fail(path, 'Expected Home, Writing, and current essay breadcrumbs.');
+    const expectedURLs = [site, `${site}thoughts/`];
+    const itemListElement = items.map((item, index) => {
+        if (index < 2) {
+            const link = one(elements(item[1], 'a'), path, 'breadcrumb link');
+            const href = attributes(tags(link[0], 'a')[0][0]).href;
+            let url;
+            try { url = new URL(href, canonical).href; } catch { fail(path, 'Invalid breadcrumb URL.'); }
+            if (url !== expectedURLs[index]) fail(path, 'Breadcrumb links must use the Home and Writing canonical URLs.');
+            const name = plainText(link[1]);
+            if (!name) fail(path, 'Breadcrumb link names must not be empty.');
+            return { '@type': 'ListItem', position: index + 1, name, item: url };
+        }
+        const current = one(elements(item[1], 'span').filter(match =>
+            attributes(tags(match[0], 'span')[0][0])['aria-current'] === 'page'), path, 'current essay breadcrumb');
+        const name = plainText(current[1]);
+        if (name !== headline) fail(path, 'Current breadcrumb must match the article H1.');
+        return { '@type': 'ListItem', position: index + 1, name, item: canonical };
+    });
+    return { '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumb`, itemListElement };
+}
+
 async function articleImage(article, path, canonical, root) {
     const stack = [];
     for (const tag of tags(contentMarkup(article))) {
@@ -165,13 +194,24 @@ export async function planStructuredData({ root = defaultRoot } = {}) {
     const coachingPage = { '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${coachingFacts.url}#webpage`,
         url: coachingFacts.url, name: coachingFacts.title, description: coachingFacts.description, inLanguage: coachingFacts.lang,
         author: { ...person }, about: { '@id': person['@id'] } };
-    const plans = [{ path: 'index.html', source: home, data: homepage }, { path: 'coaching.html', source: coaching, data: coachingPage }];
-    const list = one(elements(contentMarkup(archive), 'ul').filter(match =>
+    const archiveFacts = pageFacts(archive, 'thoughts/index.html', `${site}thoughts/`);
+    const list = one(elements(archiveFacts.clean, 'ul').filter(match =>
         attributes(tags(match[0], 'ul')[0][0]).id === 'article-list'), 'thoughts/index.html', '#article-list')[1];
-    const slugs = tags(list, 'a').filter(tag => !tag[0].startsWith('</')).map(tag => attributes(tag[0]).href);
+    const archiveLinks = elements(list, 'a').map(link => ({
+        slug: attributes(tags(link[0], 'a')[0][0]).href, name: plainText(link[1])
+    }));
+    const slugs = archiveLinks.map(link => link.slug);
     if (!slugs.length || new Set(slugs).size !== slugs.length || slugs.some(slug => !/^[a-z0-9-]+\.html$/.test(slug) || slug === 'index.html')) {
         fail('thoughts/index.html', 'Expected unique local essay links, with no archive or nonarticle links.');
     }
+    if (archiveLinks.some(link => !link.name)) fail('thoughts/index.html', 'Archive essay link names must not be empty.');
+    const archivePage = { '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': `${archiveFacts.url}#webpage`,
+        url: archiveFacts.url, name: archiveFacts.title, description: archiveFacts.description, inLanguage: archiveFacts.lang,
+        author: { ...person }, mainEntity: { '@type': 'ItemList', numberOfItems: archiveLinks.length,
+            itemListElement: archiveLinks.map((link, index) => ({ '@type': 'ListItem', position: index + 1,
+                name: link.name, url: new URL(link.slug, archiveFacts.url).href })) } };
+    const plans = [{ path: 'index.html', source: home, data: homepage }, { path: 'coaching.html', source: coaching, data: coachingPage },
+        { path: 'thoughts/index.html', source: archive, data: archivePage }];
     for (const slug of slugs) {
         const path = `thoughts/${slug}`;
         const source = await read(path);
@@ -181,11 +221,13 @@ export async function planStructuredData({ root = defaultRoot } = {}) {
         const article = one(elements(facts.clean, 'article'), path, 'article')[1];
         const headline = plainText(one(elements(article, 'h1'), path, 'article H1')[1]);
         if (!headline) fail(path, 'Article headline must not be empty.');
-        const data = { '@context': 'https://schema.org', '@type': 'BlogPosting', '@id': `${facts.url}#article`,
+        const articleData = { '@type': 'BlogPosting', '@id': `${facts.url}#article`,
             url: facts.url, mainEntityOfPage: facts.url, headline, description: facts.description,
             datePublished: publishedDate(article, path), inLanguage: facts.lang, author: { ...person } };
         const image = await articleImage(article, path, facts.url, root);
-        if (image) data.image = image;
+        if (image) articleData.image = image;
+        const breadcrumb = essayBreadcrumbs(facts.clean, path, facts.url, headline);
+        const data = { '@context': 'https://schema.org', '@graph': [articleData, breadcrumb] };
         plans.push({ path, source, data });
     }
     // Prepare every page first, including managed-block validation, before any write.
@@ -203,7 +245,7 @@ export async function syncStructuredData({ root = defaultRoot, check = false } =
         }
         for (const plan of changed) await writeFile(resolve(root, plan.path), plan.output);
     }
-    return { pages: plans.length, essays: plans.length - 2, changed: changed.map(plan => plan.path) };
+    return { pages: plans.length, essays: plans.length - 3, changed: changed.map(plan => plan.path) };
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

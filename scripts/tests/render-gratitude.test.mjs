@@ -12,7 +12,7 @@ async function fixture(t) {
     const directory = await mkdtemp(path.join(tmpdir(), 'gratitude-publisher-test-'));
     t.after(() => rm(directory, { recursive: true, force: true }));
     await mkdir(path.join(directory, 'scripts'));
-    for (const file of ['scripts/render-gratitude.mjs', 'gratitude-notes.md', 'gratitude.html', 'sitemap.xml']) {
+    for (const file of ['scripts/render-gratitude.mjs', 'scripts/site-navigation.mjs', 'gratitude-notes.md', 'gratitude.html', 'sitemap.xml']) {
         await copyFile(path.join(root, file), path.join(directory, file));
     }
     return directory;

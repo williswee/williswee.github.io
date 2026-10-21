@@ -27,8 +27,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preload" href="images/game-world/base-camp-personal-v4-q92.webp" as="image" fetchpriority="high">
     <link rel="stylesheet" href="home-game.css?v=4.20">
+    <link rel="stylesheet" href="/site-navigation.css?v=2">
+    <script src="/site-navigation.js?v=1" defer></script>
     <link rel="icon" type="image/png" href="avatar.png">
-    <script src="home-game.js?v=3.7" defer></script>
+    <script src="home-game.js?v=3.8" defer></script>
     <script src="home-word-help.js?v=1" defer></script>
     <script src="site-analytics.js?v=2" defer></script>
     <script type="application/ld+json" id="structured-data">
@@ -60,21 +62,29 @@
 <body>
     <a class="skip-link" href="#main-content">Skip to the story</a>
 
-    <header class="site-hud">
-        <a class="site-brand" href="#base-camp" aria-label="Willis Wee, back to Start">
-            <span class="brand-full">Willis Wee</span>
-            <span class="brand-short" aria-hidden="true">Willis</span>
-            <small aria-hidden="true">👋</small>
+    <header class="site-hud site-header">
+        <a class="site-brand" href="/" aria-label="Willis Wee, home">
+            <span class="brand-full">Willis Wee</span><span class="brand-short" aria-hidden="true">Willis</span><small aria-hidden="true">👋</small>
         </a>
-
-        <nav class="chapter-nav" aria-label="Main navigation">
-            <a href="#base-camp" data-level="base-camp" aria-current="page">Start</a>
-            <a href="#workshop" data-level="workshop">Work</a>
-            <a href="#coaching" data-level="coaching">Coaching</a>
-            <a href="#archive" data-level="archive">Notes</a>
-            <a href="#life" data-level="life">Life</a>
-            <a href="#terminal" data-level="terminal">Connect</a>
-        </nav>
+        <details class="site-menu">
+            <summary class="site-menu-toggle">Menu <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5 7 5 5 5-5"/></svg></summary>
+            <nav class="site-navigation" aria-label="Main navigation">
+                <a class="site-home-link" href="/" aria-current="page">Home</a>
+                <a href="/work.html">Work</a>
+                <a href="/coaching.html">Coaching</a>
+                <a href="/thoughts/">Writing</a>
+                <details class="site-more">
+                    <summary>More <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5 7 5 5 5-5"/></svg></summary>
+                    <div class="site-more-links">
+                        <a href="/play">Play</a>
+                        <a href="/books.html">Books</a>
+                        <a href="/guide.html">User guide</a>
+                        <a href="/gratitude.html">Gratitude</a>
+                        <a href="/#terminal">Connect</a>
+                    </div>
+                </details>
+            </nav>
+        </details>
         <span class="scroll-progress" aria-hidden="true"></span>
     </header>
 
@@ -100,6 +110,18 @@
                     <p class="lede">I’m Willis, a founder and product builder based in Singapore.</p>
                     <p>After 16 years building <a href="https://www.techinasia.com/" target="_blank" rel="noopener noreferrer">Tech in Asia<span class="visually-hidden"> (opens in a new tab)</span></a> from zero to YC to exit, I’m now exploring what’s next through <a href="https://slothware.ai/" target="_blank" rel="noopener noreferrer">Slothware Labs<span class="visually-hidden"> (opens in a new tab)</span></a>.</p>
                     <p>I also <a href="coaching.html">help founders get unstuck</a>, as a coach and comrade.</p>
+
+                    <details class="home-page-nav">
+                        <summary>On this page <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5 7 5 5 5-5"/></svg></summary>
+                        <nav class="chapter-nav" aria-label="On this page">
+            <a href="#base-camp" data-level="base-camp" aria-current="location">Start</a>
+            <a href="#workshop" data-level="workshop">Work</a>
+            <a href="#coaching" data-level="coaching">Coaching</a>
+            <a href="#archive" data-level="archive">Notes</a>
+            <a href="#life" data-level="life">Life</a>
+            <a href="#terminal" data-level="terminal">Connect</a>
+        </nav>
+                    </details>
 
                     <a class="next-chapter" href="#workshop">
                         <span><small>Scroll next</small>See what I’m building</span>
@@ -198,8 +220,8 @@
                     <p>I write to see what I actually think. This is where I keep the useful mistakes, working principles, books, and moments worth remembering.</p>
 
                     <nav class="archive-list" aria-label="Writing and archives">
-                        <a href="thoughts/index.html"><span><strong>Thoughts</strong><small>Essays about being a dad, husband, and builder.</small></span><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg></a>
-                        <a href="guide.html"><span><strong>User Guide</strong><small>How I work.</small></span><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg></a>
+                        <a href="/thoughts/"><span><strong>Writing</strong><small>Essays about being a dad, husband, and builder.</small></span><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg></a>
+                        <a href="guide.html"><span><strong>User guide</strong><small>How I work.</small></span><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg></a>
                         <a href="books.html"><span><strong>Books</strong><small>A collection of what I enjoyed reading.</small></span><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg></a>
                         <a href="gratitude.html"><span><strong>Gratitude</strong><small>Daily notes on what sparked joy.</small></span><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg></a>
                     </nav>
@@ -276,9 +298,23 @@
                 </article>
             </div>
 
-            <footer>© <span id="current-year">2026</span> Willis Wee</footer>
+
         </section>
     </main>
+    <footer class="home-footer">
+            <nav class="site-footer-nav" aria-label="Footer navigation">
+                <a href="/" aria-current="page">Home</a>
+                <a href="/work.html">Work</a>
+                <a href="/coaching.html">Coaching</a>
+                <a href="/thoughts/">Writing</a>
+                <a href="/play">Play</a>
+                <a href="/books.html">Books</a>
+                <a href="/guide.html">User guide</a>
+                <a href="/gratitude.html">Gratitude</a>
+                <a href="/#terminal">Connect</a>
+            </nav>
+            <p>© <span id="current-year">2026</span> Willis Wee</p>
+        </footer>
 
     <img decoding="async" class="tracking-pixel" src="https://www.useinflect.ai/api/bot-traffic/pixel?tk=inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7&amp;iv=2026-08-12.1" alt="" width="1" height="1" referrerpolicy="unsafe-url">
 </body>

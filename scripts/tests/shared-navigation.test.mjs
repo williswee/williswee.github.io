@@ -4,29 +4,29 @@ import test from 'node:test';
 
 const root = new URL('../../', import.meta.url);
 const read = name => readFileSync(new URL(name, root), 'utf8');
-const readingPages = [
-    ...readdirSync(root).filter(name => name.endsWith('.html') && !['index.html', 'creative.html'].includes(name)),
+const sitePages = [
+    ...readdirSync(root).filter(name => name.endsWith('.html') && name !== 'creative.html'),
     ...readdirSync(new URL('thoughts/', root))
         .filter(name => name.endsWith('.html'))
         .map(name => `thoughts/${name}`),
 ].sort();
-const sharedLabels = ['Start', 'Thoughts', 'Guide', 'Work', 'Coaching', 'Books', 'Gratitude'];
-const sharedPaths = ['/index.html', '/thoughts/index.html', '/guide.html', '/work.html',
-    '/coaching.html', '/books.html', '/gratitude.html'];
+const sharedLabels = ['Home', 'Work', 'Coaching', 'Writing', 'Play', 'Books', 'User guide', 'Gratitude', 'Connect'];
+const sharedPaths = ['/', '/work.html', '/coaching.html', '/thoughts/', '/play', '/books.html',
+    '/guide.html', '/gratitude.html', '/#terminal'];
 
 function navigation(name, className) {
-    const pattern = new RegExp(`<nav\\b[^>]*\\bclass="${className}"[^>]*>([\\s\\S]*?)<\\/nav>`, 'g');
+    const pattern = new RegExp(`<nav\\b[^>]*\\bclass="[^"]*\\b${className}\\b[^"]*"[^>]*>([\\s\\S]*?)<\\/nav>`, 'g');
     const matches = [...read(name).matchAll(pattern)];
     assert.equal(matches.length, 1, `${name}: expected one ${className}`);
     return [...matches[0][1].matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)].map(([, attributes, content]) => ({
         attributes,
-        label: content.trim(),
+        label: visibleText(content),
         href: attributes.match(/\bhref="([^"]*)"/)?.[1],
         current: attributes.match(/\baria-current="([^"]*)"/)?.[1],
     }));
 }
 
-function assertInnerPageCoaching(links, name) {
+function assertCoaching(links, name) {
     const coaching = links.filter(link => link.label === 'Coaching');
     assert.equal(coaching.length, 1, `${name}: expected one plain Coaching label`);
     const link = coaching[0];
@@ -38,29 +38,41 @@ function assertInnerPageCoaching(links, name) {
         `${name}: only the Coaching page marks Coaching current`);
 }
 
-test('every reading header places plain Coaching after Work and preserves destination order', () => {
-    for (const name of readingPages) {
-        const links = navigation(name, 'reading-nav');
+test('every global header prioritizes Work and Coaching with identical destinations at every URL depth', () => {
+    for (const name of sitePages) {
+        const links = navigation(name, 'site-navigation');
         assert.deepEqual(links.map(link => link.label), sharedLabels, name);
-        assert.deepEqual(links.map(link => new URL(link.href, `https://williswee.com/${name}`).pathname),
-            sharedPaths, `${name}: navigation destinations`);
-        assertInnerPageCoaching(links, name);
+        assert.deepEqual(links.map(link => link.href), sharedPaths, `${name}: canonical root-relative destinations`);
+        assertCoaching(links, name);
     }
 });
 
-test('reading headers preserve existing active destinations and mark Coaching on its own page', () => {
+test('global headers distinguish the current page from an essay’s parent collection', () => {
     const activeByPage = {
+        'index.html': 'Home',
         'books.html': 'Books',
         'coaching.html': 'Coaching',
         'gratitude.html': 'Gratitude',
-        'guide.html': 'Guide',
+        'guide.html': 'User guide',
+        'play.html': 'Play',
         'work.html': 'Work',
+        'thoughts/index.html': 'Writing',
     };
-    for (const name of readingPages) {
-        const links = navigation(name, 'reading-nav');
-        const expected = name.startsWith('thoughts/') ? 'Thoughts' : activeByPage[name];
+    for (const name of sitePages) {
+        const links = navigation(name, 'site-navigation');
+        const essay = name.startsWith('thoughts/') && name !== 'thoughts/index.html';
+        const expected = essay ? ['Writing', 'location'] : activeByPage[name] ? [activeByPage[name], 'page'] : null;
         assert.deepEqual(links.filter(link => link.current !== undefined)
-            .map(link => [link.label, link.current]), expected ? [[expected, 'page']] : [], name);
+            .map(link => [link.label, link.current]), expected ? [expected] : [], name);
+    }
+});
+
+test('every footer repeats the site directory as ordinary links', () => {
+    for (const name of sitePages) {
+        const links = navigation(name, 'site-footer-nav');
+        assert.deepEqual(links.map(link => link.label), sharedLabels, name);
+        assert.deepEqual(links.map(link => link.href), sharedPaths, name);
+        assert.doesNotMatch(read(name), /class="footer-home"/, `${name}: avoid a duplicate Home link`);
     }
 });
 
@@ -97,7 +109,14 @@ test('the homepage has six same-document chapter links matching six real section
         assert.equal(attribute(link.attributes, 'target'), undefined, `${link.label}: native same-document navigation`);
     }
     assert.deepEqual(links.filter(link => link.current !== undefined)
-        .map(link => [link.label, link.current]), [['Start', 'page']]);
+        .map(link => [link.label, link.current]), [['Start', 'location']]);
+    const home = read('index.html');
+    const header = home.match(/<header\b[^>]*>([\s\S]*?)<\/header>/)?.[1];
+    assert.doesNotMatch(header ?? '', /chapter-nav/, 'scene links belong in the page content');
+    const localNavigation = homeScenes()[0].content.match(/<details\b[^>]*class="home-page-nav"[^>]*>([\s\S]*?)<\/details>/)?.[1];
+    assert.ok(localNavigation, 'the first scene owns its local navigation');
+    assert.equal(visibleText(localNavigation.match(/<summary[^>]*>([\s\S]*?)<\/summary>/)?.[1] ?? ''), 'On this page');
+    assert.match(localNavigation, /<nav class="chapter-nav" aria-label="On this page">/);
 });
 
 test('the Coaching chapter preserves the approved invitation and links onward to Notes and the full service page', () => {

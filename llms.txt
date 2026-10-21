@@ -1,21 +1,22 @@
 # williswee.com
 
-> A personal website for Willis Wee. Projects, essays, books, and a user guide.
+> A personal website for Willis Wee. Projects, founder coaching, essays, books, and a personal user guide.
 
 ## Main
+- [Home](https://williswee.com/): Introduction and overview of the site.
+- [Work](https://williswee.com/work.html): Work I did, from selling grasshoppers at age 10 to 16 years running Tech in Asia.
+- [Coaching](https://williswee.com/coaching.html): Candid 1:1 coaching for founders going from 0 to 1 and 1 to 2: who it's for, what we work on, and how to book a call on Intro.
+- [Writing](https://williswee.com/thoughts/): Essays by Willis Wee on building products, leading teams, parenting, and life, with a complete chronological archive.
+- [Play](https://williswee.com/play): Randomly fun projects. Orbit Watch, 3D Floorplan, Chef Bob, Tiny Brain, Chix Run, Find the real Willis, GoogleFluid, and Brain games for kids.
+- [Books](https://williswee.com/books.html): A curated list of books I have read and recommend.
+- [User guide](https://williswee.com/guide.html): Willis's personal user guide: how he communicates and works, and his flaws.
+- [Gratitude](https://williswee.com/gratitude.html): A growing archive of daily gratitude notes, with a shareable link for every entry.
+- [Orbit Watch](https://williswee.com/orbit/): A 3D globe for exploring calculated satellite positions, reported earthquakes and guided lessons with official sources.
 - [Floor Plan Studio](https://williswee.com/3d-floorplan/): Explore and furnish two homes in an interactive 3D floor plan studio, try material palettes, rearrange furniture, and pin comments.
 - [Chix Run](https://williswee.com/chix-run/): A chicken rooftop game with coins, drones, movement and dash controls.
 - [Find the real Willis](https://williswee.com/game): Ask six questions, spot two impostors, and get to know Willis through his writing.
-- [Orbit Watch](https://williswee.com/orbit/): A 3D globe for exploring calculated satellite positions, reported earthquakes and guided lessons with official sources.
-- [Home](https://williswee.com/): Introduction and overview of the site.
-- [Coaching](https://williswee.com/coaching.html): Candid 1:1 coaching for founders going from 0 to 1 and 1 to 2: who it's for, what we work on, and how to book a call on Intro.
-- [Gratitude](https://williswee.com/gratitude.html): A growing archive of daily gratitude notes, with a shareable link for every entry.
-- [Work](https://williswee.com/work.html): Work I did, from selling grasshoppers at age 10 to 16 years running Tech in Asia.
-- [Play](https://williswee.com/play): Randomly fun projects. Orbit Watch, 3D Floorplan, Chef Bob, Tiny Brain, Chix Run, Find the real Willis, GoogleFluid, and Brain games for kids.
-- [Books](https://williswee.com/books.html): A curated list of books I have read and recommend.
-- [Guide](https://williswee.com/guide.html): Willis's personal user guide: how he communicates and works, and his flaws.
 
-## Thoughts
+## Writing
 Articles and reflections by Willis Wee.
 - [I built an orbit watch for fun](https://williswee.com/thoughts/orbit-watch.html): I built a globe to visualize satellites and track earthquakes for fun.
 - [I built a 3D floor plan demo for fun](https://williswee.com/thoughts/3d-floorplan-fun.html): I tried the open-source Pascal Editor on a four-bedroom layout. It makes more sense for small design firms and folks planning a renovation.

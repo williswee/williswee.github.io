@@ -1,6 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { renderHeader, normalizeNavigation } from './site-navigation.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const markdownPath = path.join(root, 'gratitude-notes.md');
@@ -133,7 +134,7 @@ ${note.paragraphs.map((paragraph) => `                        <p>${renderParagra
                 </article>`)
     .join('\n');
 
-const html = `<!DOCTYPE html>
+const html = normalizeNavigation(`<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -170,26 +171,13 @@ const html = `<!DOCTYPE html>
 
 <body class="gratitude-page">
     <a class="skip-link" href="#main-content">Skip to gratitude notes</a>
-    <header class="reading-hud">
-        <a href="index.html" class="site-brand" aria-label="Willis Wee — home">
-            <span class="brand-full">Willis Wee</span><span class="brand-short" aria-hidden="true">Willis</span><small aria-hidden="true">👋</small>
-        </a>
-        <nav class="reading-nav" aria-label="Main navigation">
-            <a href="index.html">Start</a>
-            <a href="thoughts/index.html">Thoughts</a>
-            <a href="guide.html">Guide</a>
-            <a href="work.html">Work</a>
-            <a href="/coaching.html">Coaching</a>
-            <a href="books.html">Books</a>
-            <a href="gratitude.html" aria-current="page">Gratitude</a>
-        </nav>
-    </header>
+    ${renderHeader('gratitude.html')}
     <div class="reading-landscape reading-landscape--portrait gratitude-landscape" aria-hidden="true">
         <img src="images/game-world/gratitude-evening-journal-v1.webp" alt="" width="768" height="2048" decoding="async">
     </div>
     <div class="reading-shell">
         <main id="main-content" tabindex="-1">
-            <a class="gratitude-back" href="index.html#archive"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M17 10H4M9 5l-5 5 5 5"/></svg>Back</a>
+            <a class="gratitude-back" href="/"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M17 10H4M9 5l-5 5 5 5"/></svg>Home</a>
             <section class="gratitude-hero" aria-labelledby="gratitude-title">
                 <div class="gratitude-intro-copy">
                     <h1 id="gratitude-title">Gratitude.</h1>
@@ -238,7 +226,7 @@ ${noteMarkup}
 </body>
 
 </html>
-`;
+`, 'gratitude.html');
 
 if (checkOnly) {
     const currentHtml = await readFile(outputPath, 'utf8').catch((error) => {

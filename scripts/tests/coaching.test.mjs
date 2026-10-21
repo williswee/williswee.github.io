@@ -110,7 +110,10 @@ test('coaching page links and link-preview image resolve to published files', ()
         .map(([, path]) => path)
         .filter(path => !/^(?:https?:|mailto:)/.test(path));
     assert.ok(local.length > 10, 'expected the page to link its supporting essays');
-    for (const path of local) assert.ok(existsSync(new URL(path.replace(/^\//, ''), root)), `missing ${path}`);
+    for (const path of local) {
+        const publishedPath = path === '/play' ? 'play.html' : path.replace(/^\//, '');
+        assert.ok(existsSync(new URL(publishedPath, root)), `missing ${path}`);
+    }
     const preview = html.match(/<meta property="og:image" content="https:\/\/williswee\.com\/([^"]+)">/)?.[1];
     assert.ok(preview && existsSync(new URL(preview, root)), 'missing link-preview image');
     assert.match(html, /<meta name="description" content="[^"]+">/);
