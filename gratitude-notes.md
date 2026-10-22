@@ -859,3 +859,13 @@ What's yours?
 2️⃣ Indulged in yummy food: burgers and palak paneer. Yums.
 
 3️⃣ Had a nice ride to school and chatted with the girls. Good vibes. A good way to start the day.
+
+## Gratitude note #80
+
+*2026-10-23*
+
+1️⃣ It’s nice to have sushi at the counter for lunch. It feels relaxed, and I can just talk with the wife.
+
+2️⃣ I think it’s the overall sense of happiness and satisfaction I have. I’ve developed a greater level of awareness, which helps me be honest about how I feel about certain projects as I venture deeper. It can be frustrating, but being patient, staying aware, and continuing to experiment is the path that feels right. I feel gentler and kinder toward myself, which is a win.
+
+3️⃣ Having fun building with Sloth OS. 🦥
