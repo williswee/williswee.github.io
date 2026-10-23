@@ -57,9 +57,12 @@ ${navigation.slice(4).map(item => `                        ${link(item, pagePath
 }
 
 export function renderFooter(pagePath) {
-    return `<nav class="site-footer-nav" aria-label="Footer navigation">
-${navigation.map(item => `                ${link(item, pagePath)}`).join('\n')}
-            </nav>`;
+    return `<details class="site-footer-menu">
+                <summary><span>Explore this site</span> ${chevron}</summary>
+                <nav class="site-footer-nav" aria-label="Footer navigation">
+${navigation.map(item => `                    ${link(item, pagePath)}`).join('\n')}
+                </nav>
+            </details>`;
 }
 
 export function renderBreadcrumb(titleHtml) {
@@ -88,7 +91,7 @@ export function normalizeNavigation(html, pagePath) {
     const lastStyle = styleLinks.at(-1);
     if (!lastStyle) throw new Error(`${pagePath}: stylesheet not found`);
     const styleEnd = lastStyle.index + lastStyle[0].length;
-    result = result.slice(0, styleEnd) + '\n    <link rel="stylesheet" href="/site-navigation.css?v=2">\n    <script src="/site-navigation.js?v=1" defer></script>' + result.slice(styleEnd);
+    result = result.slice(0, styleEnd) + '\n    <link rel="stylesheet" href="/site-navigation.css?v=4">\n    <script src="/site-navigation.js?v=1" defer></script>' + result.slice(styleEnd);
 
     // Normalize only homepage/archive aliases; keep authored URLs and all hashes.
     result = result.replace(/<a\b[^>]*\bhref="([^"]*)"[^>]*>[\s\S]*?<\/a>/g, (anchor, href) => {
@@ -104,8 +107,13 @@ export function normalizeNavigation(html, pagePath) {
     });
 
     result = result.replace(/<footer\b([^>]*)>([\s\S]*?)<\/footer>/, (_, attrs, body) => {
-        const rest = body.replace(/\s*<nav class="site-footer-nav"[^>]*>[\s\S]*?<\/nav>/, '')
+        let rest = body.replace(/\s*<details class="site-footer-menu"[^>]*>[\s\S]*?<\/details>/, '')
+            .replace(/\s*<nav class="site-footer-nav"[^>]*>[\s\S]*?<\/nav>/, '')
             .replace(/\s*<a class="footer-home"[^>]*>[\s\S]*?<\/a>/, '').trim();
+        if (!/<div class="site-footer-social">/.test(rest)) {
+            rest = rest.replace(/<span class="follow-strip-label">[\s\S]*?<\/span>\s*<(div|nav)\b[^>]*\bclass="follow-strip-icons"[^>]*>[\s\S]*?<\/\1>/,
+                social => `<div class="site-footer-social">\n            ${social}\n            </div>`);
+        }
         return `<footer${attrs}>\n            ${renderFooter(pagePath)}${rest ? `\n            ${rest}` : ''}\n        </footer>`;
     });
 

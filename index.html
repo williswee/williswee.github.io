@@ -27,7 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preload" href="images/game-world/base-camp-personal-v4-q92.webp" as="image" fetchpriority="high">
     <link rel="stylesheet" href="home-game.css?v=4.20">
-    <link rel="stylesheet" href="/site-navigation.css?v=2">
+    <link rel="stylesheet" href="/site-navigation.css?v=4">
     <script src="/site-navigation.js?v=1" defer></script>
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="home-game.js?v=3.8" defer></script>
@@ -311,17 +311,20 @@
         </section>
     </main>
     <footer class="home-footer">
-            <nav class="site-footer-nav" aria-label="Footer navigation">
-                <a href="/" aria-current="page">Home</a>
-                <a href="/work.html">Work</a>
-                <a href="/coaching.html">Coaching</a>
-                <a href="/thoughts/">Writing</a>
-                <a href="/play">Play</a>
-                <a href="/books.html">Books</a>
-                <a href="/guide.html">User guide</a>
-                <a href="/gratitude.html">Gratitude</a>
-                <a href="/#terminal">Connect</a>
-            </nav>
+            <details class="site-footer-menu">
+                <summary><span>Explore this site</span> <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5 7 5 5 5-5"/></svg></summary>
+                <nav class="site-footer-nav" aria-label="Footer navigation">
+                    <a href="/" aria-current="page">Home</a>
+                    <a href="/work.html">Work</a>
+                    <a href="/coaching.html">Coaching</a>
+                    <a href="/thoughts/">Writing</a>
+                    <a href="/play">Play</a>
+                    <a href="/books.html">Books</a>
+                    <a href="/guide.html">User guide</a>
+                    <a href="/gratitude.html">Gratitude</a>
+                    <a href="/#terminal">Connect</a>
+                </nav>
+            </details>
             <p>© <span id="current-year">2026</span> Willis Wee</p>
         </footer>
 

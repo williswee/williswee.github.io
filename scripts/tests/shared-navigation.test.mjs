@@ -69,6 +69,10 @@ test('global headers distinguish the current page from an essay’s parent colle
 
 test('every footer repeats the site directory as ordinary links', () => {
     for (const name of sitePages) {
+        const menu = read(name).match(/<details\b([^>]*class="site-footer-menu"[^>]*)>([\s\S]*?)<\/details>/);
+        assert.ok(menu, `${name}: keep the footer as a native disclosure`);
+        assert.doesNotMatch(menu[1], /\bopen(?:\s|=|$)/, `${name}: footer starts closed`);
+        assert.match(menu[2], /^\s*<summary><span>Explore this site<\/span>/);
         const links = navigation(name, 'site-footer-nav');
         assert.deepEqual(links.map(link => link.label), sharedLabels, name);
         assert.deepEqual(links.map(link => link.href), sharedPaths, name);
