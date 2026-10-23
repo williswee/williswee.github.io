@@ -51,7 +51,8 @@ test('the coaching page leads with a note and keeps direct booking at both ends'
     for (const link of bookings) assert.ok(link.includes(`href="${booking}"`), link);
     for (const control of bookings) {
         assert.match(control, /<span class="visually-hidden"> \(opens in a new tab\)<\/span>/, 'booking controls announce the new tab');
-        assert.match(control, /Rates &amp; times on Intro\. 20% goes to charity\./);
+        assert.match(control, /Prefer Intro\?/);
+        assert.match(control, /20% of proceeds from Intro sessions goes to charity\./);
     }
 });
 

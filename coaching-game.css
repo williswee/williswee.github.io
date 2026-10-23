@@ -79,7 +79,8 @@
 .coaching-section h2 + h3 { margin-top: 0; }
 .coaching-emoji { display: inline-block; margin-right: 4px; font-size: 1.15em; vertical-align: -1px; }
 .coaching-section h3 + p { margin-bottom: 0; }
-.coaching-faq-section h3 { display: grid; grid-template-columns: 1.4em minmax(0, 1fr); gap: 10px; align-items: start; }
+/* Plain questions use normal flow; only emoji headings need an icon column. */
+.coaching-faq-section h3:has(> .coaching-emoji) { display: grid; grid-template-columns: 1.4em minmax(0, 1fr); gap: 10px; align-items: start; }
 .coaching-faq-section .coaching-emoji { margin: 0; text-align: center; }
 .coaching-topics { margin: 0; padding: 0; list-style: none; }
 .coaching-topics li { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; margin: 0 0 24px; color: var(--cream-soft); font-size: 1.0625rem; line-height: 1.7; }

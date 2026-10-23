@@ -140,6 +140,27 @@ test('normalization preserves article content, query strings, fragments, and ext
     assert.equal(normalizeNavigation(actual, 'thoughts/test.html'), actual, 'the second pass must not accumulate markup or whitespace');
 });
 
+test('footer normalization preserves social markup, neighboring content, and homepage copyright', () => {
+    for (const socialTag of ['div', 'nav', null]) {
+        const social = socialTag ? `<span class="follow-strip-label">Follow</span>
+<${socialTag} class="follow-strip-icons" aria-label="Follow Willis"><a class="follow-icon" href="https://example.com" target="_blank" rel="noopener noreferrer">Profile</a></${socialTag}>` : '';
+        const copyright = '<p>© 2026 Willis Wee</p>';
+        const input = `<head>
+<link rel="stylesheet" href="reading-room.css">
+</head>
+<body><header class="reading-hud"></header><footer class="${socialTag ? 'follow-strip' : 'home-footer'}">
+<span>Before</span><nav class="site-footer-nav" aria-label="Footer navigation"><a href="/">Home</a></nav>
+${social}${copyright}<span>After</span></footer></body>`;
+        const actual = normalizeNavigation(input, 'work.html');
+        assert.equal((actual.match(/class="site-footer-menu"/g) ?? []).length, 1);
+        assert.equal((actual.match(/class="site-footer-social"/g) ?? []).length, socialTag ? 1 : 0);
+        assert.ok(actual.includes(copyright), 'retain the existing copyright');
+        assert.ok(actual.includes('<span>Before</span>') && actual.includes('<span>After</span>'));
+        if (socialTag) assert.ok(actual.includes(social), 'preserve social container, attributes and content');
+        assert.equal(normalizeNavigation(actual, 'work.html'), actual, 'normalizing again must not nest menus or wrappers');
+    }
+});
+
 const runtime = read('site-navigation.js');
 
 function runtimeFixture({ mobile = false, loading = false, missing = false } = {}) {

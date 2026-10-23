@@ -69,6 +69,10 @@ test('global headers distinguish the current page from an essay’s parent colle
 
 test('every footer repeats the site directory as ordinary links', () => {
     for (const name of sitePages) {
+        const menu = read(name).match(/<details\b([^>]*class="site-footer-menu"[^>]*)>([\s\S]*?)<\/details>/);
+        assert.ok(menu, `${name}: keep the footer as a native disclosure`);
+        assert.doesNotMatch(menu[1], /\bopen(?:\s|=|$)/, `${name}: footer starts closed`);
+        assert.match(menu[2], /^\s*<summary><span>Explore this site<\/span>/);
         const links = navigation(name, 'site-footer-nav');
         assert.deepEqual(links.map(link => link.label), sharedLabels, name);
         assert.deepEqual(links.map(link => link.href), sharedPaths, name);
@@ -173,6 +177,7 @@ const socialLinks = [
     ['https://www.linkedin.com/in/williswee/', 'LinkedIn', 'I try to sound professional here.'],
     ['https://github.com/williswee', 'GitHub', 'AI codes. I take the blame.'],
     ['https://x.com/williswee', 'X', 'Where I get overwhelmed.'],
+    ['https://intro.co/williswee', 'Intro', 'My coaching profile, rates, and available times.'],
 ];
 
 test('Coaching keeps its introduction and booking control without the homepage FAQ', () => {
@@ -194,12 +199,12 @@ test('Coaching keeps its introduction and booking control without the homepage F
     const pageLinks = html.match(/<a class="coaching-more"[\s\S]*?<\/a>/g) ?? [];
     assert.equal(pageLinks.length, 1, 'merge the old More about coaching link into Explore coaching');
     assert.equal(visibleText(pageLinks[0]), 'Explore coaching');
-    assert.doesNotMatch(terminal.content, /coaching-(?:more|booking|faq)|href="(?:\/?coaching\.html|https:\/\/intro\.co)/,
-        'Connect contains no coaching invitation, FAQ, or Intro link');
+    assert.doesNotMatch(terminal.content, /coaching-(?:more|booking|faq)|href="\/?coaching\.html/,
+        'Connect keeps the coaching invitation and FAQ in the Coaching section');
     assert.ok(!visibleText(terminal.content).includes(originalCoachingIntro));
 });
 
-test('Connect offers the four approved social destinations and captions in order', () => {
+test('Connect offers the approved public profiles and captions in order', () => {
     const terminal = homeScenes().find(scene => scene.id === 'terminal');
     assert.ok(terminal);
     const list = terminal.content.match(/<div\b(?=[^>]*class="contact-list")(?=[^>]*aria-label="Ways to connect")[^>]*>([\s\S]*?)<\/div>/)?.[1];

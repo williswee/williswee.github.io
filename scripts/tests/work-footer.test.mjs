@@ -20,7 +20,8 @@ test('Work follows the shared social icon pattern and offers Home in its directo
     assert.equal(actual.length, 3);
     assert.deepEqual(actual, links(footer('guide.html')));
     assert.equal((work.match(/target="_blank" rel="noopener noreferrer"/g) ?? []).length, 3);
-    assert.equal((work.match(/<svg[^>]+aria-hidden="true"/g) ?? []).length, 3);
+    const social = work.match(/<nav class="follow-strip-icons"[^>]*>[\s\S]*?<\/nav>/)?.[0];
+    assert.equal((social?.match(/<svg[^>]+aria-hidden="true"/g) ?? []).length, 3);
 });
 
 test('Work inherits shared footer styling without page-specific overrides', () => {

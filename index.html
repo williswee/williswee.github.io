@@ -27,7 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preload" href="images/game-world/base-camp-personal-v4-q92.webp" as="image" fetchpriority="high">
     <link rel="stylesheet" href="home-game.css?v=4.20">
-    <link rel="stylesheet" href="/site-navigation.css?v=2">
+    <link rel="stylesheet" href="/site-navigation.css?v=4">
     <script src="/site-navigation.js?v=1" defer></script>
     <link rel="icon" type="image/png" href="avatar.png">
     <script src="home-game.js?v=3.8" defer></script>
@@ -51,7 +51,8 @@
                     "https://www.linkedin.com/in/williswee/",
                     "https://github.com/williswee",
                     "https://x.com/williswee",
-                    "https://williswee.substack.com"
+                    "https://williswee.substack.com",
+                    "https://intro.co/williswee"
                 ]
             }
         }
@@ -292,6 +293,14 @@
                             </span>
                             <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg>
                         </a>
+                        <a href="https://intro.co/williswee" target="_blank" rel="noopener noreferrer">
+                            <span class="contact-label">
+                                <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 3h16v14H9l-5 4V3zm2 2v12l2-2h10V5H6zm2 3h8v2H8zm0 4h6v2H8z"/></svg>
+                                <span><strong>Intro</strong><small>My coaching profile, rates, and available times.</small></span>
+                            </span>
+                            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg>
+                            <span class="visually-hidden"> (opens in a new tab)</span>
+                        </a>
                     </div>
 
                     <a class="return-link" href="#base-camp">Back to the beginning <span aria-hidden="true">↑</span></a>
@@ -302,17 +311,20 @@
         </section>
     </main>
     <footer class="home-footer">
-            <nav class="site-footer-nav" aria-label="Footer navigation">
-                <a href="/" aria-current="page">Home</a>
-                <a href="/work.html">Work</a>
-                <a href="/coaching.html">Coaching</a>
-                <a href="/thoughts/">Writing</a>
-                <a href="/play">Play</a>
-                <a href="/books.html">Books</a>
-                <a href="/guide.html">User guide</a>
-                <a href="/gratitude.html">Gratitude</a>
-                <a href="/#terminal">Connect</a>
-            </nav>
+            <details class="site-footer-menu">
+                <summary><span>Explore this site</span> <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5 7 5 5 5-5"/></svg></summary>
+                <nav class="site-footer-nav" aria-label="Footer navigation">
+                    <a href="/" aria-current="page">Home</a>
+                    <a href="/work.html">Work</a>
+                    <a href="/coaching.html">Coaching</a>
+                    <a href="/thoughts/">Writing</a>
+                    <a href="/play">Play</a>
+                    <a href="/books.html">Books</a>
+                    <a href="/guide.html">User guide</a>
+                    <a href="/gratitude.html">Gratitude</a>
+                    <a href="/#terminal">Connect</a>
+                </nav>
+            </details>
             <p>© <span id="current-year">2026</span> Willis Wee</p>
         </footer>
 
