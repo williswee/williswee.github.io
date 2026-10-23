@@ -18,6 +18,7 @@
 
 ## Writing
 Articles and reflections by Willis Wee.
+- [A small game to whack together](https://williswee.com/thoughts/whack-together-game.html): Built with Dot, oversized weapons, and a lot of playtesting.
 - [I built an orbit watch for fun](https://williswee.com/thoughts/orbit-watch.html): I built a globe to visualize satellites and track earthquakes for fun.
 - [I built a 3D floor plan demo for fun](https://williswee.com/thoughts/3d-floorplan-fun.html): I tried the open-source Pascal Editor on a four-bedroom layout. It makes more sense for small design firms and folks planning a renovation.
 - [Daddy, what can you buy with $0.20?](https://williswee.com/thoughts/grasshopper.html): My two older girls had never heard of $0.20 recess money. So I told them about the grasshoppers.
