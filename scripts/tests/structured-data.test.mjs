@@ -7,7 +7,7 @@ import { planStructuredData, syncStructuredData } from '../sync-structured-data.
 
 const site = 'https://williswee.com/';
 const profiles = ['https://www.linkedin.com/in/williswee/', 'https://github.com/williswee',
-    'https://x.com/williswee', 'https://williswee.substack.com'];
+    'https://x.com/williswee', 'https://williswee.substack.com', 'https://intro.co/williswee'];
 const articleBody = '<p>Original prose, links, and <strong>emphasis</strong>.</p>';
 const date = '<p class="article-date">19 August 2026</p>';
 
@@ -196,11 +196,11 @@ test('supports a visible time element, requires its datetime to agree, and prese
 
 test('preserves verified remote article URLs and only includes profile links still present on the homepage', async t => {
     const f = await fixture(t);
-    await f.write('index.html', f.sources['index.html'].replace(`<a href="${profiles[0]}">Profile</a>`, ''));
+    await f.write('index.html', f.sources['index.html'].replace(`<a href="${profiles.at(-1)}">Profile</a>`, ''));
     await f.write('thoughts/second.html', f.sources['thoughts/second.html'].replace('</article>',
         '<img src="https://images.example.com/hero.jpg?width=1200&amp;format=webp" alt="Article illustration"></article>'));
     const plans = await planStructuredData({ root: f.root });
-    assert.deepEqual(plans[0].data.mainEntity.sameAs, profiles.slice(1));
+    assert.deepEqual(plans[0].data.mainEntity.sameAs, profiles.slice(0, -1));
     assert.equal(schemaNode(plans.at(-1).data).image, 'https://images.example.com/hero.jpg?width=1200&format=webp');
 });
 

@@ -11,7 +11,8 @@ const profileURLs = [
     'https://www.linkedin.com/in/williswee/',
     'https://github.com/williswee',
     'https://x.com/williswee',
-    'https://williswee.substack.com'
+    'https://williswee.substack.com',
+    'https://intro.co/williswee'
 ];
 const scriptId = 'structured-data';
 const voidTags = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
@@ -184,7 +185,7 @@ export async function planStructuredData({ root = defaultRoot } = {}) {
     const [home, coaching, archive] = await Promise.all(['index.html', 'coaching.html', 'thoughts/index.html'].map(read));
     const homeFacts = pageFacts(home, 'index.html', site);
     const profileLinks = new Set(tags(homeFacts.clean, 'a').filter(tag => !tag[0].startsWith('</')).map(tag => attributes(tag[0]).href));
-    // Only the four professional/public profiles already linked by this site.
+    // Include only verified public profiles that are also visibly linked by this site.
     const sameAs = profileURLs.filter(url => profileLinks.has(url));
     if (!sameAs.length) fail('index.html', 'No known public profile links remain; review Person metadata.');
     const homepage = { '@context': 'https://schema.org', '@type': 'ProfilePage', '@id': `${site}#profile`,
