@@ -88,7 +88,7 @@
     .floating-book-dock { --dock-center: 63.5vw; }
 }
 @media (max-width: 760px) {
-    html { scroll-padding-top: calc(var(--header-height) + 80px); }
+    html { scroll-padding-top: calc(var(--header-height) + var(--book-menu-height, 52px) + 28px); }
     .books-landscape img { object-position: center 68%; }
     .books-intro { margin-bottom: 28px; }
     .books-intro p { margin-top: 20px; }

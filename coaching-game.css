@@ -38,7 +38,7 @@
 .coaching-book-direct small { display: block; margin-top: 2px; color: var(--muted); font-size: inherit; }
 
 /* The shared reading rail carries the sections and a note shortcut on desktop. */
-.coaching-rail { max-height: min(calc(100svh - var(--header-height) - 100px), var(--coaching-rail-room, 100svh)); }
+.coaching-rail { max-height: min(calc(100svh - var(--header-height) - 100px), var(--coaching-rail-room, 100svh)); scroll-padding-block: 8px; }
 .coaching-rail-title { margin: 0 0 12px; color: var(--cream); font: 700 1rem/1.4 var(--font-display); }
 .coaching-rail a:not(.coaching-rail-contact) {
     display: block;
@@ -69,6 +69,8 @@
     transition: border-color 180ms ease-out;
 }
 .coaching-rail-contact:is(:hover, :focus-visible) { border-color: var(--gold); }
+/* Keep the complete focus ring visible when this link reaches the rail's scroll edge. */
+.coaching-rail-contact:focus-visible { outline-offset: -5px; }
 .coaching-rail-contact svg { flex: 0 0 auto; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-linecap: square; stroke-width: 1.6; }
 
 .coaching-section, .coaching-close, .coaching-contact { margin-top: 52px; padding-top: 30px; border-top: 1px solid var(--line); }

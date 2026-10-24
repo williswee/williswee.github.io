@@ -70,6 +70,19 @@
     let lastPickedCard = null;
     let navigationVersion = 0;
     let dockUpdateQueued = false;
+    const menuSummary = menu?.querySelector('summary');
+    let previousCompact = compact.matches;
+    let lastFocused = document.activeElement;
+
+    // Some browsers clear focus as soon as the compact summary is hidden.
+    // Remember it until the media event, unless the reader moves elsewhere.
+    document.addEventListener('focusin', (event) => {
+        if (event.target === document.body && previousCompact && !compact.matches && lastFocused === menuSummary) return;
+        lastFocused = event.target;
+    });
+    document.addEventListener('pointerdown', (event) => {
+        if (lastFocused === menuSummary && !menuSummary?.contains(event.target)) lastFocused = null;
+    });
 
     function motionBehavior() {
         return reducedMotion.matches ? 'instant' : 'smooth';
@@ -80,7 +93,14 @@
         return header ? Math.max(0, header.getBoundingClientRect().bottom) : 0;
     }
 
+    function updateMenuHeight() {
+        if (!compact.matches || !menuSummary) return;
+        const height = Math.max(52, menuSummary.getBoundingClientRect().height);
+        document.documentElement.style.setProperty('--book-menu-height', `${height}px`);
+    }
+
     function safeViewport() {
+        updateMenuHeight();
         const padding = parseFloat(window.getComputedStyle(document.documentElement).scrollPaddingTop);
         const top = Number.isFinite(padding)
             ? padding
@@ -159,11 +179,17 @@
 
     function setMenuMode() {
         if (menu) {
-            const focusWillHide = compact.matches && menu.contains(document.activeElement)
-                && document.activeElement !== menu.querySelector('summary');
+            const focused = document.activeElement;
+            const summaryFocused = focused === menuSummary ||
+                (previousCompact && !compact.matches && focused === document.body && lastFocused === menuSummary);
+            const focusWillHide = compact.matches && menu.contains(focused) && focused !== menuSummary;
+            if (focusWillHide) focusElement(menuSummary);
             menu.open = !compact.matches;
-            if (focusWillHide) focusElement(menu.querySelector('summary'));
+            if (!compact.matches && summaryFocused) {
+                focusElement(pills.find((pill) => pill.dataset.filter === activeFilter) || pills[0]);
+            }
         }
+        previousCompact = compact.matches;
         scheduleDockUpdate();
     }
 
@@ -296,6 +322,9 @@
 
     compact.addEventListener('change', setMenuMode);
     if (menu) menu.addEventListener('toggle', scheduleDockUpdate);
+    if (menuSummary && typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(scheduleDockUpdate).observe(menuSummary);
+    }
     window.addEventListener('scroll', scheduleDockUpdate, { passive: true });
     window.addEventListener('resize', scheduleDockUpdate);
     window.addEventListener('hashchange', () => {

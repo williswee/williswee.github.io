@@ -94,7 +94,7 @@ function linkify(value) {
         rendered += escapeHtml(value.slice(cursor, match.index));
         const href = match[2] ?? match[3];
         const label = match[1] ?? href;
-        rendered += `<a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
+        rendered += `<a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}<span class="visually-hidden"> (opens in a new tab)</span></a>`;
         cursor = match.index + match[0].length;
     }
 

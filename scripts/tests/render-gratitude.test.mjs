@@ -132,7 +132,7 @@ test('Markdown links render with safe labels and external-link attributes', asyn
     const [htmlBuffer] = await outputs(directory);
     assert.match(
         htmlBuffer.toString(),
-        /Read <a href="https:\/\/example\.com\/update\?topic=joy&amp;day=1" target="_blank" rel="noopener noreferrer">the update<\/a>\./,
+        /Read <a href="https:\/\/example\.com\/update\?topic=joy&amp;day=1" target="_blank" rel="noopener noreferrer">the update<span class="visually-hidden"> \(opens in a new tab\)<\/span><\/a>\./,
     );
 });
 

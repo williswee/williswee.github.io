@@ -9,8 +9,12 @@ function fixture(kind, { compactMode = false, menuPresent = true } = {}) {
     const keys = new Map();
     const frames = [];
     const scrolls = [];
+    const observers = [];
+    const rootStyles = new Map();
     const location = { pathname: `/${kind}.html`, search: '?preview=1', hash: '' };
-    const document = { activeElement: null, documentElement: {} };
+    const document = { activeElement: null, documentElement: {
+        style: { setProperty: (name, value) => rootStyles.set(name, value) }
+    } };
     function element(id, tagName = 'DIV', textContent = '') {
         const classes = new Set();
         const handlers = new Map();
@@ -26,7 +30,7 @@ function fixture(kind, { compactMode = false, menuPresent = true } = {}) {
             setAttribute: (name, value) => attrs.set(name, value),
             hasAttribute: name => attrs.has(name),
             matches: () => ['BUTTON', 'SUMMARY', 'A'].includes(tagName),
-            focus: () => { document.activeElement = item; },
+            focus: () => { document.activeElement = item; keys.get('focusin')?.({ target: item }); },
             contains: target => target === item,
             after: node => { node.previousElementSibling = item; },
             getBoundingClientRect: () => ({ top: 300, bottom: 500, height: 200 }),
@@ -46,7 +50,14 @@ function fixture(kind, { compactMode = false, menuPresent = true } = {}) {
     const menu = element('book-filter-menu', 'DETAILS');
     menu.getBoundingClientRect = () => ({ top: 76, bottom: 128, height: 52 });
     const summary = element('category-summary', 'SUMMARY');
+    summary.getBoundingClientRect = () => ({ top: 76, bottom: 128, height: 52 });
     menu.querySelector = selector => selector === 'summary' ? summary : null;
+    const pills = ['all', 'life', 'science'].map(filter => {
+        const pill = element(`filter-${filter}`, 'BUTTON');
+        pill.dataset.filter = filter;
+        return pill;
+    });
+    menu.contains = node => [menu, summary, ...pills].includes(node);
     const cards = ['first', 'second', 'third'].map((id, i) => {
         const card = element(id, books ? 'DIV' : 'ARTICLE');
         card.dataset = { category: i === 2 ? 'science' : 'life', noteNumber: i + 1 };
@@ -57,7 +68,8 @@ function fixture(kind, { compactMode = false, menuPresent = true } = {}) {
     const elements = [random, shuffle, top, dock, grid, status, ...cards];
     Object.assign(document, {
         querySelectorAll: selector => selector === '[id]' ? elements
-            : selector === (books ? '.book-card' : '.gratitude-note') ? cards : [],
+            : selector === (books ? '.book-card' : '.gratitude-note') ? cards
+            : selector === '.filter-pill[data-filter]' ? pills : [],
         querySelector: selector => {
             if (selector === '.reading-hud') return { getBoundingClientRect: () => ({ bottom: 76 }) };
             if (selector === '.book-controls' || selector === '.gratitude-toolbar') return controls;
@@ -66,13 +78,19 @@ function fixture(kind, { compactMode = false, menuPresent = true } = {}) {
             return null;
         },
         getElementById: id => elements.find(e => e.id === id) || null,
-        addEventListener: (name, handler) => keys.set(name, handler)
+        addEventListener: (name, handler) => keys.set(name, handler),
+        body: element('body')
     });
+    let changeMode;
+    const compactMedia = { matches: compactMode, addEventListener: (_, handler) => { changeMode = handler; } };
     const window = {
         location, scrollY: 600, scrollX: 12, innerHeight: 800,
         history: { replaceState: (_state, _title, url) => { location.hash = url.includes('#') ? `#${url.split('#')[1]}` : ''; } },
-        matchMedia: query => ({ matches: query.includes('reduced-motion') || (compactMode && query.includes('max-width')), addEventListener() {} }),
-        getComputedStyle: e => e === document.documentElement ? { scrollPaddingTop: '100' } : { bottom: '20' },
+        matchMedia: query => query.includes('max-width') ? compactMedia : { matches: query.includes('reduced-motion'), addEventListener() {} },
+        getComputedStyle: e => e === document.documentElement ? {
+            scrollPaddingTop: String(76 + (compactMedia.matches
+                ? parseFloat(rootStyles.get('--book-menu-height') || '52') + 28 : 24))
+        } : { bottom: '20' },
         requestAnimationFrame: callback => frames.push(callback),
         addEventListener: (name, handler) => listeners.set(name, handler),
         scrollTo: value => {
@@ -82,7 +100,11 @@ function fixture(kind, { compactMode = false, menuPresent = true } = {}) {
         }
     };
     const source = readFileSync(new URL(books ? '../../books-game.js' : '../../gratitude.js', import.meta.url), 'utf8');
-    vm.runInNewContext(source, { window, document });
+    class ResizeObserver {
+        constructor(callback) { this.callback = callback; }
+        observe(target) { this.target = target; observers.push(this); }
+    }
+    vm.runInNewContext(source, { window, document, ResizeObserver });
     const flush = () => { while (frames.length) frames.shift()(); };
     flush();
     const select = (index = 0, settle = true) => {
@@ -98,8 +120,80 @@ function fixture(kind, { compactMode = false, menuPresent = true } = {}) {
         return event;
     };
     const selected = () => cards.find(card => card.classList.contains(books ? 'book-card--spotlight' : 'gratitude-note--spotlight'));
-    return { cards, dock, random, shuffle, top, grid, menu, location, window, document, controls, select, click, escape, selected, flush, scrolls, listeners };
+    return { cards, dock, random, shuffle, top, grid, menu, summary, pills, location, window, document, controls, select, click, escape, selected, flush, scrolls, listeners, rootStyles,
+        reflowSummary(height) {
+            summary.getBoundingClientRect = () => ({ top: 76, bottom: 76 + height, height });
+            observers.find(observer => observer.target === summary)?.callback();
+            flush();
+        },
+        resize(compact, { clearFocus = false, bodyFocusEvent = false } = {}) {
+            compactMedia.matches = compact;
+            if (clearFocus) document.activeElement = document.body;
+            if (bodyFocusEvent) keys.get('focusin')?.({ target: document.body });
+            changeMode();
+            flush();
+        },
+        pointer: target => keys.get('pointerdown')?.({ target })
+    };
 }
+
+test('books: enlarged Categories leaves a full reading gap above a long selected book', () => {
+    const f = fixture('books', { compactMode: true });
+    f.cards[0].getBoundingClientRect = () => ({ top: 300, bottom: 1300, height: 1000 });
+    f.reflowSummary(122);
+    f.select();
+    assert.equal(f.rootStyles.get('--book-menu-height'), '122px');
+    assert.equal(f.scrolls.at(-1).top, 600 + 300 - (76 + 122 + 28));
+});
+
+test('books: summary reflow refreshes native offsets without moving the reader', () => {
+    const f = fixture('books', { compactMode: true });
+    const scrollCount = f.scrolls.length;
+    f.reflowSummary(170);
+    assert.equal(f.rootStyles.get('--book-menu-height'), '170px');
+    assert.equal(f.scrolls.length, scrollCount);
+    f.resize(false);
+    f.cards[0].getBoundingClientRect = () => ({ top: 300, bottom: 1300, height: 1000 });
+    f.select();
+    assert.equal(f.scrolls.at(-1).top, 600 + 300 - 100);
+});
+
+test('books: desktop category rail takes focus at the selected category when its summary disappears', () => {
+    const f = fixture('books', { compactMode: true });
+    f.click(f.pills[2]);
+    assert.equal(f.document.activeElement, f.summary);
+    f.resize(false);
+    assert.equal(f.menu.open, true);
+    assert.equal(f.document.activeElement, f.pills[2]);
+});
+
+for (const bodyFocusEvent of [false, true]) {
+    test(`books: restores focus when the browser hides Categories${bodyFocusEvent ? ' and reports body focus' : ''}`, () => {
+        const f = fixture('books', { compactMode: true });
+        f.summary.focus();
+        f.resize(false, { clearFocus: true, bodyFocusEvent });
+        assert.equal(f.document.activeElement, f.pills[0]);
+    });
+}
+
+test('books: responsive category focus preserves unrelated navigation', () => {
+    for (const move of ['focus', 'pointer']) {
+        const f = fixture('books', { compactMode: true });
+        f.summary.focus();
+        if (move === 'focus') f.random.focus();
+        else f.pointer(f.random);
+        f.resize(false, { clearFocus: true });
+        assert.equal(f.document.activeElement, f.document.body, move);
+    }
+});
+
+test('books: collapsing categories returns focused filters to the visible summary', () => {
+    const f = fixture('books');
+    f.pills[1].focus();
+    f.resize(true);
+    assert.equal(f.menu.open, false);
+    assert.equal(f.document.activeElement, f.summary);
+});
 
 test('books: compact sticky category menu counts as an obstruction at its measured height', () => {
     const f = fixture('books', { compactMode: true });

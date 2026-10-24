@@ -31,6 +31,7 @@
 
     let queued = false;
     let activeId;
+    let previousScrollY = window.scrollY;
     const menuSummary = menu?.querySelector('summary');
     let previousCompact = compact.matches;
     let lastFocused = document.activeElement;
@@ -45,16 +46,51 @@
         if (lastFocused === menuSummary && !menuSummary?.contains(event.target)) lastFocused = null;
     });
 
+    function updateMenuHeight() {
+        if (!compact.matches || !menuSummary) return 0;
+        const height = Math.max(52, menuSummary.getBoundingClientRect().height);
+        document.documentElement.style.setProperty('--work-menu-height', `${height}px`);
+        return height;
+    }
+
+    function setActiveChapter(active) {
+        if (active.id !== activeId) {
+            activeId = active.id;
+            chapters.forEach(({ link, section }) => {
+                if (section.id === activeId) {
+                    link.setAttribute('aria-current', 'location');
+                    if (currentLabel) {
+                        const label = link.querySelector('strong');
+                        currentLabel.textContent = (label || link).textContent.trim();
+                    }
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+        }
+        updateMenuHeight();
+    }
+
     function updateChapter() {
         queued = false;
         const header = document.querySelector('.reading-hud');
         const headerHeight = header ? header.getBoundingClientRect().height : 0;
         // Match the CSS scroll-padding used by native milestone links.
-        const threshold = headerHeight + (compact.matches ? 80 : 24) + 2;
+        const threshold = headerHeight + (compact.matches ? updateMenuHeight() + 28 : 24) + 2;
         let active = chapters[0].section;
         chapters.forEach(({ section }) => {
             if (section.getBoundingClientRect().top <= threshold) active = section;
         });
+
+        // A new label can resize its own sticky summary. Keep that reflow
+        // from switching chapters back and forth at the reading boundary.
+        const currentIndex = chapters.findIndex(({ section }) => section.id === activeId);
+        const nextIndex = chapters.findIndex(({ section }) => section === active);
+        if (currentIndex >= 0 && (
+            (window.scrollY >= previousScrollY && nextIndex < currentIndex) ||
+            (window.scrollY <= previousScrollY && nextIndex > currentIndex)
+        )) active = chapters[currentIndex].section;
+        previousScrollY = window.scrollY;
 
         const distance = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
         if (distance > 0 && window.scrollY >= distance - 4) {
@@ -63,19 +99,7 @@
         const fraction = distance ? Math.max(0, Math.min(1, window.scrollY / distance)) : 0;
         progress.style.width = `${fraction * 100}%`;
 
-        if (active.id === activeId) return;
-        activeId = active.id;
-        chapters.forEach(({ link, section }) => {
-            if (section.id === activeId) {
-                link.setAttribute('aria-current', 'location');
-                if (currentLabel) {
-                    const label = link.querySelector('strong');
-                    currentLabel.textContent = (label || link).textContent.trim();
-                }
-            } else {
-                link.removeAttribute('aria-current');
-            }
-        });
+        setActiveChapter(active);
     }
 
     function scheduleUpdate() {
@@ -115,6 +139,9 @@
             if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
             const menuWasOpen = compact.matches && menu && menu.open;
             if (compact.matches && menu) menu.open = false;
+            // The selected label can wrap to a different height. Measure it
+            // before native hash navigation applies the CSS scroll offset.
+            setActiveChapter(section);
 
             // Leave the href/history to the browser; align once after a mobile
             // menu collapse changes the layout above the destination.
@@ -129,8 +156,21 @@
 
     window.addEventListener('scroll', scheduleUpdate, { passive: true });
     window.addEventListener('resize', scheduleUpdate);
+    if (menuSummary && typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(scheduleUpdate).observe(menuSummary);
+    }
     window.addEventListener('hashchange', () => {
-        focusChapter(targetForHash(window.location.hash));
+        const target = targetForHash(window.location.hash);
+        if (target) {
+            const previousHeight = updateMenuHeight();
+            setActiveChapter(target);
+            // History navigation may have landed using the previous label's
+            // height. Correct only a changed compact offset.
+            if (compact.matches && updateMenuHeight() !== previousHeight) {
+                target.scrollIntoView({ behavior: 'instant', block: 'start' });
+            }
+            focusChapter(target);
+        }
         scheduleUpdate();
     });
     window.addEventListener('load', scheduleUpdate, { once: true });
@@ -157,6 +197,7 @@
         window.requestAnimationFrame(() => {
             window.requestAnimationFrame(() => {
                 if (!userInteracted && window.location.hash === initialHash) {
+                    setActiveChapter(initialTarget);
                     initialTarget.scrollIntoView({ behavior: 'instant', block: 'start' });
                     scheduleUpdate();
                 }

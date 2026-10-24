@@ -33,6 +33,25 @@
       </div>
     </header>
     <main id="app" class="stage" aria-label="Chix Run arcade game">
+      <noscript>
+        <style>
+          html, body { height: auto; min-height: 100%; overflow: auto; }
+          body { display: block; margin: 0; padding: 24px; background: #0c0d14; color: #fff9ec; }
+          .site-header, .site-footer, .stage > :not(noscript) { display: none; }
+          .stage { display: block; width: 100%; max-width: 36rem; margin: 12vh auto; }
+          .game-recovery { font-family: Outfit, sans-serif; line-height: 1.65; }
+          .game-recovery h1 { margin: 0 0 16px; font-size: 2rem; line-height: 1.2; }
+          .game-recovery p { margin: 0 0 24px; }
+          .game-recovery a { display: inline-flex; align-items: center; min-height: 44px; color: #d9ff65; text-underline-offset: 4px; }
+          .game-recovery a:hover { color: #ebffac; }
+          .game-recovery a:focus-visible { outline: 2px solid #d9ff65; outline-offset: 4px; }
+        </style>
+        <section class="game-recovery" aria-labelledby="game-recovery-title">
+          <h1 id="game-recovery-title">Chix Run</h1>
+          <p>This game needs JavaScript. Enable it in your browser to play, or explore the other projects.</p>
+          <a href="https://williswee.com/play">Back to Play</a>
+        </section>
+      </noscript>
       <aside class="left-rail" aria-label="About this run">
         <h1>SMALL CHICKEN.<br />BIG <span>ESCAPE.</span></h1>
         <p>One chicken.<br />Very bad escape plan.<br />Run it back.</p>

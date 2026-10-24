@@ -67,7 +67,7 @@
     .project-nav-link[aria-current]::before { top: calc(10px + .85em - 2.5px); }
 }
 @media (max-width: 760px) {
-    html { scroll-padding-top: calc(var(--header-height) + 80px); }
+    html { scroll-padding-top: calc(var(--header-height) + var(--work-menu-height, 52px) + 28px); }
     .work-landscape img { object-position: center 67%; }
     .work-opening { margin-bottom: 28px; padding-bottom: 28px; }
     .opening-copy p { margin-top: 20px; }
@@ -78,7 +78,7 @@
     .work-page .chapter-menu > summary svg { width: 16px; height: 16px; }
     .chapter-menu[open] > summary svg { transform: rotate(180deg); }
     .chapter-rail-title { display: none; }
-    .project-nav { padding: 8px var(--pane-inset) 16px; max-height: calc(100svh - var(--header-height) - 52px); overflow-y: auto; }
+    .project-nav { padding: 8px var(--pane-inset) 16px; max-height: calc(100svh - var(--header-height) - var(--work-menu-height, 52px)); overflow-y: auto; }
     .project-nav-link { column-gap: 12px; min-height: 48px; padding-block: 12px; }
     .project-nav-link > span { flex-basis: 5.5em; }
     .project-nav-link > strong { flex-basis: 8em; }
