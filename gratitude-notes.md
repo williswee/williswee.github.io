@@ -869,3 +869,13 @@ What's yours?
 2️⃣ I think it’s the overall sense of happiness and satisfaction I have. I’ve developed a greater level of awareness, which helps me be honest about how I feel about certain projects as I venture deeper. It can be frustrating, but being patient, staying aware, and continuing to experiment is the path that feels right. I feel gentler and kinder toward myself, which is a win.
 
 3️⃣ Having fun building with Sloth OS. 🦥
+
+## Gratitude note #81
+
+*2026-10-26*
+
+1️⃣ Celebrating a family member’s birthday is always nice. It’s a chance to get together, eat good food, and try new cakes. Children are so lucky these days.
+
+2️⃣ The weather has been quite good. I feel grateful and lucky because I recall reading in the news that the haze might get worse. Hopefully I don’t jinx it.
+
+3️⃣ It’s always nice to watch a TV drama with the wife.
