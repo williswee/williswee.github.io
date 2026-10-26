@@ -879,3 +879,13 @@ What's yours?
 2️⃣ The weather has been quite good. I feel grateful and lucky because I recall reading in the news that the haze might get worse. Hopefully I don’t jinx it.
 
 3️⃣ It’s always nice to watch a TV drama with the wife.
+
+## Gratitude note #82
+
+*2026-10-27*
+
+1️⃣ Spending quality time with the wife and talking deeply about our thoughts and plans. I have a wonderful partner.
+
+2️⃣ Japanese curry for dinner always brings comfort and joy to the family. The children enjoy it a lot.
+
+3️⃣ I really enjoy building. There’s some anxiety, but I love that too.
