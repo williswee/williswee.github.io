@@ -253,7 +253,7 @@ window.WILLIS_ESSAY_DETAILS = Object.freeze([
         "slug": "layoffsucks.html",
         "title": "There’s no such thing as a perfect layoff",
         "date": "1 June 2020",
-        "minutes": 7
+        "minutes": 9
     },
     {
         "slug": "stress.html",
