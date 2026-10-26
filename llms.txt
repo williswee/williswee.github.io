@@ -18,6 +18,7 @@
 
 ## Writing
 Articles and reflections by Willis Wee.
+- [What changed between our Figma designs and the real app](https://williswee.com/thoughts/tickertown-design-mistakes.html): It’s hard designing an investing game that’s fun to play and easy to read on a phone.
 - [A small game to whack together](https://williswee.com/thoughts/whack-together-game.html): Built with Dot, oversized weapons, and a lot of playtesting.
 - [I built an orbit watch for fun](https://williswee.com/thoughts/orbit-watch.html): I built a globe to visualize satellites and track earthquakes for fun.
 - [I built a 3D floor plan demo for fun](https://williswee.com/thoughts/3d-floorplan-fun.html): I tried the open-source Pascal Editor on a four-bedroom layout. It makes more sense for small design firms and folks planning a renovation.
