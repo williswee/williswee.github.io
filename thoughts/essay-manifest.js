@@ -223,7 +223,7 @@ window.WILLIS_ESSAY_DETAILS = Object.freeze([
         "slug": "burnout.html",
         "title": "A letter to founders who are burning out",
         "date": "12 September 2023",
-        "minutes": 4
+        "minutes": 5
     },
     {
         "slug": "reminders.html",

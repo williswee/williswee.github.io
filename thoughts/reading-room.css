@@ -362,6 +362,20 @@ article > .article-author { margin: 20px 0 4px; color: var(--muted); font-size: 
 article > .article-author + .article-date { margin-top: 0; }
 article > .article-date { margin: 20px 0 32px; font-size: var(--font-size-ui); color: var(--muted); }
 .article-read-time { font-variant-numeric: tabular-nums; }
+.article-context-note {
+    margin: 0 0 32px;
+    padding: 20px;
+    border-inline-start: 1px solid var(--line-strong);
+    background: var(--ink);
+    color: var(--cream-soft);
+    font-size: var(--font-size-ui);
+    line-height: 1.75;
+}
+.article-context-note p { margin: 0; }
+.article-context-note .article-context-note-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; margin-bottom: 8px; }
+.article-context-note-heading strong { color: var(--cream); font-weight: 600; }
+.article-context-note-heading time { color: var(--muted); }
+
 article p { margin-bottom: 26px; }
 article figure { margin: 0 0 36px; }
 article img { display: block; width: 100%; height: auto; }
