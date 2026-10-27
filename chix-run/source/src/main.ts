@@ -7,11 +7,14 @@ import { makeWorld } from './world';
 import { createSound } from './sound';
 import { loadDisplayFont } from './display-font';
 import { touchControlLayout } from './controls';
+import { createRunPause } from './pause';
 import './style.css';
 
 const canvas = document.querySelector<HTMLCanvasElement>('#game');
 const status = document.querySelector<HTMLParagraphElement>('#status');
-if (!canvas || !status) throw new Error('The game canvas and status region are required.');
+const pauseButton = document.querySelector<HTMLButtonElement>('#pause-toggle');
+const pauseNotice = document.querySelector<HTMLElement>('#pause-notice');
+if (!canvas || !status || !pauseButton || !pauseNotice) throw new Error('The game canvas, status region and pause controls are required.');
 const W = 480;
 const H = 720;
 const PLAYER_Y = 580;
@@ -56,6 +59,13 @@ try {
   }
 } catch { /* Guidance still works when storage is unavailable. */ }
 const pointers = new Map<number, -1 | 1>();
+const runPause = createRunPause({
+  canPause: () => phase.kind === 'playing',
+  setEnginePaused: value => { k.debug.paused = value; },
+  clearInput: () => { pointers.clear(); steering = 0; },
+  onChange: () => announce(),
+  focusGame: () => { canvas.focus({ preventScroll: true }); sound.unlock(); },
+});
 type ItemKind = 'coin' | 'hazard' | 'magnet';
 type Falling = GameObj<PosComp> & {
   kind: ItemKind; width: number; hazardType: 'drone' | 'gate' | undefined;
@@ -91,15 +101,22 @@ function saveBest(value: number) {
 saveBest(best);
 
 function announce() {
-  if (!status || !canvas) return;
+  if (!status || !canvas || !pauseButton || !pauseNotice) return;
+  const paused = runPause.paused;
+  pauseButton.disabled = phase.kind !== 'playing';
+  pauseButton.textContent = paused ? 'RESUME' : 'PAUSE';
+  pauseButton.setAttribute('aria-label', paused ? 'Resume game (P)' : 'Pause game (P or Escape)');
+  pauseButton.setAttribute('aria-pressed', String(paused));
+  pauseNotice.hidden = !paused;
+  canvas.dataset.paused = String(paused);
   switch (phase.kind) {
     case 'menu':
       status.textContent = 'Chix Run. Enter to run. Move with arrows or A and D. Space or Shift to dash.';
       canvas.setAttribute('aria-label', 'Chix Run. Enter to start. Arrow keys or A and D to move. Space or Shift to dash. On touch, hold either side to move and tap the dash button.');
       break;
     case 'playing':
-      status.textContent = `Score ${phase.score}. ${phase.lives} lives. Dash ${arcade.dash.kind}.`;
-      canvas.setAttribute('aria-label', 'Chix Run. Playing. Arrow keys or A and D to move. Space or Shift to dash. On touch, hold either side to move and tap the dash button.');
+      status.textContent = paused ? `Game paused. Score ${phase.score}. ${phase.lives} lives. Use Resume or press P on the court to continue.` : `Score ${phase.score}. ${phase.lives} lives. Dash ${arcade.dash.kind}.`;
+      canvas.setAttribute('aria-label', paused ? 'Chix Run. Paused. Use Resume or press P to continue.' : 'Chix Run. Playing. Arrow keys or A and D to move. Space or Shift to dash. P or Escape to pause. On touch, hold either side to move and tap the dash button.');
       break;
     case 'gameover':
       status.textContent = `Run finished. ${phase.score} coins. Press Enter or tap Run again.`;
@@ -127,6 +144,7 @@ function dispatch(event: FlowEvent) {
 }
 
 function enter(next: Phase) {
+  runPause.reset();
   pointers.clear(); steering = 0; player = null; hud = null; items.clear();
   switch (next.kind) {
     case 'menu': k.go('menu'); break;
@@ -206,7 +224,7 @@ k.scene('menu', () => {
 });
 
 function dash() {
-  if (phase.kind !== 'playing') return;
+  if (phase.kind !== 'playing' || runPause.paused) return;
   const next = triggerDash(arcade);
   if (next === arcade) return;
   learn('dash');
@@ -400,7 +418,7 @@ k.scene('gameover', (final: Extract<Phase, { kind: 'gameover' }>) => {
 
 function gameKeyboardActive(): boolean {
   const active = document.activeElement;
-  return active === canvas || active === document.body || active === document.documentElement;
+  return !runPause.paused && (active === canvas || active === document.body || active === document.documentElement);
 }
 
 function logicalPoint(event: PointerEvent) {
@@ -412,6 +430,7 @@ canvas.addEventListener('pointerdown', (event) => {
   inputMode = 'pointer';
   refreshControls();
   event.preventDefault(); canvas.focus({ preventScroll: true }); sound.unlock();
+  if (runPause.paused) return;
   const point = logicalPoint(event);
   if (phase.kind !== 'playing') {
     if (point.x >= 40 && point.x <= 440 && point.y >= 534 && point.y <= 596) {
@@ -432,8 +451,31 @@ for (const name of ['pointerup', 'pointercancel', 'lostpointercapture'] as const
   if (name === 'pointerup' && event.isTrusted) sound.unlock();
 });
 canvas.addEventListener('touchend', event => { if (event.isTrusted) sound.unlock(); }, { passive: true });
-window.addEventListener('blur', () => pointers.clear());
-document.addEventListener('visibilitychange', () => pointers.clear());
+canvas.addEventListener('blur', () => runPause.pause());
+window.addEventListener('blur', () => { pointers.clear(); runPause.pause(); });
+document.addEventListener('visibilitychange', () => {
+  pointers.clear();
+  if (document.hidden) runPause.pause();
+});
+// Remember the requested action before pointer focus moves off the court and pauses it.
+let pointerRequestedPause = false;
+pauseButton.addEventListener('pointerdown', () => { pointerRequestedPause = !runPause.paused; });
+pauseButton.addEventListener('pointercancel', () => { pointerRequestedPause = false; });
+pauseButton.addEventListener('click', event => {
+  if (event.detail > 0 && pointerRequestedPause) runPause.pause();
+  else runPause.toggle();
+  pointerRequestedPause = false;
+});
+document.addEventListener('keydown', event => {
+  const target = document.activeElement;
+  const onCourt = target === canvas || target === document.body || target === document.documentElement;
+  if (event.repeat || event.altKey || event.ctrlKey || event.metaKey || (!onCourt && target !== pauseButton)) return;
+  if (event.key.toLowerCase() === 'p' || event.key === 'Escape') {
+    event.preventDefault();
+    if (event.key === 'Escape') runPause.pause();
+    else runPause.toggle();
+  }
+});
 canvas.addEventListener('contextmenu', event => event.preventDefault());
 canvas.addEventListener('keydown', event => { if (['ArrowLeft', 'ArrowRight', ' ', 'Enter', 'Shift'].includes(event.key)) event.preventDefault(); });
 document.addEventListener('keydown', event => {
@@ -457,6 +499,6 @@ if (import.meta.env.DEV) Object.defineProperty(window, '__chixRun', { value: Obj
   arcade: { ...arcade, dash: { ...arcade.dash } }, run, hits, coins, elapsed, dashes, smashes, nearMisses, magnets, best, level: level(),
   guidance: { inputMode, active: runGuidance(), learned: [...learnedLessons] },
   controls: touchControls ? { ...touchControls, left: { ...touchControls.left }, dash: { ...touchControls.dash }, right: { ...touchControls.right } } : null,
-  steering,
+  steering, paused: runPause.paused,
 }) }), writable: false, configurable: true });
 k.onLoad(() => { announce(); enter(phase); });

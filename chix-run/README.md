@@ -26,7 +26,9 @@ Remove obsolete generated assets from `chix-run/assets/` when a rebuild changes 
 
 ## Mobile controls and sound
 
-Pointer input uses large KAPLAY Left, Dash and Right controls with shared drawing/hit geometry and hold feedback. Buttons adapt to the rendered court; short touch viewports compact the shell. Keyboard controls remain available.
+Pointer input uses large KAPLAY Left, Dash and Right controls with shared drawing/hit geometry and hold feedback. Buttons adapt to the rendered court; short touch viewports compact the shell. Keyboard controls remain available. The header has a Pause/Resume button; P toggles pause while the court or pause button has focus, and Escape pauses. Moving focus away from the court, switching tabs or leaving the window pauses an active run. Returning never resumes it automatically: use Resume or press P on the court. Pausing preserves the scene, score, lives and gameplay timers.
+
+With JavaScript disabled, the court explains how to enable gameplay and links to its video on Play.
 
 Audio unlocks on trusted touch/pointer release and retries on subsequent gestures. Safari’s optional playback routing supports enabled sound with the silent switch; unmuting plays a short confirmation. All audio is synthesized locally.
 
