@@ -1,0 +1,29 @@
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -103,7 +103,7 @@
+     window.addEventListener('keydown', onKey); return () => window.removeEventListener('keydown', onKey)
+   }, [])
+   return <div className={`studio-shell ${compact && inspectorOpen ? 'is-inspector-open' : ''}`}>
+-    <header className="header"><div className="brand">Floor plan studio</div><div className="header-right"><Button className="mobile-layout-toggle" variant="outline" aria-label={inspectorOpen ? 'Back to floorplan' : 'Layout and materials'} aria-expanded={inspectorOpen} aria-controls="layout-sidebar" onClick={() => { if (inspectorOpen) showPlan(); else { setInspectorOpen(true); requestAnimationFrame(() => document.getElementById('layout-select')?.focus({ preventScroll: true })) } }}>{inspectorOpen ? <ChevronLeft size={16} /> : <SlidersHorizontal size={16} />}{inspectorOpen ? 'Back' : 'Layout'}</Button><span className="local-badge"><span /> Local workspace</span><div className="divider" /><Button variant="ghost" size="icon" aria-label="Undo" title="Undo (⌘Z)" onClick={s.undo} disabled={!s.history.length}><Undo2 size={18} /></Button><Help /></div></header>
++    <header className="header"><div className="header-identity"><div className="brand">Floor plan studio</div><a className="app-return-link" href="/play"><ChevronLeft size={15} aria-hidden="true" />Back to Play</a></div><div className="header-right"><Button className="mobile-layout-toggle" variant="outline" aria-label={inspectorOpen ? 'Back to floorplan' : 'Layout and materials'} aria-expanded={inspectorOpen} aria-controls="layout-sidebar" onClick={() => { if (inspectorOpen) showPlan(); else { setInspectorOpen(true); requestAnimationFrame(() => document.getElementById('layout-select')?.focus({ preventScroll: true })) } }}>{inspectorOpen ? <ChevronLeft size={16} /> : <SlidersHorizontal size={16} />}{inspectorOpen ? 'Back' : 'Layout'}</Button><span className="local-badge"><span /> Local workspace</span><div className="divider" /><Button variant="ghost" size="icon" aria-label="Undo" title="Undo (⌘Z)" onClick={s.undo} disabled={!s.history.length}><Undo2 size={18} /></Button><Help /></div></header>
+     <ViewportRecorder />
+     <main className="workspace">
+       <aside id="layout-sidebar" className="sidebar" aria-label="Layout and design controls"><div className="project-heading"><h1>{layoutDocument.name}</h1><p>{layoutDocument.description}</p><LayoutControls onSelect={showPlan} /><CommentsPanel layoutId={s.activeLayoutId} onShowPlan={showPlan} /></div>
+--- a/src/App.css
++++ b/src/App.css
+@@ -332,3 +332,15 @@
+   .statusbar>div{display:none}
+   .statusbar>span{max-width:100%}
+ }
++
++/* Keep a visible route back to the site beside the app identity. */
++.header-identity{display:flex;align-items:center;gap:24px;min-width:0}
++.app-return-link{display:inline-flex;align-items:center;gap:4px;min-height:44px;padding:4px 0;color:var(--studio-muted);font-size:12px;font-weight:500;line-height:1.4;white-space:nowrap;text-decoration:none}
++.app-return-link:hover{color:var(--studio-ink);text-decoration:underline;text-underline-offset:3px}
++.app-return-link svg{flex-shrink:0}
++@media(max-width:700px){
++  .header-identity{flex-direction:column;align-items:flex-start;gap:0}
++  .header-identity .brand{white-space:nowrap}
++  .app-return-link{min-height:24px;padding:2px 0}
++}
++@media(max-width:350px){.header-identity .brand{font-size:16px}}

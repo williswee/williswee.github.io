@@ -1,0 +1,73 @@
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -10,6 +10,7 @@
+   Activity,
+   ArrowUpRight,
+   ChevronDown,
++  ChevronLeft,
+   ChevronUp,
+   CircleHelp,
+   Crosshair,
+@@ -718,6 +719,7 @@
+         />
+       </div>
+       <header className="app-header">
++        <div className="header-identity">
+         <a
+           href={import.meta.env.BASE_URL}
+           className="wordmark"
+@@ -730,6 +732,11 @@
+             Orbit <span>Watch</span>
+           </h1>
+         </a>
++        <a className="app-return-link" href="/play">
++          <ChevronLeft size={15} aria-hidden="true" />
++          Back to Play
++        </a>
++        </div>
+         <div className="header-clocks">
+           <div>
+             <span>UTC</span>
+--- a/src/App.css
++++ b/src/App.css
+@@ -2282,3 +2282,40 @@
+     margin: 0 4px;
+   }
+ }
++
++/* The return route stays visible without taking space from globe controls. */
++.header-identity {
++  display: flex;
++  align-items: center;
++  gap: 24px;
++}
++.app-return-link {
++  display: inline-flex;
++  align-items: center;
++  gap: 4px;
++  min-height: 44px;
++  padding: 4px 0;
++  color: var(--muted);
++  font-size: 12px;
++  font-weight: 500;
++  line-height: 1.4;
++  white-space: nowrap;
++  pointer-events: auto;
++}
++.app-return-link:hover {
++  color: var(--foreground);
++  text-decoration: underline;
++  text-underline-offset: 3px;
++}
++.app-return-link svg { flex-shrink: 0; }
++@media (max-width: 760px) {
++  .header-identity {
++    flex-direction: column;
++    align-items: flex-start;
++    gap: 0;
++  }
++  .ui-input,
++  .quake-browser .ui-input {
++    font-size: 16px;
++  }
++}

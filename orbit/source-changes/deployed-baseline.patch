@@ -1,0 +1,20 @@
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -1031,8 +1031,7 @@
+           </div>
+         </div>
+       </aside>
+-      {selection.kind !== "none" && (
+-        <Card className="detail-card" aria-label="Selected object details">
++      <Card className="detail-card" aria-label="Selected object details">
+           <div className="detail-topline">
+             <button
+               onClick={() => {
+@@ -1046,7 +1045,6 @@
+           </div>
+           {detail()}
+         </Card>
+-      )}
+       <div className="globe-caption">
+         <span className="caption-earth" aria-hidden="true">
+           🌏
