@@ -2,7 +2,6 @@
     document.documentElement.classList.add('js-ready');
 
     const scenes = Array.from(document.querySelectorAll('.game-scene'));
-    const navLinks = Array.from(document.querySelectorAll('.chapter-nav a'));
     const root = document.documentElement;
 
     const statusBadge = document.getElementById('status-badge');
@@ -67,10 +66,6 @@
         if (scene === activeScene) return;
         activeScene = scene;
         scenes.forEach(item => item.classList.toggle('is-current', item === scene));
-        navLinks.forEach(link => {
-            if (link.dataset.level === scene.id) link.setAttribute('aria-current', 'location');
-            else link.removeAttribute('aria-current');
-        });
     }
 
     let frameRequested = false;

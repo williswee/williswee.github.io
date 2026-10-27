@@ -25,14 +25,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="reading-room.css?v=1.26">
-    <link rel="stylesheet" href="/site-navigation.css?v=6">
+    <link rel="stylesheet" href="reading-room.css?v=1.27">
+    <link rel="stylesheet" href="/site-navigation.css?v=7">
     <script src="/site-navigation.js?v=1" defer></script>
     <link rel="icon" type="image/png" href="../avatar.png">
 
     <script src="newsletter.js?v=4" defer></script>
     <noscript><style>iframe[data-newsletter-src] { display: none; }</style></noscript>
-    <script src="reading-room.js?v=1.6" defer></script>
+    <script src="reading-room.js?v=1.7" defer></script>
     <script src="../site-analytics.js?v=2" defer></script>
     <script src="https://www.useinflect.ai/inflect-tracking.js" async data-tracking-key="inf_bWe3IXqMv5LxpnXkr-dLkOJpf14UfKm7" data-inflect-install-version="2026-08-12.1"></script>
     <script type="application/ld+json" id="structured-data">
@@ -392,8 +392,29 @@
                 <p>Essays about being a dad, husband, and builder.</p>
                 <a class="text-link" href="#newsletter">Subscribe to new essays <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 3v13M5 11l5 5 5-5"/></svg></a>
             </div>
-            <section class="founder-reading" aria-labelledby="founder-reading-title">
-                <h2 id="founder-reading-title">Start here for founders</h2>
+            <div class="archive-controls">
+            <div class="essay-search-tools" id="essay-search-tools" hidden>
+                <label for="essay-search">Find an essay</label>
+                <div class="essay-search-field">
+                    <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg>
+                    <input id="essay-search" type="search" placeholder="Try a title or year" aria-controls="thoughts-archive-container" autocomplete="off">
+                    <button id="essay-search-clear" type="button" aria-label="Clear essay search" hidden>
+                        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5 5 10 10M15 5 5 15"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="thoughts-header-bar">
+                <span class="thoughts-count-label" id="thoughts-count-label" role="status" aria-live="polite" aria-atomic="true">49 essays</span>
+                <button class="random-pick-btn" id="random-thought-btn" type="button" hidden aria-label="Open a random essay">
+                    <span class="random-pick-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16"/><path d="M8 8h2v2H8zm6 6h2v2h-2z" fill="currentColor" stroke="none"/></svg></span>
+                    <span>Random pick</span>
+                </button>
+            </div>
+
+            </div>
+
+            <details class="founder-reading">
+                <summary><h2 id="founder-reading-title">Start here for founders</h2> <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5 7 5 5 5-5"/></svg></summary>
                 <p>Three essays on understanding customers, building products, and leading people.</p>
                 <ul class="founder-reading-list">
                     <li>
@@ -421,28 +442,7 @@
                         </a>
                     </li>
                 </ul>
-            </section>
-
-            <div class="archive-controls">
-            <div class="essay-search-tools" id="essay-search-tools" hidden>
-                <label for="essay-search">Find an essay</label>
-                <div class="essay-search-field">
-                    <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg>
-                    <input id="essay-search" type="search" placeholder="Try a title or year" aria-controls="thoughts-archive-container" autocomplete="off">
-                    <button id="essay-search-clear" type="button" aria-label="Clear essay search" hidden>
-                        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5 5 10 10M15 5 5 15"/></svg>
-                    </button>
-                </div>
-            </div>
-            <div class="thoughts-header-bar">
-                <span class="thoughts-count-label" id="thoughts-count-label" role="status" aria-live="polite" aria-atomic="true">49 essays</span>
-                <button class="random-pick-btn" id="random-thought-btn" type="button" hidden aria-label="Open a random essay">
-                    <span class="random-pick-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16"/><path d="M8 8h2v2H8zm6 6h2v2h-2z" fill="currentColor" stroke="none"/></svg></span>
-                    <span>Random pick</span>
-                </button>
-            </div>
-
-            </div>
+            </details>
 
             <div class="essay-search-empty" id="essay-search-empty" hidden>
                 <h2>No essays found.</h2>

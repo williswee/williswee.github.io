@@ -18,16 +18,10 @@ function fixture({ tops = [0, 1000, 2000, 3000, 4000, 5000], y = 0, height = 844
         classList: { toggle: (_name, value) => { scenes[index].current = value; } },
         getBoundingClientRect: () => ({ top: tops[index] - window.scrollY }),
     }));
-    const links = scenes.map(scene => ({
-        dataset: { level: scene.id },
-        addEventListener() {},
-        setAttribute: function (name, value) { this[name] = value; },
-        removeAttribute: function (name) { delete this[name]; },
-    }));
     const root = { classList: { add() {} }, style: { setProperty: (key, value) => properties.set(key, value) }, scrollHeight: tops.at(-1) + 1000 };
     const document = {
         documentElement: root,
-        querySelectorAll: selector => selector === '.game-scene' ? scenes : links,
+        querySelectorAll: selector => selector === '.game-scene' ? scenes : [],
         querySelector: () => ({ getBoundingClientRect: () => ({ bottom: header }) }),
         getElementById: () => null,
     };
@@ -47,8 +41,7 @@ function fixture({ tops = [0, 1000, 2000, 3000, 4000, 5000], y = 0, height = 844
     vm.runInNewContext(source, { document, window, history });
     function flush() { while (frames.length) frames.shift()(); }
     return {
-        scenes, links, tops, window, root, properties, frames, historyCalls, flush,
-        active: () => links.find(link => link['aria-current'] === 'location')?.dataset.level,
+        scenes, tops, window, root, properties, frames, historyCalls, flush,
         emit: (event, detail = {}) => { listeners.get(event)(detail); flush(); },
         scroll: position => { window.scrollY = position; listeners.get('scroll')(); flush(); },
         resize: () => { resizeCallback(); flush(); },
@@ -57,15 +50,12 @@ function fixture({ tops = [0, 1000, 2000, 3000, 4000, 5000], y = 0, height = 844
 }
 
 function assertCurrent(f, id) {
-    assert.equal(f.active(), id);
     assert.deepEqual(f.scenes.filter(scene => scene.current).map(scene => scene.id), [id]);
-    assert.deepEqual(f.links.filter(link => link['aria-current']).map(link => link.dataset.level), [id]);
 }
 
-test('home starts on the first of six scenes with exactly one current scene and link', () => {
+test('home starts on the first of six scenes with exactly one current scene', () => {
     const f = fixture();
     assert.equal(f.scenes.length, 6);
-    assert.equal(f.links.length, 6);
     assertCurrent(f, 'base-camp');
 });
 

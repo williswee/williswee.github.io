@@ -95,7 +95,7 @@ export function normalizeNavigation(html, pagePath) {
     const lastStyle = styleLinks.at(-1);
     if (!lastStyle) throw new Error(`${pagePath}: stylesheet not found`);
     const styleEnd = lastStyle.index + lastStyle[0].length;
-    result = result.slice(0, styleEnd) + '\n    <link rel="stylesheet" href="/site-navigation.css?v=6">\n    <script src="/site-navigation.js?v=1" defer></script>' + result.slice(styleEnd);
+    result = result.slice(0, styleEnd) + '\n    <link rel="stylesheet" href="/site-navigation.css?v=7">\n    <script src="/site-navigation.js?v=1" defer></script>' + result.slice(styleEnd);
 
     // Normalize only homepage/archive aliases; keep authored URLs and all hashes.
     result = result.replace(/<a\b[^>]*\bhref="([^"]*)"[^>]*>[\s\S]*?<\/a>/g, (anchor, href) => {

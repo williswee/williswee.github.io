@@ -164,9 +164,15 @@ p { margin: 0 0 24px; color: var(--cream-soft); }
 .archive-intro { padding: 0 0 22px; }
 .archive-intro p { margin: 20px 0 10px; max-width: 36ch; }
 
-/* Three authored starting points, separate from the searchable archive. */
-.founder-reading { margin: 8px 0 28px; padding: 28px 0 0; border-block: 1px solid var(--line); }
-.founder-reading h2 { font-size: 1.6rem; }
+/* Optional starting points keep the search and recent essays easy to reach. */
+.founder-reading { margin: 8px 0 0; border-block: 1px solid var(--line); }
+.founder-reading > summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; padding: 12px 0; color: var(--cream); font-weight: 600; cursor: pointer; list-style: none; }
+.founder-reading > summary h2 { font: inherit; letter-spacing: normal; text-wrap: pretty; }
+.founder-reading > summary::-webkit-details-marker { display: none; }
+.founder-reading > summary svg { flex: 0 0 20px; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.founder-reading[open] > summary svg { transform: rotate(180deg); }
+.founder-reading > summary:is(:hover, :focus-visible) { color: var(--gold); }
+.founder-reading > summary:focus-visible { outline-offset: 4px; }
 .founder-reading > p { margin: 16px 0 8px; max-width: 60ch; }
 .founder-reading-list { margin: 0; padding: 0; list-style: none; }
 .founder-reading-list > li + li { border-top: 1px solid var(--line); }
@@ -195,8 +201,6 @@ p { margin: 0 0 24px; color: var(--cream-soft); }
 .related-reading ul { margin: 0; padding: 0; list-style: none; }
 .related-reading a { display: inline-flex; align-items: center; min-height: 44px; font-size: 1rem; line-height: 1.65; text-decoration-color: var(--gold); }
 @media (max-width: 760px) {
-    .founder-reading { margin-bottom: 24px; padding-top: 24px; }
-    .founder-reading h2 { font-size: 1.375rem; }
     .founder-reading-link { column-gap: 12px; }
     .founder-reading-link h3 { font-size: 1.125rem; }
     .founder-reading-link::before { left: -12px; }
@@ -211,7 +215,7 @@ p { margin: 0 0 24px; color: var(--cream-soft); }
 .essay-search-field:focus-within { border-color: var(--gold); }
 .essay-search-field:has(input:focus-visible) { outline: 3px solid var(--gold); outline-offset: 3px; }
 .essay-search-field > svg { flex: 0 0 18px; width: 18px; height: 18px; fill: none; stroke: var(--muted); stroke-width: 1.5; }
-.essay-search-field input { flex: 1 1 auto; width: 100%; min-width: 0; min-height: 46px; padding: 10px 12px 10px 0; border: 0; border-radius: 0; color: var(--cream); background: transparent; font: 400 var(--font-size-ui)/1.6 var(--font-body); }
+.essay-search-field input { flex: 1 1 auto; width: 100%; min-width: 0; min-height: 46px; padding: 10px 12px 10px 0; border: 0; border-radius: 0; color: var(--cream); background: transparent; font: 400 1rem/1.6 var(--font-body); }
 .essay-search-field input::placeholder { color: var(--muted); opacity: 1; }
 .essay-search-field input:focus-visible { outline: none; }
 .essay-search-field input::-webkit-search-cancel-button { -webkit-appearance: none; }

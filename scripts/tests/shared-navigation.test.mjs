@@ -93,37 +93,36 @@ function visibleText(html) {
 }
 
 function homeScenes() {
-    return [...read('index.html').matchAll(/<section\b([^>]*)>([\s\S]*?)<\/section>/g)]
-        .filter(([, attributes]) => (attribute(attributes, 'class') ?? '').split(/\s+/).includes('game-scene'))
-        .map(([, attributes, content]) => ({ id: attribute(attributes, 'id'), content }));
+    const home = read('index.html');
+    const scenes = [...home.matchAll(/<section\b([^>]*)>/g)]
+        .filter(([, attributes]) => (attribute(attributes, 'class') ?? '').split(/\s+/).includes('game-scene'));
+    return scenes.map((scene, index) => ({
+        id: attribute(scene[1], 'id'),
+        // A scene can contain nested sections, including the newsletter.
+        content: home.slice(scene.index + scene[0].length, scenes[index + 1]?.index ?? home.indexOf('</main>')),
+    }));
 }
 
 function nextChapter(scene) {
     const links = [...scene.content.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
         .filter(([, attributes]) => (attribute(attributes, 'class') ?? '').split(/\s+/).includes('next-chapter'));
     assert.equal(links.length, 1, `${scene.id}: expected one next-chapter link`);
+    assert.equal(attribute(links[0][1], 'target'), undefined, `${scene.id}: native same-document navigation`);
     return attribute(links[0][1], 'href');
 }
 
-test('the homepage has six same-document chapter links matching six real sections in order', () => {
-    const links = navigation('index.html', 'chapter-nav');
+test('the homepage retains six scenes and native onward links without a duplicate page menu', () => {
+    const scenes = homeScenes();
     const ids = ['base-camp', 'workshop', 'coaching', 'archive', 'life', 'terminal'];
-    assert.deepEqual(links.map(link => link.label), ['Start', 'Work', 'Coaching', 'Notes', 'Life', 'Connect']);
-    assert.deepEqual(links.map(link => link.href), ids.map(id => `#${id}`));
-    assert.deepEqual(homeScenes().map(scene => scene.id), ids);
-    for (const [index, link] of links.entries()) {
-        assert.equal(attribute(link.attributes, 'data-level'), ids[index], link.label);
-        assert.equal(attribute(link.attributes, 'target'), undefined, `${link.label}: native same-document navigation`);
+    assert.deepEqual(scenes.map(scene => scene.id), ids);
+    for (const [index, scene] of scenes.slice(0, -1).entries()) {
+        assert.equal(nextChapter(scene), `#${ids[index + 1]}`);
     }
-    assert.deepEqual(links.filter(link => link.current !== undefined)
-        .map(link => [link.label, link.current]), [['Start', 'location']]);
-    const home = read('index.html');
-    const header = home.match(/<header\b[^>]*>([\s\S]*?)<\/header>/)?.[1];
-    assert.doesNotMatch(header ?? '', /chapter-nav/, 'scene links belong in the page content');
-    const localNavigation = homeScenes()[0].content.match(/<details\b[^>]*class="home-page-nav"[^>]*>([\s\S]*?)<\/details>/)?.[1];
-    assert.ok(localNavigation, 'the first scene owns its local navigation');
-    assert.equal(visibleText(localNavigation.match(/<summary[^>]*>([\s\S]*?)<\/summary>/)?.[1] ?? ''), 'On this page');
-    assert.match(localNavigation, /<nav class="chapter-nav" aria-label="On this page">/);
+    const returnLink = scenes.at(-1).content.match(/<a\b([^>]*class="return-link"[^>]*)>/);
+    assert.ok(returnLink, 'Connect keeps its return to the beginning');
+    assert.equal(attribute(returnLink[1], 'href'), '#base-camp');
+    assert.equal(attribute(returnLink[1], 'target'), undefined);
+    assert.doesNotMatch(read('index.html'), /home-page-nav|chapter-nav|On this page/);
 });
 
 test('the Coaching chapter preserves the approved invitation and links onward to Notes and the full service page', () => {

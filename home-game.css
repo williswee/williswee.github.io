@@ -126,52 +126,6 @@ main:focus { outline: none; }
 
 .brand-short { display: none; }
 
-.chapter-nav {
-    display: flex;
-    /* Export the menu text baseline to the header's shared baseline row. */
-    align-self: baseline;
-    height: 100%;
-    gap: clamp(18px, 2.8vw, 44px);
-    min-width: 0;
-    overflow-x: auto;
-    scrollbar-width: thin;
-}
-
-.chapter-nav a {
-    flex: 0 0 auto;
-    position: relative;
-    display: grid;
-    place-items: center;
-    min-width: 52px;
-    color: #b9c0c7;
-    font-size: var(--font-size-ui);
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-    transition: color 180ms ease-out;
-}
-
-.chapter-nav a::after {
-    position: absolute;
-    right: 0;
-    bottom: -1px;
-    left: 0;
-    height: 2px;
-    content: "";
-    background: var(--gold);
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 220ms cubic-bezier(.16, 1, .3, 1);
-}
-
-.chapter-nav a:focus-visible { outline-offset: -4px; }
-
-.chapter-nav a:hover,
-.chapter-nav a[aria-current="page"] { color: var(--cream); }
-.chapter-nav a:hover::after { transform: scaleX(.4); }
-
-.chapter-nav a[aria-current="page"]::after { transform: scaleX(1); }
-
 .scroll-progress {
     position: absolute;
     right: 0;
@@ -680,6 +634,9 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     font-size: var(--font-size-ui);
 }
 
+/* Let scrolling settle on the directory after the final scene. */
+.home-footer { scroll-snap-align: end; }
+
 .tracking-pixel {
     position: absolute;
     width: 1px;
@@ -746,18 +703,6 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     }
     .site-brand > span { font-size: 0.74rem; }
     .site-brand small { font-size: 0.875rem; }
-
-    .chapter-nav {
-        justify-content: safe flex-end;
-        gap: 0;
-    }
-
-    .chapter-nav a {
-        min-width: 44px;
-        padding-inline: 4px;
-        font-size: 0.75rem;
-        letter-spacing: 0.02em;
-    }
 
     .game-scene {
         min-height: 0;
@@ -866,12 +811,6 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     .site-hud { column-gap: 8px; }
     .site-brand { gap: 4px; }
     .site-brand > span { font-size: 0.68rem; }
-    .chapter-nav a {
-        min-width: 36px;
-        padding-inline: 3px;
-        font-size: 0.6875rem;
-    }
-
     /* Keep every full status on one line without shrinking text. Natural
        wrapping remains available when readers enlarge their text. */
     .status-prefix { display: none; }
@@ -882,12 +821,12 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     .scene-art { transform: none; transition: none; }
     .js-ready .game-scene .story-panel { opacity: 1; transform: none; transition: none; }
     .status-shuffle { transform: none; }
-    .status-shuffle, .chapter-nav a::after,
+    .status-shuffle,
     .next-chapter svg, .work-list svg, .archive-list svg, .contact-list svg { transition: none; }
     .next-chapter:is(:hover, :focus-visible) svg,
     .work-list > a:is(:hover, :focus-visible) svg,
     .archive-list a:is(:hover, :focus-visible) > svg,
     .contact-list a:is(:hover, :focus-visible) > svg { transform: none; }
-    .status-badge, .chapter-nav a, .next-chapter,
+    .status-badge, .next-chapter,
     .work-list > a, .archive-list a, .contact-list a { transition-duration: 120ms; }
 }

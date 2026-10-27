@@ -19,15 +19,27 @@ function readerFixture({ href = 'http://localhost:4173/thoughts/freedom.html?rea
     let resizeCallback;
     let fontsReady;
     let selected = '';
+    let selectionDetails = {};
+    let quoteDock;
+    const positioningParent = {
+        clientTop: 1, clientLeft: 1, scrollTop: 0, scrollLeft: 0,
+        getBoundingClientRect: () => ({ top: 100, left: 80 })
+    };
+    const dispatch = (type, event) => (documentEvents.get(type) || []).forEach(handler => handler(event));
     function element() {
         const events = new Map();
+        const attributes = new Map();
         return {
             events, style: {}, hidden: false, offsetWidth: 240, offsetHeight: 60,
             children: [],
             append(...nodes) { this.children.push(...nodes); },
             classList: { add() {}, remove() {} },
-            setAttribute() {}, removeAttribute() {}, hasAttribute: () => false,
-            querySelectorAll: () => [], querySelector: () => null, matches: () => false, contains: () => false,
+            setAttribute(name, value) { attributes.set(name, value); },
+            removeAttribute(name) { attributes.delete(name); if (name === 'tabindex') delete this.tabIndex; },
+            hasAttribute: name => attributes.has(name),
+            focus(options) { document.activeElement = this; this.focusOptions = options; dispatch('focusin', { target: this }); },
+            querySelectorAll: () => [], querySelector: () => null, matches: () => false,
+            contains(node) { return node === this || this.children.includes(node) || Boolean(this.innerHTML && [copy, share].includes(node)); },
             addEventListener: (type, handler, capture) => events.set(type, { handler, capture })
         };
     }
@@ -38,9 +50,14 @@ function readerFixture({ href = 'http://localhost:4173/thoughts/freedom.html?rea
     const header = element();
     header.getBoundingClientRect = () => ({ height: headerSize });
     const article = element();
-    article.contains = () => true;
+    Object.assign(article, { nodeType: 1, tagName: 'ARTICLE', closest: () => null });
+    article.contains = node => node === article || node === origin || node === lastOrigin;
+    article.querySelectorAll = selector => selector === 'p, li, blockquote, h2, h3, pre' ? [origin, lastOrigin] : [];
     article.getBoundingClientRect = () => ({ top, height, bottom: top + height });
-    article.after = node => { continuations.push(node); continuationAnchors.push('article'); };
+    article.after = node => {
+        if (node.className === 'essay-continuation') { continuations.push(node); continuationAnchors.push('article'); }
+        else quoteDock = node;
+    };
     if (relatedReading) article.nextElementSibling = {
         classList: { contains: name => name === 'related-reading' },
         after: node => { continuations.push(node); continuationAnchors.push('related-reading'); }
@@ -48,7 +65,14 @@ function readerFixture({ href = 'http://localhost:4173/thoughts/freedom.html?rea
     const date = element();
     date.textContent = '25 August 2026';
     article.querySelector = selector => selector === '.article-date' ? date : null;
-    const origin = { nodeType: 1, closest: () => origin, isConnected: true };
+    const origin = element();
+    Object.assign(origin, { nodeType: 1, tagName: 'P', closest: () => origin, isConnected: true,
+        after(node) { quoteDock = node; node.previousElementSibling = this; node.offsetParent = positioningParent; }
+    });
+    const lastOrigin = element();
+    Object.assign(lastOrigin, { nodeType: 1, tagName: 'P', closest: () => lastOrigin, isConnected: true,
+        after(node) { quoteDock = node; node.previousElementSibling = this; node.offsetParent = positioningParent; }
+    });
     const document = {
         documentElement: { scrollHeight: 5000 },
         body: { append: node => elements.push(node) },
@@ -61,7 +85,7 @@ function readerFixture({ href = 'http://localhost:4173/thoughts/freedom.html?rea
             node.querySelector = selector => selector === '#quote-copy-btn' ? copy : share;
             return node;
         },
-        addEventListener: (type, handler) => documentEvents.set(type, handler),
+        addEventListener: (type, handler) => documentEvents.set(type, [...(documentEvents.get(type) || []), handler]),
         fonts: { ready: { then: callback => { fontsReady = callback; } } }
     };
     class ResizeObserver {
@@ -76,7 +100,13 @@ function readerFixture({ href = 'http://localhost:4173/thoughts/freedom.html?rea
             addEventListener: (type, handler) => windowEvents.set(type, handler),
             getSelection: () => ({
                 toString: () => selected, rangeCount: selected ? 1 : 0,
-                getRangeAt: () => ({ commonAncestorContainer: origin, getBoundingClientRect: () => ({ left: 40, top: 200, bottom: 230, width: 200, height: 30 }) })
+                getRangeAt: () => ({
+                    commonAncestorContainer: selectionDetails.ancestor || origin,
+                    startContainer: selectionDetails.start || origin,
+                    intersectsNode: node => (selectionDetails.passages || [origin]).includes(node),
+                    getBoundingClientRect: () => ({ left: 40, top: 200, bottom: 230, width: 200, height: 30 })
+                }),
+                removeAllRanges: () => { selected = ''; }
             }),
             ...(resizeObserver ? { ResizeObserver } : {})
         },
@@ -86,10 +116,19 @@ function readerFixture({ href = 'http://localhost:4173/thoughts/freedom.html?rea
         fetch: () => Promise.reject(new Error('offline fixture')),
         navigator: { clipboard: { writeText: async text => clipboard.push(text) } }
     };
+    document.activeElement = document.body;
     vm.runInNewContext(source, sandbox);
     const progress = elements.find(node => node.id === 'reading-progress-bar');
     return {
-        article, header, observed, frames, clipboard, location, share, label, document, date,
+        article, header, observed, frames, clipboard, location, share, label, document, date, origin, lastOrigin,
+        dock: () => quoteDock || elements.find(node => node.id === 'quote-action-dock'),
+        focus: target => target.focus(),
+        copyButton: copy,
+        key(key, modifiers = {}) {
+            const event = { key, ...modifiers, defaultPrevented: false, preventDefault() { this.defaultPrevented = true; } };
+            dispatch('keydown', event);
+            return event;
+        },
         continuation: () => continuations[0],
         continuationAnchor: () => continuationAnchors[0],
         progress: () => parseFloat(progress.style.width),
@@ -98,7 +137,7 @@ function readerFixture({ href = 'http://localhost:4173/thoughts/freedom.html?rea
         frame: () => frames.splice(0).forEach(callback => callback()),
         resize: () => resizeCallback(),
         fontLoad: () => fontsReady(),
-        select: text => { selected = text; documentEvents.get('mouseup')(); },
+        select: (text, details = {}) => { selected = text; selectionDetails = details; dispatch('mouseup'); },
         copy: () => copy.events.get('click').handler()
     };
 }
@@ -187,6 +226,97 @@ test('quote links remain clean if the active hash changes before copying', async
     f.location.search = '?reading=99';
     await f.copy();
     assert.ok(f.clipboard[0].endsWith('\nhttp://localhost:4173/thoughts/freedom.html'));
+});
+
+test('a selected passage keeps focus in place until plain Tab enters its adjacent quote actions', () => {
+    const f = readerFixture();
+    f.select('A meaningful thought worth sharing.');
+    assert.equal(f.document.activeElement, f.document.body, 'selection must not move focus');
+    assert.equal(f.dock().previousElementSibling, f.origin, 'toolbar belongs beside its passage in DOM order');
+    assert.equal(f.key('Tab', { shiftKey: true }).defaultPrevented, false);
+    assert.equal(f.key('Tab').defaultPrevented, true);
+    assert.equal(f.document.activeElement, f.copyButton);
+    assert.equal(f.copyButton.focusOptions.preventScroll, true);
+    assert.equal(f.key('Tab').defaultPrevented, false, 'Tab within the toolbar follows its normal controls');
+});
+
+test('Escape from quote actions restores the passage and clears the selection', () => {
+    const f = readerFixture();
+    f.select('A selected passage.');
+    f.key('Tab');
+    f.key('Escape');
+    assert.equal(f.document.activeElement, f.origin);
+    assert.equal(f.origin.focusOptions.preventScroll, true);
+    assert.equal(f.dock().hidden, true);
+    assert.equal(f.key('Tab').defaultPrevented, false);
+});
+
+test('a paragraph boundary selection uses its start passage when the common ancestor is the article', () => {
+    const f = readerFixture();
+    f.select('A whole paragraph selected with its ending boundary.', {
+        ancestor: f.article, start: { nodeType: 3, parentElement: f.origin }, passages: [f.origin]
+    });
+    assert.equal(f.dock().previousElementSibling, f.origin);
+    f.key('Tab');
+    f.key('Escape');
+    assert.equal(f.document.activeElement, f.origin);
+});
+
+test('a multi-paragraph quote places actions beyond its final passage and returns to its start', async () => {
+    const f = readerFixture();
+    const text = 'First selected paragraph.\nSecond selected paragraph.';
+    f.select(text, {
+        ancestor: f.article, start: { nodeType: 3, parentElement: f.origin }, passages: [f.origin, f.lastOrigin]
+    });
+    assert.equal(f.dock().previousElementSibling, f.lastOrigin, 'keep controls outside the selected range');
+    f.key('Tab');
+    await f.copy();
+    assert.ok(f.clipboard[0].startsWith(`“${text}”`));
+    f.key('Escape');
+    assert.equal(f.document.activeElement, f.origin);
+});
+
+test('a passage nested in a list keeps the toolbar outside the list structure', () => {
+    const f = readerFixture();
+    const list = { tagName: 'UL', parentElement: f.article, after(node) { node.previousElementSibling = this; node.offsetParent = null; } };
+    const item = { tagName: 'LI', parentElement: list };
+    f.origin.parentElement = item;
+    f.select('A paragraph inside a list item.');
+    assert.equal(f.dock().previousElementSibling, list);
+    f.key('Tab');
+    f.key('Escape');
+    assert.equal(f.document.activeElement, f.origin);
+});
+
+test('a later deliberate focus change cancels the selection Tab route until a new selection', () => {
+    const f = readerFixture();
+    f.select('A selected passage.');
+    f.focus(f.header);
+    assert.equal(f.key('Tab').defaultPrevented, false, 'do not divert navigation from another control');
+    f.select('A different passage.');
+    assert.equal(f.key('Tab', { ctrlKey: true }).defaultPrevented, false, 'preserve browser tab shortcuts');
+    assert.equal(f.key('Tab').defaultPrevented, true);
+    assert.equal(f.document.activeElement, f.copyButton);
+});
+
+test('invalid or cleared quote selections never intercept Tab', () => {
+    for (const text of ['', 'Short', 'A'.repeat(501)]) {
+        const f = readerFixture();
+        f.select(text);
+        assert.equal(f.dock().hidden, true);
+        assert.equal(f.key('Tab').defaultPrevented, false);
+    }
+    const f = readerFixture();
+    f.select('A selected passage.');
+    f.select('');
+    assert.equal(f.key('Tab').defaultPrevented, false);
+});
+
+test('the relocated desktop toolbar uses its positioned ancestor rather than document coordinates', () => {
+    const f = readerFixture();
+    f.select('A selected passage.');
+    assert.equal(f.dock().style.top, '27px');
+    assert.equal(f.dock().style.left, '-41px');
 });
 
 test('reading progress starts at zero before the article reaches the fixed header', () => {

@@ -347,6 +347,7 @@
     dock.className = 'quote-action-dock';
     dock.setAttribute('role', 'toolbar');
     dock.setAttribute('aria-label', 'Quote actions');
+    dock.setAttribute('aria-description', 'Press Tab after selecting text to copy or share. Press Escape to return to the passage.');
     dock.hidden = true;
     dock.innerHTML = `
         <button class="quote-btn" id="quote-copy-btn" type="button">
@@ -357,12 +358,13 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 3h4l10 18h-4L5 3zm14 0L5 21"/></svg>
             <span>Share</span>
         </a>`;
-    document.body.append(dock);
+    article.after(dock);
     const copy = dock.querySelector('#quote-copy-btn');
     const copyLabel = copy.querySelector('.quote-btn-label');
     const share = dock.querySelector('#quote-share-btn');
     let selectedText = '';
     let quoteOrigin;
+    let quoteTabPending = false;
     let selectionTimer;
     let copyTimer;
     function quoteUrl() {
@@ -385,21 +387,38 @@
         }
         dock.hidden = true;
         selectedText = '';
+        quoteTabPending = false;
     }
     function updateSelection() {
         const selection = window.getSelection();
         const text = selection?.toString().trim() || '';
-        if (text.length >= 8 && text.length <= 500 && selection.rangeCount && article.contains(selection.getRangeAt(0).commonAncestorContainer)) {
-            selectedText = text;
-            const ancestor = selection.getRangeAt(0).commonAncestorContainer;
-            const origin = ancestor.nodeType === Node.ELEMENT_NODE ? ancestor : ancestor.parentElement;
-            quoteOrigin = origin.closest('p, li, blockquote, h2, h3, pre') || article;
-            const rect = selection.getRangeAt(0).getBoundingClientRect();
+        const range = selection?.rangeCount ? selection.getRangeAt(0) : null;
+        if (text.length >= 8 && text.length <= 500 && range && article.contains(range.commonAncestorContainer) && !dock.contains(range.commonAncestorContainer)) {
+            const passageSelector = 'p, li, blockquote, h2, h3, pre';
+            const start = range.startContainer;
+            const origin = start.nodeType === Node.ELEMENT_NODE ? start : start.parentElement;
+            const passages = [...article.querySelectorAll(passageSelector)].filter(block => range.intersectsNode(block));
+            const passage = origin.closest(passageSelector) || passages[0] || article;
+            const rect = range.getBoundingClientRect();
             if (!rect.width || !rect.height) return;
+            quoteTabPending = quoteTabPending || text !== selectedText || passage !== quoteOrigin;
+            selectedText = text;
+            quoteOrigin = passage;
+            // Keep actions after the final selected article block so they stay
+            // outside multi-paragraph quotes and never become list children.
+            let dockAnchor = passages.at(-1) || passage;
+            while (dockAnchor !== article && dockAnchor.parentElement && dockAnchor.parentElement !== article) {
+                dockAnchor = dockAnchor.parentElement;
+            }
+            if (dock.previousElementSibling !== dockAnchor) dockAnchor.after(dock);
             dock.hidden = false;
             const top = rect.top - dock.offsetHeight - 12 > headerHeight() ? rect.top - dock.offsetHeight - 12 : rect.bottom + 12;
-            dock.style.top = `${window.scrollY + top}px`;
-            dock.style.left = `${Math.max(16, Math.min(innerWidth - dock.offsetWidth - 16, rect.left))}px`;
+            const parent = dock.offsetParent;
+            const bounds = parent?.getBoundingClientRect();
+            const parentTop = bounds ? bounds.top + parent.clientTop - parent.scrollTop : -window.scrollY;
+            const parentLeft = bounds ? bounds.left + parent.clientLeft - parent.scrollLeft : -(window.scrollX || 0);
+            dock.style.top = `${top - parentTop}px`;
+            dock.style.left = `${Math.max(16, Math.min(innerWidth - dock.offsetWidth - 16, rect.left)) - parentLeft}px`;
             share.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`“${text}” — @williswee`)}&url=${encodeURIComponent(quoteUrl())}`;
         } else if (!dock.contains(document.activeElement) && !dock.matches(':hover')) {
             hideDock();
@@ -414,6 +433,9 @@
     dock.addEventListener('focusout', () => requestAnimationFrame(updateSelection));
     document.addEventListener('keyup', event => {
         if (event.key !== 'Escape') updateSelection();
+    });
+    document.addEventListener('focusin', event => {
+        if (!dock.contains(event.target)) quoteTabPending = false;
     });
     copy.addEventListener('mousedown', event => event.preventDefault());
     copy.addEventListener('click', async () => {
@@ -435,6 +457,18 @@
         }, 4000);
     });
     document.addEventListener('keydown', event => {
+        // Native pointer selections can leave the browser's Tab starting point
+        // at the header. Only the first plain Tab after a new selection enters
+        // its actions; later focus changes and browser shortcuts stay native.
+        if (event.key === 'Tab' && !event.defaultPrevented && !event.shiftKey && !event.altKey && !event.ctrlKey && !event.metaKey &&
+            quoteTabPending && !dock.hidden && !dock.contains(document.activeElement)) {
+            const selection = window.getSelection();
+            if (selection?.rangeCount && selection.toString().trim() === selectedText && article.contains(selection.getRangeAt(0).commonAncestorContainer)) {
+                event.preventDefault();
+                quoteTabPending = false;
+                copy.focus({ preventScroll: true });
+            }
+        }
         if (event.key === 'Escape') {
             clearTimeout(selectionTimer);
             hideFootnote();
