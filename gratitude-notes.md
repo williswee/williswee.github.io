@@ -889,3 +889,13 @@ What's yours?
 2️⃣ Japanese curry for dinner always brings comfort and joy to the family. The children enjoy it a lot.
 
 3️⃣ I really enjoy building. There’s some anxiety, but I love that too.
+
+## Gratitude note #83
+
+*2026-10-28*
+
+1️⃣ Getting closer to the TickerTown launch. I’m grateful to have the experience of building it. I’ve learned so much.
+
+2️⃣ Had the chance for a quick tennis session. I was pretty tired in the afternoon, but I’m glad we got to work out.
+
+3️⃣ The children are in Hercules mode. They watched the movie recently, and there’s been a lot of discussion about Hercules and the story. Fun conversations.
