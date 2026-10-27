@@ -4,7 +4,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import vm from 'node:vm';
 
 const source = readFileSync(new URL('../../thoughts/newsletter.js', import.meta.url), 'utf8');
-const provider = 'https://williswee.substack.com/embed';
+const provider = 'https://williswee.substack.com/embed?transparent=1&light=1';
 function setup(count = 1, supportsObserver = true) {
     const requests = [];
     const timers = new Map();
@@ -17,6 +17,9 @@ function setup(count = 1, supportsObserver = true) {
             this.textContent = ''; this.className = ''; this.id = ''; this.document = null;
         }
         hasAttribute(name) { return this.attributes.has(name); }
+        contains(node) { return node === this || this.children.some(child => child.contains(node)); }
+        focus() { document.activeElement = this; }
+        querySelector(selector) { return selector === 'a[href]' ? this.children.find(child => child.tagName === 'A') : null; }
         getAttribute(name) { return this.attributes.get(name) ?? null; }
         setAttribute(name, value) { this.attributes.set(name, String(value)); }
         removeAttribute(name) { this.attributes.delete(name); }
@@ -29,7 +32,13 @@ function setup(count = 1, supportsObserver = true) {
             if (this.throwOnDocument) throw new Error('Cross-origin access denied');
             return this.document;
         }
-        append(...children) { children.forEach(child => { child.parentElement = this; this.children.push(child); }); }
+        append(...children) { children.forEach(child => {
+            if (child.parentElement) {
+                const siblings = child.parentElement.children;
+                siblings.splice(siblings.indexOf(child), 1);
+            }
+            child.parentElement = this; this.children.push(child);
+        }); }
         before(child) {
             const parent = this.parentElement; child.parentElement = parent;
             parent.children.splice(parent.children.indexOf(this), 0, child);
@@ -91,6 +100,10 @@ function setup(count = 1, supportsObserver = true) {
         frame: (index = 0) => find(index, node => node.tagName === 'IFRAME'),
         status: (index = 0) => find(index, node => node.className === 'newsletter-status'),
         controls: (index = 0) => find(index, node => node.className === 'newsletter-controls'),
+        help: (index = 0) => find(index, node => node.className === 'newsletter-help'),
+        helpSummary: (index = 0) => find(index, node => node.tagName === 'SUMMARY'),
+        fallback: (index = 0) => find(index, node => node.tagName === 'A'),
+        focused: () => document.activeElement,
         retry: (index = 0) => find(index, node => node.className === 'newsletter-retry'),
         toggle: (index = 0) => find(index, node => node.className === 'newsletter-toggle'),
         state: (index = 0) => containers[index].dataset.newsletterState,
@@ -117,8 +130,9 @@ test('the visible container activates one eager request while its iframe remains
     assert.equal(page.status().getAttribute('role'), 'status');
     assert.equal(page.status().getAttribute('aria-live'), 'polite');
     const children = page.containers[0].children;
-    assert.ok(children.indexOf(page.controls()) > children.indexOf(page.status()));
-    assert.ok(children.indexOf(page.controls()) < children.indexOf(page.frame()));
+    assert.ok(children.indexOf(page.status()) < children.indexOf(page.frame()));
+    assert.ok(children.indexOf(page.help()) > children.indexOf(page.frame()));
+    assert.equal(page.controls().parentElement, page.help());
     assert.equal(page.controls().hidden, true); assert.equal(page.observer.targets.size, 0);
     assert.equal(page.observer.disconnected, true); assert.equal([...page.timers.values()][0].delay, 12000);
 });
@@ -127,8 +141,11 @@ for (const inaccessible of ['null', 'throws']) {
         const page = setup(); page.near(); page.frame().throwOnDocument = inaccessible === 'throws';
         page.frame().fire('load');
         assert.equal(page.state(), 'loaded'); assert.equal(page.frame().hidden, false);
+        assert.equal(page.help().open, false, 'successful navigation keeps recovery controls out of the signup path');
+        assert.equal(page.fallback().parentElement, page.help(), 'the fallback shares the compact help disclosure');
+        assert.equal(page.status().hidden, true, 'loaded forms do not show an error-like warning');
         assert.equal(page.frame().hasAttribute('aria-hidden'), false); assert.equal(page.frame().hasAttribute('tabindex'), false);
-        assert.equal(page.status().textContent, 'If the form is blank, reload it or subscribe above.');
+        assert.equal(page.status().textContent, 'If the form is blank, reload it or use the Substack link below.');
         assert.equal(page.retry().hidden, false); assert.equal(page.toggle().hidden, false);
         assert.equal(page.toggle().getAttribute('aria-controls'), page.frame().id);
         assert.equal(page.toggle().getAttribute('aria-expanded'), 'true'); assert.equal(page.timers.size, 0);
@@ -142,7 +159,7 @@ for (const doc of [
     test(`known blank documents remain compact (${JSON.stringify(doc)})`, () => {
         const page = setup(); page.near(); page.frame().document = doc; page.frame().fire('load');
         assert.equal(page.state(), 'unavailable'); assert.equal(page.frame().hidden, true);
-        assert.match(page.status().textContent, /blank.*reload.*subscribe above/);
+        assert.match(page.status().textContent, /blank.*reload.*use the Substack link below/);
         assert.equal(page.retry().hidden, false); assert.equal(page.toggle().hidden, true); assert.equal(page.timers.size, 0);
     });
 }
@@ -160,7 +177,7 @@ for (const reason of ['error', 'timeout']) {
         assert.equal(page.frame().getAttribute('aria-hidden'), 'true'); assert.equal(page.frame().getAttribute('tabindex'), '-1');
         assert.equal(page.retry().hidden, false); assert.equal(page.toggle().hidden, true);
         assert.match(page.status().textContent, reason === 'timeout' ? /hasn’t loaded yet/ : /could not be loaded/);
-        assert.match(page.status().textContent, /reload it or subscribe above/); assert.equal(page.timers.size, 0);
+        assert.match(page.status().textContent, /reload it or use the Substack link below/); assert.equal(page.timers.size, 0);
     });
 }
 test('late load recovers after timeout if the reader has not interacted', () => {
@@ -237,6 +254,18 @@ test('old browsers load eagerly and retain recovery controls', () => {
 test('pages without newsletters create no observer or timers', () => {
     const page = setup(0); assert.equal(page.observer, undefined); assert.equal(page.requests.length, 0); assert.equal(page.timers.size, 0);
 });
+test('reloading from recovery keeps keyboard focus on the visible help summary', () => {
+    const page = setup(); page.near(); page.frame().fire('error');
+    page.retry().focus(); page.retry().fire('click');
+    assert.equal(page.focused(), page.helpSummary());
+});
+test('showing the form returns keyboard focus to its visible help summary', () => {
+    const page = setup(); page.near(); page.frame().fire('load');
+    page.help().open = true; page.toggle().focus(); page.toggle().fire('click');
+    page.toggle().fire('click');
+    assert.equal(page.help().open, false);
+    assert.equal(page.focused(), page.helpSummary());
+});
 test('all public newsletter pages retain deferred markup and a no-JS subscription link', () => {
     const root = new URL('../../thoughts/', import.meta.url);
     for (const name of readdirSync(root).filter(name => name.endsWith('.html'))) {
@@ -246,6 +275,6 @@ test('all public newsletter pages retain deferred markup and a no-JS subscriptio
         assert.match(html, /<noscript>\s*<style>\s*iframe\[data-newsletter-src\]\s*\{\s*display:\s*none;\s*\}\s*<\/style>\s*<\/noscript>/);
         assert.match(html, /<a[^>]+href="https:\/\/williswee\.substack\.com\/subscribe"/);
         assert.doesNotMatch(html, /<iframe\s+src="https:\/\/williswee\.substack\.com\/embed/);
-        assert.match(html, /<iframe data-newsletter-src="https:\/\/williswee\.substack\.com\/embed"[^>]+aria-hidden="true" tabindex="-1"/);
+        assert.match(html, /<iframe data-newsletter-src="https:\/\/williswee\.substack\.com\/embed\?transparent=1&amp;light=1"[^>]+aria-hidden="true" tabindex="-1"/);
     }
 });

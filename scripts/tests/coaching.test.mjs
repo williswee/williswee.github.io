@@ -11,7 +11,7 @@ const invitation = '<span><strong>Founder and stuck on something?</strong> I do 
 const nameplate = '<span class="dialogue-nameplate" aria-hidden="true">Willis</span>';
 const cards = html => html.match(/<aside class="coaching-cta" aria-label="Coaching">[\s\S]*?<\/aside>/g) ?? [];
 
-test('every essay ends with one coaching invitation before its newsletter', () => {
+test('every essay places its newsletter before related reading and one coaching invitation', () => {
     assert.ok(Array.isArray(essays) && essays.length, 'missing essay manifest');
     for (const name of essays) {
         const html = read(`thoughts/${name}`);
@@ -20,8 +20,8 @@ test('every essay ends with one coaching invitation before its newsletter', () =
         assert.match(found[0], /<a href="\.\.\/coaching\.html">/, name);
         assert.ok(found[0].includes(invitation), `${name}: keep the approved invitation copy`);
         assert.ok(found[0].includes(nameplate), `${name}: Willis speaks from the card's nameplate`);
-        assert.match(html, /<\/article>\s*(?:<nav class="related-reading"[\s\S]*?<\/nav>\s*)?<aside class="coaching-cta"/, `${name}: the card follows the article and any related reading`);
-        assert.ok(html.indexOf(found[0]) < html.indexOf('id="newsletter"'), `${name}: the card precedes the newsletter`);
+        assert.match(html, /<\/article>\s*<div class="subscribe-embed" id="newsletter"[^>]*>[\s\S]*?<\/div>\s*(?:<nav class="related-reading"[\s\S]*?<\/nav>\s*)?<aside class="coaching-cta"/, `${name}: the newsletter follows the essay, with related reading before coaching`);
+        assert.ok(html.indexOf('id="newsletter"') < html.indexOf(found[0]), `${name}: the newsletter precedes the card`);
     }
 });
 

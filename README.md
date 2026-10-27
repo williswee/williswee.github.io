@@ -8,13 +8,21 @@ https://github.com/user-attachments/assets/e95f99ca-d9e3-4186-bd29-d399a3d51ed9
 
 ## Shared navigation
 
-Every editorial page uses the same menu: Work, Coaching, Writing, and More. The brand links to `/`. More contains Play, Books, User guide, Gratitude, and Connect. The footer repeats the complete directory. Mobile uses a native Menu disclosure; all links exist in static HTML and work without JavaScript. The homepage keeps its six illustrated scenes and local links in an On this page disclosure, separate from the global menu.
+Every editorial page uses the same menu: Work, Coaching, Writing, More, and Subscribe. Subscribe links to the local newsletter section on Home, Writing, and essays, and to `/thoughts/#newsletter` elsewhere. The brand links to `/`. More contains Play, Books, User guide, Gratitude, and Connect. The footer repeats the complete directory. Mobile uses a native Menu disclosure; all links exist in static HTML and work without JavaScript. The homepage keeps its six illustrated scenes and local links in an On this page disclosure, separate from the global menu.
 
 `scripts/site-navigation.mjs` owns the labels, canonical destinations, active states, header, footer, and essay breadcrumbs. Run `node scripts/sync-navigation.mjs` after adding a page or changing navigation, then run `node scripts/sync-navigation.mjs --check`. Gratitude imports the same templates through its renderer. The shared `/site-navigation.css` loads after page styles; deferred `/site-navigation.js` adds Escape, outside-click, and focus handling. Do not inject navigation through JavaScript. When these assets change, advance their cache versions in the template and synchronize the pages.
 
 Use `/` and `/thoughts/` in internal links. Preserve the published `.html` essay/page URLs, `/play`, and existing section IDs. Writing is the visitor-facing label for the archive at `/thoughts/`. Home section links use `aria-current="location"`; the shared menu uses `page` for exact destinations and `location` for an essay's Writing parent.
 
 After updating a page, keep its canonical URL, Open Graph URL, sitemap entry, and `llms.txt` link consistent. The XML sitemap lists canonical pages, not fragment links. Update `lastmod` for meaningful content, metadata, or link changes. `llms.txt` is a directory for tools that consume it; it is not a promise of search ranking or AI citation.
+
+## Email signup invitations
+
+Subscribe in the shared menu links to `#newsletter` on Home, Writing, and essays, or to `/thoughts/#newsletter` from other pages. The homepage places the native Substack field in Notes. Writing places it after the archive so search and browsing stay first; the Subscribe shortcut jumps directly to it. Each essay places it immediately after the article, before related reading and coaching.
+
+Use “Get my next essay by email.” with “I write about the chaos of building products, founder life, and being a dad to three daughters.” Keep all copies consistent. Do not add a subscriber count, fixed sending schedule, exclusivity, or early-access promise without confirming it.
+
+`thoughts/newsletter.js` loads the provider form within 240px of the viewport. No timed, scroll-triggered, or exit overlay is used. Its direct subscription link remains available without JavaScript or if the iframe fails. The compact native iframe uses Substack’s generated 150px height, which hides its publication logo and bio. Its official `?transparent=1&light=1` options let the site background show through and keep the embed text legible on dark pages. Successful forms keep the direct subscription link, reload, and hide controls inside “Form not showing?” below the field; failures show recovery controls immediately. The iframe is controlled by Substack. Its publication logo and name can be hidden through Substack's Growth features settings, not local CSS.
 
 ## Notify search engines after publishing
 
@@ -83,7 +91,7 @@ Follow the "How to publish a new article" section in README.md and the essay aut
 - Do not create a new decorative background. The article's own images are separate from the preset scenery.
 - Extract the title, subtitle, date, and body from the live Substack post. Do not ask me for them. The subtitle is the Substack post's subtitle/deck. Place it as `<p class="article-subtitle">` immediately after the article's `<h1>`, before the date and title image/figure. Preserve its wording; omit the element when the source has no subtitle.
 - Copy the article content from the Substack post, including images and captions, but omit Substack's in-article subscription buttons (for example, "Subscribe now"). Save any images in the `images` directory and reference them properly in the article. Center image captions and preserve the original wording. Keep the site's shared newsletter block, including its direct subscription link immediately after the invitation and before the deferred iframe.
-- Keep the template's coaching card (`<aside class="coaching-cta">`) unchanged, after `</article>` and any optional Related reading block, before the newsletter block.
+- Keep the template's newsletter immediately after `</article>`. Place any optional Related reading block next, then the unchanged coaching card (`<aside class="coaching-cta">`).
 
 Substack URL:
 Slug: (single word slug, e.g. `mission`)
@@ -150,7 +158,7 @@ GitHub Pages serves `404.html` for every missing address, at any depth. Use root
 
 [Coaching](coaching.html) is where every essay's coaching card leads. It shares `thoughts/reading-room.css` with the other reading pages, with its own layout in `coaching-game.css`. Its desktop backdrop uses `images/game-world/coaching-lantern-bench-portrait-v1.webp` (768×2048), a continuous vertical extension of the bench scene made with built-in ImageGen. It fills the shared fixed landscape column with `object-fit: cover`; generation provenance is in `.impeccable/assets/coaching-lantern-bench-portrait-v1.prompt.json`. Mobile and link previews retain the original wide `images/game-world/coaching-lantern-bench-v1.webp` (1774×887), whose provenance is in `images/game-world/coaching-variants-2026-10-08/prompts.json`. The mobile art band preserves the peers and lantern. Coaching appears immediately after Work in the header navigation, with the same link style and active-page treatment as the other destinations.
 
-"Send me a note" is the primary invitation in the hero and desktop rail. It leads to the inline form after the testimonials. The secondary "Book a session" links in the hero and close open `https://intro.co/williswee` in a new tab. The coaching card (`aside.coaching-cta`, a dialogue box with a "Willis" nameplate) sits between `</article>` and the newsletter block in every essay, and at the end of the Guide. All copies share the same wording, so change them together.
+"Send me a note" is the primary invitation in the hero and desktop rail. It leads to the inline form after the testimonials. The secondary "Book a session" links in the hero and close open `https://intro.co/williswee` in a new tab. The coaching card (`aside.coaching-cta`, a dialogue box with a "Willis" nameplate) sits after the newsletter and any related reading in every essay, and at the end of the Guide. All copies share the same wording, so change them together.
 
 The note form posts name, email, and message to `https://formspree.io/f/mdekydke`. The verified recipient lives in Formspree's notification settings, not in the website source. Keep the visitor field named `email` so notifications use it as Reply-To. The hidden `_gotcha` field is Formspree's honeypot. No API key or build step is needed. `coaching-contact.js` progressively enhances the native HTML POST with inline feedback, duplicate-submit protection, and draft retention on errors; JavaScript unavailable means Formspree handles the response. If a challenge or provider error prevents inline submission, the visitor can explicitly continue with Formspree. Never automatically resubmit an uncertain request.
 

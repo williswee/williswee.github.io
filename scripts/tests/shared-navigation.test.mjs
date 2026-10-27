@@ -41,8 +41,11 @@ function assertCoaching(links, name) {
 test('every global header prioritizes Work and Coaching with identical destinations at every URL depth', () => {
     for (const name of sitePages) {
         const links = navigation(name, 'site-navigation');
-        assert.deepEqual(links.map(link => link.label), sharedLabels, name);
-        assert.deepEqual(links.map(link => link.href), sharedPaths, `${name}: canonical root-relative destinations`);
+        assert.deepEqual(links.map(link => link.label), [...sharedLabels, 'Subscribe'], name);
+        assert.deepEqual(links.slice(0, -1).map(link => link.href), sharedPaths, `${name}: canonical root-relative destinations`);
+        const newsletterHref = name === 'index.html' ? '/#newsletter' : name === 'thoughts/index.html'
+            ? '/thoughts/#newsletter' : name.startsWith('thoughts/') ? `/${name}#newsletter` : '/thoughts/#newsletter';
+        assert.equal(links.at(-1).href, newsletterHref, `${name}: contextual signup destination`);
         assertCoaching(links, name);
     }
 });
@@ -173,7 +176,7 @@ const originalCoachingBooking = `<a class="coaching-booking" href="https://intro
 </a>`;
 
 const socialLinks = [
-    ['https://williswee.substack.com', 'Substack', 'I write to see what I actually think.'],
+    ['https://williswee.substack.com', 'Substack', 'I write about the chaos of building products, founder life, and being a dad to three daughters.'],
     ['https://www.linkedin.com/in/williswee/', 'LinkedIn', 'I try to sound professional here.'],
     ['https://github.com/williswee', 'GitHub', 'AI codes. I take the blame.'],
     ['https://x.com/williswee', 'X', 'Where I get overwhelmed.'],

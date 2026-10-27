@@ -46,15 +46,13 @@ test('every newsletter has one immediate subscription action before its optional
         const visibleLabel = link.replace(/<svg\b[\s\S]*?<\/svg>/g, '').replace(/<[^>]+>/g, '').trim();
         assert.equal(visibleLabel, 'Subscribe on Substack', name);
         assert.match(link, /<svg\b[^>]*aria-hidden="true"/, `${name}: decorative destination arrow must not change the accessible name`);
-        const invitation = name === 'index.html'
-            ? 'Join my free newsletter to get my latest essays and updates delivered straight to your inbox.'
-            : 'Enjoyed this? Subscribe to get new essays delivered to your inbox.';
-        assert.ok(block.replace(/\s+/g, ' ').includes(`<p>${invitation}</p> ${link} <iframe`),
+        assert.match(block, /<h2 id="newsletter-title">Get my next essay by email\.<\/h2>/, name);
+        assert.ok(block.replace(/\s+/g, ' ').includes(`<p>I write about the chaos of building products, founder life, and being a dad to three daughters.</p> ${link} <iframe`),
             `${name}: keep invitation, fallback and form adjacent and in that order`);
-        assert.match(html, /<script src="newsletter\.js\?v=2" defer><\/script>/, name);
+        assert.match(html, /<script src="newsletter\.js\?v=4" defer><\/script>/, name);
         assert.match(html, /reading-room\.css\?v=\d+(?:\.\d+)*/, name);
         assert.match(html, /<noscript>\s*<style>\s*iframe\[data-newsletter-src\]\s*\{\s*display:\s*none;\s*\}\s*<\/style>\s*<\/noscript>/, name);
-        assert.match(block, /<iframe data-newsletter-src="https:\/\/williswee\.substack\.com\/embed"[^>]+loading="lazy"[^>]+aria-hidden="true" tabindex="-1"[^>]+title="Subscribe to Willis Wee newsletter"><\/iframe>/, name);
+        assert.match(block, /<iframe data-newsletter-src="https:\/\/williswee\.substack\.com\/embed\?transparent=1&amp;light=1"[^>]+loading="lazy"[^>]+aria-hidden="true" tabindex="-1"[^>]+title="Subscribe to Willis Wee newsletter"><\/iframe>/, name);
         assert.doesNotMatch(block, /<iframe[^>]*\ssrc=/, name);
     }
 });

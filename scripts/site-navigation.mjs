@@ -34,7 +34,10 @@ function link(item, pagePath, className = '') {
 }
 
 export function renderHeader(pagePath) {
-    const home = route(pagePath) === '/';
+    const path = route(pagePath);
+    const home = path === '/';
+    const newsletterHref = home ? '/#newsletter' : path.startsWith('/thoughts/')
+        ? `${path}#newsletter` : '/thoughts/#newsletter';
     const secondaryCurrent = navigation.slice(4).some(item => current(item, pagePath));
     return `<header class="${home ? 'site-hud' : 'reading-hud'} site-header">
         <a class="site-brand" href="/" aria-label="Willis Wee, home">
@@ -51,6 +54,7 @@ ${navigation.slice(1, 4).map(item => `                ${link(item, pagePath)}`).
 ${navigation.slice(4).map(item => `                        ${link(item, pagePath)}`).join('\n')}
                     </div>
                 </details>
+                <a class="site-subscribe" href="${newsletterHref}">Subscribe</a>
             </nav>
         </details>${home ? '\n        <span class="scroll-progress" aria-hidden="true"></span>' : ''}
     </header>`;
@@ -91,7 +95,7 @@ export function normalizeNavigation(html, pagePath) {
     const lastStyle = styleLinks.at(-1);
     if (!lastStyle) throw new Error(`${pagePath}: stylesheet not found`);
     const styleEnd = lastStyle.index + lastStyle[0].length;
-    result = result.slice(0, styleEnd) + '\n    <link rel="stylesheet" href="/site-navigation.css?v=4">\n    <script src="/site-navigation.js?v=1" defer></script>' + result.slice(styleEnd);
+    result = result.slice(0, styleEnd) + '\n    <link rel="stylesheet" href="/site-navigation.css?v=6">\n    <script src="/site-navigation.js?v=1" defer></script>' + result.slice(styleEnd);
 
     // Normalize only homepage/archive aliases; keep authored URLs and all hashes.
     result = result.replace(/<a\b[^>]*\bhref="([^"]*)"[^>]*>[\s\S]*?<\/a>/g, (anchor, href) => {

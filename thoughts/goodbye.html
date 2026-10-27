@@ -27,11 +27,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="reading-room.css?v=1.26">
-    <link rel="stylesheet" href="/site-navigation.css?v=4">
+    <link rel="stylesheet" href="/site-navigation.css?v=6">
     <script src="/site-navigation.js?v=1" defer></script>
     <link rel="icon" type="image/png" href="../avatar.png">
 
-    <script src="newsletter.js?v=2" defer></script>
+    <script src="newsletter.js?v=4" defer></script>
     <noscript><style>iframe[data-newsletter-src] { display: none; }</style></noscript>
     <script src="essay-manifest.js?v=7" defer></script>
     <script src="reading-room.js?v=1.6" defer></script>
@@ -110,6 +110,7 @@
                         <a href="/#terminal">Connect</a>
                     </div>
                 </details>
+                <a class="site-subscribe" href="/thoughts/goodbye.html#newsletter">Subscribe</a>
             </nav>
         </details>
     </header>
@@ -158,6 +159,14 @@
                 </p>
             </article>
 
+            <div class="subscribe-embed" id="newsletter" aria-labelledby="newsletter-title" data-newsletter-placement="essay">
+                <h2 id="newsletter-title">Get my next essay by email.</h2>
+                <p>I write about the chaos of building products, founder life, and being a dad to three daughters.</p>
+
+                <a class="text-link newsletter-fallback" aria-label="Subscribe on Substack (opens in a new tab)" href="https://williswee.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe on Substack <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4 16 16 4M6 4h10v10"/></svg></a>
+                <iframe data-newsletter-src="https://williswee.substack.com/embed?transparent=1&amp;light=1" width="100%" height="150" style="border: 0; background: transparent;" frameborder="0" scrolling="no" loading="lazy" aria-hidden="true" tabindex="-1" title="Subscribe to Willis Wee newsletter"></iframe>
+            </div>
+
             <aside class="coaching-cta" aria-label="Coaching">
                 <a href="../coaching.html">
                     <span class="dialogue-nameplate" aria-hidden="true">Willis</span>
@@ -165,12 +174,6 @@
                     <svg viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M4 14L14 4M7 4h7v7"/></svg>
                 </a>
             </aside>
-
-            <div class="subscribe-embed" id="newsletter">
-                <p>Enjoyed this? Subscribe to get new essays delivered to your inbox.</p>
-                <a class="text-link newsletter-fallback" href="https://williswee.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe on Substack <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4 16 16 4M6 4h10v10"/></svg></a>
-                <iframe data-newsletter-src="https://williswee.substack.com/embed" width="100%" height="460" style="border: 0; background: transparent;" frameborder="0" scrolling="no" loading="lazy" aria-hidden="true" tabindex="-1" title="Subscribe to Willis Wee newsletter"></iframe>
-            </div>
             <hr>
             <div class="article-nav-row">
                 <p class="back-link"><a href="/thoughts/"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M16 10H3M8 5l-5 5 5 5"/></svg>Back to writing</a></p>

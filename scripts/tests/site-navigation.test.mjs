@@ -28,7 +28,14 @@ test('menus are native disclosures whose destinations are present before JavaScr
         assert.doesNotMatch(header, /\s(?:hidden|inert|disabled)(?:\s|=|>)|aria-hidden="true"[^>]*>\s*<(?:a|nav|details)/,
             `${name}: native menus must remain usable without enhancement`);
         const links = [...header.matchAll(/<a\b([^>]*)>/g)];
-        assert.equal(links.length, 10, `${name}: brand and all nine destinations must be static links`);
+        assert.equal(links.length, 11, `${name}: brand, nine destinations, and Subscribe must be static links`);
+        const signup = header.match(/<a class="site-subscribe" href="([^"]+)"[^>]*>Subscribe<\/a>/);
+        assert.ok(signup, `${name}: a direct signup shortcut must be present`);
+        const target = new URL(signup[1], `https://williswee.com/${name}`);
+        assert.equal(target.hash, '#newsletter', `${name}: shortcut must lead to the signup section`);
+        const targetFile = target.pathname === '/' ? 'index.html' : target.pathname === '/thoughts/'
+            ? 'thoughts/index.html' : target.pathname.slice(1);
+        assert.match(read(targetFile), /id="newsletter"/, `${name}: target must exist`);
         for (const [, attrs] of links) {
             assert.match(attrs, /\bhref="\//, name);
             assert.doesNotMatch(attrs, /\b(?:onclick|role="button")/, `${name}: keep ordinary link semantics`);

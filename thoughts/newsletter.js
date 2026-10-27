@@ -35,15 +35,24 @@
         toggle.className = 'newsletter-toggle';
         toggle.setAttribute('aria-controls', frame.id);
         controls.append(retry, toggle);
+        const help = document.createElement('details');
+        help.className = 'newsletter-help';
+        const helpSummary = document.createElement('summary');
+        helpSummary.textContent = 'Form not showing?';
+        const fallback = container.querySelector('a[href]');
+        help.append(helpSummary);
+        if (fallback) help.append(fallback);
+        help.append(controls);
         frame.before(status);
-        frame.before(controls);
+        frame.after(help);
 
         function render(nextState, message = '') {
+            const focusInHelp = help.contains(document.activeElement);
             state = nextState;
             container.dataset.newsletterState = state;
             status.textContent = message;
-            status.hidden = !message;
             const shown = state === 'loaded';
+            status.hidden = !message || shown;
             frame.hidden = !shown;
             if (shown) {
                 frame.removeAttribute('aria-hidden');
@@ -53,10 +62,15 @@
                 frame.setAttribute('tabindex', '-1');
             }
             controls.hidden = !started || state === 'loading';
+            help.hidden = !started;
+            help.open = !shown;
             retry.hidden = controls.hidden;
             toggle.hidden = !attempt?.complete;
             toggle.textContent = shown ? 'Hide form' : 'Show form';
             toggle.setAttribute('aria-expanded', String(shown));
+            if (focusInHelp && (controls.hidden || !help.open)) {
+                helpSummary.focus({ preventScroll: true });
+            }
         }
 
         function knownBlank(candidate) {
@@ -96,19 +110,19 @@
                 if (attempt !== current || current.complete ||
                     (current.failed && (!current.recoverable || current.interacted))) return;
                 if (knownBlank(current.frame)) {
-                    unavailable('The inline form is blank. You can reload it or subscribe above.');
+                    unavailable('The inline form is blank. You can reload it or use the Substack link below.');
                     return;
                 }
                 window.clearTimeout(current.timer);
                 current.complete = true;
                 // Navigation completion cannot verify a third-party form's contents.
-                render('loaded', 'If the form is blank, reload it or subscribe above.');
+                render('loaded', 'If the form is blank, reload it or use the Substack link below.');
             });
             frame.addEventListener('error', () => {
-                unavailable('The inline form could not be loaded. You can reload it or subscribe above.');
+                unavailable('The inline form could not be loaded. You can reload it or use the Substack link below.');
             });
             current.timer = window.setTimeout(() => {
-                unavailable('The inline form hasn’t loaded yet. You can reload it or subscribe above.', true);
+                unavailable('The inline form hasn’t loaded yet. You can reload it or use the Substack link below.', true);
             }, 12000);
             // The container observer controls timing; native lazy loading would add
             // a second gate that can prevent a hidden pending iframe from loading.
@@ -120,9 +134,9 @@
         toggle.addEventListener('click', () => {
             if (!attempt?.complete) return;
             if (state === 'loaded') {
-                render('hidden', 'The inline form is hidden. Show it again or subscribe above.');
+                render('hidden', 'The inline form is hidden. Show it again or use the Substack link below.');
             } else {
-                render('loaded', 'If the form is blank, reload it or subscribe above.');
+                render('loaded', 'If the form is blank, reload it or use the Substack link below.');
             }
         });
         // Do not expand a late response after someone has moved on to recovery.
