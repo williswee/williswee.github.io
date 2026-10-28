@@ -18,6 +18,7 @@
 
 ## Writing
 Articles and reflections by Willis Wee.
+- [How to choose a founder coach in Singapore](https://williswee.com/thoughts/choosing-founder-coach.html): Questions to ask before paying for founder coaching, with a first-hand example from Tech in Asia and a short preparation worksheet.
 - [What changed between our Figma designs and the real app](https://williswee.com/thoughts/tickertown-design-mistakes.html): It’s hard designing an investing game that’s fun to play and easy to read on a phone.
 - [A small game to whack together](https://williswee.com/thoughts/whack-together-game.html): Built with Dot, oversized weapons, and a lot of playtesting.
 - [I built an orbit watch for fun](https://williswee.com/thoughts/orbit-watch.html): I built a globe to visualize satellites and track earthquakes for fun.
