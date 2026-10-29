@@ -11,7 +11,7 @@ const pages = [
 ].sort();
 const read = name => readFileSync(new URL(name, root), 'utf8');
 const essayManifest = JSON.parse(read('thoughts/essay-manifest.js').match(/Object\.freeze\(([\s\S]*?)\);/)?.[1] ?? 'null');
-const topLevelPages = ['books.html', 'coaching.html', 'play.html', 'gratitude.html', 'guide.html', 'index.html', 'work.html'];
+const topLevelPages = ['books.html', 'coaching.html', 'play.html', 'gratitude.html', 'guide.html', 'index.html', 'work.html', 'privacy.html'];
 // Served by GitHub Pages for missing addresses; never listed in the sitemap.
 const utilityPages = ['404.html'];
 // Compatibility addresses redirect to their canonical content page.
@@ -20,7 +20,7 @@ const redirectPages = ['creative.html'];
 const standaloneAppPages = ['chix-run/index.html', 'orbit/index.html', '3d-floorplan/index.html'];
 // This live route is served separately by Cloudflare; its project is outside this checkout.
 const externallyHostedAppPages = ['game'];
-const analyticsExcludedPages = new Set(['gratitude.html', ...redirectPages]);
+const analyticsExcludedPages = new Set(['gratitude.html', 'privacy.html', ...redirectPages]);
 const trackingPixel = /<img\b[^>]*\bsrc="https:\/\/www\.useinflect\.ai\/api\/bot-traffic\/pixel\?[^" ]+"[^>]*>/g;
 
 test('public documents keep image content out of the head', () => {
@@ -153,4 +153,27 @@ test('the not-found page works at any depth and stays out of search', () => {
     for (const way of ['/', '/thoughts/', '/#terminal']) {
         assert.ok(html.includes(`<a href="${way}"><span>`), `404.html: offer a way back to ${way}`);
     }
+});
+
+
+test('the privacy notice is a standalone utility page with provider details and a direct contact route', () => {
+    const html = read('privacy.html');
+    assert.match(html, /<link rel="canonical" href="https:\/\/williswee\.com\/privacy\.html">/);
+    assert.equal((html.match(/<h1\b/g) ?? []).length, 1);
+    assert.match(html, /<h1>Privacy and data use<\/h1>/);
+    assert.match(html, /<time datetime="2026-10-29">29 October 2026<\/time>/);
+    assert.doesNotMatch(html, /class="essay-page"|<article\b|<form\b|<iframe\b|essay-manifest|newsletter\.js|coaching-contact\.js/);
+    assert.doesNotMatch(html, /<script\b[^>]*src="[^"]*(?:site-analytics|inflect|umami)|<img\b[^>]*src="https?:/);
+    const scripts = [...html.matchAll(/<script\b[^>]*src="([^"]+)"/g)].map(([, url]) => url);
+    assert.deepEqual(scripts, ['/site-navigation.js?v=1']);
+    for (const id of ['privacy-notes', 'privacy-visits', 'privacy-subscriptions', 'privacy-requests', 'privacy-contact']) {
+        assert.match(html, new RegExp(`<section aria-labelledby="${id}">\\s*<h2 id="${id}">`));
+    }
+    const links = [...html.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(([, href]) => href);
+    for (const url of ['https://formspree.io/legal/privacy-policy/', 'https://joininflect.com/privacy',
+        'https://docs.umami.is/docs/tracker-configuration', 'https://substack.com/privacy', 'https://intro.co/policy',
+        'https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement', 'https://www.cloudflare.com/privacypolicy/',
+        '/coaching.html#send-a-note']) assert.ok(links.includes(url), url);
+    assert.match(read('coaching.html'), /class="coaching-form-privacy">[\s\S]*?<a href="\/privacy\.html#privacy-notes">Privacy and data use<\/a>/);
+    assert.ok(!essayManifest.includes('privacy.html'), 'privacy is outside the article collection');
 });

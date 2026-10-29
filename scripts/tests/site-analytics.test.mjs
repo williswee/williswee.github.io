@@ -7,10 +7,15 @@ const source = readFileSync(new URL('../../site-analytics.js', import.meta.url),
 const disabledSource = source.replace("const websiteId = 'fe208afe-7586-4157-8a5c-4d8ac8ae640a';", "const websiteId = '';");
 const root = new URL('../../', import.meta.url);
 
-test('every public content page loads the analytics adapter once', () => {
+test('the privacy notice loads no analytics adapter or tracking integration', () => {
+    const html = readFileSync(new URL('privacy.html', root), 'utf8');
+    assert.doesNotMatch(html, /<script\b[^>]*src="[^"]*(?:site-analytics|inflect|umami)|<img\b[^>]*src="https?:/);
+});
+
+test('content pages except the privacy notice load the analytics adapter once', () => {
     for (const folder of ['', 'thoughts/']) {
         const directory = new URL(folder, root);
-        for (const name of readdirSync(directory).filter(name => name.endsWith('.html') && !['404.html', 'creative.html'].includes(name))) {
+        for (const name of readdirSync(directory).filter(name => name.endsWith('.html') && !['404.html', 'creative.html', 'privacy.html'].includes(name))) {
             const html = readFileSync(new URL(name, directory), 'utf8');
             const prefix = folder ? '../' : '';
             const version = '2';

@@ -11,6 +11,8 @@ export const navigation = [
     { label: 'Connect', href: '/#terminal' },
 ];
 
+const footerNavigation = [...navigation, { label: 'Privacy and data', href: '/privacy.html' }];
+
 const chevron = '<svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5 7 5 5 5-5"/></svg>';
 
 function route(pagePath) {
@@ -64,7 +66,7 @@ export function renderFooter(pagePath) {
     return `<details class="site-footer-menu">
                 <summary><span>Explore this site</span> ${chevron}</summary>
                 <nav class="site-footer-nav" aria-label="Footer navigation">
-${navigation.map(item => `                    ${link(item, pagePath)}`).join('\n')}
+${footerNavigation.map(item => `                    ${link(item, pagePath)}`).join('\n')}
                 </nav>
             </details>`;
 }

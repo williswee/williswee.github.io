@@ -11,7 +11,7 @@ const read = name => readFileSync(new URL(name, root), 'utf8');
 const manifest = JSON.parse(read('thoughts/essay-manifest.js').match(/Object\.freeze\(([\s\S]*?)\);/)[1]);
 const essayPages = manifest.map(name => `thoughts/${name}`);
 const pages = ['index.html', 'work.html', 'coaching.html', 'books.html', 'play.html', 'guide.html',
-    'gratitude.html', '404.html', 'thoughts/index.html', ...essayPages];
+    'gratitude.html', 'privacy.html', '404.html', 'thoughts/index.html', ...essayPages];
 const plainText = html => html.replace(/<svg\b[\s\S]*?<\/svg>/g, '').replace(/<br\s*\/?>/g, ' ')
     .replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#(?:0*39|x27);/gi, "'")
     .replace(/&(?:nbsp);/g, ' ').replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
@@ -95,7 +95,7 @@ test('internal Home and Writing links use canonical paths while existing fragmen
         assert.equal([...home.matchAll(new RegExp(`\\bid="${id}"`, 'g'))].length, 1, `preserve #${id}`);
     }
     const llmsLinks = [...read('llms.txt').matchAll(/\]\((https:\/\/williswee\.com\/[^)]*)\)/g)].map(([, url]) => url);
-    for (const route of ['work.html', 'coaching.html', 'thoughts/']) {
+    for (const route of ['work.html', 'coaching.html', 'thoughts/', 'privacy.html']) {
         assert.ok(llmsLinks.includes(`https://williswee.com/${route}`), `llms.txt: missing ${route}`);
     }
     const sitemapLinks = [...read('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, url]) => url);

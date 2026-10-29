@@ -77,8 +77,9 @@ test('every footer repeats the site directory as ordinary links', () => {
         assert.doesNotMatch(menu[1], /\bopen(?:\s|=|$)/, `${name}: footer starts closed`);
         assert.match(menu[2], /^\s*<summary><span>Explore this site<\/span>/);
         const links = navigation(name, 'site-footer-nav');
-        assert.deepEqual(links.map(link => link.label), sharedLabels, name);
-        assert.deepEqual(links.map(link => link.href), sharedPaths, name);
+        assert.deepEqual(links.map(link => link.label), [...sharedLabels, 'Privacy and data'], name);
+        assert.deepEqual(links.map(link => link.href), [...sharedPaths, '/privacy.html'], name);
+        assert.equal(links.at(-1).current, name === 'privacy.html' ? 'page' : undefined, name);
         assert.doesNotMatch(read(name), /class="footer-home"/, `${name}: avoid a duplicate Home link`);
     }
 });

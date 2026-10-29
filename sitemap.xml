@@ -311,4 +311,10 @@
     <loc>https://williswee.com/game</loc>
     <priority>0.70</priority>
   </url>
+  <url>
+    <loc>https://williswee.com/privacy.html</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.30</priority>
+  </url>
+
 </urlset>
