@@ -5,7 +5,7 @@
 ## Main
 - [Home](https://williswee.com/): Introduction and overview of the site.
 - [Work](https://williswee.com/work.html): Work I did, from selling grasshoppers at age 10 to 16 years running Tech in Asia.
-- [Coaching](https://williswee.com/coaching.html): Candid 1:1 coaching for founders going from 0 to 1 and 1 to 2: who it's for, what we work on, and how to book a call on Intro.
+- [Coaching](https://williswee.com/coaching.html): Coaching for founders at any stage: what we can work on, how to send a note, and optional booking through Intro.
 - [Writing](https://williswee.com/thoughts/): Essays by Willis Wee on building products, leading teams, parenting, and life, with a complete chronological archive.
 - [Play](https://williswee.com/play): Randomly fun projects. Orbit Watch, 3D Floorplan, Chef Bob, Tiny Brain, Chix Run, Find the real Willis, GoogleFluid, and Brain games for kids.
 - [Books](https://williswee.com/books.html): A curated list of books I have read and recommend.

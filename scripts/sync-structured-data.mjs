@@ -192,9 +192,14 @@ export async function planStructuredData({ root = defaultRoot } = {}) {
         url: site, name: homeFacts.title, description: homeFacts.description, inLanguage: homeFacts.lang,
         mainEntity: { ...person, sameAs } };
     const coachingFacts = pageFacts(coaching, 'coaching.html', `${site}coaching.html`);
+    const coachingName = plainText(one(elements(coachingFacts.clean, 'h1'), 'coaching.html', 'coaching H1')[1]);
+    if (!coachingName) fail('coaching.html', 'Coaching service name must not be empty.');
     const coachingPage = { '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${coachingFacts.url}#webpage`,
         url: coachingFacts.url, name: coachingFacts.title, description: coachingFacts.description, inLanguage: coachingFacts.lang,
-        author: { ...person }, about: { '@id': person['@id'] } };
+        author: { ...person }, about: { '@id': person['@id'] },
+        mainEntity: { '@type': 'Service', '@id': `${coachingFacts.url}#service`, name: coachingName,
+            serviceType: 'Founder coaching', url: coachingFacts.url, description: coachingFacts.description,
+            provider: { ...person } } };
     const archiveFacts = pageFacts(archive, 'thoughts/index.html', `${site}thoughts/`);
     const list = one(elements(archiveFacts.clean, 'ul').filter(match =>
         attributes(tags(match[0], 'ul')[0][0]).id === 'article-list'), 'thoughts/index.html', '#article-list')[1];

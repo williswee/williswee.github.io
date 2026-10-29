@@ -134,11 +134,8 @@ test('the Coaching chapter preserves the approved invitation and links onward to
     assert.equal(nextChapter(coaching), '#archive');
     const heading = coaching.content.match(/<h2\b[^>]*>([\s\S]*?)<\/h2>/)?.[1];
     assert.match(visibleText(heading ?? ''), /^Coaching as comrades\.?$/);
-    const paragraphs = [...coaching.content.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/g)].map(([, text]) => visibleText(text));
-    assert.ok(paragraphs.includes('I help ambitious founders get unstuck—from 0 to 1, and 1 to 2. We’ll work through the problem together and find a clearer way forward.'),
-        'retain the existing homepage coaching introduction');
     const invitations = [...coaching.content.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
-        .filter(([, attributes]) => (attribute(attributes, 'class') ?? '').split(/\s+/).includes('coaching-more'));
+        .filter(([, attributes]) => (attribute(attributes, 'class') ?? '').split(/\s+/).includes('coaching-more') && attribute(attributes, 'href') === 'coaching.html');
     assert.equal(invitations.length, 1, 'one full-page invitation in the Coaching chapter');
     assert.equal(attribute(invitations[0][1], 'href'), 'coaching.html');
     assert.equal(visibleText(invitations[0][2]), 'Explore coaching');
@@ -162,18 +159,6 @@ test('the homepage introduction leaves the full coaching canonical, enquiry form
 });
 
 
-// Keep the approved founder introduction and booking control in Coaching.
-const compactMarkup = html => html.replace(/\s+/g, ' ').trim();
-const originalCoachingIntro = 'I help ambitious founders get unstuck—from 0 to 1, and 1 to 2. We’ll work through the problem together and find a clearer way forward.';
-const originalCoachingBooking = `<a class="coaching-booking" href="https://intro.co/williswee" target="_blank" rel="noopener noreferrer">
-    <span class="contact-label">
-        <svg class="contact-icon contact-icon-stroke" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 10l5-3v10l-5-3v4H4V6h11v4z"/></svg>
-        <span><strong>Book a call</strong><small>Rates &amp; times on Intro</small></span>
-    </span>
-    <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14L14 4M7 4h7v7"/></svg>
-    <span class="visually-hidden"> (opens in a new tab)</span>
-</a>`;
-
 const socialLinks = [
     ['https://williswee.substack.com', 'Substack', 'I write about the chaos of building products, founder life, and being a dad to three daughters.'],
     ['https://www.linkedin.com/in/williswee/', 'LinkedIn', 'I try to sound professional here.'],
@@ -182,28 +167,33 @@ const socialLinks = [
     ['https://intro.co/williswee', 'Intro', 'My coaching profile, rates, and available times.'],
 ];
 
-test('Coaching keeps its introduction and booking control without the homepage FAQ', () => {
+test('Coaching leads to the native note form and keeps Intro as a secondary choice', () => {
     const html = read('index.html');
     const coaching = homeScenes().find(scene => scene.id === 'coaching');
     const terminal = homeScenes().find(scene => scene.id === 'terminal');
     assert.ok(coaching && terminal);
-    const introductions = [...html.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/g)]
-        .filter(([, text]) => visibleText(text) === originalCoachingIntro);
-    assert.equal(introductions.length, 1, 'keep one original coaching introduction, in Coaching');
-    assert.ok(coaching.content.includes(introductions[0][0]));
     assert.doesNotMatch(html, /coaching-faq|A few questions about coaching/,
         'coaching questions belong on the detailed page');
-    const bookings = html.match(/<a class="coaching-booking"[\s\S]*?<\/a>/g) ?? [];
-    assert.equal(bookings.length, 1, 'move the Intro control rather than duplicating it');
-    assert.equal(compactMarkup(bookings[0]), compactMarkup(originalCoachingBooking));
-    const bookingList = coaching.content.match(/<div\b(?=[^>]*class="contact-list")(?=[^>]*aria-label="Coaching sessions")[^>]*>([\s\S]*?)<\/div>/)?.[1];
-    assert.ok(bookingList?.includes(bookings[0]), 'the existing booking control belongs to the Coaching sessions list');
-    const pageLinks = html.match(/<a class="coaching-more"[\s\S]*?<\/a>/g) ?? [];
-    assert.equal(pageLinks.length, 1, 'merge the old More about coaching link into Explore coaching');
-    assert.equal(visibleText(pageLinks[0]), 'Explore coaching');
+    const actions = [...coaching.content.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)];
+    const primary = actions.filter(([, attrs]) => (attribute(attrs, 'class') ?? '').split(/\s+/).includes('coaching-booking'));
+    assert.equal(primary.length, 1, 'one primary contact action');
+    assert.equal(attribute(primary[0][1], 'href'), 'coaching.html#send-a-note');
+    assert.equal(attribute(primary[0][1], 'target'), undefined, 'the local note route stays in the same tab');
+    assert.ok(visibleText(primary[0][2]).includes('Send me a note'));
+    const notePage = read('coaching.html');
+    assert.match(notePage, /id="send-a-note"/);
+    assert.match(notePage, /<form\b[^>]*action="https:\/\/formspree\.io\/f\/mdekydke"[^>]*method="POST"/);
+    const intro = actions.filter(([, attrs]) => attribute(attrs, 'href') === 'https://intro.co/williswee');
+    assert.equal(intro.length, 1, 'Intro remains available within the Coaching chapter');
+    assert.equal(attribute(intro[0][1], 'target'), '_blank');
+    assert.match(attribute(intro[0][1], 'rel'), /\bnoopener\b/);
+    assert.match(attribute(intro[0][1], 'rel'), /\bnoreferrer\b/);
+    assert.match(visibleText(intro[0][2]), /Prefer Intro\?/);
+    assert.match(visibleText(intro[0][2]), /opens in a new tab/);
+    assert.ok(coaching.content.indexOf(primary[0][0]) < coaching.content.indexOf(intro[0][0]),
+        'the note action precedes optional booking');
     assert.doesNotMatch(terminal.content, /coaching-(?:more|booking|faq)|href="\/?coaching\.html/,
         'Connect keeps the coaching invitation and FAQ in the Coaching section');
-    assert.ok(!visibleText(terminal.content).includes(originalCoachingIntro));
 });
 
 test('Connect offers the approved public profiles and captions in order', () => {

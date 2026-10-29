@@ -84,6 +84,22 @@ test('uses visible essay facts and one identity, with no invented metadata', asy
     assert.deepEqual(home.mainEntity, { '@type': 'Person', '@id': `${site}#person`, name: 'Willis Wee', url: site, sameAs: profiles });
     assert.equal(coaching['@type'], 'WebPage');
     assert.equal(coaching.about['@id'], home.mainEntity['@id']);
+    const service = coaching.mainEntity;
+    assert.equal(service['@type'], 'Service');
+    assert.equal(service['@id'], `${site}coaching.html#service`);
+    assert.equal(service.url, coaching.url);
+    assert.equal(service.name, 'Coaching as comrades');
+    assert.equal(service.serviceType, 'Founder coaching');
+    assert.equal(service.description, coaching.description);
+    assert.deepEqual(service.provider, coaching.author);
+    assert.equal(service.provider['@id'], home.mainEntity['@id']);
+    for (const key of ['offers', 'review', 'aggregateRating', 'address', 'hoursAvailable', 'areaServed', 'potentialAction']) {
+        assert.ok(!(key in service), `service must not invent ${key}`);
+    }
+    await f.write('coaching.html', f.sources['coaching.html'].replace('Coaching as comrades', 'Coaching<span> with </span>Willis &amp; friends'));
+    const revisedService = (await planStructuredData({ root: f.root }))[1].data.mainEntity;
+    assert.equal(revisedService.name, 'Coaching with Willis & friends', 'derive the service name from the visible H1');
+    assert.equal(revisedService['@id'], service['@id'], 'a name change must preserve the service identity');
     assert.equal(archive['@type'], 'CollectionPage');
     assert.equal(first['@type'], 'BlogPosting');
     assert.equal(first.headline, 'Two ways & <choices>');

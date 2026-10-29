@@ -50,6 +50,20 @@
             },
             "about": {
                 "@id": "https://williswee.com/#person"
+            },
+            "mainEntity": {
+                "@type": "Service",
+                "@id": "https://williswee.com/coaching.html#service",
+                "name": "Coaching as comrades",
+                "serviceType": "Founder coaching",
+                "url": "https://williswee.com/coaching.html",
+                "description": "Coaching for founders at any stage with Willis Wee, based in Singapore. Send a note to talk through team or business challenges and arrange a session.",
+                "provider": {
+                    "@type": "Person",
+                    "@id": "https://williswee.com/#person",
+                    "name": "Willis Wee",
+                    "url": "https://williswee.com/"
+                }
             }
         }
     </script>
@@ -265,14 +279,14 @@
                             <span id="note-message-error" class="coaching-field-error" hidden></span>
                         </div>
                         <div class="coaching-field coaching-field-budget">
-                            <label for="note-budget">Budget per 60 minute session <span class="coaching-field-optional">Optional</span></label>
+                            <label for="note-budget">Session budget <span class="coaching-field-optional">Optional</span></label>
                             <p id="note-budget-hint" class="coaching-form-hint">Include the currency. It helps me understand your budget, but I can't promise to match it.</p>
                             <input id="note-budget" name="budget" type="text" maxlength="120" aria-describedby="note-budget-hint">
                         </div>
                         <input type="hidden" name="_subject" value="Coaching enquiry from williswee.com">
                         <div hidden aria-hidden="true"><label for="note-website">Leave this field empty</label><input id="note-website" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
                         <button class="coaching-note-submit" type="submit" data-note-submit>Send note</button>
-                        <p class="coaching-form-privacy">Your note goes to my inbox.</p>
+                        <p class="coaching-form-privacy">Formspree sends your note to my inbox.</p>
                     </fieldset>
                     <p id="coaching-note-status" class="coaching-note-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1" hidden></p>
                     <button id="coaching-note-provider" class="coaching-note-provider" type="button" hidden>Continue with Formspree</button>
