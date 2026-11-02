@@ -51,7 +51,8 @@
 .spotlight-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
 .timeline .spotlight-title { margin: 0; font-size: 1.3rem; }
 .spotlight-badge { font-size: var(--font-size-ui); color: var(--green); }
-.timeline .spotlight-desc { margin-bottom: 24px; font-size: .94rem; line-height: 1.8; }
+.timeline .spotlight-desc { margin-bottom: 12px; font-size: .94rem; line-height: 1.8; }
+.spotlight-link { margin: 0 0 14px; }
 .spotlight-preview-frame { display: block; border: 1px solid var(--line); color: var(--cream); text-decoration: none; transition: border-color 180ms ease-out; }
 .spotlight-preview-frame:hover { border-color: var(--gold); }
 .spotlight-preview-img { display: block; width: 100%; height: auto; }
