@@ -929,3 +929,13 @@ What's yours?
 2️⃣ Eating dinner alone is a luxury. I love the silence.
 
 3️⃣ Thankful that we persisted on TickerTown. We learned so much!
+
+## Gratitude note #87
+
+*2026-11-03*
+
+1️⃣ I feel like I have the best wife and life partner in the world.
+
+2️⃣ Had a rather peaceful dinner with the kids.
+
+3️⃣ Swam yesterday before it rained.
