@@ -939,3 +939,13 @@ What's yours?
 2️⃣ Had a rather peaceful dinner with the kids.
 
 3️⃣ Swam yesterday before it rained.
+
+## Gratitude note #88
+
+*2026-11-04*
+
+1️⃣ Met with a wildly successful founder who said I spoke with him and treated him with kindness more than 10 years ago. He was in high school back then.
+
+2️⃣ It was a little more peaceful at home yesterday.
+
+3️⃣ Made the decision to part ways. This brings clarity. Parting ways with gratitude is a sign of maturity and awareness.
