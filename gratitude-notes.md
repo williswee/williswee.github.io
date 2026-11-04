@@ -949,3 +949,13 @@ What's yours?
 2️⃣ It was a little more peaceful at home yesterday.
 
 3️⃣ Made the decision to part ways. This brings clarity. Parting ways with gratitude is a sign of maturity and awareness.
+
+## Gratitude note #89
+
+*2026-11-05*
+
+1️⃣ Another peaceful night with the kids.
+
+2️⃣ Launched TickerTown. We built it quite quickly, and I’m happy that I put my best foot forward in terms of craftsmanship.
+
+3️⃣ Recovered from a cold. It was nice to sleep, especially when my body was telling me I needed to.
