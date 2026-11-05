@@ -67,7 +67,8 @@
 
     function markCurrentSection() {
         pending = false;
-        const readingLine = window.innerHeight / 2 + (header ? header.getBoundingClientRect().height : 0);
+        // Track the section at the top of the reading area, including short sections.
+        const readingLine = (header ? header.getBoundingClientRect().height : 0) + 32;
         const root = document.documentElement;
         let current = null;
         sections.forEach((section) => {
