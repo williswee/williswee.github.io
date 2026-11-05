@@ -135,7 +135,7 @@ window.WILLIS_ESSAY_DETAILS = Object.freeze([
         "slug": "talktousers.html",
         "title": "Most founders I meet don't talk to users",
         "date": "19 August 2026",
-        "minutes": 7
+        "minutes": 6
     },
     {
         "slug": "nomoney.html",

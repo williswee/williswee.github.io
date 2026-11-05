@@ -33,7 +33,7 @@
 
     <script src="newsletter.js?v=4" defer></script>
     <noscript><style>iframe[data-newsletter-src] { display: none; }</style></noscript>
-    <script src="essay-manifest.js?v=9" defer></script>
+    <script src="essay-manifest.js?v=10" defer></script>
     <script src="reading-room.js?v=1.7" defer></script>
     <script src="../site-analytics.js?v=2" defer></script>
     <script type="application/ld+json" id="structured-data">
@@ -152,8 +152,8 @@
                     <li>"Is there any point in the checkout process that frustrates you?"</li>
                     <li>Observe them using the landing page and ask when they decided to sign up for the trial</li>
                 </ul>
-                <p>
-                    Good intent. But poorly designed imo. 😅<sup><a href="#footnote-1" id="footnote-anchor-1">1</a></sup>
+                <p id="footnote-anchor-1">
+                    Good intent. But poorly designed imo. 😅
                 </p>
                 <p>
                     I told her the list mixed two different tools: user interviews and usability tests. That mix and line of questions may introduce bias. When you show people something and ask for their thoughts, you get opinions instead of lived experience or real behavior. That data isn't very useful. It's a common mistake for founders. I've made it too.
@@ -184,7 +184,7 @@
                     The problem with opinions is that people try to be polite. They want to be helpful, make you feel good, or sound smart. Whatever the reason, it creates dirty data that sends you down the wrong path. Behavior is much harder to fake.
                 </p>
                 <p>
-                    For most product decisions, I prefer usability tests. You give the user a role and a goal, then ask them to complete a task. For a checkout flow, you might ask someone who fits your ICP to go to the live landing page and complete a purchase. Put them in task mode so they behave like a real user landing on your site.
+                    For most product decisions, I prefer usability tests. I give people a role and a goal, then watch how they approach the task. Here's <a href="#usability-test-script">the signup test I'd run</a>.
                 </p>
 
                 <h2>Behavior is the signal. Opinions are noise.</h2>
@@ -204,21 +204,31 @@
                     That's the gap between what users say and what users do. Opinions sound useful. They feel like data. But they're not. Behavior is the signal that's worth designing around.
                 </p>
 
-                <h2>Three to five users is enough.</h2>
+                <section id="footnote-1" aria-labelledby="usability-test-script">
+                    <h2 id="usability-test-script">A signup test I'd run</h2>
+                    <ol>
+                        <li><strong>Give them a task.</strong> <q>You're [describe their role and situation]. Start on this homepage. Explore the product and decide whether you'd sign up.</q></li>
+                        <li><strong>Watch and take notes.</strong> I ask them to think out loud. I tell them I'm testing how the product works and anything they do is fine. They can ask questions along the way, and I'll answer them at the end. If they're quiet for a while and I can't tell what they're thinking, I ask, <q>What's on your mind right now?</q></li>
+                        <li><strong>Test checkout separately if needed.</strong> If they decide against signing up, that's useful to know. If I still need to see how checkout works for them, I give them a separate task that starts with the decision to sign up.</li>
+                        <li><strong>Go back through a few moments.</strong> Once the task is over, I revisit what I saw in the prototype and ask what was going through their mind.</li>
+                    </ol>
+                </section>
+
+                <h2>I start with small rounds</h2>
                 <p>
-                    Three to five users per round is usually enough to spot a pattern. That goes for usability tests too.
+                    I usually start with three to five people per round. A few sessions can show me where people get stuck and what to look for in the next round.
                 </p>
                 <p>
                     Whenever possible, bring along designers and engineers so they can watch users struggle firsthand. Seeing is believing. That kind of empathy and context never travels as well through a PRD.
                 </p>
                 <p>
-                    We did this <a href="https://williswee.com/thoughts/tickertownusabilitytest.html">with TickerTown</a>. You don't stop at one round, though.
+                    Here's <a href="tickertownusabilitytest.html#usability-test-findings">what we saw in the TickerTown usability tests</a>.
                 </p>
                 <p>
                     We ran two rounds of user interviews (about five people each), then a few rounds of usability tests in batches of three.
                 </p>
                 <p>
-                    On top of that, I had casual five-minute conversations with more than a dozen people: aunties, uncles, neighbors. No research setting, no script. Just quick questions on how they invest, how they handle money, what frustrates them. These are questions that surface during the formal sessions, and the casual chats give you unfiltered signal you'd never get in a structured interview.<sup><a href="#footnote-2" id="footnote-anchor-2">2</a></sup>
+                    On top of that, I had casual five-minute conversations with more than a dozen people: aunties, uncles, neighbors. No research setting, no script. Just quick questions on how they invest, how they handle money, what frustrates them. These are questions that surface during the formal sessions, and the casual chats give you unfiltered signal you'd never get in a structured interview.<sup><a href="#footnote-2" id="footnote-anchor-2">1</a></sup>
                 </p>
                 <p>
                     The conversations didn't prove the idea works. They made it clearer who might care, who definitely didn't, and what the product should stop trying to be. That's signal you can't get from a dashboard.
@@ -229,10 +239,10 @@
                     Of course it doesn't. For critical flows like checkout, you still need an A/B test to prove actual lift in production.
                 </p>
                 <p>
-                    What talking to users does is bring you closer to the person on the other end: their vocabulary, how they think, and how they react to your copy + UI. That kind of proximity to the user is hard to get any other way.<sup><a href="#footnote-3" id="footnote-anchor-3">3</a></sup>
+                    What talking to users does is bring you closer to the person on the other end: their vocabulary, how they think, and how they react to your copy + UI. That kind of proximity to the user is hard to get any other way.<sup><a href="#footnote-3" id="footnote-anchor-3">2</a></sup>
                 </p>
                 <p>
-                    I know, I know. It might feel slower than jumping straight into code. But over the long haul, this discipline saves the team time and heartache.<sup><a href="#footnote-4" id="footnote-anchor-4">4</a></sup>
+                    I know, I know. It might feel slower than jumping straight into code. But over the long haul, this discipline saves the team time and heartache.<sup><a href="#footnote-4" id="footnote-anchor-4">3</a></sup>
                 </p>
                 <p>
                     The first five to ten sessions will feel awkward. You might feel like you suck at it. Then it becomes muscle memory. You start learning directly from users, and you appreciate the craft of building a great product much more.
@@ -244,31 +254,20 @@
                     If you want to go deeper, Steve Krug's <em><a href="https://sensible.com/dont-make-me-think/">Don't Make Me Think</a></em> is a great, practical book on usability testing. No fluff. There's also a <a href="https://www.youtube.com/watch?v=z1iF1c8w5Lg&amp;t=1s">useful YC talk on YouTube</a> that covers the basics well.
                 </p>
 
+                <p>If you're planning a test and stuck on the task, <a href="../coaching.html#send-a-note">send me a note about what you're trying to learn</a>.</p>
+
                 <hr style="margin-top:2rem;margin-bottom:1.5rem;">
 
                 <div class="article-footnotes">
-                    <p id="footnote-1"><sup><a href="#footnote-anchor-1">1</a></sup> I'd explore doing it this way → <em>"You're [insert ICP role details and context]. Your task today is to explore a product and decide whether to sign up.</em></p>
-                    <ul>
-                        <li><em>As you go about your task, feel free to think out loud, and ask questions.</em></li>
-                        <li><em>Note that I'm unable to answer your questions along the way as we are designing products to be used without any assistance. But I'd be happy to answer them after the session.</em></li>
-                        <li><em>Gentle reminder that we are testing the product, not you. Nothing you do today is wrong.</em></li>
-                        <li><em>You're now on the homepage of [XYZ], how'd you go about completing your task. As a recap, your task is to explore and decide if you'd sign up."</em></li>
-                    </ul>
-                    <p>Then keep silent, observe the user, and take a lot of notes. Only prompt if the user is taking too long and you're unclear what's in her mind (i.e. <em>"It seems like you're processing something. Could you share what's on your mind?"</em>).</p>
-                    <p>It's alright if user decides not to sign up (at least now we know). I'd insert a scenario to get user to sign up anyway so we get to test the actual checkout flow.</p>
-                    <p>Once session is done, I typically like to backtrack the prototype to revisit a few key observations of the user's behavior. I find it useful to learn more about inner motivations that can't be seen through observations.</p>
+                    <p id="footnote-2"><sup><a href="#footnote-anchor-2">1</a></sup> To be executed with care. It's easy to prime users and/or cherry pick data to force a narrative and lie to yourself.</p>
                 </div>
 
                 <div class="article-footnotes">
-                    <p id="footnote-2"><sup><a href="#footnote-anchor-2">2</a></sup> To be executed with care. It's easy to prime users and/or cherry pick data to force a narrative and lie to yourself.</p>
+                    <p id="footnote-3"><sup><a href="#footnote-anchor-3">2</a></sup> To find out if someone will pay, try selling to them. In interviews I ask about what people have done. In usability tests I watch them try a task.</p>
                 </div>
 
                 <div class="article-footnotes">
-                    <p id="footnote-3"><sup><a href="#footnote-anchor-3">3</a></sup> Important note → Doing sales tell you if someone pays. But sales ≠ User interviews or Usability test. In sales mode, you aim to persuade But in user interviews and usability tests, you aim to listen, watch, and learn without bias.</p>
-                </div>
-
-                <div class="article-footnotes">
-                    <p id="footnote-4"><sup><a href="#footnote-anchor-4">4</a></sup> Generally true for somewhat complex products. If shipping and showing a live product to users actually save more time, then just go for it.</p>
+                    <p id="footnote-4"><sup><a href="#footnote-anchor-4">3</a></sup> Generally true for somewhat complex products. If shipping and showing a live product to users actually save more time, then just go for it.</p>
                 </div>
 
             </article>
