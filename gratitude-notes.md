@@ -959,3 +959,13 @@ What's yours?
 2️⃣ Launched TickerTown. We built it quite quickly, and I’m happy that I put my best foot forward in terms of craftsmanship.
 
 3️⃣ Recovered from a cold. It was nice to sleep, especially when my body was telling me I needed to.
+
+## Gratitude note #90
+
+*2026-11-06*
+
+1️⃣ Had taco night with the family. The tacos were homemade, so it was a joyful experience and something different.
+
+2️⃣ Met up with a friend. The conversation turned out to be really fruitful. We talked about life, family, and how to deal with children. Very thankful for her time and kindness.
+
+3️⃣ Spent some time exploring different things, including my own finance dashboard, AEO, SEO, and GEO. It was a fun, random exploration.
