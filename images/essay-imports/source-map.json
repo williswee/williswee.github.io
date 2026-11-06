@@ -978,5 +978,36 @@
         "preserved_original": true
       }
     ]
+  },
+  {
+    "page": "thoughts/building-and-being-a-dad.html",
+    "source_url": "https://substack-post-media.s3.amazonaws.com/public/images/22d871af-85b0-4951-9ff9-1938e48fa454_4032x3024.jpeg",
+    "original": "images/essay-imports/building-and-being-a-dad-1-original-e6ab507efacb.jpg",
+    "original_bytes": 3250454,
+    "declared_before": [
+      1456,
+      1092
+    ],
+    "verified": [
+      4032,
+      3024
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/building-and-being-a-dad-1-640-d43d02282f6a.webp",
+        "bytes": 73780
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/building-and-being-a-dad-1-960-cb6e14184fa1.webp",
+        "bytes": 133632
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/building-and-being-a-dad-1-1440-e3dce5c3d328.webp",
+        "bytes": 237298
+      }
+    ]
   }
 ]

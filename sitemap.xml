@@ -42,6 +42,11 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://williswee.com/thoughts/building-and-being-a-dad.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
     <loc>https://williswee.com/thoughts/tickertown-launch.html</loc>
     <lastmod>2026-11-04</lastmod>
     <priority>0.60</priority>
@@ -78,7 +83,7 @@
   </url>
   <url>
     <loc>https://williswee.com/thoughts/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
