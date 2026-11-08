@@ -969,3 +969,13 @@ What's yours?
 2️⃣ Met up with a friend. The conversation turned out to be really fruitful. We talked about life, family, and how to deal with children. Very thankful for her time and kindness.
 
 3️⃣ Spent some time exploring different things, including my own finance dashboard, AEO, SEO, and GEO. It was a fun, random exploration.
+
+## Gratitude note #91
+
+*2026-11-09*
+
+1️⃣ Had a really fun day with the girls. Just me and my three girls: cycling, playground, dinner, and lots of laughs. Perfect.
+
+2️⃣ I feel a sense of relief. I think I’m clearer. I’m not out of the woods, just a little wiser, I think.
+
+3️⃣ Night out with my brother. Spent so much time chatting and catching up. It’s a great feeling.
