@@ -344,19 +344,39 @@ stage.addEventListener('click', event => {
   }
 });
 
-let wheelX = 0, wheelY = 0, wheelLatched = false, wheelTimer;
+const wheelAxisRatio = 1.35;
+const wheelTailDelta = 3;
+let wheelX = 0, wheelY = 0, wheelLatched = false, wheelResuming = false;
+let lastWheelAt = -Infinity, lastStrongWheelAt = -Infinity;
 stage.addEventListener('wheel', event => {
   if (event.ctrlKey || isZoomed() || appSheet.open || yearSheet.open || controlsSheet.open) return;
   event.preventDefault();
-  clearTimeout(wheelTimer);
-  wheelTimer = setTimeout(() => { wheelX = wheelY = 0; wheelLatched = false; }, 180);
-  if (wheelLatched) return;
   const scale = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? stage.clientHeight : 1;
-  wheelX += event.deltaX * scale;
-  wheelY += event.deltaY * scale;
-  if (Math.max(Math.abs(wheelX), Math.abs(wheelY)) < 65) return;
-  if (Math.abs(wheelY) > Math.abs(wheelX) * 1.35) { wheelLatched = true; moveCompany(wheelY > 0 ? 1 : -1); }
-  else if (Math.abs(wheelX) > Math.abs(wheelY) * 1.35) {
+  const dx = event.deltaX * scale, dy = event.deltaY * scale;
+  if (!dx && !dy) return;
+  const now = performance.now();
+  const absX = Math.abs(dx), absY = Math.abs(dy);
+  const freshBurst = now - lastWheelAt >= 180;
+  const strongPacket = Math.max(absX, absY) > wheelTailDelta;
+  // A fresh vertical stroke can interrupt a tail of small momentum events.
+  const interruptsTail = (wheelLatched || wheelResuming) && now - lastStrongWheelAt >= 120 &&
+    absY > wheelTailDelta && absY > absX * wheelAxisRatio;
+  if (freshBurst || interruptsTail) {
+    wheelX = wheelY = 0;
+    wheelLatched = false;
+    wheelResuming = !freshBurst;
+  }
+  lastWheelAt = now;
+  if (strongPacket) lastStrongWheelAt = now;
+  // During a restart, only new movement can count toward the next swipe.
+  if (wheelLatched || (wheelResuming && !strongPacket)) return;
+  wheelX += dx;
+  wheelY += dy;
+  const x = Math.abs(wheelX), y = Math.abs(wheelY);
+  if (y >= 28 && y > x * wheelAxisRatio) {
+    wheelLatched = true;
+    moveCompany(wheelY > 0 ? 1 : -1);
+  } else if (x >= 65 && x > y * wheelAxisRatio) {
     wheelLatched = true;
     // Natural scrolling reports a positive horizontal delta for a leftward swipe.
     moveScreen(wheelX > 0 ? 1 : -1);
