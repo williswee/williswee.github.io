@@ -989,3 +989,13 @@ What's yours?
 2️⃣ Hung out with the family over the long weekend.
 
 3️⃣ Built some fun stuff using just my phone.
+
+## Gratitude note #93
+
+*2026-11-11*
+
+1️⃣ Cycled with two of my girls in the rain. It was quite an experience.
+
+2️⃣ Had a good chat with a fellow founder. I have a lot of respect for his effort despite not seeing the results he wants.
+
+3️⃣ Getting a little clearer and learning a little more about my current situation and where I need to focus.
