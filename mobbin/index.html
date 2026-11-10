@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta name="description" content="Explore real mobile app screens captured at different moments in time.">
+  <title>Go back in time</title>
+  <link rel="stylesheet" href="styles.css?v=immersive-12">
+  <link rel="stylesheet" href="feed.css?v=immersive-12">
+  <script src="gesture-intent.js?v=immersive-12" defer></script>
+  <script src="app.js?v=immersive-12" defer></script>
+  <script src="feed.js?v=immersive-12" defer></script>
+</head>
+<body>
+  <svg class="sr-only" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    <symbol id="clock" viewBox="0 0 24 24"><path d="M3 9a9 9 0 1 1 0 6M3 3v6h6M12 7v5l3 2"/></symbol>
+    <symbol id="more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+    <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="next-screen" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="next-app" viewBox="0 0 24 24"><path d="M12 20V4m-6 6 6-6 6 6"/></symbol>
+  </svg>
+  <header class="topbar">
+    <span class="wordmark"><svg class="icon" aria-hidden="true"><use href="#clock"/></svg> Go back in time</span>
+    <a class="text-link" href="https://mobbin.com/" target="_blank" rel="noopener noreferrer">Explore Mobbin <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+  </header>
+  <main class="museum">
+    <h1 class="sr-only">Go back in time</h1>
+    <nav class="capture-dock" aria-label="Browse captures">
+      <button id="app-picker" class="app-picker dock-button" type="button" aria-haspopup="dialog" aria-expanded="false" disabled><span id="app-name">Choose an app</span><svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></button>
+      <button id="year-picker" class="dock-button year-picker" type="button" aria-haspopup="dialog" aria-expanded="false" disabled><span id="header-year">Year</span><svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></button>
+      <button id="feed-next-screen" class="dock-button next-screen" type="button" aria-label="Next screen" title="Next screen · Swipe left" disabled><span id="feed-next-label">Next</span><svg class="icon" aria-hidden="true"><use href="#next-screen"/></svg></button>
+      <button class="flow-toggle dock-button" id="flow-toggle" type="button" aria-label="More controls and Mobbin source" aria-haspopup="dialog" aria-expanded="false"><svg class="icon" aria-hidden="true"><use href="#more"/></svg></button>
+      <div class="screen-progress" id="screen-progress" aria-hidden="true"></div>
+    </nav>
+    <section class="exhibit" aria-label="Captured mobile app history">
+      <figure class="stage" id="stage" aria-busy="true">
+        <div id="prototype" role="group" aria-label="Captured mobile screen" tabindex="-1" aria-describedby="prototype-hint">
+          <div class="capture-plane">
+            <img id="capture" class="capture" alt="" draggable="false" hidden>
+            <div id="hotspots" class="hotspots" hidden></div>
+          </div>
+        </div>
+        <div class="stage-message" id="stage-message" role="status">Loading captured history…</div>
+        <p class="feed-feedback" id="feed-feedback" aria-hidden="true" hidden></p>
+        <button id="retry" class="retry" type="button" hidden>Try again</button>
+      </figure>
+      <div id="controls-home">
+      <div class="prototype-controls" id="prototype-controls" aria-label="Captured flow navigation">
+        <button id="prototype-back" type="button" aria-label="Go back one captured screen" disabled>Back</button>
+        <button class="prototype-step" id="prototype-next" type="button" disabled>
+          <span id="screen-label"></span>
+          <span id="prototype-hint"></span>
+        </button>
+        <button id="prototype-reset" type="button" aria-label="Restart this captured flow" disabled>Reset</button>
+      </div>
+      </div>
+    </section>
+    <p id="announce" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+  </main>
+  <dialog class="controls-sheet app-sheet" id="app-sheet" aria-labelledby="app-sheet-title">
+    <div class="sheet-heading">
+      <h2 id="app-sheet-title">Choose an app</h2>
+      <button class="sheet-close" id="app-close" type="button" aria-label="Close app picker"><svg class="icon" aria-hidden="true"><use href="#close"/></svg></button>
+    </div>
+    <label class="sr-only" for="app-search">Find an app</label>
+    <input id="app-search" type="search" placeholder="Find an app" autocomplete="off" spellcheck="false">
+    <p class="app-count" id="app-count" role="status"></p>
+    <div class="app-list" id="app-list"></div>
+  </dialog>
+  <dialog class="controls-sheet year-sheet" id="year-sheet" aria-labelledby="year-sheet-title">
+    <div class="sheet-heading">
+      <h2 id="year-sheet-title">Choose a year</h2>
+      <button class="sheet-close" id="year-close" type="button" aria-label="Close year picker"><svg class="icon" aria-hidden="true"><use href="#close"/></svg></button>
+    </div>
+    <p id="year-app-name"></p>
+    <div class="year-options" id="timeline-stops" aria-label="Available capture dates"></div>
+  </dialog>
+  <dialog class="controls-sheet" id="controls-sheet" aria-labelledby="controls-title">
+    <div class="sheet-heading">
+      <h2 id="controls-title">Tap through</h2>
+      <button id="flow-close" type="button" aria-label="Close prototype controls"><svg class="icon" aria-hidden="true"><use href="#close"/></svg></button>
+    </div>
+    <p id="sheet-context"></p>
+    <p class="controls-guide">Swipe left for the next screen, year, or app. Swipe up to skip to the next app.</p>
+    <div class="sheet-browse"><button id="sheet-next-app" type="button">Jump to next app <svg class="icon" aria-hidden="true"><use href="#next-app"/></svg></button><button id="sheet-next-screen" type="button"><span>Next screen</span><svg class="icon" aria-hidden="true"><use href="#next-screen"/></svg></button></div>
+    <div id="sheet-controls"></div>
+    <a class="source-link" id="citation" target="_blank" rel="noopener noreferrer" hidden>View this screen on Mobbin <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+  </dialog>
+  <noscript><p class="stage-message">Turn on JavaScript to explore the timeline.</p></noscript>
+</body>
+</html>
