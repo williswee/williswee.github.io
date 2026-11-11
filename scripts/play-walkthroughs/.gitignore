@@ -1,0 +1,7 @@
+/.bundle/
+/captures/
+/node_modules/
+/out/
+/public/
+/.venv/
+/__pycache__/

@@ -3,6 +3,82 @@
   "page": "play.html",
   "assets": [
     {
+      "project": "gifgpt",
+      "source_type": "edited animation reel",
+      "source_url": "https://williswee.com/gifgpt/",
+      "source_path": "scripts/play-walkthroughs/",
+      "source_sha256": "8f7be3a2922aab75ee7167f0900e39cbdb7028d9d9983b790e2707dd17b131e4",
+      "captured_date": "2026-11-11",
+      "tool": "Remotion 4.0.534",
+      "method": "Remotion sequences 16 animations from gifgpt/media/ at 1.3× speed. The reel pairs the animations with an original lo-fi score at 96 BPM, using soft keys, bass and muted drums.",
+      "speed_multiplier": 1.3,
+      "narration": false,
+      "outputs": [
+        {
+          "path": "videos/gifgpt-reel-8f7be3a2922a.mp4",
+          "format": "mp4",
+          "codec": "h264",
+          "pixel_format": "yuv420p",
+          "width": 720,
+          "height": 1280,
+          "frames_per_second": 30,
+          "duration_seconds": 20,
+          "bytes": 15475858,
+          "audio": true,
+          "audio_codec": "aac",
+          "audio_source": "original lo-fi instrumental",
+          "integrated_loudness_lufs": -23.77,
+          "true_peak_dbtp": -9.01
+        },
+        {
+          "path": "images/gifgpt-reel-poster-8f7be3a2922a.webp",
+          "format": "webp",
+          "width": 720,
+          "height": 1280,
+          "source_video_time_seconds": 0.5,
+          "bytes": 119878
+        }
+      ],
+      "generated_imagery": false
+    },
+    {
+      "project": "Go back in time",
+      "source_type": "edited app walkthrough",
+      "source_url": "https://williswee.com/mobbin/",
+      "source_path": "scripts/play-walkthroughs/",
+      "source_sha256": "7b9bc730ac0fec0a797ac6d76ff98906905b7ca8a6d9b167cf525c0266a70e7f",
+      "captured_date": "2026-11-11",
+      "tool": "Remotion 4.0.534",
+      "method": "Recorded the checked-in app in a clean browser: Duolingo 2026 to 2018, back to 2026, then Netflix 2018 plan screens. Interactions navigate archived screens; no account or subscription is created. Remotion plays 26 seconds of app footage at 1.3×, adds measured tap cues, and mixes an original instrumental score.",
+      "speed_multiplier": 1.3,
+      "narration": false,
+      "outputs": [
+        {
+          "path": "videos/mobbin-demo-7b9bc730ac0f.mp4",
+          "format": "mp4",
+          "codec": "h264",
+          "pixel_format": "yuv420p",
+          "width": 720,
+          "height": 1280,
+          "frames_per_second": 30,
+          "duration_seconds": 20,
+          "bytes": 988320,
+          "audio": true,
+          "audio_codec": "aac",
+          "audio_source": "original synthesized instrumental"
+        },
+        {
+          "path": "images/mobbin-demo-poster-7b9bc730ac0f.webp",
+          "format": "webp",
+          "width": 720,
+          "height": 1280,
+          "source_video_time_seconds": 3.2,
+          "bytes": 17220
+        }
+      ],
+      "generated_imagery": false
+    },
+    {
       "project": "3D Floorplan",
       "source_type": "local project edited walkthrough",
       "source_url": "https://williswee.com/3d-floorplan/",

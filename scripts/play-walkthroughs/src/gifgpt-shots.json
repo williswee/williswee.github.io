@@ -1,0 +1,18 @@
+[
+  { "id": "dance-corgi-horse", "frames": 32 },
+  { "id": "classic-side-eye", "frames": 32 },
+  { "id": "hq-chaos-jelly-tray", "frames": 36 },
+  { "id": "hq-nope-cat-pushback", "frames": 36 },
+  { "id": "hq-chaos-flour-tail", "frames": 36 },
+  { "id": "dance-frog-disco", "frames": 36 },
+  { "id": "hq-chaos-duck-line", "frames": 36 },
+  { "id": "lol-grandma-fan", "frames": 34 },
+  { "id": "hq-angry-kettle-lid", "frames": 36 },
+  { "id": "hq-nope-crab-detour", "frames": 41 },
+  { "id": "hq-angry-octopus-knots", "frames": 36 },
+  { "id": "dance-clockwork-robot", "frames": 32 },
+  { "id": "classic-sugar-rush", "frames": 37 },
+  { "id": "hq-love-otter-paws", "frames": 36 },
+  { "id": "hq-vibes-raccoon-record", "frames": 44 },
+  { "id": "dramatic-chipmunk", "frames": 60, "trimBefore": 30 }
+]

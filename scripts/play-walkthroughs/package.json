@@ -1,0 +1,27 @@
+{
+  "name": "play-walkthroughs-remotion",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "capture:gifgpt": "node capture.mjs gifgpt",
+    "capture:mobbin": "node capture.mjs mobbin",
+    "render:gifgpt": "node render.mjs GifgptReel out/gifgpt-demo.mp4",
+    "render:mobbin": "node render.mjs MobbinWalkthrough out/mobbin-demo.mp4"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.534",
+    "@remotion/cli": "4.0.534",
+    "@remotion/renderer": "4.0.534",
+    "remotion": "4.0.534",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.10",
+    "typescript": "5.8.3",
+    "playwright-core": "1.63.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
