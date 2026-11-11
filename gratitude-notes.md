@@ -999,3 +999,13 @@ What's yours?
 2️⃣ Had a good chat with a fellow founder. I have a lot of respect for his effort despite not seeing the results he wants.
 
 3️⃣ Getting a little clearer and learning a little more about my current situation and where I need to focus.
+
+## Gratitude note #94
+
+*2026-11-12*
+
+1️⃣ Swam with the kids before dinner. That was a nice change of routine.
+
+2️⃣ It was pretty fun building things with a friend and the wife. Always a joy to see their eyes light up.
+
+3️⃣ Had a good conversation with a passionate professor who cares for his students and looks at education from a customer journey point of view. It’s always nice to talk to someone who’s passionate about their work.
