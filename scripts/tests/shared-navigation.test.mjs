@@ -161,10 +161,11 @@ test('the homepage introduction leaves the full coaching canonical, enquiry form
 
 
 const socialLinks = [
-    ['https://williswee.substack.com', 'Substack', 'I write about the chaos of building products, founder life, and being a dad to three daughters.'],
+    ['https://williswee.substack.com', 'Substack', 'I write occasionally.'],
     ['https://www.linkedin.com/in/williswee/', 'LinkedIn', 'I try to sound professional here.'],
     ['https://github.com/williswee', 'GitHub', 'AI codes. I take the blame.'],
     ['https://x.com/williswee', 'X', 'Where I get overwhelmed.'],
+    ['https://www.instagram.com/williswee/', 'Instagram', 'Where I post pics.'],
     ['https://intro.co/williswee', 'Intro', 'My coaching profile, rates, and available times.'],
 ];
 
@@ -210,6 +211,6 @@ test('Connect offers the approved public profiles and captions in order', () => 
         assert.equal(visibleText(markup.match(/<small>([\s\S]*?)<\/small>/)?.[1] ?? ''), caption, url);
         assert.equal(attribute(attrs, 'target'), '_blank', url);
         assert.equal(attribute(attrs, 'rel'), 'noopener noreferrer', url);
-        assert.match(markup, /<svg class="contact-icon"/, url);
+        assert.match(markup, /<svg class="contact-icon(?: [^"]+)?"/, url);
     }
 });
