@@ -1009,3 +1009,13 @@ What's yours?
 2️⃣ It was pretty fun building things with a friend and the wife. Always a joy to see their eyes light up.
 
 3️⃣ Had a good conversation with a passionate professor who cares for his students and looks at education from a customer journey point of view. It’s always nice to talk to someone who’s passionate about their work.
+
+## Gratitude note #95
+
+*2026-11-13*
+
+1️⃣ Cycled to the park with the two older girls, our neighbor, and his dog. Nice to have kind neighbors.
+
+2️⃣ Seeing the wife build is inspiring.
+
+3️⃣ Did what I could, then took a nap. Simple life.
