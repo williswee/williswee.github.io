@@ -1019,3 +1019,13 @@ What's yours?
 2️⃣ Seeing the wife build is inspiring.
 
 3️⃣ Did what I could, then took a nap. Simple life.
+
+## Gratitude note #96
+
+*2026-11-16*
+
+1️⃣ Had a fun time with the youngest one, bringing her to her friend’s birthday party.
+
+2️⃣ It was nice to meet some of my oldest daughter’s friends. Fascinating to watch their dynamics. You really get to learn more about her and her friends.
+
+3️⃣ Watched a really good movie, “We Live in Time.” It was meaningful and a good reminder.
