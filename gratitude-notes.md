@@ -1029,3 +1029,13 @@ What's yours?
 2️⃣ It was nice to meet some of my oldest daughter’s friends. Fascinating to watch their dynamics. You really get to learn more about her and her friends.
 
 3️⃣ Watched a really good movie, “We Live in Time.” It was meaningful and a good reminder.
+
+## Gratitude note #97
+
+*2026-11-17*
+
+1️⃣ Played tennis and went to the gym.
+
+2️⃣ Found a nice butter chicken and naan store at a nearby food court.
+
+3️⃣ Had a deep conversation with the eldest girl. Good learning experience for everyone.
