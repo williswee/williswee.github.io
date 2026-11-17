@@ -1039,3 +1039,13 @@ What's yours?
 2️⃣ Found a nice butter chicken and naan store at a nearby food court.
 
 3️⃣ Had a deep conversation with the eldest girl. Good learning experience for everyone.
+
+## Gratitude note #98
+
+*2026-11-18*
+
+1️⃣ Swam with the girls after school.
+
+2️⃣ The wife made some very yummy banana miso bread. Everyone enjoyed it. Kudos to her.
+
+3️⃣ Had a busy day and chatted with three founders. It always energizes me.
