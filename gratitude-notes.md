@@ -1049,3 +1049,13 @@ What's yours?
 2️⃣ The wife made some very yummy banana miso bread. Everyone enjoyed it. Kudos to her.
 
 3️⃣ Had a busy day and chatted with three founders. It always energizes me.
+
+## Gratitude note #99
+
+*2026-11-19*
+
+1️⃣ We bought and tasted two slices of cake so D could sample them and figure out which cake she wants for her birthday.
+
+2️⃣ Had a short but fun conversation with the girls about how to make money. D even made a little prototype of something she might consider making and selling.
+
+3️⃣ Ran errands for the family Christmas party and ate at Burning Oaks, one of my favorite donburi stalls in Singapore.
