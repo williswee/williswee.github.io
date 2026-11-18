@@ -42,6 +42,11 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://williswee.com/thoughts/young-people.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
     <loc>https://williswee.com/thoughts/building-and-being-a-dad.html</loc>
     <lastmod>2026-11-06</lastmod>
     <priority>0.60</priority>
@@ -83,7 +88,7 @@
   </url>
   <url>
     <loc>https://williswee.com/thoughts/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.80</priority>
   </url>
   <url>

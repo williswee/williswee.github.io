@@ -139,7 +139,8 @@
             .map(link => link.getAttribute('href')).filter(href => /^[a-z0-9-]+\.html$/.test(href));
         if (links.length) essays = [...new Set(links)];
     }).catch(() => { /* The static archive keeps random pick available offline. */ });
-    const currentFile = location.pathname.split('/').pop();
+    const currentSlug = location.pathname.split('/').pop();
+    const currentFile = currentSlug.endsWith('.html') ? currentSlug : `${currentSlug}.html`;
     wireRandom(document.getElementById('random-article-btn'), () => essays.filter(file => file !== currentFile));
 
     const essayDetails = window.WILLIS_ESSAY_DETAILS || [];

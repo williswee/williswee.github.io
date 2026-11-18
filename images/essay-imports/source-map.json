@@ -1009,5 +1009,36 @@
         "bytes": 237298
       }
     ]
+  },
+  {
+    "page": "thoughts/young-people.html",
+    "source_url": "https://images.unsplash.com/photo-1529148482759-b35b25c5f217?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMDAzMzh8MHwxfHNlYXJjaHwyMnx8bGlicmFyeXxlbnwwfHx8fDE3OTQ5NzQ2NTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "original": "images/essay-imports/young-people-1-original-f92494e365e5.jpg",
+    "original_bytes": 201980,
+    "declared_before": [
+      5557,
+      3705
+    ],
+    "verified": [
+      1080,
+      720
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/young-people-1-640-b79b2daf5b0c.webp",
+        "bytes": 60340
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/young-people-1-960-f256ead960d8.webp",
+        "bytes": 109340
+      },
+      {
+        "width": 1080,
+        "path": "../images/essay-imports/young-people-1-1080-87a7820b3b94.webp",
+        "bytes": 155198
+      }
+    ]
   }
 ]

@@ -19,6 +19,7 @@
 
 ## Writing
 Articles and reflections by Willis Wee.
+- [Dear students and fresh grads](https://williswee.com/thoughts/young-people.html): Enjoy this period of stress, suffering, and growth. Seize the chance.
 - [Can I keep building and be an involved dad?](https://williswee.com/thoughts/building-and-being-a-dad.html): After launching TickerTown, Willis Wee considers what he can build in four days a week, up to four hours a day, while being an involved dad.
 - [Arguably the most fun pixel-art stock market simulator](https://williswee.com/thoughts/tickertown-launch.html): TickerTown is free to play.
 - [How to choose a founder coach in Singapore](https://williswee.com/thoughts/choosing-founder-coach.html): Questions to ask before paying for founder coaching, with a first-hand example from Tech in Asia and a short preparation worksheet.

@@ -191,6 +191,14 @@ test('newest and oldest essays offer only their existing neighbor without loopin
     }
 });
 
+test('extensionless essay URLs still get reading estimates and adjacent essays', () => {
+    const details = manifest.WILLIS_ESSAY_DETAILS;
+    const newest = details[0];
+    const f = readerFixture({ href: `https://williswee.com/thoughts/${newest.slug.replace(/\.html$/, '')}`, essayDetails: details });
+    assert.equal(f.date.children[1].textContent, `About ${newest.minutes} min read`);
+    assert.equal(f.continuation().children[1].children[0].children[0].href, details[1].slug);
+});
+
 test('missing or unknown metadata leaves the static date and existing reader controls intact', () => {
     for (const options of [{}, { href: 'https://williswee.com/thoughts/new-essay.html', essayDetails: manifest.WILLIS_ESSAY_DETAILS }]) {
         const f = readerFixture(options);
