@@ -25,7 +25,7 @@
 .guide-section > ul > li:last-child { margin-bottom: 0; }
 .guide-section li { color: var(--cream-soft); font-size: 1.0625rem; line-height: 1.85; overflow-wrap: break-word; }
 .guide-section strong { color: var(--cream); font-weight: 600; }
-.guide-section ol { margin: 18px 0 0; padding-left: 26px; list-style-type: lower-alpha; }
+.guide-section ol { margin: 18px 0 0; padding-left: 26px; }
 .guide-section ol li { padding-left: 4px; margin-bottom: 12px; }
 .guide-section ol li::marker { color: var(--muted); font-size: .88em; }
 .guide-section [id] { scroll-margin-top: calc(var(--header-height) + 32px); }
