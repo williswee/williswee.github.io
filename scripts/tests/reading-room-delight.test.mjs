@@ -504,6 +504,14 @@ test('archive no-results state disables random and clearing restores all years w
     assert.equal(f.focused(), f.ids['essay-search']);
 });
 
+test('archive search matches contractions typed with straight or curly apostrophes', () => {
+    const archive = archiveFixture();
+    for (const query of ["don't", 'don’t']) {
+        archive.query(query);
+        assert.deepEqual(archive.visible().sort(), ['buildculture.html', 'talktousers.html']);
+    }
+});
+
 test('archive Escape and browser restore keep search text, counts, and picker availability consistent', () => {
     const f = archiveFixture();
     f.query('missing essay 2099');

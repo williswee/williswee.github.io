@@ -17,9 +17,9 @@ const utilityPages = ['404.html'];
 // Compatibility addresses redirect to their canonical content page.
 const redirectPages = ['creative.html'];
 // Standalone apps have their own canvas UI and bundled assets.
-const standaloneAppPages = ['chix-run/index.html', 'orbit/index.html', '3d-floorplan/index.html'];
+const standaloneAppPages = ['chix-run/index.html', 'orbit/index.html', '3d-floorplan/index.html', 'gifgpt/index.html', 'mobbin/index.html'];
 // This live route is served separately by Cloudflare; its project is outside this checkout.
-const externallyHostedAppPages = ['game'];
+const externallyHostedAppPages = ['game', 'whack-together/index.html'];
 const analyticsExcludedPages = new Set(['gratitude.html', 'privacy.html', ...redirectPages]);
 const trackingPixel = /<img\b[^>]*\bsrc="https:\/\/www\.useinflect\.ai\/api\/bot-traffic\/pixel\?[^" ]+"[^>]*>/g;
 
@@ -165,7 +165,7 @@ test('the privacy notice is a standalone utility page with provider details and 
     assert.doesNotMatch(html, /class="essay-page"|<article\b|<form\b|<iframe\b|essay-manifest|newsletter\.js|coaching-contact\.js/);
     assert.doesNotMatch(html, /<script\b[^>]*src="[^"]*(?:site-analytics|inflect|umami)|<img\b[^>]*src="https?:/);
     const scripts = [...html.matchAll(/<script\b[^>]*src="([^"]+)"/g)].map(([, url]) => url);
-    assert.deepEqual(scripts, ['/site-navigation.js?v=1']);
+    assert.deepEqual(scripts.map(url => url.split('?')[0]), ['/site-navigation.js']);
     for (const id of ['privacy-notes', 'privacy-visits', 'privacy-subscriptions', 'privacy-requests', 'privacy-contact']) {
         assert.match(html, new RegExp(`<section aria-labelledby="${id}">\\s*<h2 id="${id}">`));
     }

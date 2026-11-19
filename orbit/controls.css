@@ -1,0 +1,21 @@
+/* Keep the compact detail panel, with a full target around its close icon. */
+.detail-topline {
+  justify-content: flex-end;
+  margin: -8px -8px 0 0;
+}
+.detail-topline button {
+  display: grid;
+  width: 44px;
+  min-height: 44px;
+  place-items: center;
+  border-radius: var(--radius);
+}
+.detail-topline button:is(:hover, :focus-visible) {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.detail-topline button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -3px;
+}
+.app-header .wordmark { min-height: 44px; }

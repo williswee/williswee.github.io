@@ -23,9 +23,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/thoughts/reading-room.css?v=1.27">
-    <link rel="stylesheet" href="/site-navigation.css?v=7">
-    <script src="/site-navigation.js?v=1" defer></script>
+    <link rel="stylesheet" href="/thoughts/reading-room.css?v=1.28">
+    <link rel="stylesheet" href="/site-navigation.css?v=8">
+    <script src="/site-navigation.js?v=2" defer></script>
     <link rel="icon" type="image/png" href="/avatar.png">
 
     <style>
@@ -33,8 +33,8 @@
         .lost-note { position: relative; margin: 40px 0 36px; padding: 30px 24px 22px; border: 1px solid var(--line-strong); background: var(--ink); }
         .lost-note p { margin: 0; font-size: 1.0625rem; line-height: 1.75; }
         .lost-note p + p { margin-top: 12px; }
-        .lost-path { color: var(--muted); font-size: var(--font-size-ui); }
-        .lost-path code { color: var(--cream-soft); font: .95em/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
+        .lost-note .lost-path { padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: var(--font-size-ui); }
+        .lost-path code { display: block; margin-top: 4px; color: var(--cream-soft); font: 1em/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
         .lost-paths { display: grid; }
         .lost-paths a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 52px; border-top: 1px solid var(--line); color: var(--cream); font-size: var(--font-size-ui); font-weight: 600; text-decoration: none; transition: color 180ms ease-out; }
         .lost-paths a:last-child { border-bottom: 1px solid var(--line); }
@@ -86,7 +86,7 @@
             <div class="lost-note">
                 <span class="dialogue-nameplate" aria-hidden="true">Willis</span>
                 <p>Hmm, this page isn’t here. It may have moved when I rebuilt the site, or the link has a small typo.</p>
-                <p class="lost-path" hidden>You were looking for <code></code>.</p>
+                <p class="lost-path" hidden>You were looking for <code></code></p>
             </div>
             <nav class="lost-paths" aria-label="Ways back">
                 <a href="/"><span>Back to the beginning</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>

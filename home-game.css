@@ -159,7 +159,7 @@ main:focus { outline: none; }
 }
 
 .game-scene.is-current .scene-art {
-    filter: saturate(0.98) brightness(0.86) contrast(1.03);
+    filter: saturate(0.98) brightness(0.96) contrast(1.03);
     transform: scale(1.008);
 }
 
@@ -308,7 +308,7 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     gap: 8px;
     max-width: 100%;
     min-height: 44px;
-    margin: 0 0 24px;
+    margin: 0;
     padding: 8px 12px;
     border: 1px solid var(--line);
     border-radius: 0;
@@ -322,6 +322,8 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     cursor: pointer;
     transition: border-color 180ms ease-out, background-color 180ms ease-out;
 }
+
+.scene-base .next-chapter { margin-top: 20px; }
 
 .status-badge:enabled:hover,
 .status-badge:focus-visible { border-color: var(--gold); }
@@ -710,14 +712,16 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
         background: var(--ink);
     }
 
+    .scene-base { padding-top: var(--header-height); }
+    .scene-base .scene-veil { top: var(--header-height); }
+
     .scene-art {
         position: relative;
         inset: auto;
         z-index: 0;
         display: block;
         width: 100%;
-        height: 44svh;
-        min-height: 300px;
+        height: clamp(168px, 26svh, 250px);
         object-fit: cover;
         filter: saturate(0.94) brightness(0.82) contrast(1.04);
         transform: none !important;
@@ -740,15 +744,14 @@ h2 { font-size: clamp(2.55rem, 4.3vw, 4.35rem); }
     .scene-terminal .scene-veil {
         inset: 0 0 auto;
         z-index: 1;
-        height: 44svh;
-        min-height: 300px;
+        height: clamp(168px, 26svh, 250px);
         background: linear-gradient(180deg, rgba(3, 9, 18, 0.04) 45%, var(--ink) 100%);
     }
 
     .scene-content {
         min-height: 0;
-        margin-top: -34px;
-        padding: 0 16px 70px;
+        margin-top: -22px;
+        padding: 0 16px 44px;
     }
 
     .scene-content-left,

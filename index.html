@@ -26,9 +26,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preload" href="images/game-world/base-camp-personal-v4-q92.webp" as="image" fetchpriority="high">
-    <link rel="stylesheet" href="home-game.css?v=4.21">
-    <link rel="stylesheet" href="/site-navigation.css?v=7">
-    <script src="/site-navigation.js?v=1" defer></script>
+    <link rel="stylesheet" href="home-game.css?v=4.22">
+    <link rel="stylesheet" href="/site-navigation.css?v=8">
+    <script src="/site-navigation.js?v=2" defer></script>
     <script src="/thoughts/newsletter.js?v=4" defer></script>
     <noscript><style>iframe[data-newsletter-src] { display: none; }</style></noscript>
     <link rel="icon" type="image/png" href="avatar.png">
@@ -93,7 +93,7 @@
     </header>
 
     <main id="main-content" tabindex="-1">
-        <!-- Start scene downloads before mobile scrolling reaches them. -->
+        <!-- Prioritize the opening illustration and defer artwork farther down the journey. -->
         <section class="game-scene scene-base is-current" id="base-camp" data-scene-name="Start">
             <img decoding="async" class="scene-art" src="images/game-world/base-camp-personal-v4-q92.webp" alt="Willis, wearing a plain grey T-shirt and shorts and carrying a white canvas tote, looks over Singapore beside his tent, sloth charm, tennis racket, three tennis balls, notebook, and lanterns" width="1946" height="808" fetchpriority="high">
             <div class="scene-veil" aria-hidden="true"></div>
@@ -101,6 +101,9 @@
             <div class="scene-content scene-content-right">
                 <article class="story-panel">
                     <h1>Building<br>for joy.</h1>
+                    <p class="lede">I’m Willis, a founder and product builder based in Singapore.</p>
+                    <p>After 16 years building <a href="https://www.techinasia.com/" target="_blank" rel="noopener noreferrer">Tech in Asia<span class="visually-hidden"> (opens in a new tab)</span></a> from zero to YC to exit, I’m now exploring what’s next through <a href="https://slothware.ai/" target="_blank" rel="noopener noreferrer">Slothware Labs<span class="visually-hidden"> (opens in a new tab)</span></a>.</p>
+                    <p>I coach founders on the side. If you’re facing a hard team decision or trying to decide what to stop, <a href="coaching.html#what-we-can-work-on">see what we can work on together</a>.</p>
                     <button class="status-badge" id="status-badge" type="button" aria-label="Currently: Building for joy" disabled>
                         <span class="status-shuffle" aria-hidden="true">
                             <svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" focusable="false">
@@ -111,9 +114,6 @@
                         <span class="status-dot" aria-hidden="true"></span>
                         <span class="status-text" aria-live="polite" aria-atomic="true"><span class="status-prefix">Currently: </span><strong>Building for joy</strong><span class="status-emoji"> 🦥</span></span>
                     </button>
-                    <p class="lede">I’m Willis, a founder and product builder based in Singapore.</p>
-                    <p>After 16 years building <a href="https://www.techinasia.com/" target="_blank" rel="noopener noreferrer">Tech in Asia<span class="visually-hidden"> (opens in a new tab)</span></a> from zero to YC to exit, I’m now exploring what’s next through <a href="https://slothware.ai/" target="_blank" rel="noopener noreferrer">Slothware Labs<span class="visually-hidden"> (opens in a new tab)</span></a>.</p>
-                    <p>I coach founders on the side. If you’re facing a hard team decision or trying to decide what to stop, <a href="coaching.html#what-we-can-work-on">see what we can work on together</a>.</p>
 
                     <a class="next-chapter" href="#workshop">
                         <span><small>Scroll next</small>See what I’m building</span>
@@ -124,7 +124,7 @@
         </section>
 
         <section class="game-scene scene-workshop" id="workshop" data-scene-name="Work">
-            <img decoding="async" class="scene-art" src="images/game-world/workshop-personal-v11-q92.webp" alt="Willis vibe-codes at a sea-facing Studio Display, with his left hand on the keyboard and right hand on the trackpad, beside a closed space-grey MacBook decorated with #GSD, sloth-face, heart, and Stay calm stickers in a wooden vertical stand, a top-connected Thunderbolt cable, and a silver Mac mini" width="1815" height="867" loading="eager" fetchpriority="low">
+            <img decoding="async" class="scene-art" src="images/game-world/workshop-personal-v11-q92.webp" alt="Willis vibe-codes at a sea-facing Studio Display, with his left hand on the keyboard and right hand on the trackpad, beside a closed space-grey MacBook decorated with #GSD, sloth-face, heart, and Stay calm stickers in a wooden vertical stand, a top-connected Thunderbolt cable, and a silver Mac mini" width="1815" height="867" loading="lazy" fetchpriority="low">
             <div class="scene-veil" aria-hidden="true"></div>
 
             <div class="scene-content scene-content-left">
@@ -174,7 +174,7 @@
         </section>
 
         <section class="game-scene scene-coaching" id="coaching" data-scene-name="Coaching" aria-labelledby="coaching-title">
-            <img decoding="async" class="scene-art" src="images/game-world/coaching-right-overlook-v1.webp" alt="Two comrades sit with space between them on a bench beneath a coastal tree, one gesturing while the other holds a notebook, with a lantern at their feet and a blue bay beyond" width="1536" height="1024" loading="eager" fetchpriority="low">
+            <img decoding="async" class="scene-art" src="images/game-world/coaching-right-overlook-v1.webp" alt="Two comrades sit with space between them on a bench beneath a coastal tree, one gesturing while the other holds a notebook, with a lantern at their feet and a blue bay beyond" width="1536" height="1024" loading="lazy" fetchpriority="low">
             <div class="scene-veil" aria-hidden="true"></div>
 
             <div class="scene-content scene-content-left">
@@ -203,7 +203,7 @@
         </section>
 
         <section class="game-scene scene-archive" id="archive" data-scene-name="Notes">
-            <img decoding="async" class="scene-art" src="images/game-world/notes-nature-v5-q92.webp" alt="Willis reads by a warm desk lamp at a moonlit mountain overlook, with books and a Kindle showing Courage to Be Disliked" width="1909" height="824" loading="eager" fetchpriority="low">
+            <img decoding="async" class="scene-art" src="images/game-world/notes-nature-v5-q92.webp" alt="Willis reads by a warm desk lamp at a moonlit mountain overlook, with books and a Kindle showing Courage to Be Disliked" width="1909" height="824" loading="lazy" fetchpriority="low">
             <div class="scene-veil" aria-hidden="true"></div>
 
             <div class="scene-content scene-content-right">
@@ -235,7 +235,7 @@
         </section>
 
         <section class="game-scene scene-life" id="life" data-scene-name="Life" aria-labelledby="life-title">
-            <img decoding="async" class="scene-art" src="images/game-world/life-family-v2-q92.webp" alt="Willis, his wife, and three daughters spend a quiet evening together in a Singapore coastal park, with books, a Kindle, tennis gear, and a sloth charm beside their picnic blanket" width="1774" height="887" loading="eager" fetchpriority="low">
+            <img decoding="async" class="scene-art" src="images/game-world/life-family-v2-q92.webp" alt="Willis, his wife, and three daughters spend a quiet evening together in a Singapore coastal park, with books, a Kindle, tennis gear, and a sloth charm beside their picnic blanket" width="1774" height="887" loading="lazy" fetchpriority="low">
             <div class="scene-veil" aria-hidden="true"></div>
 
             <div class="scene-content scene-content-left">
@@ -252,7 +252,7 @@
         </section>
 
         <section class="game-scene scene-terminal" id="terminal" data-scene-name="Connect">
-            <img decoding="async" class="scene-art" src="images/game-world/contact-coast-v5-q92.webp" alt="Willis naturally holds an ice cream at a coastal Singapore overlook beside a backpack tennis bag with two grey racket grips and a tidy sloth charm" width="1983" height="793" loading="eager" fetchpriority="low">
+            <img decoding="async" class="scene-art" src="images/game-world/contact-coast-v5-q92.webp" alt="Willis naturally holds an ice cream at a coastal Singapore overlook beside a backpack tennis bag with two grey racket grips and a tidy sloth charm" width="1983" height="793" loading="lazy" fetchpriority="low">
             <div class="scene-veil" aria-hidden="true"></div>
 
             <div class="scene-content scene-content-left">

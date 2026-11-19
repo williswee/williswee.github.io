@@ -23,7 +23,7 @@
 .creative-projects > li > p { margin: 0; max-width: 52ch; }
 .creative-projects > li > p + p { margin-top: 12px; }
 .creative-project-date { color: var(--muted); font-size: var(--font-size-ui); font-variant-numeric: tabular-nums; }
-.creative-project-media { margin: 20px 0 12px; }
+.creative-project-media { margin: 16px 0 0; }
 .creative-preview-link { display: block; }
 .creative-preview-link:is(:hover, :focus-visible) img { border-color: var(--gold); }
 .creative-project-media :is(img, video) {
@@ -42,10 +42,10 @@
 .creative-reroll { flex: 0 1 auto; }
 .creative-project-link {
     display: flex;
-    flex: 1 1 12rem;
+    flex: 0 1 auto;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 10px;
     min-height: 44px;
     color: var(--gold);
     font-size: var(--font-size-ui);
@@ -65,6 +65,23 @@
 .creative-project-link:is(:hover, :focus-visible) > svg { transform: translate(2px, -2px); }
 .creative-project-link:is(:hover, :focus-visible) > span { text-decoration: underline; text-underline-offset: 5px; }
 .creative-more { margin: 24px 0 0; color: var(--muted); font-size: var(--font-size-ui); }
+
+/* Keep tall reels beside their project details when the reading pane has room. */
+@media (min-width: 1101px) {
+    .creative-projects > li:has(.creative-project-media--portrait) {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(160px, 36%);
+        grid-template-rows: auto auto auto 1fr;
+        column-gap: clamp(20px, 2.4vw, 36px);
+        align-items: start;
+    }
+    .creative-projects > li:has(.creative-project-media--portrait) > :not(figure) { grid-column: 1; }
+    .creative-projects .creative-project-media--portrait {
+        grid-column: 2;
+        grid-row: 1 / span 5;
+        margin: 0;
+    }
+}
 
 @media (max-width: 760px) {
     .creative-landscape img { object-position: center 60%; }

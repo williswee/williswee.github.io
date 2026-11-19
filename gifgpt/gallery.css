@@ -1,0 +1,32 @@
+/* Site navigation sits outside the bundled feed and remains usable during startup. */
+body {
+  --gallery-width: var(--phone-width);
+  position: relative;
+  max-width: var(--gallery-width);
+  margin-inline: auto;
+}
+.back-to-play {
+  position: absolute;
+  z-index: 6;
+  inset: calc(10px + env(safe-area-inset-top)) auto auto 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 60px;
+  min-height: 44px;
+  font-size: 14px;
+}
+.back-to-play:hover { text-decoration: underline; text-underline-offset: 4px; }
+.top-bar { padding-inline-start: 78px; }
+.gif-fallback { padding: 76px 20px 20px; height: 100dvh; overflow: auto; }
+.gif-fallback p { margin-block: 12px 20px; line-height: 1.55; }
+.gif-fallback video { display: block; width: 100%; height: auto; }
+@media (min-width: 720px) {
+  body:has(.is-catalog) { --gallery-width: 64rem; }
+  .is-catalog { max-width: none; }
+  .gif-grid { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .back-to-play { top: 4px; }
+}

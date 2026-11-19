@@ -6,8 +6,9 @@
   <meta name="theme-color" content="#0b0b0b">
   <meta name="description" content="Explore real mobile app screens captured at different moments in time.">
   <title>Go back in time</title>
+  <link rel="canonical" href="https://williswee.com/mobbin/">
   <link rel="stylesheet" href="styles.css?v=immersive-12">
-  <link rel="stylesheet" href="feed.css?v=immersive-12">
+  <link rel="stylesheet" href="feed.css?v=immersive-14">
   <script src="gesture-intent.js?v=immersive-12" defer></script>
   <script src="app.js?v=immersive-12" defer></script>
   <script src="feed.js?v=immersive-13-70f70e0d" defer></script>
@@ -88,7 +89,19 @@
     <div class="sheet-browse"><button id="sheet-next-app" type="button">Jump to next app <svg class="icon" aria-hidden="true"><use href="#next-app"/></svg></button><button id="sheet-next-screen" type="button"><span>Next screen</span><svg class="icon" aria-hidden="true"><use href="#next-screen"/></svg></button></div>
     <div id="sheet-controls"></div>
     <a class="source-link" id="citation" target="_blank" rel="noopener noreferrer" hidden>View this screen on Mobbin <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+    <a class="back-to-play" href="/play#mobbin">Back to Play</a>
   </dialog>
-  <noscript><p class="stage-message">Turn on JavaScript to explore the timeline.</p></noscript>
+  <noscript>
+    <style>.museum, .topbar { display: none; }</style>
+    <main class="timeline-fallback">
+      <h1>Go back in time</h1>
+      <p>Turn on JavaScript to explore the captured screens, or watch the walkthrough.</p>
+      <video controls playsinline preload="none" poster="/images/mobbin-demo-poster-7b9bc730ac0f.webp" width="720" height="1280" aria-label="Go back in time walkthrough">
+        <source src="/videos/mobbin-demo-7b9bc730ac0f.mp4" type="video/mp4">
+        <a href="/videos/mobbin-demo-7b9bc730ac0f.mp4">Watch the walkthrough</a>
+      </video>
+      <a class="back-to-play" href="/play#mobbin">Back to Play</a>
+    </main>
+  </noscript>
 </body>
 </html>

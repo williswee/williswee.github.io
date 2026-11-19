@@ -12,6 +12,9 @@
 - [Books](https://williswee.com/books.html): A curated list of books I have read and recommend.
 - [User guide](https://williswee.com/guide.html): Willis's personal user guide: how he communicates and works, and his flaws.
 - [Gratitude](https://williswee.com/gratitude.html): A growing archive of daily gratitude notes, with a shareable link for every entry.
+- [gifgpt](https://williswee.com/gifgpt/): Browse and save animated reactions by mood.
+- [Go back in time](https://williswee.com/mobbin/): Explore mobile app screens from different years.
+- [Whack Together](https://williswee.com/whack-together/): A shared six-player survival game.
 - [Orbit Watch](https://williswee.com/orbit/): A 3D globe for exploring calculated satellite positions, reported earthquakes and guided lessons with official sources.
 - [Floor Plan Studio](https://williswee.com/3d-floorplan/): Explore and furnish two homes in an interactive 3D floor plan studio, try material palettes, rearrange furniture, and pin comments.
 - [Chix Run](https://williswee.com/chix-run/): A chicken rooftop game with coins, drones, movement and dash controls.

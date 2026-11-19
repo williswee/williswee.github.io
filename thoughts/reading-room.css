@@ -17,6 +17,7 @@
     --font-size-ui: .875rem;
     --header-height: 76px;
     --pane-inset: 44px;
+    --pane-top-gap: clamp(28px, 4svh, 56px);
     --archive-offset: 260px;
 }
 
@@ -124,11 +125,10 @@ main:focus { outline: none; }
 .reading-shell {
     position: relative;
     width: min(800px, 64vw);
-    margin: calc(var(--header-height) + 64px) 5vw 64px auto;
+    margin: calc(var(--header-height) + var(--pane-top-gap)) 5vw 64px auto;
     padding: var(--pane-inset);
     border: 1px solid var(--line-strong);
     background: var(--panel);
-    box-shadow: 0 22px 54px rgba(0, 0, 0, 0.32);
     overflow-wrap: anywhere;
 }
 .reading-shell::before, .reading-shell::after { position: absolute; width: 14px; height: 14px; content: ""; pointer-events: none; }
@@ -137,7 +137,7 @@ main:focus { outline: none; }
 /* The desktop side rail shared by Guide, Work, Books, and Coaching; each page owns its phone layout. */
 .reading-rail {
     position: fixed;
-    top: calc(var(--header-height) + 64px);
+    top: calc(var(--header-height) + var(--pane-top-gap));
     left: 4vw;
     width: min(320px, calc(91vw - min(800px, 64vw) - 40px));
     max-height: calc(100svh - var(--header-height) - 100px);
@@ -250,7 +250,7 @@ p { margin: 0 0 24px; color: var(--cream-soft); }
 .timeline-year-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
 .timeline-year-title { font-size: 1.6rem; }
 .timeline-year-count { color: var(--muted); font-size: var(--font-size-ui); }
-.article-list { list-style: none; padding: 0; margin: 0; }
+.article-list { container-type: inline-size; list-style: none; padding: 0; margin: 0; }
 .article-list li { position: relative; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
 .article-list li > a { display: block; padding: 22px 34px 0 0; font-size: 1.05rem; font-weight: 500; line-height: 1.55; text-decoration: none; transition: color 180ms ease-out; }
 /* Keep the entire row clickable while dates take their natural text height. */
@@ -273,7 +273,24 @@ p { margin: 0 0 24px; color: var(--cream-soft); }
 }
 .article-list li > a:is(:hover, :focus-visible) { color: var(--gold); }
 .article-list li > a:is(:hover, :focus-visible)::after { transform: translate(2px, -2px); }
-.article-list .article-date { margin: 6px 0 0; color: var(--muted); font-size: var(--font-size-ui); pointer-events: none; font-variant-numeric: tabular-nums; }
+.article-list .article-date { display: block; margin: 4px 0 0; color: var(--muted); font-size: var(--font-size-ui); pointer-events: none; font-variant-numeric: tabular-nums; }
+/* A separate date column helps readers scan the archive when the pane has room. */
+@container (min-width: 38rem) {
+    .article-list li {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: baseline;
+        column-gap: 18px;
+        padding: 19px 36px 19px 0;
+    }
+    .article-list li > a { padding: 0; }
+    .article-list .article-date { margin: 0; }
+    .article-list li > a::after { top: 22px; }
+}
+@media (max-height: 580px) {
+    .archive-controls { position: static; }
+    .timeline-year-group { scroll-margin-top: 0; }
+}
 .newsletter-cta, .subscribe-embed { margin-top: 52px; padding-top: 36px; border-top: 1px solid var(--line); }
 .newsletter-cta { scroll-margin-top: var(--archive-offset); }
 .newsletter-cta h2 { margin-bottom: 20px; }
@@ -362,9 +379,9 @@ article h3 { margin: 32px 0 16px; line-height: 1.5; }
 article h2:is(.article-section-heading--compact, .article-section-heading--body) { font-family: var(--font-body); letter-spacing: normal; text-wrap: wrap; }
 article h2.article-section-heading--compact { margin: 1.33em 0; font-size: 1em; line-height: 1.85; }
 article h2.article-section-heading--body { margin: 32px 0 16px; font-size: 1.17em; line-height: 1.5; }
-article > .article-author { margin: 20px 0 4px; color: var(--muted); font-size: var(--font-size-ui); }
-article > .article-author + .article-date { margin-top: 0; }
-article > .article-date { margin: 20px 0 32px; font-size: var(--font-size-ui); color: var(--muted); }
+.essay-meta { display: flex; align-items: baseline; flex-wrap: wrap; gap: 2px 18px; margin: 18px 0 28px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.essay-meta p { margin: 0; color: var(--muted); font-size: var(--font-size-ui); line-height: 1.6; }
+.essay-meta .article-author a { color: var(--cream-soft); }
 .article-read-time { font-variant-numeric: tabular-nums; }
 .article-context-note {
     margin: 0 0 32px;
@@ -381,6 +398,8 @@ article > .article-date { margin: 20px 0 32px; font-size: var(--font-size-ui); c
 .article-context-note-heading time { color: var(--muted); }
 
 article p { margin-bottom: 26px; }
+.essay-page article > :is(p:not(.article-subtitle), ul, ol, blockquote),
+.privacy-page main p { max-width: 66ch; }
 article figure { margin: 0 0 36px; }
 article img { display: block; width: 100%; height: auto; }
 article pre { max-width: 100%; overflow-x: auto; padding: 20px; border: 1px solid var(--line); background: var(--ink); color: var(--cream-soft); font-size: 0.875rem; line-height: 1.65; }
@@ -435,7 +454,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
 @media (max-width: 760px) {
     :is(.book-card, .gratitude-note) { --focus-marker-offset: 8px; }
     /* 4.75rem is 76px at the default root size and grows when text is enlarged. */
-    :root { --header-height: 4.75rem; --pane-inset: 24px; }
+    :root { --header-height: 4.75rem; --pane-inset: 24px; --scene-reveal: clamp(72px, 14svh, 140px); }
     html { scroll-padding-top: calc(4.75em + 24px); }
     .reading-hud { padding-inline: 12px; gap: 12px; }
     .reading-hud::before { left: calc(var(--nav-left) - 10px); width: 8px; height: 12px; }
@@ -447,10 +466,10 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
     .site-brand small { font-size: 0.875rem; }
     .reading-nav { flex: 1 1 auto; margin: 0; padding-inline: 4px; justify-content: safe flex-end; gap: 0; flex-wrap: nowrap; }
     .reading-nav a { flex: 0 0 auto; padding-inline: 8px; font-size: 0.75rem; letter-spacing: 0.02em; white-space: nowrap; }
-    .reading-landscape { position: absolute; top: var(--header-height); height: 188px; bottom: auto; }
+    .reading-landscape { position: absolute; top: var(--header-height); height: calc(var(--scene-reveal) + 32px); bottom: auto; }
     .reading-landscape img { object-position: 24% 52%; }
     .reading-landscape::after { background: linear-gradient(180deg, transparent 50%, rgba(7, 16, 29, 0.5)); }
-    .reading-shell { width: auto; margin: calc(var(--header-height) + 156px) 16px 32px; }
+    .reading-shell { width: auto; margin: calc(var(--header-height) + var(--scene-reveal)) 16px 32px; }
     h1 { font-size: 2.625rem; }
     .archive-intro { padding-bottom: 16px; }
     .archive-intro p { margin-top: 16px; }
@@ -462,7 +481,6 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
     .reading-landscape--portrait::after { background: linear-gradient(180deg, rgba(7, 16, 29, .12), transparent 65%, var(--ink)); }
     .essay-page .reading-landscape img { object-position: center 40%; }
     .essay-page .reading-landscape::after { background: linear-gradient(180deg, rgba(7, 16, 29, 0.08), rgba(7, 16, 29, 0.2) 60%, var(--ink)); }
-    .essay-page .reading-shell { margin-top: calc(var(--header-height) + 156px); }
     article { font-size: 1rem; line-height: 1.85; }
     article h1 { font-size: 1.875rem; line-height: 1.25; }
     article .article-subtitle { margin-top: 16px; font-size: 1.1875rem; }
@@ -471,7 +489,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
     .coaching-cta { margin-top: 56px; }
     .coaching-cta a { padding: 26px 20px 18px; }
     .newsletter-cta iframe, .subscribe-embed iframe { height: 560px; }
-    .quote-action-dock { position: fixed; top: auto !important; right: 16px; bottom: 18px; left: 16px !important; width: fit-content; max-width: calc(100vw - 32px); margin: auto; }
+    .quote-action-dock { position: fixed; top: auto !important; right: 16px; bottom: max(18px, env(safe-area-inset-bottom)); left: 16px !important; width: fit-content; max-width: calc(100vw - 32px); margin: auto; }
 }
 @media (max-width: 380px) {
     :root { --pane-inset: 20px; }

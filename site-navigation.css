@@ -115,6 +115,8 @@
 .site-header,
 html:not(.reading-nav-enhanced) .reading-hud.site-header {
     position: fixed;
+    container: site-header / inline-size;
+    font-size: 1rem;
     inset: 0 0 auto;
     z-index: 50;
     display: flex;
@@ -266,7 +268,7 @@ html:not(.reading-nav-enhanced) .reading-hud.site-header {
 .site-footer-menu > summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 .site-footer-nav {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 7em), 1fr));
     gap: 0 12px;
     width: 100%;
     margin: 0;
@@ -307,7 +309,7 @@ html:not(.reading-nav-enhanced) .reading-hud.site-header {
 
 .home-footer > p { grid-column: 1 / -1; margin: 8px 0 0; color: var(--muted); font-size: inherit; }
 
-.breadcrumbs { margin: 0 0 22px; color: var(--muted); font-size: .875rem; }
+.breadcrumbs { margin: 0 0 10px; color: var(--muted); font-size: .875rem; }
 .breadcrumbs ol {
     display: flex;
     flex-wrap: wrap;
@@ -319,7 +321,16 @@ html:not(.reading-nav-enhanced) .reading-hud.site-header {
 }
 
 .breadcrumbs li { display: flex; align-items: baseline; gap: 12px; min-width: 0; line-height: 1.6; }
-.breadcrumbs li:last-child { flex: 1 1 12rem; }
+/* The article heading supplies the visible current page. Retain the complete
+   ordered breadcrumb for readers using assistive technology. */
+.breadcrumbs li:last-child {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
 .breadcrumbs li + li::before {
     flex: 0 0 5px;
     width: 5px;
@@ -346,6 +357,10 @@ html:not(.reading-nav-enhanced) .reading-hud.site-header {
         padding-inline: 20px;
     }
 
+}
+
+/* Use the header's available width and the reader's text size. */
+@container site-header (max-width: 720px) or (max-width: 44em) {
     .site-header .site-brand { gap: 8px; }
     .site-header .site-brand > span { font-size: .8rem; }
     .site-header .site-brand small { font-size: .875rem; }
@@ -406,6 +421,11 @@ html:not(.reading-nav-enhanced) .reading-hud.site-header {
     }
 
     .site-more-links a { min-height: 48px; padding: 12px 4px; font-size: .9375rem; }
+    .site-navigation > .site-subscribe {
+        align-self: flex-start;
+        margin-top: 12px;
+        padding-inline: 18px;
+    }
 
 }
 

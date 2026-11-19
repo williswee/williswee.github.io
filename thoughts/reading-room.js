@@ -29,7 +29,8 @@
         const items = [...originalList.children];
         const countLabel = document.getElementById('thoughts-count-label');
         const random = document.getElementById('random-thought-btn');
-        const normalize = text => text.normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim();
+        const normalize = text => text.normalize('NFKC').toLowerCase()
+            .replace(/[‘’ʼ]/g, "'").replace(/\s+/g, ' ').trim();
         const entries = items.map(item => ({
             item,
             href: item.querySelector('a').href,
@@ -129,19 +130,26 @@
     const article = document.querySelector('article');
     if (!article) return;
 
-    let essays = [...(window.WILLIS_ESSAYS || [])];
-    fetch('index.html').then(response => {
-        if (!response.ok) throw new Error('Archive unavailable');
-        return response.text();
-    }).then(html => {
-        const doc = new DOMParser().parseFromString(html, 'text/html');
-        const links = [...doc.querySelectorAll('.article-list li a')]
-            .map(link => link.getAttribute('href')).filter(href => /^[a-z0-9-]+\.html$/.test(href));
-        if (links.length) essays = [...new Set(links)];
-    }).catch(() => { /* The static archive keeps random pick available offline. */ });
     const currentSlug = location.pathname.split('/').pop();
     const currentFile = currentSlug.endsWith('.html') ? currentSlug : `${currentSlug}.html`;
-    wireRandom(document.getElementById('random-article-btn'), () => essays.filter(file => file !== currentFile));
+    function enableEssayPicker(essays) {
+        const choices = essays.filter(file => file !== currentFile);
+        if (choices.length) wireRandom(document.getElementById('random-article-btn'), () => choices);
+    }
+    if (window.WILLIS_ESSAYS?.length) {
+        enableEssayPicker(window.WILLIS_ESSAYS);
+    } else {
+        // The published manifest normally supplies every choice without fetching another page.
+        fetch('index.html').then(response => {
+            if (!response.ok) throw new Error('Archive unavailable');
+            return response.text();
+        }).then(html => {
+            const doc = new DOMParser().parseFromString(html, 'text/html');
+            const links = [...doc.querySelectorAll('.article-list li a')]
+                .map(link => link.getAttribute('href')).filter(href => /^[a-z0-9-]+\.html$/.test(href));
+            enableEssayPicker([...new Set(links)]);
+        }).catch(() => { /* The ordinary archive links remain available. */ });
+    }
 
     const essayDetails = window.WILLIS_ESSAY_DETAILS || [];
     const currentIndex = essayDetails.findIndex(essay => essay.slug === currentFile);
@@ -269,10 +277,10 @@
         activeFootnote = anchor;
         previousDescription = anchor.getAttribute('aria-describedby');
         const content = note.cloneNode(true);
-        content.removeAttribute('id');
         content.querySelector('sup')?.remove();
-        content.querySelectorAll('[id]').forEach(node => node.removeAttribute('id'));
-        popover.replaceChildren(content);
+        // Links in the full footnote remain reachable through the native reference.
+        // The tooltip describes the reference and must never add a focus stop.
+        popover.textContent = content.textContent.trim();
         popover.hidden = false;
         anchor.setAttribute('aria-describedby', [previousDescription, popover.id].filter(Boolean).join(' '));
         popover.style.width = `${Math.min(340, innerWidth - 32)}px`;

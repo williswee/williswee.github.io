@@ -66,8 +66,19 @@ test('nomoney retains its art and footnote copy while using shared presentation'
     assert.doesNotMatch(image, /style=/);
     const footnotes = html.match(/<div class="article-footnotes">([\s\S]*?)<\/div>/)?.[1];
     assert.ok(footnotes);
-    assert.match(footnotes, /<sup>1<\/sup> Make a guess which brand\./);
-    assert.match(footnotes, /<sup>2<\/sup> Reminds me of <a href="https:\/\/youtu\.be\/6jZVsr7q-tE\?si=XkEbMxSoBOTlGsRn">this song<\/a> and movie\./);
+    assert.match(footnotes, /1<\/a><\/sup> Make a guess which brand\./);
+    assert.match(footnotes, /2<\/a><\/sup> Reminds me of <a href="https:\/\/youtu\.be\/6jZVsr7q-tE\?si=XkEbMxSoBOTlGsRn">this song<\/a> and movie\./);
     assert.doesNotMatch(footnotes, /style=/);
     assert.doesNotMatch(html, /border-top:1px solid #333|font-size:0\.85rem;color:#888/);
+});
+
+test('legacy footnote URLs and their return links are present in the static article', () => {
+    for (const [name, total] of [['nomoney.html', 2], ['userguide.html', 4]]) {
+        const article = read(name).match(/<article>([\s\S]*?)<\/article>/)[1];
+        for (let n = 1; n <= total; n++) {
+            assert.ok(article.includes(`id="footnote-anchor-${n}" href="#legacy-footnote-${n}"`), name);
+            assert.ok(article.includes(`<p id="legacy-footnote-${n}">`), name);
+            assert.ok(article.includes(`href="#footnote-anchor-${n}" aria-label="Back to reference ${n}"`), name);
+        }
+    }
 });

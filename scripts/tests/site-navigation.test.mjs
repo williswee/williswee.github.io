@@ -175,7 +175,7 @@ function runtimeFixture({ mobile = false, loading = false, missing = false } = {
     const windowEvents = new Map();
     const mediaEvents = new Map();
     const document = {
-        readyState: loading ? 'loading' : 'complete', activeElement: null,
+        readyState: loading ? 'loading' : 'complete', activeElement: null, body: {},
         documentElement: { classList: { add() {} } },
         addEventListener: (name, fn) => documentEvents.set(name, fn),
     };
@@ -273,6 +273,22 @@ test('breakpoint changes keep keyboard focus out of hidden navigation', () => {
     f.resize(false);
     assert.equal(f.document.activeElement, f.moreToggle);
     assert.equal(f.more.open, false);
+
+    // A real browser can blur the mobile summary before the resize callback.
+    f.resize(true);
+    f.menuToggle.focus();
+    f.emit('focusin', { target: f.menuToggle });
+    f.document.activeElement = f.document.body;
+    f.resize(false);
+    assert.equal(f.document.activeElement, f.brand);
+
+    f.resize(true);
+    f.menuToggle.focus();
+    f.emit('focusin', { target: f.menuToggle });
+    f.emit('pointerdown', { target: f.outside });
+    f.document.activeElement = f.document.body;
+    f.resize(false);
+    assert.equal(f.document.activeElement, f.document.body, 'ignore stale menu focus after a click elsewhere');
 });
 
 test('late initialization, absent headers, and restored pages preserve usable menus', () => {

@@ -1,0 +1,9 @@
+/* The return action occupies its own row beneath the studio title. */
+@media (max-width: 700px) {
+  .header .app-return-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 4px;
+  }
+}

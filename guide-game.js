@@ -132,10 +132,21 @@
         scheduleReadingUpdate();
     }
 
+    const contentsMenu = document.querySelector('.guide-contents details');
+    const compact = window.matchMedia('(max-width: 760px)');
+    function setMenuLayout() {
+        // Keep the menu open when resizing would hide the currently focused section link.
+        contentsMenu.open = !compact.matches || contentsMenu.contains(document.activeElement);
+    }
+    if (contentsMenu) {
+        setMenuLayout();
+        compact.addEventListener('change', setMenuLayout);
+    }
     const contentsLinks = Array.from(document.querySelectorAll('.guide-contents a[href^="#"]'));
     contentsLinks.forEach((link) => {
         link.addEventListener('click', (event) => {
             if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+            if (contentsMenu && compact.matches) contentsMenu.open = false;
             // A repeated click on the current hash does not fire hashchange.
             if (link.getAttribute('href') === window.location.hash) {
                 window.requestAnimationFrame(() => highlightCurrentHash(true));
