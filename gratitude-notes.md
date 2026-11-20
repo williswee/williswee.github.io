@@ -1059,3 +1059,13 @@ What's yours?
 2️⃣ Had a short but fun conversation with the girls about how to make money. D even made a little prototype of something she might consider making and selling.
 
 3️⃣ Ran errands for the family Christmas party and ate at Burning Oaks, one of my favorite donburi stalls in Singapore.
+
+## Gratitude note #100
+
+*2026-11-19*
+
+1️⃣ Played tennis with the wife. It was scorching hot, but the weather turned cloudy and cool after a while. Also went to the gym after tennis.
+
+2️⃣ Had good conversations with my wife over lunch. She's sweet.
+
+3️⃣ Spoke with a student. Helping young people always energizes me.
