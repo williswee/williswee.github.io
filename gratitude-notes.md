@@ -1069,3 +1069,13 @@ What's yours?
 2️⃣ Had good conversations with my wife over lunch. She's sweet.
 
 3️⃣ Spoke with a student. Helping young people always energizes me.
+
+## Gratitude note #101
+
+*2026-11-23*
+
+1️⃣ Celebrated D's and my older bro's birthdays!
+
+2️⃣ There's a sense of joy in caring for someone who took care of us when we were young and somewhat hopeless (not from our pov, but others!!).
+
+3️⃣ Had fun rewatching Harry Potter. Such a great series.
