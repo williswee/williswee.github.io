@@ -16,7 +16,7 @@ Personal digital garden, founder hub, and living archive for Willis Wee. It serv
 - Share authentic, candid essays and reflections on company building, leadership, AI workflows, parenting, and life transitions.
 - Maintain a living personal User Guide and operating principles for effective collaboration.
 - Curate high-signal book recommendations with personal takeaways.
-- Showcase active and past projects (Slothware Labs, TickerTown, Tech in Asia, Friends! Learning Center).
+- Share Willis’s work at Tech in Asia and Friends! Learning Center, his founder coaching, and the side projects he builds for fun.
 - Provide direct avenues to connect (Substack, LinkedIn, X, GitHub, Intro.co).
 
 ## Positioning

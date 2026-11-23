@@ -1040,5 +1040,113 @@
         "bytes": 155198
       }
     ]
+  },
+  {
+    "page": "thoughts/byebye-tickertown.html",
+    "source_url": "https://substack-post-media.s3.amazonaws.com/public/images/3e343d58-d104-4932-9cc4-0a0255ef1b14_1672x941.png",
+    "original": "images/essay-imports/byebye-tickertown-1-original-5f06450c0243.png",
+    "original_bytes": 1426598,
+    "declared_before": [
+      1456,
+      819
+    ],
+    "verified": [
+      1672,
+      941
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/byebye-tickertown-1-640-39cb0d4abe51.webp",
+        "bytes": 15186
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/byebye-tickertown-1-960-b81c8350e0a7.webp",
+        "bytes": 25804
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/byebye-tickertown-1-1440-22c9dd01d66d.webp",
+        "bytes": 43726
+      },
+      {
+        "width": 1672,
+        "path": "../images/essay-imports/byebye-tickertown-1-1672-9e1402f82f21.webp",
+        "bytes": 56484
+      }
+    ]
+  },
+  {
+    "page": "thoughts/byebye-tickertown.html",
+    "source_url": "https://substack-post-media.s3.amazonaws.com/public/images/e7ca0037-8647-4187-be37-462530027b8c_1910x912.png",
+    "original": "images/essay-imports/byebye-tickertown-2-original-9ad87ad6befa.png",
+    "original_bytes": 153881,
+    "declared_before": [
+      1456,
+      695
+    ],
+    "verified": [
+      1910,
+      912
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/byebye-tickertown-2-640-607116991a8a.webp",
+        "bytes": 22264
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/byebye-tickertown-2-960-1199f8abe89a.webp",
+        "bytes": 39762
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/byebye-tickertown-2-1440-eb35e784cfe8.webp",
+        "bytes": 83956
+      },
+      {
+        "width": 1910,
+        "path": "../images/essay-imports/byebye-tickertown-2-1910-4c0223af2e56.webp",
+        "bytes": 37506
+      }
+    ]
+  },
+  {
+    "page": "thoughts/byebye-tickertown.html",
+    "source_url": "https://substack-post-media.s3.amazonaws.com/public/images/7012d867-c7aa-45e3-89a3-5737ed3362a0_1710x922.png",
+    "original": "images/essay-imports/byebye-tickertown-3-original-8013dfc0d83c.png",
+    "original_bytes": 140469,
+    "declared_before": [
+      1456,
+      785
+    ],
+    "verified": [
+      1710,
+      922
+    ],
+    "variants": [
+      {
+        "width": 640,
+        "path": "../images/essay-imports/byebye-tickertown-3-640-c524947e7519.webp",
+        "bytes": 19044
+      },
+      {
+        "width": 960,
+        "path": "../images/essay-imports/byebye-tickertown-3-960-6e7addadff40.webp",
+        "bytes": 32360
+      },
+      {
+        "width": 1440,
+        "path": "../images/essay-imports/byebye-tickertown-3-1440-df8b3d7ce625.webp",
+        "bytes": 56818
+      },
+      {
+        "width": 1710,
+        "path": "../images/essay-imports/byebye-tickertown-3-1710-f86e0cc448a8.webp",
+        "bytes": 30840
+      }
+    ]
   }
 ]
