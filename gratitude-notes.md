@@ -1079,3 +1079,13 @@ What's yours?
 2️⃣ There's a sense of joy in caring for someone who took care of us when we were young and somewhat hopeless (not from our pov, but others!!).
 
 3️⃣ Had fun rewatching Harry Potter. Such a great series.
+
+## Gratitude note #102
+
+*2026-11-24*
+
+1️⃣ Spent the day with D at the Botanic Gardens. So much fun and a good workout! She loves the outdoors.
+
+2️⃣ Enjoyed some library time with D.
+
+3️⃣ Met some nice people today. One of them gave D an orchid.
