@@ -1089,3 +1089,13 @@ What's yours?
 2️⃣ Enjoyed some library time with D.
 
 3️⃣ Met some nice people today. One of them gave D an orchid.
+
+## Gratitude note #103
+
+*2026-11-25*
+
+1️⃣ Dinner with my aunts. Always nice to reconnect.
+
+2️⃣ Played tennis with Laura, followed by a car wash at her request.
+
+3️⃣ Dad maxxing, really. I'm so lucky.
