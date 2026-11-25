@@ -1099,3 +1099,13 @@ What's yours?
 2️⃣ Played tennis with Laura, followed by a car wash at her request.
 
 3️⃣ Dad maxxing, really. I'm so lucky.
+
+## Gratitude note #104
+
+*2026-11-26*
+
+1️⃣ Our holiday trip has started. Lots of fun ahead, I think 😂
+
+2️⃣ We did some baking today. All three girls baked something, and they looked adorable in their mini chef outfits.
+
+3️⃣ Good weather and no major hiccups.
