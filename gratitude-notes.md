@@ -1109,3 +1109,13 @@ What's yours?
 2️⃣ We did some baking today. All three girls baked something, and they looked adorable in their mini chef outfits.
 
 3️⃣ Good weather and no major hiccups.
+
+## Gratitude note #105
+
+*2026-11-27*
+
+1️⃣ Tried some extreme sports, including free fall and a squeeze maze. I love that my girls are so sporty.
+
+2️⃣ Yummy food today. Toast, meats, soup, and desserts.
+
+3️⃣ Loved the farm and being outdoors. The wife planned it well and timed it just right before the rain.
