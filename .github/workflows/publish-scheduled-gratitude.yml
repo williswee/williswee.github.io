@@ -1,0 +1,72 @@
+name: Publish scheduled gratitude note
+
+on:
+  schedule:
+    # 07:15 SGT (UTC+8) on 30 November = 23:15 UTC on 29 November
+    - cron: '15 23 29 11 *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Validate queued notes and Pages build trigger without publishing'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: publish-scheduled-gratitude
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Dry-run validation
+        if: github.event_name == 'workflow_dispatch' && inputs.dry_run
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/publish-scheduled-gratitude.mjs --dry-run
+          node scripts/render-gratitude.mjs --check
+          gh api -X POST "repos/${{ github.repository }}/pages/builds"
+
+      - name: Publish due gratitude note
+        if: github.event_name != 'workflow_dispatch' || !inputs.dry_run
+        id: publish
+        run: |
+          node scripts/publish-scheduled-gratitude.mjs
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            NOTE_NUM=$(grep -oE '^## Gratitude note #[0-9]+' gratitude-notes.md | tail -n 1 | grep -oE '[0-9]+')
+            echo "note_number=$NOTE_NUM" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push published note
+        if: steps.publish.outputs.changed == 'true'
+        run: |
+          git config user.name "Willis Wee"
+          git config user.email "williswee@gmail.com"
+          git add gratitude-notes.md gratitude.html sitemap.xml scripts/scheduled-gratitude/
+          git commit -m "Publish gratitude note ${{ steps.publish.outputs.note_number }}"
+          git push origin HEAD:main
+
+      - name: Trigger GitHub Pages build
+        if: steps.publish.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api -X POST "repos/${{ github.repository }}/pages/builds"
